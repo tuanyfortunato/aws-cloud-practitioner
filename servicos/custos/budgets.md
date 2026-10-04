@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **limite do cartão com aviso no celular**: avisa (ou age) quando o gasto real ou previsto passa do combinado.
+
+- ✅ **Escolha quando:** precisa **definir orçamentos** e **receber alertas**.
+- 🚫 **Não é a resposta quando:** quer **analisar o histórico** de gastos → [Cost Explorer](cost-explorer.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "alertar quando o gasto passar de", "orçamento", "gasto previsto".
+<!-- didatico:fim -->
+
 ## Tipos de orçamento
 
 | Tipo | Monitora |

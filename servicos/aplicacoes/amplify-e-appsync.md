@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 Amplify ✅ · AppSync ⚪ não listado · Device Farm ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **kit para montar e publicar apps web e mobile** rapidamente (Amplify), com uma API GraphQL pronta (AppSync).
+
+- ✅ **Escolha quando:** precisa **criar e hospedar apps full-stack** (Amplify, no escopo da prova).
+- 🚫 **Não é a resposta quando:** precisa de **API REST** → [API Gateway](../redes/api-gateway.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "app web ou mobile full-stack", "hospedar front-end" → Amplify; "GraphQL" → AppSync; "testar em celulares reais" → Device Farm (fora da prova).
+<!-- didatico:fim -->
+
 ## AWS Amplify
 
 | Recurso | Detalhe |

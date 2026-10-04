@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **maestro de contêineres da própria AWS**: decide onde cada contêiner roda, mantém a quantidade certa e substitui os que caem.
+
+- ✅ **Escolha quando:** quer rodar contêineres com o **orquestrador nativo e mais simples** da AWS.
+- 🚫 **Não é a resposta quando:** a empresa **já usa Kubernetes** → [EKS](eks.md); quer contêineres **sem gerenciar servidores** → ECS **com** [Fargate](fargate.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "orquestrar contêineres", "nativo da AWS", "Docker", "task definition".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Rodar microsserviços, APIs, workers e jobs em contêineres Docker.

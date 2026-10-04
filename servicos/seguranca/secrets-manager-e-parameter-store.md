@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (Parameter Store como parte do Systems Manager) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** o Secrets Manager é um **cofre de senhas que troca as senhas sozinho**; o Parameter Store é uma **gaveta organizada de configurações**.
+
+- ✅ **Escolha quando:** precisa **tirar senhas, chaves e configurações do código**, guardando-as criptografadas.
+- 🚫 **Não é a resposta quando:** precisa de **chaves de criptografia** → [KMS](kms.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "rotação automática de senhas" → Secrets Manager; "guardar configurações sem custo" → Parameter Store.
+<!-- didatico:fim -->
+
 ## Comparação
 
 | | **Secrets Manager** | **Parameter Store** |

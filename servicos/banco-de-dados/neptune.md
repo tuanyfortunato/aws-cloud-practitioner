@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **mapa de conexões**: em vez de tabelas, guarda quem está ligado a quem.
+
+- ✅ **Escolha quando:** os **relacionamentos** importam mais que os dados: redes sociais, recomendações, detecção de fraude.
+- 🚫 **Não é a resposta quando:** são dados **relacionais comuns** → [RDS](rds.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "banco de grafos", "amigos de amigos", "recomendação", "fraude por conexões".
+<!-- didatico:fim -->
+
 ## Destaques
 
 - Modelos **Property Graph** (Gremlin, openCypher) e **RDF** (SPARQL).

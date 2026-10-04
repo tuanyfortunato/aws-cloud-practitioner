@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** o Service Catalog é um **cardápio aprovado pela TI**; o RAM é o **empréstimo de recursos entre contas**.
+
+- ✅ **Escolha quando:** quer que os times criem **só recursos aprovados** (Service Catalog) ou precisa **compartilhar recursos entre contas** (RAM).
+- 🚫 **Não é a resposta quando:** quer **limitar o que uma conta pode fazer** → SCP, na ficha do [Organizations](organizations.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "produtos aprovados", "autoatendimento" → Service Catalog; "compartilhar subnet ou Transit Gateway" → RAM.
+<!-- didatico:fim -->
+
 ## AWS Service Catalog
 
 | Item | Detalhe |

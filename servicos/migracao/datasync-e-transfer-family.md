@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 DataSync ⚪ não listado · Transfer Family ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** o DataSync é um **caminhão de dados pela rede**; o Transfer Family é uma **agência de correio SFTP** para parceiros.
+
+- ✅ **Escolha quando:** precisa **copiar arquivos online** para S3, EFS ou FSx, ou **receber arquivos por SFTP**.
+- 🚫 **Não é a resposta quando:** precisa de **acesso híbrido contínuo** → [Storage Gateway](../armazenamento/storage-gateway.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "transferir arquivos online" → DataSync; "SFTP" → Transfer Family (fora da prova).
+<!-- didatico:fim -->
+
 ## AWS DataSync
 
 | Item | Detalhe |

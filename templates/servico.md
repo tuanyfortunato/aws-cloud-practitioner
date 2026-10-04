@@ -6,6 +6,14 @@
 >
 > <!-- A linha "Escopo oficial" é inserida automaticamente pelo gerador: registre a ficha em FICHAS e ESCOPO no scripts/gerar_docs.py. -->
 
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** compare o serviço com algo do dia a dia.
+
+- ✅ **Escolha quando:** a situação típica em que ele é a resposta.
+- 🚫 **Não é a resposta quando:** o caso parecido que pede outro serviço → [link para a ficha](../categoria/servico.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "termo 1", "termo 2".
+
 ## Para que serve
 
 - Casos de uso típicos

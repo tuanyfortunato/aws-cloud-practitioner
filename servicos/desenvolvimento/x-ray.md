@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **rastreador de encomendas para requisições**: mostra por onde cada uma passou e onde atrasou.
+
+- ✅ **Escolha quando:** precisa encontrar **gargalos e erros entre microsserviços**.
+- 🚫 **Não é a resposta quando:** quer **métricas e logs gerais** → [CloudWatch](../gerenciamento/cloudwatch.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "rastreamento distribuído", "microsserviços", "onde a requisição fica lenta".
+<!-- didatico:fim -->
+
 ## Conceitos
 
 | Item | Detalhe |

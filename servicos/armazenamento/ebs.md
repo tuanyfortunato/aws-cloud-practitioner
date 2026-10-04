@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **HD/SSD do seu computador virtual**: fica preso a uma máquina (e a uma AZ) e guarda os dados mesmo quando ela é desligada.
+
+- ✅ **Escolha quando:** precisa de **disco persistente para uma instância EC2** (sistema operacional, banco instalado no EC2).
+- 🚫 **Não é a resposta quando:** vários servidores precisam dos **mesmos arquivos** → [EFS](efs.md); quer guardar **arquivos acessados pela internet** → [S3](s3.md); dados **temporários** e muito rápidos → *instance store*, nesta ficha.
+- 🎯 **Palavras do enunciado que apontam para ele:** "armazenamento em bloco", "disco da instância", "snapshot", "IOPS", "volume".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Volume raiz (boot) das instâncias; discos de bancos de dados instalados no EC2; aplicações que precisam de sistema de arquivos em bloco.

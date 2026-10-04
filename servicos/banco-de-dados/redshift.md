@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **armazém de dados** para fazer perguntas sobre o histórico inteiro da empresa — feito para analisar, não para registrar as vendas uma a uma.
+
+- ✅ **Escolha quando:** precisa de **relatórios de BI e análises SQL** sobre terabytes ou petabytes (OLAP).
+- 🚫 **Não é a resposta quando:** precisa registrar as **transações do dia a dia** → [RDS](rds.md); quer consultar **arquivos no S3 sem carregar nada** → [Athena](../analytics/athena.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "data warehouse", "OLAP", "BI", "petabytes", "armazenamento colunar".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Relatórios de BI, dashboards (QuickSight), análises históricas, consolidação de dados de várias fontes.

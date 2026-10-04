@@ -10,6 +10,16 @@
 > [Billing Conductor](../custos/pricing-calculator-cur-e-outras-ferramentas.md) e
 > [AWS IQ, Activate e AMS](../custos/recursos-de-ajuda-e-parceiros.md), que também estão fora do escopo.
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **ferramentas auxiliares** de operação e de cobrança.
+
+- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
+- 🚫 **Não é a resposta quando:** na prova, **backups** → [AWS Backup](../armazenamento/aws-backup.md); **alertas de custo** → [Budgets](../custos/budgets.md); **vender software** → Marketplace, em [recursos de ajuda](../custos/recursos-de-ajuda-e-parceiros.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler e DevPay aparecem, no máximo, como alternativas erradas.
+<!-- didatico:fim -->
+
 ## Amazon Data Lifecycle Manager (DLM)
 
 - **Automatiza** a criação, retenção, cópia entre regiões e exclusão de **snapshots do EBS** e de **AMIs**, com políticas baseadas em tags.

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **lista telefônica (e o GPS) da internet**: traduz nomes como exemplo.com em endereços e decide para qual servidor mandar cada usuário.
+
+- ✅ **Escolha quando:** precisa **registrar domínios**, gerenciar **DNS** e direcionar usuários por latência, localização, peso ou failover.
+- 🚫 **Não é a resposta quando:** quer **entregar e fazer cache** do conteúdo → [CloudFront](cloudfront.md); quer **IPs fixos globais** → [Global Accelerator](global-accelerator.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "DNS", "registrar domínio", "SLA de 100%", "rotear por latência, geolocalização ou peso", "failover com health check".
+<!-- didatico:fim -->
+
 ## Funções
 
 1. **Registro de domínios** (`.com`, `.com.br` etc.).

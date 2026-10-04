@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 Keyspaces e MemoryDB ❌ fora do escopo · Timestream ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **prateleira certa para cada tipo de dado**: Cassandra, séries temporais, ledger e outros modelos especializados.
+
+- ✅ **Escolha quando:** o enunciado cita um **modelo de dados específico**. (Keyspaces e MemoryDB estão fora da prova.)
+- 🚫 **Não é a resposta quando:** na dúvida entre bancos, use a tabela "qual banco para qual dado" desta ficha.
+- 🎯 **Palavras do enunciado que apontam para ele:** "Cassandra" → Keyspaces; "séries temporais" ou "leituras de sensores ao longo do tempo" → Timestream.
+<!-- didatico:fim -->
+
 ## Tabela de decisão
 
 | Serviço | Modelo | Uso | Observação |

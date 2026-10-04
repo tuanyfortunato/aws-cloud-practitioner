@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **álbum de fotos da configuração** de cada recurso ao longo do tempo, com um fiscal que avisa quando algo sai da regra.
+
+- ✅ **Escolha quando:** precisa acompanhar o **histórico de configuração** e verificar **conformidade** continuamente.
+- 🚫 **Não é a resposta quando:** quer saber **quem fez** a mudança → [CloudTrail](cloudtrail.md); quer **métricas** → [CloudWatch](cloudwatch.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "histórico de configuração", "conformidade dos recursos", "regras", "como estava na semana passada".
+<!-- didatico:fim -->
+
 ## Componentes
 
 | Componente | Detalhe |

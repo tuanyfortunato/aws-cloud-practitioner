@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** o DMS é a **transportadora que leva os dados com a loja aberta**; o SCT é o **tradutor** que adapta a estrutura de um banco para outro.
+
+- ✅ **Escolha quando:** precisa **migrar bancos de dados** com pouca indisponibilidade.
+- 🚫 **Não é a resposta quando:** precisa migrar **servidores inteiros** → [Application Migration Service](application-migration-service.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "migrar banco sem parar a aplicação" → DMS; "Oracle para PostgreSQL" → SCT + DMS.
+<!-- didatico:fim -->
+
 ## AWS DMS
 
 | Item | Detalhe |

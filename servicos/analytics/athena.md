@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é **fazer perguntas em SQL direto para arquivos no S3**, sem montar banco de dados nenhum.
+
+- ✅ **Escolha quando:** precisa de **consultas pontuais em logs e arquivos no S3**, pagando só pelo que é lido.
+- 🚫 **Não é a resposta quando:** precisa de um **data warehouse sempre disponível** → [Redshift](../banco-de-dados/redshift.md); precisa de **Spark/Hadoop** → [EMR](emr.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "SQL no S3", "serverless", "pago por dados escaneados", "consultar logs".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Analisar logs (CloudTrail, ALB, VPC Flow Logs, CloudFront) e dados do data lake sem carregar em banco.

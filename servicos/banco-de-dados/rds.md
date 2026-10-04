@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **banco relacional com zelador**: a AWS cuida de instalação, patches, backups e failover; você cuida das tabelas e das consultas.
+
+- ✅ **Escolha quando:** aplicações **transacionais (OLTP)** com SQL: lojas virtuais, ERPs, sistemas web.
+- 🚫 **Não é a resposta quando:** precisa de **NoSQL em escala massiva** → [DynamoDB](dynamodb.md); de **análise de grandes volumes** (BI) → [Redshift](redshift.md); de **acesso ao sistema operacional** → banco instalado no [EC2](../computacao/ec2.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "banco relacional gerenciado", "MySQL, PostgreSQL, Oracle, SQL Server"; "Multi-AZ" → disponibilidade; "read replica" → escalar leitura.
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Aplicações transacionais (**OLTP**): e-commerce, ERP, CRM, sistemas web.

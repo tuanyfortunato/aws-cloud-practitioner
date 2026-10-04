@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como **pegar um táxi em vez de ter carro**: você diz quanto precisa (CPU e memória) e não compra, abastece nem faz manutenção do servidor.
+
+- ✅ **Escolha quando:** quer rodar **contêineres sem gerenciar instâncias**, inclusive tarefas longas (horas).
+- 🚫 **Não é a resposta quando:** é uma **função curta** disparada por evento → [Lambda](lambda.md); precisa de **GPU ou acesso ao host** → ECS/EKS com [EC2](ec2.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "contêineres sem gerenciar servidores", "serverless para contêineres", "tarefa de 2 horas sem servidor".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Rodar contêineres sem cuidar de instâncias, patch de SO ou escalonamento do cluster.

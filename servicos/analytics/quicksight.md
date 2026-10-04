@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (como Amazon Quick Sight) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **painel de gráficos da diretoria**: transforma dados em dashboards interativos.
+
+- ✅ **Escolha quando:** precisa criar **dashboards e relatórios de BI**.
+- 🚫 **Não é a resposta quando:** precisa **guardar e consultar** os dados → [Redshift](../banco-de-dados/redshift.md) ou [Athena](athena.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "dashboards", "BI", "visualização", "relatórios interativos".
+<!-- didatico:fim -->
+
 ## Destaques
 
 | Item | Detalhe |

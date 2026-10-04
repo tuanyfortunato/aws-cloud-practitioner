@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **tela de "Entrar / Criar conta" pronta** para o seu aplicativo, inclusive com "Entrar com Google".
+
+- ✅ **Escolha quando:** **usuários finais** (clientes) de apps web ou mobile precisam se cadastrar e fazer login.
+- 🚫 **Não é a resposta quando:** são **funcionários** acessando a AWS → [IAM Identity Center](iam-identity-center.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "usuários do aplicativo", "login social", "cadastro e login", "app mobile".
+<!-- didatico:fim -->
+
 ## Componentes
 
 | Componente | O que faz |

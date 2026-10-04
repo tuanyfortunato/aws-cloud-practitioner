@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **central de backup**: em vez de configurar cópia em cada serviço, você cria uma política e ela vale para todos.
+
+- ✅ **Escolha quando:** precisa **centralizar e padronizar backups** de vários serviços (EC2, RDS, DynamoDB, EFS…), inclusive entre contas e regiões.
+- 🚫 **Não é a resposta quando:** precisa **voltar a operar em minutos** depois de um desastre → [Elastic Disaster Recovery](elastic-disaster-recovery.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "centralizar backups", "política de backup", "retenção", "backup que ninguém pode apagar" (Vault Lock).
+<!-- didatico:fim -->
+
 ## Recursos suportados (exemplos)
 
 EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3, DocumentDB, Neptune, Redshift, Storage Gateway (volumes), VMware on-premises, entre outros.

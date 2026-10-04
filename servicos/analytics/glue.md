@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **cozinha de preparo dos dados**: descobre o que tem em cada arquivo (catálogo) e limpa e transforma tudo para análise (ETL).
+
+- ✅ **Escolha quando:** precisa **catalogar e transformar dados** sem gerenciar servidores.
+- 🚫 **Não é a resposta quando:** quer **clusters Spark/Hadoop** sob seu controle → [EMR](emr.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "ETL serverless", "catálogo de dados", "crawler", "descobrir o schema".
+<!-- didatico:fim -->
+
 ## Componentes
 
 | Componente | Detalhe |

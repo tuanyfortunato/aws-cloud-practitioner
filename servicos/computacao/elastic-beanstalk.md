@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como um **buffet**: você leva a receita (o código) e eles montam cozinha, garçons e mesas (servidores, balanceador e escalonamento).
+
+- ✅ **Escolha quando:** um desenvolvedor quer **publicar uma aplicação web sem pensar na infraestrutura**, mas mantendo acesso a ela.
+- 🚫 **Não é a resposta quando:** quer descrever **qualquer infraestrutura** como código → [CloudFormation](../gerenciamento/cloudformation.md); quer só um servidor simples de **preço fixo** → [Lightsail](lightsail.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "só enviar o código", "PaaS", "sem se preocupar com capacidade e balanceamento".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Desenvolvedores que querem publicar aplicações web **sem pensar em infraestrutura**.

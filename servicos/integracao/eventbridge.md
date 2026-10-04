@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **central de eventos com regras**: "quando acontecer X, avise Y" — vale para serviços AWS, seus apps e apps SaaS.
+
+- ✅ **Escolha quando:** precisa **reagir a eventos** com regras ou **agendar tarefas** (cron) sem servidor.
+- 🚫 **Não é a resposta quando:** precisa **orquestrar várias etapas** com estado → [Step Functions](step-functions.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "reagir a eventos", "regras", "eventos de SaaS", "agendar tarefa".
+<!-- didatico:fim -->
+
 ## Componentes
 
 | Componente | Detalhe |

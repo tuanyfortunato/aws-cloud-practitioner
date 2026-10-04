@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **planta da casa**: você descreve a infraestrutura num arquivo e a AWS constrói igualzinho quantas vezes quiser.
+
+- ✅ **Escolha quando:** precisa criar **ambientes repetíveis e versionados** (infraestrutura como código).
+- 🚫 **Não é a resposta quando:** quer só **publicar uma aplicação web** sem pensar em infraestrutura → [Elastic Beanstalk](../computacao/elastic-beanstalk.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "infraestrutura como código", "template JSON/YAML", "repetível", "várias contas e regiões" (StackSets).
+<!-- didatico:fim -->
+
 ## Template
 
 ```yaml

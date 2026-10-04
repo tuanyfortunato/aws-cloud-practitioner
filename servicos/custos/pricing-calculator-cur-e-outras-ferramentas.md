@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (Billing Conductor ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **orçamento antes da obra** (Pricing Calculator) e a **nota fiscal detalhada depois** (Cost and Usage Report).
+
+- ✅ **Escolha quando:** precisa **estimar custos antes** de criar recursos, ou obter os **dados mais detalhados** de cobrança.
+- 🚫 **Não é a resposta quando:** quer **gráficos do gasto** → [Cost Explorer](cost-explorer.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "estimar antes" → Pricing Calculator; "relatório mais detalhado" → Cost and Usage Report; "separar custos por projeto" → cost allocation tags.
+<!-- didatico:fim -->
+
 ## Tabela de ferramentas
 
 | Ferramenta | Para que serve | Detalhes |

@@ -9,6 +9,16 @@
 > ❌ **Fora do escopo da CLF-C02.** Todos os serviços desta ficha estão declarados fora do escopo na lista oficial.
 > Se aparecerem como alternativa, quase sempre são **distratores**. Documentados aqui apenas para referência.
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são os serviços de **TV e games** da AWS: processar vídeo, transmitir ao vivo e hospedar jogos.
+
+- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
+- 🚫 **Não é a resposta quando:** na prova, **entregar vídeo com baixa latência** → [CloudFront](../redes/cloudfront.md); **jogo com IPs fixos globais** → [Global Accelerator](../redes/global-accelerator.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** Elemental, IVS e GameLift aparecem, no máximo, como alternativas erradas.
+<!-- didatico:fim -->
+
 ## AWS Elemental Media Services
 
 Família de serviços de vídeo profissional (broadcast e streaming).

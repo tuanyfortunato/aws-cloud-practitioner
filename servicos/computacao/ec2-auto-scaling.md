@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (AWS Auto Scaling) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como um **gerente que chama funcionários extras no horário de pico** e dispensa quando o movimento cai — e substitui quem faltar.
+
+- ✅ **Escolha quando:** a carga varia e você quer **aumentar e reduzir instâncias automaticamente**, ou garantir um número mínimo de instâncias saudáveis.
+- 🚫 **Não é a resposta quando:** precisa **distribuir o tráfego** entre as instâncias → [Elastic Load Balancing](elastic-load-balancing.md); quer uma instância **maior** (escala vertical) → trocar o tipo da [EC2](ec2.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "elasticidade", "escalar automaticamente", "pico toda sexta", "manter a CPU em 50%", "substituir instâncias com falha".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - **Elasticidade:** acompanhar picos e vales de tráfego sem intervenção manual.

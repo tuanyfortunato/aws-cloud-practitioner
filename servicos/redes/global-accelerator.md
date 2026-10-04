@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **via expressa da AWS**: o usuário entra pela rampa mais próxima (2 IPs fixos) e segue pela rede da AWS até a região mais saudável.
+
+- ✅ **Escolha quando:** aplicações **TCP/UDP** (jogos, VoIP) precisam de **IPs estáticos globais** e **failover rápido** entre regiões.
+- 🚫 **Não é a resposta quando:** precisa de **cache de conteúdo** → [CloudFront](cloudfront.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "IPs estáticos", "anycast", "TCP/UDP", "failover entre regiões", "sem cache".
+<!-- didatico:fim -->
+
 ## Como funciona
 
 1. O usuário se conecta a um dos **2 IPs estáticos** anycast, que entram na rede AWS pela edge location mais próxima.

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (Private CA ⚪ não listado) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **cartório dos cadeados HTTPS**: emite e renova sozinho os certificados que fazem aparecer o cadeado no navegador.
+
+- ✅ **Escolha quando:** precisa de **certificados SSL/TLS** para ELB, CloudFront ou API Gateway.
+- 🚫 **Não é a resposta quando:** precisa de **chaves para criptografar dados** → [KMS](kms.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "certificado SSL/TLS", "HTTPS", "renovação automática", "gratuito".
+<!-- didatico:fim -->
+
 ## Destaques
 
 | Item | Detalhe |

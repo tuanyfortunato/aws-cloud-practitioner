@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como **alugar um computador** num datacenter da AWS: você escolhe o tamanho, instala o que quiser e paga pelo tempo em que ele fica ligado.
+
+- ✅ **Escolha quando:** precisa de **controle total do sistema operacional**, de software legado ou de licenças específicas, ou vai mover servidores sem mudanças (lift-and-shift).
+- 🚫 **Não é a resposta quando:** não quer gerenciar servidores → [Lambda](lambda.md) ou [Fargate](fargate.md); quer só enviar o código → [Elastic Beanstalk](elastic-beanstalk.md); quer preço fixo e simples → [Lightsail](lightsail.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "servidor virtual", "instância", "controle do sistema operacional", "tipo de instância", "lift-and-shift".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Hospedar aplicações web, back-ends, bancos instalados pelo cliente, servidores de jogos, HPC, treinamento de ML.

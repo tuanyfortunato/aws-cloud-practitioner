@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **buscador interno do seu sistema**, que também lê e organiza montanhas de logs.
+
+- ✅ **Escolha quando:** precisa de **busca de texto** ou de **análise de logs**.
+- 🚫 **Não é a resposta quando:** quer **SQL sobre arquivos** → [Athena](athena.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "busca de texto", "análise de logs", "Elasticsearch".
+<!-- didatico:fim -->
+
 ## Destaques
 
 | Item | Detalhe |

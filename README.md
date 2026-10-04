@@ -96,7 +96,8 @@ questões no formato da prova com gabarito comentado e resumos para a revisão f
 - **📝 Minhas anotações:** espaço para você escrever.
 
 **Cada ficha** (ex.: [Amazon S3](servicos/armazenamento/s3.md)) tem: o que é em uma frase, se está **no escopo da
-prova**, para que serve, componentes, configurações, limites, cobrança, responsabilidade compartilhada,
+prova**, a seção **🧠 Entenda em 30 segundos** (analogia, quando escolher, quando **não** escolher e as palavras
+do enunciado que apontam para o serviço), para que serve, componentes, configurações, limites, cobrança, responsabilidade compartilhada,
 pegadinhas e perguntas típicas.
 
 **Legenda usada em todo o repositório:** 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar ·

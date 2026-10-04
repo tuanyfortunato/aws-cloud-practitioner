@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **painel da central de segurança**: junta os alertas de vários serviços e dá uma nota para a sua conta.
+
+- ✅ **Escolha quando:** precisa **centralizar achados de segurança** e verificar a conta contra padrões (CIS, FSBP, PCI DSS).
+- 🚫 **Não é a resposta quando:** quer **recomendações de custo, desempenho e limites** → [Trusted Advisor](../gerenciamento/trusted-advisor.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "painel central de segurança", "achados de vários serviços", "CIS Benchmark", "padrões de segurança".
+<!-- didatico:fim -->
+
 ## O que faz
 
 | Função | Detalhe |

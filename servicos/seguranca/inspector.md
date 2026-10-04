@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **vistoria automática** que procura brechas conhecidas (CVEs) nos seus servidores, imagens e funções.
+
+- ✅ **Escolha quando:** precisa **varrer EC2, imagens do ECR e Lambda** em busca de **vulnerabilidades**.
+- 🚫 **Não é a resposta quando:** a ameaça está **em andamento** → [GuardDuty](guardduty.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "vulnerabilidades", "CVE", "patches faltando", "avaliação contínua".
+<!-- didatico:fim -->
+
 ## O que varre
 
 | Recurso | Como | O que encontra |

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **detector de dados sensíveis**: vasculha os buckets S3 procurando CPF, cartão de crédito e outros dados pessoais.
+
+- ✅ **Escolha quando:** precisa **descobrir e proteger dados pessoais (PII)** no S3.
+- 🚫 **Não é a resposta quando:** procura **vulnerabilidades** → [Inspector](inspector.md); procura **ameaças** → [GuardDuty](guardduty.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "PII", "dados sensíveis", "dados pessoais no S3", "LGPD/GDPR".
+<!-- didatico:fim -->
+
 ## O que faz
 
 | Função | Detalhe |

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ⚪ Não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **loja de "cérebros" prontos**: você escolhe um modelo de IA generativa e usa pela API, sem treinar do zero.
+
+- ✅ **Escolha quando:** precisa criar **aplicações de IA generativa** (chatbots, resumos, respostas sobre documentos) com modelos de fundação.
+- 🚫 **Não é a resposta quando:** precisa **treinar um modelo próprio** → [SageMaker AI](sagemaker-ai.md); quer um **assistente pronto** → [Amazon Q](amazon-q.md). (O Bedrock não aparece na lista atual da prova.)
+- 🎯 **Palavras do enunciado que apontam para ele:** "IA generativa", "modelos de fundação", "via API", "RAG".
+<!-- didatico:fim -->
+
 ## Destaques
 
 | Item | Detalhe |

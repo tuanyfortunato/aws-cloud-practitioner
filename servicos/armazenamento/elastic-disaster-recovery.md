@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **servidor reserva sempre sincronizado** na AWS: se o principal cair, você liga a cópia em minutos.
+
+- ✅ **Escolha quando:** precisa de **recuperação de desastres rápida** para servidores (RPO de segundos, RTO de minutos).
+- 🚫 **Não é a resposta quando:** quer **backups periódicos** com retenção → [AWS Backup](aws-backup.md); quer **migrar de vez** → [Application Migration Service](../migracao/application-migration-service.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "recuperar em minutos", "replicação contínua", "recuperação de desastres", "RPO baixo".
+<!-- didatico:fim -->
+
 ## Como funciona
 
 1. Instala-se o **agente de replicação** nos servidores de origem.

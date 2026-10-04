@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **seu terreno particular dentro da AWS**: você desenha os lotes (subnets), as ruas (rotas), os portões (gateways) e os seguranças (security groups e NACLs).
+
+- ✅ **Escolha quando:** qualquer recurso precisa de uma **rede isolada e controlada** — é a base de quase tudo na AWS.
+- 🚫 **Não é a resposta quando:** precisa ligar a VPC ao **datacenter** → [VPN](site-to-site-vpn-e-client-vpn.md) ou [Direct Connect](direct-connect.md); precisa ligar **várias VPCs** → [Peering ou Transit Gateway](vpc-peering-transit-gateway-e-endpoints.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "subnet pública ou privada", "Internet Gateway", "NAT Gateway", "security group × NACL", "Flow Logs".
+<!-- didatico:fim -->
+
 ## Componentes
 
 | Componente | O que é | Detalhe de prova |

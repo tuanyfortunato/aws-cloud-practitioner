@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (STS ⚪ não listado) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **crachá e as regras de acesso do prédio**: diz quem pode entrar (autenticação) e em quais salas (autorização).
+
+- ✅ **Escolha quando:** precisa controlar **quem pode fazer o quê** na conta: usuários, grupos, roles e políticas.
+- 🚫 **Não é a resposta quando:** funcionários precisam de **login único em várias contas** → [IAM Identity Center](iam-identity-center.md); **clientes de um app** precisam de login → [Cognito](cognito.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "menor privilégio", "role", "política", "MFA", "credenciais temporárias", "global e gratuito".
+<!-- didatico:fim -->
+
 ## Identidades
 
 | Identidade | Credenciais | Uso |

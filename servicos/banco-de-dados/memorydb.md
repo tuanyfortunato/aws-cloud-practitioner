@@ -8,6 +8,16 @@
 
 > ❌ **Fora do escopo da CLF-C02** — documentado só para referência. Na prova, "cache em memória" → **ElastiCache** (no escopo).
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** parece um cache em memória, mas **não esquece**: grava tudo de forma durável em várias AZs.
+
+- ✅ **Escolha quando:** precisa de um **banco principal em memória**, compatível com Redis/Valkey, sem perder dados. Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
+- 🚫 **Não é a resposta quando:** na prova, "cache em memória" é o [ElastiCache](elasticache.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "banco em memória durável", "compatível com Redis".
+<!-- didatico:fim -->
+
 ## Diferencial
 
 - Grava as alterações num **log transacional distribuído em várias AZs** → não perde dados se um nó falhar (ao contrário de um cache).

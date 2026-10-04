@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **assistente de IA pronto para usar**: ajuda desenvolvedores a programar e funcionários a encontrar respostas.
+
+- ✅ **Escolha quando:** o enunciado pede um **assistente de IA generativa pronto**, para código ou para a empresa.
+- 🚫 **Não é a resposta quando:** quer **construir a sua própria aplicação** de IA → [Bedrock](bedrock.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "assistente de IA", "gerar código na IDE", "perguntas sobre os dados da empresa".
+<!-- didatico:fim -->
+
 ## Variantes
 
 | Variante | Para quem | O que faz |

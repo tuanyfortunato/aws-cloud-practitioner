@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **consultor automático** que inspeciona a conta e aponta onde economizar, o que está inseguro e o que está perto do limite.
+
+- ✅ **Escolha quando:** quer **recomendações de boas práticas**: custo, segurança, desempenho, tolerância a falhas, limites e excelência operacional.
+- 🚫 **Não é a resposta quando:** quer **alertas de segurança centralizados** → [Security Hub](../seguranca/security-hub.md); quer o **tamanho ideal** das instâncias com ML → [Compute Optimizer](compute-optimizer-service-quotas-e-license-manager.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "recomendações de boas práticas", "buckets públicos", "MFA no root", "limites de serviço".
+<!-- didatico:fim -->
+
 ## Categorias
 
 1. **Cost optimization** — instâncias ociosas, volumes EBS sem uso, Elastic IPs não associados, RIs/SPs subutilizados.

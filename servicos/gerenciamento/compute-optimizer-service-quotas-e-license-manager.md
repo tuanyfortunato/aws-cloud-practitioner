@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (Launch Wizard ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **balança para os recursos** (mostra o que está grande ou pequeno demais), junto com a **lista de limites** da conta e o **controle de licenças**.
+
+- ✅ **Escolha quando:** precisa ajustar o **tamanho dos recursos** (Compute Optimizer), **pedir aumento de limite** (Service Quotas) ou **controlar licenças** (License Manager).
+- 🚫 **Não é a resposta quando:** quer **recomendações amplas** de boas práticas → [Trusted Advisor](trusted-advisor.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "tamanho ideal das instâncias" → Compute Optimizer; "aumentar o limite" → Service Quotas; "licenças por núcleo" → License Manager.
+<!-- didatico:fim -->
+
 ## AWS Compute Optimizer
 
 - Usa **machine learning** sobre métricas do CloudWatch (14 dias por padrão; até 93 com métricas avançadas) para recomendar o **tamanho ideal** de: **EC2**, **Auto Scaling groups**, **volumes EBS**, **funções Lambda** (memória), **tasks ECS no Fargate**, RDS e licenças comerciais.

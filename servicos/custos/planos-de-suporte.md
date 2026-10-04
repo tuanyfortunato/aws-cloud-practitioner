@@ -8,6 +8,16 @@
 
 > Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **planos de assistência técnica**: quanto maior o plano, mais rápido o atendimento e mais acompanhamento.
+
+- ✅ **Escolha quando:** precisa escolher o **nível de suporte técnico**.
+- 🚫 **Não é a resposta quando:** a dúvida pode ir para a **comunidade** → re:Post, na ficha de [recursos de ajuda](recursos-de-ajuda-e-parceiros.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "plano pago de entrada, 30 min" → Business Support+; "TAM designado, 15 min" → Enterprise; "5 min" → Unified Operations.
+<!-- didatico:fim -->
+
 ## 📌 Planos atuais (o que o exam guide cobra — task 4.3)
 
 > ✔️ Comparação completa verificada em 04/10/2026 nas páginas [plans](https://aws.amazon.com/premiumsupport/plans/) e [pricing](https://aws.amazon.com/premiumsupport/pricing/).

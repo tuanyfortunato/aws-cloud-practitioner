@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 CodeBuild e CodePipeline ✅ · CodeDeploy e CodeArtifact ❌ fora do escopo · CodeCommit e CodeStar ⚪ não listados · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **linha de montagem do software**: guardar o código, compilar e testar, e entregar em produção.
+
+- ✅ **Escolha quando:** precisa **automatizar a esteira de CI/CD**.
+- 🚫 **Não é a resposta quando:** precisa achar **lentidão entre serviços** → [X-Ray](x-ray.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "esteira de CI/CD" → CodePipeline; "compilar e testar" → CodeBuild; "automatizar deploy" → CodeDeploy (fora da prova).
+<!-- didatico:fim -->
+
 ## Visão da esteira
 
 ```

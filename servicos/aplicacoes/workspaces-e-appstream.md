@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **seu computador de trabalho na nuvem**: abre de qualquer lugar e os dados ficam na AWS, não no aparelho.
+
+- ✅ **Escolha quando:** precisa dar **desktops virtuais** (WorkSpaces), **apps de desktop pelo navegador** (AppStream 2.0) ou um **navegador seguro** (WorkSpaces Secure Browser).
+- 🚫 **Não é a resposta quando:** precisa de um **servidor** para rodar uma aplicação → [EC2](../computacao/ec2.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "desktop virtual" → WorkSpaces; "app de desktop no navegador" → AppStream 2.0; "navegador seguro sem VPN" → Secure Browser.
+<!-- didatico:fim -->
+
 ## Comparação
 
 | | **WorkSpaces (Personal / Pools)** | **AppStream 2.0** | **WorkSpaces Secure Browser** (✔️ renomeado de WorkSpaces Web em maio/2024) |

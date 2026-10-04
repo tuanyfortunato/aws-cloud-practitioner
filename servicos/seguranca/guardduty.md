@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **alarme inteligente** que vigia os registros da conta e avisa quando algo suspeito acontece.
+
+- ✅ **Escolha quando:** precisa **detectar ameaças ativas**: mineração de criptomoeda, acesso de IP malicioso, credenciais roubadas.
+- 🚫 **Não é a resposta quando:** procura **vulnerabilidades de software** → [Inspector](inspector.md); procura **dados sensíveis** no S3 → [Macie](macie.md); quer **investigar a causa** → [Detective](detective.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "atividade maliciosa", "detecção de ameaças", "analisa CloudTrail, VPC Flow Logs e DNS".
+<!-- didatico:fim -->
+
 ## Fontes de dados
 
 | Fundamentais (ativadas ao ligar) | Planos de proteção opcionais |

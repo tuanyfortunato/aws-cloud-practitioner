@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (Transit Gateway e PrivateLink listados) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **pontes entre terrenos**: o peering é uma ponte entre dois vizinhos; o Transit Gateway, uma **rodoviária central** que liga todo mundo; os endpoints, **passagens privadas** até os serviços da AWS sem sair para a rua (internet).
+
+- ✅ **Escolha quando:** precisa **conectar VPCs entre si** ou acessar serviços AWS **sem passar pela internet**.
+- 🚫 **Não é a resposta quando:** precisa conectar o **datacenter** → [Direct Connect](direct-connect.md) ou [VPN](site-to-site-vpn-e-client-vpn.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "conectar duas VPCs" → Peering; "dezenas de VPCs e on-premises" → Transit Gateway; "acessar o S3 sem internet" → gateway endpoint; "expor um serviço de forma privada" → PrivateLink.
+<!-- didatico:fim -->
+
 ## VPC Peering
 
 - Conexão privada **um-para-um** entre duas VPCs (mesma conta, outra conta, outra região).

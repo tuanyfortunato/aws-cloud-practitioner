@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **túnel secreto pela estrada pública** (a internet): rápido de construir e criptografado, mas o trânsito pode variar.
+
+- ✅ **Escolha quando:** precisa conectar o **escritório** ou os **funcionários remotos** à VPC com criptografia, **rapidamente**.
+- 🚫 **Não é a resposta quando:** precisa de banda **dedicada e estável, sem internet** → [Direct Connect](direct-connect.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "criptografado pela internet", "pronto hoje", "IPsec" → Site-to-Site VPN; "funcionários em casa" → Client VPN.
+<!-- didatico:fim -->
+
 ## AWS Site-to-Site VPN
 
 | Item | Detalhe |

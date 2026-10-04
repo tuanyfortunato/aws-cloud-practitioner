@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **alto-falante**: você publica uma vez e todos os inscritos recebem (e-mail, SMS, filas, funções).
+
+- ✅ **Escolha quando:** precisa **notificar vários sistemas ou pessoas ao mesmo tempo** (pub/sub, fan-out).
+- 🚫 **Não é a resposta quando:** a mensagem deve ser **processada no ritmo do consumidor** → [SQS](sqs.md); são **e-mails de marketing** → [SES](../aplicacoes/ses.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "notificar", "pub/sub", "fan-out", "SMS", "vários assinantes".
+<!-- didatico:fim -->
+
 ## Conceitos
 
 | Item | Detalhe |

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **laboratório completo para criar o seu próprio modelo** de machine learning: preparar dados, treinar, testar e colocar no ar.
+
+- ✅ **Escolha quando:** precisa **construir, treinar e implantar modelos próprios** de ML.
+- 🚫 **Não é a resposta quando:** quer usar **modelos prontos de IA generativa** → [Bedrock](bedrock.md); quer **APIs prontas** (imagem, texto, voz) → [serviços de IA prontos](servicos-de-ia-prontos.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "treinar modelo próprio", "cientistas de dados", "implantar modelo de ML".
+<!-- didatico:fim -->
+
 ## Ciclo de ML e recursos
 
 | Etapa | Recurso |

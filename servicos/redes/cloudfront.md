@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **rede de mini-depósitos espalhados pelo mundo**: guarda cópias do seu conteúdo perto dos usuários para entregar mais rápido.
+
+- ✅ **Escolha quando:** precisa entregar **sites, vídeos e APIs com baixa latência** para usuários do mundo todo.
+- 🚫 **Não é a resposta quando:** o tráfego é **TCP/UDP sem cache**, com IPs fixos → [Global Accelerator](global-accelerator.md); precisa só **resolver nomes** → [Route 53](route-53.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "CDN", "cache", "edge locations", "baixa latência para usuários globais", "conteúdo estático".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Sites e APIs globais, vídeo (streaming), downloads, sites estáticos no S3, aceleração de conteúdo dinâmico.

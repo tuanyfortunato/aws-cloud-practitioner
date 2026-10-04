@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **quebra-mar contra ondas de tráfego falso (DDoS)**: o Standard protege todos de graça; o Advanced traz equipe especializada e reembolso de custos.
+
+- ✅ **Escolha quando:** precisa de proteção contra **ataques DDoS**.
+- 🚫 **Não é a resposta quando:** o ataque é **na aplicação**, como SQL injection → [WAF](waf.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "DDoS" → Shield; "especialistas 24/7" e "proteção de custo" → Shield Advanced.
+<!-- didatico:fim -->
+
 ## Standard × Advanced
 
 | | **Shield Standard** | **Shield Advanced** |

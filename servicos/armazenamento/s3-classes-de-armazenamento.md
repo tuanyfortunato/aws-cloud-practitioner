@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (S3 e S3 Glacier) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como **organizar a casa**: o que você usa todo dia fica na mesa (Standard); o que usa pouco vai para o armário (IA); o que quase nunca usa vai para o depósito (Glacier) — mais barato de guardar, mais demorado e caro de buscar.
+
+- ✅ **Escolha quando:** precisa escolher **onde guardar cada dado pelo padrão de acesso**, para pagar menos.
+- 🚫 **Não é a resposta quando:** quer **mover os dados entre classes automaticamente pelo tempo** → use as *lifecycle policies* da ficha do [S3](s3.md) (ou o Intelligent-Tiering, desta ficha).
+- 🎯 **Palavras do enunciado que apontam para ele:** "acesso imprevisível" → Intelligent-Tiering; "pode ser recriado" → One Zone-IA; "raro, mas precisa abrir na hora" → Glacier Instant; "guardar por 7 anos, menor custo" → Deep Archive.
+<!-- didatico:fim -->
+
 ## Tabela completa
 
 | Classe | Uso | Disponibilidade (design) | AZs | Duração mínima | Tamanho mínimo cobrado | Recuperação | Taxa de recuperação |

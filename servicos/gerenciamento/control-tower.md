@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **kit "casa pronta" para várias contas**: monta a estrutura já com as regras de segurança instaladas.
+
+- ✅ **Escolha quando:** precisa criar rapidamente um **ambiente multi-conta seguro e padronizado** (landing zone).
+- 🚫 **Não é a resposta quando:** quer só **agrupar contas e aplicar SCPs** → [Organizations](organizations.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "landing zone", "guardrails", "ambiente multi-conta com boas práticas".
+<!-- didatico:fim -->
+
 ## O que configura
 
 | Item | Detalhe |

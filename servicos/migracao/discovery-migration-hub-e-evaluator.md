@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo (Migration Hub e Application Discovery Service fechados a novos clientes) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **preparação da mudança**: medir os móveis (Discovery), fazer o orçamento (Migration Evaluator) e acompanhar a obra (Migration Hub).
+
+- ✅ **Escolha quando:** precisa **planejar e acompanhar** uma migração.
+- 🚫 **Não é a resposta quando:** precisa **migrar de fato** → [Application Migration Service](application-migration-service.md) ou [DMS](dms-e-sct.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "dependências entre servidores" → Application Discovery Service; "custo da migração (TCO)" → Migration Evaluator; "painel central" → Migration Hub.
+<!-- didatico:fim -->
+
 ## Comparação
 
 | Serviço | Fase | O que faz | Detalhes |

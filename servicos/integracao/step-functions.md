@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **fluxograma que se executa sozinho**: passo 1, depois o 2; se der erro, tenta de novo; se precisar, espera aprovação.
+
+- ✅ **Escolha quando:** precisa **orquestrar processos de várias etapas** com tratamento de erro.
+- 🚫 **Não é a resposta quando:** precisa só **reagir a um evento** → [EventBridge](eventbridge.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "orquestrar", "workflow", "várias etapas", "aprovação humana".
+<!-- didatico:fim -->
+
 ## Conceitos
 
 | Item | Detalhe |

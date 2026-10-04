@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 Outposts ✅ · Local Zones ⚪ não listado · Wavelength ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são três jeitos de **trazer a AWS para mais perto**: o Outposts é uma "filial" da AWS **dentro do seu prédio**; a Local Zone, uma filial **numa cidade**; o Wavelength, uma filial **dentro da rede 5G** da operadora.
+
+- ✅ **Escolha quando:** precisa de **latência muito baixa** ou de **manter os dados num local específico**.
+- 🚫 **Não é a resposta quando:** só quer entregar **conteúdo mais perto** dos usuários → [CloudFront](../redes/cloudfront.md) (edge locations).
+- 🎯 **Palavras do enunciado que apontam para ele:** "serviços AWS no próprio datacenter" → Outposts; "latência de um dígito de milissegundo numa cidade" → Local Zones; "5G" → Wavelength.
+<!-- didatico:fim -->
+
 ## Comparação
 
 | | **AWS Outposts** ✅ | **AWS Local Zones** ⚪ | **AWS Wavelength** ❌ *fora do escopo* |

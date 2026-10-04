@@ -11,6 +11,16 @@
 > [CodeDeploy, CodeArtifact e outros](../desenvolvimento/code-services.md) e [CloudShell](../desenvolvimento/cli-sdk-e-cloudshell.md),
 > que também estão fora do escopo.
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **ferramentas de desenvolvimento e colaboração** que existem na AWS, mas não caem na prova.
+
+- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
+- 🚫 **Não é a resposta quando:** na prova, **CI/CD** → [CodeBuild e CodePipeline](../desenvolvimento/code-services.md); **workflow** → [Step Functions](../integracao/step-functions.md); **infraestrutura como código** → [CloudFormation](../gerenciamento/cloudformation.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** AppConfig, CodeGuru, Copilot, SWF e WorkDocs aparecem, no máximo, como alternativas erradas.
+<!-- didatico:fim -->
+
 ## AWS AppConfig
 
 - Parte do Systems Manager. Gerencia **feature flags** e **configuração dinâmica** de aplicações, com validação e implantação gradual (rollback automático se um alarme disparar).

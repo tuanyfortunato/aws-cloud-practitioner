@@ -17,6 +17,16 @@
 | **Amazon Managed Service for Apache Flink** | Processamento de streams com Flink | "Agregações em tempo real" |
 | **AWS Data Pipeline** | Orquestração de dados legada | Fechado a novos clientes — não estudar |
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **ferramentas especializadas de dados**: o Lake Formation organiza e tranca o data lake; os outros movem, compartilham ou compram dados.
+
+- ✅ **Escolha quando:** o enunciado cita um destes nomes. Lembre que MSK, AppFlow, Data Exchange, Clean Rooms e DataZone estão **fora da prova**.
+- 🚫 **Não é a resposta quando:** na prova, **streaming** → [Kinesis](kinesis.md); **ETL** → [Glue](glue.md); **SQL no S3** → [Athena](athena.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "data lake com permissões centralizadas" → Lake Formation; "Kafka" → MSK.
+<!-- didatico:fim -->
+
 ## ❓ Perguntas típicas
 
 > ⚠️ MSK, AppFlow, Data Exchange, Clean Rooms e DataZone estão **fora do escopo** da prova: se aparecerem como alternativa, desconfie. A resposta no escopo costuma ser outra (ex.: streaming → **Kinesis**; ETL → **Glue**; SQL no S3 → **Athena**).

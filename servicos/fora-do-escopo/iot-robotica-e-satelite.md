@@ -9,6 +9,16 @@
 > ❌ **Fora do escopo da CLF-C02.** Na prova, a única resposta de IoT é o **AWS IoT Core**.
 > Documentados aqui apenas para referência. Veja também [IoT Core e Greengrass](../aplicacoes/iot-core-e-greengrass.md).
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são serviços **especializados** para dispositivos, robôs, satélites e câmeras inteligentes.
+
+- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
+- 🚫 **Não é a resposta quando:** na prova, **IoT** → [IoT Core](../aplicacoes/iot-core-e-greengrass.md); **imagens** → Rekognition, em [serviços de IA prontos](../ia-ml/servicos-de-ia-prontos.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** Device Defender, Monitron, Panorama, RoboMaker e Ground Station aparecem, no máximo, como alternativas erradas.
+<!-- didatico:fim -->
+
 ## AWS IoT Device Defender
 
 - **Audita** a configuração de segurança de frotas de dispositivos IoT (certificados, políticas) e **detecta comportamento anômalo** (ex.: dispositivo enviando tráfego fora do padrão).

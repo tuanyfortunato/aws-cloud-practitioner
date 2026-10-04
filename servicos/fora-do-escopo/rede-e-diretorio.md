@@ -10,6 +10,16 @@
 > CloudFront, Global Accelerator, Direct Connect, VPN, Transit Gateway, PrivateLink e API Gateway. Veja também
 > [Network Firewall](../seguranca/firewall-manager-e-network-firewall.md), que também está fora do escopo.
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **complementos de rede e de diretório** que ficam fora da prova.
+
+- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
+- 🚫 **Não é a resposta quando:** na prova, **rede** → [VPC](../redes/vpc.md) e [Transit Gateway e PrivateLink](../redes/vpc-peering-transit-gateway-e-endpoints.md); **Active Directory** → [Directory Service](../seguranca/directory-service.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** Cloud Map, VPC Lattice, Network Access Analyzer e Cloud Directory aparecem, no máximo, como alternativas erradas.
+<!-- didatico:fim -->
+
 ## AWS Cloud Map
 
 - **Descoberta de serviços**: registra os recursos de uma aplicação (microsserviços, bancos, filas) com nomes amigáveis e o local atual, para que os serviços encontrem uns aos outros por API ou DNS. Usado pelo ECS Service Connect.
