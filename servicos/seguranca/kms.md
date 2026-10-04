@@ -11,7 +11,7 @@
 | Tipo | Quem cria/gerencia | Visível na conta | Rotação | Custo mensal |
 |---|---|---|---|---|
 | **AWS owned keys** | AWS (compartilhadas entre contas) | Não | AWS | Grátis |
-| **AWS managed keys** (`aws/s3`, `aws/ebs`…) | AWS, para um serviço, na sua conta | Sim (só leitura) | Automática anual | Grátis (paga uso) |
+| **AWS managed keys** (`aws/s3`, `aws/ebs`…) | AWS, para um serviço, na sua conta | Sim (só leitura) | Automática **todo ano**, obrigatória (era a cada 3 anos até 2022) | Grátis (paga uso) |
 | **Customer managed keys** | **Você** | Sim | Opcional automática (período configurável) ou manual | Por chave/mês + uso |
 
 - Chaves **simétricas** (AES-256, padrão), **assimétricas** (RSA/ECC para assinar/criptografar fora da AWS) e **HMAC**.
@@ -23,7 +23,7 @@
 | **Key policy** | Política de recurso **obrigatória** de cada chave — quem administra e quem usa. Complementada por IAM e *grants*. |
 | **Envelope encryption** | O KMS gera uma *data key* que criptografa os dados; a data key é criptografada pela chave do KMS. Chamadas diretas criptografam até 4 KB. |
 | **Auditoria** | Todo uso da chave fica no **CloudTrail**. |
-| **Exclusão** | Agendada com espera de **7 a 30 dias**; dá para desativar antes. Chave apagada = dados irrecuperáveis. |
+| **Exclusão** | Só para customer managed keys: agendada com espera de **7 a 30 dias** (padrão 30); dá para desativar antes. Chave apagada = dados irrecuperáveis. |
 | **Multi-Region keys** | Mesma chave em várias regiões (DR, replicação). |
 | **Importar material de chave (BYOK)** | Você gera a chave fora e importa. |
 | **Custom key stores** | Chaves em **CloudHSM** seu ou em HSM externo (XKS). |

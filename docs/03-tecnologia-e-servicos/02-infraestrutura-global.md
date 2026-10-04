@@ -51,6 +51,10 @@
 - **AWS European Sovereign Cloud** (Brandenburg, `eusc-de-east-1`): região soberana europeia, operada separadamente. Bom saber que existe.
 - ⚠️ "Várias AZs" = alta disponibilidade/tolerância a falhas. "Várias regiões" = DR geográfico, latência global ou exigência legal. **Nunca** "várias edge locations" para alta disponibilidade de computação.
 - ⚠️ Local Zones (perto de cidades) × Wavelength (dentro da rede 5G) × Outposts (hardware AWS no seu datacenter).
+- ✔️ **Termos da task 3.2 do exam guide (verificado em 04/10/2026):**
+  - **AZs não compartilham ponto único de falha**: cada AZ tem energia, rede e refrigeração independentes; por isso várias AZs = alta disponibilidade.
+  - Quando usar **várias regiões**: recuperação de desastres (**DR**), **continuidade de negócios**, **baixa latência** para usuários finais e **soberania de dados** (exigência legal de manter os dados num país ou região).
+  - **Benefícios das edge locations**: conteúdo e DNS mais perto do usuário, menor latência.
 - 🧊 Não decorar: contagem de AZs por região, códigos de região, lista de cidades de PoPs.
 <!-- extra:fim -->
 

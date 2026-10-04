@@ -42,8 +42,8 @@
 > Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
 
 - **Trusted Advisor — 🔄 6 categorias:** cost optimization, performance, security, fault tolerance, service limits e **operational excellence** (a mais nova). Materiais antigos listam 5; ⚠️ se a questão listar 5, escolha as 5 clássicas.
-- **Basic/Developer:** todos os checks de **Service Limits** + checks selecionados de **Security** e **Fault Tolerance**, com refresh manual. 📌 Os "7 core checks" clássicos: S3 Bucket Permissions, Security Groups – Specific Ports Unrestricted, IAM Use, MFA on Root Account, EBS Public Snapshots, RDS Public Snapshots e Service Limits.
-- **Business (Support+)/Enterprise/Unified Operations:** todos os checks, acesso via **AWS Support API** e integração com **EventBridge**. **Trusted Advisor Priority** exige Enterprise ou superior.
+- **Basic/Developer:** todos os checks de **Service Limits** + checks selecionados de **Security** e **Fault Tolerance**, com refresh manual. 📌 ✔️ Lista oficial atual (10/2026): todos os checks de **Service Limits** + **5 de segurança** — S3 Bucket Permissions, Security Groups – Specific Ports Unrestricted, MFA on Root Account, EBS Public Snapshots e RDS Public Snapshots. (Materiais antigos citavam também "IAM Use", que saiu da lista.)
+- **Business Support+/Enterprise/Unified Operations:** todos os checks, API do Trusted Advisor e **AWS Support API**, integração com **EventBridge**. ✔️ O **Trusted Advisor Priority** vem no **Enterprise** e no **Unified Operations**.
 - 🧊 Contagem de checks: fontes divergem ("56 grátis / 482 no total", "500+"). Não decorar.
 - **Ferramenta certa por pergunta (📌):**
 

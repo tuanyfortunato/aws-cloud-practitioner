@@ -43,15 +43,17 @@
 <!-- extra:inicio -->
 ## 🔄 Planos novos (o que o exam guide atual cobra)
 
-> Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md)). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
+> Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)). Comparação completa na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
 
 | Plano (📌) | Preço mínimo | Resposta para caso crítico | Destaques |
 |---|---|---|---|
 | **Basic** | Grátis | — (sem suporte técnico) | Conta e faturamento, documentação, re:Post, Health Dashboard, verificações principais do Trusted Advisor |
-| **AWS Business Support+** | **US$ 29/mês por conta** | **30 min** | Plano pago de entrada |
-| **AWS Enterprise Support** | **US$ 5.000/mês** (antes US$ 15.000) | **15 min** | TAM designado |
-| **AWS Unified Operations** | **US$ 50.000/mês**, compromisso mínimo de 90 dias | **5 min** | Nível mais alto |
+| **AWS Business Support+** | **US$ 29/mês por conta** | **30 min** | Plano pago de entrada: 24/7 por telefone, chat e e-mail; Trusted Advisor completo + API; Support API e Health API |
+| **AWS Enterprise Support** | **US$ 5.000/mês** (antes US$ 15.000) | **15 min** | **TAM designado**, Trusted Advisor Priority, billing concierge, Security Incident Response incluído |
+| **AWS Unified Operations** | **US$ 50.000/mês**, compromisso mínimo de 90 dias | **5 min** | Monitoramento 24/7, AWS Countdown incluído, TAM + especialistas |
 
+- Nos três planos pagos (✔️ confirmado): produção fora do ar < 1 h · produção prejudicada < 4 h · sistema prejudicado < 12 h · orientação geral < 24 h.
+- 📌 **Menor plano com Trusted Advisor completo e API:** Business Support+. **Menor plano com TAM designado e TA Priority:** Enterprise.
 - Lançados em 02/12/2025. **Developer, Business e Enterprise On-Ramp encerram em 01/01/2027** (On-Ramp migrando automaticamente para Enterprise em 2026; os legados seguem no GovCloud).
 - ⚠️ **Pegadinha de preço:** o Business Support+ começa em US$ 29 — o mesmo valor que se cita para o antigo Developer. Confira o **nome** do plano na questão.
 - ⚠️ **30 minutos** aparece nos dois modelos: Enterprise On-Ramp (clássico) e Business Support+ (novo). **15 minutos + TAM designado** → Enterprise nos dois modelos. **5 minutos** → Unified Operations.

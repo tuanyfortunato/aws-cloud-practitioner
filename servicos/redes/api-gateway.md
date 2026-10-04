@@ -21,7 +21,7 @@
 | **Integrações** | **Lambda** (clássico serverless), HTTP, serviços AWS (ex.: gravar direto no SQS/DynamoDB), VPC link (recursos privados via NLB/ALB). |
 | **Tipos de endpoint** | **Edge-optimized** (via CloudFront), **Regional**, **Private** (só da VPC via interface endpoint). |
 | **Autorização** | **IAM**, **Cognito user pools**, **Lambda authorizer**, JWT (HTTP API). |
-| **Throttling** | Limites de requisições por segundo (conta, stage, método, usage plan) → protege o back-end. |
+| **Throttling** | Limites de requisições por segundo (conta, stage, método, usage plan) → protege o back-end. Padrão: **10.000 req/s por conta e região**, burst de 5.000 (algumas regiões novas: 2.500 / 1.250) 🧊. |
 | **Stages** | `dev`, `prod`… com variáveis e deploys separados; *canary release*. |
 | **Cache** | Respostas em cache por TTL (REST). |
 | **Domínio customizado** | Com certificado do ACM. |

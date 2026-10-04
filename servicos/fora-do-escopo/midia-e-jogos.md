@@ -20,7 +20,7 @@ Família de serviços de vídeo profissional (broadcast e streaming).
 | **AWS Elemental MediaPackage** | Prepara e protege (DRM) streams para entrega em vários formatos; time-shift e DVR | Entregar o canal ao vivo para celulares, TVs e navegadores |
 | **AWS Elemental MediaConnect** | Transporte confiável e seguro de vídeo ao vivo entre locais e para a nuvem | Levar o sinal do estádio para a AWS |
 | **AWS Elemental MediaTailor** | Inserção de anúncios no servidor (SSAI) e montagem de canais lineares | Anúncios personalizados por espectador |
-| **AWS Elemental MediaStore** | Armazenamento otimizado para mídia como origem de vídeo | Origem de baixa latência para vídeo ao vivo |
+| **AWS Elemental MediaStore** | Armazenamento otimizado para mídia como origem de vídeo (🔄 **encerrado em 13/11/2025**) | Origem de baixa latência para vídeo ao vivo |
 | **AWS Elemental Appliances and Software** | Codificadores e software Elemental para rodar on-premises | Emissoras com equipamento próprio |
 
 ## Amazon Interactive Video Service (IVS)
@@ -30,8 +30,8 @@ Família de serviços de vídeo profissional (broadcast e streaming).
 
 ## Amazon Elastic Transcoder
 
-- Serviço **legado** de transcodificação de arquivos de mídia armazenados no S3.
-- A AWS recomenda o **MediaConvert** no lugar dele.
+- Serviço de transcodificação de arquivos de mídia armazenados no S3.
+- 🔄 **Encerrado em 13/11/2025**; a alternativa indicada é o **MediaConvert**.
 
 ## Amazon GameLift
 
@@ -39,7 +39,7 @@ Família de serviços de vídeo profissional (broadcast e streaming).
 
 ## Amazon Lumberyard
 
-- Antigo **motor de jogos** gratuito da AWS. Foi descontinuado e deu origem ao projeto open source **Open 3D Engine (O3DE)**.
+- Antigo **motor de jogos** gratuito da AWS. 🔄 **Não é mais oferecido**; foi descontinuado e deu origem ao projeto open source **Open 3D Engine (O3DE)**.
 
 ## ⚠️ Como isso aparece na prova
 

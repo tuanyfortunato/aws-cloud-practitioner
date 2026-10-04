@@ -15,7 +15,7 @@
 | Criptografia | Sempre (KMS) | Opcional (`SecureString` com KMS) |
 | Replicação entre regiões | ✅ | ❌ |
 | Versionamento | Estágios `AWSCURRENT` / `AWSPREVIOUS` | Histórico de versões |
-| Tamanho | Até 64 KB 🧊 | Standard 4 KB / Advanced 8 KB 🧊 |
+| Tamanho | Até 64 KB (65.536 bytes) 🧊 | Standard 4 KB (até 10.000 parâmetros, grátis) / Advanced 8 KB (até 100.000, pago) 🧊 |
 | Hierarquia | — | Sim (`/app/prod/db-url`) |
 | Custo | **Pago** por segredo/mês + chamadas de API | **Standard grátis**; Advanced pago |
 | Integração | RDS gera e guarda a senha mestre no Secrets Manager | CloudFormation, ECS, Lambda, EC2 |

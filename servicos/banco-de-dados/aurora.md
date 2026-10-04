@@ -16,7 +16,7 @@
 | Item | Detalhe |
 |---|---|
 | **Compatibilidade** | **MySQL** e **PostgreSQL** (a AWS cita até 5x e 3x o desempenho do padrão). |
-| **Armazenamento distribuído** | **6 cópias em 3 AZs**, cresce automaticamente em incrementos de 10 GB; tolera perder 2 cópias para escrita e 3 para leitura; *self-healing*. |
+| **Armazenamento distribuído** | **6 cópias em 3 AZs**, cresce automaticamente (o volume é dividido em segmentos de 10 GiB); tolera perder 2 cópias para escrita e 3 para leitura; *self-healing*. |
 | **Cluster** | 1 instância **writer** + até **15 Aurora Replicas** (leitura e failover, normalmente < 30 s). |
 | **Endpoints** | *Cluster (writer) endpoint*, *reader endpoint* (balanceia leituras), endpoints customizados. |
 

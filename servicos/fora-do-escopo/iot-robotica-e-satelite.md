@@ -16,12 +16,13 @@
 
 ## Amazon Monitron
 
+- 🔄 **Fechado a novos clientes** (data de encerramento não localizada).
 - Solução de ponta a ponta para **monitorar equipamentos industriais**: sensores de vibração e temperatura, gateway e app com machine learning que avisa sobre falhas futuras (manutenção preditiva).
 
 ## AWS Panorama
 
 - Appliance e SDK para rodar **visão computacional na borda**, usando câmeras IP já existentes (ex.: contagem de pessoas, inspeção de qualidade em linha de produção).
-- 🔄 Teve o encerramento anunciado em maio/2025.
+- 🔄 **Encerrado em 31/05/2026** (aplicações e dispositivos pararam de funcionar).
 
 ## Amazon Lookout for Metrics
 
@@ -31,6 +32,7 @@
 ## AWS RoboMaker
 
 - Serviço para **desenvolver, simular e testar aplicações de robótica** (ROS) em ambientes simulados na nuvem.
+- 🔄 **Encerrado em 10/09/2025**; a alternativa indicada é o **AWS Batch** para simulações.
 
 ## AWS Ground Station
 
