@@ -93,7 +93,7 @@ FICHAS = {
     "migracao": ["discovery-migration-hub-e-evaluator", "application-migration-service",
                  "dms-e-sct", "snow-family", "datasync-e-transfer-family"],
     "custos": ["cost-explorer", "budgets", "pricing-calculator-cur-e-outras-ferramentas",
-               "planos-de-suporte"],
+               "planos-de-suporte", "recursos-de-ajuda-e-parceiros"],
 }
 CATEGORIA = {nome: cat for cat, nomes in FICHAS.items() for nome in nomes}
 
@@ -110,7 +110,7 @@ FICHAS_POR_TOPICO = {
     "2.7": ["cloudtrail", "config", "cloudwatch", "vpc", "health-dashboard"],
     "2.8": ["vpc", "shield", "waf", "firewall-manager-e-network-firewall"],
     "2.9": ["guardduty", "inspector", "macie", "detective", "security-hub", "trusted-advisor"],
-    "2.10": ["guardduty", "security-hub"],
+    "2.10": ["guardduty", "security-hub", "recursos-de-ajuda-e-parceiros"],
     "3.1": ["cli-sdk-e-cloudshell", "cloudformation", "site-to-site-vpn-e-client-vpn", "direct-connect"],
     "3.2": ["outposts-local-zones-wavelength", "cloudfront", "global-accelerator"],
     "3.3": ["ec2", "ebs"],
@@ -141,7 +141,7 @@ FICHAS_POR_TOPICO = {
     "4.3": ["s3", "ebs", "lambda"],
     "4.4": ["cost-explorer", "budgets", "pricing-calculator-cur-e-outras-ferramentas"],
     "4.5": ["planos-de-suporte", "trusted-advisor"],
-    "4.6": ["planos-de-suporte"],
+    "4.6": ["recursos-de-ajuda-e-parceiros", "planos-de-suporte"],
 }
 
 EXTRA_INI = "<!-- extra:inicio -->"
@@ -501,6 +501,7 @@ def gerar_indice_readme(secoes, ordem):
                "- [Guia do exame](docs/00-guia-do-exame/README.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)",
                "- Flashcards: " + " · ".join(f"[Domínio {d}](flashcards/dominio-{d}.md)" for d in DOMINIOS) + " · [Anki (TSV)](flashcards/anki-clf-c02.tsv)",
                "- Resumos: [Pares que confundem](resumos/comparativos.md) · [Palavras-chave](resumos/palavras-chave.md) · [Números-âncora](resumos/numeros-ancora.md)",
+               "- Questões no formato da prova: [Simulado 01 (65 questões)](simulados/simulado-01.md) · " + " · ".join(f"[Domínio {d}](simulados/questoes/dominio-{d}.md)" for d in DOMINIOS),
                "- [Glossário](glossario.md) · [Progresso](progresso.md) · [Simulados](simulados/README.md) · [Erros recorrentes](simulados/erros-recorrentes.md) · [Labs](labs/README.md) · [Links úteis](recursos/links-uteis.md)",
                "- Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md)",
                "- Modelos: [Tópico](templates/topico.md) · [Ficha de serviço](templates/servico.md) · [Simulado](templates/simulado.md)",

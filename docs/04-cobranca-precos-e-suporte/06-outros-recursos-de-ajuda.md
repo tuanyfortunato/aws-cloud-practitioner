@@ -2,7 +2,7 @@
 
 > **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
 
-> 🔎 **Fichas detalhadas:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md)
+> 🔎 **Fichas detalhadas:** [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](../../servicos/custos/recursos-de-ajuda-e-parceiros.md) · [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md)
 
 ⬅️ [4.5 Planos de AWS Support](05-planos-de-suporte.md) · 🏠 [Índice do domínio](README.md)
 

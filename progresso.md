@@ -71,7 +71,8 @@ Marque `[x]` conforme avança. Legenda de status nos arquivos: 🔴 Não iniciad
 - [ ] Ler o exam guide oficial
 - [ ] Concluir o AWS Cloud Practitioner Essentials (Skill Builder)
 - [ ] Fazer as questões oficiais de exemplo
-- [ ] 1º simulado completo
+- [ ] [Simulado 01 do repositório](simulados/simulado-01.md) (meta ≥ 80%)
+- [ ] 1º simulado completo externo (Skill Builder / questões oficiais)
 - [ ] Atingir ≥ 80% em 3 simulados seguidos
 - [ ] Agendar a prova
 - [ ] Aprovação 🎉

@@ -1,7 +1,7 @@
 # ☁️ AWS Certified Cloud Practitioner (CLF-C02) — Estudos
 
 Repositório de documentação para a prova **AWS Certified Cloud Practitioner (CLF-C02)**: guia por tópico do exame,
-**99 fichas detalhadas de serviços**, **302 flashcards**, resumos de revisão e acompanhamento do estudo.
+**100 fichas detalhadas de serviços**, **302 flashcards**, **65 questões no formato da prova**, resumos de revisão e acompanhamento do estudo.
 
 ## 🚀 Comece por aqui
 
@@ -280,12 +280,13 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 </details>
 
 <details>
-<summary><b>💰 Custos e suporte</b> (4)</summary>
+<summary><b>💰 Custos e suporte</b> (5)</summary>
 
 - [AWS Cost Explorer](servicos/custos/cost-explorer.md)
 - [AWS Budgets](servicos/custos/budgets.md)
 - [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md)
 - [Planos de AWS Support](servicos/custos/planos-de-suporte.md)
+- [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](servicos/custos/recursos-de-ajuda-e-parceiros.md)
 
 </details>
 
@@ -294,6 +295,7 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 - [Guia do exame](docs/00-guia-do-exame/README.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)
 - Flashcards: [Domínio 1](flashcards/dominio-1.md) · [Domínio 2](flashcards/dominio-2.md) · [Domínio 3](flashcards/dominio-3.md) · [Domínio 4](flashcards/dominio-4.md) · [Anki (TSV)](flashcards/anki-clf-c02.tsv)
 - Resumos: [Pares que confundem](resumos/comparativos.md) · [Palavras-chave](resumos/palavras-chave.md) · [Números-âncora](resumos/numeros-ancora.md)
+- Questões no formato da prova: [Simulado 01 (65 questões)](simulados/simulado-01.md) · [Domínio 1](simulados/questoes/dominio-1.md) · [Domínio 2](simulados/questoes/dominio-2.md) · [Domínio 3](simulados/questoes/dominio-3.md) · [Domínio 4](simulados/questoes/dominio-4.md)
 - [Glossário](glossario.md) · [Progresso](progresso.md) · [Simulados](simulados/README.md) · [Erros recorrentes](simulados/erros-recorrentes.md) · [Labs](labs/README.md) · [Links úteis](recursos/links-uteis.md)
 - Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md)
 - Modelos: [Tópico](templates/topico.md) · [Ficha de serviço](templates/servico.md) · [Simulado](templates/simulado.md)
@@ -308,6 +310,8 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 | [Palavras-chave → serviço](resumos/palavras-chave.md) | Gatilhos dos enunciados |
 | [Números-âncora](resumos/numeros-ancora.md) | Números que decidem a resposta (e o que não decorar) |
 | [Glossário](glossario.md) | Termos e siglas |
+| [Simulado 01](simulados/simulado-01.md) | 65 questões no formato da prova, com gabarito comentado e folha de correção |
+| [Questões por domínio](simulados/questoes/README.md) | As mesmas questões agrupadas por domínio e tópico, para estudo direcionado |
 | [Simulados](simulados/README.md) | Registro de simulados e erros recorrentes |
 | [Labs](labs/README.md) | Práticas no console com cuidado de custos |
 
@@ -321,10 +325,10 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 │   ├── 02-seguranca-e-conformidade/    # 2.1 a 2.10
 │   ├── 03-tecnologia-e-servicos/       # 3.1 a 3.18
 │   └── 04-cobranca-precos-e-suporte/   # 4.1 a 4.6
-├── servicos/                # 99 fichas detalhadas, por categoria
+├── servicos/                # 100 fichas detalhadas, por categoria
 ├── flashcards/              # Gerados das "Perguntas típicas" (Markdown + TSV para Anki)
 ├── resumos/                 # Comparativos, palavras-chave, números-âncora
-├── simulados/               # Registro de simulados e erros recorrentes
+├── simulados/               # Simulado de 65 questões, questões por domínio e registro de erros
 ├── labs/                    # Exercícios práticos no console
 ├── fontes/                  # Documentos originais (fonte da verdade)
 ├── templates/               # Modelos de tópico, ficha de serviço e simulado
@@ -344,6 +348,7 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 
   ```bash
   python3 scripts/gerar_docs.py      # regenera tópicos, flashcards, resumos e índice de fichas
+  python3 scripts/gerar_simulado.py  # regenera o simulado e as questões por domínio
   python3 scripts/verificar_links.py # confere se todos os links internos funcionam
   ```
 
