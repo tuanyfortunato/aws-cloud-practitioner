@@ -278,7 +278,7 @@ QUESTOES = [
          enunciado="Uma empresa armazena milhões de objetos no Amazon S3 com padrão de acesso imprevisível: alguns são lidos com frequência e outros ficam meses sem acesso. Qual classe de armazenamento otimiza o custo automaticamente sem afetar o desempenho?",
          corretas=["S3 Intelligent-Tiering"],
          erradas=["S3 Standard", "S3 One Zone-IA", "S3 Glacier Deep Archive"],
-         explicacao="O **Intelligent-Tiering** move os objetos entre camadas automaticamente conforme o acesso, sem taxa de recuperação. Standard não otimiza custo; One Zone-IA cobra recuperação e guarda em uma AZ; Deep Archive tem recuperação de horas."),
+         explicacao="O **Intelligent-Tiering** move os objetos entre camadas automaticamente conforme o acesso, sem taxa de recuperação nas camadas automáticas (cobra só uma pequena taxa de monitoramento por objeto). Standard não otimiza custo; One Zone-IA cobra recuperação e guarda em uma AZ; Deep Archive tem recuperação de horas."),
     dict(dominio="3", secao="3.8",
          enunciado="Por exigência regulatória, uma empresa precisa guardar registros por 7 anos. Eles quase nunca são lidos e uma recuperação de até 48 horas é aceitável. Qual é a opção de MENOR custo?",
          corretas=["S3 Glacier Deep Archive"],
