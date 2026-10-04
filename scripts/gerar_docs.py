@@ -162,6 +162,42 @@ AVISOS = {
     "4.5": "O exam guide atual (task 4.3) cobra os **planos novos: Basic, Business Support+, Enterprise e Unified Operations**. O conteúdo abaixo descreve o modelo clássico (válido até 01/01/2027). Estude primeiro a tabela de planos novos na seção de atualizações e na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md).",
     "4.6": "**AWS IQ**, **AWS Activate** e **AWS Managed Services** estão **fora do escopo** oficial. A task 4.3 cita: Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center e re:Post.",
 }
+# Correções aplicadas ao texto de fontes/guia-completo-clf-c02.md na geração (o arquivo-fonte não é
+# editado). Baseadas nas verificações oficiais de 04/10/2026. Cada trecho precisa existir na fonte.
+CORRECOES = [
+    ("Objeto de até **5 TB** (upload multipart para arquivos grandes).",
+     "Objeto de até **50 TB** (🔄 desde 02/12/2025; antes 5 TB) — upload multipart para arquivos grandes."),
+    ("- **Trusted Advisor por plano de suporte:** Basic e Developer só têm as verificações principais de segurança e de cotas; **Business, Enterprise On-Ramp e Enterprise têm todas as verificações** e acesso via API.",
+     "- **Trusted Advisor por plano de suporte:** o Basic tem as verificações principais (service limits + 5 de segurança); 🔄 **Business Support+, Enterprise e Unified Operations têm todas as verificações** e acesso via API (no modelo clássico: Business, Enterprise On-Ramp e Enterprise). O **Trusted Advisor Priority** vem no Enterprise e no Unified Operations."),
+    ('- "Qual plano de suporte libera todas as verificações do Trusted Advisor?" → Business ou superior.',
+     '- "Qual plano de suporte libera todas as verificações do Trusted Advisor?" → Business Support+ ou superior (no modelo clássico, Business).'),
+    ("  - A **AWS Health API** está disponível a partir do plano Business.",
+     "  - A **AWS Health API** está disponível a partir do plano Business Support+ (no modelo clássico, Business)."),
+    ("- **Disponibilidade do Health Dashboard:** gratuito para todos os clientes; a API exige plano Business ou superior.",
+     "- **Disponibilidade do Health Dashboard:** gratuito para todos os clientes; a API exige plano Business Support+ ou superior (no modelo clássico, Business)."),
+    ("| AWS Billing Conductor | Faturamento personalizado |",
+     "| AWS Billing Conductor (❌ fora do escopo) | Faturamento personalizado |"),
+    ('- **Cai na prova:** "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business;',
+     '- **Cai na prova:** 🔄 *modelo atual:* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business;'),
+    ('- "Qual o plano mais barato com suporte técnico 24/7 por telefone?" → Business.',
+     '- "Qual o plano mais barato com suporte técnico 24/7 por telefone?" → Business Support+ (no modelo clássico, Business).'),
+    ('- "Qual o plano mais barato com todas as verificações do Trusted Advisor?" → Business.',
+     '- "Qual o plano mais barato com todas as verificações do Trusted Advisor?" → Business Support+ (no modelo clássico, Business).'),
+    ('- "Qual plano dá acesso a um pool de TAMs?" → Enterprise On-Ramp.',
+     '- "Qual plano dá acesso a um pool de TAMs?" → Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).'),
+    ('- "Qual plano responde em menos de 1 hora a produção fora do ar?" → Business.',
+     '- "Qual plano responde em menos de 1 hora a produção fora do ar?" → Business Support+ ou superior (no modelo clássico, Business).'),
+    ('- "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail." → Developer.',
+     '- "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail." → Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).'),
+    ("- **AWS IQ:** está na lista oficial da prova.",
+     "- **AWS IQ:** 🔄 hoje está declarado **fora do escopo** da prova (verificação de 10/2026)."),
+    ("| Business vs Enterprise On-Ramp vs Enterprise | Business = 24/7 e Trusted Advisor completo; On-Ramp = pool de TAMs, 30 min; Enterprise = TAM dedicado, 15 min |",
+     "| Business Support+ vs Enterprise vs Unified Operations (atuais) | Business Support+ = US$ 29/conta, 30 min, Trusted Advisor completo; Enterprise = TAM designado, TA Priority, 15 min; Unified Operations = 5 min, monitoramento 24/7 |\n"
+     "| Business vs Enterprise On-Ramp vs Enterprise (clássicos, até 01/01/2027) | Business = 24/7 e Trusted Advisor completo; On-Ramp = pool de TAMs, 30 min; Enterprise = TAM dedicado, 15 min |"),
+    ('| "petabytes, slow internet" | Família Snow |',
+     '| "petabytes, slow internet" | Família Snow (🔄 fora da lista atual; Snowball Edge só para clientes existentes) |'),
+]
+
 
 EXTRA_INI = "<!-- extra:inicio -->"
 EXTRA_FIM = "<!-- extra:fim -->"
@@ -191,7 +227,11 @@ def titulo_ficha(nome):
 
 def limpar(texto):
     # Corrige negrito duplicado vindo da exportação ("**Nome****:**" -> "**Nome:**").
-    return texto.replace("****:**", ":**")
+    texto = texto.replace("****:**", ":**")
+    for antigo, novo in CORRECOES:
+        assert antigo in texto, f"Correção não encontrada na fonte: {antigo[:60]}"
+        texto = texto.replace(antigo, novo)
+    return texto
 
 
 def linkar_referencias(texto, origem):

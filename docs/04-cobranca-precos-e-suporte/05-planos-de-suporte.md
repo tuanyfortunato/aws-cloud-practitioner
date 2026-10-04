@@ -23,19 +23,19 @@
 - **TAM (Technical Account Manager):** consultor técnico que acompanha a conta de forma proativa. Dedicado só no Enterprise; compartilhado (pool) no Enterprise On-Ramp.
 - **Concierge Support Team:** especialistas em faturamento e gestão de conta (Enterprise On-Ramp e Enterprise).
 - **Infrastructure Event Management (IEM):** apoio da AWS para planejar eventos de grande escala (lançamentos, Black Friday).
-- **Cai na prova:** "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business; "TAM dedicado" = Enterprise; "resposta em 15 minutos" = Enterprise; "só precisa de ajuda com a fatura" = Basic (atendimento ao cliente é grátis). Preços e tempos mudam com frequência: confira a página oficial de planos antes da prova.
+- **Cai na prova:** 🔄 *modelo atual:* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business; "TAM dedicado" = Enterprise; "resposta em 15 minutos" = Enterprise; "só precisa de ajuda com a fatura" = Basic (atendimento ao cliente é grátis). Preços e tempos mudam com frequência: confira a página oficial de planos antes da prova.
 
 ## ❓ Perguntas típicas
 
 > Também estão nos [flashcards](../../flashcards/dominio-4.md).
 
-- "Qual o plano mais barato com suporte técnico 24/7 por telefone?" → Business.
-- "Qual o plano mais barato com todas as verificações do Trusted Advisor?" → Business.
+- "Qual o plano mais barato com suporte técnico 24/7 por telefone?" → Business Support+ (no modelo clássico, Business).
+- "Qual o plano mais barato com todas as verificações do Trusted Advisor?" → Business Support+ (no modelo clássico, Business).
 - "Qual plano inclui TAM dedicado?" → Enterprise.
-- "Qual plano dá acesso a um pool de TAMs?" → Enterprise On-Ramp.
+- "Qual plano dá acesso a um pool de TAMs?" → Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).
 - "Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?" → Enterprise.
-- "Qual plano responde em menos de 1 hora a produção fora do ar?" → Business.
-- "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail." → Developer.
+- "Qual plano responde em menos de 1 hora a produção fora do ar?" → Business Support+ ou superior (no modelo clássico, Business).
+- "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail." → Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).
 - "O plano Basic oferece suporte técnico?" → Não; só atendimento de conta e faturamento, documentação e re:Post.
 - "Quem ajuda com dúvidas de faturamento em planos Enterprise?" → Concierge Support Team.
 - "Quem pode mudar o plano de suporte?" → O usuário root.

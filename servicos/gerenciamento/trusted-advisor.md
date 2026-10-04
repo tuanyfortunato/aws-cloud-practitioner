@@ -32,7 +32,8 @@ Status das verificações: 🟢 sem problema · 🟡 investigação recomendada 
 ## ❓ Perguntas típicas
 
 - "Recomendar melhorias de custo, segurança, desempenho e limites." → Trusted Advisor.
-- "Menor plano com todas as verificações do Trusted Advisor." → Business.
+- "Menor plano com todas as verificações do Trusted Advisor." → Business Support+ (no modelo clássico, Business).
+- "Menor plano com Trusted Advisor Priority." → Enterprise.
 - "Verificações disponíveis no Basic." → Core checks (segurança essenciais + service limits).
 
 ## 🔗 Documentação oficial

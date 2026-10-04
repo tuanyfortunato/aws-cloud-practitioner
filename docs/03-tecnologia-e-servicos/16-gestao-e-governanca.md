@@ -26,7 +26,7 @@
 - **AWS Health Dashboard:**
   - **Service health:** status público de todos os serviços em todas as regiões.
   - **Your account health:** eventos que afetam **os seus** recursos (manutenções agendadas, falhas, avisos), com orientação de correção.
-  - A **AWS Health API** está disponível a partir do plano Business.
+  - A **AWS Health API** está disponível a partir do plano Business Support+ (no modelo clássico, Business).
 - **Service Quotas:** mostra os limites (cotas) dos serviços por região e permite **pedir aumento**. Pode gerar alarmes quando o uso se aproxima do limite.
 - **AWS License Manager:** controla o uso de **licenças de software** (Microsoft, Oracle, SAP) para evitar excesso e multas.
 - **AWS Compute Optimizer:** usa machine learning sobre as métricas de uso para recomendar o **tamanho ideal** de EC2, Auto Scaling groups, EBS, Lambda e tasks ECS no Fargate.
@@ -37,7 +37,7 @@
 ## ➕ Complemento
 
 - **Tags:** pares chave-valor nos recursos, usados para organizar, controlar acesso e separar custos (ver cost allocation tags em [4.4](../04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)).
-- **Disponibilidade do Health Dashboard:** gratuito para todos os clientes; a API exige plano Business ou superior.
+- **Disponibilidade do Health Dashboard:** gratuito para todos os clientes; a API exige plano Business Support+ ou superior (no modelo clássico, Business).
 
 ## ❓ Perguntas típicas
 

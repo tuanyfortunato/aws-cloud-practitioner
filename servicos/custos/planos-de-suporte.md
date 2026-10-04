@@ -64,6 +64,7 @@ Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em quest�
 - **AWS Health Dashboard** e **AWS Health API** ([ficha](../gerenciamento/health-dashboard.md)).
 - **TAM (Technical Account Manager):** consultor técnico proativo.
 - **Concierge Support Team:** especialistas em faturamento e conta.
+- **AWS Support Center:** onde se abrem e acompanham os casos de suporte (no console). No Basic, só casos de conta e faturamento.
 - **Quem muda o plano de suporte:** o **usuário root**.
 - Demais recursos (Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post): [recursos de ajuda e parceiros](recursos-de-ajuda-e-parceiros.md).
 

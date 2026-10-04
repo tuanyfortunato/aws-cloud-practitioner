@@ -20,7 +20,7 @@
 | AWS Cost Anomaly Detection | Detectar **gastos fora do padrão** com ML | Envia alertas com a causa provável |
 | Cost allocation tags | **Separar custos** por projeto, time, ambiente ou centro de custo | Tags definidas pelo usuário ou geradas pela AWS; precisam ser **ativadas** no console de Billing para aparecer nos relatórios |
 | AWS Organizations (consolidated billing) | **Fatura única** para várias contas | Soma o uso para descontos por volume; compartilha RIs e Savings Plans entre contas; sem custo extra |
-| AWS Billing Conductor | Faturamento personalizado | Para revendedores e grandes empresas que refaturam clientes ou áreas internas |
+| AWS Billing Conductor (❌ fora do escopo) | Faturamento personalizado | Para revendedores e grandes empresas que refaturam clientes ou áreas internas |
 | AWS Marketplace | Comprar **software de terceiros** | Cobrado na fatura AWS; AMIs, SaaS, contêineres, dados; licença por uso ou BYOL |
 | CloudWatch billing alarm | Alarme de custo baseado na métrica de cobrança | Alternativa simples ao Budgets |
 
