@@ -10,10 +10,12 @@
 
 | Dispositivo | Capacidade | Uso | Status 🔄 |
 |---|---|---|---|
-| **Snowball Edge Storage Optimized** | **210 TB** (antes 80 TB) | Migração de dezenas a centenas de TB / petabytes (vários dispositivos) | Só para **clientes existentes** desde 07/11/2025 |
-| **Snowball Edge Compute Optimized** | 104 vCPUs, GPU opcional | Computação na borda (navios, minas, campo militar) | Só clientes existentes |
+| **Snowball Edge Storage Optimized** | **210 TB** utilizáveis ✔️ (antes 80 TB) | Migração de dezenas a centenas de TB / petabytes (vários dispositivos) | Só para **clientes existentes** desde 07/11/2025 |
+| **Snowball Edge Compute Optimized** | Até 104 vCPUs ✔️ | Computação na borda (navios, minas, campo militar) | Só clientes existentes |
 | **Snowcone** | 8–14 TB, pequeno e leve | Borda e transferência pequena | Sem novos pedidos desde 12/11/2024; suporte encerrado em 12/11/2025 |
-| **Snowmobile** | Até **100 PB** (caminhão) | Exabytes | **Aposentado** em 2024 |
+| **Snowmobile** | Até **100 PB** (caminhão) | Exabytes | **Encerrado em 14/03/2024** ✔️ |
+
+> 🔄 ✔️ A página do produto anuncia o **fim do suporte comercial dos Snowball Edge Storage Optimized e Compute Optimized em 31/12/2026** nas regiões comerciais (exceção para clientes GovCloud/ADC com jobs ativos).
 
 ## Como funciona (Snowball)
 

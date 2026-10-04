@@ -21,9 +21,9 @@
 |---|---|
 | **Event history** | 📌 **90 dias** de management events, **grátis**, sem configurar nada (por região). |
 | **Trail** | Envia eventos continuamente para um **bucket S3** (e opcionalmente CloudWatch Logs e EventBridge) → retenção longa. Pode ser **multi-região** e de **organização** (todas as contas). |
-| **Log file integrity validation** | Arquivos *digest* com hash para provar que os logs não foram alterados. |
+| **Log file integrity validation** ✔️ | Arquivos *digest* com hash para provar que os logs não foram alterados. |
 | **Criptografia** | SSE-S3 por padrão; SSE-KMS opcional. |
-| **CloudTrail Lake** | Data store gerenciado com **consultas SQL** e retenção longa. 🔄 Fechado a novos clientes desde 30/04/2026. |
+| **CloudTrail Lake** | Data store gerenciado com **consultas SQL** e retenção longa. 🔄 Fechado a novos clientes desde **31/05/2026** (anúncio de 31/03/2026; uma verificação anterior citava 30/04/2026). Trails e Event history continuam. |
 | **Proteção dos logs** | Bucket com Object Lock/MFA Delete, política restrita, conta de logs separada. |
 
 ## Cobrança

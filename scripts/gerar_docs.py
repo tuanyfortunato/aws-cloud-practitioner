@@ -152,6 +152,7 @@ FICHAS_POR_TOPICO = {
 # ao exam guide oficial (verificação de 04/10/2026).
 ESCOPO_LINK = "docs/00-guia-do-exame/escopo-oficial.md"
 AVISOS = {
+    "2.2": "A lista oficial de tarefas do root mudou: **alterar o nome da conta** e **mudar o plano de suporte não exigem mais o root**. Continuam exclusivos, entre outros: alterar e-mail/senha do root, fechar conta standalone, restaurar administrador IAM, MFA Delete e desbloquear políticas de S3/SQS.",
     "3.2": "Na lista oficial atual, **Outposts** está no escopo, **Local Zones** não aparece e **Wavelength** está **fora do escopo**.",
     "3.9": "A **família Snow** e o **DataSync** não aparecem na lista oficial atual (o Snowball Edge está fechado a novos clientes); **FSx for Lustre** e **Transfer Family** estão **fora do escopo**.",
     "3.12": "No escopo: SageMaker AI, Amazon Q, Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate. **Bedrock** e **Kendra** não aparecem na lista atual; **Personalize** e **Fraud Detector** estão **fora do escopo**.",
@@ -194,6 +195,20 @@ CORRECOES = [
     ("| Business vs Enterprise On-Ramp vs Enterprise | Business = 24/7 e Trusted Advisor completo; On-Ramp = pool de TAMs, 30 min; Enterprise = TAM dedicado, 15 min |",
      "| Business Support+ vs Enterprise vs Unified Operations (atuais) | Business Support+ = US$ 29/conta, 30 min, Trusted Advisor completo; Enterprise = TAM designado, TA Priority, 15 min; Unified Operations = 5 min, monitoramento 24/7 |\n"
      "| Business vs Enterprise On-Ramp vs Enterprise (clássicos, até 01/01/2027) | Business = 24/7 e Trusted Advisor completo; On-Ramp = pool de TAMs, 30 min; Enterprise = TAM dedicado, 15 min |"),
+    ("  - Alterar configurações da conta (nome da conta, e-mail, senha do root e access keys do root).\n  - Fechar a conta AWS.\n  - Mudar ou cancelar o plano de AWS Support.\n",
+     "  - 🔄 Alterar o **e-mail**, a **senha** e as **access keys** do root (conta standalone). *O nome da conta, contatos e regiões **não** exigem root.*\n"
+     "  - Fechar a conta AWS (standalone).\n"
+     "  - 🔄 *Mudar o plano de AWS Support **saiu** da lista oficial atual (verificação de 10/2026).*\n"),
+    ("  - Editar ou apagar uma política de bucket S3 que bloqueou todo mundo.",
+     "  - Editar ou apagar uma política de bucket S3 (ou de fila SQS) que bloqueou todo mundo.\n"
+     "  - 🔄 Também na lista oficial: certas operações de Billing e faturas fiscais, inscrição no GovCloud, "
+     "autorizar a recuperação de uma chave KMS que ficou sem gerenciamento.\n"
+     "  - 🔄 Em AWS Organizations, a conta de gerenciamento pode executar centralmente tarefas privilegiadas das contas-membro "
+     "(gerenciamento centralizado de acesso root)."),
+    ('- "Qual destas tarefas exige o root?" → Fechar a conta, mudar o plano de suporte, alterar dados da conta ou restaurar permissões de administrador.',
+     '- "Qual destas tarefas exige o root?" → Fechar a conta, alterar o e-mail ou a senha do root, restaurar permissões de administrador ou configurar MFA Delete. (🔄 Mudar o plano de suporte e alterar o nome da conta **não** estão mais na lista oficial.)'),
+    ('- "Quem pode mudar o plano de suporte?" → O usuário root.',
+     '- "Quem pode mudar o plano de suporte?" → 🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.'),
     ('| "petabytes, slow internet" | Família Snow |',
      '| "petabytes, slow internet" | Família Snow (🔄 fora da lista atual; Snowball Edge só para clientes existentes) |'),
 ]

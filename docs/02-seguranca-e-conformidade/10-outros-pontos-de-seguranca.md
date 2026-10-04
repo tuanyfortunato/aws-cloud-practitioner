@@ -25,6 +25,15 @@
 - "Onde comprar ferramentas de segurança de terceiros?" → AWS Marketplace.
 
 <!-- extra:inicio -->
+## 🔄 Atualizações 2025-2026 e detalhes extras
+
+> ✔️ Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-pendencias-2026-10-rodada-2.md)), na página [Penetration Testing](https://aws.amazon.com/security/penetration-testing/).
+
+- **Pentest sem aprovação prévia** (na infraestrutura do próprio cliente): EC2, WAF, NAT Gateways, ELB, RDS, Aurora, CloudFront, API Gateway, AppSync, Lambda e Lambda@Edge, Lightsail, Elastic Beanstalk, ECS, Fargate, OpenSearch, FSx, Transit Gateway, Global Accelerator e Bedrock AgentCore.
+- **Exige aprovação prévia:** qualquer teste que inclua *Command and Control* (C2).
+- **Proibido:** enumeração de zonas, sequestro (*hijacking*) e *pharming* de DNS via Route 53; DoS/DDoS e simulações de DoS (salvo a política própria); *flooding* de portas, protocolos e requisições; tomada (*takeover*) de buckets S3 e de subdomínios.
+- **Simulação de DDoS:** tem política própria — só com parceiro de testes pré-aprovado, com Shield Advanced e respeitando limites de volume.
+- 📌 Na prova: "pentest no EC2 precisa de autorização?" → **não**; "simular DDoS livremente?" → **não**.
 <!-- extra:fim -->
 
 <!-- notas:inicio -->

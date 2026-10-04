@@ -1,0 +1,63 @@
+# Verificação das pendências — rodada 2 (04/10/2026)
+
+> Relatório recebido da sessão de verificação (prompt com URLs oficiais e trecho literal obrigatório).
+> N/I = a página não informa data de publicação/atualização. Trechos entre aspas são literais.
+
+| Item | Status | Valor oficial encontrado | Trecho literal | URL usada | Data |
+|---|---|---|---|---|---|
+| 1 | CONFIRMA | Transferência de S3, EC2 e ELB para as edges é gratuita quando corresponde a origin fetches do CloudFront; tráfego que não é origin fetch segue a cobrança regional. | "data transferred from origin to edge locations (Amazon CloudFront origin fetches) are free of charge." | CloudFront pricing (pay-as-you-go) | N/I |
+| 2 — SQS | CONFIRMA | 1 milhão de requisições/mês para todos os clientes; Always Free nos planos Free e Paid. | "All customers can make 1 million Amazon SQS requests for free each month." | SQS Pricing; Free Tier — integração | N/I |
+| 2 — SNS | CONFIRMA | 1 milhão de publicações/mês, Always Free; nem todas as modalidades de entrega são gratuitas. | "This always free service is on the Free and Paid plan."; "1,000,000 Publishes" | Free Tier — integração; SNS FAQ | N/I |
+| 2 — CloudWatch | CONFIRMA PARCIAL | 10 métricas (customizadas + detailed monitoring, compartilhadas) e 10 métricas de alarme de resolução padrão. Não confirma "10 alarmes" de qualquer tipo. | "10 Metrics (of Custom Metrics and Detailed Monitoring Metrics)"; "10 Alarm metrics" | CloudWatch Pricing; Free Tier — segurança | N/I |
+| 2 — outros | CONFIRMA | Always Free nas páginas por categoria: Lambda, Step Functions, DynamoDB, Aurora DSQL, Cognito, Organizations, Shield Standard, KMS, CloudTrail, Artifact (Paid plan), CodeCatalyst, CodePipeline, CloudFormation, Systems Manager, CDK, X-Ray. | "30+ AWS services are always free within monthly usage limits on both the Free and Paid plans." | aws.amazon.com/free (principal e categorias) | N/I |
+| 3 | CONFIRMA | Reserva ociosa é cobrada pela tarifa On-Demand; quando ocupada, paga-se a instância, sem cobrança duplicada; descontos elegíveis se aplicam. | "Capacity Reservations are charged at the equivalent On-Demand rate whether you run instances in reserved capacity or not" | EC2 — capacity reservations pricing/billing | N/I |
+| 4a | CONFIRMA | RI zonal reserva capacidade na AZ; regional não reserva. | "A regional Reserved Instance does not reserve capacity."; "A zonal Reserved Instance reserves capacity in the specified Availability Zone." | RI — escopo | N/I |
+| 4b | CONFIRMA | Convertible trocável por outra Convertible (família, SO, tenancy), de valor igual ou superior. | "including instance family, operating system, and tenancy"; "of an equal or higher value" | Convertible — exchange | N/I |
+| 4c | CONFIRMA | Standard (regional e zonal) pode ser vendida; Convertible não. | "Only Amazon EC2 Standard regional and zonal Reserved Instances can be sold"; "Amazon EC2 Convertible Reserved Instances can't be sold" | RI Marketplace | N/I |
+| 5a | CONFIRMA | Data Exports oferece CUR 2.0 (recomendado) e FOCUS 1.2/1.0 com colunas AWS; o CUR legado continua listado. | "Cost and Usage Report 2.0 (CUR 2.0)"; "FOCUS 1.2 with AWS columns" | Data Exports | N/I |
+| 5b | CONFIRMA | Cost Anomaly Detection é gratuito. | "AWS Cost Anomaly Detection is a free service" | What's New (16/12/2020); FAQ | 16/12/2020 |
+| 6 | DIVERGE | Lista atual de tarefas do root: alterar e-mail/senha/access keys root (conta standalone); fechar conta standalone; restaurar administrador IAM; habilitar acesso IAM ao Billing; certas operações de Billing e faturas fiscais; GovCloud (inscrição e access keys root); vendedor no RI Marketplace; autorização para recuperar chave KMS sem gerenciamento; vincular conta ao MTurk; MFA Delete; desbloquear políticas S3 e SQS. **Nome da conta não exige root. Alterar/cancelar Support não aparece na lista atual.** Organizations permite gestão central de tarefas privilegiadas das contas-membro. | "Other account settings, such as account name, contact information, alternate contacts, payment currency preference, and AWS Regions, don't require root user credentials." | IAM — root user tasks | N/I |
+| 7a | CONFIRMA | Trails não registram data events por padrão. | "By default, trails do not log data events." | CloudTrail — data events | N/I |
+| 7b | CONFIRMA | Uma cópia dos management events entregue por trails é gratuita (custos do S3 se aplicam). | "one copy of your ongoing management events"; "for free" | CloudTrail Pricing | N/I |
+| 7c | CONFIRMA | Validação de integridade com hashes, assinatura digital e digest files. | "When you enable log file integrity validation, CloudTrail creates a hash for every log file that it delivers." | Log file integrity validation | N/I |
+| 7d | CONFIRMA | Event history: últimos 90 dias de management events, sem custo. | "most recent 90-day history"; "at no additional cost" | CloudTrail Pricing | N/I |
+| 8a | CONFIRMA | Padrões incluem FSBP, CIS AWS Foundations, PCI DSS, NIST SP 800-53 Rev. 5 e AWS Resource Tagging (há outros). | "AWS Foundational Security Best Practices"; "CIS AWS Foundations Benchmark"; "PCI DSS"; "NIST SP 800-53 Revision 5" | Padrões Security Hub CSPM | N/I |
+| 8b | CONFIRMA PARCIAL | Config é usado na maioria dos controles. Com CSPM + Security Hub, o recorder é criado automaticamente; só com CSPM, é preciso habilitar o Config manualmente. | "uses AWS Config rules to run security checks and generate findings for most controls."; "You don't need to manually enable or configure AWS Config." | Pré-requisitos | N/I |
+| 9a | CONFIRMA | Sem aprovação prévia: EC2, WAF, NAT Gateways, ELB, RDS, CloudFront, Aurora, API Gateway, AppSync, Lambda/Lambda@Edge, Lightsail, Elastic Beanstalk, ECS, Fargate, OpenSearch, FSx, Transit Gateway, Bedrock AgentCore, Global Accelerator. Testes com C2 exigem aprovação. | "without prior approval"; "All security testing that includes Command and Control (C2) requires prior approval." | Penetration testing | N/I |
+| 9b | CONFIRMA PARCIAL | Proibidos: enumeração de zonas, sequestro e pharming DNS via Route 53; DoS/DDoS e simulações (salvo política própria); flooding de portas, protocolos e requisições; tomada de buckets S3 e de subdomínios. "DNS flooding" não aparece nominalmente. | "Protocol flooding"; "S3 bucket takeover"; "Subdomain Takeover" | Atividades proibidas | N/I |
+| 9c | CONFIRMA | Simulação de DDoS tem política própria (parceiro pré-aprovado, Shield Advanced, limites). | "DDoS simulation testing is permitted on AWS, subject to the following Terms and Conditions." | DDoS Simulation Testing | N/I |
+| 10a | CONFIRMA | 30 dias sem acesso → Infrequent Access; 90 dias → Archive Instant Access. | "30 consecutive days"; "90 days of no access" | Intelligent-Tiering | N/I |
+| 10b | CONFIRMA | Archive Access e Deep Archive Access são opcionais. | "Archive Access tier (optional)"; "Deep Archive Access tier (optional)" | Camadas de acesso | N/I |
+| 10c | DIVERGE | Há taxa mensal de monitoramento/automação por objeto. Recuperações Standard e Bulk são gratuitas, mas **Expedited em Archive Access é cobrada**. | "monthly object monitoring and automation charge"; "are charged at the Expedited request and retrieval rate." | Intelligent-Tiering; S3 Pricing | N/I |
+| 10d | CONFIRMA | Objetos < 128 KB não são monitorados, ficam em Frequent Access e não pagam monitoramento. | "objects smaller than 128 KB are not eligible for auto tiering" | Intelligent-Tiering | N/I |
+| 11 | CONFIRMA | Cada conexão Site-to-Site VPN tem dois túneis com IPs públicos únicos, em AZs distintas. | "Each Site-to-Site VPN connection has two tunnels, with each tunnel using a unique public IP address." | VPN tunnels | N/I |
+| 12a | CONFIRMA | Multi-AZ DB instance: standby sem leitura. Multi-AZ DB cluster: 1 writer e 2 readers em 3 AZs, com failover. | "a writer DB instance and two reader DB instances in three separate Availability Zones"; "doesn't serve read traffic" | RDS Multi-AZ | N/I |
+| 12b | CONFIRMA | Multi-AZ DB cluster disponível para RDS for MySQL e PostgreSQL. | "Multi-AZ DB clusters with RDS for MySQL"; "Multi-AZ DB clusters with RDS for PostgreSQL" | Engines e regiões | N/I |
+| 13 | CONFIRMA | Até 8 dispositivos MFA para o root e para cada usuário IAM. | "Your AWS account root user and IAM users can register up to eight MFA devices of any type." | IAM MFA | N/I |
+| 14 | CONFIRMA | Expedited do Glacier Flexible Retrieval: objetos < 250 MB em 1–5 minutos. | "Objects under 250 megabytes in size are typically made available within 1–5 minutes" | Archive retrieval options | N/I |
+| 15a | CONFIRMA | OAC é o recomendado; OAI é legado (ainda documentado). | "Use an origin access identity (legacy, not recommended)"; "We recommend that you use OAC instead." | Restringir origem S3 | N/I |
+| 15b | CONFIRMA | Functions: JavaScript, submilissegundo, viewer request/response, sem rede. Lambda@Edge: Node.js/Python, viewer e origin, com rede. | "JavaScript (ECMAScript 5.1 compliant)"; "Node.js and Python"; "Submillisecond" | Comparação de funções | N/I |
+| 16a | CONFIRMA | Elastic é o throughput padrão e recomendado. | "Elastic throughput (Recommended) – Use the default Elastic throughput" | EFS performance | N/I |
+| 16b | CONFIRMA | Classes: Standard, Infrequent Access e Archive. | "EFS Standard"; "EFS Infrequent Access (IA)"; "EFS Archive" | EFS features | N/I |
+| 17 | CONFIRMA | Organizações criadas pelo console após 10/07/2026 recebem na raiz uma SCP que nega `organizations:LeaveOrganization` e `account:CloseAccount` às contas-membro (Sid DenyLeaveOrganizationAndCloseAccount). Não vale para organizações anteriores nem criadas por API/CLI/SDK/CloudFormation. | "after July 10, 2026 automatically receive this SCP at the root." | Organizations — management account; default security controls | vigência 10/07/2026 |
+| 18a | CONFIRMA | CodeWhisperer passou a integrar o Amazon Q Developer em 30/04/2024. | "On April 30, 2024, Amazon CodeWhisperer became a part of Amazon Q Developer." | Q Developer — rename | 30/04/2024 |
+| 18b | CONFIRMA | Conteúdo do cliente não melhora os modelos base nem é compartilhado com provedores. | "your content is not used to improve the base models and is not shared with any model providers." | Bedrock FAQ | N/I |
+| 19 | CONFIRMA PARCIAL | Storage Optimized com 210 TB utilizáveis e Compute Optimized com até 104 vCPUs. A página do produto anuncia fim do suporte comercial em 31/12/2026 (a lista geral de encerramentos tem entrada conflitante "AWS Snowball Edge — 12/11/2025"). | "210 TB of usable storage capacity"; "up to 104 vCPUs" | Snowball hardware; produto; encerramentos | N/I |
+| 20a | CONFIRMA | WorkDocs: fim do suporte em 25/04/2025 (página "Services in Full Shutdown"). | "Amazon WorkDocs"; "April 25, 2025" | Services in Full Shutdown | N/I |
+| 20b | CONFIRMA | Snowmobile: fim do suporte em 14/03/2024. | "AWS Snowmobile"; "March 14, 2024" | Services in Full Shutdown | N/I |
+| 21 | CONFIRMA | Enterprise Support inclui workshops conduzidos pelo TAM e AWS GameDays (e exercícios de segurança). Skill Builder incluído e benefício equivalente no Business Support+ não encontrados. | "build team expertise through TAM-led workshops and AWS GameDays." | Enterprise Support | N/I |
+
+## Correções (itens DIVERGE)
+
+- **6:** retirar o nome da conta das tarefas exclusivas do root e acrescentar as exceções de administração central das contas-membro; alterar/cancelar o plano de Support não consta da lista atual.
+- **10c:** "recuperações Standard e Bulk são gratuitas; Expedited em Archive Access é cobrado, além do monitoramento/automação dos objetos elegíveis".
+
+## Outras mudanças relevantes encontradas
+
+- **Free Tier:** Always Free existe independentemente da idade da conta. O Free plan dura até 6 meses ou até esgotar os créditos; os créditos podem ter validade de 12 meses (conceitos diferentes).
+- **CloudFront:** planos mensais Free, Pro, Business e Premium (US$ 0, 15, 200 e 1.000 **por distribuição**) além de Custom; pay-as-you-go continua separado.
+- **CloudTrail Lake:** deixou de aceitar novos clientes em 31/05/2026 (anúncio de 31/03/2026); trails e Event history continuam.
+- **Snowball:** encerramento dos dispositivos Storage Optimized e Compute Optimized nas regiões comerciais em 31/12/2026 (exceção para clientes GovCloud/ADC com jobs ativos).
+- **Amazon Q Developer:** plugins de IDE com fim de suporte em 30/04/2027; a documentação aponta o Kiro como alternativa.
+- **Lista de tarefas do root** ainda inclui vinculação ao MTurk, embora o Mechanical Turk tenha sido encerrado em 29/09/2026.
+- **Histórico do Organizations:** document-history.html declara "Latest documentation update: June 22, 2026", mas contém registros até 25/09/2026.

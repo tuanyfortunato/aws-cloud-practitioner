@@ -12,7 +12,7 @@
 |---|---|
 | **Objetivo** | Ligar o **datacenter/escritório** à VPC por **IPsec pela internet**. |
 | **Componentes** | **Customer Gateway** (seu roteador/firewall) ↔ **Virtual Private Gateway** (na VPC) ou **Transit Gateway**. |
-| **Redundância** | Cada conexão tem **2 túneis** em endpoints diferentes. |
+| **Redundância** | ✔️ Cada conexão tem **2 túneis**, cada um com IP público próprio, terminando em AZs distintas; configure os dois. |
 | **Roteamento** | Estático ou dinâmico (**BGP**). |
 | **Accelerated VPN** | Usa a rede do Global Accelerator para melhor desempenho. |
 | **VPN CloudHub** | Vários escritórios se comunicam via o mesmo VGW (hub-and-spoke). |

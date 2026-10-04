@@ -73,17 +73,17 @@ Security groups e criptografia dos dados são segurança **na** nuvem (cliente).
 
 Qual destas tarefas só pode ser realizada pelo usuário root da conta AWS?
 
-- **A)** Lançar uma instância EC2
-- **B)** Alterar o plano de AWS Support
-- **C)** Visualizar a fatura mensal
-- **D)** Criar um usuário IAM com permissões de administrador
+- **A)** Visualizar a fatura mensal
+- **B)** Fechar uma conta AWS independente (standalone)
+- **C)** Criar um usuário IAM com permissões de administrador
+- **D)** Alterar o nome da conta
 
 <details>
 <summary>Ver resposta</summary>
 
 **Resposta: B**
 
-Alterar ou cancelar o **plano de suporte** exige o root, assim como fechar a conta e mudar dados da conta. Criar usuários IAM, ver faturas (com permissão) e lançar instâncias podem ser feitos por identidades IAM.
+**Fechar uma conta standalone** está na lista oficial de tarefas exclusivas do root, junto com alterar o e-mail ou a senha do root, restaurar permissões de um administrador IAM e configurar MFA Delete. ⚠️ Pegadinha: segundo a documentação atual do IAM, **o nome da conta, contatos e regiões não exigem root**, e mudar o plano de suporte também saiu da lista. Criar usuários IAM e ver faturas (com permissão) podem ser feitos por identidades IAM.
 
 </details>
 

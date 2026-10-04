@@ -30,7 +30,7 @@
 
 ## Cobrança
 
-- Camada gratuita (métricas básicas, 10 métricas customizadas, 10 alarmes, 5 GB de logs…); depois por métrica customizada, alarme, GB de log ingerido/armazenado, consulta, dashboard, canary.
+- Camada gratuita ✔️ (Always Free): métricas básicas, **10 métricas** (customizadas + detailed monitoring, somadas) e **10 métricas de alarme** de resolução padrão, além de cota de logs; depois por métrica customizada, alarme, GB de log ingerido/armazenado, consulta, dashboard, canary.
 
 ## ⚠️ Não confundir
 

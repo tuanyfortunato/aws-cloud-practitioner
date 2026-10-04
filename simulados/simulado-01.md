@@ -381,17 +381,17 @@ Na adoção de nuvem de uma empresa, um grupo cuida de treinar os funcionários,
 
 Qual destas tarefas só pode ser realizada pelo usuário root da conta AWS?
 
-- **A)** Visualizar a fatura mensal
-- **B)** Criar um usuário IAM com permissões de administrador
-- **C)** Alterar o plano de AWS Support
-- **D)** Lançar uma instância EC2
+- **A)** Criar um usuário IAM com permissões de administrador
+- **B)** Alterar o nome da conta
+- **C)** Fechar uma conta AWS independente (standalone)
+- **D)** Visualizar a fatura mensal
 
 <details>
 <summary>Ver resposta</summary>
 
 **Resposta: C**
 
-Alterar ou cancelar o **plano de suporte** exige o root, assim como fechar a conta e mudar dados da conta. Criar usuários IAM, ver faturas (com permissão) e lançar instâncias podem ser feitos por identidades IAM.
+**Fechar uma conta standalone** está na lista oficial de tarefas exclusivas do root, junto com alterar o e-mail ou a senha do root, restaurar permissões de um administrador IAM e configurar MFA Delete. ⚠️ Pegadinha: segundo a documentação atual do IAM, **o nome da conta, contatos e regiões não exigem root**, e mudar o plano de suporte também saiu da lista. Criar usuários IAM e ver faturas (com permissão) podem ser feitos por identidades IAM.
 
 </details>
 

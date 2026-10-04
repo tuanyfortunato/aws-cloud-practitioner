@@ -16,7 +16,7 @@
 | **Guardrails** | Filtros de conteúdo nocivo, tópicos proibidos, **dados sensíveis (PII)**, alucinação (*grounding*). |
 | **Customização** | Fine-tuning, continued pre-training, distillation (sem gerenciar infraestrutura). |
 | **Avaliação** | Comparar modelos (automática ou humana). |
-| **Privacidade** | Seus prompts e dados **não** são usados para treinar os modelos base; dados ficam na região; PrivateLink. |
+| **Privacidade** | ✔️ Seus prompts e dados **não** são usados para melhorar os modelos base nem compartilhados com os provedores dos modelos; dados ficam na região; PrivateLink. |
 | **Playgrounds** | Testar modelos no console. |
 
 ## Cobrança

@@ -226,7 +226,7 @@ Concierge Support Team.
 <details>
 <summary>Quem pode mudar o plano de suporte?</summary>
 
-O usuário root.
+🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.
 </details>
 
 

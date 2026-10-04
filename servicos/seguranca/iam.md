@@ -54,7 +54,7 @@
 
 | Prática | Detalhe |
 |---|---|
-| **MFA** | Virtual (app), chave de segurança FIDO2/**passkey**, token de hardware TOTP. Pode ser exigido via condição. |
+| **MFA** | Virtual (app), chave de segurança FIDO2/**passkey**, token de hardware TOTP ✔️; até 8 dispositivos por identidade. Pode ser exigido via condição. |
 | **Password policy** | Tamanho, complexidade, expiração, reuso. |
 | **Menor privilégio** | Começar com o mínimo; usar Access Analyzer para gerar políticas. |
 | **Credenciais temporárias** | Preferir roles e Identity Center a access keys de longo prazo. |
@@ -95,6 +95,8 @@
 - **SCP não concede** permissão.
 - **Identity Center** (funcionários, SSO multi-conta) × **Cognito** (usuários finais de apps).
 - Criar usuários IAM e ver a fatura (com permissão) **não** exigem root.
+- ✔️ 🔄 **Alterar o nome da conta**, contatos, contatos alternativos, moeda de pagamento e regiões **não exigem root**; **mudar o plano de suporte** também saiu da lista oficial de tarefas do root.
+- ✔️ Até **8 dispositivos MFA** de qualquer tipo por usuário IAM e para o root.
 
 ## ❓ Perguntas típicas
 

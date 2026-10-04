@@ -19,7 +19,7 @@
 | **Tipo de file system** | **Regional** (dados em várias AZs — padrão) ou **One Zone** (uma AZ, mais barato). |
 | **Classes de armazenamento** | **Standard**, **Infrequent Access (IA)** e **Archive**. |
 | **Lifecycle management** | Move arquivos sem acesso para IA/Archive após N dias e de volta ao Standard quando acessados. |
-| **Throughput mode** | **Elastic** (padrão, escala automática, paga pelo uso), **Provisioned** ou **Bursting**. |
+| **Throughput mode** | ✔️ **Elastic** (padrão e recomendado, escala automática, paga pelo uso), **Provisioned** (cargas previsíveis) ou **Bursting**. |
 | **Performance mode** | General Purpose (padrão, menor latência) ou Max I/O (legado). |
 | **Criptografia** | Em repouso (KMS, definida na criação) e em trânsito (TLS no mount helper). |
 | **Acesso** | IAM, *access points* (diretório raiz e usuário POSIX por aplicação), security groups. |

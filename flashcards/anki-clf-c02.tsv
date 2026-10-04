@@ -53,7 +53,7 @@ Qual é um controle herdado da AWS?	Controles físicos e ambientais.	CLF-C02 dom
 Ao trocar EC2 por Lambda, o que muda?	A responsabilidade do cliente diminui (SO e runtime passam para a AWS).	CLF-C02 dominio-2 secao-2_1
 Quem é responsável pela segurança dos dados no S3?	O cliente (políticas, acesso e criptografia).	CLF-C02 dominio-2 secao-2_1
 Qual é a boa prática para o usuário root?	Ativar MFA, não criar access keys e usá-lo só para tarefas que o exigem.	CLF-C02 dominio-2 secao-2_2
-Qual destas tarefas exige o root?	Fechar a conta, mudar o plano de suporte, alterar dados da conta ou restaurar permissões de administrador.	CLF-C02 dominio-2 secao-2_2
+Qual destas tarefas exige o root?	Fechar a conta, alterar o e-mail ou a senha do root, restaurar permissões de administrador ou configurar MFA Delete. (🔄 Mudar o plano de suporte e alterar o nome da conta não estão mais na lista oficial.)	CLF-C02 dominio-2 secao-2_2
 Qual tarefa NÃO exige o root?	Criar usuários IAM, ver a fatura (com permissão) ou lançar instâncias.	CLF-C02 dominio-2 secao-2_2
 O que fazer logo após criar a conta?	Proteger o root com MFA e criar identidades administrativas para o dia a dia.	CLF-C02 dominio-2 secao-2_2
 Uma aplicação no EC2 precisa ler um bucket S3. Qual a forma mais segura?	Anexar uma IAM role à instância.	CLF-C02 dominio-2 secao-2_3
@@ -293,7 +293,7 @@ Qual plano responde em menos de 1 hora a produção fora do ar?	Business Support
 Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail.	Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).	CLF-C02 dominio-4 secao-4_5
 O plano Basic oferece suporte técnico?	Não; só atendimento de conta e faturamento, documentação e re:Post.	CLF-C02 dominio-4 secao-4_5
 Quem ajuda com dúvidas de faturamento em planos Enterprise?	Concierge Support Team.	CLF-C02 dominio-4 secao-4_5
-Quem pode mudar o plano de suporte?	O usuário root.	CLF-C02 dominio-4 secao-4_5
+Quem pode mudar o plano de suporte?	🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.	CLF-C02 dominio-4 secao-4_5
 Encontrar um parceiro certificado para implementar a migração.	AWS Partner Network.	CLF-C02 dominio-4 secao-4_6
 Contratar consultoria diretamente da AWS.	AWS Professional Services.	CLF-C02 dominio-4 secao-4_6
 Terceirizar a operação diária da infraestrutura para a AWS.	AWS Managed Services.	CLF-C02 dominio-4 secao-4_6
