@@ -1,0 +1,13 @@
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Nunca versionar credenciais da AWS
+.aws/
+*.pem
+*.key
+credentials
+.env
