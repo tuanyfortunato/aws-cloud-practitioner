@@ -3,6 +3,8 @@
 > **Categoria:** IA generativa / assistentes · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 >
 > **Em uma frase:** família de **assistentes de IA generativa** prontos para desenvolvedores e para dados corporativos.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Variantes
 
@@ -15,7 +17,7 @@
 
 ## 🔄 Atualizações 2025-2026
 
-- Parte dos recursos do Q Business foi incorporada ao **Amazon Quick Suite** (com o QuickSight). Na prova: "assistente de IA generativa para funcionários/desenvolvedores" → **Amazon Q**.
+- **Amazon Q Business** entrou em manutenção e **não aceita novos clientes desde 30/07/2026**; aplicações existentes podem ser **conectadas** ao Amazon Quick Suite. O **Amazon Q** continua na lista oficial: "assistente de IA generativa para funcionários/desenvolvedores" → **Amazon Q**.
 
 ## ❓ Perguntas típicas
 

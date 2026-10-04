@@ -3,6 +3,8 @@
 > **Categoria:** CDN / entrega de conteúdo · **Domínio:** 3 (e 2: proteção na borda) · **Escopo:** **Global** (edge locations) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** rede de distribuição de conteúdo (CDN) que faz **cache** perto dos usuários, reduzindo latência e carga na origem.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 
@@ -31,7 +33,7 @@
 
 - Transferência de saída para a internet (por região de edge) + requisições HTTP/HTTPS + invalidações, Functions, Lambda@Edge.
 - **Transferência da origem AWS para o CloudFront é gratuita.**
-- 🔄 Existem também planos de preço fixo mensal que agrupam CDN, WAF e proteção DDoS (🧊 fora da prova).
+- 🔄 **Planos de preço fixo** (desde 18/11/2025): um valor mensal que agrupa CDN, WAF, proteção DDoS, Route 53, CloudWatch Logs, edge compute e créditos de S3, sem cobrança por excedente — Free (US$ 0), Pro (US$ 15), Business (US$ 200) e Premium (US$ 1.000). 🧊 Não cai na prova.
 
 ## Segurança e responsabilidade compartilhada
 

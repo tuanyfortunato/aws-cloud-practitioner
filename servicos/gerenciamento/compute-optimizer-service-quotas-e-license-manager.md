@@ -3,6 +3,8 @@
 > **Categoria:** Gerenciamento / otimização e governança · **Domínio:** 3 e 4 · **Escopo:** Regional · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 >
 > **Em uma frase:** ferramentas para dimensionar recursos, controlar limites e licenças, e organizar o ambiente.
+>
+> **Escopo oficial:** ✅ No escopo (Launch Wizard ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## AWS Compute Optimizer
 

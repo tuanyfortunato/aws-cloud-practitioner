@@ -3,6 +3,8 @@
 > **Categoria:** Rede · **Domínio:** 2 (segurança de rede) e 3 · **Escopo:** **Regional** (subnets em AZs) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) · [2.8 Proteção de rede](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 >
 > **Em uma frase:** sua rede privada, isolada logicamente, dentro de uma região da AWS.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Componentes
 

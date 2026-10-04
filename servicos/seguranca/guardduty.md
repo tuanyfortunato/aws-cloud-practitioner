@@ -3,6 +3,8 @@
 > **Categoria:** Segurança / detecção de ameaças · **Domínio:** 2 · **Escopo:** Regional (multi-conta via Organizations) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 >
 > **Em uma frase:** detecção inteligente e contínua de **ameaças ativas** usando machine learning, detecção de anomalias e inteligência de ameaças.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Fontes de dados
 

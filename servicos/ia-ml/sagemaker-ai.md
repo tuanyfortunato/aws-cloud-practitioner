@@ -3,6 +3,8 @@
 > **Categoria:** IA / machine learning · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 >
 > **Em uma frase:** plataforma completa para **construir, treinar e implantar modelos de ML próprios**.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Ciclo de ML e recursos
 

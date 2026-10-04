@@ -27,3 +27,9 @@ Acrescente a pergunta na seção *Perguntas típicas* do tópico em
 ```
 
 e rode o script. Os arquivos desta pasta são sobrescritos a cada execução.
+
+## ⚠️ Atenção: planos de suporte
+
+Os cards do Domínio 4 sobre planos de suporte vêm do guia original e descrevem o **modelo clássico**
+(Developer, Business, Enterprise On-Ramp). O exam guide atual cobra os **planos novos** (Basic, Business Support+,
+Enterprise, Unified Operations) — veja a [ficha de planos de suporte](../servicos/custos/planos-de-suporte.md).

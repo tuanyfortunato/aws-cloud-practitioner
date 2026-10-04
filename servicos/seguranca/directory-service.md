@@ -3,6 +3,8 @@
 > **Categoria:** Segurança / identidade · **Domínio:** 2 · **Escopo:** Regional (em VPC) · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
 >
 > **Em uma frase:** Microsoft Active Directory gerenciado na AWS, ou ponte para o AD on-premises.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Opções
 
@@ -10,7 +12,7 @@
 |---|---|---|
 | **AWS Managed Microsoft AD** | AD real gerenciado (controladores em 2 AZs) | Aplicações que dependem de AD (SQL Server, FSx for Windows, WorkSpaces); trust com AD on-premises |
 | **AD Connector** | Proxy que redireciona autenticação para o **AD on-premises** (sem guardar dados na nuvem) | Usar o AD existente com WorkSpaces, Identity Center, console |
-| **Simple AD** | Diretório compatível com AD (Samba), básico e barato | Necessidades simples |
+| **Simple AD** | Diretório compatível com AD (Samba), básico e barato | 🔄 Fechado a novos clientes desde 30/07/2026 |
 
 ## ❓ Perguntas típicas
 

@@ -3,6 +3,8 @@
 > **Categoria:** Segurança de rede · **Domínio:** 2 · **Escopo:** Organização (Firewall Manager) / VPC (Network Firewall) · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 >
 > **Em uma frase:** o Firewall Manager **governa** regras de firewall em todas as contas; o Network Firewall **é** um firewall gerenciado para a VPC.
+>
+> **Escopo oficial:** 🔀 Firewall Manager ✅ · Network Firewall ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## AWS Firewall Manager
 

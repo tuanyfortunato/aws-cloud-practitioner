@@ -3,6 +3,8 @@
 > **Categoria:** Rede / conectividade híbrida · **Domínio:** 3 · **Escopo:** Local Direct Connect ↔ regiões · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** conexão de rede **física, dedicada e privada** entre seu datacenter e a AWS, sem passar pela internet.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 

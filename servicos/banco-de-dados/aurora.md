@@ -3,6 +3,8 @@
 > **Categoria:** Banco relacional nativo da AWS · **Domínio:** 3 · **Escopo:** Regional (cluster multi-AZ); Global Database multi-região · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco relacional compatível com MySQL e PostgreSQL, com desempenho e disponibilidade de nível comercial a custo de open source.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 

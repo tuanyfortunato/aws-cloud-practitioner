@@ -3,6 +3,8 @@
 > **Categoria:** Ferramentas de desenvolvedor / DevOps · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.15 Ferramentas de desenvolvimento](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)
 >
 > **Em uma frase:** serviços gerenciados que cobrem a esteira **código → build → teste → deploy**.
+>
+> **Escopo oficial:** 🔀 CodeBuild e CodePipeline ✅ · CodeDeploy e CodeArtifact ❌ fora do escopo · CodeCommit e CodeStar ⚪ não listados · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Visão da esteira
 
@@ -22,6 +24,10 @@ CodeCommit / GitHub ──▶ CodeBuild ──▶ (testes) ──▶ CodeDeploy 
 | **CodeGuru** | Revisão de código e profiling com ML | 🧊 Parte dos recursos foi descontinuada/absorvida pelo Amazon Q Developer. |
 | **AWS CodeStar** | Gestão de projetos de CI/CD | 🔄 **Descontinuado** (31/07/2024) — ainda listado no exam guide. |
 | **Amazon CodeCatalyst** | Plataforma unificada de desenvolvimento | 🧊 |
+
+## 🎯 Escopo da prova
+
+- No escopo: **CodeBuild** e **CodePipeline** (além de X-Ray e CLI). **CodeDeploy**, **CodeArtifact** e **CodeGuru** estão **fora do escopo**; CodeCommit e CodeStar não aparecem. CodeCatalyst e CodeGuru Reviewer estão fechados a novos clientes desde 07/11/2025.
 
 ## Cobrança
 

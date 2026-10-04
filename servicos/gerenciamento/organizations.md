@@ -3,6 +3,8 @@
 > **Categoria:** Gerenciamento / governança multi-conta · **Domínio:** 2 e 4 (faturamento consolidado) · **Escopo:** **Global** · **Gratuito** · **Tópico do guia:** [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 >
 > **Em uma frase:** gerencia várias contas AWS de forma centralizada, com políticas e **uma fatura única**.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Estrutura
 

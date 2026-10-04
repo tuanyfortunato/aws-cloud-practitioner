@@ -3,6 +3,8 @@
 > **Categoria:** Integração de aplicações / eventos · **Domínio:** 3 · **Escopo:** Regional (cross-account e cross-region) · **Tópico do guia:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 >
 > **Em uma frase:** **barramento de eventos** serverless que recebe eventos de serviços AWS, das suas aplicações e de parceiros SaaS e os roteia por **regras**.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Componentes
 

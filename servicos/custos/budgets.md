@@ -3,6 +3,8 @@
 > **Categoria:** Gestão de custos · **Domínio:** 4 · **Escopo:** Conta / organização · **Tópico do guia:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 >
 > **Em uma frase:** define orçamentos de custo e uso e **alerta** (ou **age**) quando o valor real ou **previsto** ultrapassa o limite.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Tipos de orçamento
 
@@ -26,7 +28,7 @@
 
 ## Cobrança
 
-- Orçamentos de monitoramento são gratuitos; orçamentos com **actions** têm taxa diária pequena após os dois primeiros (🧊).
+- Orçamentos de monitoramento são gratuitos; os **dois primeiros** orçamentos com **actions** são grátis por mês e os demais custam **US$ 0,10/dia**; cada relatório do Budgets Reports custa US$ 0,01 (🧊).
 
 ## ⚠️ Não confundir
 

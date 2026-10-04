@@ -3,6 +3,8 @@
 > **Categoria:** Segurança / proteção DDoS · **Domínio:** 2 · **Escopo:** Global (borda) e regional · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 >
 > **Em uma frase:** proteção gerenciada contra ataques de negação de serviço distribuída (DDoS).
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Standard × Advanced
 

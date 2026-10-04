@@ -3,6 +3,8 @@
 > **Categoria:** Gerenciamento / auditoria · **Domínio:** 2 · **Escopo:** Regional (trails multi-região e de organização) · **Tópico do guia:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)
 >
 > **Em uma frase:** registra as **chamadas de API** da conta — quem fez, o quê, quando, de onde e em qual recurso.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Tipos de eventos
 
@@ -21,7 +23,7 @@
 | **Trail** | Envia eventos continuamente para um **bucket S3** (e opcionalmente CloudWatch Logs e EventBridge) → retenção longa. Pode ser **multi-região** e de **organização** (todas as contas). |
 | **Log file integrity validation** | Arquivos *digest* com hash para provar que os logs não foram alterados. |
 | **Criptografia** | SSE-S3 por padrão; SSE-KMS opcional. |
-| **CloudTrail Lake** | Data store gerenciado com **consultas SQL** e retenção longa; pode ingerir eventos de fora da AWS. |
+| **CloudTrail Lake** | Data store gerenciado com **consultas SQL** e retenção longa. 🔄 Fechado a novos clientes desde 30/04/2026. |
 | **Proteção dos logs** | Bucket com Object Lock/MFA Delete, política restrita, conta de logs separada. |
 
 ## Cobrança

@@ -4,6 +4,8 @@
 
 > 🔎 **Fichas detalhadas:** [Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact](../../servicos/desenvolvimento/code-services.md) · [AWS X-Ray](../../servicos/desenvolvimento/x-ray.md) · [Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
 
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo só ficaram **AWS CLI, CodeBuild, CodePipeline e X-Ray**. CodeDeploy, CodeArtifact e CloudShell estão **fora do escopo**; Cloud9, CodeCommit e CodeStar não aparecem. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
 ⬅️ [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) · 🏠 [Índice do domínio](README.md) · [3.16 Gestão e governança](16-gestao-e-governanca.md) ➡️
 
 ---
@@ -36,7 +38,7 @@
   - **CodeCommit:** voltou a **GA e aberto a novos clientes em 24/11/2025** (tinha sido fechado em 2024).
   - **Cloud9:** fechado para novos clientes desde 25/07/2024 → alternativa: **CloudShell** (shell no navegador, autenticado, com CLI).
   - **CodeStar:** descontinuado em 31/07/2024.
-  - Como o exam guide ainda lista Cloud9 e CodeStar, saiba o propósito: Cloud9 = IDE no navegador; CodeStar = gerenciar projetos de CI/CD.
+  - ✔️ Verificado em 04/10/2026: Cloud9, CodeStar e CodeCommit **não estão** na lista atual; no escopo ficaram **CLI, CodeBuild, CodePipeline e X-Ray**. Saiba só o propósito dos outros: Cloud9 = IDE no navegador; CodeStar = projetos de CI/CD.
 - **AppConfig** = feature flags/configuração dinâmica · **X-Ray** = rastreamento distribuído · **CodeArtifact** = repositório de pacotes (npm, Maven, PyPI).
 <!-- extra:fim -->
 

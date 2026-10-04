@@ -3,6 +3,8 @@
 > **Categoria:** Migração / transferência online · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.9 Outros armazenamentos](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md) · [3.17 Migração](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)
 >
 > **Em uma frase:** DataSync **move dados online** de forma automatizada e rápida; Transfer Family oferece **SFTP/FTPS/FTP** gerenciado com armazenamento em S3/EFS.
+>
+> **Escopo oficial:** 🔀 DataSync ⚪ não listado · Transfer Family ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## AWS DataSync
 
@@ -24,6 +26,10 @@
 | **Identidade** | Usuários gerenciados pelo serviço, AD ou IdP customizado (Lambda/API Gateway). |
 | **Extras** | Workflows pós-upload, *web apps* para usuários não técnicos, conectores SFTP para servidores externos. |
 | **Uso** | Parceiros/clientes que já enviam arquivos via SFTP, sem mudar o processo deles. |
+
+## 🔄 Escopo da prova
+
+- **Transfer Family** está **fora do escopo** oficial; **DataSync** não aparece na lista atual.
 
 ## ⚠️ Não confundir
 

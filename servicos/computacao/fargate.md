@@ -3,6 +3,8 @@
 > **Categoria:** Computação serverless para contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
 > **Em uma frase:** motor serverless que executa contêineres do ECS ou EKS sem você provisionar ou gerenciar servidores.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 

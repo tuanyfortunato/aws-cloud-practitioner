@@ -3,6 +3,8 @@
 > **Categoria:** Banco de grafos · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco de grafos gerenciado para dados altamente conectados (relacionamentos).
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Destaques
 

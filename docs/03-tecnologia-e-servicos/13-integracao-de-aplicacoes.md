@@ -41,13 +41,13 @@
 
 | Item | Valor |
 |---|---|
-| Tamanho máximo de mensagem | 🔄 **1 MiB** desde 04/08/2025 (antes **256 KiB**) — ⚠️ se só houver 256 KB como opção, marque 256 KB |
+| Tamanho máximo de mensagem | 🔄 **1 MiB** desde 04/08/2025 (antes **256 KiB**) (✔️ confirmado) — marque o valor que existir nas alternativas |
 | Retenção | padrão **4 dias**, mínimo 60 s, máximo **14 dias** |
 | Visibility timeout | padrão **30 s**, mínimo 0, máximo **12 h** |
 | Delay queue | até **15 min** |
 
 - **Standard × FIFO:** Standard = throughput quase ilimitado, entrega "pelo menos uma vez", ordem por melhor esforço. FIFO = ordem garantida e processamento exatamente uma vez.
-- 🔄 Segundo a pesquisa, o **SNS** também passou a aceitar mensagens de 1 MiB.
+- 🔄 **SNS:** o padrão continua **256 KiB**; dá para aceitar até **1 MiB** configurando `MaximumMessageSize` no tópico (desde 18/09/2026, ✔️ confirmado).
 - **SQS × SNS × EventBridge:** fila (pull, buffer) × pub/sub (push, fan-out) × barramento de eventos com regras, eventos AWS/SaaS e agendamento (Scheduler). **Step Functions** = orquestração; **SWF** é legado.
 - 🧊 Não decorar: mensagens in-flight, cobrança por blocos de 64 KB, throughput exato do FIFO.
 <!-- extra:fim -->

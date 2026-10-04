@@ -3,6 +3,8 @@
 > **Categoria:** Banco de dados relacional gerenciado · **Domínio:** 2 (responsabilidade) e 3 · **Escopo:** Regional (instância numa AZ; Multi-AZ opcional) · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco relacional gerenciado — a AWS cuida de hardware, SO, patches do motor, backups e failover.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 
@@ -20,7 +22,7 @@
 | **Instância de banco** | Classe (db.t, db.m, db.r…) e armazenamento (gp2/gp3, io1/io2). **Storage auto scaling** aumenta o disco sozinho. |
 | **Multi-AZ (instância)** | Standby **síncrono** em outra AZ, **failover automático** (mesmo endpoint DNS). Standby **não atende leitura**. Objetivo: **disponibilidade**. |
 | **Multi-AZ DB cluster** | 1 escritor + **2 standbys legíveis** em 3 AZs (MySQL/PostgreSQL); failover mais rápido. |
-| **Read Replicas** | Cópias **assíncronas**, só leitura, na mesma região ou **cross-region**; até 15 (MySQL, MariaDB, PostgreSQL). Podem ser **promovidas** a banco independente (DR). Objetivo: **escalar leitura**. |
+| **Read Replicas** | Cópias **assíncronas**, só leitura, na mesma região ou **cross-region**; até **15** (MySQL, MariaDB, PostgreSQL), até **5** (Oracle, SQL Server), até **3** (Db2). Podem ser **promovidas** a banco independente (DR). Objetivo: **escalar leitura**. |
 | **Backups automáticos** | Diários + logs de transação → **point-in-time recovery**; retenção de **0 a 35 dias** (0 desativa). |
 | **Snapshots manuais** | Persistem até você apagar; copiáveis entre regiões e contas. |
 | **Criptografia** | KMS, definida **na criação** (para criptografar um banco existente: snapshot → cópia criptografada → restaurar). TLS em trânsito. |
@@ -36,11 +38,11 @@
 ## Limites e números
 
 - 📌 Backup automático até **35 dias**. Read replicas: até **15** (MySQL/MariaDB/PostgreSQL).
-- 🧊 Limites de armazenamento por motor, versões, réplicas de Oracle/SQL Server (fontes divergem).
+- 🧊 Limites de armazenamento por motor e versões.
 
 ## Cobrança
 
-- Horas de instância (On-Demand ou **Reserved Instances** / Database Savings Plans 🔄), armazenamento provisionado, IOPS provisionados, backup além do tamanho do banco, transferência de dados, Multi-AZ (≈ dobra a instância), licença (Oracle/SQL Server *license included* ou BYOL).
+- Horas de instância (On-Demand ou **Reserved Instances** / 🔄 **Database Savings Plans**: até 20% em instâncias provisionadas, 1 ano, sem pagamento adiantado), armazenamento provisionado, IOPS provisionados, backup além do tamanho do banco, transferência de dados, Multi-AZ (≈ dobra a instância), licença (Oracle/SQL Server *license included* ou BYOL).
 
 ## Segurança e responsabilidade compartilhada
 

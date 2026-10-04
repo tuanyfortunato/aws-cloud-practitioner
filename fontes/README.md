@@ -5,6 +5,7 @@ Documentos-base do repositório, mantidos **sem edição** como fonte da verdade
 | Arquivo | O que é | Para onde foi o conteúdo |
 |---|---|---|
 | [guia-completo-clf-c02.md](guia-completo-clf-c02.md) | Guia de estudo completo, por tópico do exame, com perguntas típicas | Dividido em `docs/` (um arquivo por tópico), `flashcards/`, `resumos/comparativos.md` e `resumos/palavras-chave.md` pelo script `scripts/gerar_docs.py` |
+| [verificacao-fontes-oficiais-2026-10.md](verificacao-fontes-oficiais-2026-10.md) | Verificação em fontes oficiais da AWS (04/10/2026): exam guide, escopo, mudanças e números | [Escopo oficial](../docs/00-guia-do-exame/escopo-oficial.md), [atualizações](../docs/00-guia-do-exame/atualizacoes-2025-2026.md), avisos no topo dos tópicos, status de escopo das fichas e correções pontuais. **Prevalece** sobre a pesquisa quando houver conflito |
 | [pesquisa-atualizacoes-2025-2026.md](pesquisa-atualizacoes-2025-2026.md) | Pesquisa sobre números que caem e mudanças de 2025-2026 | Seções "🔄 Atualizações 2025-2026" dos tópicos (`scripts/extras_pesquisa.py`), [atualizações](../docs/00-guia-do-exame/atualizacoes-2025-2026.md), [números-âncora](../resumos/numeros-ancora.md) e fichas em `servicos/` |
 
 ## Como atualizar

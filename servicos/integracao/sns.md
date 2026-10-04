@@ -3,6 +3,8 @@
 > **Categoria:** Integração de aplicações / pub-sub · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 >
 > **Em uma frase:** serviço **pub/sub**: um produtor publica num **tópico** e a mensagem é **empurrada** para todos os assinantes.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Conceitos
 
@@ -15,7 +17,7 @@
 | **Message filtering** | *Filter policies* por atributo/corpo: cada assinante recebe só o que interessa. |
 | **Retentativas e DLQ** | Políticas de entrega e dead-letter queue (SQS) para falhas. |
 | **Criptografia e acesso** | SSE com KMS; *topic policy*. |
-| **Tamanho da mensagem** | 🔄 segundo a pesquisa, até **1 MiB** (antes 256 KB). |
+| **Tamanho da mensagem** | 🔄 Padrão **256 KiB**; até **1 MiB** configurando o atributo `MaximumMessageSize` do tópico (Standard e FIFO, desde 18/09/2026). |
 
 ## Usos
 

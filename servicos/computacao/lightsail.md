@@ -3,6 +3,8 @@
 > **Categoria:** Computação simplificada · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.6 Outros serviços de computação](../../docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md)
 >
 > **Em uma frase:** servidores virtuais e serviços prontos com **preço mensal fixo e previsível**, para quem está começando.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 

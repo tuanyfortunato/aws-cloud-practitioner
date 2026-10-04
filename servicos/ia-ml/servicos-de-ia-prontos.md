@@ -3,6 +3,8 @@
 > **Categoria:** IA / serviços de alto nível · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 >
 > **Em uma frase:** APIs de IA já treinadas pela AWS — você não precisa de experiência em ML, só chama a API.
+>
+> **Escopo oficial:** 🔀 Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate ✅ · Kendra ⚪ não listado · Personalize e Fraud Detector ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Tabela de associação (📌 decorar)
 
@@ -15,9 +17,9 @@
 | **Amazon Polly** | **Texto → fala** | Vozes neurais, SSML, *lexicons* (pronúncia) |
 | **Amazon Transcribe** | **Fala → texto** | Legendas, transcrição de chamadas, identificação de falantes, redação de PII; *Transcribe Medical*; *Call Analytics* |
 | **Amazon Lex** | Conversa (voz/texto) → intenção | **Chatbots** e URAs (mesma tecnologia da Alexa); integra com Lambda e Connect |
-| **Amazon Kendra** | Pergunta → resposta em documentos | **Busca inteligente corporativa** em linguagem natural (SharePoint, S3, Confluence) |
+| **Amazon Kendra** | Pergunta → resposta em documentos | **Busca inteligente corporativa** em linguagem natural (SharePoint, S3, Confluence). 🔄 Fechado a novos clientes desde 30/07/2026 e fora da lista atual |
 | **Amazon Personalize** | Interações → recomendações | **Recomendações personalizadas** (como na Amazon.com), ranking |
-| **Amazon Fraud Detector** | Eventos → risco de fraude | Fraude em pagamentos/cadastros (🔄 fechado a novos clientes) |
+| **Amazon Fraud Detector** | Eventos → risco de fraude | Fraude em pagamentos/cadastros (🔄 em manutenção, sem novos clientes desde 07/11/2025; ❌ fora do escopo) |
 | **Amazon Augmented AI (A2I)** | Previsões → revisão humana | Fluxos de revisão humana de previsões de ML |
 
 ## Pares que confundem
@@ -29,7 +31,8 @@
 
 ## 🔄 Atualizações 2025-2026
 
-- Serviços mais antigos como Forecast, Lookout for Vision/Equipment/Metrics e Fraud Detector foram fechados a novos clientes — **não estudar**.
+- **Forecast:** fechado a novos clientes. **Lookout for Vision:** encerrado em 31/10/2025. **Lookout for Metrics:** encerrado em 12/09/2025. **Fraud Detector:** sem novos clientes desde 07/11/2025. **Kendra:** sem novos clientes desde 30/07/2026. Não estudar a fundo.
+- **Personalize** e **Fraud Detector** estão declarados **fora do escopo** da prova.
 
 ## ❓ Perguntas típicas
 

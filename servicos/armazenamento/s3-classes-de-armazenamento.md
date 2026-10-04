@@ -3,6 +3,8 @@
 > **Categoria:** Armazenamento de objetos · **Domínio:** 3 e 4 (custos) · **Escopo:** por objeto · **Tópico do guia:** [3.8 Amazon S3](../../docs/03-tecnologia-e-servicos/08-s3.md)
 >
 > **Em uma frase:** cada classe troca custo de armazenamento por custo/tempo de acesso — escolha pelo padrão de acesso.
+>
+> **Escopo oficial:** ✅ No escopo (S3 e S3 Glacier) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Tabela completa
 
@@ -10,16 +12,25 @@
 |---|---|---|---|---|---|---|---|
 | **S3 Standard** | Acesso frequente | 99,99% | ≥3 | — | — | ms | Não |
 | **S3 Intelligent-Tiering** | Acesso desconhecido/mutável | 99,9% | ≥3 | — | (objetos < 128 KB não são monitorados) | ms (camadas de arquivo opcionais: horas) | Não (cobra monitoramento por objeto) |
-| **S3 Express One Zone** | Latência mínima, alto desempenho | 99,95% | **1** | — | — | ms de um dígito | Não |
+| **S3 Express One Zone** | Latência mínima, alto desempenho | 99,95% | **1** | 1 hora | — | ms de um dígito | Não |
 | **S3 Standard-IA** | Pouco acesso, mas rápido | 99,9% | ≥3 | **30 dias** | 128 KB | ms | **Sim** |
 | **S3 One Zone-IA** | Pouco acesso, **dado recriável** | 99,5% | **1** | **30 dias** | 128 KB | ms | **Sim** |
 | **S3 Glacier Instant Retrieval** | Arquivo acessado ~1x por trimestre | 99,9% | ≥3 | **90 dias** | 128 KB | **ms** | Sim |
-| **S3 Glacier Flexible Retrieval** | Arquivo sem pressa | 99,99% | ≥3 | **90 dias** | 40 KB (metadados) | Expedited **1–5 min** · Standard **3–5 h** · Bulk **5–12 h** (grátis) | Sim (Bulk grátis) |
+| **S3 Glacier Flexible Retrieval** | Arquivo sem pressa | 99,99% | ≥3 | **90 dias** | 40 KB (metadados) | Expedited **1–5 min** (não confirmado nas páginas oficiais consultadas) · Standard **3–5 h** · Bulk **5–12 h** (grátis) | Sim (Bulk grátis) |
 | **S3 Glacier Deep Archive** | Retenção de longo prazo (7–10 anos) | 99,99% | ≥3 | **180 dias** | 40 KB (metadados) | Standard **até 12 h** · Bulk **até 48 h** · **sem Expedited** | Sim |
 
 - 📌 Todas têm durabilidade de **11 noves**.
 - 📌 Classe padrão do upload: **S3 Standard**.
 - Objetos apagados/movidos antes da duração mínima pagam o restante do período (*early deletion*).
+
+## SLA × disponibilidade de projeto (oficial)
+
+| Classe | Disponibilidade de projeto | SLA |
+|---|---|---|
+| Standard | 99,99% | 99,9% |
+| Intelligent-Tiering, Standard-IA, One Zone-IA, Glacier Instant | 99,9% / 99,9% / 99,5% / 99,9% | 99% |
+| Express One Zone | 99,95% | 99,9% |
+| Glacier Flexible, Deep Archive | 99,99% | 99,9% |
 
 ## Intelligent-Tiering por dentro
 
@@ -44,7 +55,8 @@ Standard ──30d──▶ Standard-IA ──60d──▶ Glacier Instant/Flexi
 ## Restaurar do Glacier
 
 - Objetos em Flexible Retrieval/Deep Archive precisam de **restore** (cria uma cópia temporária por N dias) antes de serem lidos.
-- 🧊 *S3 Glacier* também existe como serviço legado de "vaults" (Glacier Vault Lock); hoje se usa via classes do S3.
+- 🔄 O **Amazon Glacier** original (serviço de *vaults*, com Glacier Vault Lock) é diferente das classes S3 Glacier e está **fechado a novos clientes** desde 07/11/2025. Hoje se usa o Glacier pelas classes do S3.
+- O Express One Zone usa *directory buckets* e **não** suporta transições de Lifecycle.
 
 ## ⚠️ Pegadinhas
 

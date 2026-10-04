@@ -64,6 +64,7 @@ Marque `[x]` conforme avança. Legenda de status nos arquivos: 🔴 Não iniciad
 - [ ] [Pares que confundem](resumos/comparativos.md)
 - [ ] [Palavras-chave → serviço](resumos/palavras-chave.md)
 - [ ] [Números-âncora](resumos/numeros-ancora.md)
+- [ ] [Escopo oficial](docs/00-guia-do-exame/escopo-oficial.md)
 - [ ] [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)
 
 ## Marcos

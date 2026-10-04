@@ -3,6 +3,8 @@
 > **Categoria:** Computação serverless · **Domínio:** 1 (serverless) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
 > **Em uma frase:** executa seu código em resposta a eventos, sem servidores, cobrando só pelo tempo de execução.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 

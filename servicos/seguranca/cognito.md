@@ -3,6 +3,8 @@
 > **Categoria:** Segurança / identidade de clientes (CIAM) · **Domínio:** 2 · **Escopo:** Regional · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
 >
 > **Em uma frase:** cadastro, login e controle de acesso para **usuários finais** de aplicações web e mobile.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Componentes
 

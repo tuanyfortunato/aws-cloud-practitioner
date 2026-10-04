@@ -3,6 +3,8 @@
 > **Categoria:** Segurança / postura (CSPM) · **Domínio:** 2 · **Escopo:** Regional com agregação entre regiões e contas · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 >
 > **Em uma frase:** **painel central** de segurança que agrega achados de vários serviços e verifica a conta contra padrões de boas práticas.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## O que faz
 
@@ -16,7 +18,7 @@
 
 ## 🔄 Atualizações 2025-2026
 
-- A AWS reformulou o Security Hub (unificando a visão de GuardDuty, Inspector, Macie e postura) e o recurso clássico de verificações passou a se chamar **Security Hub CSPM**. Para a prova: "painel central de achados e padrões (CIS, FSBP)" → Security Hub.
+- A documentação oficial já usa o nome **AWS Security Hub CSPM** para as verificações de postura (o anúncio da reformulação não foi localizado na verificação de 04/10/2026). Para a prova: "painel central de achados e padrões (CIS, FSBP)" → **Security Hub**, que está no escopo.
 
 ## ⚠️ Não confundir
 

@@ -4,6 +4,8 @@
 
 > 🔎 **Fichas detalhadas:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
 
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** O exam guide atual (task 4.3) cobra os **planos novos: Basic, Business Support+, Enterprise e Unified Operations**. O conteúdo abaixo descreve o modelo clássico (válido até 01/01/2027). Estude primeiro a tabela de planos novos na seção de atualizações e na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md). [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
 ⬅️ [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) · 🏠 [Índice do domínio](README.md) · [4.6 Outros recursos de ajuda](06-outros-recursos-de-ajuda.md) ➡️
 
 ---
@@ -39,23 +41,24 @@
 - "Quem pode mudar o plano de suporte?" → O usuário root.
 
 <!-- extra:inicio -->
-## 🔄 Atualizações 2025-2026 e detalhes extras
+## 🔄 Planos novos (o que o exam guide atual cobra)
 
-> Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
+> Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md)). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
 
-- 🔄 **Planos reestruturados (dezembro/2025):**
+| Plano (📌) | Preço mínimo | Resposta para caso crítico | Destaques |
+|---|---|---|---|
+| **Basic** | Grátis | — (sem suporte técnico) | Conta e faturamento, documentação, re:Post, Health Dashboard, verificações principais do Trusted Advisor |
+| **AWS Business Support+** | **US$ 29/mês por conta** | **30 min** | Plano pago de entrada |
+| **AWS Enterprise Support** | **US$ 5.000/mês** (antes US$ 15.000) | **15 min** | TAM designado |
+| **AWS Unified Operations** | **US$ 50.000/mês**, compromisso mínimo de 90 dias | **5 min** | Nível mais alto |
 
-| Novo plano | Preço de referência | Resposta crítica |
-|---|---|---|
-| Basic | Grátis | — |
-| **Business Support+** | a partir de **US$ 29/mês por conta** (ou % do uso começando em 9%) | **30 min** |
-| **Enterprise** | mínimo **US$ 5.000/mês** (antes US$ 15.000); TAM designado | **15 min** |
-| **Unified Operations** | a partir de **US$ 50.000/mês** | **5 min** |
-
-- Tempos comuns aos pagos: general guidance < 24 h · system impaired < 12 h · production system impaired < 4 h · production system down < 1 h.
-- **Developer, Business e Enterprise On-Ramp encerram em 01/01/2027** (Enterprise On-Ramp migrando automaticamente para Enterprise em 2026; os legados seguem no GovCloud).
-- ⚠️ **Na prova** continue estudando os **5 planos clássicos** (Basic, Developer, Business, Enterprise On-Ramp, Enterprise). "Menor plano com TAM designado e 15 min" → **Enterprise** (válido nos dois modelos). "Menor custo com < 1 h para produção fora do ar" → **Business** (clássico) / Business Support+ (novo).
-- Shield Advanced (US$ 3.000/mês) e Enterprise (US$ 5.000 mínimo) são "custo fixo alto": raramente são a resposta "mais barata".
+- Lançados em 02/12/2025. **Developer, Business e Enterprise On-Ramp encerram em 01/01/2027** (On-Ramp migrando automaticamente para Enterprise em 2026; os legados seguem no GovCloud).
+- ⚠️ **Pegadinha de preço:** o Business Support+ começa em US$ 29 — o mesmo valor que se cita para o antigo Developer. Confira o **nome** do plano na questão.
+- ⚠️ **30 minutos** aparece nos dois modelos: Enterprise On-Ramp (clássico) e Business Support+ (novo). **15 minutos + TAM designado** → Enterprise nos dois modelos. **5 minutos** → Unified Operations.
+- A task 4.3 também cita **Trusted Advisor**, **AWS Health Dashboard** e **AWS Health API**.
+- Os preços clássicos de Developer (US$ 29), Business (US$ 100) e On-Ramp (US$ 5.500) não aparecem mais nas páginas oficiais; os **tempos de resposta** clássicos continuam confirmados até 01/01/2027.
+- A página do Enterprise On-Ramp cita **1 engajamento AWS Countdown por ano** (não usa o termo "IEM").
+- Shield Advanced (US$ 3.000/mês) e Enterprise (US$ 5.000/mês) são "custo fixo alto": raramente são a resposta "mais barata".
 <!-- extra:fim -->
 
 <!-- notas:inicio -->
