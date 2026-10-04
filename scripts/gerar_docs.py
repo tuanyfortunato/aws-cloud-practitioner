@@ -477,6 +477,48 @@ def gerar_indice_servicos():
     return total
 
 
+INDICE_INI = "<!-- indice:inicio -->"
+INDICE_FIM = "<!-- indice:fim -->"
+
+
+def gerar_indice_readme(secoes, ordem):
+    """Atualiza no README.md o índice com link direto para cada tópico e cada ficha."""
+    linhas = [INDICE_INI, "## 🧭 Índice completo", "",
+              "Links diretos para todos os tópicos e fichas (clique para expandir). "
+              "Gerado por `scripts/gerar_docs.py`.", "", "### Tópicos do exame", ""]
+    for dom, (pasta, nome, peso) in DOMINIOS.items():
+        linhas += ["<details>", f"<summary><b>{nome} ({peso})</b></summary>", ""]
+        for sec in ordem:
+            if sec.split(".")[0] == dom:
+                linhas.append(f"- [{sec} {secoes[sec][0]}]({caminho_topico(sec)})")
+        linhas += ["", "</details>", ""]
+    linhas += ["### Fichas de serviços", ""]
+    for cat, nomes in FICHAS.items():
+        linhas += ["<details>", f"<summary><b>{NOMES_CATEGORIA[cat]}</b> ({len(nomes)})</summary>", ""]
+        linhas += [f"- [{titulo_ficha(n)}](servicos/{cat}/{n}.md)" for n in nomes]
+        linhas += ["", "</details>", ""]
+    linhas += ["### Outros materiais", "",
+               "- [Guia do exame](docs/00-guia-do-exame/README.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)",
+               "- Flashcards: " + " · ".join(f"[Domínio {d}](flashcards/dominio-{d}.md)" for d in DOMINIOS) + " · [Anki (TSV)](flashcards/anki-clf-c02.tsv)",
+               "- Resumos: [Pares que confundem](resumos/comparativos.md) · [Palavras-chave](resumos/palavras-chave.md) · [Números-âncora](resumos/numeros-ancora.md)",
+               "- [Glossário](glossario.md) · [Progresso](progresso.md) · [Simulados](simulados/README.md) · [Erros recorrentes](simulados/erros-recorrentes.md) · [Labs](labs/README.md) · [Links úteis](recursos/links-uteis.md)",
+               "- Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md)",
+               "- Modelos: [Tópico](templates/topico.md) · [Ficha de serviço](templates/servico.md) · [Simulado](templates/simulado.md)",
+               INDICE_FIM]
+    bloco = "\n".join(linhas)
+    caminho = os.path.join(RAIZ, "README.md")
+    with open(caminho) as f:
+        atual = f.read()
+    padrao = re.escape(INDICE_INI) + r".*?" + re.escape(INDICE_FIM)
+    if re.search(padrao, atual, re.S):
+        novo = re.sub(padrao, lambda _: bloco, atual, flags=re.S)
+    else:
+        # Primeira execução: insere antes da seção de revisão.
+        novo = atual.replace("## 🧠 Revisão", bloco + "\n\n## 🧠 Revisão", 1)
+    with open(caminho, "w") as f:
+        f.write(novo)
+
+
 def main():
     secoes, intros, extras = parse_guia()
     ordem = gerar_topicos(secoes)
@@ -484,6 +526,7 @@ def main():
     total = gerar_flashcards(secoes, ordem)
     gerar_resumos(extras)
     fichas = gerar_indice_servicos()
+    gerar_indice_readme(secoes, ordem)
     print(f"{len(ordem)} tópicos, {total} flashcards e índice de {fichas} fichas gerados.")
 
 
