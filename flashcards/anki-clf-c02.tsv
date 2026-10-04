@@ -107,7 +107,7 @@ Qual serviço encontra dados pessoais em buckets S3?	Amazon Macie.	CLF-C02 domin
 Qual serviço ajuda a investigar a causa raiz de um achado de segurança?	Amazon Detective.	CLF-C02 dominio-2 secao-2_9
 Qual serviço reúne os achados de segurança de vários serviços num só painel?	AWS Security Hub.	CLF-C02 dominio-2 secao-2_9
 Qual serviço recomenda melhorias de custo, segurança, performance e limites?	Trusted Advisor.	CLF-C02 dominio-2 secao-2_9
-Qual plano de suporte libera todas as verificações do Trusted Advisor?	Business ou superior.	CLF-C02 dominio-2 secao-2_9
+Qual plano de suporte libera todas as verificações do Trusted Advisor?	Business Support+ ou superior (no modelo clássico, Business).	CLF-C02 dominio-2 secao-2_9
 Qual verificação de segurança o Trusted Advisor faz?	Buckets S3 públicos, MFA no root, portas abertas em security groups.	CLF-C02 dominio-2 secao-2_9
 É preciso pedir autorização para fazer pentest no EC2?	Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.	CLF-C02 dominio-2 secao-2_10
 Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?	AWS Trust & Safety.	CLF-C02 dominio-2 secao-2_10
@@ -284,13 +284,13 @@ Separar custos por projeto ou departamento.	Cost allocation tags (ativadas no Bi
 Uma fatura para várias contas, com desconto por volume.	Consolidated billing no Organizations.	CLF-C02 dominio-4 secao-4_4
 Comprar software de terceiros pago na fatura AWS.	AWS Marketplace.	CLF-C02 dominio-4 secao-4_4
 Onde ver recomendações de Savings Plans?	Cost Explorer.	CLF-C02 dominio-4 secao-4_4
-Qual o plano mais barato com suporte técnico 24/7 por telefone?	Business.	CLF-C02 dominio-4 secao-4_5
-Qual o plano mais barato com todas as verificações do Trusted Advisor?	Business.	CLF-C02 dominio-4 secao-4_5
+Qual o plano mais barato com suporte técnico 24/7 por telefone?	Business Support+ (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
+Qual o plano mais barato com todas as verificações do Trusted Advisor?	Business Support+ (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
 Qual plano inclui TAM dedicado?	Enterprise.	CLF-C02 dominio-4 secao-4_5
-Qual plano dá acesso a um pool de TAMs?	Enterprise On-Ramp.	CLF-C02 dominio-4 secao-4_5
+Qual plano dá acesso a um pool de TAMs?	Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).	CLF-C02 dominio-4 secao-4_5
 Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?	Enterprise.	CLF-C02 dominio-4 secao-4_5
-Qual plano responde em menos de 1 hora a produção fora do ar?	Business.	CLF-C02 dominio-4 secao-4_5
-Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail.	Developer.	CLF-C02 dominio-4 secao-4_5
+Qual plano responde em menos de 1 hora a produção fora do ar?	Business Support+ ou superior (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
+Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail.	Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).	CLF-C02 dominio-4 secao-4_5
 O plano Basic oferece suporte técnico?	Não; só atendimento de conta e faturamento, documentação e re:Post.	CLF-C02 dominio-4 secao-4_5
 Quem ajuda com dúvidas de faturamento em planos Enterprise?	Concierge Support Team.	CLF-C02 dominio-4 secao-4_5
 Quem pode mudar o plano de suporte?	O usuário root.	CLF-C02 dominio-4 secao-4_5

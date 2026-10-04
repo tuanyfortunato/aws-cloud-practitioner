@@ -28,7 +28,7 @@ As questões oficiais podem vir em português ou inglês; os termos abaixo apare
 | "license per core/socket" | Dedicated Host |
 | "can be interrupted" | Spot |
 | "steady state for 1 or 3 years" | Reserved Instances ou Savings Plans |
-| "petabytes, slow internet" | Família Snow |
+| "petabytes, slow internet" | Família Snow (🔄 fora da lista atual; Snowball Edge só para clientes existentes) |
 | "on-premises with AWS services" | Outposts |
 | "lowest latency for global users", "cache" | CloudFront |
 | "static IP", "TCP/UDP global" | Global Accelerator |

@@ -30,6 +30,6 @@ e rode o script. Os arquivos desta pasta são sobrescritos a cada execução.
 
 ## ⚠️ Atenção: planos de suporte
 
-Os cards do Domínio 4 sobre planos de suporte vêm do guia original e descrevem o **modelo clássico**
-(Developer, Business, Enterprise On-Ramp). O exam guide atual cobra os **planos novos** (Basic, Business Support+,
-Enterprise, Unified Operations) — veja a [ficha de planos de suporte](../servicos/custos/planos-de-suporte.md).
+Os cards de planos de suporte vêm do guia original (modelo clássico). As respostas foram **ajustadas na geração**
+para indicar o plano atual (ex.: "Business Support+ (no modelo clássico, Business)"), conforme as correções em
+`CORRECOES` no `scripts/gerar_docs.py`. Tabela completa na [ficha de planos de suporte](../servicos/custos/planos-de-suporte.md).

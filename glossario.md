@@ -48,7 +48,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **Híbrido** | Parte on-premises, parte na nuvem, conectadas |
 | **IaaS / PaaS / SaaS** | Infraestrutura / Plataforma / Software como serviço |
 | **IaC** | Infraestrutura como código (CloudFormation, CDK, Terraform) |
-| **IEM** | *Infrastructure Event Management* (planos Business/Enterprise) |
+| **IEM / AWS Countdown** | Apoio da AWS para eventos de grande escala; hoje se chama **AWS Countdown** (incluído no Unified Operations, pago à parte nos demais) |
 | **IGW** | *Internet Gateway* |
 | **IMDS** | *Instance Metadata Service* do EC2 (use IMDSv2) |
 | **Instance store** | Disco local efêmero de uma instância EC2 |
@@ -77,7 +77,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **Rightsizing** | Ajustar o tamanho dos recursos ao uso real |
 | **Role** | Identidade IAM com credenciais temporárias |
 | **RPO / RTO** | Perda máxima de dados aceitável / tempo máximo para restaurar |
-| **SCP** | *Service Control Policy*: teto de permissões de contas/OUs |
+| **SCP** | *Service Control Policy*: teto de permissões de contas/OUs (não afeta a conta de gerenciamento) |
 | **Security group** | Firewall stateful da instância/ENI |
 | **Serverless** | Sem gerenciar servidores, escala automática, paga pelo uso |
 | **SLA** | Acordo de nível de serviço (Route 53: 100%) |
@@ -87,8 +87,9 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **Stateful / stateless** | Guarda (ou não) estado da conexão/sessão |
 | **STS** | *Security Token Service*: emite credenciais temporárias |
 | **Subnet pública / privada** | Com / sem rota para o Internet Gateway |
+| **Support plans** | Basic, Business Support+, Enterprise, Unified Operations (atuais); Developer, Business, Enterprise On-Ramp (clássicos, até 01/01/2027) |
 | **Sustentabilidade** | 6º pilar do Well-Architected (impacto ambiental) |
-| **TAM** | *Technical Account Manager* (Enterprise: dedicado; On-Ramp: pool) |
+| **TAM** | *Technical Account Manager*: designado no Enterprise e no Unified Operations (no clássico Enterprise On-Ramp: pool) |
 | **TCO** | *Total cost of ownership*: custo total on-premises × nuvem |
 | **Tolerância a falhas** | Continuar funcionando sem interrupção percebida quando um componente falha |
 | **TTL** | *Time to live* (DNS, cache, expiração de itens no DynamoDB) |

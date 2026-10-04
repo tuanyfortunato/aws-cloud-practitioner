@@ -21,7 +21,7 @@ A AWS avisa que a lista de serviços no escopo não é exaustiva, e quem já fez
 
 ## Ajuda, parceiros e soluções prontas
 
-- **AWS IQ:** está na lista oficial da prova. Era um marketplace para contratar **especialistas freelancers certificados em AWS** para projetos sob demanda, pagos na própria fatura AWS. A AWS **encerrou o serviço em 28/05/2026** (a alternativa indicada é o AWS Marketplace Professional Services), mas ele ainda pode aparecer em questões.
+- **AWS IQ:** 🔄 hoje está declarado **fora do escopo** da prova (verificação de 10/2026). Era um marketplace para contratar **especialistas freelancers certificados em AWS** para projetos sob demanda, pagos na própria fatura AWS. A AWS **encerrou o serviço em 28/05/2026** (a alternativa indicada é o AWS Marketplace Professional Services), mas ele ainda pode aparecer em questões.
 - **AWS Solutions Library e AWS Prescriptive Guidance:** arquiteturas de referência e soluções prontas para implantar, validadas pela AWS.
 
 ## Outros serviços citados por quem fez a prova

@@ -400,7 +400,7 @@ Trusted Advisor.
 <details>
 <summary>Qual plano de suporte libera todas as verificações do Trusted Advisor?</summary>
 
-Business ou superior.
+Business Support+ ou superior (no modelo clássico, Business).
 </details>
 
 <details>

@@ -172,13 +172,13 @@ Cost Explorer.
 <details>
 <summary>Qual o plano mais barato com suporte técnico 24/7 por telefone?</summary>
 
-Business.
+Business Support+ (no modelo clássico, Business).
 </details>
 
 <details>
 <summary>Qual o plano mais barato com todas as verificações do Trusted Advisor?</summary>
 
-Business.
+Business Support+ (no modelo clássico, Business).
 </details>
 
 <details>
@@ -190,7 +190,7 @@ Enterprise.
 <details>
 <summary>Qual plano dá acesso a um pool de TAMs?</summary>
 
-Enterprise On-Ramp.
+Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).
 </details>
 
 <details>
@@ -202,13 +202,13 @@ Enterprise.
 <details>
 <summary>Qual plano responde em menos de 1 hora a produção fora do ar?</summary>
 
-Business.
+Business Support+ ou superior (no modelo clássico, Business).
 </details>
 
 <details>
 <summary>Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail.</summary>
 
-Developer.
+Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).
 </details>
 
 <details>

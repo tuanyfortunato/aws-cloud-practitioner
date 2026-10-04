@@ -40,6 +40,7 @@
 - [Plano de estudos](plano-de-estudos.md)
 - [Escopo oficial: task statements e serviços dentro/fora da prova](escopo-oficial.md)
 - [O que mudou em 2025-2026 (valor da prova × valor atual)](atualizacoes-2025-2026.md)
+- [Pendências de verificação](pendencias-de-verificacao.md) — o que ainda não foi conferido em fonte oficial
 
 ## Dicas para o dia da prova
 

@@ -51,7 +51,8 @@ Revise esta seção a cada poucos dias. A maioria dos erros de quem já usa AWS 
 | Pricing Calculator vs Cost Explorer | Calculator = antes de usar; Cost Explorer = depois, com dados reais |
 | Reserved Instances vs Savings Plans | RI = tipo de instância específico; Savings Plans = compromisso de gasto por hora, mais flexível |
 | Dedicated Host vs Dedicated Instance | Host = servidor físico com visibilidade de sockets e núcleos (licenças); Instance = hardware isolado sem esse controle |
-| Business vs Enterprise On-Ramp vs Enterprise | Business = 24/7 e Trusted Advisor completo; On-Ramp = pool de TAMs, 30 min; Enterprise = TAM dedicado, 15 min |
+| Business Support+ vs Enterprise vs Unified Operations (atuais) | Business Support+ = US$ 29/conta, 30 min, Trusted Advisor completo; Enterprise = TAM designado, TA Priority, 15 min; Unified Operations = 5 min, monitoramento 24/7 |
+| Business vs Enterprise On-Ramp vs Enterprise (clássicos, até 01/01/2027) | Business = 24/7 e Trusted Advisor completo; On-Ramp = pool de TAMs, 30 min; Enterprise = TAM dedicado, 15 min |
 | Professional Services vs Managed Services | Professional Services = consultoria para projetos; Managed Services = a AWS opera a infraestrutura |
 | Application Migration Service vs DMS | MGN = migra servidores inteiros; DMS = migra bancos de dados |
 | DMS vs SCT | DMS = move os dados; SCT = converte o schema entre motores diferentes |
