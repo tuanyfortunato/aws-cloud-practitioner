@@ -20,7 +20,9 @@
 - **Tempo real** (subscriptions via WebSocket), **sincronização offline** em apps móveis, cache, autenticação (Cognito, IAM, OIDC, API key).
 - **AppSync Events:** pub/sub serverless via WebSocket.
 
-## AWS Device Farm
+## AWS Device Farm ❌
+
+> ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
 
 - Testa apps **Android, iOS e web** em **dispositivos reais** e navegadores na nuvem (testes automatizados e acesso remoto).
 

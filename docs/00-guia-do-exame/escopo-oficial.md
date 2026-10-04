@@ -64,28 +64,32 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 
 ## ❌ Fora do escopo (lista oficial, não exaustiva)
 
-Se uma alternativa citar um destes, provavelmente é distrator.
+Se uma alternativa citar um destes, provavelmente é distrator. **Todos estão documentados** no repositório, com
+aviso de que não caem na prova — use para reconhecer os distratores e para o dia a dia.
 
-| Categoria | Serviços |
+| Categoria | Serviços → onde estão documentados |
 |---|---|
-| Analytics | AppFlow, Clean Rooms, Data Exchange, DataZone, **MSK** |
-| Application Integration | AppFabric, Simple Workflow Service (SWF) |
-| Business Applications | WorkDocs |
-| Compute | Copilot, **Wavelength** |
-| Cost / Financial Management | Application Cost Profiler, DevPay, **Billing Conductor** |
-| Customer Enablement | **AWS Activate**, **AWS IQ**, **AWS Managed Services (AMS)** |
-| Database | **Keyspaces**, **MemoryDB**, AppConfig (listado assim na página) |
-| Developer Tools | Application Composer, **CodeArtifact**, **CodeDeploy**, CodeGuru, **CloudShell**, **Device Farm** |
-| Game Tech | GameLift, Lumberyard |
-| IoT | IoT Device Defender, **IoT Greengrass**, Monitron |
-| Machine Learning | Fraud Detector, Lookout for Metrics, Panorama, **Personalize** |
-| Management and Governance | Chatbot, Data Lifecycle Manager, Elastic Transcoder, Launch Wizard |
-| Media Services | Elemental (todos), Interactive Video Service (IVS) |
-| Migration and Transfer | Migration Hub Refactor Spaces, **Transfer Family** |
-| Networking | Cloud Map, Network Access Analyzer, Ground Station, VPC Lattice |
-| Security | Cloud Directory, **Network Firewall** |
-| Robotics | RoboMaker |
-| Storage | **FSx for Lustre** |
+| Analytics | [AppFlow, Clean Rooms, Data Exchange, DataZone, MSK](../../servicos/analytics/lake-formation-msk-e-outros.md) |
+| Application Integration | [AppFabric, Simple Workflow Service (SWF)](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) |
+| Business Applications | [WorkDocs](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) |
+| Compute | [Copilot](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) · [Wavelength](../../servicos/computacao/outposts-local-zones-wavelength.md) |
+| Cost / Financial Management | [Application Cost Profiler, DevPay](../../servicos/fora-do-escopo/gerenciamento-e-custos.md) · [Billing Conductor](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md) |
+| Customer Enablement | [AWS Activate, AWS IQ, AWS Managed Services (AMS)](../../servicos/custos/recursos-de-ajuda-e-parceiros.md) |
+| Database | [Keyspaces](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md) · [MemoryDB](../../servicos/banco-de-dados/memorydb.md) · [AppConfig (listado assim na página)](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) |
+| Developer Tools | [Application Composer, CodeGuru](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) · [CodeArtifact, CodeDeploy](../../servicos/desenvolvimento/code-services.md) · [CloudShell](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md) · [Device Farm](../../servicos/aplicacoes/amplify-e-appsync.md) |
+| Game Tech | [GameLift, Lumberyard](../../servicos/fora-do-escopo/midia-e-jogos.md) |
+| IoT | [IoT Device Defender, Monitron](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) · [IoT Greengrass](../../servicos/aplicacoes/iot-core-e-greengrass.md) |
+| Machine Learning | [Fraud Detector, Personalize](../../servicos/ia-ml/servicos-de-ia-prontos.md) · [Lookout for Metrics, Panorama](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) |
+| Management and Governance | [Chatbot, Data Lifecycle Manager, Launch Wizard](../../servicos/fora-do-escopo/gerenciamento-e-custos.md) · [Elastic Transcoder](../../servicos/fora-do-escopo/midia-e-jogos.md) |
+| Media Services | [Elemental (MediaConnect, MediaConvert, MediaLive, MediaPackage, MediaStore, MediaTailor, Appliances and Software), IVS](../../servicos/fora-do-escopo/midia-e-jogos.md) |
+| Migration and Transfer | [Migration Hub Refactor Spaces](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) · [Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md) |
+| Networking | [Cloud Map, Network Access Analyzer, VPC Lattice](../../servicos/fora-do-escopo/rede-e-diretorio.md) · [Ground Station](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) |
+| Security | [Cloud Directory](../../servicos/fora-do-escopo/rede-e-diretorio.md) · [Network Firewall](../../servicos/seguranca/firewall-manager-e-network-firewall.md) |
+| Robotics | [RoboMaker](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) |
+| Storage | [FSx for Lustre](../../servicos/armazenamento/fsx.md) |
+
+> Nas fichas, os serviços fora do escopo aparecem com ❌ *fora do escopo* ao lado do nome. A categoria
+> [❌ Fora do escopo da prova](../../servicos/README.md) reúne os que não pertencem a nenhuma outra ficha.
 
 ## ⚪ Nem dentro nem fora: não aparecem em nenhuma das listas
 

@@ -18,7 +18,7 @@
 | **Cost allocation tags** | **Ratear custos** por projeto, time, centro de custo | Tags do usuário ou geradas pela AWS; precisam ser **ativadas** no Billing para aparecer nos relatórios |
 | **Cost Categories** | Regras que agrupam custos (ex.: "Marketing" = contas X e Y + tag Z) | Usadas em Cost Explorer, Budgets, CUR |
 | **Consolidated billing** (Organizations) | Fatura única, descontos por volume, compartilhamento de RIs/SPs | Sem custo extra |
-| **AWS Billing Conductor** | Faturamento **personalizado** (pro forma) | Revendedores e empresas que refaturam clientes/áreas |
+| **AWS Billing Conductor** ❌ *fora do escopo* | Faturamento **personalizado** (pro forma) | Revendedores e empresas que refaturam clientes/áreas |
 | **Savings Plans / Reservations** (console) | Comprar, acompanhar utilização e cobertura | Recomendações no Cost Explorer |
 | **Free Tier usage alerts** | Avisa quando o uso se aproxima dos limites gratuitos | Ativado por padrão |
 | **AWS Customer Carbon Footprint Tool** | Estimativa de **emissões de carbono** do seu uso | Gratuita, no Billing; pilar Sustentabilidade |

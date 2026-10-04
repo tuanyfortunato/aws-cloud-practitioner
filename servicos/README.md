@@ -173,3 +173,13 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](custos/pricing-calculator-cur-e-outras-ferramentas.md) | ✅ | Ferramentas para estimar, detalhar, ratear, otimizar e acompanhar os custos da AWS. |
 | [Planos de AWS Support](custos/planos-de-suporte.md) | ✅ | Níveis de suporte técnico da AWS — quanto mais alto, mais rápido o atendimento e mais acompanhamento proativo. |
 | [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](custos/recursos-de-ajuda-e-parceiros.md) | 🔀 | Além dos planos de suporte, a AWS oferece comunidade, documentação, consultoria, parceiros e operação terceirizada — a prova pede quem procurar em cada situação. |
+
+## ❌ Fora do escopo da prova (só para referência)
+
+| Ficha | Escopo | Em uma frase |
+|---|---|---|
+| [Serviços de mídia e jogos (Elemental, IVS, Elastic Transcoder, GameLift, Lumberyard)](fora-do-escopo/midia-e-jogos.md) | ❌ | Serviços para processar e transmitir vídeo e para hospedar jogos — úteis para conhecer, mas a prova os usa só como distratores. |
+| [IoT, robótica, satélite e visão computacional na borda (Device Defender, Monitron, Panorama, RoboMaker, Ground Station)](fora-do-escopo/iot-robotica-e-satelite.md) | ❌ | Serviços especializados para dispositivos, robôs, satélites e câmeras inteligentes — fora da prova, que só cobra o IoT Core. |
+| [Desenvolvimento e aplicações (AppConfig, Infrastructure Composer, CodeGuru, Copilot, Refactor Spaces, AppFabric, SWF, WorkDocs)](fora-do-escopo/desenvolvimento-e-aplicacoes.md) | ❌ | Ferramentas de desenvolvimento, modernização e colaboração que existem na AWS, mas não caem na prova. |
+| [Rede e diretório (Cloud Map, VPC Lattice, Network Access Analyzer, Cloud Directory)](fora-do-escopo/rede-e-diretorio.md) | ❌ | Serviços de rede de aplicação e de diretório que complementam a VPC, mas não caem na prova. |
+| [Gerenciamento e custos (Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler, DevPay)](fora-do-escopo/gerenciamento-e-custos.md) | ❌ | Ferramentas auxiliares de operação e de cobrança que existem na AWS, mas não caem na prova. |

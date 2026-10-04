@@ -30,8 +30,8 @@
 | **Tags + Tag Editor** | Pares chave-valor para organizar, controlar acesso (ABAC) e separar custos |
 | **Resource Groups** | Agrupar recursos por tag/stack para operar juntos |
 | **Resource Explorer** | Buscar recursos em todas as regiões/contas |
-| **AWS Launch Wizard** | Implantar SAP, SQL Server, Active Directory com boas práticas |
-| **AWS AppConfig** | Feature flags e configuração dinâmica de aplicações (parte do Systems Manager) |
+| **AWS Launch Wizard** ❌ *fora do escopo* | Implantar SAP, SQL Server, Active Directory com boas práticas |
+| **AWS AppConfig** ❌ *fora do escopo* | Feature flags e configuração dinâmica de aplicações (parte do Systems Manager) |
 | **Well-Architected Tool** | Revisão gratuita de cargas contra os 6 pilares ([1.4](../../docs/01-conceitos-de-nuvem/04-well-architected-framework.md)) |
 | **AWS Management Console mobile app** | Acompanhar recursos, alarmes e Health no celular |
 

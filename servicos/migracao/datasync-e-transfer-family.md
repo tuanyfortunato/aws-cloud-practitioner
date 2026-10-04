@@ -17,7 +17,9 @@
 | **Uso** | Migração de arquivos, replicação para DR, mover dados frios para o S3, alimentar data lakes. |
 | **Cobrança** | Por GB transferido. |
 
-## AWS Transfer Family
+## AWS Transfer Family ❌
+
+> ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
 
 | Item | Detalhe |
 |---|---|

@@ -15,7 +15,9 @@
 | **Pré-requisitos** | AWS Organizations (todos os recursos), **AWS Config** ativado, conta administradora do Firewall Manager. |
 | **Cobrança** | Por política por região/mês + recursos subjacentes (WAF, Config). |
 
-## AWS Network Firewall
+## AWS Network Firewall ❌
+
+> ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
 
 | Item | Detalhe |
 |---|---|
