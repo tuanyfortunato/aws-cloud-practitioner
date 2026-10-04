@@ -159,19 +159,19 @@ O **DynamoDB** é NoSQL chave-valor serverless, com latência de milissegundos d
 
 <sub>Domínio 4 · tópico [4.5](../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)</sub>
 
-Uma grande empresa precisa de um Technical Account Manager (TAM) designado e de resposta em menos de 15 minutos quando um sistema crítico para o negócio estiver fora do ar. Qual plano de suporte atende a esses requisitos?
+Uma grande empresa precisa de um Technical Account Manager (TAM) designado e de resposta em até 15 minutos quando um sistema crítico estiver fora do ar, pelo MENOR custo. Qual plano de suporte atende a esses requisitos?
 
-- **A)** Enterprise
-- **B)** Business
-- **C)** Enterprise On-Ramp
-- **D)** Developer
+- **A)** AWS Enterprise Support
+- **B)** AWS Business Support+
+- **C)** Basic
+- **D)** AWS Unified Operations
 
 <details>
 <summary>Ver resposta</summary>
 
 **Resposta: A**
 
-O **Enterprise** inclui TAM **designado** e resposta em menos de 15 minutos para sistemas críticos. O Enterprise On-Ramp tem um **pool** de TAMs e resposta em menos de 30 minutos; Business e Developer não têm TAM.
+O **Enterprise Support** inclui TAM **designado** e resposta em 15 minutos para casos críticos, a partir de US$ 5.000/mês — atende ao requisito com o menor custo. O Business Support+ responde em 30 minutos e não tem TAM designado; o Basic não tem suporte técnico; o Unified Operations (5 min) também atenderia, mas custa a partir de US$ 50.000/mês.
 
 </details>
 
@@ -1222,19 +1222,19 @@ O **Fargate** executa contêineres sem servidores e sem limite de duração. O L
 
 <sub>Domínio 4 · tópico [4.5](../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)</sub>
 
-Uma empresa precisa do plano de suporte de MENOR custo que ofereça acesso 24/7 a engenheiros por telefone e resposta em menos de 1 hora quando um sistema de produção estiver fora do ar. Qual plano atende a esse requisito?
+Uma startup quer o plano de AWS Support pago de MENOR custo, que começa em US$ 29 por mês por conta e oferece resposta em até 30 minutos para casos críticos. Qual plano atende a esse requisito?
 
-- **A)** Developer
-- **B)** Business
-- **C)** Enterprise
-- **D)** Enterprise On-Ramp
+- **A)** Basic
+- **B)** AWS Business Support+
+- **C)** AWS Unified Operations
+- **D)** AWS Enterprise Support
 
 <details>
 <summary>Ver resposta</summary>
 
 **Resposta: B**
 
-O **Business** é o plano mais barato com suporte técnico 24/7 por telefone e resposta em menos de 1 h para produção fora do ar. O Developer só tem e-mail em horário comercial; On-Ramp e Enterprise atendem, mas custam mais. (No modelo novo de 2025, o equivalente é o Business Support+.)
+O **Business Support+** é o plano pago de entrada do modelo atual (task 4.3 do exam guide): a partir de US$ 29/mês por conta, com resposta de 30 minutos para casos críticos. O Basic é gratuito e não tem suporte técnico; o Enterprise começa em US$ 5.000/mês (15 min); o Unified Operations, em US$ 50.000/mês (5 min).
 
 </details>
 

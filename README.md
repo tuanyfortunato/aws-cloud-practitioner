@@ -7,8 +7,9 @@ Repositório de documentação para a prova **AWS Certified Cloud Practitioner (
 
 1. [Guia do exame](docs/00-guia-do-exame/README.md) — formato, domínios, o que cai e o que não cai
 2. [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) — cronograma de 6 semanas
-3. [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md) — valor da prova × valor atual
-4. [Progresso](progresso.md) — checklist do que já foi estudado
+3. [Escopo oficial](docs/00-guia-do-exame/escopo-oficial.md) — task statements e serviços dentro/fora da prova (verificado em 04/10/2026)
+4. [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md) — inclui os **novos planos de suporte**, que o exam guide atual já cobra
+5. [Progresso](progresso.md) — checklist do que já foi estudado
 
 ## 📚 Conteúdo por domínio da prova
 
@@ -292,12 +293,12 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 
 ### Outros materiais
 
-- [Guia do exame](docs/00-guia-do-exame/README.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)
+- [Guia do exame](docs/00-guia-do-exame/README.md) · [Escopo oficial](docs/00-guia-do-exame/escopo-oficial.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)
 - Flashcards: [Domínio 1](flashcards/dominio-1.md) · [Domínio 2](flashcards/dominio-2.md) · [Domínio 3](flashcards/dominio-3.md) · [Domínio 4](flashcards/dominio-4.md) · [Anki (TSV)](flashcards/anki-clf-c02.tsv)
 - Resumos: [Pares que confundem](resumos/comparativos.md) · [Palavras-chave](resumos/palavras-chave.md) · [Números-âncora](resumos/numeros-ancora.md)
 - Questões no formato da prova: [Simulado 01 (65 questões)](simulados/simulado-01.md) · [Domínio 1](simulados/questoes/dominio-1.md) · [Domínio 2](simulados/questoes/dominio-2.md) · [Domínio 3](simulados/questoes/dominio-3.md) · [Domínio 4](simulados/questoes/dominio-4.md)
 - [Glossário](glossario.md) · [Progresso](progresso.md) · [Simulados](simulados/README.md) · [Erros recorrentes](simulados/erros-recorrentes.md) · [Labs](labs/README.md) · [Links úteis](recursos/links-uteis.md)
-- Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md)
+- Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md) · [Verificação oficial (10/2026)](fontes/verificacao-fontes-oficiais-2026-10.md)
 - Modelos: [Tópico](templates/topico.md) · [Ficha de serviço](templates/servico.md) · [Simulado](templates/simulado.md)
 <!-- indice:fim -->
 

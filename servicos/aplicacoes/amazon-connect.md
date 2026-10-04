@@ -3,6 +3,8 @@
 > **Categoria:** Aplicações de negócio / contact center · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 >
 > **Em uma frase:** **central de atendimento (contact center) omnicanal na nuvem**, pronta em minutos e paga por uso.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Destaques
 

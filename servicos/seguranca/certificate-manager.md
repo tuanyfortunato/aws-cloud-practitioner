@@ -3,6 +3,8 @@
 > **Categoria:** Segurança / criptografia em trânsito · **Domínio:** 2 · **Escopo:** Regional (para CloudFront, **us-east-1**) · **Tópico do guia:** [2.5 Criptografia](../../docs/02-seguranca-e-conformidade/05-criptografia.md)
 >
 > **Em uma frase:** emite, gerencia e **renova automaticamente** certificados SSL/TLS — os públicos são gratuitos.
+>
+> **Escopo oficial:** ✅ No escopo (Private CA ⚪ não listado) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Destaques
 
@@ -21,7 +23,7 @@
 
 ## 🔄 Atualizações 2025-2026
 
-- **Certificados públicos exportáveis** (pagos): permitem usar certificados do ACM em servidores próprios (EC2, on-premises). Na prova, siga: "público, gratuito, renovação automática, ELB/CloudFront" → ACM.
+- **Certificados públicos exportáveis** (desde 17/06/2025, pagos): permitem usar certificados do ACM em servidores próprios (EC2, on-premises). Validade de 395 dias; lançados a US$ 15 (FQDN) e US$ 149 (wildcard), hoje **US$ 7 e US$ 79** na página de preços. Na prova, siga: "público, gratuito, renovação automática, ELB/CloudFront" → ACM.
 
 ## ❓ Perguntas típicas
 

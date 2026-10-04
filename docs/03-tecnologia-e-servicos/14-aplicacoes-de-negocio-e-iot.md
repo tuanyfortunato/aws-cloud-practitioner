@@ -4,6 +4,8 @@
 
 > 🔎 **Fichas detalhadas:** [Amazon Connect](../../servicos/aplicacoes/amazon-connect.md) · [Amazon SES (Simple Email Service)](../../servicos/aplicacoes/ses.md) · [Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser](../../servicos/aplicacoes/workspaces-e-appstream.md) · [AWS Amplify, AWS AppSync e AWS Device Farm](../../servicos/aplicacoes/amplify-e-appsync.md) · [AWS IoT Core, IoT Greengrass e outros serviços de IoT](../../servicos/aplicacoes/iot-core-e-greengrass.md)
 
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo: Connect, SES, AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser, **Amplify** e **IoT Core**. AppSync não aparece na lista atual. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
 ⬅️ [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) ➡️
 
 ---
@@ -38,7 +40,7 @@
 > Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
 
 - **IoT:** IoT Core (conectar dispositivos e trocar mensagens MQTT) × **IoT Greengrass** (rodar Lambda e ML localmente no dispositivo de borda).
-- 🔄 IoT Analytics e IoT Events tiveram fim de suporte anunciado — não estudar.
+- 🔄 IoT Analytics encerrado em 15/12/2025 e IoT Events em 20/05/2026 — não estudar. Na prova, IoT = **só IoT Core** (Greengrass está fora do escopo).
 <!-- extra:fim -->
 
 <!-- notas:inicio -->

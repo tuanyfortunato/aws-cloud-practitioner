@@ -3,6 +3,8 @@
 > **Categoria:** Migração / avaliação e planejamento · **Domínio:** 1 (migração) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.17 Migração e transferência](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md) · [1.6 Estratégias de migração](../../docs/01-conceitos-de-nuvem/06-estrategias-de-migracao.md)
 >
 > **Em uma frase:** as ferramentas das fases **avaliar → planejar → acompanhar** de uma migração.
+>
+> **Escopo oficial:** ✅ No escopo (Migration Hub e Application Discovery Service fechados a novos clientes) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Comparação
 
@@ -14,6 +16,8 @@
 
 ## 🔄 Atualizações 2025-2026
 
+- **AWS Migration Hub** e **AWS Application Discovery Service** estão **fechados a novos clientes desde 07/11/2025**, mas continuam na lista oficial da prova — estude a função de cada um.
+- **Migration Evaluator** entrou explicitamente na lista de serviços no escopo.
 - A AWS lançou o **AWS Transform**, que usa agentes de IA generativa para acelerar migrações e modernizações (VMware, mainframe, .NET, Java) — 🧊 fora da prova.
 
 ## Sequência típica de migração

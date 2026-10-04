@@ -3,6 +3,8 @@
 > **Categoria:** Infraestrutura híbrida e de borda · **Domínio:** 3 · **Escopo:** extensões de uma região · **Tópico do guia:** [3.2 Infraestrutura global](../../docs/03-tecnologia-e-servicos/02-infraestrutura-global.md)
 >
 > **Em uma frase:** três formas de levar a infraestrutura AWS para mais perto de onde a latência ou a localização dos dados importam.
+>
+> **Escopo oficial:** 🔀 Outposts ✅ · Local Zones ⚪ não listado · Wavelength ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Comparação
 
@@ -13,6 +15,10 @@
 | Exemplos | Fábricas, hospitais, bancos com dados que não podem sair do local | Renderização, games, mídia ao vivo, VDI | Carros conectados, AR/VR, jogos em nuvem móveis |
 | Quem opera o hardware | AWS (instala, monitora, atualiza); você cuida da energia, rede e segurança física do local | AWS | AWS + operadora |
 | Como usar | Formatos **rack** (42U) ou **servidores** (1U/2U); mesmas APIs e console | Ativar a zona e criar uma subnet nela | Criar subnet na Wavelength Zone |
+
+## 🎯 Escopo da prova
+
+- **Outposts** está na lista oficial; **Local Zones** não aparece; **Wavelength** está declarado **fora do escopo**.
 
 ## Serviços disponíveis
 

@@ -4,6 +4,8 @@
 
 > 🔎 **Fichas detalhadas:** [Amazon EBS (Elastic Block Store) e Instance Store](../../servicos/armazenamento/ebs.md) · [Amazon EFS (Elastic File System)](../../servicos/armazenamento/efs.md) · [Amazon FSx](../../servicos/armazenamento/fsx.md) · [AWS Storage Gateway](../../servicos/armazenamento/storage-gateway.md) · [AWS Backup](../../servicos/armazenamento/aws-backup.md) · [AWS Elastic Disaster Recovery (AWS DRS)](../../servicos/armazenamento/elastic-disaster-recovery.md) · [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](../../servicos/migracao/snow-family.md) · [AWS DataSync e AWS Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md)
 
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** A **família Snow** e o **DataSync** não aparecem na lista oficial atual (o Snowball Edge está fechado a novos clientes); **FSx for Lustre** e **Transfer Family** estão **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
 ⬅️ [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) · 🏠 [Índice do domínio](README.md) · [3.10 Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) ➡️
 
 ---
@@ -72,7 +74,7 @@
   - **Snowmobile** (100 PB): aposentado em 2024.
   - **Snowcone:** sem novos pedidos desde 12/11/2024; suporte encerrado em 12/11/2025.
   - **Snowball Edge:** desde **07/11/2025**, só para **clientes existentes**. Novos clientes: **DataSync** (online), **AWS Data Transfer Terminal** (transferência física em local seguro) ou parceiros; para borda, **Outposts**. Restam o Storage Optimized de 210 TB e o Compute Optimized de 104 vCPUs.
-  - ⚠️ **Na prova** o exam guide ainda cita Snowball Edge/Snowmobile: "migrar petabytes com banda limitada" → **Snowball Edge**; "exabytes / 100 PB" → Snowmobile (questões antigas).
+  - ✔️ Verificado em 04/10/2026: a família Snow **saiu** da lista oficial de serviços. Em questões antigas, "migrar petabytes com banda limitada" → **Snowball Edge**; "exabytes / 100 PB" → Snowmobile (questões antigas).
 - 🧊 Não decorar: IOPS por tipo de EBS, throughput st1/sc1, tamanhos antigos de Snowball (80 TB), preços por GB.
 <!-- extra:fim -->
 

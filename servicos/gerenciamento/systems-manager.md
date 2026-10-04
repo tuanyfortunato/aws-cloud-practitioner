@@ -3,6 +3,8 @@
 > **Categoria:** Gerenciamento / operações · **Domínio:** 3 · **Escopo:** Regional (EC2, on-premises e outras nuvens) · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 >
 > **Em uma frase:** central de operações para gerenciar **frotas** de servidores (EC2, on-premises, VMs) em escala, sem acesso manual.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Pré-requisitos
 
@@ -23,6 +25,7 @@
 | **Fleet Manager** | Console para gerenciar os nós remotamente | — |
 | **Distributor** | Distribui pacotes de software | — |
 | **OpsCenter / Explorer** | Itens operacionais e visão agregada | — |
+| **Incident Manager / Change Manager** | Resposta a incidentes / aprovação de mudanças | 🔄 Fechados a novos clientes desde 07/11/2025 |
 | **Maintenance Windows** | Janelas agendadas para tarefas | — |
 
 ## Cobrança

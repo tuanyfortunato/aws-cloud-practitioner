@@ -3,6 +3,8 @@
 > **Categoria:** Bancos de propósito específico · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md) · [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 >
 > **Em uma frase:** a AWS tem um banco "sob medida" para cada modelo de dados — saiba associar o modelo ao serviço.
+>
+> **Escopo oficial:** 🔀 Keyspaces e MemoryDB ❌ fora do escopo · Timestream ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Tabela de decisão
 
@@ -13,7 +15,7 @@
 | **Amazon MemoryDB** | Chave-valor em memória **durável** | Banco primário estilo Redis | [Ficha](memorydb.md) |
 | **Amazon DocumentDB** | Documentos (MongoDB) | Catálogos, conteúdo | [Ficha](documentdb.md) |
 | **Amazon Neptune** | Grafos | Redes sociais, fraude | [Ficha](neptune.md) |
-| **Amazon QLDB** | Ledger imutável | — | 🔄 Descontinuado (fim de suporte em 31/07/2025) — se aparecer em questão antiga: "registro imutável e verificável criptograficamente" |
+| **Amazon QLDB** | Ledger imutável | — | 🔄 Encerrado em 31/07/2025 (confirmado) — se aparecer em questão antiga: "registro imutável e verificável criptograficamente" |
 
 ## Visão geral: qual banco para qual dado
 

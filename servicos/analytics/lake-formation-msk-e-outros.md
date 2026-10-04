@@ -3,6 +3,8 @@
 > **Categoria:** Analytics / dados · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 >
 > **Em uma frase:** serviços de dados que aparecem como "qual serviço faz X" — saiba a função de cada um.
+>
+> **Escopo oficial:** 🔀 MSK, AppFlow, Data Exchange, Clean Rooms e DataZone ❌ fora do escopo · Lake Formation ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 | Serviço | O que faz | Cenário de prova |
 |---|---|---|

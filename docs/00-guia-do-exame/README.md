@@ -1,19 +1,21 @@
 # Guia do Exame — AWS Certified Cloud Practitioner (CLF-C02)
 
-> Confira sempre o [exam guide oficial](https://docs.aws.amazon.com/aws-certification/latest/examguides/cloud-practitioner-02.html) e a [lista de serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/userguide/clf-02-in-scope-services.html) na semana da prova.
+> Confira sempre o [exam guide oficial](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html) e a [lista de serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html) na semana da prova.
+> O código continua **CLF-C02**, mas a AWS atualiza o conteúdo do guia **sem trocar o código** (última verificação: 04/10/2026, [detalhes](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
 
 ## Formato
 
 | Item | Detalhe |
 |---|---|
-| Código | CLF-C02 (exam guide versão 1.0) |
+| Código | CLF-C02 (o guia atual não mostra número de versão) |
+| Custo | US$ 100 |
 | Questões | 65 (50 pontuadas + 15 de teste, **não identificadas**) |
-| Tipos | Múltipla escolha (1 correta) e múltipla resposta (2+ corretas; o enunciado diz quantas) |
+| Tipos | Múltipla escolha (1 correta e 3 distratores) e múltipla resposta (2 ou mais corretas entre 5 ou mais opções; o enunciado diz quantas) |
 | Duração | 90 minutos |
 | Acomodação ESL +30 | Quem faz em inglês sem ser nativo pode pedir **+30 min** antes de agendar |
 | Nota mínima | **700 de 1000**, modelo **compensatório** (vale o total, não cada domínio) |
 | Em branco | Conta como erro; **chute não é penalizado** — nunca deixe sem resposta |
-| Idiomas | Inclui português (Brasil) |
+| Idiomas | Inclui português (Brasil); italiano e alemão saem após 31/12/2026 |
 | Aplicação | Centro Pearson VUE ou online supervisionado |
 | Validade | 3 anos |
 
@@ -31,11 +33,12 @@
 - Avalia: **explicar o valor da nuvem**, entender **custos, economia e cobrança** e **identificar serviços AWS para casos de uso comuns**.
 - Fora do escopo: codificação, design de arquitetura, troubleshooting, implementação e testes de carga.
 - Por isso, números aparecem quase sempre como **diferenciadores** ("15 min" separa Lambda de Batch/Fargate; "2 minutos" identifica Spot), não como cálculo. Veja [números-âncora](../../resumos/numeros-ancora.md).
-- Categorias de serviço fora do escopo (distratores): Game Tech, mídia, robótica, satélite e blockchain — ver [3.18](../03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md).
+- **Task statements oficiais, serviços no escopo e fora do escopo:** ver [escopo oficial](escopo-oficial.md). Vários serviços saíram da lista (ex.: AWS IQ, Wavelength, CloudShell, CodeDeploy, Transfer Family, MSK) e alternativas com eles tendem a ser distratores.
 
 ## Documentos desta pasta
 
 - [Plano de estudos](plano-de-estudos.md)
+- [Escopo oficial: task statements e serviços dentro/fora da prova](escopo-oficial.md)
 - [O que mudou em 2025-2026 (valor da prova × valor atual)](atualizacoes-2025-2026.md)
 
 ## Dicas para o dia da prova
@@ -43,7 +46,7 @@
 - Leia a pergunta inteira antes das alternativas e procure a **palavra-chave** ("mais barato", "menor esforço operacional", "alta disponibilidade") — ver [palavras-chave](../../resumos/palavras-chave.md).
 - Elimine as alternativas claramente erradas primeiro; desconfie de serviços fora do escopo.
 - Use **marcar para revisão** e volte depois.
-- Entre um valor "clássico" e um atualizado, prefira o que existir entre as alternativas, priorizando o modelo do exam guide ([detalhes](atualizacoes-2025-2026.md)).
+- Planos de suporte: o guia atual cobra os **novos** (Basic, Business Support+, Enterprise, Unified Operations). Para outros números que mudaram (S3 50 TB, SQS 1 MiB), escolha o valor que existir entre as alternativas ([detalhes](atualizacoes-2025-2026.md)).
 - Ao final, revise as marcadas com o tempo restante.
 
 ## Informações da minha prova

@@ -3,6 +3,8 @@
 > **Categoria:** Computação · **Domínio:** 3 (e 4: modelos de compra) · **Escopo:** Regional (cada instância vive numa AZ) · **Tópico do guia:** [3.3 Amazon EC2](../../docs/03-tecnologia-e-servicos/03-ec2.md)
 >
 > **Em uma frase:** servidores virtuais sob demanda, com controle total do sistema operacional (IaaS).
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Para que serve
 

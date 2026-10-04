@@ -3,6 +3,8 @@
 > **Categoria:** Analytics / BI · **Domínio:** 3 · **Escopo:** Regional (conta) · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** BI **serverless** para criar dashboards e relatórios interativos, inclusive com perguntas em linguagem natural.
+>
+> **Escopo oficial:** ✅ No escopo (como Amazon Quick Sight) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Destaques
 
@@ -21,7 +23,7 @@
 
 ## 🔄 Atualizações 2025-2026
 
-- A lista oficial de serviços usa o nome **"Amazon Quick Sight"**; o QuickSight passou a fazer parte do **Amazon Quick Suite** (junto com recursos de agentes de IA). Na prova pode aparecer "QuickSight".
+- Nomes: Amazon QuickSight → **Amazon Quick Suite** → hoje **"Amazon Quick"**. A parte de BI continua como **Amazon Quick Sight**, nome usado no exam guide e na lista de serviços. Na prova pode aparecer também "QuickSight".
 
 ## ❓ Perguntas típicas
 

@@ -144,6 +144,21 @@ FICHAS_POR_TOPICO = {
     "4.6": ["recursos-de-ajuda-e-parceiros", "planos-de-suporte"],
 }
 
+# Avisos exibidos no topo de tópicos cujo conteúdo-base (fontes/guia) ficou desatualizado em relação
+# ao exam guide oficial (verificação de 04/10/2026).
+ESCOPO_LINK = "docs/00-guia-do-exame/escopo-oficial.md"
+AVISOS = {
+    "3.2": "Na lista oficial atual, **Outposts** está no escopo, **Local Zones** não aparece e **Wavelength** está **fora do escopo**.",
+    "3.9": "A **família Snow** e o **DataSync** não aparecem na lista oficial atual (o Snowball Edge está fechado a novos clientes); **FSx for Lustre** e **Transfer Family** estão **fora do escopo**.",
+    "3.12": "No escopo: SageMaker AI, Amazon Q, Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate. **Bedrock** e **Kendra** não aparecem na lista atual; **Personalize** e **Fraud Detector** estão **fora do escopo**.",
+    "3.14": "No escopo: Connect, SES, AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser, **Amplify** e **IoT Core**. AppSync não aparece na lista atual.",
+    "3.15": "No escopo só ficaram **AWS CLI, CodeBuild, CodePipeline e X-Ray**. CodeDeploy, CodeArtifact e CloudShell estão **fora do escopo**; Cloud9, CodeCommit e CodeStar não aparecem.",
+    "3.17": "**Migration Hub** e **Application Discovery Service** continuam no escopo, mas estão fechados a novos clientes desde 07/11/2025. **Transfer Family** está **fora do escopo**; Snow e DataSync não aparecem.",
+    "3.18": "Vários serviços desta seção estão **fora do escopo** oficial (MSK, AppFlow, Data Exchange, Keyspaces, MemoryDB, Personalize, Device Farm, Network Firewall, AWS IQ). Use-os para reconhecer distratores.",
+    "4.5": "O exam guide atual (task 4.3) cobra os **planos novos: Basic, Business Support+, Enterprise e Unified Operations**. O conteúdo abaixo descreve o modelo clássico (válido até 01/01/2027). Estude primeiro a tabela de planos novos na seção de atualizações e na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md).",
+    "4.6": "**AWS IQ**, **AWS Activate** e **AWS Managed Services** estão **fora do escopo** oficial. A task 4.3 cita: Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center e re:Post.",
+}
+
 EXTRA_INI = "<!-- extra:inicio -->"
 EXTRA_FIM = "<!-- extra:fim -->"
 NOTAS_INI = "<!-- notas:inicio -->"
@@ -308,13 +323,17 @@ def gerar_topicos(secoes):
                 for n in fichas)
             bloco_fichas = f"\n> 🔎 **Fichas detalhadas:** {links}\n"
 
-        rotulo = sec if sec != "3.18" else "3.18"
+        rotulo = sec
+        aviso = ""
+        if sec in AVISOS:
+            aviso = (f"\n> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** {AVISOS[sec]} "
+                     f"[Ver escopo oficial]({rel(caminho, ESCOPO_LINK)}).\n")
         extra = ler_bloco(os.path.join(RAIZ, caminho), EXTRA_INI, EXTRA_FIM)
         notas = ler_bloco(os.path.join(RAIZ, caminho), NOTAS_INI, NOTAS_FIM, NOTAS_VAZIO)
         conteudo = f"""# {rotulo} {titulo}
 
 > **{nome_dom} ({peso})** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-{bloco_fichas}
+{bloco_fichas}{aviso}
 {" · ".join(nav)}
 
 ---
@@ -438,6 +457,81 @@ As questões oficiais podem vir em português ou inglês; os termos abaixo apare
 """)
 
 
+
+# Status de cada ficha na lista oficial de serviços da CLF-C02 (verificada em 04/10/2026,
+# ver docs/00-guia-do-exame/escopo-oficial.md). ✅ no escopo · 🔀 parcial · ⚪ não listado · ❌ fora do escopo.
+ESCOPO = {
+    "ec2": "✅ No escopo",
+    "ec2-auto-scaling": "✅ No escopo (AWS Auto Scaling)",
+    "elastic-load-balancing": "✅ Cobrado junto com o EC2 (não aparece como item separado na lista)",
+    "lambda": "✅ No escopo", "ecs": "✅ No escopo", "eks": "✅ No escopo", "fargate": "✅ No escopo",
+    "ecr": "✅ No escopo", "elastic-beanstalk": "✅ No escopo", "lightsail": "✅ No escopo", "batch": "✅ No escopo",
+    "outposts-local-zones-wavelength": "🔀 Outposts ✅ · Local Zones ⚪ não listado · Wavelength ❌ fora do escopo",
+    "s3": "✅ No escopo", "s3-classes-de-armazenamento": "✅ No escopo (S3 e S3 Glacier)",
+    "ebs": "✅ No escopo", "efs": "✅ No escopo",
+    "fsx": "🔀 FSx ✅ · FSx for Lustre ❌ fora do escopo",
+    "storage-gateway": "✅ No escopo", "aws-backup": "✅ No escopo", "elastic-disaster-recovery": "✅ No escopo",
+    "rds": "✅ No escopo", "aurora": "✅ No escopo", "dynamodb": "✅ No escopo", "elasticache": "✅ No escopo",
+    "memorydb": "❌ Fora do escopo", "redshift": "✅ No escopo", "documentdb": "✅ No escopo", "neptune": "✅ No escopo",
+    "keyspaces-timestream-e-outros": "🔀 Keyspaces e MemoryDB ❌ fora do escopo · Timestream ⚪ não listado",
+    "vpc": "✅ No escopo",
+    "vpc-peering-transit-gateway-e-endpoints": "✅ No escopo (Transit Gateway e PrivateLink listados)",
+    "site-to-site-vpn-e-client-vpn": "✅ No escopo", "direct-connect": "✅ No escopo", "route-53": "✅ No escopo",
+    "cloudfront": "✅ No escopo", "global-accelerator": "✅ No escopo", "api-gateway": "✅ No escopo",
+    "iam": "✅ No escopo (STS ⚪ não listado)", "iam-identity-center": "✅ No escopo", "cognito": "✅ No escopo",
+    "directory-service": "✅ No escopo", "kms": "✅ No escopo", "cloudhsm": "✅ No escopo",
+    "certificate-manager": "✅ No escopo (Private CA ⚪ não listado)",
+    "secrets-manager-e-parameter-store": "✅ No escopo (Parameter Store como parte do Systems Manager)",
+    "shield": "✅ No escopo", "waf": "✅ No escopo",
+    "firewall-manager-e-network-firewall": "🔀 Firewall Manager ✅ · Network Firewall ❌ fora do escopo",
+    "guardduty": "✅ No escopo", "inspector": "✅ No escopo", "macie": "✅ No escopo", "detective": "✅ No escopo",
+    "security-hub": "✅ No escopo", "artifact": "✅ No escopo",
+    "audit-manager": "⚪ Não listado (saiu da lista atual)",
+    "cloudwatch": "✅ No escopo", "cloudtrail": "✅ No escopo", "config": "✅ No escopo",
+    "systems-manager": "✅ No escopo", "cloudformation": "✅ No escopo", "organizations": "✅ No escopo",
+    "control-tower": "✅ No escopo", "service-catalog-e-ram": "✅ No escopo", "trusted-advisor": "✅ No escopo",
+    "health-dashboard": "✅ No escopo",
+    "compute-optimizer-service-quotas-e-license-manager": "✅ No escopo (Launch Wizard ❌ fora do escopo)",
+    "athena": "✅ No escopo", "glue": "✅ No escopo", "kinesis": "✅ No escopo", "emr": "✅ No escopo",
+    "quicksight": "✅ No escopo (como Amazon Quick Sight)", "opensearch": "✅ No escopo",
+    "lake-formation-msk-e-outros": "🔀 MSK, AppFlow, Data Exchange, Clean Rooms e DataZone ❌ fora do escopo · Lake Formation ⚪ não listado",
+    "sagemaker-ai": "✅ No escopo", "bedrock": "⚪ Não listado", "amazon-q": "✅ No escopo",
+    "servicos-de-ia-prontos": "🔀 Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate ✅ · Kendra ⚪ não listado · Personalize e Fraud Detector ❌ fora do escopo",
+    "sqs": "✅ No escopo", "sns": "✅ No escopo", "eventbridge": "✅ No escopo", "step-functions": "✅ No escopo",
+    "amazon-mq": "⚪ Não listado",
+    "cli-sdk-e-cloudshell": "🔀 CLI e Management Console ✅ · CloudShell ❌ fora do escopo · Cloud9 ⚪ não listado",
+    "code-services": "🔀 CodeBuild e CodePipeline ✅ · CodeDeploy e CodeArtifact ❌ fora do escopo · CodeCommit e CodeStar ⚪ não listados",
+    "x-ray": "✅ No escopo",
+    "amazon-connect": "✅ No escopo", "ses": "✅ No escopo",
+    "workspaces-e-appstream": "✅ No escopo (WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser)",
+    "amplify-e-appsync": "🔀 Amplify ✅ · AppSync ⚪ não listado · Device Farm ❌ fora do escopo",
+    "iot-core-e-greengrass": "🔀 IoT Core ✅ · IoT Greengrass ❌ fora do escopo",
+    "discovery-migration-hub-e-evaluator": "✅ No escopo (Migration Hub e Application Discovery Service fechados a novos clientes)",
+    "application-migration-service": "✅ No escopo", "dms-e-sct": "✅ No escopo",
+    "snow-family": "⚪ Não listado (saiu da lista atual)",
+    "datasync-e-transfer-family": "🔀 DataSync ⚪ não listado · Transfer Family ❌ fora do escopo",
+    "cost-explorer": "✅ No escopo", "budgets": "✅ No escopo",
+    "pricing-calculator-cur-e-outras-ferramentas": "✅ No escopo (Billing Conductor ❌ fora do escopo)",
+    "planos-de-suporte": "✅ No escopo (AWS Support — task 4.3 cobra os planos novos)",
+    "recursos-de-ajuda-e-parceiros": "🔀 Marketplace, APN, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post e Trust and Safety ✅ (task 4.3) · AWS IQ, Activate e AMS ❌ fora do escopo",
+}
+LINHA_ESCOPO = re.compile(r"\n>\n> \*\*Escopo oficial:\*\*[^\n]*")
+
+
+def aplicar_escopo_fichas():
+    """Escreve (ou atualiza) a linha de escopo oficial logo após o 'Em uma frase' de cada ficha."""
+    faltando = [n for n in CATEGORIA if n not in ESCOPO]
+    assert not faltando, f"Fichas sem status de escopo: {faltando}"
+    for nome, cat in CATEGORIA.items():
+        caminho = os.path.join(RAIZ, "servicos", cat, nome + ".md")
+        with open(caminho) as f:
+            texto = LINHA_ESCOPO.sub("", f.read())
+        linha = (f"\n>\n> **Escopo oficial:** {ESCOPO[nome]} · "
+                 f"[ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)")
+        texto = re.sub(r"(> \*\*Em uma frase:\*\*[^\n]*)", lambda m: m.group(1) + linha, texto, count=1)
+        with open(caminho, "w") as f:
+            f.write(texto)
+
 NOMES_CATEGORIA = {
     "computacao": "🖥️ Computação",
     "armazenamento": "🗄️ Armazenamento",
@@ -460,18 +554,20 @@ def gerar_indice_servicos():
               "Uma ficha por serviço (ou família de serviços), com o que cai na prova e o que vai além: "
               "componentes, configurações, limites, cobrança, responsabilidade compartilhada, "
               "atualizações 2025-2026, pegadinhas e perguntas típicas.\n",
-              "> Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar. "
+              "> Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.\n>\n"
+              "> Coluna *Escopo* ([lista oficial](../docs/00-guia-do-exame/escopo-oficial.md)): ✅ no escopo · "
+              "🔀 parcial · ⚪ não listado · ❌ fora do escopo.\n>\n> "
               "Modelo para novas fichas: [`templates/servico.md`](../templates/servico.md).\n"]
     total = 0
     for cat, nomes in FICHAS.items():
-        partes.append(f"\n## {NOMES_CATEGORIA[cat]}\n\n| Ficha | Em uma frase |\n|---|---|")
+        partes.append(f"\n## {NOMES_CATEGORIA[cat]}\n\n| Ficha | Escopo | Em uma frase |\n|---|---|---|")
         for nome in nomes:
             caminho = os.path.join(RAIZ, "servicos", cat, nome + ".md")
             with open(caminho) as f:
                 texto = f.read()
             frase = re.search(r"\*\*Em uma frase:\*\* (.+)", texto)
             frase = frase.group(1).strip() if frase else ""
-            partes.append(f"| [{titulo_ficha(nome)}]({cat}/{nome}.md) | {frase[:1].upper() + frase[1:]} |")
+            partes.append(f"| [{titulo_ficha(nome)}]({cat}/{nome}.md) | {ESCOPO[nome].split()[0]} | {frase[:1].upper() + frase[1:]} |")
             total += 1
     escrever("servicos/README.md", "\n".join(partes))
     return total
@@ -498,12 +594,12 @@ def gerar_indice_readme(secoes, ordem):
         linhas += [f"- [{titulo_ficha(n)}](servicos/{cat}/{n}.md)" for n in nomes]
         linhas += ["", "</details>", ""]
     linhas += ["### Outros materiais", "",
-               "- [Guia do exame](docs/00-guia-do-exame/README.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)",
+               "- [Guia do exame](docs/00-guia-do-exame/README.md) · [Escopo oficial](docs/00-guia-do-exame/escopo-oficial.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)",
                "- Flashcards: " + " · ".join(f"[Domínio {d}](flashcards/dominio-{d}.md)" for d in DOMINIOS) + " · [Anki (TSV)](flashcards/anki-clf-c02.tsv)",
                "- Resumos: [Pares que confundem](resumos/comparativos.md) · [Palavras-chave](resumos/palavras-chave.md) · [Números-âncora](resumos/numeros-ancora.md)",
                "- Questões no formato da prova: [Simulado 01 (65 questões)](simulados/simulado-01.md) · " + " · ".join(f"[Domínio {d}](simulados/questoes/dominio-{d}.md)" for d in DOMINIOS),
                "- [Glossário](glossario.md) · [Progresso](progresso.md) · [Simulados](simulados/README.md) · [Erros recorrentes](simulados/erros-recorrentes.md) · [Labs](labs/README.md) · [Links úteis](recursos/links-uteis.md)",
-               "- Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md)",
+               "- Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md) · [Verificação oficial (10/2026)](fontes/verificacao-fontes-oficiais-2026-10.md)",
                "- Modelos: [Tópico](templates/topico.md) · [Ficha de serviço](templates/servico.md) · [Simulado](templates/simulado.md)",
                INDICE_FIM]
     bloco = "\n".join(linhas)
@@ -526,6 +622,7 @@ def main():
     gerar_readmes_dominio(secoes, intros, ordem)
     total = gerar_flashcards(secoes, ordem)
     gerar_resumos(extras)
+    aplicar_escopo_fichas()
     fichas = gerar_indice_servicos()
     gerar_indice_readme(secoes, ordem)
     print(f"{len(ordem)} tópicos, {total} flashcards e índice de {fichas} fichas gerados.")

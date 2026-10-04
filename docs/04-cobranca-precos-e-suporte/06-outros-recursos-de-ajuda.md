@@ -4,6 +4,8 @@
 
 > 🔎 **Fichas detalhadas:** [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](../../servicos/custos/recursos-de-ajuda-e-parceiros.md) · [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md)
 
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** **AWS IQ**, **AWS Activate** e **AWS Managed Services** estão **fora do escopo** oficial. A task 4.3 cita: Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center e re:Post. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
 ⬅️ [4.5 Planos de AWS Support](05-planos-de-suporte.md) · 🏠 [Índice do domínio](README.md)
 
 ---
@@ -39,7 +41,7 @@
 
 > Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
 
-- 🔄 **AWS IQ encerrado em 28/05/2026** (novos cadastros de especialistas pararam em 20/05/2025). Substituto indicado: **AWS Marketplace Professional Services**. ⚠️ O exam guide ainda cita o AWS IQ como "contratar freelancers/consultorias certificadas sob demanda" — se aparecer, é a resposta.
+- 🔄 **AWS IQ encerrado em 28/05/2026** (novos cadastros de especialistas pararam em 20/05/2025). Substituto indicado: **AWS Marketplace Professional Services**. ✔️ Verificado em 04/10/2026: o AWS IQ agora está declarado **fora do escopo** da prova (assim como AWS Activate e AWS Managed Services). Em questão antiga sobre "contratar especialista certificado sob demanda", a resposta era AWS IQ.
 - **AWS Marketplace** também vende **serviços profissionais**, além de AMIs, SaaS, contêineres e dados.
 <!-- extra:fim -->
 

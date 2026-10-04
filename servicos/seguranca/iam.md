@@ -3,6 +3,8 @@
 > **Categoria:** Segurança / identidade · **Domínio:** 2 · **Escopo:** **Global** · **Gratuito** · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md) · [2.2 Usuário root](../../docs/02-seguranca-e-conformidade/02-usuario-root.md)
 >
 > **Em uma frase:** controla **quem** pode se autenticar e **o que** cada identidade pode fazer em quais recursos da conta.
+>
+> **Escopo oficial:** ✅ No escopo (STS ⚪ não listado) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Identidades
 
@@ -78,8 +80,8 @@
 
 ## 🔄 Atualizações 2025-2026
 
-- **MFA obrigatório para root** em contas de gerenciamento e contas independentes.
-- **Gerenciamento centralizado de acesso root** (Organizations): remove credenciais root das contas-membro e executa ações privilegiadas de forma central.
+- **MFA obrigatório para root:** contas de gerenciamento (maio/2024), contas standalone (junho/2024) e contas-membro (2025).
+- **Gerenciamento centralizado de acesso root** (Organizations, novembro/2024): remove credenciais root das contas-membro e executa ações privilegiadas de forma central.
 
 ## Segurança e responsabilidade compartilhada
 

@@ -55,8 +55,8 @@
 | EC2 Instance Savings Plans | até **72%** | 1 ou 3 anos, US$/hora | família fixa numa região (tamanho/SO flexíveis) |
 | Compute Savings Plans | até **66%** | 1 ou 3 anos | EC2 (qualquer família/região), **Fargate e Lambda** |
 | Standard RI | até **72%** | 1 ou 3 anos | revendável no RI Marketplace |
-| Convertible RI | até **66%** (página de preços de RI; o SAP Lens cita 54%) | 1 ou 3 anos | troca família/SO |
-| Database Savings Plans | até 35% | 1 ou 3 anos | 🔄 novo (RDS, Aurora, DynamoDB, ElastiCache…) |
+| Convertible RI | até **66%** (✔️ confirmado no guia de Savings Plans/RIs) | 1 ou 3 anos | troca família/SO |
+| Database Savings Plans | até 35% (serverless) / até 20% (provisionado) | **1 ano**, sem pagamento adiantado | 🔄 novo, desde 02/12/2025 (RDS, Aurora, DynamoDB, ElastiCache…) |
 | SageMaker AI Savings Plans | até 64% | 1 ou 3 anos | — |
 
 - Para a prova basta: "Convertible < Standard em desconto, porém mais flexível".

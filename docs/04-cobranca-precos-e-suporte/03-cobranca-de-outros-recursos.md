@@ -41,7 +41,8 @@
   - Contas novas escolhem **Free plan** ou **Paid plan**. Ambas recebem **US$ 100 em créditos no cadastro + até US$ 100** por atividades de onboarding (total até **US$ 200**).
   - O **Free plan** expira em **6 meses ou quando os créditos acabam** (o que vier primeiro); não gera cobrança, mas bloqueia alguns serviços caros. Para continuar, upgrade para o Paid plan.
   - **30+ serviços Always Free** continuam valendo. Contas anteriores a 15/07/2025 seguem no modelo legado (12 meses, trials, Always Free).
-  - ⚠️ **Na prova:** responda pelo modelo clássico (**Always Free, 12 meses grátis, trials**), a menos que a questão fale em créditos.
+  - ✔️ Confirmado em fonte oficial; atividades que liberam créditos incluem EC2, RDS, Lambda, Bedrock e Budgets.
+  - ⚠️ **Na prova:** questões antigas descrevem o modelo clássico (**Always Free, 12 meses grátis, trials**); se a questão falar em créditos ou em Free plan, use o modelo novo.
 - **Per-second billing** (mínimo de 60 s) também explica questões de "parar instâncias ociosas reduz custo".
 <!-- extra:fim -->
 

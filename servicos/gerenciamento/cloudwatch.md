@@ -3,6 +3,8 @@
 > **Categoria:** Gerenciamento / observabilidade · **Domínio:** 2 e 3 · **Escopo:** Regional (dashboards e alarmes entre regiões/contas) · **Tópico do guia:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)
 >
 > **Em uma frase:** monitoramento de **métricas, logs e alarmes** de recursos e aplicações AWS e on-premises.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 ## Componentes
 
@@ -22,7 +24,8 @@
 
 ## Métricas padrão do EC2
 
-- ✅ CPU, rede (bytes/pacotes), disco de instance store (ops/bytes), **status checks**, créditos de CPU (T).
+- ✅ CPU, rede (bytes/pacotes), disco de instance store (ops/bytes), **status checks** (a cada **1 min**, mesmo no básico), créditos de CPU (T).
+- Monitoramento **detalhado**: todas as métricas a cada 1 min, pago por métrica.
 - ❌ **Memória**, uso de **disco do sistema de arquivos**, processos → exigem o **agent**.
 
 ## Cobrança

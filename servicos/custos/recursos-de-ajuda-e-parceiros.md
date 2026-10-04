@@ -3,6 +3,13 @@
 > **Categoria:** Suporte e capacitação do cliente · **Domínio:** 4 · **Escopo:** Global · **Tópico do guia:** [4.6 Outros recursos de ajuda](../../docs/04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md)
 >
 > **Em uma frase:** além dos planos de suporte, a AWS oferece comunidade, documentação, consultoria, parceiros e operação terceirizada — a prova pede quem procurar em cada situação.
+>
+> **Escopo oficial:** 🔀 Marketplace, APN, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post e Trust and Safety ✅ (task 4.3) · AWS IQ, Activate e AMS ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
+
+## 🎯 Escopo da prova
+
+- A task 4.3 cita: **AWS Trust and Safety, AWS Partner Network, AWS Marketplace, AWS Professional Services, AWS Prescriptive Guidance, AWS Knowledge Center e AWS re:Post** — priorize esses.
+- **AWS IQ**, **AWS Activate** e **AWS Managed Services (AMS)** estão declarados **fora do escopo**.
 
 ## Tabela de decisão (📌 decorar)
 
