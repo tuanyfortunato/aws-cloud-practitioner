@@ -168,3 +168,4 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [AWS Budgets](custos/budgets.md) | Define orçamentos de custo e uso e **alerta** (ou **age**) quando o valor real ou **previsto** ultrapassa o limite. |
 | [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](custos/pricing-calculator-cur-e-outras-ferramentas.md) | Ferramentas para estimar, detalhar, ratear, otimizar e acompanhar os custos da AWS. |
 | [Planos de AWS Support](custos/planos-de-suporte.md) | Níveis de suporte técnico da AWS — quanto mais alto, mais rápido o atendimento e mais acompanhamento proativo. |
+| [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](custos/recursos-de-ajuda-e-parceiros.md) | Além dos planos de suporte, a AWS oferece comunidade, documentação, consultoria, parceiros e operação terceirizada — a prova pede quem procurar em cada situação. |
