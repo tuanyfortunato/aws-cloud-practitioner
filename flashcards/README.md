@@ -1,19 +1,29 @@
-# Flashcards
+# 🃏 Flashcards
 
-Um arquivo por domínio. Formato simples (pergunta → resposta) que também pode ser
-importado no Anki (separando pergunta e resposta por `;` se preferir CSV).
+Gerados automaticamente a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
+Clique na pergunta para revelar a resposta.
 
-- [Domínio 1 — Conceitos de Nuvem](01-conceitos-de-nuvem.md)
-- [Domínio 2 — Segurança e Conformidade](02-seguranca-e-conformidade.md)
-- [Domínio 3 — Tecnologia e Serviços](03-tecnologia-e-servicos.md)
-- [Domínio 4 — Cobrança, Preços e Suporte](04-cobranca-precos-e-suporte.md)
+| Arquivo | Domínio |
+|---|---|
+| [dominio-1.md](dominio-1.md) | Conceitos de Nuvem |
+| [dominio-2.md](dominio-2.md) | Segurança e Conformidade |
+| [dominio-3.md](dominio-3.md) | Tecnologia e Serviços |
+| [dominio-4.md](dominio-4.md) | Cobrança, Preços e Suporte |
+| [anki-clf-c02.tsv](anki-clf-c02.tsv) | Todos, para importar no Anki |
 
-## Formato
+## Importar no Anki
+
+1. Anki → **Arquivo → Importar** → selecione `anki-clf-c02.tsv`.
+2. Separador: **Tab**. Campos: 1 = Frente, 2 = Verso, 3 = **Tags** (ex.: `dominio-2 secao-2_7`).
+3. Use as tags para estudar por domínio ou tópico.
+
+## Adicionar cards
+
+Acrescente a pergunta na seção *Perguntas típicas* do tópico em
+[`fontes/guia-completo-clf-c02.md`](../fontes/guia-completo-clf-c02.md), no formato:
 
 ```markdown
-<details>
-<summary>Qual serviço registra as chamadas de API feitas na conta?</summary>
-
-**AWS CloudTrail**
-</details>
+- "Pergunta?" → Resposta.
 ```
+
+e rode o script. Os arquivos desta pasta são sobrescritos a cada execução.

@@ -1,0 +1,70 @@
+# 2.9 Detecção de ameaças e postura de segurança
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon GuardDuty](../../servicos/seguranca/guardduty.md) · [Amazon Inspector](../../servicos/seguranca/inspector.md) · [Amazon Macie](../../servicos/seguranca/macie.md) · [Amazon Detective](../../servicos/seguranca/detective.md) · [AWS Security Hub](../../servicos/seguranca/security-hub.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
+
+⬅️ [2.8 Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [2.10 Outros pontos de segurança](10-outros-pontos-de-seguranca.md) ➡️
+
+---
+
+## 📖 Conteúdo
+
+| Serviço | O que faz | Detalhes de prova |
+| --- | --- | --- |
+| Amazon GuardDuty | Detecção inteligente de ameaças com machine learning | Analisa CloudTrail, VPC Flow Logs e logs de DNS (e outras fontes opcionais); sem agentes; ativação com um clique; período de teste gratuito |
+| Amazon Inspector | Avaliação automática e contínua de **vulnerabilidades** | Varre instâncias EC2, imagens no ECR e funções Lambda; procura CVEs e exposição de rede; gera nota de risco |
+| Amazon Macie | Descobre e protege **dados sensíveis** com ML | Só no **S3**; identifica PII (CPF, cartão, nomes) e buckets públicos ou sem criptografia |
+| Amazon Detective | **Investiga** a causa raiz de achados de segurança | Monta gráficos de relacionamento a partir de logs e achados do GuardDuty |
+| AWS Security Hub | **Painel central** de segurança | Agrega achados de GuardDuty, Inspector, Macie e parceiros; verifica padrões como AWS Foundational Security Best Practices e CIS |
+| AWS Trusted Advisor | Recomendações de **boas práticas** | Categorias: otimização de custos, performance, segurança, tolerância a falhas, cotas de serviço e excelência operacional |
+
+- **Trusted Advisor por plano de suporte:** Basic e Developer só têm as verificações principais de segurança e de cotas; **Business, Enterprise On-Ramp e Enterprise têm todas as verificações** e acesso via API.
+- **Exemplos de verificações do Trusted Advisor:** buckets S3 com acesso público, MFA no root, security groups com portas abertas para o mundo, instâncias ociosas, cotas próximas do limite.
+- **Cai na prova:** detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub). Vulnerabilidade de software = Inspector; dado sensível = Macie.
+
+## ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-2.md).
+
+- "Qual serviço detecta atividade maliciosa analisando CloudTrail, VPC Flow Logs e DNS?" → GuardDuty.
+- "Qual serviço varre instâncias EC2 e imagens de container em busca de vulnerabilidades?" → Amazon Inspector.
+- "Qual serviço encontra dados pessoais em buckets S3?" → Amazon Macie.
+- "Qual serviço ajuda a investigar a causa raiz de um achado de segurança?" → Amazon Detective.
+- "Qual serviço reúne os achados de segurança de vários serviços num só painel?" → AWS Security Hub.
+- "Qual serviço recomenda melhorias de custo, segurança, performance e limites?" → Trusted Advisor.
+- "Qual plano de suporte libera todas as verificações do Trusted Advisor?" → Business ou superior.
+- "Qual verificação de segurança o Trusted Advisor faz?" → Buckets S3 públicos, MFA no root, portas abertas em security groups.
+
+<!-- extra:inicio -->
+## 🔄 Atualizações 2025-2026 e detalhes extras
+
+> Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
+
+- **Trusted Advisor — 🔄 6 categorias:** cost optimization, performance, security, fault tolerance, service limits e **operational excellence** (a mais nova). Materiais antigos listam 5; ⚠️ se a questão listar 5, escolha as 5 clássicas.
+- **Basic/Developer:** todos os checks de **Service Limits** + checks selecionados de **Security** e **Fault Tolerance**, com refresh manual. 📌 Os "7 core checks" clássicos: S3 Bucket Permissions, Security Groups – Specific Ports Unrestricted, IAM Use, MFA on Root Account, EBS Public Snapshots, RDS Public Snapshots e Service Limits.
+- **Business (Support+)/Enterprise/Unified Operations:** todos os checks, acesso via **AWS Support API** e integração com **EventBridge**. **Trusted Advisor Priority** exige Enterprise ou superior.
+- 🧊 Contagem de checks: fontes divergem ("56 grátis / 482 no total", "500+"). Não decorar.
+- **Ferramenta certa por pergunta (📌):**
+
+| Pergunta | Serviço |
+|---|---|
+| Quem fez a chamada de API? | CloudTrail |
+| Como estava a configuração em tal data / está conforme? | Config |
+| Métrica ou alarme de desempenho | CloudWatch |
+| Ameaça ativa (mineração de cripto, IP malicioso) | GuardDuty |
+| Vulnerabilidade/CVE em EC2, ECR, Lambda | Inspector |
+| PII no S3 | Macie |
+| Investigar a causa raiz de um achado | Detective |
+| Painel central de achados e padrões (CIS, AWS FSBP) | Security Hub |
+<!-- extra:fim -->
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->
+
+---
+
+⬅️ [2.8 Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [2.10 Outros pontos de segurança](10-outros-pontos-de-seguranca.md) ➡️

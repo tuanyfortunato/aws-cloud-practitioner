@@ -1,27 +1,24 @@
-# Nome do Tópico
+# x.y Título do tópico
 
-> **Status:** 🔴 Não iniciado  <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio N — Nome (peso%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
 
-## O que cai na prova
+> 🔎 **Fichas detalhadas:** [Serviço](../../servicos/categoria/servico.md)
 
-- [ ]
+---
 
-## Resumo
+## 📖 Conteúdo
 
-## Comparações importantes
+- Conceitos cobrados.
+- **Cai na prova:** cenários mais comuns.
 
-| Serviço / Conceito | Quando usar | Palavra-chave na questão |
-|---|---|---|
-|  |  |  |
+## ❓ Perguntas típicas
 
-## Pegadinhas
+- "Pergunta?" → Resposta.
 
--
+<!-- extra:inicio -->
+## 🔄 Atualizações e detalhes extras
+<!-- extra:fim -->
 
-## Questões que errei sobre o tema
-
--
-
-## Referências
-
--
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+<!-- notas:fim -->

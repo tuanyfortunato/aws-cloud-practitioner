@@ -1,0 +1,302 @@
+Qual modelo de serviço dá mais controle sobre o sistema operacional?	IaaS (EC2).	CLF-C02 dominio-1 secao-1_1
+Uma empresa quer só enviar o código sem gerenciar infraestrutura. Qual modelo?	PaaS (Elastic Beanstalk).	CLF-C02 dominio-1 secao-1_1
+Qual é um exemplo de SaaS?	Amazon Connect, WorkSpaces ou um software pronto como e-mail.	CLF-C02 dominio-1 secao-1_1
+Qual modelo de implantação liga o datacenter próprio à AWS?	Híbrido.	CLF-C02 dominio-1 secao-1_1
+O que caracteriza computação em nuvem?	Recursos sob demanda, pela internet, pagando pelo uso.	CLF-C02 dominio-1 secao-1_1
+Qual vantagem permite trocar investimento inicial em servidores por pagamento conforme o uso?	Trocar despesa de capital por despesa variável.	CLF-C02 dominio-1 secao-1_2
+Uma empresa não sabe quanto tráfego terá no lançamento. Qual vantagem ajuda?	Parar de adivinhar capacidade.	CLF-C02 dominio-1 secao-1_2
+Como a AWS consegue preços menores que um datacenter próprio?	Economias de escala massivas.	CLF-C02 dominio-1 secao-1_2
+Uma startup quer abrir operação em outro continente em um dia.	Tornar-se global em minutos.	CLF-C02 dominio-1 secao-1_2
+Qual vantagem libera o time para focar no produto em vez de racks e energia?	Parar de gastar mantendo datacenters.	CLF-C02 dominio-1 secao-1_2
+A aplicação adiciona instâncias no pico e remove de madrugada, sozinha.	Elasticidade.	CLF-C02 dominio-1 secao-1_3
+Como garantir que a falha de um datacenter não derrube a aplicação?	Implantar em várias AZs (alta disponibilidade).	CLF-C02 dominio-1 secao-1_3
+Qual estratégia de DR tem menor custo?	Backup and Restore.	CLF-C02 dominio-1 secao-1_3
+E menor tempo de recuperação?	Multi-site active/active.	CLF-C02 dominio-1 secao-1_3
+Como evitar que a falha de um componente afete os outros?	Acoplamento fraco com SQS, SNS ou EventBridge.	CLF-C02 dominio-1 secao-1_3
+O que significa RPO de 1 hora?	Aceita-se perder no máximo 1 hora de dados.	CLF-C02 dominio-1 secao-1_3
+Aumentar o tamanho da instância é escala...	Vertical.	CLF-C02 dominio-1 secao-1_3
+Adicionar instâncias é...	Horizontal.	CLF-C02 dominio-1 secao-1_3
+Quantos e quais são os pilares?	Seis: Excelência Operacional, Segurança, Confiabilidade, Eficiência de Performance, Otimização de Custos e Sustentabilidade.	CLF-C02 dominio-1 secao-1_4
+Qual pilar inclui recuperar automaticamente de falhas e escalar horizontalmente?	Confiabilidade.	CLF-C02 dominio-1 secao-1_4
+Qual pilar inclui rastreabilidade e menor privilégio?	Segurança.	CLF-C02 dominio-1 secao-1_4
+Qual pilar inclui fazer mudanças pequenas, frequentes e reversíveis?	Excelência Operacional.	CLF-C02 dominio-1 secao-1_4
+Qual pilar inclui usar serverless e experimentar com frequência?	Eficiência de Performance.	CLF-C02 dominio-1 secao-1_4
+Qual pilar inclui adotar o modelo de consumo e analisar gastos?	Otimização de Custos.	CLF-C02 dominio-1 secao-1_4
+Qual pilar foi o último adicionado e trata de impacto ambiental?	Sustentabilidade.	CLF-C02 dominio-1 secao-1_4
+Qual ferramenta revisa uma carga de trabalho contra os pilares?	AWS Well-Architected Tool.	CLF-C02 dominio-1 secao-1_4
+Qual perspectiva do CAF trata de treinamento, cultura e mudança organizacional?	People.	CLF-C02 dominio-1 secao-1_5
+Qual perspectiva garante que a estratégia de nuvem gere valor de negócio?	Business.	CLF-C02 dominio-1 secao-1_5
+Qual perspectiva cuida de risco, orçamento e gestão do programa?	Governance.	CLF-C02 dominio-1 secao-1_5
+Qual perspectiva trata da arquitetura e da plataforma técnica?	Platform.	CLF-C02 dominio-1 secao-1_5
+Qual perspectiva trata de identidade, proteção de dados e resposta a incidentes?	Security.	CLF-C02 dominio-1 secao-1_5
+Qual perspectiva trata de monitoramento e gestão de incidentes operacionais?	Operations.	CLF-C02 dominio-1 secao-1_5
+Quais são as fases da jornada de transformação?	Envision, Align, Launch e Scale.	CLF-C02 dominio-1 secao-1_5
+Qual é um benefício do CAF?	Reduzir risco de negócio, melhorar ESG, aumentar receita ou eficiência operacional.	CLF-C02 dominio-1 secao-1_5
+Migrar servidores para EC2 sem mudar nada.	Rehost.	CLF-C02 dominio-1 secao-1_6
+Migrar o banco para RDS para reduzir administração, sem mudar a aplicação.	Replatform.	CLF-C02 dominio-1 secao-1_6
+Trocar o sistema próprio por um produto SaaS.	Repurchase.	CLF-C02 dominio-1 secao-1_6
+Reescrever a aplicação para usar Lambda e microsserviços.	Refactor.	CLF-C02 dominio-1 secao-1_6
+Desligar aplicações que ninguém usa.	Retire.	CLF-C02 dominio-1 secao-1_6
+Manter a aplicação no datacenter por exigência regulatória.	Retain.	CLF-C02 dominio-1 secao-1_6
+Qual estratégia é a mais rápida?	Rehost.	CLF-C02 dominio-1 secao-1_6
+Qual traz mais benefícios de nuvem a longo prazo?	Refactor.	CLF-C02 dominio-1 secao-1_6
+Qual custo deixa de existir ao migrar para a AWS?	Custos de datacenter (energia, refrigeração, espaço físico, compra de hardware).	CLF-C02 dominio-1 secao-1_7
+Qual custo continua sendo do cliente na nuvem?	Gestão das aplicações e dos dados, licenças não incluídas, uso dos recursos.	CLF-C02 dominio-1 secao-1_7
+Como reduzir custo de licenças ao migrar?	BYOL com Dedicated Hosts, ou usar instâncias com licença incluída.	CLF-C02 dominio-1 secao-1_7
+Qual ferramenta ajuda a montar o caso de negócio (TCO) da migração?	Migration Evaluator.	CLF-C02 dominio-1 secao-1_7
+Qual prática ajusta recursos ao uso real?	Rightsizing.	CLF-C02 dominio-1 secao-1_7
+Por que serviços gerenciados reduzem o TCO?	Diminuem o trabalho operacional (patches, backups, hardware).	CLF-C02 dominio-1 secao-1_7
+Qual é responsabilidade da AWS?	Segurança física dos datacenters, hardware, rede global, hipervisor, patch do SO em serviços gerenciados (RDS, Lambda).	CLF-C02 dominio-2 secao-2_1
+Qual é responsabilidade do cliente?	Dados, IAM, security groups, criptografia, patch do SO no EC2, configuração dos serviços.	CLF-C02 dominio-2 secao-2_1
+Qual é um controle compartilhado?	Gestão de patches, gestão de configuração ou treinamento.	CLF-C02 dominio-2 secao-2_1
+Qual é um controle herdado da AWS?	Controles físicos e ambientais.	CLF-C02 dominio-2 secao-2_1
+Ao trocar EC2 por Lambda, o que muda?	A responsabilidade do cliente diminui (SO e runtime passam para a AWS).	CLF-C02 dominio-2 secao-2_1
+Quem é responsável pela segurança dos dados no S3?	O cliente (políticas, acesso e criptografia).	CLF-C02 dominio-2 secao-2_1
+Qual é a boa prática para o usuário root?	Ativar MFA, não criar access keys e usá-lo só para tarefas que o exigem.	CLF-C02 dominio-2 secao-2_2
+Qual destas tarefas exige o root?	Fechar a conta, mudar o plano de suporte, alterar dados da conta ou restaurar permissões de administrador.	CLF-C02 dominio-2 secao-2_2
+Qual tarefa NÃO exige o root?	Criar usuários IAM, ver a fatura (com permissão) ou lançar instâncias.	CLF-C02 dominio-2 secao-2_2
+O que fazer logo após criar a conta?	Proteger o root com MFA e criar identidades administrativas para o dia a dia.	CLF-C02 dominio-2 secao-2_2
+Uma aplicação no EC2 precisa ler um bucket S3. Qual a forma mais segura?	Anexar uma IAM role à instância.	CLF-C02 dominio-2 secao-2_3
+Dez desenvolvedores precisam das mesmas permissões.	Criar um grupo IAM e anexar a política ao grupo.	CLF-C02 dominio-2 secao-2_3
+Uma política tem Allow e outra tem Deny explícito para a mesma ação. O que vale?	Deny explícito.	CLF-C02 dominio-2 secao-2_3
+Qual princípio diz para dar só as permissões necessárias?	Menor privilégio.	CLF-C02 dominio-2 secao-2_3
+Qual relatório lista os usuários e o status de MFA e access keys?	IAM credential report.	CLF-C02 dominio-2 secao-2_3
+Como dar login único a funcionários em várias contas?	IAM Identity Center.	CLF-C02 dominio-2 secao-2_3
+Como permitir login com Google em um app mobile?	Amazon Cognito.	CLF-C02 dominio-2 secao-2_3
+Onde guardar a senha do banco com rotação automática?	Secrets Manager.	CLF-C02 dominio-2 secao-2_3
+Funcionários usam o Active Directory da empresa e precisam acessar a AWS.	Federação (via Identity Center ou SAML) ou AWS Directory Service.	CLF-C02 dominio-2 secao-2_3
+Como acessar a AWS por linha de comando?	AWS CLI com access keys (ou credenciais temporárias).	CLF-C02 dominio-2 secao-2_3
+Como impedir que todas as contas de desenvolvimento usem uma região?	SCP no Organizations.	CLF-C02 dominio-2 secao-2_4
+Uma SCP permite S3, mas o usuário não tem política IAM para S3. Ele consegue acessar?	Não; a SCP só limita, não concede.	CLF-C02 dominio-2 secao-2_4
+Como obter desconto por volume somando o uso de várias contas?	Consolidated billing no Organizations.	CLF-C02 dominio-2 secao-2_4
+Como criar rapidamente um ambiente multi-conta seguro com guardrails?	AWS Control Tower.	CLF-C02 dominio-2 secao-2_4
+Como deixar times criarem só recursos aprovados pela empresa?	AWS Service Catalog.	CLF-C02 dominio-2 secao-2_4
+Como compartilhar uma subnet com outra conta?	AWS RAM.	CLF-C02 dominio-2 secao-2_4
+Qual serviço cria e controla chaves de criptografia integradas a S3, EBS e RDS?	AWS KMS.	CLF-C02 dominio-2 secao-2_5
+A empresa exige HSM dedicado, com chaves sob controle exclusivo dela.	AWS CloudHSM.	CLF-C02 dominio-2 secao-2_5
+Como obter certificados SSL/TLS gratuitos com renovação automática?	AWS Certificate Manager.	CLF-C02 dominio-2 secao-2_5
+Como proteger dados em trânsito?	TLS/HTTPS.	CLF-C02 dominio-2 secao-2_5
+E em repouso?	Criptografia com KMS.	CLF-C02 dominio-2 secao-2_5
+Quem é responsável por ativar a criptografia dos dados?	O cliente.	CLF-C02 dominio-2 secao-2_5
+Como auditar quem usou uma chave do KMS?	CloudTrail.	CLF-C02 dominio-2 secao-2_5
+Onde baixar o relatório SOC 2 ou o atestado PCI da AWS?	AWS Artifact.	CLF-C02 dominio-2 secao-2_6
+Onde aceitar um acordo como o BAA (HIPAA)?	AWS Artifact (Agreements).	CLF-C02 dominio-2 secao-2_6
+Como coletar evidências continuamente para a auditoria da empresa?	AWS Audit Manager.	CLF-C02 dominio-2 secao-2_6
+Os dados podem sair da região sem ação do cliente?	Não; o cliente escolhe a região e controla onde os dados ficam.	CLF-C02 dominio-2 secao-2_6
+Usar um serviço certificado garante que a aplicação está em conformidade?	Não; o cliente também precisa configurar e operar de forma conforme (responsabilidade compartilhada).	CLF-C02 dominio-2 secao-2_6
+Qual serviço registra quem encerrou uma instância e quando?	CloudTrail.	CLF-C02 dominio-2 secao-2_7
+Por quanto tempo o CloudTrail guarda eventos sem configurar nada?	90 dias (event history).	CLF-C02 dominio-2 secao-2_7
+Como guardar logs do CloudTrail por anos?	Criar um trail que envia para o S3.	CLF-C02 dominio-2 secao-2_7
+Qual serviço mostra o histórico de configuração de um recurso e se ele segue as regras?	AWS Config.	CLF-C02 dominio-2 secao-2_7
+Como receber alerta quando a CPU passar de 80%?	Alarme do CloudWatch (com notificação pelo SNS).	CLF-C02 dominio-2 secao-2_7
+Como coletar a memória usada pelo EC2?	Instalar o CloudWatch agent.	CLF-C02 dominio-2 secao-2_7
+Como capturar o tráfego de rede da VPC?	VPC Flow Logs.	CLF-C02 dominio-2 secao-2_7
+Onde ver logs de aplicação?	CloudWatch Logs.	CLF-C02 dominio-2 secao-2_7
+Qual firewall atua no nível da instância e é stateful?	Security group.	CLF-C02 dominio-2 secao-2_8
+Qual firewall atua no nível da subnet e é stateless?	Network ACL.	CLF-C02 dominio-2 secao-2_8
+Como bloquear um endereço IP malicioso?	Regra de negação na NACL (ou regra no WAF para tráfego web).	CLF-C02 dominio-2 secao-2_8
+Qual proteção DDoS todo cliente tem sem custo?	Shield Standard.	CLF-C02 dominio-2 secao-2_8
+Qual serviço dá acesso a especialistas 24/7 e proteção de custo durante ataques DDoS?	Shield Advanced.	CLF-C02 dominio-2 secao-2_8
+Como bloquear SQL injection e XSS?	AWS WAF.	CLF-C02 dominio-2 secao-2_8
+Como bloquear acesso de certos países ao site?	WAF (regra geográfica) ou restrição geográfica do CloudFront.	CLF-C02 dominio-2 secao-2_8
+Em quais serviços o WAF pode ser usado?	CloudFront, ALB, API Gateway, AppSync e Cognito.	CLF-C02 dominio-2 secao-2_8
+Como aplicar as mesmas regras de WAF em todas as contas?	AWS Firewall Manager.	CLF-C02 dominio-2 secao-2_8
+Qual serviço detecta atividade maliciosa analisando CloudTrail, VPC Flow Logs e DNS?	GuardDuty.	CLF-C02 dominio-2 secao-2_9
+Qual serviço varre instâncias EC2 e imagens de container em busca de vulnerabilidades?	Amazon Inspector.	CLF-C02 dominio-2 secao-2_9
+Qual serviço encontra dados pessoais em buckets S3?	Amazon Macie.	CLF-C02 dominio-2 secao-2_9
+Qual serviço ajuda a investigar a causa raiz de um achado de segurança?	Amazon Detective.	CLF-C02 dominio-2 secao-2_9
+Qual serviço reúne os achados de segurança de vários serviços num só painel?	AWS Security Hub.	CLF-C02 dominio-2 secao-2_9
+Qual serviço recomenda melhorias de custo, segurança, performance e limites?	Trusted Advisor.	CLF-C02 dominio-2 secao-2_9
+Qual plano de suporte libera todas as verificações do Trusted Advisor?	Business ou superior.	CLF-C02 dominio-2 secao-2_9
+Qual verificação de segurança o Trusted Advisor faz?	Buckets S3 públicos, MFA no root, portas abertas em security groups.	CLF-C02 dominio-2 secao-2_9
+É preciso pedir autorização para fazer pentest no EC2?	Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.	CLF-C02 dominio-2 secao-2_10
+Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?	AWS Trust & Safety.	CLF-C02 dominio-2 secao-2_10
+Onde encontrar boletins e boas práticas de segurança?	AWS Security Center, Security Blog e Knowledge Center.	CLF-C02 dominio-2 secao-2_10
+Onde comprar ferramentas de segurança de terceiros?	AWS Marketplace.	CLF-C02 dominio-2 secao-2_10
+Quais são as formas de interagir com a AWS?	Console, CLI, SDKs e APIs (e CloudShell).	CLF-C02 dominio-3 secao-3_1
+Um desenvolvedor quer chamar a AWS de dentro do código Python.	SDK (boto3).	CLF-C02 dominio-3 secao-3_1
+Como criar ambientes idênticos de forma repetível e versionada?	CloudFormation (infraestrutura como código).	CLF-C02 dominio-3 secao-3_1
+Qual a vantagem de IaC?	Repetibilidade, menos erro manual, versionamento e velocidade.	CLF-C02 dominio-3 secao-3_1
+Qual opção de conectividade passa pela internet pública com criptografia?	Site-to-Site VPN.	CLF-C02 dominio-3 secao-3_1
+Quais fatores considerar ao escolher uma região?	Compliance/residência de dados, latência para os clientes, serviços disponíveis e preço.	CLF-C02 dominio-3 secao-3_2
+O que é uma AZ?	Um ou mais datacenters isolados dentro de uma região, com energia e rede redundantes.	CLF-C02 dominio-3 secao-3_2
+Para que servem as edge locations?	Cache do CloudFront, DNS do Route 53 e entrada do Global Accelerator, perto do usuário.	CLF-C02 dominio-3 secao-3_2
+Qual serviço é global?	IAM, Route 53, CloudFront ou Organizations.	CLF-C02 dominio-3 secao-3_2
+A empresa precisa rodar serviços AWS no próprio datacenter.	AWS Outposts.	CLF-C02 dominio-3 secao-3_2
+Latência de um dígito de milissegundo para usuários de uma cidade sem região AWS.	Local Zones.	CLF-C02 dominio-3 secao-3_2
+Aplicação móvel em rede 5G com ultrabaixa latência.	Wavelength.	CLF-C02 dominio-3 secao-3_2
+Como sobreviver à falha de uma região inteira?	Arquitetura multi-região.	CLF-C02 dominio-3 secao-3_2
+Qual família de instância para aplicação com uso intenso de CPU?	Otimizada para computação (C).	CLF-C02 dominio-3 secao-3_3
+Para banco de dados em memória?	Otimizada para memória (R, X).	CLF-C02 dominio-3 secao-3_3
+Para machine learning com GPU?	Computação acelerada (P, G).	CLF-C02 dominio-3 secao-3_3
+Para servidor web com carga equilibrada?	Uso geral (T, M).	CLF-C02 dominio-3 secao-3_3
+Como instalar pacotes automaticamente ao lançar a instância?	User data.	CLF-C02 dominio-3 secao-3_3
+O que acontece com o instance store ao parar a instância?	Os dados são perdidos.	CLF-C02 dominio-3 secao-3_3
+Como manter um IP público fixo ao trocar de instância?	Elastic IP.	CLF-C02 dominio-3 secao-3_3
+Qual processador oferece melhor preço/desempenho e eficiência energética?	AWS Graviton.	CLF-C02 dominio-3 secao-3_3
+O que é uma AMI?	Modelo com SO e software usado para lançar instâncias.	CLF-C02 dominio-3 secao-3_3
+Como ajustar automaticamente o número de instâncias à demanda?	EC2 Auto Scaling.	CLF-C02 dominio-3 secao-3_4
+A loja tem pico toda sexta às 18h.	Scheduled scaling.	CLF-C02 dominio-3 secao-3_4
+Manter a CPU média do grupo em 50%.	Target tracking.	CLF-C02 dominio-3 secao-3_4
+Como distribuir tráfego entre instâncias em várias AZs?	Elastic Load Balancing.	CLF-C02 dominio-3 secao-3_4
+Qual load balancer roteia por caminho de URL?	ALB.	CLF-C02 dominio-3 secao-3_4
+Qual load balancer para milhões de conexões TCP com IP fixo?	NLB.	CLF-C02 dominio-3 secao-3_4
+Qual load balancer para appliances de firewall de terceiros?	Gateway Load Balancer.	CLF-C02 dominio-3 secao-3_4
+Auto Scaling e ELB juntos garantem o quê?	Alta disponibilidade e elasticidade (instâncias com falha são substituídas e o tráfego vai só para as saudáveis).	CLF-C02 dominio-3 secao-3_4
+Qual serviço executa código sem servidores, em resposta a eventos?	Lambda.	CLF-C02 dominio-3 secao-3_5
+Qual é o tempo máximo de execução do Lambda?	15 minutos.	CLF-C02 dominio-3 secao-3_5
+Como o Lambda é cobrado?	Por requisição e por duração; nada quando não executa.	CLF-C02 dominio-3 secao-3_5
+Rodar containers sem gerenciar instâncias.	Fargate (com ECS ou EKS).	CLF-C02 dominio-3 secao-3_5
+Empresa já usa Kubernetes on-premises e quer migrar.	EKS.	CLF-C02 dominio-3 secao-3_5
+Onde guardar imagens Docker privadas?	ECR.	CLF-C02 dominio-3 secao-3_5
+Qual serviço orquestra containers e é nativo da AWS?	ECS.	CLF-C02 dominio-3 secao-3_5
+Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento.	Elastic Beanstalk.	CLF-C02 dominio-3 secao-3_6
+Elastic Beanstalk tem custo próprio?	Não; paga-se só os recursos que ele cria.	CLF-C02 dominio-3 secao-3_6
+Site WordPress simples com preço mensal fixo.	Lightsail.	CLF-C02 dominio-3 secao-3_6
+Processar milhares de jobs em lote com a capacidade ideal.	AWS Batch.	CLF-C02 dominio-3 secao-3_6
+Qual a vantagem do RDS sobre instalar o banco no EC2?	A AWS cuida de patch, backups, hardware e failover.	CLF-C02 dominio-3 secao-3_7
+Como garantir failover automático do banco para outra AZ?	RDS Multi-AZ.	CLF-C02 dominio-3 secao-3_7
+Como aliviar consultas de leitura pesadas?	Read Replicas (ou cache com ElastiCache).	CLF-C02 dominio-3 secao-3_7
+Qual banco relacional compatível com MySQL e PostgreSQL oferece mais performance?	Aurora.	CLF-C02 dominio-3 secao-3_7
+Qual banco NoSQL serverless com latência de milissegundos?	DynamoDB.	CLF-C02 dominio-3 secao-3_7
+Replicação multi-região ativa-ativa no DynamoDB.	Global Tables.	CLF-C02 dominio-3 secao-3_7
+Cache de microssegundos para DynamoDB.	DAX.	CLF-C02 dominio-3 secao-3_7
+Banco para relacionamentos complexos (redes sociais, fraude).	Neptune.	CLF-C02 dominio-3 secao-3_7
+Migrar banco MongoDB para serviço gerenciado.	DocumentDB.	CLF-C02 dominio-3 secao-3_7
+Data warehouse para relatórios de BI sobre petabytes.	Redshift.	CLF-C02 dominio-3 secao-3_7
+Quais motores o RDS suporta?	MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora.	CLF-C02 dominio-3 secao-3_7
+Qual é a durabilidade do S3?	11 noves (99,999999999%).	CLF-C02 dominio-3 secao-3_8
+Como proteger contra exclusão acidental?	Versionamento (e MFA Delete).	CLF-C02 dominio-3 secao-3_8
+Como mover dados para classes mais baratas automaticamente após 30 dias?	Lifecycle policy.	CLF-C02 dominio-3 secao-3_8
+Como dar acesso temporário a um arquivo privado?	Presigned URL.	CLF-C02 dominio-3 secao-3_8
+Como hospedar um site estático barato?	S3 (com CloudFront na frente).	CLF-C02 dominio-3 secao-3_8
+Como copiar objetos automaticamente para outra região?	Cross-Region Replication.	CLF-C02 dominio-3 secao-3_8
+Como acelerar uploads de outros continentes?	S3 Transfer Acceleration.	CLF-C02 dominio-3 secao-3_8
+Qual classe para dados com acesso imprevisível?	Intelligent-Tiering.	CLF-C02 dominio-3 secao-3_8
+Qual a classe mais barata para arquivamento de longo prazo?	Glacier Deep Archive.	CLF-C02 dominio-3 secao-3_8
+Qual classe guarda dados em uma única AZ?	One Zone-IA (ou Express One Zone).	CLF-C02 dominio-3 secao-3_8
+Como garantir que logs não sejam alterados por 7 anos (WORM)?	S3 Object Lock.	CLF-C02 dominio-3 secao-3_8
+Qual armazenamento em bloco persistente para EC2?	EBS.	CLF-C02 dominio-3 secao-3_9
+Um volume EBS pode ser usado em outra AZ?	Não diretamente; cria-se um snapshot e um novo volume na outra AZ.	CLF-C02 dominio-3 secao-3_9
+Onde ficam os snapshots do EBS?	No S3 (gerenciado pela AWS), de forma incremental.	CLF-C02 dominio-3 secao-3_9
+Sistema de arquivos compartilhado para várias instâncias Linux.	EFS.	CLF-C02 dominio-3 secao-3_9
+Compartilhamento de arquivos Windows integrado ao Active Directory.	FSx for Windows File Server.	CLF-C02 dominio-3 secao-3_9
+Sistema de arquivos de alto desempenho para HPC.	FSx for Lustre.	CLF-C02 dominio-3 secao-3_9
+Aplicações locais precisam usar armazenamento da AWS.	Storage Gateway.	CLF-C02 dominio-3 secao-3_9
+Substituir fitas físicas de backup.	Tape Gateway.	CLF-C02 dominio-3 secao-3_9
+Centralizar backups de vários serviços com políticas.	AWS Backup.	CLF-C02 dominio-3 secao-3_9
+Mover dezenas de terabytes sem depender da internet.	Snowball Edge.	CLF-C02 dominio-3 secao-3_9
+Processar dados num navio sem conexão.	Família Snow (computação na borda).	CLF-C02 dominio-3 secao-3_9
+Recuperar servidores em minutos após desastre.	AWS Elastic Disaster Recovery.	CLF-C02 dominio-3 secao-3_9
+O que torna uma subnet pública?	Ter rota para um Internet Gateway.	CLF-C02 dominio-3 secao-3_10
+Instâncias em subnet privada precisam baixar atualizações.	NAT Gateway.	CLF-C02 dominio-3 secao-3_10
+Conectar duas VPCs de contas diferentes.	VPC Peering.	CLF-C02 dominio-3 secao-3_10
+Conectar dezenas de VPCs e o datacenter num hub.	Transit Gateway.	CLF-C02 dominio-3 secao-3_10
+Acessar o S3 a partir da VPC sem passar pela internet.	Gateway VPC endpoint.	CLF-C02 dominio-3 secao-3_10
+Conexão privada e dedicada, sem internet, com desempenho consistente.	Direct Connect.	CLF-C02 dominio-3 secao-3_10
+Conexão criptografada com o datacenter, pronta hoje.	Site-to-Site VPN.	CLF-C02 dominio-3 secao-3_10
+Funcionários em casa precisam acessar a VPC.	Client VPN.	CLF-C02 dominio-3 secao-3_10
+Registrar domínio e gerenciar DNS.	Route 53.	CLF-C02 dominio-3 secao-3_10
+Mandar 10% dos usuários para a nova versão.	Route 53 weighted routing.	CLF-C02 dominio-3 secao-3_10
+Reduzir latência de conteúdo para usuários globais.	CloudFront.	CLF-C02 dominio-3 secao-3_10
+IPs estáticos globais e failover rápido entre regiões para TCP/UDP.	Global Accelerator.	CLF-C02 dominio-3 secao-3_10
+Criar e proteger uma API REST para funções Lambda.	API Gateway.	CLF-C02 dominio-3 secao-3_10
+Consultar arquivos no S3 com SQL padrão, sem infraestrutura.	Athena.	CLF-C02 dominio-3 secao-3_11
+Como o Athena é cobrado?	Por volume de dados escaneados.	CLF-C02 dominio-3 secao-3_11
+Serviço de ETL serverless e catálogo de dados.	Glue.	CLF-C02 dominio-3 secao-3_11
+Ingerir e processar dados de cliques em tempo real.	Kinesis Data Streams.	CLF-C02 dominio-3 secao-3_11
+Entregar dados de streaming no S3 sem administração.	Amazon Data Firehose.	CLF-C02 dominio-3 secao-3_11
+Rodar Spark e Hadoop gerenciados.	EMR.	CLF-C02 dominio-3 secao-3_11
+Criar dashboards interativos de BI.	QuickSight.	CLF-C02 dominio-3 secao-3_11
+Busca de texto e análise de logs.	OpenSearch Service.	CLF-C02 dominio-3 secao-3_11
+Construir, treinar e implantar modelos de ML próprios.	SageMaker AI.	CLF-C02 dominio-3 secao-3_12
+Identificar rostos e objetos em fotos.	Rekognition.	CLF-C02 dominio-3 secao-3_12
+Analisar o sentimento de avaliações de clientes.	Comprehend.	CLF-C02 dominio-3 secao-3_12
+Criar um chatbot de atendimento.	Lex.	CLF-C02 dominio-3 secao-3_12
+Converter texto em voz.	Polly.	CLF-C02 dominio-3 secao-3_12
+Converter áudio em texto.	Transcribe.	CLF-C02 dominio-3 secao-3_12
+Traduzir conteúdo do site.	Translate.	CLF-C02 dominio-3 secao-3_12
+Extrair dados de formulários escaneados.	Textract.	CLF-C02 dominio-3 secao-3_12
+Busca inteligente nos documentos internos da empresa.	Kendra.	CLF-C02 dominio-3 secao-3_12
+Assistente de IA generativa para funcionários e desenvolvedores.	Amazon Q.	CLF-C02 dominio-3 secao-3_12
+Desacoplar componentes para que um pico não derrube o processamento.	SQS.	CLF-C02 dominio-3 secao-3_13
+Garantir ordem e processamento exatamente uma vez.	Fila SQS FIFO.	CLF-C02 dominio-3 secao-3_13
+Enviar a mesma mensagem para vários sistemas e para e-mail.	SNS.	CLF-C02 dominio-3 secao-3_13
+Um evento precisa ser processado por várias filas em paralelo.	Fan-out com SNS + SQS.	CLF-C02 dominio-3 secao-3_13
+Reagir a eventos de serviços AWS e de aplicações SaaS com regras.	EventBridge.	CLF-C02 dominio-3 secao-3_13
+Executar uma tarefa todo dia às 2h sem servidor.	EventBridge Scheduler (disparando Lambda).	CLF-C02 dominio-3 secao-3_13
+Orquestrar um processo com várias etapas e tratamento de erro.	Step Functions.	CLF-C02 dominio-3 secao-3_13
+Criar uma central de atendimento na nuvem.	Amazon Connect.	CLF-C02 dominio-3 secao-3_14
+Enviar e-mails de confirmação e marketing em massa.	SES.	CLF-C02 dominio-3 secao-3_14
+Oferecer desktops virtuais a funcionários remotos.	WorkSpaces.	CLF-C02 dominio-3 secao-3_14
+Disponibilizar um aplicativo de desktop pelo navegador.	AppStream 2.0.	CLF-C02 dominio-3 secao-3_14
+Criar e hospedar rapidamente um app web ou mobile full-stack.	Amplify.	CLF-C02 dominio-3 secao-3_14
+API GraphQL gerenciada com dados em tempo real.	AppSync.	CLF-C02 dominio-3 secao-3_14
+Conectar milhões de sensores à nuvem.	IoT Core.	CLF-C02 dominio-3 secao-3_14
+Orquestrar a esteira de CI/CD na AWS.	CodePipeline.	CLF-C02 dominio-3 secao-3_15
+Compilar e executar testes sem gerenciar servidores de build.	CodeBuild.	CLF-C02 dominio-3 secao-3_15
+Automatizar deploy em EC2 e servidores on-premises.	CodeDeploy.	CLF-C02 dominio-3 secao-3_15
+Encontrar gargalos de latência entre microsserviços.	X-Ray.	CLF-C02 dominio-3 secao-3_15
+Provisionar infraestrutura a partir de templates JSON/YAML.	CloudFormation.	CLF-C02 dominio-3 secao-3_16
+Implantar a mesma stack em várias contas e regiões.	CloudFormation StackSets.	CLF-C02 dominio-3 secao-3_16
+Gerenciar e aplicar patches em uma frota de instâncias, inclusive on-premises.	Systems Manager.	CLF-C02 dominio-3 secao-3_16
+Acessar a instância sem abrir a porta 22.	Systems Manager Session Manager.	CLF-C02 dominio-3 secao-3_16
+Ver eventos de manutenção da AWS que afetam meus recursos.	AWS Health Dashboard.	CLF-C02 dominio-3 secao-3_16
+Pedir aumento do limite de instâncias.	Service Quotas.	CLF-C02 dominio-3 secao-3_16
+Controlar quantas licenças de SQL Server estão em uso.	License Manager.	CLF-C02 dominio-3 secao-3_16
+Recomendar o tamanho ideal das instâncias com base no uso.	Compute Optimizer.	CLF-C02 dominio-3 secao-3_16
+Levantar servidores e dependências antes de migrar.	Application Discovery Service.	CLF-C02 dominio-3 secao-3_17
+Estimar quanto a empresa vai economizar ao migrar.	Migration Evaluator.	CLF-C02 dominio-3 secao-3_17
+Acompanhar todas as migrações num painel central.	Migration Hub.	CLF-C02 dominio-3 secao-3_17
+Migrar servidores físicos e VMs para EC2 com pouca indisponibilidade.	Application Migration Service.	CLF-C02 dominio-3 secao-3_17
+Migrar um banco sem desligar a aplicação.	DMS.	CLF-C02 dominio-3 secao-3_17
+Converter um banco Oracle para Aurora PostgreSQL.	SCT + DMS.	CLF-C02 dominio-3 secao-3_17
+Transferir arquivos online de forma automatizada para o S3.	DataSync.	CLF-C02 dominio-3 secao-3_17
+Parceiros enviam arquivos via SFTP para o S3.	Transfer Family.	CLF-C02 dominio-3 secao-3_17
+Como acompanhar a pegada de carbono do uso da AWS?	AWS Customer Carbon Footprint Tool.	CLF-C02 dominio-3 secao-3_18
+Onde contratar especialistas certificados sob demanda para um projeto pequeno?	AWS IQ (descontinuado; hoje, AWS Marketplace Professional Services ou um parceiro da APN).	CLF-C02 dominio-3 secao-3_18
+Qual serviço emite as credenciais temporárias usadas pelas roles?	AWS STS.	CLF-C02 dominio-3 secao-3_18
+A aplicação usa RabbitMQ e deve migrar sem mudar o código.	Amazon MQ.	CLF-C02 dominio-3 secao-3_18
+Testar a resiliência injetando falhas de propósito.	AWS Fault Injection Service.	CLF-C02 dominio-3 secao-3_18
+Testar um app mobile em centenas de dispositivos reais.	AWS Device Farm.	CLF-C02 dominio-3 secao-3_18
+Qual é um princípio de preço da AWS?	Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.	CLF-C02 dominio-4 secao-4_1
+Quais são os três principais geradores de custo?	Computação, armazenamento e transferência de dados de saída.	CLF-C02 dominio-4 secao-4_1
+Aplicação nova, sem histórico de uso, que não pode ser interrompida.	On-Demand.	CLF-C02 dominio-4 secao-4_2
+Servidor de banco que roda 24/7 pelos próximos 3 anos.	Reserved Instances ou Savings Plans (3 anos, All Upfront dá o maior desconto).	CLF-C02 dominio-4 secao-4_2
+Desconto com flexibilidade entre EC2, Fargate e Lambda.	Compute Savings Plans.	CLF-C02 dominio-4 secao-4_2
+Processamento em lote que pode ser interrompido e reiniciado.	Spot.	CLF-C02 dominio-4 secao-4_2
+Qual o aviso antes de uma Spot ser interrompida?	2 minutos.	CLF-C02 dominio-4 secao-4_2
+Licença de software por núcleo físico.	Dedicated Host.	CLF-C02 dominio-4 secao-4_2
+Garantir capacidade numa AZ para um evento, sem contrato longo.	On-Demand Capacity Reservation.	CLF-C02 dominio-4 secao-4_2
+Qual opção de pagamento dá o maior desconto?	All Upfront.	CLF-C02 dominio-4 secao-4_2
+Reservas compradas podem ser revendidas?	Sim, RIs Standard no Reserved Instance Marketplace.	CLF-C02 dominio-4 secao-4_2
+Qual transferência de dados é gratuita?	Entrada da internet para a AWS (e dentro da mesma AZ por IP privado).	CLF-C02 dominio-4 secao-4_3
+Qual transferência é cobrada?	Saída para a internet, entre regiões e entre AZs.	CLF-C02 dominio-4 secao-4_3
+Um volume EBS de 500 GB com 100 GB usados é cobrado por quanto?	Pelos 500 GB provisionados.	CLF-C02 dominio-4 secao-4_3
+Qual serviço não tem custo próprio?	IAM, CloudFormation, Elastic Beanstalk, Auto Scaling, Organizations.	CLF-C02 dominio-4 secao-4_3
+O que é o Free Tier?	Uso gratuito limitado para experimentar serviços (sempre gratuito, por período ou testes; contas novas usam modelo de créditos).	CLF-C02 dominio-4 secao-4_3
+Estimar o custo de uma arquitetura antes de criá-la.	Pricing Calculator.	CLF-C02 dominio-4 secao-4_4
+Visualizar gastos dos últimos meses e prever o próximo.	Cost Explorer.	CLF-C02 dominio-4 secao-4_4
+Receber alerta quando o gasto previsto passar do orçamento.	Budgets.	CLF-C02 dominio-4 secao-4_4
+Relatório mais detalhado de custo e uso, por hora e recurso.	Cost and Usage Report.	CLF-C02 dominio-4 secao-4_4
+Ser avisado de um gasto anormal.	Cost Anomaly Detection.	CLF-C02 dominio-4 secao-4_4
+Separar custos por projeto ou departamento.	Cost allocation tags (ativadas no Billing).	CLF-C02 dominio-4 secao-4_4
+Uma fatura para várias contas, com desconto por volume.	Consolidated billing no Organizations.	CLF-C02 dominio-4 secao-4_4
+Comprar software de terceiros pago na fatura AWS.	AWS Marketplace.	CLF-C02 dominio-4 secao-4_4
+Onde ver recomendações de Savings Plans?	Cost Explorer.	CLF-C02 dominio-4 secao-4_4
+Qual o plano mais barato com suporte técnico 24/7 por telefone?	Business.	CLF-C02 dominio-4 secao-4_5
+Qual o plano mais barato com todas as verificações do Trusted Advisor?	Business.	CLF-C02 dominio-4 secao-4_5
+Qual plano inclui TAM dedicado?	Enterprise.	CLF-C02 dominio-4 secao-4_5
+Qual plano dá acesso a um pool de TAMs?	Enterprise On-Ramp.	CLF-C02 dominio-4 secao-4_5
+Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?	Enterprise.	CLF-C02 dominio-4 secao-4_5
+Qual plano responde em menos de 1 hora a produção fora do ar?	Business.	CLF-C02 dominio-4 secao-4_5
+Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail.	Developer.	CLF-C02 dominio-4 secao-4_5
+O plano Basic oferece suporte técnico?	Não; só atendimento de conta e faturamento, documentação e re:Post.	CLF-C02 dominio-4 secao-4_5
+Quem ajuda com dúvidas de faturamento em planos Enterprise?	Concierge Support Team.	CLF-C02 dominio-4 secao-4_5
+Quem pode mudar o plano de suporte?	O usuário root.	CLF-C02 dominio-4 secao-4_5
+Encontrar um parceiro certificado para implementar a migração.	AWS Partner Network.	CLF-C02 dominio-4 secao-4_6
+Contratar consultoria diretamente da AWS.	AWS Professional Services.	CLF-C02 dominio-4 secao-4_6
+Terceirizar a operação diária da infraestrutura para a AWS.	AWS Managed Services.	CLF-C02 dominio-4 secao-4_6
+Tirar dúvidas técnicas com a comunidade.	AWS re:Post.	CLF-C02 dominio-4 secao-4_6
+Respostas prontas para dúvidas comuns.	AWS Knowledge Center.	CLF-C02 dominio-4 secao-4_6
+Startup busca créditos para começar na AWS.	AWS Activate.	CLF-C02 dominio-4 secao-4_6
