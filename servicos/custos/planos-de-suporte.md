@@ -10,16 +10,32 @@
 
 ## 📌 Planos atuais (o que o exam guide cobra — task 4.3)
 
+> ✔️ Comparação completa verificada em 04/10/2026 nas páginas [plans](https://aws.amazon.com/premiumsupport/plans/) e [pricing](https://aws.amazon.com/premiumsupport/pricing/).
+
 | | **Basic** | **AWS Business Support+** | **AWS Enterprise Support** | **AWS Unified Operations** |
 |---|---|---|---|---|
-| Preço mínimo | Grátis | **US$ 29/mês por conta** | **US$ 5.000/mês** | **US$ 50.000/mês** (compromisso de 90 dias) |
-| Suporte técnico | ❌ (só conta e faturamento) | ✅ | ✅ | ✅ |
-| **Resposta para caso crítico** | — | **30 min** | **15 min** | **5 min** |
-| TAM | — | — | **Designado** | ✅ |
-| Lançamento | — | 02/12/2025 | Preço reduzido em 02/12/2025 (antes US$ 15.000) | 02/12/2025 |
+| Preço mínimo | Incluído (grátis) | **US$ 29/mês por conta** ou % do uso (9 → 7 → 5 → 3%), o maior | **US$ 5.000/mês** ou % (10 → 7 → 5 → 3%), o maior | **US$ 50.000/mês** ou % (10 → 6 → 5%), o maior |
+| Cobrança | — | **Por conta** | Soma das contas inscritas | Soma das contas inscritas |
+| Compromisso mínimo | — | 30 dias | 30 dias | **90 dias** |
+| Canais | Customer service 24/7 (conta e faturamento), docs, whitepapers, re:Post | **Telefone, web, chat e e-mail 24/7**, Slack; casos e contatos ilimitados | Igual | Igual |
+| **Caso crítico** | — | **< 30 min** | **< 15 min** | **< 5 min** |
+| Produção fora do ar / prejudicada | — | < 1 h / < 4 h | < 1 h / < 4 h | < 1 h / < 4 h |
+| Sistema prejudicado / orientação geral | — | < 12 h / < 24 h | < 12 h / < 24 h | < 12 h / < 24 h |
+| Trusted Advisor | **Core checks** | **Completo** + API | Completo + API + **TA Priority** | Completo + API + **TA Priority** |
+| AWS Support API / AWS Health API | ❌ / Health básico | ✅ / ✅ | ✅ / ✅ | ✅ / ✅ |
+| TAM | ❌ | ❌ | **Designado** | Designado + especialistas de domínio + Incident Management Engineers |
+| Faturamento | — | Billing 24/7 | **Billing concierge** | Especialista de billing designado |
+| AWS Countdown (antigo IEM) | — | Countdown Premium pago | Countdown Premium pago | **Incluído** |
+| Revisões | — | Orientação contextual | Well-Architected, revisão de segurança, plano estratégico | Contínuas + Critical Workload Review |
+| Monitoramento 24/7 pela AWS | — | — | — | ✅ |
+| Security Incident Response | — | Pago à parte | **Incluído** | Incluído |
+| Incident Detection and Response | — | — | Pago à parte | **Incluído** |
+| IA (créditos de DevOps Agent) | — | 30% | 75% | 100% |
 
 - ⚠️ US$ 29 é o preço de entrada do **Business Support+** (novo) e era o do **Developer** (clássico): confira o nome do plano.
-- ⚠️ 30 min: **Business Support+** (novo) ou **Enterprise On-Ramp** (clássico). 15 min + TAM designado: **Enterprise** (nos dois modelos). 5 min: **Unified Operations**.
+- ⚠️ 30 min: **Business Support+** (novo) ou **Enterprise On-Ramp** (clássico). 15 min + TAM designado: **Enterprise** (nos dois modelos). 5 min + monitoramento 24/7: **Unified Operations**.
+- 📌 **Menor plano com todas as verificações do Trusted Advisor e acesso à API:** Business Support+. **Menor plano com TA Priority e TAM designado:** Enterprise.
+- Treinamentos incluídos por plano: não confirmados na verificação.
 
 ## Modelo clássico (válido até 01/01/2027)
 

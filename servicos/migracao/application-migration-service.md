@@ -14,10 +14,14 @@
 4. **Cutover**: lança as instâncias finais em minutos; a origem pode ser desligada.
 5. Ações pós-lançamento automatizam ajustes (instalar agentes, converter licenças, modernizar).
 
+## 🔄 Nome atual
+
+- O serviço hoje se chama **AWS Transform MGN**. O exam guide e a lista de serviços ainda usam **AWS Application Migration Service** — é esse o nome que aparece na prova.
+
 ## Destaques
 
 - Suporta qualquer aplicação/banco que rode no servidor; converte automaticamente para rodar em EC2.
-- **Gratuito por 90 dias por servidor** (paga só os recursos de staging e as instâncias).
+- **Gratuito por 2.160 horas (90 dias de uso contínuo) por servidor de origem** (paga só os recursos de staging e as instâncias).
 - Substitui o antigo CloudEndure Migration e o Server Migration Service (SMS).
 
 ## ⚠️ Não confundir

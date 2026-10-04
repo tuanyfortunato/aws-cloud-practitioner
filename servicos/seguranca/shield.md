@@ -20,7 +20,7 @@
 | Outros | — | Detecção e mitigação automática na camada 7, health-based detection, proteção de grupos, integração com Firewall Manager |
 
 - A assinatura do Advanced cobre **todas as contas** da Organization.
-- Exige plano de suporte Business ou superior para envolver o SRT.
+- A documentação do SRT ainda exige plano **Business ou Enterprise** (nomes antigos); qual plano novo atende não foi encontrado na verificação de 10/2026 — na prática, Business Support+ ou superior.
 
 ## ⚠️ Pegadinhas
 

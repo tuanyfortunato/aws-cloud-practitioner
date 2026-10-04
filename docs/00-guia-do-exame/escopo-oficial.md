@@ -1,6 +1,6 @@
 # 🎯 Escopo oficial da CLF-C02 (verificado em 04/10/2026)
 
-> Fonte: [verificação em fontes oficiais](../../fontes/verificacao-fontes-oficiais-2026-10.md), feita no
+> Fontes: [verificação em fontes oficiais](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md), feitas no
 > [exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
 > e na [lista de serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html).
 >
@@ -34,6 +34,33 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 | **4.2** | Understand resources for billing, budget, and cost management | [4.4](../04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md) |
 | **4.3** | Identify AWS technical resources and AWS Support options (**Basic, Business Support+, Enterprise, Unified Operations**; Trusted Advisor, Health Dashboard e Health API; Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post) | [4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) · [4.6](../04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md) |
 
+## 🔍 O que cada task cita (termos do exam guide)
+
+> Resumo fiel das listas "Knowledge of / Skills in", com todos os termos citados ([verificação, seção A](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
+> Texto literal no [exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html).
+
+| Task | Termos e serviços citados |
+|---|---|
+| 1.1 | Proposta de valor da nuvem; infraestrutura global (velocidade de implantação, alcance global); alta disponibilidade, elasticidade, agilidade |
+| 1.2 | Well-Architected Framework e os 6 pilares, e as diferenças entre eles |
+| 1.3 | Estratégias de adoção; recursos de apoio à migração; CAF (menor risco, melhor ESG, mais receita, eficiência operacional); estratégias de migração (ex.: replicação de banco de dados) |
+| 1.4 | Economia ao migrar; custos fixos × variáveis; custos on-premises; BYOL × licença incluída; rightsizing; automação; economias de escala |
+| 2.1 | Responsabilidades do cliente, da AWS e compartilhadas; como mudam em RDS, Lambda e EC2 |
+| 2.2 | Compliance e governança; Artifact; compliance por região ou setor; Inspector, Security Hub, GuardDuty, Shield; criptografia em trânsito e em repouso; CloudWatch, CloudTrail, Config; relatórios de acesso; onde ficam os logs |
+| 2.3 | IAM; proteção do root e tarefas exclusivas do root; menor privilégio; IAM Identity Center; access keys, políticas de senha; armazenamento de credenciais (Secrets Manager, Systems Manager); MFA; cross-account roles; grupos, usuários, políticas customizadas e gerenciadas; identidade federada |
+| 2.4 | WAF, Firewall Manager, Shield, GuardDuty; produtos de segurança de terceiros no Marketplace; Knowledge Center, Security Center, Security Blog; Trusted Advisor para problemas de segurança |
+| 3.1 | APIs, SDKs, CLI × Console × IaC; operação pontual × processo repetível; modelos cloud, híbrido e on-premises |
+| 3.2 | Regiões, AZs, edge locations e a relação entre elas; HA com várias AZs; AZs sem ponto único de falha compartilhado; várias regiões para DR, continuidade, latência e soberania de dados |
+| 3.3 | Tipos de instância EC2; ECS, EKS; Fargate, Lambda; Auto Scaling (elasticidade); load balancers |
+| 3.4 | Banco no EC2 × gerenciado; RDS, Aurora; DynamoDB; ElastiCache; DMS, SCT |
+| 3.5 | Subnets e gateways da VPC; network ACLs, security groups, Inspector; Route 53; VPN, Direct Connect |
+| 3.6 | Armazenamento de objetos e classes do S3; EBS, instance store; EFS, FSx; Storage Gateway (cache); lifecycle policies; AWS Backup |
+| 3.7 | SageMaker AI, Lex; Athena, Kinesis, Glue, Quick Sight |
+| 3.8 | EventBridge, SNS, SQS; Connect, SES; AWS Support; CodeBuild, CodePipeline, X-Ray; AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser; Amplify; IoT Core |
+| 4.1 | On-Demand, RIs, Spot, Savings Plans, Dedicated Hosts, Dedicated Instances, Capacity Reservations; flexibilidade de RIs; RIs no Organizations; transferência de dados (entrada, saída, entre regiões, na mesma região); preço por tier de armazenamento |
+| 4.2 | Billing; Organizations e faturamento consolidado; cost allocation tags; Budgets, Cost Explorer, Pricing Calculator; Cost and Usage Report |
+| 4.3 | Documentação, whitepapers, blogs; Prescriptive Guidance, Knowledge Center, re:Post; customer service e comunidades; Basic, Business Support+, Enterprise, Unified Operations; Trusted Advisor, Health Dashboard, Health API; Trust and Safety; APN (ISVs, integradores) e benefícios de ser parceiro; Marketplace (custos, governança, entitlement); Professional Services; solutions architects; Support Center |
+
 **Destaques do guia atual:**
 - **3.8 (outras categorias):** end-user computing = AppStream 2.0, WorkSpaces e WorkSpaces Secure Browser; frontend = **só Amplify**; IoT = **só IoT Core**; developer tools = **CodeBuild, CodePipeline e X-Ray** (e a CLI).
 - **4.3:** os planos de suporte cobrados agora são os **novos**. Veja [planos de suporte](../../servicos/custos/planos-de-suporte.md).
@@ -56,7 +83,7 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 | Internet of Things | [IoT Core](../../servicos/aplicacoes/iot-core-e-greengrass.md) |
 | Machine Learning | [Comprehend, Lex, Polly, Rekognition, Textract, Transcribe, Translate](../../servicos/ia-ml/servicos-de-ia-prontos.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) |
 | Management and Governance | [Auto Scaling](../../servicos/computacao/ec2-auto-scaling.md) · [CloudFormation](../../servicos/gerenciamento/cloudformation.md) · [CloudTrail](../../servicos/gerenciamento/cloudtrail.md) · [CloudWatch](../../servicos/gerenciamento/cloudwatch.md) · [Compute Optimizer, License Manager, Service Quotas](../../servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) · [Config](../../servicos/gerenciamento/config.md) · [Control Tower](../../servicos/gerenciamento/control-tower.md) · [Health Dashboard](../../servicos/gerenciamento/health-dashboard.md) · [Management Console](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md) · [Organizations](../../servicos/gerenciamento/organizations.md) · [Service Catalog](../../servicos/gerenciamento/service-catalog-e-ram.md) · [Systems Manager](../../servicos/gerenciamento/systems-manager.md) · [Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) · [Well-Architected Tool](../01-conceitos-de-nuvem/04-well-architected-framework.md) |
-| Migration and Transfer | [Application Discovery Service, Migration Evaluator, Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [Application Migration Service](../../servicos/migracao/application-migration-service.md) · [DMS e SCT](../../servicos/migracao/dms-e-sct.md) |
+| Migration and Transfer | [Application Discovery Service, Migration Evaluator, Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [Application Migration Service](../../servicos/migracao/application-migration-service.md) · [DMS e SCT](../../servicos/migracao/dms-e-sct.md) — o Application Migration Service hoje se chama **AWS Transform MGN** |
 | Networking and Content Delivery | [API Gateway](../../servicos/redes/api-gateway.md) · [CloudFront](../../servicos/redes/cloudfront.md) · [Direct Connect](../../servicos/redes/direct-connect.md) · [Global Accelerator](../../servicos/redes/global-accelerator.md) · [PrivateLink, Transit Gateway](../../servicos/redes/vpc-peering-transit-gateway-e-endpoints.md) · [Route 53](../../servicos/redes/route-53.md) · [VPC](../../servicos/redes/vpc.md) · [AWS VPN, Site-to-Site VPN, Client VPN](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) |
 | Security, Identity, and Compliance | [Artifact](../../servicos/seguranca/artifact.md) · [ACM](../../servicos/seguranca/certificate-manager.md) · [CloudHSM](../../servicos/seguranca/cloudhsm.md) · [Cognito](../../servicos/seguranca/cognito.md) · [Detective](../../servicos/seguranca/detective.md) · [Directory Service](../../servicos/seguranca/directory-service.md) · [Firewall Manager](../../servicos/seguranca/firewall-manager-e-network-firewall.md) · [GuardDuty](../../servicos/seguranca/guardduty.md) · [IAM](../../servicos/seguranca/iam.md) · [IAM Identity Center](../../servicos/seguranca/iam-identity-center.md) · [Inspector](../../servicos/seguranca/inspector.md) · [KMS](../../servicos/seguranca/kms.md) · [Macie](../../servicos/seguranca/macie.md) · [RAM](../../servicos/gerenciamento/service-catalog-e-ram.md) · [Secrets Manager](../../servicos/seguranca/secrets-manager-e-parameter-store.md) · [Security Hub](../../servicos/seguranca/security-hub.md) · [Shield](../../servicos/seguranca/shield.md) · [WAF](../../servicos/seguranca/waf.md) |
 | Serverless | [Fargate](../../servicos/computacao/fargate.md) · [Lambda](../../servicos/computacao/lambda.md) |

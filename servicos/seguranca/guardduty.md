@@ -26,7 +26,7 @@
 
 ## Configurações
 
-- Ativação com **um clique**; **teste gratuito de 30 dias**.
+- Ativação com **um clique**; **teste gratuito de 30 dias** (no Free Tier novo, aparece vinculado ao **Paid plan**).
 - Severidade (baixa, média, alta, crítica); listas de IPs confiáveis/ameaças; filtros de supressão.
 - **Resposta automatizada:** achados vão ao **EventBridge** → Lambda/SSM para isolar a instância, notificar via SNS.
 - Envia achados ao **Security Hub** e permite investigar no **Detective**.

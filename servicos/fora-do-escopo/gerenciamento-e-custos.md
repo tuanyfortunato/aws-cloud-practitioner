@@ -18,7 +18,7 @@
 ## AWS Chatbot (Amazon Q Developer em aplicativos de chat)
 
 - Recebe **notificações** da AWS (alarmes do CloudWatch, eventos do Health, alertas do Budgets) no **Slack, Microsoft Teams ou Amazon Chime** e permite executar comandos de leitura e operação a partir do chat.
-- 🔄 Passou a se chamar **Amazon Q Developer in chat applications**.
+- 🔄 Renomeado para **Amazon Q Developer** em 19/02/2025 (no console: "in chat applications").
 
 ## AWS Launch Wizard
 
@@ -27,6 +27,7 @@
 ## AWS Application Cost Profiler
 
 - Separava o custo de recursos **compartilhados** por **cliente (tenant)** em aplicações multi-tenant, para cobrar ou analisar o custo por cliente.
+- 🔄 **Encerrado em 30/09/2024**.
 
 ## Amazon DevPay
 

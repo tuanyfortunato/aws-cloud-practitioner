@@ -16,7 +16,7 @@
 
 | Item | Detalhe |
 |---|---|
-| **Tamanho da task/pod** | Você escolhe vCPU e memória (combinações predefinidas, de 0,25 vCPU até 16 vCPU / 120 GB 🧊). |
+| **Tamanho da task/pod** | Você escolhe vCPU e memória (combinações predefinidas, de 0,25 vCPU até **32 vCPU / 244 GB** 🧊). |
 | **Isolamento** | Cada task roda em seu próprio ambiente isolado (micro-VM). |
 | **Armazenamento** | Efêmero (20 GB padrão, ampliável) + volumes **EFS** e **EBS** persistentes. |
 | **Arquitetura** | x86_64 ou ARM (Graviton). |

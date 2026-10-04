@@ -31,7 +31,7 @@
 | **DAX** | Cache em memória **exclusivo do DynamoDB**: leituras em **microssegundos**. |
 | **Streams** | Fluxo ordenado de mudanças (24 h) para disparar Lambda, replicar, auditar. |
 | **TTL** | Expira itens automaticamente (sem custo de escrita). |
-| **Backups** | **PITR** (até 35 dias, ao segundo) e backups on-demand; integração com AWS Backup. |
+| **Backups** | **PITR** com período configurável de **1 a 35 dias** (padrão 35, desde 01/2025), restauração ao segundo, e backups on-demand; integração com AWS Backup. |
 | **Export/Import S3** | Exporta para análise (Athena) sem consumir capacidade. |
 | **Zero-ETL** | Integrações com OpenSearch e Redshift. |
 | **VPC gateway endpoint** | Acesso privado e gratuito a partir da VPC. |
@@ -44,7 +44,7 @@
 ## Cobrança
 
 - On-demand: por requisição de leitura/escrita. Provisioned: por RCU/WCU-hora. + armazenamento GB-mês, backups, Global Tables (escritas replicadas), DAX, Streams.
-- Free Tier "sempre gratuito": 25 GB de armazenamento (+ capacidade provisionada pequena).
+- Free Tier "sempre gratuito" (planos Free e Paid): **25 GB** de armazenamento, **25 WCU e 25 RCU** provisionadas.
 
 ## Segurança e responsabilidade compartilhada
 

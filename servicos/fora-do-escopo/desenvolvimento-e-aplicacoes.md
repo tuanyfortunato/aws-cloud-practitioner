@@ -30,6 +30,7 @@
 ## AWS Copilot
 
 - **CLI** para criar, publicar e operar aplicações em contêiner no ECS e no App Runner com poucos comandos (gera a infraestrutura com CloudFormation).
+- 🔄 **Fim de suporte em 12/06/2026**: segue como projeto open source, sem atualizações da AWS.
 
 ## AWS Migration Hub Refactor Spaces
 
@@ -45,7 +46,7 @@
 
 ## Amazon WorkDocs
 
-- Serviço de **armazenamento e colaboração de documentos** (editar, comentar, compartilhar). 🔄 Encerrado pela AWS (fim de suporte em 2025).
+- Serviço de **armazenamento e colaboração de documentos** (editar, comentar, compartilhar). 🔄 Encerramento em 25/04/2025 noticiado pela imprensa; não confirmado em página oficial.
 
 ## ⚠️ Como isso aparece na prova
 

@@ -1,6 +1,6 @@
 # 🔄 O que mudou em 2025-2026: valor da prova × valor atual
 
-> Verificado em fontes oficiais da AWS em **04/10/2026** ([relatório completo](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
+> Verificado em fontes oficiais da AWS em **04/10/2026** ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
 > Pesquisa original: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md).
 
 ## A regra mudou: o exam guide foi atualizado
@@ -34,6 +34,12 @@ importante:
 | SageMaker | Amazon SageMaker | **Amazon SageMaker AI** | — | [SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) |
 | Timestream | Séries temporais | LiveAnalytics fechado a novos clientes | 20/06/2025 | [Keyspaces, Timestream e outros](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md) |
 | Savings Plans | Compute, EC2 Instance, SageMaker | + **Database Savings Plans**: até 35% (serverless) / até 20% (provisionado), 1 ano, sem pagamento adiantado | 02/12/2025 | [4.2](../04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md) |
+| Application Migration Service | AWS Application Migration Service (MGN) | Hoje se chama **AWS Transform MGN** (a prova usa o nome antigo) | — | [MGN](../../servicos/migracao/application-migration-service.md) |
+| Trusted Advisor no Basic | "7 core checks" (com IAM Use) | Service limits + **5 checks de segurança** (sem IAM Use) | — | [Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) |
+| EBS gp3 | Até 16 TB / 16.000 IOPS | Até **64 TB / 80.000 IOPS** (base continua 3.000 IOPS e 125 MB/s) | — | [EBS](../../servicos/armazenamento/ebs.md) |
+| Fargate | Até 16 vCPU / 120 GB | Até **32 vCPU / 244 GB** | — | [Fargate](../../servicos/computacao/fargate.md) |
+| DynamoDB PITR | 35 dias fixos | Configurável de **1 a 35 dias** | 01/2025 | [DynamoDB](../../servicos/banco-de-dados/dynamodb.md) |
+| Testes gratuitos de segurança | GuardDuty, Macie, Detective (30 dias), Inspector (15 dias) | Mesmos prazos, mas vinculados ao **Paid plan** no Free Tier novo | — | [GuardDuty](../../servicos/seguranca/guardduty.md) |
 | Migration Hub / Application Discovery Service | Abertos | **Fechados a novos clientes** (continuam no escopo) | 07/11/2025 | [Discovery, Hub e Evaluator](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) |
 | Amazon Q Business | Assistente corporativo | Em manutenção, sem novos clientes; apps podem ser conectados ao Quick Suite | 30/07/2026 | [Amazon Q](../../servicos/ia-ml/amazon-q.md) |
 | ACM | Certificados públicos só em serviços integrados | + certificados públicos **exportáveis** (pagos, validade de 395 dias) | 17/06/2025 | [ACM](../../servicos/seguranca/certificate-manager.md) |
@@ -44,8 +50,11 @@ importante:
 - **Fechados a novos clientes desde 07/11/2025:** Amazon Glacier (serviço original de *vaults*, diferente das classes S3 Glacier), S3 Object Lambda, Systems Manager Change Manager e Incident Manager, CodeCatalyst, CodeGuru Reviewer, Cloud Directory, Snowball Edge, Fraud Detector, Migration Hub, Application Discovery Service.
 - **Desde 30/04/2026:** AWS Audit Manager, CloudTrail Lake, AWS App Runner, IoT FleetWise.
 - **Desde 30/07/2026:** Amazon Kendra, Amazon Q Business, Directory Service Simple AD, Service Catalog AppRegistry, Cognito Sync. Bedrock Agents passou a se chamar "Bedrock Agents Classic".
-- **Encerrados:** QLDB (31/07/2025), Lookout for Metrics (12/09/2025), Lookout for Vision (31/10/2025), IoT Analytics (15/12/2025), IoT Events (20/05/2026), AWS IQ (28/05/2026). Anunciados em maio/2025: Inspector Classic, Pinpoint, Panorama, Connect Voice ID, DMS Fleet Advisor.
+- **Encerrados:** Application Cost Profiler (30/09/2024), QLDB (31/07/2025), RoboMaker (10/09/2025), Elastic Transcoder e Elemental MediaStore (13/11/2025), Panorama (31/05/2026), Copilot CLI (fim de suporte em 12/06/2026), Lookout for Metrics (12/09/2025), Lookout for Vision (31/10/2025), IoT Analytics (15/12/2025), IoT Events (20/05/2026), AWS IQ (28/05/2026). Anunciados em maio/2025: Inspector Classic, Pinpoint, Panorama, Connect Voice ID, DMS Fleet Advisor.
 - **WorkSpaces:** PCoIP e Pools em *sunset* (o serviço continua no escopo).
+- **Próximos encerramentos (tabela oficial de *sunset*):** App Mesh (30/09/2026), IoT Greengrass V1 (01/10/2026), Proton, FinSpace e Lookout for Equipment (07/10/2026), Pinpoint (30/10/2026), AMS Advanced (30/06/2027). Monitron fechado a novos clientes.
+- **Renomeações:** AWS Chatbot → Amazon Q Developer in chat applications (19/02/2025); Lumberyard não é mais oferecido (sucessor: O3DE).
+- Tabela oficial: [AWS services sunset](https://docs.aws.amazon.com/general/latest/gr/sunset_services.html).
 
 ## Divergências antigas resolvidas pela verificação
 

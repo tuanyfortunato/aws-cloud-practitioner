@@ -47,7 +47,7 @@
 | Opção | O que faz | Quando usar |
 |---|---|---|
 | **Tenancy** | Shared (padrão), **Dedicated Instance** ou **Dedicated Host** | Compliance ou licenças por socket/núcleo (Host) |
-| **Placement groups** | **Cluster** (mesmo rack, baixa latência), **Spread** (hardware distinto, máx. 7 por AZ), **Partition** (partições isoladas — Hadoop, Cassandra, Kafka) | HPC (cluster), alta disponibilidade de poucas instâncias críticas (spread) |
+| **Placement groups** | **Cluster** (mesmo rack, baixa latência), **Spread** (hardware distinto, máx. 7 por AZ), **Partition** (até 7 partições por AZ, isoladas — Hadoop, Cassandra, Kafka) | HPC (cluster), alta disponibilidade de poucas instâncias críticas (spread) |
 | **Monitoramento detalhado** | Métricas a cada **1 min** em vez de 5 min (pago) | Auto Scaling mais reativo |
 | **Hibernação** | Salva a RAM no volume EBS raiz (criptografado) e para a instância | Aplicações com inicialização demorada |
 | **Termination protection** | Impede encerrar pelo console/API por engano | Instâncias críticas |

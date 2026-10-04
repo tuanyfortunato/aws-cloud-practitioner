@@ -18,7 +18,7 @@ Root
 
 | Item | Detalhe |
 |---|---|
-| **Management account** | Cria a organização, convida/cria contas, paga a fatura. **Não é restringida por SCPs.** |
+| **Management account** | Cria a organização, convida/cria contas, paga a fatura. SCPs **não afetam** os usuários e roles dela (nem service-linked roles em nenhuma conta), mas afetam o **root das contas-membro**. |
 | **Member accounts** | Pertencem a uma só organização por vez. |
 | **OUs** | Unidades organizacionais hierárquicas (até 5 níveis); políticas são **herdadas**. |
 | **Modos** | *All features* (recomendado, habilita políticas) ou só *consolidated billing*. |
@@ -40,7 +40,9 @@ Root
 
 ## Consolidated billing
 
-- **Uma fatura** para todas as contas; **soma o uso** para descontos por volume (ex.: faixas do S3); **compartilha RIs e Savings Plans** (pode ser desativado por conta); sem custo extra.
+- **Uma fatura** para todas as contas; **soma o uso** para descontos por volume (ex.: faixas do S3); **compartilha RIs e Savings Plans**; sem custo extra.
+- **Compartilhamento de RIs e Savings Plans (task 4.1):** ✔️ ativado por padrão; a conta de gerenciamento pode **desativar** para qualquer conta (inclusive ela mesma); as duas contas precisam ter o compartilhamento ativo; o desconto vale **primeiro na conta que comprou** e a sobra vai para as demais.
+- 🔄 Organizações criadas pelo console após 10/07/2026 recebem automaticamente uma SCP na raiz (detalhe não confirmado na verificação).
 
 ## 🔄 Atualizações 2025-2026
 

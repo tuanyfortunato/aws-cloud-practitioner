@@ -47,7 +47,8 @@
 | O que faz | Consultoria para **projetos** (migração, transformação) junto com o time do cliente | Implementa projetos, revende, oferece produtos que integram com a AWS | **Opera a infraestrutura** no dia a dia |
 | Duração | Projeto | Projeto ou contínuo | Contínuo |
 
-- **Parceiros de consultoria/serviços** implementam projetos; **parceiros de tecnologia/software (ISVs)** vendem produtos. Programas de competência e certificação ajudam a escolher.
+- **Benefícios de ser parceiro** (task 4.3): acesso a treinamentos e certificações, créditos e financiamento para projetos, programas de competência e listagem no Marketplace e no diretório de parceiros, apoio comercial (co-sell) da AWS.
+- **Parceiros de consultoria/serviços** (integradores) implementam projetos; **parceiros de tecnologia/software (ISVs)** vendem produtos. Programas de competência e certificação ajudam a escolher.
 
 ### AWS IQ (encerrado)
 
@@ -58,6 +59,7 @@
 
 - Catálogo digital com milhares de produtos de terceiros: **AMIs**, **SaaS**, **contêineres**, **modelos de ML**, **dados** e **serviços profissionais**.
 - Licenciamento por uso (horário/anual) ou **BYOL**; cobrança consolidada na fatura AWS; **Private Offers** com preços negociados.
+- **Custos, governança e entitlement** (task 4.3): o que é comprado no Marketplace aparece na fatura AWS e no Cost Explorer; o **AWS Marketplace Private Marketplace** restringe quais produtos os times podem assinar; o **License Manager** e os *entitlements* do Marketplace controlam quem tem direito a usar cada licença.
 
 ### AWS Trust & Safety
 

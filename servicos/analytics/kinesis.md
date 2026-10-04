@@ -10,7 +10,7 @@
 
 | Serviço | O que faz | Detalhes |
 |---|---|---|
-| **Kinesis Data Streams** | Ingestão e armazenamento de streams para **processamento em tempo real** por vários consumidores | **Shards** (capacidade); modos **provisioned** ou **on-demand**; retenção padrão **24 h**, até **365 dias**; dados podem ser **relidos**; consumidores: Lambda, KCL, Managed Flink, Firehose |
+| **Kinesis Data Streams** | Ingestão e armazenamento de streams para **processamento em tempo real** por vários consumidores | **Shards** (capacidade); modos **provisioned** ou **on-demand**; retenção padrão **24 h**, até **365 dias** (8.760 h; acima de 24 h é pago); dados podem ser **relidos**; consumidores: Lambda, KCL, Managed Flink, Firehose |
 | **Amazon Data Firehose** (antes Kinesis Data Firehose) | **Entrega** streams automaticamente em destinos, **sem administração** | Destinos: **S3**, **Redshift**, **OpenSearch**, Splunk, HTTP, parceiros, tabelas Iceberg; buffer por tamanho/tempo (**quase tempo real**); transformação com Lambda, conversão para Parquet, compressão |
 | **Kinesis Video Streams** | Ingestão e armazenamento de **vídeo** de dispositivos (câmeras) | Integra com Rekognition Video, ML |
 | **Amazon Managed Service for Apache Flink** (antes Kinesis Data Analytics) | Processamento de streams com Flink (SQL, Java, Python) | Agregações, janelas, detecção de anomalias |
