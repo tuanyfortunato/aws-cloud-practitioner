@@ -17,7 +17,9 @@
 | **Rules engine** | Regras SQL que roteiam mensagens para Lambda, DynamoDB, S3, Kinesis, SNS, Timestream… |
 | **Cobrança** | Por milhão de mensagens, minutos de conexão, operações do shadow e regras. |
 
-## AWS IoT Greengrass
+## AWS IoT Greengrass ❌
+
+> ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
 
 - Runtime de **borda**: executa **Lambda, contêineres e inferência de ML localmente** no dispositivo/gateway, com operação **offline** e sincronização com a nuvem.
 

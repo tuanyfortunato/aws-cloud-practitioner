@@ -94,6 +94,8 @@ FICHAS = {
                  "dms-e-sct", "snow-family", "datasync-e-transfer-family"],
     "custos": ["cost-explorer", "budgets", "pricing-calculator-cur-e-outras-ferramentas",
                "planos-de-suporte", "recursos-de-ajuda-e-parceiros"],
+    "fora-do-escopo": ["midia-e-jogos", "iot-robotica-e-satelite", "desenvolvimento-e-aplicacoes",
+                       "rede-e-diretorio", "gerenciamento-e-custos"],
 }
 CATEGORIA = {nome: cat for cat, nomes in FICHAS.items() for nome in nomes}
 
@@ -136,7 +138,9 @@ FICHAS_POR_TOPICO = {
     "3.17": ["discovery-migration-hub-e-evaluator", "application-migration-service", "dms-e-sct",
              "snow-family", "datasync-e-transfer-family"],
     "3.18": ["lake-formation-msk-e-outros", "amazon-mq", "firewall-manager-e-network-firewall",
-             "keyspaces-timestream-e-outros", "servicos-de-ia-prontos"],
+             "keyspaces-timestream-e-outros", "servicos-de-ia-prontos", "midia-e-jogos",
+             "iot-robotica-e-satelite", "desenvolvimento-e-aplicacoes", "rede-e-diretorio",
+             "gerenciamento-e-custos"],
     "4.2": ["ec2"],
     "4.3": ["s3", "ebs", "lambda"],
     "4.4": ["cost-explorer", "budgets", "pricing-calculator-cur-e-outras-ferramentas"],
@@ -513,6 +517,11 @@ ESCOPO = {
     "cost-explorer": "✅ No escopo", "budgets": "✅ No escopo",
     "pricing-calculator-cur-e-outras-ferramentas": "✅ No escopo (Billing Conductor ❌ fora do escopo)",
     "planos-de-suporte": "✅ No escopo (AWS Support — task 4.3 cobra os planos novos)",
+    "midia-e-jogos": "❌ Fora do escopo — documentado só para referência",
+    "iot-robotica-e-satelite": "❌ Fora do escopo — documentado só para referência",
+    "desenvolvimento-e-aplicacoes": "❌ Fora do escopo — documentado só para referência",
+    "rede-e-diretorio": "❌ Fora do escopo — documentado só para referência",
+    "gerenciamento-e-custos": "❌ Fora do escopo — documentado só para referência",
     "recursos-de-ajuda-e-parceiros": "🔀 Marketplace, APN, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post e Trust and Safety ✅ (task 4.3) · AWS IQ, Activate e AMS ❌ fora do escopo",
 }
 LINHA_ESCOPO = re.compile(r"\n>\n> \*\*Escopo oficial:\*\*[^\n]*")
@@ -546,6 +555,7 @@ NOMES_CATEGORIA = {
     "aplicacoes": "💼 Aplicações de negócio, usuário final e IoT",
     "migracao": "🚚 Migração e transferência",
     "custos": "💰 Custos e suporte",
+    "fora-do-escopo": "❌ Fora do escopo da prova (só para referência)",
 }
 
 

@@ -8,7 +8,7 @@
 
 ## Comparação
 
-| | **AWS Outposts** | **AWS Local Zones** | **AWS Wavelength** |
+| | **AWS Outposts** ✅ | **AWS Local Zones** ⚪ | **AWS Wavelength** ❌ *fora do escopo* |
 |---|---|---|---|
 | Onde fica | **No seu datacenter** ou instalação | Em grandes cidades, operada pela AWS | **Dentro da rede 5G** de operadoras |
 | Para quê | Latência local, processamento local, **residência de dados** | Latência de **um dígito de ms** para usuários de uma cidade | Ultrabaixa latência para dispositivos **móveis 5G** |

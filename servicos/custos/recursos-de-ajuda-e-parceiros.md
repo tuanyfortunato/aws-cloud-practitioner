@@ -21,13 +21,13 @@
 | Boletins e boas práticas de **segurança** | **AWS Security Center**, Security Blog, Security Bulletins | Grátis |
 | **Consultoria da própria AWS** para um projeto (migração, modernização) | **AWS Professional Services** | Pago (contrato) |
 | **Empresa parceira** certificada para implementar o projeto | **AWS Partner Network (APN)** — parceiros de **consultoria/serviços** e de **tecnologia/software** | Pago ao parceiro |
-| **Freelancer/especialista** certificado sob demanda, pago na fatura AWS | **AWS IQ** — 🔄 encerrado em 28/05/2026; substituto: **AWS Marketplace Professional Services** | Pago |
-| A AWS **opera** a infraestrutura do cliente (monitoramento, patches, backup, incidentes) | **AWS Managed Services (AMS)** | Pago |
+| **Freelancer/especialista** certificado sob demanda, pago na fatura AWS | **AWS IQ** ❌ *fora do escopo* — 🔄 encerrado em 28/05/2026; substituto: **AWS Marketplace Professional Services** | Pago |
+| A AWS **opera** a infraestrutura do cliente (monitoramento, patches, backup, incidentes) | **AWS Managed Services (AMS)** ❌ *fora do escopo* | Pago |
 | Comprar **software de terceiros** (AMIs, SaaS, contêineres, dados) e serviços profissionais, cobrados na fatura AWS | **AWS Marketplace** | Pago por produto |
 | Orientação técnica e comercial da conta | **Solutions Architects** e equipe de conta (account manager) | Incluso na relação comercial |
 | Acompanhamento técnico **proativo** | **TAM** (Enterprise: designado; Enterprise On-Ramp: pool) | Planos Enterprise |
 | Dúvidas de **faturamento** em planos Enterprise | **Concierge Support Team** | Planos Enterprise |
-| **Startup** buscando créditos e mentoria | **AWS Activate** | Grátis (créditos) |
+| **Startup** buscando créditos e mentoria | **AWS Activate** ❌ *fora do escopo* | Grátis (créditos) |
 | Denunciar **abuso** vindo de recursos AWS (spam, phishing, ataques) | **AWS Trust & Safety** (formulário de abuso) | Grátis |
 | Cursos, laboratórios e certificações | **AWS Training and Certification / AWS Skill Builder** | Grátis e pago |
 

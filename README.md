@@ -1,7 +1,7 @@
 # ☁️ AWS Certified Cloud Practitioner (CLF-C02) — Estudos
 
 Repositório de documentação para a prova **AWS Certified Cloud Practitioner (CLF-C02)**: guia por tópico do exame,
-**100 fichas detalhadas de serviços**, **302 flashcards**, **65 questões no formato da prova**, resumos de revisão e acompanhamento do estudo.
+**105 fichas detalhadas de serviços** (inclusive os fora do escopo, sinalizados), **302 flashcards**, **65 questões no formato da prova**, resumos de revisão e acompanhamento do estudo.
 
 ## 🚀 Comece por aqui
 
@@ -291,6 +291,17 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 
 </details>
 
+<details>
+<summary><b>❌ Fora do escopo da prova (só para referência)</b> (5)</summary>
+
+- [Serviços de mídia e jogos (Elemental, IVS, Elastic Transcoder, GameLift, Lumberyard)](servicos/fora-do-escopo/midia-e-jogos.md)
+- [IoT, robótica, satélite e visão computacional na borda (Device Defender, Monitron, Panorama, RoboMaker, Ground Station)](servicos/fora-do-escopo/iot-robotica-e-satelite.md)
+- [Desenvolvimento e aplicações (AppConfig, Infrastructure Composer, CodeGuru, Copilot, Refactor Spaces, AppFabric, SWF, WorkDocs)](servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md)
+- [Rede e diretório (Cloud Map, VPC Lattice, Network Access Analyzer, Cloud Directory)](servicos/fora-do-escopo/rede-e-diretorio.md)
+- [Gerenciamento e custos (Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler, DevPay)](servicos/fora-do-escopo/gerenciamento-e-custos.md)
+
+</details>
+
 ### Outros materiais
 
 - [Guia do exame](docs/00-guia-do-exame/README.md) · [Escopo oficial](docs/00-guia-do-exame/escopo-oficial.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)
@@ -326,7 +337,7 @@ Links diretos para todos os tópicos e fichas (clique para expandir). Gerado por
 │   ├── 02-seguranca-e-conformidade/    # 2.1 a 2.10
 │   ├── 03-tecnologia-e-servicos/       # 3.1 a 3.18
 │   └── 04-cobranca-precos-e-suporte/   # 4.1 a 4.6
-├── servicos/                # 100 fichas detalhadas, por categoria
+├── servicos/                # 105 fichas detalhadas, por categoria (inclui fora do escopo)
 ├── flashcards/              # Gerados das "Perguntas típicas" (Markdown + TSV para Anki)
 ├── resumos/                 # Comparativos, palavras-chave, números-âncora
 ├── simulados/               # Simulado de 65 questões, questões por domínio e registro de erros

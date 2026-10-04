@@ -18,10 +18,10 @@ CodeCommit / GitHub ──▶ CodeBuild ──▶ (testes) ──▶ CodeDeploy 
 |---|---|---|
 | **AWS CodeCommit** | Repositórios **Git privados** gerenciados | Criptografados, integrados ao IAM. 🔄 Fechado a novos clientes em 2024 e **de volta a GA em 24/11/2025**. |
 | **AWS CodeBuild** | **Compila, testa e empacota** código | Serverless, contêineres de build, arquivo **`buildspec.yml`**; cobrado **por minuto** de build. |
-| **AWS CodeDeploy** | **Automatiza deploys** | Destinos: **EC2, on-premises, Lambda, ECS**; arquivo **`appspec.yml`**; estratégias **in-place** ou **blue/green**, canary/linear (Lambda/ECS); rollback automático por alarme. |
+| **AWS CodeDeploy** ❌ *fora do escopo* | **Automatiza deploys** | Destinos: **EC2, on-premises, Lambda, ECS**; arquivo **`appspec.yml`**; estratégias **in-place** ou **blue/green**, canary/linear (Lambda/ECS); rollback automático por alarme. |
 | **AWS CodePipeline** | **Orquestra a esteira de CI/CD** | Estágios (source, build, test, deploy, aprovação manual); integra GitHub, Bitbucket, S3, ECR, CloudFormation, Elastic Beanstalk. |
-| **AWS CodeArtifact** | **Repositório de pacotes** | npm, Maven, PyPI, NuGet, Gradle…; faz proxy de repositórios públicos. |
-| **CodeGuru** | Revisão de código e profiling com ML | 🧊 Parte dos recursos foi descontinuada/absorvida pelo Amazon Q Developer. |
+| **AWS CodeArtifact** ❌ *fora do escopo* | **Repositório de pacotes** | npm, Maven, PyPI, NuGet, Gradle…; faz proxy de repositórios públicos. |
+| **CodeGuru** ❌ *fora do escopo* | Revisão de código e profiling com ML | 🧊 Parte dos recursos foi descontinuada/absorvida pelo Amazon Q Developer. |
 | **AWS CodeStar** | Gestão de projetos de CI/CD | 🔄 **Descontinuado** (31/07/2024) — ainda listado no exam guide. |
 | **Amazon CodeCatalyst** | Plataforma unificada de desenvolvimento | 🧊 |
 

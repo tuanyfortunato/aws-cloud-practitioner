@@ -11,7 +11,7 @@
 | Sabor | Protocolos | Destaques | Uso típico |
 |---|---|---|---|
 | **FSx for Windows File Server** | **SMB** | Integra com **Active Directory**, ACLs NTFS, DFS, shadow copies, deduplicação; Single-AZ ou Multi-AZ | Compartilhamentos Windows, SharePoint, SQL Server, home folders |
-| **FSx for Lustre** | Lustre (POSIX) | **Alto desempenho** (centenas de GB/s, milhões de IOPS); **integração com S3** (lê/grava dados do bucket); *scratch* (temporário) ou *persistent* | HPC, ML, renderização, simulações |
+| **FSx for Lustre** ❌ *fora do escopo* | Lustre (POSIX) | **Alto desempenho** (centenas de GB/s, milhões de IOPS); **integração com S3** (lê/grava dados do bucket); *scratch* (temporário) ou *persistent* | HPC, ML, renderização, simulações |
 | **FSx for NetApp ONTAP** | **NFS, SMB e iSCSI** | Recursos ONTAP (snapshots, SnapMirror, FlexClone, deduplicação, tiering) | Migrar NAS NetApp existente; multiprotocolo |
 | **FSx for OpenZFS** | NFS | Snapshots e clones instantâneos ZFS, baixa latência | Migrar storage ZFS/Linux |
 

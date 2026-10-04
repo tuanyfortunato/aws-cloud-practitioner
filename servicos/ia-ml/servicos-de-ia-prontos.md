@@ -18,8 +18,8 @@
 | **Amazon Transcribe** | **Fala → texto** | Legendas, transcrição de chamadas, identificação de falantes, redação de PII; *Transcribe Medical*; *Call Analytics* |
 | **Amazon Lex** | Conversa (voz/texto) → intenção | **Chatbots** e URAs (mesma tecnologia da Alexa); integra com Lambda e Connect |
 | **Amazon Kendra** | Pergunta → resposta em documentos | **Busca inteligente corporativa** em linguagem natural (SharePoint, S3, Confluence). 🔄 Fechado a novos clientes desde 30/07/2026 e fora da lista atual |
-| **Amazon Personalize** | Interações → recomendações | **Recomendações personalizadas** (como na Amazon.com), ranking |
-| **Amazon Fraud Detector** | Eventos → risco de fraude | Fraude em pagamentos/cadastros (🔄 em manutenção, sem novos clientes desde 07/11/2025; ❌ fora do escopo) |
+| **Amazon Personalize** ❌ *fora do escopo* | Interações → recomendações | **Recomendações personalizadas** (como na Amazon.com), ranking |
+| **Amazon Fraud Detector** ❌ *fora do escopo* | Eventos → risco de fraude | Fraude em pagamentos/cadastros (🔄 em manutenção, sem novos clientes desde 07/11/2025; ❌ fora do escopo) |
 | **Amazon Augmented AI (A2I)** | Previsões → revisão humana | Fluxos de revisão humana de previsões de ML |
 
 ## Pares que confundem
