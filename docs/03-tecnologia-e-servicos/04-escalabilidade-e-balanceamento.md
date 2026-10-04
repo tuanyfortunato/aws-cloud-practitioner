@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Dois serviços trabalham juntos: o **Auto Scaling** muda a **quantidade** de servidores conforme a demanda, e o **Load Balancer** **distribui** os usuários entre eles.
+>
+> 🏠 **Analogia:** num **supermercado**, o **Auto Scaling** é o gerente que abre ou fecha caixas conforme a fila; o **Load Balancer** é o funcionário que aponta "o caixa 3 está livre" e nunca manda ninguém para o caixa fechado.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Explicar **mínimo, desejado e máximo** de um Auto Scaling Group e os tipos de política.
+- [ ] Diferenciar **ALB** (camada 7, HTTP, por caminho), **NLB** (camada 4, TCP/UDP, altíssima performance) e **GWLB** (appliances de rede).
+- [ ] Saber que o Auto Scaling **não tem custo** próprio (paga-se as instâncias).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Health check** | verificação periódica de que o servidor está respondendo. |
+| **Camada 7 / camada 4** | nível da comunicação: 7 entende HTTP (caminhos, cabeçalhos); 4 só vê conexões TCP/UDP. |
+| **Launch template** | o molde usado para criar as instâncias do grupo. |
+
+> 🎯 **Como não errar na prova:** "Aumentar/diminuir instâncias" → **Auto Scaling**. "Distribuir tráfego" → **ELB**. "/api para um serviço, /imagens para outro" → **ALB**. "TCP, latência ultrabaixa, IP fixo" → **NLB**. "Firewall de terceiros" → **GWLB**.
+
 ## 📖 Conteúdo
 
 - **Amazon EC2 Auto Scaling**

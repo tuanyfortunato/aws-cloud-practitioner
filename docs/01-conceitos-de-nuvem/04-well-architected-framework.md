@@ -8,6 +8,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** O Well-Architected é o **manual de boas práticas da AWS**, dividido em **seis pilares**. A prova descreve uma prática e pergunta a qual pilar ela pertence.
+>
+> 🏠 **Analogia:** é como a **inspeção de uma casa** em seis itens: a casa é fácil de manter (Excelência Operacional), tem tranca (Segurança), não cai (Confiabilidade), tem o tamanho certo (Eficiência de Performance), não desperdiça dinheiro (Otimização de Custos) e gasta pouca energia (Sustentabilidade).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar os **6 pilares**.
+- [ ] Ligar cada prática ao pilar (várias AZs → Confiabilidade; MFA → Segurança; desligar ocioso → Custos).
+- [ ] Saber que a **Well-Architected Tool** é gratuita e revisa uma carga contra os pilares.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Pilar** | uma das seis áreas de boas práticas do framework. |
+| **Lens** | extensão do framework para um cenário específico (serverless, SaaS, ML…). |
+
+> 🎯 **Como não errar na prova:** Associe palavras: **automação/runbooks** → Excelência Operacional; **identidade/criptografia** → Segurança; **recuperar de falhas/várias AZs** → Confiabilidade; **tipo de instância certo/serverless** → Performance; **gasto** → Custos; **energia/Graviton** → Sustentabilidade.
+
 ## 📖 Conteúdo
 
 Seis pilares, cada um com princípios de design. A prova descreve uma prática e pergunta o pilar.

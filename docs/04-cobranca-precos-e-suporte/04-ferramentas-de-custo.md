@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Cada ferramenta de custo responde a uma pergunta: **quanto vai custar?** (antes), **quanto gastei e quanto vou gastar?** (análise), **me avise se passar do limite** (alerta) e **quero o detalhe máximo** (relatório).
+>
+> 🏠 **Analogia:** a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o **extrato com gráficos**; o **Budgets** é o **aviso do cartão** quando passa do limite; o **CUR** é a **nota fiscal detalhada**, item por item; as **tags** são **etiquetas** para separar a conta por departamento.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada pergunta à ferramenta certa (estimar, analisar/prever, alertar, detalhar).
+- [ ] Saber que as **cost allocation tags** precisam ser **ativadas** no Billing.
+- [ ] Saber que o **consolidated billing** dá fatura única e desconto por volume.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Forecast** | previsão de gasto futuro. |
+| **Tag** | etiqueta chave-valor colocada num recurso (ex.: projeto=site). |
+| **Anomalia** | gasto fora do padrão. |
+
+> 🎯 **Como não errar na prova:** "Estimar **antes**" → **Pricing Calculator**. "Tendência e **previsão**" → **Cost Explorer**. "**Alerta** ao passar de US$ X" → **Budgets**. "Mais **granular**" → **CUR**. "Ratear por departamento" → **cost allocation tags**.
+
 ## 📖 Conteúdo
 
 | Ferramenta | Para que serve | Detalhes de prova |

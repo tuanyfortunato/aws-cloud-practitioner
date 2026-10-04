@@ -6,6 +6,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Computação em nuvem é **usar computadores, armazenamento e programas de outra empresa pela internet**, na hora em que você precisa, pagando só pelo que usar — em vez de comprar e manter as máquinas.
+>
+> 🏠 **Analogia:** é como a **energia elétrica**: você não constrói uma usina em casa; liga na tomada e paga a conta do que consumiu. Os modelos de serviço são como **pizza**: fazer em casa com ingredientes alugados (IaaS), levar a massa pronta e só escolher o recheio (PaaS) ou pedir a pizza pronta (SaaS).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Definir nuvem com as três ideias da AWS: **sob demanda**, **pela internet** e **pague pelo uso**.
+- [ ] Diferenciar **IaaS, PaaS e SaaS** pelo quanto você ainda gerencia.
+- [ ] Reconhecer os modelos de implantação **nuvem, híbrido e on-premises**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **On-premises** | no próprio datacenter da empresa ("nas instalações"). |
+| **IaaS** | Infraestrutura como Serviço: você recebe a máquina e cuida do sistema operacional para cima. |
+| **PaaS** | Plataforma como Serviço: você entrega o código, a plataforma cuida do resto. |
+| **SaaS** | Software como Serviço: o programa já vem pronto para usar. |
+
+> 🎯 **Como não errar na prova:** Pergunte-se **"o que o cliente ainda gerencia?"**. Sistema operacional → IaaS; só o código → PaaS; nada, só usa → SaaS. Se parte fica no datacenter e parte na AWS, é **híbrido**.
+
 ## 📖 Conteúdo
 
 - **Definição AWS:** entrega de recursos de TI sob demanda, pela internet, com preço pay-as-you-go.

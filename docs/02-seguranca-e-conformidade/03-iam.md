@@ -8,6 +8,30 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** O IAM decide **quem entra** (autenticação) e **o que cada um pode fazer** (autorização) na conta AWS, usando usuários, grupos, roles e políticas em JSON.
+>
+> 🏠 **Analogia:** é o **sistema de crachás de uma empresa**: o usuário é a pessoa com crachá; o grupo é o departamento; a role é um **crachá de visitante** temporário que alguém pega emprestado; a política é a lista de salas que o crachá abre.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **usuário, grupo, role e política**.
+- [ ] Aplicar a regra de avaliação: tudo começa **negado**, um **Allow** libera e um **Deny explícito sempre vence**.
+- [ ] Explicar o **menor privilégio** e por que usar **roles** em vez de access keys no EC2.
+- [ ] Diferenciar **IAM Identity Center** (funcionários, várias contas) de **Cognito** (clientes de um app).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Autenticação** | provar quem você é (login). |
+| **Autorização** | o que você tem permissão de fazer. |
+| **Role** | identidade com credenciais temporárias, assumida por quem precisa. |
+| **Federação** | entrar com uma identidade de fora (AD, Google, Okta) sem criar usuário IAM. |
+
+> 🎯 **Como não errar na prova:** "Aplicação no EC2 precisa acessar o S3" → **role**, nunca access key. "Login único em várias contas" → **Identity Center**. "Usuários do aplicativo" → **Cognito**. "Rotação automática de senhas" → **Secrets Manager**.
+
 ## 📖 Conteúdo
 
 - **Serviço global e gratuito** para controlar quem (autenticação) pode fazer o quê (autorização) na conta.

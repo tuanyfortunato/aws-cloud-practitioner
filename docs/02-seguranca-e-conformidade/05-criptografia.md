@@ -8,6 +8,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Criptografar é **embaralhar os dados** para que só quem tem a chave consiga ler. Este tópico mostra quando criptografar (guardado ou trafegando) e qual serviço cuida das chaves e dos certificados.
+>
+> 🏠 **Analogia:** a criptografia é um **cadeado**; a chave é o que abre. O **KMS** é um chaveiro gerenciado pela AWS; o **CloudHSM** é um **cofre só seu**; o **ACM** fornece o cadeado do HTTPS (o ícone de cadeado no navegador).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar criptografia **em repouso** de **em trânsito**.
+- [ ] Diferenciar **KMS** (chaves gerenciadas e integradas) de **CloudHSM** (hardware dedicado, só você controla).
+- [ ] Saber que o **ACM** emite e renova certificados SSL/TLS e que o S3 criptografa objetos novos por padrão.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Em repouso** | dados guardados em disco, banco ou bucket. |
+| **Em trânsito** | dados viajando pela rede. |
+| **HSM** | equipamento físico feito para guardar chaves com segurança. |
+| **TLS/SSL** | o protocolo que protege o HTTPS. |
+
+> 🎯 **Como não errar na prova:** "Hardware **dedicado**" ou "controle **exclusivo** das chaves" → **CloudHSM**. "Chaves integradas aos serviços" → **KMS**. "Certificado HTTPS" → **ACM**. Quem **ativa** a criptografia dos dados é o **cliente**.
+
 ## 📖 Conteúdo
 
 - **Em repouso (at rest):** dados armazenados (S3, EBS, RDS, DynamoDB) criptografados com chaves do KMS.

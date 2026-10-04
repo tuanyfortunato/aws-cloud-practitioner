@@ -10,6 +10,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** O usuário root é o **dono da conta**, criado com o e-mail de cadastro. Ele pode tudo e não pode ser limitado por IAM — por isso deve ser protegido e usado só nas poucas tarefas que exigem ele.
+>
+> 🏠 **Analogia:** é a **chave-mestra do prédio**: abre todas as portas, então fica guardada no cofre (com MFA) e só sai para situações especiais. No dia a dia, cada um usa o próprio crachá (identidades IAM).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar as **boas práticas** do root (MFA, sem access keys, não usar no dia a dia).
+- [ ] Reconhecer as **tarefas exclusivas do root** (ex.: alterar e-mail/senha do root, fechar a conta standalone, MFA Delete no S3).
+- [ ] Saber o que **não** exige root (criar usuários IAM, ver a fatura, e agora mudar o plano de suporte e o nome da conta).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **MFA** | autenticação multifator: senha + um segundo fator (app, chave física). |
+| **Access key** | credencial para usar a AWS por linha de comando ou programa. |
+
+> 🎯 **Como não errar na prova:** Na lista de alternativas, procure a tarefa que **só o dono da conta** poderia fazer. Tarefas comuns de administração (criar usuário, ver fatura) **não** exigem root.
+
 ## 📖 Conteúdo
 
 - Criado junto com a conta, com o e-mail de cadastro; tem acesso irrestrito e não pode ser limitado por políticas IAM.

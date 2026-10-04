@@ -8,6 +8,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Empresas grandes usam **várias contas AWS** (produção, testes, segurança). Este tópico mostra como **organizar, limitar e cobrar** todas elas de forma central.
+>
+> 🏠 **Analogia:** é como uma **rede de franquias**: a matriz (Organizations) agrupa as lojas, define o que nenhuma pode fazer (SCP), paga uma fatura única e, com o Control Tower, entrega cada loja nova já montada no padrão.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Explicar **Organizations**, **OUs** e **consolidated billing**.
+- [ ] Saber que **SCP só restringe** (não concede permissão) e não afeta a conta de gerenciamento.
+- [ ] Diferenciar **Organizations** (agrupar e limitar) de **Control Tower** (ambiente multi-conta pronto, com guardrails).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **OU** | unidade organizacional: uma "pasta" de contas dentro do Organizations. |
+| **SCP** | política que define o máximo que uma conta ou OU pode fazer. |
+| **Landing zone** | ambiente multi-conta já configurado com boas práticas. |
+| **Guardrail** | regra de proteção do Control Tower (preventiva ou detectiva). |
+
+> 🎯 **Como não errar na prova:** "Limitar o que uma **conta inteira** pode fazer" → **SCP**. "Montar rapidamente ambiente multi-conta com boas práticas" → **Control Tower**. "Uma fatura e desconto por volume" → **consolidated billing**.
+
 ## 📖 Conteúdo
 
 - **AWS Organizations:** gerencia várias contas de forma centralizada.

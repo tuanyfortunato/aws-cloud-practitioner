@@ -88,6 +88,8 @@ questões no formato da prova com gabarito comentado e resumos para a revisão f
 <summary><b>Como ler um tópico e uma ficha</b> (clique para ver)</summary>
 
 **Cada tópico** (ex.: [2.3 IAM](docs/02-seguranca-e-conformidade/03-iam.md)) tem:
+- **🧠 Antes de começar:** a ideia em palavras simples, uma analogia, o checklist do que saber, as palavras novas
+  explicadas e como não errar na prova.
 - **📖 Conteúdo:** o que a prova cobra, com a linha **Cai na prova** mostrando os cenários mais comuns.
 - **❓ Perguntas típicas:** pergunta → resposta, no formato das questões.
 - **🔄 Atualizações 2025-2026:** o que mudou e foi conferido em fonte oficial.

@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Contêineres empacotam a aplicação com tudo que ela precisa; **serverless** é rodar código sem gerenciar servidores. Este tópico mostra quem orquestra contêineres e quando usar o Lambda.
+>
+> 🏠 **Analogia:** um **contêiner** é como uma **marmita pronta**: leva a comida e os talheres e funciona em qualquer micro-ondas. O **ECS/EKS** é o **gerente da cozinha** que distribui as marmitas; o **Fargate** é **não ter cozinha** (alguém esquenta para você); o **Lambda** é um **garçom que só aparece quando chamado** e cobra por minuto de atendimento.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **ECS** (nativo da AWS) de **EKS** (Kubernetes).
+- [ ] Saber que o **Fargate** roda contêineres **sem servidores** e o **ECR** guarda as imagens.
+- [ ] Lembrar que o **Lambda** roda por **até 15 minutos**, é disparado por eventos e cobra por requisição e duração.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Contêiner** | pacote leve com a aplicação e suas dependências, que roda igual em qualquer lugar. |
+| **Orquestrador** | sistema que decide onde e quantos contêineres rodam. |
+| **Serverless** | você não gerencia servidores e paga só pelo uso. |
+
+> 🎯 **Como não errar na prova:** "Processar quando o arquivo chega ao S3" → **Lambda**. "Roda por **2 horas**" → **não** é Lambda (Fargate, Batch ou EC2). "Já usa **Kubernetes**" → **EKS**. "Contêineres sem gerenciar servidores" → **Fargate**.
+
 ## 📖 Conteúdo
 
 - **Amazon ECS:** Orquestrador de containers da AWS. Dois tipos de execução: **EC2** (você gerencia as instâncias do cluster) ou **Fargate** (serverless).

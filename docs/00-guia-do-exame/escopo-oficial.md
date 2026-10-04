@@ -7,6 +7,20 @@
 > ⚠️ O código da prova continua **CLF-C02**, mas a AWS atualiza o conteúdo do guia **sem trocar o código**.
 > Reabra as duas páginas alguns dias antes da prova. A própria AWS avisa que as listas não são exaustivas.
 
+## 🧭 Em resumo
+
+> 💡 **Em palavras simples:** a AWS publica **o que pode cair** na prova (as *task statements* e a lista de serviços) e
+> **o que não cai** (a lista de fora do escopo). Esta página traduz essas listas e liga cada item ao tópico deste repositório.
+
+**Como ler os símbolos desta página (e das fichas):**
+
+| Símbolo | Significado | O que fazer |
+|---|---|---|
+| ✅ | Está na lista oficial de serviços **no escopo** | Estude |
+| ❌ | Está na lista oficial **fora do escopo** | Só reconheça o nome: na prova, tende a ser alternativa errada |
+| ⚪ | Não aparece em **nenhuma** das duas listas | Baixa prioridade: saiba para que serve |
+| 🔀 | Ficha com serviços de status diferentes | Veja o status de cada serviço na linha *Escopo oficial* da ficha |
+
 ## Task statements oficiais → tópicos deste repositório
 
 Os tópicos de `docs/` seguem a numeração do guia de estudo (1.1 a 4.6), que é **diferente** da numeração

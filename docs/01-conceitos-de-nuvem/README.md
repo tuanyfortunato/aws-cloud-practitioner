@@ -4,6 +4,15 @@
 
 Domínio de vocabulário oficial. A experiência prática ajuda pouco aqui; o que dá ponto é conhecer as listas da AWS e reconhecer cada item num cenário.
 
+## 🧭 Como estudar este domínio
+
+> 💡 **Em palavras simples:** Este domínio ensina **o vocabulário da nuvem**: o que é nuvem, por que usar, como desenhar bons sistemas e como uma empresa se prepara para migrar. Quase não há serviço técnico aqui — o que conta são as **listas oficiais** da AWS (6 vantagens, 6 pilares, 6 perspectivas, 7 Rs).
+
+- 🗺️ **Ordem sugerida:** Siga a ordem dos tópicos: primeiro **o que é** a nuvem (1.1 e 1.2), depois **como projetar** (1.3 e 1.4) e por fim **como migrar e quanto custa** (1.5 a 1.7).
+- 🎯 **Dica:** Monte uma folha com as **quatro listas** (vantagens, pilares, perspectivas e 7 Rs) e treine ligar cada cenário a um item.
+- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
+  palavras novas explicadas e como não errar na prova.
+
 ## Tópicos
 
 | # | Tópico | Perguntas típicas | Status |

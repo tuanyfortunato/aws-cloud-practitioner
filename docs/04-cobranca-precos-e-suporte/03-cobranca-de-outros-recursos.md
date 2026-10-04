@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Além do EC2, cada recurso tem a sua forma de cobrança. O ponto mais cobrado é a **transferência de dados**: **entrar é grátis, sair é pago**. Também caem os serviços sem custo próprio e o Free Tier.
+>
+> 🏠 **Analogia:** é como um **estacionamento**: entrar é grátis, mas você paga para sair — e quanto mais carros saem, menor o preço por carro (faixas de volume).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Saber o que é **grátis** e o que é **pago** na transferência de dados.
+- [ ] Saber que o **EBS** cobra pelo volume **provisionado**, mesmo vazio.
+- [ ] Citar serviços **sem custo próprio** (CloudFormation, Elastic Beanstalk, Auto Scaling, IAM, Organizations).
+- [ ] Reconhecer os tipos de **Free Tier**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Provisionado** | o tamanho que você reservou, usado ou não. |
+| **Free Tier** | uso gratuito oferecido pela AWS, com limites. |
+
+> 🎯 **Como não errar na prova:** "Sempre grátis" → **transferência de entrada** e serviços como **IAM**. "Reduzir custo de saída para usuários globais" → **CloudFront**. "Serviço grátis, paga os recursos" → CloudFormation/Beanstalk/Auto Scaling.
+
 ## 📖 Conteúdo
 
 - **Transferência de dados:**

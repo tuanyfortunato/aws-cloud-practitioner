@@ -8,6 +8,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Três jeitos mais simples de rodar aplicações: **enviar só o código** (Elastic Beanstalk), **servidor de preço fixo** (Lightsail) e **processar jobs em lote** (Batch).
+>
+> 🏠 **Analogia:** o **Elastic Beanstalk** é um **buffet** (você leva a receita e eles montam tudo); o **Lightsail** é um **plano pré-pago** de servidor; o **Batch** é uma **linha de produção** que processa milhares de pedidos.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Saber que o **Elastic Beanstalk** é PaaS e não tem custo adicional (paga os recursos criados).
+- [ ] Saber que o **Lightsail** tem **preço mensal fixo** e é para quem está começando.
+- [ ] Saber que o **Batch** escolhe a computação ideal para jobs em lote.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **PaaS** | plataforma onde você entrega o código e ela cuida da infraestrutura. |
+| **Job em lote (batch)** | trabalho processado sem interação, em grande quantidade. |
+
+> 🎯 **Como não errar na prova:** "Desenvolvedor sem pensar em infraestrutura" → **Elastic Beanstalk**. "Preço fixo, simples" → **Lightsail**. "Milhares de jobs" → **Batch**.
+
 ## 📖 Conteúdo
 
 - **AWS Elastic Beanstalk:** PaaS. Você envia o código (Java, .NET, Node.js, Python, PHP, Ruby, Go, Docker) e ele provisiona e gerencia capacidade, load balancer, Auto Scaling e monitoramento. Você mantém acesso aos recursos. Não tem custo adicional; paga só os recursos criados.

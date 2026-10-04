@@ -8,6 +8,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Ferramentas para **administrar o ambiente**: criar infraestrutura por código, operar muitos servidores, saber de eventos da AWS, ver limites, controlar licenças e ajustar o tamanho dos recursos.
+>
+> 🏠 **Analogia:** o **CloudFormation** é a **planta da casa**; o **Systems Manager** é o **controle remoto** de todos os servidores; o **Health Dashboard** é o **aviso do condomínio**; o **Service Quotas** é a **lista de limites** do contrato; o **Compute Optimizer** é uma **balança** que mostra o que está grande ou pequeno demais.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Explicar **template**, **stack**, **StackSets** e **drift detection** do CloudFormation.
+- [ ] Citar os recursos do **Systems Manager** (Session Manager, Run Command, Patch Manager, Parameter Store).
+- [ ] Diferenciar **Health Dashboard** (eventos da AWS) de **CloudWatch** (métricas dos seus recursos).
+- [ ] Saber para que servem **Service Quotas**, **License Manager** e **Compute Optimizer**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Stack** | o conjunto de recursos criado a partir de um template. |
+| **Drift** | quando alguém altera um recurso na mão, fora do template. |
+| **Cota (quota)** | limite de uso de um serviço numa região. |
+
+> 🎯 **Como não errar na prova:** "Acessar sem SSH" → **Session Manager**. "Patch em 500 servidores" → **Patch Manager**. "Evento da AWS afeta minhas instâncias" → **Health Dashboard**. "Passar do limite" → **Service Quotas**. "Tamanho ideal" → **Compute Optimizer**.
+
 ## 📖 Conteúdo
 
 - **AWS CloudFormation:** infraestrutura como código nativa.

@@ -3,6 +3,17 @@
 > Confira sempre o [exam guide oficial](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html) e a [lista de serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html) na semana da prova.
 > O código continua **CLF-C02**, mas a AWS atualiza o conteúdo do guia **sem trocar o código** (última verificação: 04/10/2026, [detalhes](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
 
+## 🧭 Em resumo (leia primeiro)
+
+> 💡 **Em palavras simples:** a Cloud Practitioner é a certificação **de entrada** da AWS. Ela não testa se você sabe
+> configurar nada: testa se você **entende a nuvem** e **reconhece qual serviço resolve cada situação**.
+
+- 📝 **Como é:** 65 questões em 90 minutos; você precisa de **700 de 1000** pontos no total.
+- 📚 **O que cai:** 4 domínios — conceitos de nuvem, segurança, serviços e cobrança (pesos na tabela abaixo).
+- ✅ **Chute vale:** resposta em branco conta como erro, então **nunca deixe questão sem resposta**.
+- 🗺️ **Por onde começar:** leia esta página → siga o [plano de estudos](plano-de-estudos.md) → confira o
+  [escopo oficial](escopo-oficial.md) para saber o que **não** precisa estudar.
+
 ## Formato
 
 | Item | Detalhe |

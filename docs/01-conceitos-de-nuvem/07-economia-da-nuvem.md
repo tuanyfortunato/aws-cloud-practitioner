@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Economia da nuvem é **comparar o custo total** de manter um datacenter com o de usar a nuvem — e conhecer as práticas que reduzem a conta (licenças, tamanho certo, serviços gerenciados, automação).
+>
+> 🏠 **Analogia:** é como comparar **ter carro próprio** (compra, seguro, IPVA, garagem, manutenção) com **usar aplicativo**: o preço da corrida parece maior, mas o custo total costuma ser menor quando você soma tudo (isso é o **TCO**).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar custos **fixos e antecipados** (on-premises) de **variáveis** (nuvem).
+- [ ] Explicar **TCO** e citar as ferramentas Migration Evaluator e Pricing Calculator.
+- [ ] Explicar **BYOL** e **rightsizing**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **TCO** | custo total de propriedade: soma de todos os custos, inclusive pessoal e operação. |
+| **BYOL** | trazer a sua própria licença de software. |
+| **Rightsizing** | ajustar o tipo e o tamanho do recurso ao uso real. |
+
+> 🎯 **Como não errar na prova:** "Caso de negócio da migração" → **Migration Evaluator**; "reduzir custo de licença" → **BYOL com Dedicated Hosts**; "recurso grande demais" → **rightsizing**; "custo que some ao migrar" → energia, refrigeração e espaço do datacenter.
+
 ## 📖 Conteúdo
 
 - **Custos on-premises:** fixos e antecipados (servidores, storage, rede, datacenter, energia, refrigeração, pessoal). Muitos são "invisíveis" num TCO mal feito.

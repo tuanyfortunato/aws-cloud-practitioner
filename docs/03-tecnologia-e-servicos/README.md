@@ -10,6 +10,15 @@
 - **Parte 4:** Serviços de dados, IA, integração e aplicações. Aqui a prova quase sempre pergunta "qual serviço faz X", então o essencial é a função de cada um.
 - **Parte 5:** Gestão, governança e migração: serviços que a prova trata como conhecimento básico, mesmo para quem não administra contas no dia a dia.
 
+## 🧭 Como estudar este domínio
+
+> 💡 **Em palavras simples:** Este é o domínio **maior** e mais **amplo**: um passeio pelos principais serviços da AWS — computação, bancos, armazenamento, rede, analytics, IA, integração, ferramentas e migração. A prova não pede detalhes de configuração; pede **o serviço certo para cada cenário**.
+
+- 🗺️ **Ordem sugerida:** Estude em blocos: **infraestrutura e computação** (3.1 a 3.6), **dados e armazenamento** (3.7 a 3.9), **rede** (3.10) e depois os **demais serviços** (3.11 a 3.18). Use as fichas de serviço para aprofundar o que tiver dúvida.
+- 🎯 **Dica:** Para cada serviço, saiba responder: **para que serve** e **qual o vizinho com que ele é confundido**. A seção "Entenda em 30 segundos" de cada ficha resume exatamente isso.
+- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
+  palavras novas explicadas e como não errar na prova.
+
 ## Tópicos
 
 | # | Tópico | Perguntas típicas | Status |

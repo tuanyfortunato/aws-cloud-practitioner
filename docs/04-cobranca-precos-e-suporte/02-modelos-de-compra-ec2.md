@@ -8,6 +8,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Há várias formas de **pagar pelo EC2**: sem compromisso, com compromisso de 1 ou 3 anos, aproveitando sobras baratas (que podem ser retomadas) ou com servidor físico dedicado. A prova pede o modelo certo para o cenário.
+>
+> 🏠 **Analogia:** é como **hospedagem**: **On-Demand** é a diária de hotel (cara, sem compromisso); **Reserved/Savings Plans** é o aluguel anual (desconto alto); **Spot** é a passagem de última hora com desconto enorme, mas você pode ser tirado do voo; **Dedicated Host** é alugar a casa inteira só para você.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Escolher o modelo pelo cenário (curto e imprevisível → On-Demand; 24/7 por anos → Reserved/Savings Plans; tolera interrupção → Spot).
+- [ ] Diferenciar **Compute Savings Plans** (vale para EC2, Fargate e Lambda) de **EC2 Instance Savings Plans**.
+- [ ] Diferenciar **Dedicated Host** (servidor físico inteiro, licença por núcleo) de **Dedicated Instance**.
+- [ ] Lembrar o **aviso de 2 minutos** do Spot e as formas de pagamento (All, Partial, No Upfront).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Upfront** | pagamento antecipado. |
+| **Interrupção** | a AWS retomar a instância Spot quando precisa da capacidade. |
+| **Capacity Reservation** | garantir capacidade numa AZ, mesmo sem desconto. |
+
+> 🎯 **Como não errar na prova:** "Não pode ser interrompida e é imprevisível" → **On-Demand**. "Maior desconto e tolera interrupção" → **Spot**. "Desconto que cobre Fargate e Lambda" → **Compute Savings Plans**. "Licença por núcleo físico" → **Dedicated Host**.
+
 ## 📖 Conteúdo
 
 | Modelo | Desconto (referência AWS) | Compromisso | Quando usar |

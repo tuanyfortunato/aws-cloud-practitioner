@@ -10,6 +10,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** A AWS está espalhada pelo mundo em **regiões**; cada região tem várias **zonas de disponibilidade (AZs)**; e há centenas de **edge locations** perto dos usuários. Existem ainda formas de levar a AWS para mais perto.
+>
+> 🏠 **Analogia:** a **região** é uma **cidade**; cada **AZ** é um **bairro** com a própria energia e rede, longe o bastante para um incêndio não atingir os outros; as **edge locations** são **lojinhas de conveniência** espalhadas que guardam cópias do que mais se pede.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **região, AZ e edge location**.
+- [ ] Citar os **4 fatores** para escolher região (compliance, proximidade, serviços disponíveis, preço).
+- [ ] Saber quando usar **várias AZs** (falha de datacenter) × **várias regiões** (desastre regional, usuários globais).
+- [ ] Diferenciar **Outposts, Local Zones e Wavelength**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **AZ** | um ou mais datacenters isolados dentro de uma região. |
+| **Edge location** | ponto de presença usado por CloudFront, Route 53 e outros serviços para ficar perto do usuário. |
+| **Latência** | o tempo que a informação leva para ir e voltar. |
+
+> 🎯 **Como não errar na prova:** "Falha de **um datacenter**" → **várias AZs**. "Lei exige dados no país" → escolher a **região**. "Usuários no mundo todo" → **CloudFront/edge**. "AWS dentro do **meu** datacenter" → **Outposts**.
+
 ## 📖 Conteúdo
 
 - **Região:** área geográfica isolada e independente das outras, com várias AZs. A maioria dos serviços é **regional**; alguns são **globais** (IAM, Route 53, CloudFront, Organizations).

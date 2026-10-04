@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Integração é fazer **partes de um sistema conversarem sem depender umas das outras**: filas, notificações, eventos e fluxos de várias etapas.
+>
+> 🏠 **Analogia:** o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS** é um **alto-falante** (todos ouvem ao mesmo tempo); o **EventBridge** é uma **central de regras** ("quando acontecer X, avise Y"); o **Step Functions** é um **fluxograma** que se executa sozinho.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **SQS** (fila, o consumidor puxa) de **SNS** (pub/sub, empurra para todos).
+- [ ] Diferenciar fila **Standard** de **FIFO**.
+- [ ] Saber quando usar **EventBridge** (reagir a eventos, inclusive de SaaS) e **Step Functions** (orquestrar etapas).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Desacoplar** | fazer componentes funcionarem sem depender um do outro estar disponível. |
+| **Pub/sub** | publicar uma vez e todos os assinantes recebem. |
+| **Fan-out** | uma mensagem do SNS copiada para várias filas SQS. |
+
+> 🎯 **Como não errar na prova:** "Desacoplar/absorver picos" → **SQS**. "Notificar vários" → **SNS**. "Ordem garantida" → **SQS FIFO**. "Evento de SaaS" → **EventBridge**. "Várias etapas com aprovação" → **Step Functions**.
+
 ## 📖 Conteúdo
 
 - **Amazon SQS:** Pontos de prova:

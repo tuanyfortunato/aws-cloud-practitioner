@@ -10,6 +10,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** A prova separa três níveis de IA: **criar o seu próprio modelo** (SageMaker AI), **usar modelos generativos prontos** (Bedrock e Amazon Q) e **APIs prontas** para uma tarefa específica (imagem, texto, voz).
+>
+> 🏠 **Analogia:** é como **comida**: o **SageMaker AI** é cozinhar do zero; o **Bedrock** é comprar uma massa pronta e montar o seu prato; os **serviços de IA prontos** são pratos congelados — cada um resolve uma refeição específica.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **SageMaker AI** (modelo próprio) de **Bedrock** (modelos de fundação via API) e **Amazon Q** (assistente pronto).
+- [ ] Ligar cada API pronta à tarefa: imagem → Rekognition; sentimento → Comprehend; chatbot → Lex; texto em fala → Polly; fala em texto → Transcribe; tradução → Translate; documentos → Textract.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Modelo de ML** | programa treinado com dados para prever ou classificar. |
+| **IA generativa** | IA que cria conteúdo novo (texto, imagem, código). |
+| **Modelo de fundação** | modelo grande, pré-treinado, usado como base para várias tarefas. |
+
+> 🎯 **Como não errar na prova:** Polly e Transcribe confundem: **P**olly **P**roduz fala (texto → voz); **Transcribe** transcreve (voz → texto). "Treinar modelo próprio" → **SageMaker AI**.
+
 ## 📖 Conteúdo
 
 Revise a função de cada serviço, porque a prova pede o serviço pelo caso de uso.

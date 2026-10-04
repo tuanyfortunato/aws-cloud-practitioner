@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Compliance é **provar que se segue as regras** (leis e normas). A AWS fornece os relatórios dela; o cliente cuida da conformidade do que ele mesmo constrói.
+>
+> 🏠 **Analogia:** o **Artifact** é a **pasta de certificados da AWS** que você entrega ao auditor; o **Audit Manager** é um **assistente que junta as provas da sua própria empresa** para a sua auditoria.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **Artifact** (relatórios da AWS) de **Audit Manager** (evidências da sua conta).
+- [ ] Saber que compliance também é **responsabilidade compartilhada**.
+- [ ] Saber que os dados ficam na **região escolhida** (residência de dados).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Compliance** | estar em conformidade com leis, normas e regulações. |
+| **SOC, PCI DSS, ISO 27001** | relatórios e certificações de segurança reconhecidos no mercado. |
+| **BAA** | acordo exigido para dados de saúde (HIPAA), aceito pelo Artifact. |
+
+> 🎯 **Como não errar na prova:** "Auditor pede o relatório **da AWS**" → **Artifact**. "Coletar evidências **da empresa**" → **Audit Manager**. "Avaliar se os recursos seguem regras" → **AWS Config**.
+
 ## 📖 Conteúdo
 
 - **AWS Artifact:** portal de autoatendimento para baixar **relatórios de compliance da AWS** (SOC 1/2/3, PCI DSS, ISO 27001 etc.) e aceitar **acordos** (ex.: BAA para HIPAA). Gratuito.
