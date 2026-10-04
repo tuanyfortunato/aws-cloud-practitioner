@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como uma **holding**: reúne várias contas sob uma matriz, com regras comuns e uma fatura só.
+
+- ✅ **Escolha quando:** precisa **gerenciar várias contas**, aplicar **limites (SCP)** e **consolidar a cobrança**.
+- 🚫 **Não é a resposta quando:** quer montar rapidamente um **ambiente multi-conta com boas práticas** → [Control Tower](control-tower.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "várias contas", "SCP", "faturamento consolidado", "unidades organizacionais (OU)".
+<!-- didatico:fim -->
+
 ## Estrutura
 
 ```

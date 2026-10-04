@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **caminhão de mudança que copia seus servidores** para a AWS sem desmontar nada (lift-and-shift).
+
+- ✅ **Escolha quando:** precisa **migrar servidores inteiros sem mudanças** (Rehost).
+- 🚫 **Não é a resposta quando:** precisa migrar **banco de dados** → [DMS](dms-e-sct.md); precisa de **recuperação de desastres** → [Elastic Disaster Recovery](../armazenamento/elastic-disaster-recovery.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "lift-and-shift", "Rehost", "migrar servidores ou VMs".
+<!-- didatico:fim -->
+
 ## Como funciona
 
 1. Instala o **agente de replicação** no servidor de origem (Windows/Linux).

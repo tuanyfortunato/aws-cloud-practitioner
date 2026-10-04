@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **portaria das suas APIs**: recebe as requisições, confere quem é, barra excessos e encaminha para o back-end (como o Lambda).
+
+- ✅ **Escolha quando:** precisa **criar, proteger e escalar APIs** REST, HTTP ou WebSocket, principalmente serverless.
+- 🚫 **Não é a resposta quando:** a API é **GraphQL** → AppSync, na ficha de [Amplify e AppSync](../aplicacoes/amplify-e-appsync.md); precisa só **distribuir tráfego** entre servidores → [ELB](../computacao/elastic-load-balancing.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "API REST", "back-end serverless com Lambda", "limitar requisições" (throttling), "chaves de API".
+<!-- didatico:fim -->
+
 ## Tipos de API
 
 | Tipo | Destaques | Uso |

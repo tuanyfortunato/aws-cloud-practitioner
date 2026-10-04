@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **mesmo Kubernetes** que você usaria em qualquer lugar, mas com a AWS cuidando do "cérebro" (o plano de controle).
+
+- ✅ **Escolha quando:** a empresa **já usa Kubernetes** ou quer portabilidade entre nuvens e datacenter.
+- 🚫 **Não é a resposta quando:** quer o orquestrador **mais simples e nativo** da AWS → [ECS](ecs.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "Kubernetes", "já usa Kubernetes on-premises", "portabilidade", "open source".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Empresas que **já usam Kubernetes** (on-premises ou outra nuvem) e querem migrar sem reescrever manifestos.

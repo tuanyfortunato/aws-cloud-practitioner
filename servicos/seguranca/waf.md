@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **porteiro que lê cada requisição web** e barra as perigosas (SQL injection, XSS) ou excessivas.
+
+- ✅ **Escolha quando:** precisa proteger **aplicações web** em CloudFront, ALB ou API Gateway contra ataques na camada 7.
+- 🚫 **Não é a resposta quando:** o problema é **DDoS volumétrico** → [Shield](shield.md); precisa de **firewall de rede** da VPC → security groups e NACLs, na ficha da [VPC](../redes/vpc.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "SQL injection", "cross-site scripting (XSS)", "bloquear países", "limitar requisições por IP".
+<!-- didatico:fim -->
+
 ## Onde se associa
 
 **CloudFront, ALB, API Gateway (REST), AppSync, Cognito user pools**, App Runner, Verified Access, Amplify. ⚠️ **Não** em NLB nem diretamente em EC2.

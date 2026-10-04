@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **MongoDB gerenciado** pela AWS.
+
+- ✅ **Escolha quando:** a aplicação usa **documentos JSON** e os drivers do **MongoDB**, e você quer um serviço gerenciado.
+- 🚫 **Não é a resposta quando:** precisa de **chave-valor em escala massiva** → [DynamoDB](dynamodb.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "MongoDB", "documentos JSON".
+<!-- didatico:fim -->
+
 ## Destaques
 
 - Arquitetura parecida com a do Aurora: armazenamento distribuído (6 cópias em 3 AZs), até 15 réplicas, backups contínuos, criptografia.

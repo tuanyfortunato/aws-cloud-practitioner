@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **único crachá corporativo** que abre as portas de todas as contas AWS e dos apps da empresa.
+
+- ✅ **Escolha quando:** **funcionários** precisam de **login único (SSO)** em várias contas e aplicações, usando o diretório da empresa.
+- 🚫 **Não é a resposta quando:** quem faz login são **clientes de um aplicativo** → [Cognito](cognito.md); precisa de um **Active Directory gerenciado** → [Directory Service](directory-service.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "single sign-on", "várias contas", "funcionários", "permission sets".
+<!-- didatico:fim -->
+
 ## Conceitos e configurações
 
 | Item | Detalhe |

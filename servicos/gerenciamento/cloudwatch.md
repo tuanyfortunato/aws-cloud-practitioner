@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **painel do carro**: mostra os indicadores (métricas), guarda o diário de bordo (logs) e acende a luz de alerta (alarmes).
+
+- ✅ **Escolha quando:** precisa **monitorar desempenho**, coletar **logs** e criar **alarmes**.
+- 🚫 **Não é a resposta quando:** quer saber **quem fez** uma ação → [CloudTrail](cloudtrail.md); quer o **histórico de configuração** → [Config](config.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "métricas", "alarme", "CPU acima de 80%", "logs da aplicação", "dashboard".
+<!-- didatico:fim -->
+
 ## Componentes
 
 | Componente | Detalhe |

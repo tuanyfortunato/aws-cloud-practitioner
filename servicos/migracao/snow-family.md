@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ⚪ Não listado (saiu da lista atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **HD gigante e blindado que a AWS manda pelo correio**: você copia os dados e devolve.
+
+- ✅ **Escolha quando:** precisa mover **grandes volumes sem rede boa**, ou processar dados em **locais remotos**. (A família saiu da lista atual da prova.)
+- 🚫 **Não é a resposta quando:** a transferência pode ser **online** → [DataSync](datasync-e-transfer-family.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "petabytes", "internet lenta", "local remoto sem conexão".
+<!-- didatico:fim -->
+
 ## Dispositivos
 
 | Dispositivo | Capacidade | Uso | Status 🔄 |

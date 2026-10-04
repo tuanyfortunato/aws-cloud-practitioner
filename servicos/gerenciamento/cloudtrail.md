@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **câmera de segurança da conta**: registra quem fez cada ação, quando e de onde.
+
+- ✅ **Escolha quando:** precisa **auditar chamadas de API** e descobrir **quem fez o quê**.
+- 🚫 **Não é a resposta quando:** quer **desempenho** → [CloudWatch](cloudwatch.md); quer saber **como estava a configuração** → [Config](config.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "quem fez", "chamadas de API", "auditoria", "90 dias de histórico".
+<!-- didatico:fim -->
+
 ## Tipos de eventos
 
 | Tipo | Exemplo | Registrado por padrão? |

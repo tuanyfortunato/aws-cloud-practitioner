@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como uma **pasta de rede compartilhada**: vários computadores Linux abrem e gravam os mesmos arquivos ao mesmo tempo, e ela cresce sozinha.
+
+- ✅ **Escolha quando:** várias instâncias **Linux**, em **várias AZs**, precisam do **mesmo sistema de arquivos**.
+- 🚫 **Não é a resposta quando:** o compartilhamento é **Windows (SMB)** → [FSx for Windows](fsx.md); é o disco de **uma única instância** → [EBS](ebs.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "sistema de arquivos compartilhado", "NFS", "várias instâncias Linux", "cresce automaticamente".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Conteúdo web compartilhado, diretórios home, CMS, pipelines de mídia, ML, contêineres e Lambda que precisam de arquivos persistentes.

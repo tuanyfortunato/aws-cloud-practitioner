@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como um **fichário gigante e instantâneo**: você procura pela chave e recebe a ficha em milissegundos, seja entre mil ou entre bilhões de fichas.
+
+- ✅ **Escolha quando:** precisa de **NoSQL serverless**, com latência de milissegundos em qualquer escala (carrinho de compras, sessões, jogos, IoT).
+- 🚫 **Não é a resposta quando:** precisa de **joins e SQL relacional** → [RDS](rds.md) ou [Aurora](aurora.md); precisa guardar **arquivos grandes** → [S3](../armazenamento/s3.md) (o item do DynamoDB tem no máximo 400 KB).
+- 🎯 **Palavras do enunciado que apontam para ele:** "NoSQL", "chave-valor", "serverless", "milissegundos em qualquer escala", "Global Tables".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Carrinhos de compra, perfis de usuário, sessões, jogos (placares), IoT, catálogos, aplicações serverless com tráfego imprevisível.

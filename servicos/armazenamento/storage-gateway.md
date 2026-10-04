@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **ponte entre o datacenter e a AWS**: os servidores locais continuam usando NFS, SMB ou fitas, mas os dados vão parar no armazenamento da AWS.
+
+- ✅ **Escolha quando:** aplicações **on-premises** precisam usar armazenamento na nuvem de forma **contínua** (arquitetura híbrida).
+- 🚫 **Não é a resposta quando:** quer só **migrar arquivos de uma vez** → [DataSync](../migracao/datasync-e-transfer-family.md); quer mover **petabytes sem internet** → [família Snow](../migracao/snow-family.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "híbrido", "substituir fitas de backup" → Tape Gateway, "arquivos locais gravados no S3" → S3 File Gateway.
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Arquitetura **híbrida**: aplicações locais usando armazenamento em nuvem quase ilimitado.

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **fábrica de big data montada sob demanda**, com Spark e Hadoop prontos.
+
+- ✅ **Escolha quando:** precisa processar **grandes volumes** com Spark, Hadoop, Hive ou Presto.
+- 🚫 **Não é a resposta quando:** quer **ETL sem servidores** → [Glue](glue.md); quer **SQL simples no S3** → [Athena](athena.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "Spark", "Hadoop", "big data", "cluster".
+<!-- didatico:fim -->
+
 ## Opções de implantação
 
 | Opção | Detalhe |

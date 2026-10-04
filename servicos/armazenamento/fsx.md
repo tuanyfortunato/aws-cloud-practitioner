@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 FSx ✅ · FSx for Lustre ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **mesmo sistema de arquivos que a empresa já conhece** (Windows, Lustre, NetApp, ZFS), só que gerenciado pela AWS.
+
+- ✅ **Escolha quando:** precisa de um **sistema de arquivos específico**, como compartilhamentos **Windows com Active Directory**.
+- 🚫 **Não é a resposta quando:** arquivos compartilhados para **Linux**, sem exigência específica → [EFS](efs.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "Windows File Server", "SMB", "Active Directory" → FSx for Windows; "HPC" → FSx for Lustre; "NetApp" → FSx for ONTAP.
+<!-- didatico:fim -->
+
 ## Os quatro sabores
 
 | Sabor | Protocolos | Destaques | Uso típico |

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 IoT Core ✅ · IoT Greengrass ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **central que conecta milhões de dispositivos** e recebe as mensagens deles com segurança.
+
+- ✅ **Escolha quando:** precisa **conectar sensores e dispositivos** à nuvem (IoT Core, o único serviço de IoT da prova).
+- 🚫 **Não é a resposta quando:** precisa guardar **séries temporais** → Timestream, na ficha de [bancos especializados](../banco-de-dados/keyspaces-timestream-e-outros.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "sensores", "dispositivos", "MQTT", "conectar milhões de dispositivos".
+<!-- didatico:fim -->
+
 ## AWS IoT Core
 
 | Componente | Detalhe |

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **estrada particular** entre o seu datacenter e a AWS: não pega o trânsito da internet, mas leva semanas para ficar pronta.
+
+- ✅ **Escolha quando:** precisa de conexão **privada, dedicada**, com banda alta e **desempenho consistente**.
+- 🚫 **Não é a resposta quando:** precisa de conexão **já**, ou **criptografada por padrão** → [Site-to-Site VPN](site-to-site-vpn-e-client-vpn.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "conexão dedicada", "privada", "não passa pela internet", "desempenho consistente", "grandes volumes todo dia".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Banda alta e **desempenho consistente** (latência previsível).

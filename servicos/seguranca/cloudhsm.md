@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **cofre de chaves só seu**, num hardware dedicado: nem a AWS tem a combinação.
+
+- ✅ **Escolha quando:** a regulação exige **HSM dedicado** (single-tenant), **FIPS 140 nível 3** e **controle exclusivo** das chaves.
+- 🚫 **Não é a resposta quando:** não há essa exigência e você quer chaves gerenciadas e integradas → [KMS](kms.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "HSM dedicado", "single-tenant", "controle exclusivo das chaves", "FIPS 140 nível 3".
+<!-- didatico:fim -->
+
 ## Destaques
 
 | Item | Detalhe |

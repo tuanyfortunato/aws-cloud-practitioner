@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **chaveiro gerenciado**: guarda e controla as chaves que trancam (criptografam) seus dados e registra cada uso.
+
+- ✅ **Escolha quando:** precisa **criptografar dados** em S3, EBS, RDS e outros serviços com chaves gerenciadas e auditáveis.
+- 🚫 **Não é a resposta quando:** a regra exige **hardware exclusivo** e controle total das chaves → [CloudHSM](cloudhsm.md); precisa guardar **senhas** → [Secrets Manager](secrets-manager-e-parameter-store.md); precisa de **certificado HTTPS** → [ACM](certificate-manager.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "chaves de criptografia", "criptografia em repouso", "integrado aos serviços", "auditar o uso da chave".
+<!-- didatico:fim -->
+
 ## Tipos de chave
 
 | Tipo | Quem cria/gerencia | Visível na conta | Rotação | Custo mensal |

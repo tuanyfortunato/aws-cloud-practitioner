@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ Cobrado junto com o EC2 (não aparece como item separado na lista) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como a **recepcionista que distribui os clientes** entre os atendentes livres e não manda ninguém para quem está fora do ar.
+
+- ✅ **Escolha quando:** precisa **distribuir tráfego** entre várias instâncias ou contêineres, em várias AZs, enviando só para destinos saudáveis.
+- 🚫 **Não é a resposta quando:** quer ajustar a **quantidade** de instâncias → [Auto Scaling](ec2-auto-scaling.md); quer **cache** global → [CloudFront](../redes/cloudfront.md); quer **IPs fixos globais** → [Global Accelerator](../redes/global-accelerator.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "distribuir tráfego", "health check"; "rotear por caminho (/api)" → ALB; "milhões de conexões TCP" ou "IP estático" → NLB; "appliance de firewall" → GWLB.
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Alta disponibilidade e tolerância a falhas: só envia tráfego a destinos que passam no health check.

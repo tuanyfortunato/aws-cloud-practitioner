@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ⚪ Não listado (saiu da lista atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **assistente que junta sozinho as provas** de que a sua conta segue as regras, para a sua auditoria.
+
+- ✅ **Escolha quando:** precisa coletar **evidências contínuas da sua conta** para frameworks de auditoria. (Saiu da lista atual da prova.)
+- 🚫 **Não é a resposta quando:** precisa dos **relatórios da AWS** → [Artifact](artifact.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "coletar evidências", "preparar auditoria", "frameworks de compliance".
+<!-- didatico:fim -->
+
 ## 🔄 Status
 
 - **Fechado a novos clientes desde 30/04/2026** e **não aparece** na lista atual de serviços da prova (versões traduzidas antigas ainda o citam).

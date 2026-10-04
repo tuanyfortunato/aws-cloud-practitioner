@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **controle remoto para a frota de servidores**: acessa, aplica patches e roda comandos em centenas de máquinas de uma vez.
+
+- ✅ **Escolha quando:** precisa **gerenciar e operar muitas instâncias** (EC2 e on-premises) sem acesso manual.
+- 🚫 **Não é a resposta quando:** precisa **criar a infraestrutura** → [CloudFormation](cloudformation.md); precisa **avaliar configurações** → [Config](config.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "aplicar patches em massa", "acessar sem SSH" (Session Manager), "executar comando em várias instâncias", "Parameter Store".
+<!-- didatico:fim -->
+
 ## Pré-requisitos
 
 - **SSM Agent** instalado (vem nas AMIs da AWS) + **IAM role** com `AmazonSSMManagedInstanceCore` + conectividade com os endpoints do SSM (internet/NAT ou VPC endpoints).

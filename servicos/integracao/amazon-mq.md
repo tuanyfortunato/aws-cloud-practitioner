@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ⚪ Não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **mesmo carteiro** (ActiveMQ ou RabbitMQ) que a aplicação já usa, só que gerenciado pela AWS.
+
+- ✅ **Escolha quando:** precisa **migrar aplicações que já usam brokers padrão** sem reescrever o código.
+- 🚫 **Não é a resposta quando:** a aplicação é **nova, feita para a nuvem** → [SQS](sqs.md) e [SNS](sns.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "RabbitMQ", "ActiveMQ", "sem mudar o código".
+<!-- didatico:fim -->
+
 ## Quando usar
 
 - **Migrar aplicações existentes** que já usam ActiveMQ/RabbitMQ e protocolos padrão (**JMS, AMQP, MQTT, STOMP, OpenWire, WebSocket**) **sem reescrever o código**.

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **Active Directory** (o cadastro de usuários da Microsoft) rodando na AWS, ou uma ponte para o que a empresa já tem.
+
+- ✅ **Escolha quando:** aplicações dependem de **Active Directory**, ou você quer usar o **AD on-premises** na AWS.
+- 🚫 **Não é a resposta quando:** precisa de **login único nas contas AWS** → [IAM Identity Center](iam-identity-center.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "Active Directory", "AD gerenciado", "AD Connector".
+<!-- didatico:fim -->
+
 ## Opções
 
 | Opção | O que é | Uso |

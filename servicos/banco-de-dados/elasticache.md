@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **memória de curto prazo na frente do banco**: guarda as respostas mais pedidas para responder em microssegundos.
+
+- ✅ **Escolha quando:** quer **reduzir a carga e a latência do banco** ou guardar **sessões de usuário**.
+- 🚫 **Não é a resposta quando:** o cache é **só para DynamoDB** → DAX, na ficha do [DynamoDB](dynamodb.md); precisa de **banco em memória durável** → [MemoryDB](memorydb.md) (fora da prova).
+- 🎯 **Palavras do enunciado que apontam para ele:** "cache em memória", "Redis, Valkey, Memcached", "reduzir leituras no banco", "armazenar sessões".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Reduzir carga e latência do banco (cache de consultas), **armazenar sessões** (aplicação stateless), placares, filas simples, pub/sub, rate limiting.

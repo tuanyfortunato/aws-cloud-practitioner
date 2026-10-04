@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como um **plano pré-pago de servidor**: pacote fechado, preço fixo por mês e nenhuma surpresa na conta.
+
+- ✅ **Escolha quando:** quem está começando quer um **site simples** (como WordPress) com **custo previsível**.
+- 🚫 **Não é a resposta quando:** precisa **escalar automaticamente** ou de controle fino → [EC2](ec2.md) ou [Elastic Beanstalk](elastic-beanstalk.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "preço mensal fixo", "simples", "WordPress", "pequena empresa", "custo previsível".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Sites WordPress, lojas pequenas, blogs, ambientes de teste, aplicações simples.

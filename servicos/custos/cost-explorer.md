@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **extrato do cartão com gráficos e previsão**: mostra para onde foi o dinheiro e quanto você ainda deve gastar.
+
+- ✅ **Escolha quando:** precisa **analisar gastos passados** e **prever** os próximos meses.
+- 🚫 **Não é a resposta quando:** quer **ser avisado** ao passar de um limite → [Budgets](budgets.md); quer **estimar antes** de criar recursos → [Pricing Calculator](pricing-calculator-cur-e-outras-ferramentas.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "visualizar gastos", "prever custos", "recomendações de Reserved Instances e Savings Plans".
+<!-- didatico:fim -->
+
 ## Recursos
 
 | Recurso | Detalhe |

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 CLI e Management Console ✅ · CloudShell ❌ fora do escopo · Cloud9 ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **portas diferentes para o mesmo prédio**: o Console é a porta da frente (cliques), a CLI é o interfone (comandos), os SDKs são a entrada pelo seu próprio programa e o CloudShell é uma CLI pronta no navegador.
+
+- ✅ **Escolha quando:** precisa decidir **como interagir com a AWS**.
+- 🚫 **Não é a resposta quando:** precisa criar **ambientes repetíveis** → [CloudFormation](../gerenciamento/cloudformation.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "linha de comando" → CLI; "dentro do código" → SDK; "terminal no navegador" → CloudShell (fora da prova).
+<!-- didatico:fim -->
+
 ## Comparação
 
 | Forma | Autenticação | Melhor para |

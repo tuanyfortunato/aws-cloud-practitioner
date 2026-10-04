@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **esteira rolante de dados**: recebe eventos em tempo real (cliques, sensores, vídeo) e entrega para quem vai processar ou guardar.
+
+- ✅ **Escolha quando:** precisa **ingerir e processar dados em streaming**, em tempo real.
+- 🚫 **Não é a resposta quando:** precisa de uma **fila para desacoplar** componentes → [SQS](../integracao/sqs.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "tempo real", "streaming", "cliques", "telemetria".
+<!-- didatico:fim -->
+
 ## Família
 
 | Serviço | O que faz | Detalhes |

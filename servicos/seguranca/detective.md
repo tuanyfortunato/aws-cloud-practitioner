@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **detetive que chega depois do alarme**: reconstrói o que aconteceu e mostra a causa raiz.
+
+- ✅ **Escolha quando:** precisa **investigar a origem** de um achado de segurança.
+- 🚫 **Não é a resposta quando:** precisa **detectar** a ameaça → [GuardDuty](guardduty.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "investigar", "causa raiz", "achado de segurança".
+<!-- didatico:fim -->
+
 ## Como funciona
 
 - Coleta automaticamente CloudTrail, **VPC Flow Logs**, achados do **GuardDuty**, audit logs do EKS e achados do Security Hub.

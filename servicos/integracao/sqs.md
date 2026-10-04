@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **fila de pedidos**: quem recebe anota o pedido na fila e quem processa pega um de cada vez, no seu ritmo.
+
+- ✅ **Escolha quando:** precisa **desacoplar componentes** e **absorver picos** sem perder mensagens.
+- 🚫 **Não é a resposta quando:** precisa enviar a **mesma mensagem para vários destinos** → [SNS](sns.md); precisa de **streaming em tempo real** → [Kinesis](../analytics/kinesis.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "desacoplar", "fila", "absorver picos", "FIFO" ou "exatamente uma vez".
+<!-- didatico:fim -->
+
 ## Como funciona
 
 1. O produtor envia mensagens para a fila.

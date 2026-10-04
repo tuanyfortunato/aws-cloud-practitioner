@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é uma **agência de correio para e-mails em massa**: confirmações, avisos e marketing.
+
+- ✅ **Escolha quando:** precisa enviar **e-mails transacionais ou de marketing** em volume.
+- 🚫 **Não é a resposta quando:** precisa de **notificações simples** para vários canais → [SNS](../integracao/sns.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "enviar e-mails", "e-mail marketing", "e-mails de confirmação".
+<!-- didatico:fim -->
+
 ## Configurações importantes
 
 | Item | Detalhe |

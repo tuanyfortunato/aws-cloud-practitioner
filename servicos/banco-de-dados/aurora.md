@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é um **RDS turbinado**, criado pela própria AWS: fala MySQL e PostgreSQL, mas é mais rápido e guarda 6 cópias dos dados.
+
+- ✅ **Escolha quando:** precisa de banco **relacional compatível com MySQL ou PostgreSQL** com máximo desempenho e disponibilidade.
+- 🚫 **Não é a resposta quando:** precisa de **Oracle ou SQL Server** → [RDS](rds.md); precisa de **NoSQL** → [DynamoDB](dynamodb.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "compatível com MySQL e PostgreSQL", "6 cópias em 3 AZs", "até 15 réplicas", "Global Database".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - OLTP que exige alto desempenho e alta disponibilidade gerenciada.

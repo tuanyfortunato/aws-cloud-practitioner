@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como uma **tomada de código**: você pluga a função, ela roda só quando acontece um evento e você paga pelos milissegundos de uso.
+
+- ✅ **Escolha quando:** tarefas **curtas (até 15 minutos)** disparadas por eventos: arquivo chegando no S3, requisição de API, mensagem na fila, horário agendado.
+- 🚫 **Não é a resposta quando:** a tarefa **passa de 15 minutos** → [Fargate](fargate.md) ou [Batch](batch.md); precisa de **controle do sistema operacional** → [EC2](ec2.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "sem servidores" (serverless), "em resposta a eventos", "pagar só quando executa", "processar o arquivo assim que chega ao S3".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Processar arquivos assim que chegam ao S3 (miniaturas, validação, ETL leve).

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 Marketplace, APN, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post e Trust and Safety ✅ (task 4.3) · AWS IQ, Activate e AMS ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **mapa de quem procurar**: comunidade, documentação, consultoria da AWS, parceiros ou a equipe de abuso.
+
+- ✅ **Escolha quando:** a pergunta é **"a quem recorrer"**.
+- 🚫 **Não é a resposta quando:** precisa de **suporte técnico pago** → [planos de suporte](planos-de-suporte.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "comunidade" → re:Post; "parceiro certificado" → APN; "consultoria da própria AWS" → Professional Services; "phishing vindo da AWS" → Trust & Safety.
+<!-- didatico:fim -->
+
 ## 🎯 Escopo da prova
 
 - A task 4.3 cita: **AWS Trust and Safety, AWS Partner Network, AWS Marketplace, AWS Professional Services, AWS Prescriptive Guidance, AWS Knowledge Center e AWS re:Post** — priorize esses.

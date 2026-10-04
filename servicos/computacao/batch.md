@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é como uma **linha de produção**: você entrega milhares de trabalhos e o Batch arranja as máquinas certas (inclusive as baratas, Spot) para processar tudo.
+
+- ✅ **Escolha quando:** precisa processar **muitos jobs em lote**, longos ou pesados (renderização, simulações, análises).
+- 🚫 **Não é a resposta quando:** é processamento **curto por evento** → [Lambda](lambda.md); é **big data com Spark/Hadoop** → [EMR](../analytics/emr.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "jobs em lote", "milhares de tarefas", "processamento batch", "capacidade ideal automaticamente".
+<!-- didatico:fim -->
+
 ## Para que serve
 
 - Milhares de jobs de processamento: renderização, simulações, genômica, análise financeira, ETL pesado.

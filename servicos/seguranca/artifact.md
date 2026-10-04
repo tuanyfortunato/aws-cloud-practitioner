@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **secretaria da AWS** onde você baixa os certificados e relatórios de auditoria **da própria AWS**.
+
+- ✅ **Escolha quando:** um **auditor** pede relatórios de conformidade da AWS (SOC, PCI, ISO) ou é preciso **aceitar um acordo** (como o BAA).
+- 🚫 **Não é a resposta quando:** precisa juntar **evidências da sua própria conta** → [Audit Manager](audit-manager.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "relatório SOC 2", "atestado PCI", "ISO", "compliance da AWS", "BAA/HIPAA".
+<!-- didatico:fim -->
+
 ## O que oferece
 
 | Seção | Exemplos |

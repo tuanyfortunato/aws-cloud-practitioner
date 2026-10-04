@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 Firewall Manager ✅ · Network Firewall ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** o Firewall Manager é o **síndico que aplica as mesmas regras em todos os prédios** (contas); o Network Firewall é um **firewall de verdade na entrada da VPC**.
+
+- ✅ **Escolha quando:** precisa aplicar regras de WAF, Shield ou security groups em **todas as contas** da organização (Firewall Manager).
+- 🚫 **Não é a resposta quando:** as regras são para **uma aplicação só** → [WAF](waf.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "mesmas regras em todas as contas" → Firewall Manager; "inspecionar todo o tráfego da VPC (IPS)" → Network Firewall (fora da prova).
+<!-- didatico:fim -->
+
 ## AWS Firewall Manager
 
 | Item | Detalhe |

@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é a **estante onde ficam guardadas as imagens dos seus contêineres** — um Docker Hub privado dentro da AWS.
+
+- ✅ **Escolha quando:** precisa guardar e versionar **imagens Docker privadas** para ECS, EKS ou Lambda.
+- 🚫 **Não é a resposta quando:** quer guardar **arquivos comuns** → [S3](../armazenamento/s3.md); quer guardar **pacotes** (npm, Maven) → CodeArtifact, na ficha de [CI/CD](../desenvolvimento/code-services.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "imagens Docker privadas", "registro de contêineres", "varrer imagens em busca de vulnerabilidades".
+<!-- didatico:fim -->
+
 ## Conceitos e configurações
 
 | Item | Detalhe |

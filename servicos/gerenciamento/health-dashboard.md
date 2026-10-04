@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** é o **aviso de manutenção do condomínio**: avisa quando a AWS vai mexer em algo que afeta os seus recursos.
+
+- ✅ **Escolha quando:** precisa ver **eventos e manutenções da AWS** que afetam a sua conta.
+- 🚫 **Não é a resposta quando:** quer **métricas dos seus recursos** → [CloudWatch](cloudwatch.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "evento da AWS", "manutenção programada", "afeta minhas instâncias".
+<!-- didatico:fim -->
+
 ## Duas visões
 
 | Visão | O que mostra | Acesso |

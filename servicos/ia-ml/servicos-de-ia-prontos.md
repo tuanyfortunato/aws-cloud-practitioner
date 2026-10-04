@@ -6,6 +6,16 @@
 >
 > **Escopo oficial:** 🔀 Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate ✅ · Kendra ⚪ não listado · Personalize e Fraud Detector ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
+<!-- didatico:inicio -->
+## 🧠 Entenda em 30 segundos
+
+> 💡 **Analogia:** são **APIs que já vêm treinadas**: você manda a foto, o texto ou o áudio e recebe a resposta.
+
+- ✅ **Escolha quando:** precisa de uma **capacidade de IA específica** sem ter experiência em machine learning.
+- 🚫 **Não é a resposta quando:** precisa de um **modelo próprio** → [SageMaker AI](sagemaker-ai.md).
+- 🎯 **Palavras do enunciado que apontam para ele:** "rostos e objetos" → Rekognition; "sentimento" → Comprehend; "chatbot" → Lex; "texto em fala" → Polly; "fala em texto" → Transcribe; "formulários escaneados" → Textract; "traduzir" → Translate.
+<!-- didatico:fim -->
+
 ## Tabela de associação (📌 decorar)
 
 | Serviço | Entrada → saída | Recursos e casos de uso |
