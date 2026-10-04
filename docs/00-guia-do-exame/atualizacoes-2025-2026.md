@@ -40,6 +40,8 @@ importante:
 | Fargate | Até 16 vCPU / 120 GB | Até **32 vCPU / 244 GB** | — | [Fargate](../../servicos/computacao/fargate.md) |
 | DynamoDB PITR | 35 dias fixos | Configurável de **1 a 35 dias** | 01/2025 | [DynamoDB](../../servicos/banco-de-dados/dynamodb.md) |
 | Testes gratuitos de segurança | GuardDuty, Macie, Detective (30 dias), Inspector (15 dias) | Mesmos prazos, mas vinculados ao **Paid plan** no Free Tier novo | — | [GuardDuty](../../servicos/seguranca/guardduty.md) |
+| Storage Gateway | S3 File, FSx File, Volume e Tape Gateway | **FSx File Gateway** (e Tape Gateway em Snowball Edge) descontinuados para novos clientes; S3 File e Volume continuam | — | [Storage Gateway](../../servicos/armazenamento/storage-gateway.md) |
+| GuardDuty | Planos S3, EKS, Runtime, Malware, RDS, Lambda | + **AI Protection** e Malware Protection para AWS Backup | — | [GuardDuty](../../servicos/seguranca/guardduty.md) |
 | Migration Hub / Application Discovery Service | Abertos | **Fechados a novos clientes** (continuam no escopo) | 07/11/2025 | [Discovery, Hub e Evaluator](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) |
 | Amazon Q Business | Assistente corporativo | Em manutenção, sem novos clientes; apps podem ser conectados ao Quick Suite | 30/07/2026 | [Amazon Q](../../servicos/ia-ml/amazon-q.md) |
 | ACM | Certificados públicos só em serviços integrados | + certificados públicos **exportáveis** (pagos, validade de 395 dias) | 17/06/2025 | [ACM](../../servicos/seguranca/certificate-manager.md) |

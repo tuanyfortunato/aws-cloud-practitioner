@@ -24,7 +24,7 @@
 
 | Opção | Detalhe |
 |---|---|
-| **Aurora Serverless v2** | Capacidade em ACUs ajustada automaticamente em segundos; pode escalar até zero (pausa). |
+| **Aurora Serverless v2** | Capacidade em ACUs ajustada automaticamente em segundos, em incrementos de 0,5 ACU; ✔️ com *auto-pause* pode escalar até **0 ACU**. |
 | **Aurora Global Database** | Replicação entre regiões com lag tipicamente < 1 s; região secundária pode ser promovida (DR) e servir leituras locais. |
 | **Backtrack** (MySQL) | "Voltar no tempo" o cluster sem restaurar backup. |
 | **Cloning** | Cópia rápida *copy-on-write* para testes. |
