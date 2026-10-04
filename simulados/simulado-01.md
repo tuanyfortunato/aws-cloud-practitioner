@@ -973,7 +973,7 @@ Uma empresa armazena milhões de objetos no Amazon S3 com padrão de acesso impr
 
 **Resposta: B**
 
-O **Intelligent-Tiering** move os objetos entre camadas automaticamente conforme o acesso, sem taxa de recuperação. Standard não otimiza custo; One Zone-IA cobra recuperação e guarda em uma AZ; Deep Archive tem recuperação de horas.
+O **Intelligent-Tiering** move os objetos entre camadas automaticamente conforme o acesso, sem taxa de recuperação nas camadas automáticas (cobra só uma pequena taxa de monitoramento por objeto). Standard não otimiza custo; One Zone-IA cobra recuperação e guarda em uma AZ; Deep Archive tem recuperação de horas.
 
 </details>
 

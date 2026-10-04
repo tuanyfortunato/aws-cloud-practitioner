@@ -209,6 +209,8 @@ CORRECOES = [
      '- "Qual destas tarefas exige o root?" → Fechar a conta, alterar o e-mail ou a senha do root, restaurar permissões de administrador ou configurar MFA Delete. (🔄 Mudar o plano de suporte e alterar o nome da conta **não** estão mais na lista oficial.)'),
     ('- "Quem pode mudar o plano de suporte?" → O usuário root.',
      '- "Quem pode mudar o plano de suporte?" → 🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.'),
+    ("| S3 Intelligent-Tiering | Padrão de acesso desconhecido ou que muda | Move objetos entre camadas sozinho; pequena taxa de monitoramento; sem taxa de recuperação |",
+     "| S3 Intelligent-Tiering | Padrão de acesso desconhecido ou que muda | Move objetos entre camadas sozinho; pequena taxa de monitoramento por objeto; sem taxa de recuperação nas camadas automáticas (🔄 a recuperação Expedited da camada opcional Archive Access é cobrada) |"),
     ('| "petabytes, slow internet" | Família Snow |',
      '| "petabytes, slow internet" | Família Snow (🔄 fora da lista atual; Snowball Edge só para clientes existentes) |'),
 ]

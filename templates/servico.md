@@ -3,6 +3,8 @@
 > **Categoria:** · **Domínio:** · **Escopo:** Global / Regional / AZ · **Tópico do guia:** [x.y Título](../../docs/03-tecnologia-e-servicos/README.md)
 >
 > **Em uma frase:** o que o serviço faz, sem jargão.
+>
+> <!-- A linha "Escopo oficial" é inserida automaticamente pelo gerador: registre a ficha em FICHAS e ESCOPO no scripts/gerar_docs.py. -->
 
 ## Para que serve
 

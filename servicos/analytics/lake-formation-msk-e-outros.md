@@ -17,6 +17,16 @@
 | **Amazon Managed Service for Apache Flink** | Processamento de streams com Flink | "Agregações em tempo real" |
 | **AWS Data Pipeline** | Orquestração de dados legada | Fechado a novos clientes — não estudar |
 
+## ❓ Perguntas típicas
+
+> ⚠️ MSK, AppFlow, Data Exchange, Clean Rooms e DataZone estão **fora do escopo** da prova: se aparecerem como alternativa, desconfie. A resposta no escopo costuma ser outra (ex.: streaming → **Kinesis**; ETL → **Glue**; SQL no S3 → **Athena**).
+
+- "Criar um data lake no S3 com permissões centralizadas por tabela e coluna." → Lake Formation.
+- "Usar Apache Kafka sem gerenciar o cluster." → Amazon MSK.
+- "Assinar conjuntos de dados de terceiros." → AWS Data Exchange.
+- "Levar dados do Salesforce para o S3 sem código." → Amazon AppFlow.
+- "Analisar dados com um parceiro sem compartilhar os dados brutos." → AWS Clean Rooms.
+
 ## 🔗 Documentação oficial
 
 - [Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html) · [MSK](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) · [Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/what-is.html) · [AppFlow](https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html)
