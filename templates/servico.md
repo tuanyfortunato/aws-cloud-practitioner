@@ -1,29 +1,39 @@
-# Nome do Serviço AWS
+# Nome do Serviço
 
-**Categoria:** <!-- Computação, Armazenamento, Segurança... -->
-**Domínio da prova:** <!-- 1, 2, 3 ou 4 -->
+> **Categoria:** · **Domínio:** · **Escopo:** Global / Regional / AZ · **Tópico do guia:** [x.y Título](../../docs/03-tecnologia-e-servicos/README.md)
+>
+> **Em uma frase:** o que o serviço faz, sem jargão.
 
-## O que é (em uma frase)
+## Para que serve
 
-## Para que serve / casos de uso
+- Casos de uso típicos
 
--
+## Conceitos e componentes
 
-## Características principais
+## Configurações e opções importantes
 
--
+| Opção | O que faz | Quando usar |
+|---|---|---|
 
-## Modelo de cobrança
+## Limites e números
 
-## Responsabilidade compartilhada
+- 📌 o que decorar · 🧊 o que não precisa decorar
+
+## Cobrança
+
+## Segurança e responsabilidade compartilhada
 
 - **AWS:**
 - **Cliente:**
 
-## Não confundir com
+## 🔄 Atualizações 2025-2026
 
--
+## ⚠️ Pegadinhas e não confundir
 
-## Referências
+## ❓ Perguntas típicas
+
+- "Pergunta" → Resposta.
+
+## 🔗 Documentação oficial
 
 -

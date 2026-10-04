@@ -1,0 +1,51 @@
+# 1.3 Conceitos de arquitetura que a prova cobra
+
+> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+⬅️ [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) ➡️
+
+---
+
+## 📖 Conteúdo
+
+- **Escalabilidade:** capacidade de crescer para atender à demanda. *Vertical* (scale up: instância maior) vs *horizontal* (scale out: mais instâncias).
+- **Elasticidade:** crescer e encolher automaticamente conforme a carga (ex.: Auto Scaling). A diferença para escalabilidade é o "encolher sozinho".
+- **Alta disponibilidade:** o sistema continua acessível com falhas, normalmente com várias AZs.
+- **Tolerância a falhas:** continuar funcionando sem interrupção perceptível mesmo quando um componente falha (redundância).
+- **Agilidade:** reduzir o tempo e o custo de experimentar.
+- **Recuperação de desastres (DR):** do mais barato e lento para o mais caro e rápido: Backup and Restore → Pilot Light → Warm Standby → Multi-site active/active.
+- **Acoplamento fraco (loose coupling):** componentes se comunicam por filas e eventos (SQS, SNS, EventBridge), e a falha de um não derruba o outro.
+
+## ➕ Complemento
+
+- **RTO (Recovery Time Objective):** tempo máximo aceitável para restaurar o serviço após um desastre.
+- **RPO (Recovery Point Objective):** quantidade máxima de dados que se aceita perder, medida em tempo (ex.: "no máximo 15 minutos de dados").
+- Quanto menores RTO e RPO, mais cara a estratégia de DR (Multi-site é a de menor RTO/RPO; Backup and Restore, a de maior).
+- **Monolito vs microsserviços:** o monolito tem tudo numa única aplicação; microsserviços são serviços pequenos e independentes, que escalam e são implantados separadamente e se comunicam por APIs, filas e eventos.
+- **Projetar para falhas (design for failure):** assumir que componentes vão falhar e construir redundância e recuperação automática.
+- **Serverless:** não gerenciar servidores, escala automática, pagar só pelo uso e alta disponibilidade embutida (Lambda, Fargate, DynamoDB, S3, SQS, SNS).
+- **Stateless:** a aplicação não guarda estado no servidor (sessão vai para ElastiCache ou DynamoDB), o que facilita escalar horizontalmente.
+
+## ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-1.md).
+
+- "A aplicação adiciona instâncias no pico e remove de madrugada, sozinha." → Elasticidade.
+- "Como garantir que a falha de um datacenter não derrube a aplicação?" → Implantar em várias AZs (alta disponibilidade).
+- "Qual estratégia de DR tem menor custo?" → Backup and Restore. "E menor tempo de recuperação?" → Multi-site active/active.
+- "Como evitar que a falha de um componente afete os outros?" → Acoplamento fraco com SQS, SNS ou EventBridge.
+- "O que significa RPO de 1 hora?" → Aceita-se perder no máximo 1 hora de dados.
+- "Aumentar o tamanho da instância é escala..." → Vertical. "Adicionar instâncias é..." → Horizontal.
+
+<!-- extra:inicio -->
+<!-- extra:fim -->
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->
+
+---
+
+⬅️ [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) ➡️
