@@ -8,6 +8,11 @@
 > [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md) e
 > [primeira verificação das pendências (PDF)](../../fontes/verificacao-pendencias-2026-10.pdf).
 
+## 🧭 Para que serve esta página
+
+> 💡 **Em palavras simples:** é a lista de **afirmações que ainda precisam ser confirmadas** em fonte oficial da AWS.
+> Enquanto uma informação estiver aqui, trate-a com cuidado. Quando é confirmada, ela sai de *Em aberto* e vai para *Resolvidos*.
+
 ## ❔ Em aberto
 
 | # | Afirmação | Onde está | Task |

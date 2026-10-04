@@ -10,6 +10,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Ferramentas que ajudam a **entregar software**: compilar e testar, automatizar a esteira de entrega e encontrar onde uma aplicação está lenta.
+>
+> 🏠 **Analogia:** é uma **fábrica de software**: o **CodeBuild** monta e testa cada peça; o **CodePipeline** é a **esteira** que leva a peça de uma estação para a outra; o **X-Ray** é o **rastreador de encomendas** que mostra onde cada pedido atrasou.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **CodeBuild** (compila e testa) de **CodePipeline** (orquestra a esteira de CI/CD).
+- [ ] Saber que o **X-Ray** faz **rastreamento distribuído** entre microsserviços.
+- [ ] Lembrar quais ferramentas ficaram **fora do escopo** (veja o aviso no topo).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **CI/CD** | integração e entrega contínuas: automatizar o caminho do código até a produção. |
+| **Build** | transformar o código em algo executável e testá-lo. |
+| **Rastreamento distribuído** | seguir uma requisição por vários serviços. |
+
+> 🎯 **Como não errar na prova:** "Qual microsserviço deixa a requisição lenta" → **X-Ray**. "Automatizar a esteira" → **CodePipeline**. "Compilar e rodar testes" → **CodeBuild**.
+
 ## 📖 Conteúdo
 
 - **AWS CLI:** ver [3.1](01-formas-de-acesso-e-implantacao.md).

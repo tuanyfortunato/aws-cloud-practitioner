@@ -6,6 +6,30 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** São as **palavras de arquitetura** que a AWS usa para descrever um bom sistema na nuvem: crescer, aguentar falhas, voltar de desastres e manter as partes independentes.
+>
+> 🏠 **Analogia:** pense num **restaurante**: contratar garçons extras no sábado e dispensá-los na segunda é **elasticidade**; ter duas cozinhas para o caso de uma pegar fogo é **alta disponibilidade**; os pedidos ficarem num quadro em vez de o garçom esperar o cozinheiro é **acoplamento fraco**.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **escalabilidade** (crescer) de **elasticidade** (crescer **e encolher** sozinho).
+- [ ] Diferenciar escala **vertical** (máquina maior) de **horizontal** (mais máquinas).
+- [ ] Ordenar as estratégias de **DR** da mais barata para a mais rápida e explicar **RTO** e **RPO**.
+- [ ] Explicar por que filas e eventos (**acoplamento fraco**) evitam que uma falha derrube tudo.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Alta disponibilidade** | o sistema continua acessível mesmo com falhas (em geral, usando várias AZs). |
+| **Tolerância a falhas** | continuar funcionando sem que o usuário perceba a falha. |
+| **RTO** | quanto tempo você aceita ficar fora do ar depois de um desastre. |
+| **RPO** | quantos dados (em tempo) você aceita perder. |
+
+> 🎯 **Como não errar na prova:** "Encolher sozinho" → **elasticidade**. "Mais barato" em DR → **Backup and Restore**; "menor tempo" → **Multi-site**. "Falha de um componente não afetar os outros" → **acoplamento fraco** (SQS, SNS, EventBridge).
+
 ## 📖 Conteúdo
 
 - **Escalabilidade:** capacidade de crescer para atender à demanda. *Vertical* (scale up: instância maior) vs *horizontal* (scale out: mais instâncias).

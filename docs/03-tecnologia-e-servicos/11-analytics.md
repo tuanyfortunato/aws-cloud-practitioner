@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Analytics é **transformar dados em respostas**: coletar em tempo real, preparar, consultar e mostrar em gráficos. Cada etapa tem um serviço.
+>
+> 🏠 **Analogia:** é uma **cozinha de dados**: o **Kinesis** é a esteira que traz os ingredientes em tempo real; o **Glue** lava e corta (ETL) e etiqueta tudo (catálogo); o **Athena** prova direto da despensa (S3) com SQL; o **EMR** é a cozinha industrial (Spark/Hadoop); o **QuickSight** monta o prato bonito (dashboards).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada serviço à função: SQL no S3 → Athena; ETL e catálogo → Glue; tempo real → Kinesis.
+- [ ] Saber que o **Athena** cobra por **dados escaneados**.
+- [ ] Diferenciar **EMR** (big data com Spark/Hadoop), **QuickSight** (BI) e **OpenSearch** (busca e logs).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **ETL** | extrair, transformar e carregar dados. |
+| **Streaming** | dados chegando continuamente, em tempo real. |
+| **BI** | inteligência de negócio: relatórios e painéis para decisão. |
+
+> 🎯 **Como não errar na prova:** "SQL em arquivos no S3, sem servidor" → **Athena**. "Tempo real/cliques" → **Kinesis**. "Painéis" → **QuickSight**. "Spark/Hadoop" → **EMR**. "Busca de texto" → **OpenSearch**.
+
 ## 📖 Conteúdo
 
 - **Amazon Athena:** Pontos de prova: SQL **serverless** direto em arquivos no S3 (CSV, JSON, Parquet); cobrado por **dados escaneados**; formatos colunares e particionamento reduzem custo; usa o catálogo do Glue.

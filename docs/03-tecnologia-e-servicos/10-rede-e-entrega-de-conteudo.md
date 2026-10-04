@@ -8,6 +8,30 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** A **VPC** é a sua rede privada na AWS. Este tópico mostra como dividi-la, ligá-la à internet, a outras VPCs e ao datacenter, e como entregar conteúdo rápido no mundo todo (DNS, CDN e aceleração).
+>
+> 🏠 **Analogia:** a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas dão para a avenida, privadas não); o **Internet Gateway** é o portão principal; o **NAT Gateway** é uma **saída só de ida** para os moradores das ruas privadas; a **VPN** é um túnel pela estrada pública; o **Direct Connect**, uma estrada particular; o **Route 53**, a lista telefônica; o **CloudFront**, lojinhas espalhadas com cópias do conteúdo.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar subnet **pública** de **privada** e explicar **Internet Gateway** × **NAT Gateway**.
+- [ ] Diferenciar **VPC Peering** (não transitivo) de **Transit Gateway** (hub central) e saber o que são **VPC endpoints**.
+- [ ] Diferenciar **Site-to-Site VPN** (pela internet, rápido) de **Direct Connect** (dedicado, leva semanas).
+- [ ] Diferenciar **Route 53** (DNS), **CloudFront** (CDN com cache) e **Global Accelerator** (IPs fixos, sem cache).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **CIDR** | a faixa de endereços IP da rede. |
+| **DNS** | o sistema que traduz nomes (exemplo.com) em endereços IP. |
+| **CDN** | rede de entrega de conteúdo com cópias perto dos usuários. |
+| **Transitivo** | se A fala com B e B com C, A fala com C — o peering **não** é. |
+
+> 🎯 **Como não errar na prova:** "Subnet privada baixar patches" → **NAT Gateway**. "Dezenas de VPCs" → **Transit Gateway**. "S3 sem internet" → **gateway endpoint**. "Criptografado, pronto hoje" → **VPN**; "dedicado, consistente" → **Direct Connect**. "Cache global" → **CloudFront**; "IPs estáticos, TCP/UDP" → **Global Accelerator**.
+
 ## 📖 Conteúdo
 
 **Amazon VPC**

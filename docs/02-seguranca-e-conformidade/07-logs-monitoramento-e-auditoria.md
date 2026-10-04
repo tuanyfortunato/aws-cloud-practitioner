@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Três serviços respondem três perguntas diferentes: **quem fez?** (CloudTrail), **como estava configurado?** (Config) e **como está o desempenho agora?** (CloudWatch).
+>
+> 🏠 **Analogia:** o **CloudTrail** é a **câmera de segurança** (grava quem fez cada ação); o **Config** é o **álbum de fotos** da configuração ao longo do tempo; o **CloudWatch** é o **painel do carro**, com indicadores e luzes de alerta.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada pergunta ao serviço: quem fez → CloudTrail; configuração e conformidade → Config; métricas e alarmes → CloudWatch.
+- [ ] Lembrar que o CloudTrail guarda **90 dias** por padrão e que, para mais tempo, se cria um **trail** para o S3.
+- [ ] Lembrar que **memória e disco** do EC2 exigem o **CloudWatch agent**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Chamada de API** | qualquer ação feita na AWS (pelo console, CLI ou programa). |
+| **Métrica** | um número medido ao longo do tempo (ex.: uso de CPU). |
+| **Alarme** | aviso disparado quando uma métrica passa de um limite. |
+
+> 🎯 **Como não errar na prova:** Leia o **verbo** da pergunta: "quem **apagou**" → CloudTrail; "como **estava**" → Config; "**alertar** quando a CPU passar" → CloudWatch. "Verificar **continuamente** se segue a regra" → Config rules.
+
 ## 📖 Conteúdo
 
 - **AWS CloudTrail:** registra as **chamadas de API** na conta: quem fez, o quê, quando, de onde (IP) e em qual recurso.

@@ -7,6 +7,15 @@
 - **Parte 1:** O domínio mais pesado. Esta parte cobre quem é responsável pelo quê e como funciona o controle de acesso.
 - **Parte 2:** Esta parte cobre como proteger dados, provar conformidade e detectar ameaças.
 
+## 🧭 Como estudar este domínio
+
+> 💡 **Em palavras simples:** Este domínio responde **quem protege o quê** e **com qual serviço**. A base é o modelo de responsabilidade compartilhada e o IAM; depois vêm criptografia, compliance, monitoramento, firewalls e detecção de ameaças.
+
+- 🗺️ **Ordem sugerida:** Comece por **2.1 (responsabilidade)** e **2.3 (IAM)**, que aparecem em muitas questões. Depois estude os serviços em pares que confundem: CloudTrail × Config × CloudWatch (2.7), security group × NACL (2.8), GuardDuty × Inspector × Macie (2.9).
+- 🎯 **Dica:** É o domínio com mais pegadinhas de **"qual serviço"**. Para cada serviço, decore **uma palavra-chave** (ex.: Macie → dados pessoais).
+- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
+  palavras novas explicadas e como não errar na prova.
+
 ## Tópicos
 
 | # | Tópico | Perguntas típicas | Status |

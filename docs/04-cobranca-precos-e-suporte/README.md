@@ -4,6 +4,15 @@
 
 Peso menor, mas as questões são diretas: decorar as tabelas desta seção garante a maior parte desses pontos.
 
+## 🧭 Como estudar este domínio
+
+> 💡 **Em palavras simples:** Este domínio trata de **dinheiro**: como a AWS cobra, como economizar, quais ferramentas mostram e controlam os gastos e quais planos de suporte existem.
+
+- 🗺️ **Ordem sugerida:** Comece pelos **princípios de preço** (4.1), passe pelos **modelos de compra do EC2** (4.2), que mais caem, e termine com ferramentas de custo (4.4) e planos de suporte (4.5).
+- 🎯 **Dica:** As questões são diretas: decore as tabelas de **modelos de compra**, **ferramentas de custo** e **planos de suporte (novos)**.
+- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
+  palavras novas explicadas e como não errar na prova.
+
 ## Tópicos
 
 | # | Tópico | Perguntas típicas | Status |

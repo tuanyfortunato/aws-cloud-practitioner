@@ -8,6 +8,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** São os serviços que **encontram problemas de segurança**: ameaças em andamento, vulnerabilidades, dados sensíveis expostos — e os que investigam e centralizam esses alertas.
+>
+> 🏠 **Analogia:** é uma **equipe de segurança**: o **GuardDuty** é o alarme que dispara; o **Inspector** é o vistoriador que procura brechas; o **Macie** procura documentos sensíveis largados; o **Detective** investiga depois do alarme; o **Security Hub** é a sala de monitoramento que junta tudo; o **Trusted Advisor** é o consultor de boas práticas.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada serviço à sua função: ameaça → GuardDuty; vulnerabilidade → Inspector; dado sensível no S3 → Macie.
+- [ ] Lembrar a sequência **detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub)**.
+- [ ] Saber o que o **Trusted Advisor** verifica e o que muda conforme o plano de suporte.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **CVE** | identificador público de uma vulnerabilidade conhecida. |
+| **PII** | dados pessoais que identificam alguém (CPF, cartão, nome). |
+| **Achado (finding)** | um alerta de segurança gerado por um serviço. |
+
+> 🎯 **Como não errar na prova:** Procure o **substantivo**: "ameaça/atividade maliciosa" → GuardDuty; "vulnerabilidade/CVE" → Inspector; "dados pessoais" → Macie; "causa raiz" → Detective; "painel central" → Security Hub; "boas práticas e custo" → Trusted Advisor.
+
 ## 📖 Conteúdo
 
 | Serviço | O que faz | Detalhes de prova |

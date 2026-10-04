@@ -8,6 +8,30 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Cada tipo de dado tem o seu banco: **relacional** (tabelas e SQL), **NoSQL** (chave-valor), **cache** (memória), **grafos** (relacionamentos), **documentos** e **data warehouse** (análise). A prova pede o banco certo para o cenário.
+>
+> 🏠 **Analogia:** o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fichário gigante** que acha qualquer ficha pela etiqueta na hora; o **ElastiCache** é um **post-it** com as respostas mais pedidas; o **Neptune** é um **mapa de quem conhece quem**; o **Redshift** é o **arquivo histórico** usado para relatórios.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **banco no EC2** (você cuida de tudo) de **banco gerenciado** (a AWS cuida).
+- [ ] Diferenciar **Multi-AZ** (disponibilidade) de **Read Replica** (performance de leitura).
+- [ ] Escolher o banco pelo tipo de dado (use a tabela "tipo de dado → serviço" do conteúdo).
+- [ ] Diferenciar **OLTP** (RDS/Aurora) de **OLAP** (Redshift).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Relacional** | dados em tabelas ligadas entre si, consultadas com SQL. |
+| **NoSQL** | bancos que não usam o modelo de tabelas relacionais (chave-valor, documentos, grafos). |
+| **OLTP** | muitas transações pequenas do dia a dia (vendas, cadastros). |
+| **OLAP** | análises grandes sobre o histórico (relatórios, BI). |
+
+> 🎯 **Como não errar na prova:** "Multi-AZ" → **disponibilidade**; "Read Replica" → **leitura**. "Milhões de acessos, chave-valor, serverless" → **DynamoDB**. "BI/data warehouse" → **Redshift**. "Amigos de amigos" → **Neptune**. "MongoDB" → **DocumentDB**.
+
 ## 📖 Conteúdo
 
 - **Banco no EC2 vs gerenciado:** no EC2 você cuida de SO, instalação, patch, backup e alta disponibilidade. Nos serviços gerenciados, a AWS cuida disso e você foca no schema, nas consultas e no acesso.

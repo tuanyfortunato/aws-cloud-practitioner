@@ -8,6 +8,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Pontos soltos de segurança: o que pode ser testado sem pedir autorização, **a quem denunciar abuso** vindo da AWS e **onde buscar informação** de segurança.
+>
+> 🏠 **Analogia:** o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a AWS para te atacar (spam, phishing), é para lá que você reclama — não para o suporte técnico.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Saber que **pentest** é permitido sem aprovação prévia numa lista de serviços, mas DDoS simulado não.
+- [ ] Saber que abuso vindo de IPs da AWS vai para o **AWS Trust & Safety**.
+- [ ] Citar fontes de informação de segurança (Security Center, Security Blog, Bulletins, re:Post, Knowledge Center).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Pentest** | teste de intrusão: atacar o próprio sistema, de propósito, para achar falhas. |
+| **Phishing** | golpe que imita uma empresa para roubar dados. |
+
+> 🎯 **Como não errar na prova:** "Recebi spam/phishing **vindo de um IP da AWS**" → **Trust & Safety**. "Ferramenta de segurança de terceiros" → **Marketplace**.
+
 ## 📖 Conteúdo
 
 - **Testes de intrusão (pentest):** permitidos sem aprovação prévia para uma lista de serviços (ex.: EC2, RDS, Lambda); ataques DDoS simulados e alguns testes são proibidos ou exigem aprovação.

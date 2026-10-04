@@ -8,6 +8,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Antes de migrar, cada aplicação recebe uma **estratégia**: desligar, manter, mover como está, ajustar um pouco, trocar por outro produto ou reescrever. São os **7 Rs**.
+>
+> 🏠 **Analogia:** é como **mudar de casa** e decidir o destino de cada móvel: jogar fora (Retire), deixar na casa antiga (Retain), levar como está (Rehost), levar o cômodo inteiro de uma vez (Relocate), levar e trocar o estofado (Replatform), comprar um novo (Repurchase) ou mandar fazer um sob medida (Refactor).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar os **7 Rs** e um exemplo de cada.
+- [ ] Diferenciar **Rehost** (sem mudanças) de **Replatform** (pequena mudança, ex.: banco para RDS).
+- [ ] Saber que **Rehost** é o mais rápido e **Refactor** traz mais benefício de longo prazo.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Lift-and-shift** | "levantar e mover": migrar sem alterar nada (Rehost). |
+| **Cloud-native** | feito para aproveitar a nuvem (serverless, microsserviços). |
+
+> 🎯 **Como não errar na prova:** Procure o **quanto muda**: nada → Rehost; um pouco → Replatform; tudo → Refactor; troca por SaaS → Repurchase; "ninguém usa" → Retire; "ainda não pode sair" → Retain.
+
 ## 📖 Conteúdo
 
 | Estratégia | O que é | Exemplo |

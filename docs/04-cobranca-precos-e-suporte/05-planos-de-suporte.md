@@ -10,6 +10,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Os planos de suporte definem **quão rápido e com quanto acompanhamento** a AWS atende você. A prova pede o plano certo pelo tempo de resposta, pelo preço ou por um benefício (como o TAM).
+>
+> 🏠 **Analogia:** é como **planos de assistência técnica**: o básico só tem o manual e o FAQ; os planos maiores dão atendimento 24 h, resposta mais rápida e, no topo, um **consultor dedicado** (TAM) que acompanha você de perto.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar os **planos novos** (Basic, Business Support+, Enterprise, Unified Operations) dos **clássicos**.
+- [ ] Ligar os tempos de resposta a cada plano (30 min, 15 min, 5 min no modelo novo).
+- [ ] Saber o que é **TAM**, **Concierge** e quem tem **todas as verificações do Trusted Advisor**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **TAM** | Technical Account Manager: consultor técnico que acompanha a conta. |
+| **Concierge** | time de especialistas em faturamento e conta. |
+| **Caso crítico** | sistema crítico de negócio fora do ar. |
+
+> 🎯 **Como não errar na prova:** Estude **primeiro os planos novos** (veja o aviso no topo). "TAM designado + 15 min" → **Enterprise**. "5 min" → **Unified Operations**. "Plano pago de entrada, 30 min" → **Business Support+**.
+
 ## 📖 Conteúdo
 
 | Plano | Preço de referência | Canais | Tempos de resposta | Destaques |

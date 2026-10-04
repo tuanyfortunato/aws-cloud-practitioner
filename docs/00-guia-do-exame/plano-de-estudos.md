@@ -2,6 +2,15 @@
 
 > Ajuste ao seu ritmo. O peso de cada domínio indica onde investir mais tempo.
 
+## 🧭 Como usar este plano
+
+> 💡 **Em palavras simples:** são **6 semanas com cerca de 1 hora por dia**. Cada semana tem um foco e os links do
+> que estudar; marque **[x]** na coluna *Concluído* quando terminar.
+
+- Se tiver menos tempo, junte semanas, mas **não pule a semana 6** (revisão e simulados).
+- Os domínios com **mais peso** (3 e 2) ganham mais semanas de propósito.
+- Em cada tópico, comece pela seção **🧠 Antes de começar** e termine respondendo as **Perguntas típicas**.
+
 | Semana | Foco | Material | Concluído |
 |---|---|---|---|
 | 1 | Guia do exame + **Domínio 1** (24%) | [Tópicos 1.1–1.7](../01-conceitos-de-nuvem/README.md) · [flashcards D1](../../flashcards/dominio-1.md) | [ ] |

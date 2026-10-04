@@ -6,6 +6,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** O CAF é o **guia da AWS para a empresa inteira se preparar** para a nuvem — não só a TI, mas também negócio, pessoas e governança. Ele divide o trabalho em **6 perspectivas** e **4 fases**.
+>
+> 🏠 **Analogia:** é como **mudar a família inteira para outro país**: alguém cuida do dinheiro e do objetivo (Business), alguém prepara as pessoas e o idioma (People), alguém controla orçamento e riscos (Governance), e os outros cuidam da casa nova (Platform), da segurança (Security) e do dia a dia (Operations).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar as **6 perspectivas** e separar as de **negócio** (Business, People, Governance) das **técnicas** (Platform, Security, Operations).
+- [ ] Citar as **4 fases**: Envision, Align, Launch e Scale.
+- [ ] Reconhecer os **benefícios** declarados (menos risco, melhor ESG, mais receita, mais eficiência).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Perspectiva** | um grupo de capacidades com um público responsável (ex.: People → RH e liderança). |
+| **ESG** | ambiental, social e governança. |
+
+> 🎯 **Como não errar na prova:** Leia **quem** está envolvido no enunciado: RH, cultura ou treinamento → **People**; orçamento e risco → **Governance**; arquitetura → **Platform**; monitoramento e incidentes → **Operations**.
+
 ## 📖 Conteúdo
 
 Guia para organizar a transformação digital de uma empresa na AWS.

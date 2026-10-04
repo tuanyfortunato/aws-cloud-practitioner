@@ -8,6 +8,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** São as **barreiras** que protegem a rede e as aplicações: firewalls na instância e na subnet, proteção contra ataques de negação de serviço (DDoS) e contra ataques à aplicação web.
+>
+> 🏠 **Analogia:** o **security group** é o **porteiro do apartamento** (lembra quem entrou e deixa sair); a **NACL** é o **portão da rua** (confere entrada e saída e pode barrar alguém pelo nome); o **Shield** é um **quebra-mar** contra enxurradas de tráfego; o **WAF** é o **segurança que lê cada pedido** e barra os maliciosos.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **security group** (instância, stateful, só permite) de **NACL** (subnet, stateless, permite e nega).
+- [ ] Diferenciar **Shield Standard** (grátis) de **Shield Advanced** (pago, com time 24/7 e proteção de custo).
+- [ ] Saber que o **WAF** bloqueia SQL injection e XSS (camada 7) e que o **Firewall Manager** aplica regras em todas as contas.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Stateful** | lembra da conexão: se entrou, a resposta sai sem nova regra. |
+| **Stateless** | não lembra: é preciso liberar entrada **e** saída. |
+| **DDoS** | ataque que tenta derrubar o serviço com uma enxurrada de tráfego. |
+| **SQL injection / XSS** | ataques que escondem comandos maliciosos em requisições web. |
+
+> 🎯 **Como não errar na prova:** "**Bloquear** um IP" → **NACL** (security group não tem regra de negar). "SQL injection" → **WAF**. "DDoS" → **Shield**; com "time especialista" ou "proteção de custo" → **Shield Advanced**.
+
 ## 📖 Conteúdo
 
 - **Security group:** Firewall virtual no nível da **instância/ENI**. **Stateful** (a resposta volta automaticamente); só tem regras de **permissão**; por padrão bloqueia toda entrada e libera toda saída.

@@ -10,6 +10,29 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Além do S3, há armazenamento em **bloco** (disco de uma máquina), de **arquivos** (pasta compartilhada), **híbrido** (datacenter usando a nuvem), **backup centralizado** e **transferência** de grandes volumes.
+>
+> 🏠 **Analogia:** o **EBS** é o **HD do computador**; o **EFS** é a **pasta de rede** que todos abrem ao mesmo tempo; o **Storage Gateway** é a **ponte** entre o escritório e a nuvem; a **família Snow** é um **HD blindado enviado pelo correio**.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **objeto (S3)**, **bloco (EBS)** e **arquivo (EFS/FSx)**.
+- [ ] Diferenciar **EFS** (Linux, NFS) de **FSx for Windows** (SMB, Active Directory).
+- [ ] Saber os tipos de **Storage Gateway** (Tape Gateway substitui fitas).
+- [ ] Saber quando usar **Snow** (rede lenta, volumes enormes) e **AWS Backup** (backup central).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Bloco** | armazenamento tipo disco, ligado a uma máquina. |
+| **NFS / SMB** | protocolos de compartilhamento de arquivos (Linux / Windows). |
+| **Snapshot** | cópia de um volume num ponto no tempo. |
+
+> 🎯 **Como não errar na prova:** "Várias instâncias **Linux** lendo os mesmos arquivos" → **EFS**. "**Windows** com AD" → **FSx for Windows**. "Substituir fitas" → **Tape Gateway**. "500 TB com internet lenta" → **Snowball Edge**.
+
 ## 📖 Conteúdo
 
 - **Amazon EBS (Elastic Block Store):** armazenamento em **bloco** (disco) para EC2.

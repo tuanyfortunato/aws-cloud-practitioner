@@ -10,6 +10,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** As ferramentas de migração seguem a **ordem da mudança**: avaliar o custo e as dependências, acompanhar o progresso, migrar servidores e bancos e transferir dados.
+>
+> 🏠 **Analogia:** é uma **mudança de casa**: o **Migration Evaluator** faz o orçamento; o **Discovery Service** mede os móveis e vê o que depende do quê; o **Migration Hub** é a planilha de acompanhamento; o **MGN** é o caminhão que leva tudo como está; o **DMS** leva o banco com a loja aberta; o **SCT** traduz a estrutura de um banco para outro.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada ferramenta à **etapa** (avaliar, acompanhar, migrar, transferir).
+- [ ] Diferenciar migração de banco **homogênea** (só DMS) de **heterogênea** (SCT + DMS).
+- [ ] Diferenciar transferência **offline** (Snow) de **online** (DataSync, Transfer Family).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Homogênea** | mesmo motor de banco na origem e no destino (MySQL → MySQL). |
+| **Heterogênea** | motores diferentes (Oracle → PostgreSQL). |
+| **Schema** | a estrutura do banco: tabelas, colunas e relacionamentos. |
+
+> 🎯 **Como não errar na prova:** "Dependências entre servidores" → **Application Discovery Service**. "Migrar VMs sem alterar" → **MGN**. "Banco sem parar o sistema" → **DMS**. "Oracle para PostgreSQL" → **SCT**. "Justificar custo" → **Migration Evaluator**.
+
 ## 📖 Conteúdo
 
 As ferramentas seguem a ordem de uma migração: avaliar, planejar e migrar.

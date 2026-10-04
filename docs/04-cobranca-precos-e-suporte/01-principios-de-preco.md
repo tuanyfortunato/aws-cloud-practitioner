@@ -6,6 +6,26 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** A AWS cobra com base em **três princípios**: pagar pelo uso, ganhar desconto ao se comprometer e pagar menos por unidade quando usa mais. E três coisas geram a maior parte da conta.
+>
+> 🏠 **Analogia:** é como o **plano de celular**: pré-pago (pague pelo uso), plano anual com desconto (compromisso) e franquia que fica mais barata por GB quando você compra mais (volume).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar os **3 princípios** de preço.
+- [ ] Citar os **3 geradores de custo**: computação, armazenamento e **transferência de saída**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Pay-as-you-go** | pagar conforme o uso, sem contrato. |
+| **Transferência de saída** | dados que saem da AWS para a internet (é cobrada). |
+
+> 🎯 **Como não errar na prova:** "Desconto em troca de compromisso de 1 ou 3 anos" → **Reservas/Savings Plans**. "Mais barato por GB quanto mais usa" → **desconto por volume**.
+
 ## 📖 Conteúdo
 
 - **Pague conforme o uso (pay-as-you-go):** sem contrato nem investimento inicial.

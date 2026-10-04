@@ -6,10 +6,13 @@ Uso: python3 scripts/gerar_docs.py
 ATENÇÃO: sobrescreve os arquivos gerados. Em cada tópico, dois blocos são preservados
 entre execuções: <!-- extra:inicio -->…<!-- extra:fim --> (complementos) e
 <!-- notas:inicio -->…<!-- notas:fim --> (anotações pessoais).
+A seção didática "Antes de começar" de cada tópico vem de scripts/didatica_docs.py.
 """
 import csv
 import os
 import re
+
+from didatica_docs import DOMINIOS as DIDATICA_DOMINIOS, TOPICOS as DIDATICA_TOPICOS
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GUIA = os.path.join(RAIZ, "fontes", "guia-completo-clf-c02.md")
@@ -353,8 +356,25 @@ def parse_guia():
     return secoes, intros, extras
 
 
+def bloco_didatico(sec):
+    """Seção "Antes de começar" do tópico (conteúdo em scripts/didatica_docs.py)."""
+    d = DIDATICA_TOPICOS[sec]
+    linhas = ["## 🧠 Antes de começar", "",
+              f"> 💡 **Em palavras simples:** {d['simples']}", ">",
+              f"> 🏠 **Analogia:** {d['analogia']}", "",
+              "**Ao terminar este tópico, você deve saber:**", ""]
+    linhas += [f"- [ ] {item}" for item in d["saber"]]
+    if d.get("termos"):
+        linhas += ["", "**📚 Palavras que aparecem aqui:**", "", "| Termo | Em palavras simples |", "|---|---|"]
+        linhas += [f"| **{termo}** | {explicacao} |" for termo, explicacao in d["termos"]]
+    linhas += ["", f"> 🎯 **Como não errar na prova:** {d['dica']}"]
+    return "\n".join(linhas)
+
+
 def gerar_topicos(secoes):
     ordem = sorted(secoes, key=lambda s: tuple(int(x) for x in s.split(".")))
+    sem_didatica = set(ordem) ^ set(DIDATICA_TOPICOS)
+    assert not sem_didatica, f"Tópicos sem (ou sobrando) em didatica_docs.TOPICOS: {sorted(sem_didatica)}"
     for i, sec in enumerate(ordem):
         titulo, corpo = secoes[sec]
         dom = sec.split(".")[0]
@@ -399,6 +419,8 @@ def gerar_topicos(secoes):
 
 ---
 
+{bloco_didatico(sec)}
+
 ## 📖 Conteúdo
 
 {corpo}
@@ -436,6 +458,15 @@ def gerar_readmes_dominio(secoes, intros, ordem):
 **Peso na prova:** {peso} das questões pontuadas
 
 {intro}
+
+## 🧭 Como estudar este domínio
+
+> 💡 **Em palavras simples:** {DIDATICA_DOMINIOS[dom]['simples']}
+
+- 🗺️ **Ordem sugerida:** {DIDATICA_DOMINIOS[dom]['ordem']}
+- 🎯 **Dica:** {DIDATICA_DOMINIOS[dom]['dica']}
+- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
+  palavras novas explicadas e como não errar na prova.
 
 ## Tópicos
 

@@ -10,6 +10,28 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** São serviços **prontos para o negócio**: central de atendimento, envio de e-mails, desktops virtuais, criação de apps e conexão de dispositivos IoT.
+>
+> 🏠 **Analogia:** é uma **caixa de ferramentas de escritório**: o **Connect** é a central telefônica; o **SES**, o correio; o **WorkSpaces**, o computador de trabalho na nuvem; o **Amplify**, um kit para montar apps; o **IoT Core**, a central que recebe mensagens dos sensores.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada serviço ao cenário: call center → Connect; e-mails → SES; desktop virtual → WorkSpaces.
+- [ ] Diferenciar **WorkSpaces** (desktop inteiro) de **AppStream 2.0** (só o aplicativo no navegador).
+- [ ] Diferenciar **SES** (e-mails formatados a clientes) de **SNS** (notificações simples).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Contact center** | central de atendimento (telefone, chat). |
+| **DaaS** | desktop como serviço. |
+| **IoT** | internet das coisas: sensores e dispositivos conectados. |
+
+> 🎯 **Como não errar na prova:** "Call center" → **Connect**. "Funcionário remoto precisa de desktop" → **WorkSpaces**. "App de desktop no navegador" → **AppStream 2.0**. "Sensores" → **IoT Core**.
+
 ## 📖 Conteúdo
 
 - **Amazon Connect:** **central de atendimento (contact center) na nuvem**, com voz, chat e tarefas, pago por uso.

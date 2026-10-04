@@ -8,6 +8,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Há várias **portas de entrada** para usar a AWS — clicando, digitando comandos, programando ou descrevendo a infraestrutura num arquivo. Todas usam as mesmas APIs por baixo.
+>
+> 🏠 **Analogia:** é como falar com um **banco**: pelo **site** (Console), pelo **atendimento por comandos** (CLI), por um **aplicativo seu integrado ao banco** (SDK) ou deixando **instruções programadas** que se repetem sozinhas (CloudFormation).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **Console, CLI, SDK e CloudShell**.
+- [ ] Saber que tarefa **pontual** pode ser no Console e tarefa **repetível** deve ser automatizada.
+- [ ] Explicar **infraestrutura como código** (CloudFormation).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **API** | a forma padronizada de um programa pedir algo a outro. |
+| **IaC** | infraestrutura como código: descrever servidores e redes num arquivo e criar tudo automaticamente. |
+
+> 🎯 **Como não errar na prova:** "Repetível em várias regiões/contas" → **CloudFormation**. "Comandos rápidos sem instalar nada" → **CloudShell**. "Dentro do código da aplicação" → **SDK**.
+
 ## 📖 Conteúdo
 
 - **AWS Management Console:** interface web. Bom para tarefas pontuais e exploração.

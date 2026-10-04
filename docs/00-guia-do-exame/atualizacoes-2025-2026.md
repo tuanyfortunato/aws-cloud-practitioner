@@ -3,6 +3,14 @@
 > Verificado em fontes oficiais da AWS em **04/10/2026** ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
 > Pesquisa original: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md).
 
+## 🧭 Em resumo
+
+> 💡 **Em palavras simples:** a AWS muda serviços, preços e limites o tempo todo, mas as questões da prova demoram a
+> acompanhar. Esta página mostra, para cada mudança, o **valor antigo**, o **valor atual** e **o que marcar na prova**.
+
+- 🎯 **Regra prática:** se só um dos valores aparece nas alternativas, marque esse; se os dois aparecem, prefira o **atual**.
+- ⭐ **A mudança mais importante:** os **planos de suporte** (o guia atual cobra os planos novos).
+
 ## A regra mudou: o exam guide foi atualizado
 
 O código continua **CLF-C02**, mas o conteúdo do guia foi atualizado sem troca de código. A consequência mais

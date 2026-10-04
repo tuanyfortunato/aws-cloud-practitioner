@@ -8,6 +8,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** A segurança é dividida: a **AWS protege a nuvem em si** (prédios, hardware, rede) e **o cliente protege o que coloca nela** (dados, acessos, configurações). A fronteira muda conforme o serviço.
+>
+> 🏠 **Analogia:** é como **morar de aluguel num prédio**: o condomínio cuida da portaria, da estrutura e dos elevadores (AWS); você tranca a porta do seu apartamento e decide quem recebe a chave (cliente). Num **hotel** (serviço gerenciado), o hotel faz ainda mais por você.
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Separar **segurança DA nuvem** (AWS) de **segurança NA nuvem** (cliente).
+- [ ] Dizer quem aplica patch no SO do **EC2** (cliente) e no motor do **RDS** (AWS).
+- [ ] Explicar controles **herdados**, **compartilhados** e **específicos do cliente**.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Patch** | atualização de correção de software. |
+| **Hipervisor** | a camada que divide um servidor físico em várias máquinas virtuais (responsabilidade da AWS). |
+
+> 🎯 **Como não errar na prova:** Pergunte: **"isso é físico ou é configuração/dado?"**. Físico, hardware, datacenter → AWS. Dados, IAM, security group, criptografia ativada → cliente. Quanto **mais gerenciado** o serviço, **menos** o cliente faz.
+
 ## 📖 Conteúdo
 
 - **AWS — segurança DA nuvem:** hardware, datacenters físicos (acesso, energia, refrigeração), rede global, regiões, AZs, edge locations e a camada de virtualização (hipervisor).

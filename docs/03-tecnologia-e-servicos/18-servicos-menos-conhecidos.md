@@ -10,6 +10,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** Uma coleção de **serviços menos famosos** que já apareceram em provas, mais a lista do que **não cai**. Basta saber **para que cada um serve** — sem detalhes.
+>
+> 🏠 **Analogia:** é como **conhecer os figurantes de um filme**: você não precisa saber a história deles, só reconhecer quem é quem quando aparecem — e perceber quando alguém **nem é do elenco** (serviço fora do escopo).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Saber que a **Customer Carbon Footprint Tool** mostra a estimativa de emissões de carbono (pilar Sustentabilidade).
+- [ ] Reconhecer a função dos serviços da tabela (ex.: STS → credenciais temporárias; Amazon MQ → RabbitMQ/ActiveMQ).
+- [ ] Lembrar as categorias **fora do escopo** (games, mídia, robótica, satélite, blockchain).
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Distrator** | alternativa errada colocada para confundir. |
+| **Engenharia do caos** | provocar falhas de propósito para testar se o sistema se recupera. |
+
+> 🎯 **Como não errar na prova:** Se uma alternativa cita serviço de **games, mídia, robótica, satélite ou blockchain**, ou um serviço marcado fora do escopo, ela provavelmente é **distrator**.
+
 ## 📖 Conteúdo
 
 A AWS avisa que a lista de serviços no escopo não é exaustiva, e quem já fez a prova relata questões sobre serviços pouco divulgados. Esta seção reúne os mais citados. Basta saber para que cada um serve.

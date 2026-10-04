@@ -6,6 +6,27 @@
 
 ---
 
+## 🧠 Antes de começar
+
+> 💡 **Em palavras simples:** A AWS resume os benefícios da nuvem em **seis frases oficiais**. A prova descreve uma situação e pede qual dessas frases ela representa.
+>
+> 🏠 **Analogia:** é como trocar o **carro próprio por aplicativo de transporte**: você não paga o carro à vista (despesa variável), a empresa compra em volume (economia de escala), chama um carro maior quando precisa (parar de adivinhar capacidade), pede em minutos (agilidade), não cuida de oficina (sem manter datacenter) e usa o app em outras cidades (global em minutos).
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar as **6 vantagens** com o nome oficial.
+- [ ] Ligar cada cenário à vantagem certa (ex.: Black Friday sem comprar servidor → parar de adivinhar capacidade).
+- [ ] Explicar **CapEx × OpEx** em uma frase.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **CapEx** | despesa de capital: comprar equipamento antes de usar (investimento antecipado). |
+| **OpEx** | despesa operacional: pagar aos poucos, conforme o uso. |
+
+> 🎯 **Como não errar na prova:** Procure a palavra que denuncia a vantagem: **"investimento inicial"** → despesa variável; **"não sabe quanto tráfego"** → capacidade; **"preço menor por volume"** → economia de escala; **"outro continente"** → global em minutos.
+
 ## 📖 Conteúdo
 
 1. **Trocar despesa de capital por despesa variável:** sem investimento antecipado em hardware (CapEx → OpEx).
