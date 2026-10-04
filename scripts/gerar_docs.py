@@ -642,45 +642,108 @@ def gerar_indice_servicos():
 
 INDICE_INI = "<!-- indice:inicio -->"
 INDICE_FIM = "<!-- indice:fim -->"
+CONTEUDO_INI = "<!-- conteudo:inicio -->"
+CONTEUDO_FIM = "<!-- conteudo:fim -->"
 
 
-def gerar_indice_readme(secoes, ordem):
-    """Atualiza no README.md o índice com link direto para cada tópico e cada ficha."""
-    linhas = [INDICE_INI, "## 🧭 Índice completo", "",
-              "Links diretos para todos os tópicos e fichas (clique para expandir). "
-              "Gerado por `scripts/gerar_docs.py`.", "", "### Tópicos do exame", ""]
+def nome_curto(titulo):
+    """'Amazon EC2 (Elastic Compute Cloud)' -> 'Amazon EC2'."""
+    return titulo.split(" (")[0]
+
+
+def contar_linhas_tabela(caminho):
+    with open(os.path.join(RAIZ, caminho)) as f:
+        linhas = [l for l in f if l.startswith("| ") and not l.startswith("| ---")]
+    return max(len(linhas) - 1, 0)  # desconta o cabeçalho
+
+
+def substituir_bloco(texto, ini, fim, bloco):
+    padrao = re.escape(ini) + r".*?" + re.escape(fim)
+    assert re.search(padrao, texto, re.S), f"Marcadores {ini} … {fim} não encontrados no README.md"
+    return re.sub(padrao, lambda _: bloco, texto, flags=re.S)
+
+
+def bloco_conteudo(total_cards, total_topicos):
+    from banco_questoes import QUESTOES
+    total_fichas = sum(len(n) for n in FICHAS.values())
+    fora = len(FICHAS["fora-do-escopo"])
+    linhas = [
+        CONTEUDO_INI,
+        "| Material | O que é | Quando usar |",
+        "|---|---|---|",
+        f"| 📖 [Tópicos da prova](#4-o-que-estudar-todos-os-tópicos-da-prova) | **{total_topicos} tópicos** que cobrem os 4 domínios, "
+        "cada um com o conteúdo cobrado, *Cai na prova*, perguntas típicas e atualizações | Estudo principal, na ordem do roteiro |",
+        f"| 🔎 [Fichas de serviços](#5-serviços-aws-todas-as-fichas) | **{total_fichas} fichas** (uma por serviço ou família), "
+        f"com configurações, limites, preço, pegadinhas e perguntas; {fora} reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |",
+        f"| 🃏 [Flashcards](flashcards/README.md) | **{total_cards} perguntas e respostas** por domínio, também em arquivo para o Anki | Todos os dias, para memorizar |",
+        f"| 📝 [Simulado 01](simulados/simulado-01.md) | **{len(QUESTOES)} questões** no formato da prova, com gabarito comentado | Depois de estudar os 4 domínios (90 min, sem consulta) |",
+        "| ❓ [Questões por domínio](simulados/questoes/README.md) | As mesmas questões, agrupadas por tópico | Ao terminar cada domínio |",
+        f"| ⚖️ [Pares que confundem](resumos/comparativos.md) | **{contar_linhas_tabela('resumos/comparativos.md')} pares** de serviços parecidos e a diferença em uma linha | Revisão final |",
+        f"| 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **{contar_linhas_tabela('resumos/palavras-chave.md')} gatilhos** do enunciado que apontam a resposta | Revisão final |",
+        f"| 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |",
+        f"| 📖 [Glossário](glossario.md) | **{contar_linhas_tabela('glossario.md')} termos** e siglas | Sempre que travar num termo |",
+        "| ✅ [Progresso](progresso.md) | Checklist de todos os tópicos e marcos | Para acompanhar o seu avanço |",
+        "| 🧪 [Labs](labs/README.md) | Exercícios práticos no console AWS, com cuidado de custos | Opcional, para fixar |",
+        CONTEUDO_FIM,
+    ]
+    return "\n".join(linhas)
+
+
+def bloco_indice(secoes, ordem):
+    linhas = [INDICE_INI, "## 4. O que estudar: todos os tópicos da prova", "",
+              "Estude na ordem. Em cada tópico, abra também as **fichas** listadas ao lado: elas aprofundam os serviços citados.",
+              ""]
     for dom, (pasta, nome, peso) in DOMINIOS.items():
-        linhas += ["<details>", f"<summary><b>{nome} ({peso})</b></summary>", ""]
+        n = sum(1 for s in ordem if s.split(".")[0] == dom)
+        linhas += [f"### {nome} — {peso} da prova", "",
+                   f"➡️ [Visão geral do domínio](docs/{pasta}/README.md) · 🃏 [Flashcards](flashcards/dominio-{dom}.md) · "
+                   f"❓ [Questões do domínio](simulados/questoes/dominio-{dom}.md) · {n} tópicos", "",
+                   "| # | Tópico | Fichas para abrir junto |", "|---|---|---|"]
         for sec in ordem:
-            if sec.split(".")[0] == dom:
-                linhas.append(f"- [{sec} {secoes[sec][0]}]({caminho_topico(sec)})")
-        linhas += ["", "</details>", ""]
-    linhas += ["### Fichas de serviços", ""]
+            if sec.split(".")[0] != dom:
+                continue
+            fichas = " · ".join(
+                f"[{nome_curto(titulo_ficha(f))}](servicos/{CATEGORIA[f]}/{f}.md)"
+                for f in FICHAS_POR_TOPICO.get(sec, [])) or "—"
+            linhas.append(f"| {sec} | [{secoes[sec][0]}]({caminho_topico(sec)}) | {fichas} |")
+        linhas.append("")
+
+    linhas += ["## 5. Serviços AWS: todas as fichas", "",
+               "Cada ficha explica um serviço do jeito que a prova cobra: o que é, para que serve, configurações, limites, "
+               "preço, responsabilidade compartilhada, pegadinhas e perguntas típicas. A coluna **Prova** mostra se o serviço "
+               "está na [lista oficial](docs/00-guia-do-exame/escopo-oficial.md): ✅ no escopo · 🔀 parte dos serviços da ficha "
+               "está no escopo · ⚪ não aparece na lista · ❌ fora do escopo.", "",
+               "> Índice só das fichas: [servicos/README.md](servicos/README.md).", ""]
     for cat, nomes in FICHAS.items():
-        linhas += ["<details>", f"<summary><b>{NOMES_CATEGORIA[cat]}</b> ({len(nomes)})</summary>", ""]
-        linhas += [f"- [{titulo_ficha(n)}](servicos/{cat}/{n}.md)" for n in nomes]
-        linhas += ["", "</details>", ""]
-    linhas += ["### Outros materiais", "",
-               "- [Guia do exame](docs/00-guia-do-exame/README.md) · [Escopo oficial](docs/00-guia-do-exame/escopo-oficial.md) · [Plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) · [O que mudou em 2025-2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md)",
-               "- Flashcards: " + " · ".join(f"[Domínio {d}](flashcards/dominio-{d}.md)" for d in DOMINIOS) + " · [Anki (TSV)](flashcards/anki-clf-c02.tsv)",
-               "- Resumos: [Pares que confundem](resumos/comparativos.md) · [Palavras-chave](resumos/palavras-chave.md) · [Números-âncora](resumos/numeros-ancora.md)",
-               "- Questões no formato da prova: [Simulado 01 (65 questões)](simulados/simulado-01.md) · " + " · ".join(f"[Domínio {d}](simulados/questoes/dominio-{d}.md)" for d in DOMINIOS),
-               "- [Glossário](glossario.md) · [Progresso](progresso.md) · [Simulados](simulados/README.md) · [Erros recorrentes](simulados/erros-recorrentes.md) · [Labs](labs/README.md) · [Links úteis](recursos/links-uteis.md)",
-               "- Fontes: [Guia completo](fontes/guia-completo-clf-c02.md) · [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md) · [Verificação oficial (10/2026)](fontes/verificacao-fontes-oficiais-2026-10.md)",
-               "- Modelos: [Tópico](templates/topico.md) · [Ficha de serviço](templates/servico.md) · [Simulado](templates/simulado.md)",
-               INDICE_FIM]
-    bloco = "\n".join(linhas)
+        tabela = ["| Ficha | O que é | Prova |", "|---|---|---|"]
+        for n in nomes:
+            caminho = os.path.join(RAIZ, "servicos", cat, n + ".md")
+            with open(caminho) as f:
+                m = re.search(r"\*\*Em uma frase:\*\* (.+)", f.read())
+            frase = m.group(1).strip() if m else ""
+            frase = frase[:1].upper() + frase[1:]
+            escopo = ESCOPO[n]
+            prova = escopo.split()[0] if escopo.startswith("✅") else escopo
+            tabela.append(f"| [{nome_curto(titulo_ficha(n))}](servicos/{cat}/{n}.md) | {frase} | {prova} |")
+        if cat == "fora-do-escopo":
+            linhas += [f"### {NOMES_CATEGORIA[cat]}", "",
+                       "<details>", f"<summary>Serviços que <b>não caem</b> na prova — abra para ver ({len(nomes)} fichas)</summary>", ""]
+            linhas += tabela + ["", "</details>", ""]
+        else:
+            linhas += [f"### {NOMES_CATEGORIA[cat]}", ""] + tabela + [""]
+    linhas.append(INDICE_FIM)
+    return "\n".join(linhas)
+
+
+def gerar_indice_readme(secoes, ordem, total_cards):
+    """Atualiza no README.md os blocos gerados: tabela de materiais e índice de tópicos e fichas."""
     caminho = os.path.join(RAIZ, "README.md")
     with open(caminho) as f:
-        atual = f.read()
-    padrao = re.escape(INDICE_INI) + r".*?" + re.escape(INDICE_FIM)
-    if re.search(padrao, atual, re.S):
-        novo = re.sub(padrao, lambda _: bloco, atual, flags=re.S)
-    else:
-        # Primeira execução: insere antes da seção de revisão.
-        novo = atual.replace("## 🧠 Revisão", bloco + "\n\n## 🧠 Revisão", 1)
+        texto = f.read()
+    texto = substituir_bloco(texto, CONTEUDO_INI, CONTEUDO_FIM, bloco_conteudo(total_cards, len(ordem)))
+    texto = substituir_bloco(texto, INDICE_INI, INDICE_FIM, bloco_indice(secoes, ordem))
     with open(caminho, "w") as f:
-        f.write(novo)
+        f.write(texto)
 
 
 def main():
@@ -691,7 +754,7 @@ def main():
     gerar_resumos(extras)
     aplicar_escopo_fichas()
     fichas = gerar_indice_servicos()
-    gerar_indice_readme(secoes, ordem)
+    gerar_indice_readme(secoes, ordem, total)
     print(f"{len(ordem)} tópicos, {total} flashcards e índice de {fichas} fichas gerados.")
 
 
