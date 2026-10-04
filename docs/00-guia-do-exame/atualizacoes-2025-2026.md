@@ -40,6 +40,10 @@ importante:
 | Fargate | Até 16 vCPU / 120 GB | Até **32 vCPU / 244 GB** | — | [Fargate](../../servicos/computacao/fargate.md) |
 | DynamoDB PITR | 35 dias fixos | Configurável de **1 a 35 dias** | 01/2025 | [DynamoDB](../../servicos/banco-de-dados/dynamodb.md) |
 | Testes gratuitos de segurança | GuardDuty, Macie, Detective (30 dias), Inspector (15 dias) | Mesmos prazos, mas vinculados ao **Paid plan** no Free Tier novo | — | [GuardDuty](../../servicos/seguranca/guardduty.md) |
+| **Tarefas exclusivas do root** | Inclui alterar o nome da conta e mudar o plano de suporte | ✔️ **Nome da conta, contatos e regiões não exigem root**; **mudar o plano de suporte saiu da lista**. Continuam: e-mail/senha/access keys do root, fechar conta standalone, restaurar admin IAM, Billing e faturas fiscais, GovCloud, vendedor de RI, recuperação de chave KMS, MFA Delete, desbloquear políticas S3/SQS | 10/2026 | [2.2](../02-seguranca-e-conformidade/02-usuario-root.md) |
+| Snowball Edge | Disponível | Fim do suporte comercial em **31/12/2026** (Storage e Compute Optimized, regiões comerciais) | 31/12/2026 | [Snow Family](../../servicos/migracao/snow-family.md) |
+| Amazon Q Developer (IDE) | Plugins de IDE | Fim de suporte dos plugins de IDE em **30/04/2027**; alternativa indicada: **Kiro** | 30/04/2027 | [Amazon Q](../../servicos/ia-ml/amazon-q.md) |
+| Organizations | Sem SCP padrão | Organizações criadas pelo console após 10/07/2026 recebem SCP que nega sair da organização e fechar a conta | 10/07/2026 | [Organizations](../../servicos/gerenciamento/organizations.md) |
 | Storage Gateway | S3 File, FSx File, Volume e Tape Gateway | **FSx File Gateway** (e Tape Gateway em Snowball Edge) descontinuados para novos clientes; S3 File e Volume continuam | — | [Storage Gateway](../../servicos/armazenamento/storage-gateway.md) |
 | GuardDuty | Planos S3, EKS, Runtime, Malware, RDS, Lambda | + **AI Protection** e Malware Protection para AWS Backup | — | [GuardDuty](../../servicos/seguranca/guardduty.md) |
 | Migration Hub / Application Discovery Service | Abertos | **Fechados a novos clientes** (continuam no escopo) | 07/11/2025 | [Discovery, Hub e Evaluator](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) |
@@ -50,11 +54,14 @@ importante:
 ## Serviços em manutenção ou encerrados (não estudar a fundo)
 
 - **Fechados a novos clientes desde 07/11/2025:** Amazon Glacier (serviço original de *vaults*, diferente das classes S3 Glacier), S3 Object Lambda, Systems Manager Change Manager e Incident Manager, CodeCatalyst, CodeGuru Reviewer, Cloud Directory, Snowball Edge, Fraud Detector, Migration Hub, Application Discovery Service.
-- **Desde 30/04/2026:** AWS Audit Manager, CloudTrail Lake, AWS App Runner, IoT FleetWise.
+- **Desde 30/04/2026:** AWS Audit Manager, AWS App Runner, IoT FleetWise.
+- **Desde 31/05/2026:** CloudTrail Lake (anúncio de 31/03/2026; trails e Event history continuam).
 - **Desde 30/07/2026:** Amazon Kendra, Amazon Q Business, Directory Service Simple AD, Service Catalog AppRegistry, Cognito Sync. Bedrock Agents passou a se chamar "Bedrock Agents Classic".
 - **Encerrados:** Application Cost Profiler (30/09/2024), QLDB (31/07/2025), RoboMaker (10/09/2025), Elastic Transcoder e Elemental MediaStore (13/11/2025), Panorama (31/05/2026), Copilot CLI (fim de suporte em 12/06/2026), Lookout for Metrics (12/09/2025), Lookout for Vision (31/10/2025), IoT Analytics (15/12/2025), IoT Events (20/05/2026), AWS IQ (28/05/2026). Anunciados em maio/2025: Inspector Classic, Pinpoint, Panorama, Connect Voice ID, DMS Fleet Advisor.
 - **WorkSpaces:** PCoIP e Pools em *sunset* (o serviço continua no escopo).
 - **Próximos encerramentos (tabela oficial de *sunset*):** App Mesh (30/09/2026), IoT Greengrass V1 (01/10/2026), Proton, FinSpace e Lookout for Equipment (07/10/2026), Pinpoint (30/10/2026), AMS Advanced (30/06/2027). Monitron fechado a novos clientes.
+- **Encerrado em 29/09/2026:** Amazon Mechanical Turk (a lista oficial de tarefas do root ainda cita o vínculo com o MTurk).
+- **Encerrados antes:** Snowmobile (14/03/2024) e WorkDocs (25/04/2025), confirmados na página "Services in Full Shutdown".
 - **Renomeações:** AWS Chatbot → Amazon Q Developer in chat applications (19/02/2025); Lumberyard não é mais oferecido (sucessor: O3DE).
 - Tabela oficial: [AWS services sunset](https://docs.aws.amazon.com/general/latest/gr/sunset_services.html).
 

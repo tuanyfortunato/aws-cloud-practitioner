@@ -16,7 +16,7 @@
 | **S3 Standard-IA** | Pouco acesso, mas rápido | 99,9% | ≥3 | **30 dias** | 128 KB | ms | **Sim** |
 | **S3 One Zone-IA** | Pouco acesso, **dado recriável** | 99,5% | **1** | **30 dias** | 128 KB | ms | **Sim** |
 | **S3 Glacier Instant Retrieval** | Arquivo acessado ~1x por trimestre | 99,9% | ≥3 | **90 dias** | 128 KB | **ms** | Sim |
-| **S3 Glacier Flexible Retrieval** | Arquivo sem pressa | 99,99% | ≥3 | **90 dias** | 40 KB (metadados) | Expedited **1–5 min** (não confirmado nas páginas oficiais consultadas) · Standard **3–5 h** · Bulk **5–12 h** (grátis) | Sim (Bulk grátis) |
+| **S3 Glacier Flexible Retrieval** | Arquivo sem pressa | 99,99% | ≥3 | **90 dias** | 40 KB (metadados) | Expedited **1–5 min** para objetos < 250 MB ✔️ · Standard **3–5 h** · Bulk **5–12 h** (grátis) | Sim (Bulk grátis) |
 | **S3 Glacier Deep Archive** | Retenção de longo prazo (7–10 anos) | 99,99% | ≥3 | **180 dias** | 40 KB (metadados) | Standard **até 12 h** · Bulk **até 48 h** · **sem Expedited** | Sim |
 
 - 📌 Todas têm durabilidade de **11 noves**.
@@ -42,7 +42,7 @@
 | Archive Access (opcional) | Após 90+ dias (configurável) |
 | Deep Archive Access (opcional) | Após 180+ dias (configurável) |
 
-- Um acesso traz o objeto de volta para Frequent Access. Sem taxa de recuperação; cobra uma pequena taxa de **monitoramento por objeto**.
+- Um acesso traz o objeto de volta para Frequent Access. ✔️ Cobra uma taxa mensal de **monitoramento e automação por objeto**; recuperações Standard e Bulk são **gratuitas**, mas a recuperação **Expedited** da camada opcional Archive Access é **cobrada**. Objetos < 128 KB não são monitorados (ficam em Frequent Access, sem taxa de monitoramento).
 
 ## Lifecycle: transições típicas
 

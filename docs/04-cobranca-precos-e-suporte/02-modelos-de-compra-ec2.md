@@ -62,10 +62,10 @@
 - Para a prova basta: "Convertible < Standard em desconto, porém mais flexível".
 - **Flexibilidade de RIs (task 4.1):**
   - **RI regional:** vale para qualquer AZ da região e, em Linux/Unix com tenancy padrão, tem **flexibilidade de tamanho** dentro da família (ex.: uma `m5.xlarge` cobre duas `m5.large`). Não reserva capacidade.
-  - **RI zonal:** presa a uma AZ e a um tamanho, mas **reserva capacidade** naquela AZ.
-  - **Convertible:** pode ser **trocada** por outra RI (família, SO, tenancy) de valor igual ou maior. **Standard:** não troca, mas pode ser **vendida** no RI Marketplace.
+  - **RI zonal:** presa a uma AZ e a um tamanho, mas **reserva capacidade** naquela AZ ✔️ (a regional não reserva).
+  - **Convertible:** pode ser **trocada** por outra Convertible (família, SO, tenancy) de valor igual ou maior ✔️. **Standard** (regional ou zonal) pode ser **vendida** no RI Marketplace; a **Convertible não pode** ✔️.
   - Ordem de aplicação dos descontos ✔️: primeiro as **RIs**, depois os **Savings Plans** (que se aplicam primeiro ao uso com maior percentual de desconto), o restante é On-Demand. A flexibilidade de tamanho da RI regional também foi confirmada.
-- **Capacity Reservations** ✔️: os descontos de **Savings Plans** e de **RIs regionais** se aplicam a elas. (Cobrança mesmo sem uso: não confirmada na última verificação.)
+- **Capacity Reservations** ✔️: os descontos de **Savings Plans** e de **RIs regionais** se aplicam a elas. ✔️ A reserva é cobrada pela **tarifa On-Demand mesmo sem instância rodando**; quando ocupada, paga-se a instância, sem cobrança dupla.
 - **RIs no Organizations (task 4.1):** com faturamento consolidado, RIs e Savings Plans são **compartilhados** entre as contas por padrão (o desconto vale primeiro na conta que comprou); a conta de gerenciamento pode desativar o compartilhamento por conta. Ver [Organizations](../../servicos/gerenciamento/organizations.md).
 - ⚠️ "Estável 24/7 por 3 anos, menor custo, sem flexibilidade" → Standard RI ou EC2 Instance SP · "EC2 + Lambda + Fargate com flexibilidade" → **Compute Savings Plans** · "tolera interrupção (batch, CI/CD, render)" → **Spot**.
 <!-- extra:fim -->

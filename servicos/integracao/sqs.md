@@ -40,7 +40,7 @@
 
 ## Cobrança
 
-- Por milhão de requisições (cada 64 KB = 1 requisição 🧊) + transferência. **1 milhão de requisições grátis/mês** (sempre gratuito).
+- Por milhão de requisições (cada 64 KB = 1 requisição 🧊) + transferência. **1 milhão de requisições grátis/mês** para todos os clientes (✔️ Always Free nos planos Free e Paid).
 
 ## ⚠️ Não confundir
 

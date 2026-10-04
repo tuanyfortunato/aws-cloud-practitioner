@@ -12,8 +12,8 @@
 |---|---|---|
 | **AWS Pricing Calculator** | **Estimar** custos **antes** de criar recursos | Web, **gratuita**, sem conta; estimativas compartilháveis por link e exportáveis (CSV/PDF); versão no console de Billing considera seus descontos |
 | **Billing and Cost Management console** | Fatura do mês, pagamentos, créditos, perfis de pagamento | Ponto de partida do faturamento; root pode liberar acesso ao Billing para usuários IAM |
-| **Cost and Usage Report (CUR) / Data Exports** | Dados **mais granulares** possíveis (hora a hora, por recurso, com tags) | Entregues no **S3** (CUR 2.0, formato **FOCUS**); analisados com **Athena**, QuickSight, Redshift |
-| **Cost Anomaly Detection** | Detecta **gastos anormais** com ML | Monitores por serviço/conta/tag; alertas com causa raiz provável; gratuito |
+| **Cost and Usage Report (CUR) / Data Exports** | Dados **mais granulares** possíveis (hora a hora, por recurso, com tags) | ✔️ Configurado pelo **AWS Data Exports**: CUR 2.0 (recomendado) e **FOCUS 1.2/1.0**; o CUR legado continua disponível. Entregue no **S3**; analisados com **Athena**, QuickSight, Redshift |
+| **Cost Anomaly Detection** | Detecta **gastos anormais** com ML | Monitores por serviço/conta/tag; alertas com causa raiz provável; ✔️ **gratuito** |
 | **Cost Optimization Hub** | Consolida recomendações de economia (rightsizing, RIs/SPs, ociosos) num lugar | Prioriza por economia estimada |
 | **Cost allocation tags** | **Ratear custos** por projeto, time, centro de custo | Tags do usuário ou geradas pela AWS; precisam ser **ativadas** no Billing para aparecer nos relatórios |
 | **Cost Categories** | Regras que agrupam custos (ex.: "Marketing" = contas X e Y + tag Z) | Usadas em Cost Explorer, Budgets, CUR |

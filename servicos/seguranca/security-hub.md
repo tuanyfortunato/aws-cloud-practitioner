@@ -14,7 +14,7 @@
 | **Verificações de padrões** | **AWS Foundational Security Best Practices (FSBP)**, **CIS AWS Foundations**, **PCI DSS**, **NIST SP 800-53**, AWS Resource Tagging. Gera um *security score*. |
 | **Automação** | Automation rules (atualizar/suprimir achados), integração com EventBridge para remediação. |
 | **Multi-conta / multi-região** | Administrador delegado + região de agregação. |
-| **Pré-requisito** | **AWS Config** ativado (as verificações usam regras do Config). |
+| **Pré-requisito** | ✔️ A maioria dos controles usa regras do **AWS Config**. Usando o Security Hub novo junto com o CSPM, o recorder do Config é criado automaticamente; usando só o CSPM, é preciso habilitar o Config manualmente. |
 
 ## 🔄 Atualizações 2025-2026
 

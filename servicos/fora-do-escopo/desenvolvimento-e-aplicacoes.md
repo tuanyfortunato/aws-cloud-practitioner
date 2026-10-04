@@ -46,7 +46,7 @@
 
 ## Amazon WorkDocs
 
-- Serviço de **armazenamento e colaboração de documentos** (editar, comentar, compartilhar). 🔄 Encerramento em 25/04/2025 noticiado pela imprensa; não confirmado em página oficial.
+- Serviço de **armazenamento e colaboração de documentos** (editar, comentar, compartilhar). 🔄 **Encerrado em 25/04/2025** ✔️ (página oficial "Services in Full Shutdown").
 
 ## ⚠️ Como isso aparece na prova
 

@@ -40,10 +40,11 @@
 - 🔄 **Free Tier (mudou em 15/07/2025):**
   - Contas novas escolhem **Free plan** ou **Paid plan**. Ambas recebem **US$ 100 em créditos no cadastro + até US$ 100** por atividades de onboarding (total até **US$ 200**).
   - O **Free plan** expira em **6 meses ou quando os créditos acabam** (o que vier primeiro); não gera cobrança, mas bloqueia alguns serviços caros. Para continuar, upgrade para o Paid plan.
-  - **30+ serviços Always Free** continuam valendo. Contas anteriores a 15/07/2025 seguem no modelo legado (12 meses, trials, Always Free).
+  - **30+ serviços Always Free** continuam valendo, independentemente da idade da conta ✔️ — ex.: Lambda, DynamoDB, SQS (1 milhão de requisições), SNS (1 milhão de publicações), Step Functions, Cognito, KMS, CloudTrail, CloudFormation, Systems Manager, X-Ray, Organizations, Shield Standard.
+  - ⚠️ O **Free plan** dura até 6 meses ou até acabar o crédito; os **créditos** em si podem valer por 12 meses — são coisas diferentes. Contas anteriores a 15/07/2025 seguem no modelo legado (12 meses, trials, Always Free).
   - ✔️ Confirmado em fonte oficial; atividades que liberam créditos incluem EC2, RDS, Lambda, Bedrock e Budgets.
   - ⚠️ **Na prova:** questões antigas descrevem o modelo clássico (**Always Free, 12 meses grátis, trials**); se a questão falar em créditos ou em Free plan, use o modelo novo.
-- **Transferência de dados** ✔️ (AWS Architecture Blog, 10/2026): entrada da internet **grátis**; dentro da mesma AZ por IP privado (inclusive VPC Peering) **grátis**; saída para a internet, **entre regiões** e **entre AZs** **cobradas** (entre AZs, cobrada nos dois sentidos); **gateway endpoints** (S3 e DynamoDB) sem custo na mesma região. "Origem AWS → CloudFront grátis" não foi localizado na verificação.
+- **Transferência de dados** ✔️ (AWS Architecture Blog, 10/2026): entrada da internet **grátis**; dentro da mesma AZ por IP privado (inclusive VPC Peering) **grátis**; saída para a internet, **entre regiões** e **entre AZs** **cobradas** (entre AZs, cobrada nos dois sentidos); **gateway endpoints** (S3 e DynamoDB) sem custo na mesma região. ✔️ Da origem AWS (S3, EC2, ELB) para o **CloudFront** (origin fetches): **grátis**.
 - **Per-second billing** (mínimo de 60 s) também explica questões de "parar instâncias ociosas reduz custo".
 <!-- extra:fim -->
 

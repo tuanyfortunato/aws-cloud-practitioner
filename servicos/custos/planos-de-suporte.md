@@ -35,7 +35,7 @@
 - ⚠️ US$ 29 é o preço de entrada do **Business Support+** (novo) e era o do **Developer** (clássico): confira o nome do plano.
 - ⚠️ 30 min: **Business Support+** (novo) ou **Enterprise On-Ramp** (clássico). 15 min + TAM designado: **Enterprise** (nos dois modelos). 5 min + monitoramento 24/7: **Unified Operations**.
 - 📌 **Menor plano com todas as verificações do Trusted Advisor e acesso à API:** Business Support+. **Menor plano com TA Priority e TAM designado:** Enterprise.
-- Treinamentos incluídos por plano: não confirmados na verificação.
+- ✔️ O **Enterprise** inclui **workshops conduzidos pelo TAM** e **AWS GameDays** (e exercícios de segurança). Assinatura do Skill Builder incluída: não encontrada.
 
 ## Modelo clássico (válido até 01/01/2027)
 
@@ -65,7 +65,7 @@ Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em quest�
 - **TAM (Technical Account Manager):** consultor técnico proativo.
 - **Concierge Support Team:** especialistas em faturamento e conta.
 - **AWS Support Center:** onde se abrem e acompanham os casos de suporte (no console). No Basic, só casos de conta e faturamento.
-- **Quem muda o plano de suporte:** o **usuário root**.
+- **Quem muda o plano de suporte:** 🔄 deixou de ser tarefa exclusiva do root (a lista oficial atual não a inclui); uma identidade IAM com as permissões necessárias pode fazê-lo.
 - Demais recursos (Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post): [recursos de ajuda e parceiros](recursos-de-ajuda-e-parceiros.md).
 
 ## ❓ Perguntas típicas
@@ -77,7 +77,7 @@ Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em quest�
 - (Clássico) "Mais barato com suporte técnico 24/7 por telefone e < 1 h para produção fora do ar." → Business.
 - (Clássico) "Pool de TAMs e 30 min." → Enterprise On-Ramp.
 - (Clássico) "Ambiente de testes, ajuda ocasional por e-mail em horário comercial." → Developer.
-- "Quem pode mudar o plano de suporte?" → O usuário root.
+- "Quem pode mudar o plano de suporte?" → Não é mais exclusivo do root (lista oficial de 10/2026).
 
 ## 🔗 Documentação oficial
 

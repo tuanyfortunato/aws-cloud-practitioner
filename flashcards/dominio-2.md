@@ -55,7 +55,7 @@ Ativar MFA, não criar access keys e usá-lo só para tarefas que o exigem.
 <details>
 <summary>Qual destas tarefas exige o root?</summary>
 
-Fechar a conta, mudar o plano de suporte, alterar dados da conta ou restaurar permissões de administrador.
+Fechar a conta, alterar o e-mail ou a senha do root, restaurar permissões de administrador ou configurar MFA Delete. (🔄 Mudar o plano de suporte e alterar o nome da conta **não** estão mais na lista oficial.)
 </details>
 
 <details>

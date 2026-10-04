@@ -38,7 +38,7 @@
 - "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail." → Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).
 - "O plano Basic oferece suporte técnico?" → Não; só atendimento de conta e faturamento, documentação e re:Post.
 - "Quem ajuda com dúvidas de faturamento em planos Enterprise?" → Concierge Support Team.
-- "Quem pode mudar o plano de suporte?" → O usuário root.
+- "Quem pode mudar o plano de suporte?" → 🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.
 
 <!-- extra:inicio -->
 ## 🔄 Planos novos (o que o exam guide atual cobra)

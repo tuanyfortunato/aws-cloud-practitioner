@@ -21,7 +21,7 @@
 |---|---|
 | **Instância de banco** | Classe (db.t, db.m, db.r…) e armazenamento (gp2/gp3, io1/io2). **Storage auto scaling** aumenta o disco sozinho. |
 | **Multi-AZ (instância)** | Standby **síncrono** em outra AZ, **failover automático** (mesmo endpoint DNS). Standby **não atende leitura**. Objetivo: **disponibilidade**. |
-| **Multi-AZ DB cluster** | 1 escritor + **2 standbys legíveis** em 3 AZs (MySQL/PostgreSQL); failover mais rápido. |
+| **Multi-AZ DB cluster** | ✔️ 1 writer + **2 readers** em 3 AZs (RDS for MySQL e PostgreSQL), que também servem de failover. |
 | **Read Replicas** | Cópias **assíncronas**, só leitura, na mesma região ou **cross-region**; até **15** (MySQL, MariaDB, PostgreSQL), até **5** (Oracle, SQL Server), até **3** (Db2). Podem ser **promovidas** a banco independente (DR). Objetivo: **escalar leitura**. |
 | **Backups automáticos** | Diários + logs de transação → **point-in-time recovery**; retenção de **0 a 35 dias** (0 desativa). |
 | **Snapshots manuais** | Persistem até você apagar; copiáveis entre regiões e contas. |
