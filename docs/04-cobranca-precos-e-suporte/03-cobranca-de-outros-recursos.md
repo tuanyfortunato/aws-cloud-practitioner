@@ -43,6 +43,7 @@
   - **30+ serviços Always Free** continuam valendo. Contas anteriores a 15/07/2025 seguem no modelo legado (12 meses, trials, Always Free).
   - ✔️ Confirmado em fonte oficial; atividades que liberam créditos incluem EC2, RDS, Lambda, Bedrock e Budgets.
   - ⚠️ **Na prova:** questões antigas descrevem o modelo clássico (**Always Free, 12 meses grátis, trials**); se a questão falar em créditos ou em Free plan, use o modelo novo.
+- **Transferência de dados** ✔️ (AWS Architecture Blog, 10/2026): entrada da internet **grátis**; dentro da mesma AZ por IP privado (inclusive VPC Peering) **grátis**; saída para a internet, **entre regiões** e **entre AZs** **cobradas** (entre AZs, cobrada nos dois sentidos); **gateway endpoints** (S3 e DynamoDB) sem custo na mesma região. "Origem AWS → CloudFront grátis" não foi localizado na verificação.
 - **Per-second billing** (mínimo de 60 s) também explica questões de "parar instâncias ociosas reduz custo".
 <!-- extra:fim -->
 

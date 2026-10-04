@@ -10,7 +10,7 @@
 
 1. Instala-se o **agente de replicação** nos servidores de origem.
 2. Os discos são replicados continuamente (nível de bloco) para uma *staging area* barata na AWS (instâncias pequenas + EBS).
-3. Em um desastre ou teste, o DRS **lança instâncias de recuperação** totalmente provisionadas — **RPO de segundos, RTO de minutos**.
+3. Em um desastre ou teste, o DRS **lança instâncias de recuperação** totalmente provisionadas — **RPO de segundos (normalmente subsegundo), RTO de minutos** ✔️.
 4. Depois, *failback* para a origem.
 
 ## Configurações importantes

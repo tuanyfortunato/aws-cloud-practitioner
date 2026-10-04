@@ -13,7 +13,8 @@
 | **CloudTrail management events** | **S3 Protection** (data events do S3) |
 | **VPC Flow Logs** | **EKS Protection** (audit logs do Kubernetes) |
 | **Logs de DNS** (Route 53 Resolver) | **Runtime Monitoring** (EC2, ECS, EKS — com agente) |
-| | **Malware Protection** (EBS do EC2 e objetos novos no S3) |
+| | **Malware Protection** (EBS do EC2, objetos novos no S3 e recovery points do AWS Backup) |
+| | **AI Protection** (cargas de IA, ex.: Bedrock) ✔️ |
 | | **RDS Protection** (logins suspeitos no Aurora/RDS) |
 | | **Lambda Protection** (tráfego de rede das funções) |
 

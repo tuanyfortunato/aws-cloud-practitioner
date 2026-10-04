@@ -30,7 +30,7 @@ Root
 | Política | O que faz |
 |---|---|
 | **SCP (Service Control Policy)** | **Teto** de permissões das identidades das contas (inclusive o root da conta-membro). **Não concede** nada. Padrão `FullAWSAccess`. Estratégias *deny list* ou *allow list*. |
-| **RCP (Resource Control Policy)** | Teto de permissões aplicado aos **recursos** (ex.: impedir acesso de fora da organização a buckets). |
+| **RCP (Resource Control Policy)** | ✔️ Teto de permissões aplicado aos **recursos** (ex.: impedir acesso de identidades de fora da organização a buckets S3). A raiz recebe a política padrão `RCPFullAWSAccess`. Como as SCPs, **não afetam** a conta de gerenciamento nem service-linked roles. |
 | **Declarative policies** | Impõem configurações de serviços (ex.: bloquear acesso público a AMIs/snapshots). |
 | **Tag policies** | Padronizam tags. |
 | **Backup policies** | Planos do AWS Backup em todas as contas. |

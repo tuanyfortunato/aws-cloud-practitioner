@@ -8,7 +8,7 @@
 
 ## Comparação
 
-| | **WorkSpaces (Personal / Pools)** | **AppStream 2.0** | **WorkSpaces Secure Browser** (antigo WorkSpaces Web) |
+| | **WorkSpaces (Personal / Pools)** | **AppStream 2.0** | **WorkSpaces Secure Browser** (✔️ renomeado de WorkSpaces Web em maio/2024) |
 |---|---|---|---|
 | Entrega | **Desktop virtual completo** (DaaS) Windows, Linux ou Ubuntu | **Uma aplicação** de desktop transmitida para o navegador | **Navegador** isolado e gerenciado |
 | Persistência | Personal: desktop persistente por usuário; Pools: não persistente | Não persistente (pode salvar em S3/home folders) | Não persistente |
@@ -16,6 +16,7 @@
 | Cobrança | **Mensal** (AlwaysOn) ou **por hora** (AutoStop) | Por hora das instâncias da *fleet* (always-on, on-demand ou elastic) | Por usuário/mês |
 
 - 🔄 Os protocolos **PCoIP** e o **WorkSpaces Pools** estão em *sunset*; o WorkSpaces continua no escopo.
+- O protocolo de streaming **NICE DCV** agora se chama **Amazon DCV** (versão 2024.0) ✔️.
 - **WorkSpaces Thin Client:** dispositivo físico barato para acessar esses serviços.
 - Integração com Active Directory/Identity Center; dados ficam na AWS (não no dispositivo).
 
