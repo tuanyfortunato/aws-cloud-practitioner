@@ -38,6 +38,26 @@
 
 - "Coletar evidências continuamente para a auditoria da empresa." → Audit Manager.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Frameworks, assessments, controls e evidências |
+| **O que você decide/configura?** | Escopo de avaliação e responsáveis |
+| **Em que ordem as coisas acontecem?** | Coleta/organiza evidências e permite revisão humana |
+| **O que pode fazer, e em que condição?** | Ajuda preparação de auditoria conforme disponibilidade do serviço |
+| **O que não pode presumir?** | Não decide conformidade legal automaticamente; observe restrição a novos clientes indicada na ficha |
+
+**Caso comentado:** Evidência da conta do cliente difere de relatório da AWS: Audit Manager e Artifact têm papéis distintos.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html)

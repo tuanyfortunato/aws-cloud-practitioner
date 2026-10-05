@@ -63,6 +63,31 @@
 - "Como deixar times criarem só recursos aprovados pela empresa?" → AWS Service Catalog.
 - "Como compartilhar uma subnet com outra conta?" → AWS RAM.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Organizations agrupa contas em OUs; SCPs limitam permissões máximas das contas membro. Control Tower estabelece uma landing zone com controles e contas de governança.
+
+**Como escolher:** Separe organização de contas, controles comuns e compartilhamento de recursos. RAM compartilha tipos de recurso suportados; Service Catalog oferece produtos aprovados.
+
+**O que não concluir:** SCP não concede acesso e não é firewall. Faturamento consolidado não mistura dados das contas. Control Tower não elimina a administração e conformidade do cliente.
+
+### Exercício de decisão
+
+Uma empresa quer impedir determinada operação em contas de desenvolvimento. Basta anexar uma SCP com Allow?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. SCP define o teto; as identidades ainda precisam de permissões IAM. Uma restrição em nível organizacional pode impedir a operação mesmo com AdministratorAccess na conta membro.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

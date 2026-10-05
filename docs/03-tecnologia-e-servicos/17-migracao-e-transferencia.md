@@ -64,6 +64,31 @@ As ferramentas seguem a ordem de uma migração: avaliar, planejar e migrar.
 - "Transferir arquivos online de forma automatizada para o S3." → DataSync.
 - "Parceiros enviam arquivos via SFTP para o S3." → Transfer Family.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Descoberta identifica servidores/dependências; avaliação estima custo; migração replica dados ou servidores; teste valida o destino; cutover muda a operação para o destino.
+
+**Como escolher:** Servidor inteiro: Application Migration Service. Dados de banco: DMS. Conversão de esquema: SCT ou capacidade suportada de conversão. Dados de arquivos: ferramentas específicas conforme protocolo.
+
+**O que não concluir:** DMS não converte automaticamente toda lógica SQL. Replicação não dispensa rede, permissões, compatibilidade e teste. Serviço no escopo pode estar restrito a clientes existentes.
+
+### Exercício de decisão
+
+A origem é Oracle e o destino PostgreSQL. Copiar linhas com DMS basta para garantir funcionamento?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. Avalie conversão de esquema/código, tipos e recursos incompatíveis; DMS move dados nas condições suportadas. Valide a aplicação antes do cutover.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

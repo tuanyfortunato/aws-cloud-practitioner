@@ -74,6 +74,26 @@
 - "Como fazer HTTPS no LB com certificado gratuito?" → ACM no listener do ALB/NLB.
 - "Como garantir que o tráfego só vá para instâncias saudáveis?" → Health checks do ELB.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Load balancer, listeners, target groups, destinos e health checks |
+| **O que você decide/configura?** | Tipo, protocolo, portas, certificados e destinos |
+| **Em que ordem as coisas acontecem?** | Recebe conexão, aplica regra de listener e encaminha para destino saudável |
+| **O que pode fazer, e em que condição?** | ALB permite regras HTTP; NLB atende necessidades de transporte |
+| **O que não pode presumir?** | Não executa aplicação nem aumenta capacidade sozinho |
+
+**Caso comentado:** Dois caminhos de uma aplicação web vão para serviços diferentes: regras por caminho no ALB.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Elastic Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)

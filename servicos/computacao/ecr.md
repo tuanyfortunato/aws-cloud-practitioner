@@ -43,6 +43,26 @@
 - "Onde guardar imagens Docker privadas na AWS?" → ECR.
 - "Varrer imagens de contêiner em busca de vulnerabilidades." → ECR scanning / Amazon Inspector.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Repositório, imagens, tags/digests e políticas |
+| **O que você decide/configura?** | Acesso, retenção/lifecycle e opções de varredura |
+| **Em que ordem as coisas acontecem?** | Faça push da imagem e autorize o ambiente de execução a fazer pull |
+| **O que pode fazer, e em que condição?** | Distribui artefatos de container e pode integrar varredura |
+| **O que não pode presumir?** | Guardar imagem não inicia container; imagem pode conter bibliotecas vulneráveis |
+
+**Caso comentado:** Versionar imagem de API: ECR; iniciar API: serviço de execução, como ECS.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html)

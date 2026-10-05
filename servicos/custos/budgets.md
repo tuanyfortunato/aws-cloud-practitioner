@@ -50,6 +50,26 @@
 - "Parar instâncias automaticamente se o orçamento estourar." → Budget Actions.
 - "Alerta quando as RIs forem subutilizadas." → Reservation budget.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Orçamento, thresholds, notificações e actions opcionais |
+| **O que você decide/configura?** | Valor/meta, período, destinatários e permissões de ação |
+| **Em que ordem as coisas acontecem?** | Compara consumo/previsão com meta e notifica ou aplica ação configurada |
+| **O que pode fazer, e em que condição?** | Ajuda acompanhamento e resposta a custos/uso |
+| **O que não pode presumir?** | Não garante teto rígido da conta: atualização e ações têm latência e alcance limitado |
+
+**Caso comentado:** Alertar em 80% do orçamento: Budgets; desligar qualquer recurso não é comportamento automático universal.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html)

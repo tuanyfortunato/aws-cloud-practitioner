@@ -57,6 +57,26 @@
 - "Instância está minerando criptomoeda." → GuardDuty.
 - "Responder automaticamente a um achado." → GuardDuty → EventBridge → Lambda.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Detector, fontes de dados/proteções e findings |
+| **O que você decide/configura?** | Região, contas, proteções e destinatários de achados |
+| **Em que ordem as coisas acontecem?** | Analisa sinais e gera findings; resposta é operada ou automatizada à parte |
+| **O que pode fazer, e em que condição?** | Identifica comportamento potencialmente malicioso |
+| **O que não pode presumir?** | Detectar não garante bloquear ou corrigir sozinho |
+
+**Caso comentado:** Credenciais usadas de forma suspeita: GuardDuty; pacote com CVE: Inspector.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)

@@ -68,6 +68,31 @@ Seis pilares, cada um com princípios de design. A prova descreve uma prática e
 - "Qual pilar foi o último adicionado e trata de impacto ambiental?" → Sustentabilidade.
 - "Qual ferramenta revisa uma carga de trabalho contra os pilares?" → AWS Well-Architected Tool.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** A revisão avalia uma carga nos seis pilares; a Well-Architected Tool registra respostas, riscos e melhorias. Ela ajuda a revisar decisões, sem implantar a arquitetura por você.
+
+**Como escolher:** Operação e aprendizado: Excelência Operacional. Identidade e proteção: Segurança. Falhas e recuperação: Confiabilidade. Recursos adequados: Performance. Gasto: Custos. Impacto ambiental: Sustentabilidade.
+
+**O que não concluir:** Uma prática pode ajudar vários pilares. Escolha o pilar pelo objetivo expresso no enunciado; Graviton não significa automaticamente que a pergunta é sobre sustentabilidade.
+
+### Exercício de decisão
+
+Uma equipe automatiza procedimentos e revê incidentes para melhorar sua operação. Qual pilar é o principal?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Excelência Operacional. Se o objetivo destacado fosse recuperar a carga após falhas, o foco seria Confiabilidade.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

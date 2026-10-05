@@ -85,6 +85,31 @@
 - "Data warehouse para relatórios de BI sobre petabytes." → Redshift.
 - "Quais motores o RDS suporta?" → MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Relacionais organizam tabelas e relações; NoSQL atende modelos como chave-valor/documentos; cache guarda dados de acesso rápido; warehouse prioriza análises agregadas.
+
+**Como escolher:** RDS/Aurora para relacional; DynamoDB para chave-valor/documentos; ElastiCache para cache; DocumentDB para documentos compatíveis; Neptune para grafos; Redshift para analytics.
+
+**O que não concluir:** Gerenciado não elimina desenho de esquema, índices e consultas. Compatibilidade não significa identidade completa de APIs. Cache não deve ser confundido automaticamente com banco principal durável.
+
+### Exercício de decisão
+
+Um sistema transacional usa SQL e quer tolerar falha de AZ; outro faz relatórios agregados de grandes conjuntos. Mesmo banco por palavra-chave SQL?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. RDS/Aurora atendem o transacional; Redshift atende o warehouse. O padrão de uso pesa mais que a presença de SQL.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

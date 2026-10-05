@@ -56,6 +56,31 @@
 - "API GraphQL gerenciada com dados em tempo real." → AppSync.
 - "Conectar milhões de sensores à nuvem." → IoT Core.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Connect organiza atendimento; SES envia e-mails; WorkSpaces entrega desktops; AppStream entrega aplicações por streaming; Secure Browser entrega navegação isolada; IoT Core conecta dispositivos.
+
+**Como escolher:** Diferencie aplicação corporativa pronta, capacidade para executar servidor e conexão de dispositivo. Amplify ajuda a construir e implantar aplicações web/mobile.
+
+**O que não concluir:** SES não é uma caixa de e-mail de uso pessoal. Desktop remoto não é um servidor EC2 de back-end. IoT Core não instala sensores nem resolve a conectividade física do dispositivo.
+
+### Exercício de decisão
+
+Funcionários precisam de desktop completo, e clientes precisam receber confirmação por e-mail. Quais serviços?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+WorkSpaces para os desktops; SES para o envio de e-mail pela aplicação. São necessidades independentes.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

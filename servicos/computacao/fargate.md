@@ -46,7 +46,7 @@
 ## ⚠️ Pegadinhas e não confundir
 
 - Fargate **não é orquestrador**: é usado **com** ECS ou EKS.
-- Fargate × Lambda: contêiner sem limite de tempo × função até 15 min.
+- Fargate × Lambda: contêiner sem limite de tempo × função Lambda convencional até 15 min por invocação; workflows e outras modalidades têm modelos próprios.
 - Fargate × EC2 launch type: menos controle (sem GPU, sem acesso ao host) e menos operação.
 
 ## ❓ Perguntas típicas
@@ -54,6 +54,26 @@
 - "Rodar contêineres sem gerenciar instâncias." → Fargate (com ECS ou EKS).
 - "Processar arquivo por 2 horas sem gerenciar servidores." → Fargate (ou AWS Batch).
 - "Como o Fargate é cobrado?" → Por vCPU e memória alocadas, por segundo.
+
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Tasks ECS ou workloads EKS compatíveis e interfaces de rede |
+| **O que você decide/configura?** | Recursos de CPU/memória suportados, imagem, roles e rede |
+| **Em que ordem as coisas acontecem?** | Orquestrador solicita capacidade; Fargate executa container sem você manter o host |
+| **O que pode fazer, e em que condição?** | Reduz administração dos servidores de containers |
+| **O que não pode presumir?** | Não armazena imagens nem substitui ECS/EKS; aplicações ainda exigem segurança e dados persistentes adequados |
+
+**Caso comentado:** Container de worker: ECR guarda imagem, ECS organiza, Fargate executa.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
 
 ## 🔗 Documentação oficial
 

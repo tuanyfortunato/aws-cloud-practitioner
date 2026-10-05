@@ -77,6 +77,26 @@
 - "Substituir automaticamente instâncias com falha." → ASG com health checks.
 - "O Auto Scaling tem custo?" → Não; paga-se só os recursos.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Grupo, launch template, mínimo, máximo, capacidade desejada e políticas |
+| **O que você decide/configura?** | Número de instâncias e critérios de saúde/escala |
+| **Em que ordem as coisas acontecem?** | O grupo compara saúde e demanda com a configuração e ajusta instâncias |
+| **O que pode fazer, e em que condição?** | Pode recuperar capacidade e distribuir instâncias entre AZs configuradas |
+| **O que não pode presumir?** | Não remove gargalos de aplicação/banco nem copia arquivos locais entre instâncias |
+
+**Caso comentado:** Pico previsível: política agendada; demanda variável: política dinâmica com métrica adequada.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)

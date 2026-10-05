@@ -45,6 +45,26 @@
 - "Processar milhares de jobs em lote com a capacidade ideal." → AWS Batch.
 - "Reduzir o custo de jobs em lote tolerantes a interrupção." → Batch com instâncias Spot.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Job definition, job queue, compute environment e jobs |
+| **O que você decide/configura?** | Container/comando, recursos, prioridade, tentativas e capacidade |
+| **Em que ordem as coisas acontecem?** | Envie job para fila; Batch agenda em capacidade compatível |
+| **O que pode fazer, e em que condição?** | Organiza processamento em lotes e dependências entre jobs |
+| **O que não pode presumir?** | Não é serviço de resposta HTTP contínua nem fornece computação gratuita |
+
+**Caso comentado:** Processar simulações independentes: jobs Batch, com resultados persistidos fora da execução efêmera.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html)

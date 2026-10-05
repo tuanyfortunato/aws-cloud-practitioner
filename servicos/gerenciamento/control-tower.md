@@ -39,6 +39,26 @@
 - "Criar rapidamente um ambiente multi-conta seguro com guardrails." → Control Tower.
 - "Criar novas contas já seguindo o padrão da empresa." → Account Factory.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Landing zone, contas compartilhadas, OUs e controls |
+| **O que você decide/configura?** | Contas/regiões governadas e controles |
+| **Em que ordem as coisas acontecem?** | Estabeleça baseline e acompanhe conformidade dos ambientes inscritos |
+| **O que pode fazer, e em que condição?** | Automatiza partes da configuração de governança multi-conta |
+| **O que não pode presumir?** | Não substitui Organizations nem toda política específica da empresa |
+
+**Caso comentado:** Criar base padronizada para novas contas: Control Tower, com responsabilidades de governança continuadas.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html)

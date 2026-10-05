@@ -31,6 +31,26 @@
 
 - "Investigar a causa raiz de um achado de segurança." → Detective.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Behavior graph e investigação de entidades/eventos |
+| **O que você decide/configura?** | Conta, região, fontes e acesso |
+| **Em que ordem as coisas acontecem?** | Agrega contexto para explorar relações em atividade suspeita |
+| **O que pode fazer, e em que condição?** | Ajuda investigação após sinais ou achados |
+| **O que não pode presumir?** | Não é firewall ou substituto automático da detecção/remediação |
+
+**Caso comentado:** Após finding GuardDuty, investigar contexto: Detective; bloquear requer ação apropriada.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Amazon Detective](https://docs.aws.amazon.com/detective/latest/userguide/what-is-detective.html)

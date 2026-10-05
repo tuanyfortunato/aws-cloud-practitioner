@@ -2,7 +2,7 @@
 
 > **Categoria:** Computação serverless · **Domínio:** 1 (serverless) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
-> **Em uma frase:** executa seu código em resposta a eventos, sem servidores, cobrando só pelo tempo de execução.
+> **Em uma frase:** executa código em resposta a eventos sem você administrar servidores; o modelo base cobra requisições e duração.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
@@ -12,7 +12,7 @@
 > 💡 **Analogia:** é como uma **tomada de código**: você pluga a função, ela roda só quando acontece um evento e você paga pelos milissegundos de uso.
 
 - ✅ **Escolha quando:** tarefas **curtas (até 15 minutos)** disparadas por eventos: arquivo chegando no S3, requisição de API, mensagem na fila, horário agendado.
-- 🚫 **Não é a resposta quando:** a tarefa **passa de 15 minutos** → [Fargate](fargate.md) ou [Batch](batch.md); precisa de **controle do sistema operacional** → [EC2](ec2.md).
+- 🚫 **Não é a resposta quando:** uma **única invocação convencional precisa passar de 15 minutos** → [Fargate](fargate.md) ou [Batch](batch.md); precisa de **controle do sistema operacional** → [EC2](ec2.md).
 - 🎯 **Palavras do enunciado que apontam para ele:** "sem servidores" (serverless), "em resposta a eventos", "pagar só quando executa", "processar o arquivo assim que chega ao S3".
 <!-- didatico:fim -->
 
@@ -76,23 +76,44 @@
 
 ## ⚠️ Pegadinhas e não confundir
 
-- ⚠️ **> 15 minutos** → não é Lambda (use Fargate, Batch, EC2 ou Step Functions dividindo em etapas).
+- ⚠️ **Uma invocação convencional > 15 minutos** não é suportada. Considere Fargate/Batch/EC2 ou dividir o fluxo. Durable Functions e Lambda MicroVMs têm modelos próprios; não confunda duração total do workflow com uma invocação convencional.
 - ⚠️ Não existe "configurar vCPU" no Lambda: aumente a **memória**.
-- Lambda × Fargate: função por evento (até 15 min) × contêiner serverless sem limite de duração.
+- Lambda × Fargate: função convencional por evento (até 15 min por invocação) × contêiner serverless sem limite de duração.
 - Lambda é "serverless/FaaS"; o guia o classifica também como PaaS.
 
 ## ❓ Perguntas típicas
 
 - "Executar código sem servidores, em resposta a eventos." → Lambda.
-- "Tempo máximo de execução?" → 15 minutos.
-- "Como o Lambda é cobrado?" → Por requisições e duração (GB-s); nada quando não executa.
+- "Tempo máximo de uma invocação convencional?" → 15 minutos.
+- "Como o Lambda é cobrado?" → No modelo base, requisições e duração (GB-s); concorrência provisionada, snapshots e outros extras podem cobrar sem invocação.
 - "Gerar miniatura quando uma imagem chega ao S3." → Notificação de evento do S3 → Lambda.
 - "Eliminar cold start em função crítica." → Concorrência provisionada.
 - "Dar acesso da função ao DynamoDB." → Execution role.
 - "Tarefa todo dia às 2h sem servidor." → EventBridge Scheduler + Lambda.
+
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Função convencional, código, runtime, execution role, trigger e logs |
+| **O que você decide/configura?** | Memória, timeout, concorrência, VPC e tratamento de falha |
+| **Em que ordem as coisas acontecem?** | Evento invoca a função; código usa permissões da role e devolve ou grava resultado |
+| **O que pode fazer, e em que condição?** | Executa lógica sem administrar hosts; memória/código local não são armazenamento durável garantido |
+| **O que não pode presumir?** | Limite de quinze minutos é por invocação convencional; recursos como MicroVMs e Durable Functions têm modelos próprios |
+
+**Caso comentado:** Miniatura após upload: evento S3 invoca função que precisa de leitura/gravação e logs autorizados.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
 
 ## 🔗 Documentação oficial
 
 - [Guia do desenvolvedor do Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
 - [Quotas do Lambda](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
 - [Preços](https://aws.amazon.com/lambda/pricing/)
+- [Durable Functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)

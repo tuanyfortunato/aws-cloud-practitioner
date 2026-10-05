@@ -57,6 +57,31 @@
 - "Qual tarefa NÃO exige o root?" → Criar usuários IAM, ver a fatura (com permissão) ou lançar instâncias.
 - "O que fazer logo após criar a conta?" → Proteger o root com MFA e criar identidades administrativas para o dia a dia.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Root representa a identidade principal da conta, com permissões que exigem proteção especial. MFA adiciona verificação; identidades federadas e roles servem ao trabalho cotidiano.
+
+**Como escolher:** Use root apenas para tarefas que a documentação exige. Diferencie conta standalone de conta membro sob gerenciamento centralizado de root no Organizations.
+
+**O que não concluir:** Uma política AdministratorAccess não transforma um usuário IAM em root. Evite decorar uma lista antiga de tarefas exclusivas; consulte a lista oficial, porque ela muda.
+
+### Exercício de decisão
+
+Uma pessoa administradora precisa alterar uma configuração comum. Deve entrar com root só porque é administradora?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. Use uma identidade com a permissão necessária; confirme root apenas quando a tarefa estiver na lista oficial de exigências.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

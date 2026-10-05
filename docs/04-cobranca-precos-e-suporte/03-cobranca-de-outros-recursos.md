@@ -54,6 +54,31 @@
 - "Qual serviço não tem custo próprio?" → IAM, CloudFormation, Elastic Beanstalk, Auto Scaling, Organizations.
 - "O que é o Free Tier?" → Uso gratuito limitado para experimentar serviços (sempre gratuito, por período ou testes; contas novas usam modelo de créditos).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Volume provisionado, cópias, requests e transferência geram consumo mesmo quando a aplicação principal está parada. Armazenamento arquivado pode ter permanência mínima e custo de recuperação.
+
+**Como escolher:** Revise computação, armazenamento, rede, observabilidade e compromissos separadamente. Compare entrada/saída, entre AZs e entre regiões; consulte exceções por serviço.
+
+**O que não concluir:** Não use regras absolutas como toda transferência interna é gratuita ou parar tudo zera a conta. Free Tier depende de conta, oferta, limites e modalidade atual.
+
+### Exercício de decisão
+
+Uma equipe apaga EC2, mas mantém snapshots e objetos S3. Esses dados deixam de ser cobrados?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. São recursos independentes que persistem e continuam sujeitos a cobrança. Excluir a computação não exclui necessariamente cópias e dados.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

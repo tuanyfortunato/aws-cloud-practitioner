@@ -49,6 +49,26 @@ EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3, DocumentDB, Neptune, Redshift, St
 - "Impedir que backups sejam apagados, nem pelo administrador." → Backup Vault Lock.
 - "Aplicar a mesma política de backup em todas as contas." → Backup policies no Organizations.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Planos, seleções de recursos, vaults e recovery points |
+| **O que você decide/configura?** | Agenda, retenção, cópias, permissões e recursos elegíveis |
+| **Em que ordem as coisas acontecem?** | Associe recursos ao plano, acompanhe jobs e teste restauração |
+| **O que pode fazer, e em que condição?** | Centraliza políticas de backup para serviços suportados |
+| **O que não pode presumir?** | Não inclui automaticamente todo recurso e não substitui disponibilidade ou teste de recuperação |
+
+**Caso comentado:** Políticas comuns de retenção entre serviços: AWS Backup, com seleção e proteção configuradas.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html)

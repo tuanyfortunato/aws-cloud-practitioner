@@ -50,6 +50,31 @@
 - "Os dados podem sair da região sem ação do cliente?" → Não; o cliente escolhe a região e controla onde os dados ficam.
 - "Usar um serviço certificado garante que a aplicação está em conformidade?" → Não; o cliente também precisa configurar e operar de forma conforme (responsabilidade compartilhada).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Artifact disponibiliza documentos de conformidade da AWS. Config registra configuração e avalia regras. Evidências do ambiente do cliente ajudam uma auditoria, mas exigem interpretação.
+
+**Como escolher:** Relatório da infraestrutura AWS: Artifact. Histórico e avaliação de recurso: Config. Regras do setor e localização dos dados: avalie regiões, serviços e suas obrigações.
+
+**O que não concluir:** A certificação da AWS não certifica automaticamente a aplicação do cliente. Uma regra conforme no Config não prova que todos os requisitos legais foram atendidos.
+
+### Exercício de decisão
+
+Um auditor pede o relatório de conformidade da AWS, não o histórico do banco da empresa. Qual recurso?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+AWS Artifact. CloudTrail registra atividades da conta; Config registra configurações. Eles não substituem o documento solicitado.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

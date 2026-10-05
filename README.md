@@ -1,11 +1,13 @@
 # ☁️ Estudos para a AWS Certified Cloud Practitioner (CLF-C02)
 
 Material **gratuito e em português** para quem quer tirar a certificação **AWS Certified Cloud Practitioner**.
-Aqui você encontra todo o conteúdo da prova organizado por tópico, uma ficha para cada serviço AWS, flashcards,
+Aqui você encontra os quatro domínios da prova organizados por tópico, fichas dos serviços e famílias, flashcards,
 questões no formato da prova com gabarito comentado e resumos para a revisão final.
 
-> ✔️ Conteúdo conferido em **fontes oficiais da AWS em outubro de 2026**, incluindo as mudanças recentes que já
-> caem na prova. Não precisa abrir nenhuma pasta: **todos os links estão nesta página**.
+📘 [Comece pelo roteiro para estudar sem console](docs/00-guia-do-exame/estudar-sem-console.md) · [Auditoria de cobertura](docs/00-guia-do-exame/auditoria-conteudo-2026-10.md)
+
+> ✔️ Material revisado com **fontes oficiais da AWS em outubro de 2026**. Consulte a
+> [auditoria de cobertura e seus limites](docs/00-guia-do-exame/auditoria-conteudo-2026-10.md). Não precisa abrir nenhuma pasta: **todos os links estão nesta página**.
 
 **Nesta página:**
 [1. A prova em 1 minuto](#1-a-prova-em-1-minuto) ·
@@ -42,7 +44,7 @@ questões no formato da prova com gabarito comentado e resumos para a revisão f
 
 > ⚠️ **Antes de estudar, leia isto.** A AWS atualiza o conteúdo da prova **sem mudar o código CLF-C02**, e várias
 > respostas que aparecem em materiais antigos estão desatualizadas. As principais:
-> - Os **planos de suporte** cobrados agora são **Basic, Business Support+, Enterprise e Unified Operations**.
+> - **Planos de suporte:** o guia consultado ainda cita Developer, Business e Enterprise On-Ramp; a página comercial apresenta planos novos. Estude as duas tabelas com contexto, sem supor substituição automática na prova.
 > - **Alterar o nome da conta** e **mudar o plano de suporte** **não** exigem mais o usuário root.
 > - Vários serviços **saíram** da lista da prova (ex.: AWS IQ, CloudShell, CodeDeploy, família Snow).
 >
@@ -82,10 +84,12 @@ questões no formato da prova com gabarito comentado e resumos para a revisão f
 | **4. Treine com questões** | Ao fim de cada domínio, faça as questões dele. No fim, faça o simulado completo em 90 minutos | [Questões por domínio](simulados/questoes/README.md) · [Simulado 01](simulados/simulado-01.md) |
 | **5. Revise os erros** (última semana) | Anote o que errou, releia os tópicos fracos e os resumos de revisão | [Erros recorrentes](simulados/erros-recorrentes.md) · [Revisão final](#6-revisão-final) |
 
-> 🎯 **Meta:** acertar **80% ou mais** no simulado antes de agendar a prova (a nota mínima é cerca de 70%).
+> 🎯 **Meta:** acertar **80% ou mais** no simulado antes de agendar a prova (meta editorial de treino; 700 é uma nota escalonada e não equivale diretamente a 70% de acertos).
 
 <details>
 <summary><b>Como ler um tópico e uma ficha</b> (clique para ver)</summary>
+
+Todos os 41 tópicos têm um aprofundamento com exercício comentado; as 105 fichas têm um mapa de recursos, configurações, fluxo e limites.
 
 **Cada tópico** (ex.: [2.3 IAM](docs/02-seguranca-e-conformidade/03-iam.md)) tem:
 - **🧠 Antes de começar:** a ideia em palavras simples, uma analogia, o checklist do que saber, as palavras novas
@@ -196,7 +200,7 @@ Cada ficha explica um serviço do jeito que a prova cobra: o que é, para que se
 | [Amazon EC2](servicos/computacao/ec2.md) | Servidores virtuais sob demanda, com controle total do sistema operacional (IaaS). | ✅ |
 | [Amazon EC2 Auto Scaling](servicos/computacao/ec2-auto-scaling.md) | Aumenta e reduz automaticamente o número de instâncias EC2 conforme a demanda e substitui as que falham. | ✅ |
 | [Elastic Load Balancing](servicos/computacao/elastic-load-balancing.md) | Distribui automaticamente o tráfego entre destinos saudáveis (EC2, contêineres, IPs, Lambda) em várias AZs. | ✅ |
-| [AWS Lambda](servicos/computacao/lambda.md) | Executa seu código em resposta a eventos, sem servidores, cobrando só pelo tempo de execução. | ✅ |
+| [AWS Lambda](servicos/computacao/lambda.md) | Executa código em resposta a eventos sem você administrar servidores; o modelo base cobra requisições e duração. | ✅ |
 | [Amazon ECS](servicos/computacao/ecs.md) | Orquestrador de contêineres próprio da AWS, totalmente gerenciado e integrado aos demais serviços. | ✅ |
 | [Amazon EKS](servicos/computacao/eks.md) | Kubernetes gerenciado — a AWS opera o plano de controle e você roda seus pods. | ✅ |
 | [AWS Fargate](servicos/computacao/fargate.md) | Motor serverless que executa contêineres do ECS ou EKS sem você provisionar ou gerenciar servidores. | ✅ |
@@ -256,7 +260,7 @@ Cada ficha explica um serviço do jeito que a prova cobra: o que é, para que se
 | [AWS Directory Service](servicos/seguranca/directory-service.md) | Microsoft Active Directory gerenciado na AWS, ou ponte para o AD on-premises. | ✅ |
 | [AWS KMS](servicos/seguranca/kms.md) | Cria e controla chaves de criptografia integradas a mais de 100 serviços AWS, com auditoria de cada uso. | ✅ |
 | [AWS CloudHSM](servicos/seguranca/cloudhsm.md) | HSM (hardware security module) **dedicado e exclusivo** na nuvem, em que só você controla as chaves. | ✅ |
-| [AWS Certificate Manager](servicos/seguranca/certificate-manager.md) | Emite, gerencia e **renova automaticamente** certificados SSL/TLS — os públicos são gratuitos. | ✅ |
+| [AWS Certificate Manager](servicos/seguranca/certificate-manager.md) | Emite e gerencia certificados SSL/TLS, com renovação para certificados elegíveis; públicos não exportáveis em serviços integrados são gratuitos. | ✅ |
 | [AWS Secrets Manager e Systems Manager Parameter Store](servicos/seguranca/secrets-manager-e-parameter-store.md) | Guardam segredos e configurações fora do código, criptografados com KMS — o Secrets Manager também os **rotaciona automaticamente**. | ✅ |
 | [AWS Shield](servicos/seguranca/shield.md) | Proteção gerenciada contra ataques de negação de serviço distribuída (DDoS). | ✅ |
 | [AWS WAF](servicos/seguranca/waf.md) | Firewall de **camada 7** que filtra requisições HTTP(S) maliciosas antes que cheguem à aplicação. | ✅ |
@@ -444,6 +448,7 @@ python3 scripts/verificar_links.py # confere se todos os links internos funciona
 |---|---|
 | [scripts/gerar_docs.py](scripts/gerar_docs.py) | Gera os tópicos a partir de `fontes/`, aplica `CORRECOES` e `AVISOS`, mantém `FICHAS` e `ESCOPO` |
 | [scripts/extras_pesquisa.py](scripts/extras_pesquisa.py) | Inseriu os complementos da pesquisa nos tópicos (uso único) |
+| [scripts/aprofundamento.py](scripts/aprofundamento.py) | Conteúdo dos 41 exercícios e das 105 fichas práticas; o gerador valida cobertura e atualiza os blocos |
 | [scripts/banco_questoes.py](scripts/banco_questoes.py) | Banco das 65 questões (enunciado, alternativas e explicação) |
 | [scripts/gerar_simulado.py](scripts/gerar_simulado.py) | Gera o simulado e as questões por domínio |
 | [scripts/verificar_links.py](scripts/verificar_links.py) | Verificador de links internos |
@@ -451,7 +456,7 @@ python3 scripts/verificar_links.py # confere se todos os links internos funciona
 
 **Dicas de uso:**
 - Anotações pessoais vão na seção *📝 Minhas anotações* de cada tópico; ela é preservada ao regenerar.
-- Novo serviço: copie o modelo de ficha para `servicos/<categoria>/` e registre-o em `FICHAS` e `ESCOPO`.
+- Novo serviço: copie o modelo de ficha para `servicos/<categoria>/` e registre-o em `FICHAS`, `ESCOPO` e `scripts/aprofundamento.py` (registro `FICHAS`).
 - Nunca faça commit de credenciais AWS (chaves de acesso, `.pem`, IDs de conta).
 
 **Estrutura de pastas:**

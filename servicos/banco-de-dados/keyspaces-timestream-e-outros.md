@@ -45,6 +45,26 @@
 - "Guardar leituras de sensores IoT ao longo do tempo." → Timestream.
 - "Migrar Cassandra sem gerenciar servidores." → Keyspaces.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Bancos especializados por API/modelo, como Cassandra e séries temporais |
+| **O que você decide/configura?** | Tipo de dado, API compatível e oferta disponível |
+| **Em que ordem as coisas acontecem?** | Escolha banco pelo modelo de acesso antes de migrar dados |
+| **O que pode fazer, e em que condição?** | Serviços especializados podem reduzir gestão de infraestrutura |
+| **O que não pode presumir?** | Keyspaces está fora do escopo; Timestream não citado não deve ser tratado como exclusão formal |
+
+**Caso comentado:** Dados de sensores com tempo como dimensão pedem modelo temporal; popularidade não substitui requisito.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Bancos de dados na AWS](https://aws.amazon.com/products/databases/)

@@ -53,6 +53,26 @@
 - "Aplicar as mesmas regras de WAF em todas as contas." → Firewall Manager.
 - "Inspecionar e filtrar todo o tráfego que entra na VPC (IPS)." → Network Firewall.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Políticas centralizadas do Firewall Manager; endpoints/regras de Network Firewall |
+| **O que você decide/configura?** | Escopo de contas/recursos e regras |
+| **Em que ordem as coisas acontecem?** | Defina políticas comuns e aplique a recursos elegíveis com pré-requisitos |
+| **O que pode fazer, e em que condição?** | Firewall Manager reduz repetição de administração entre contas |
+| **O que não pode presumir?** | Não são o mesmo produto; Network Firewall está fora do escopo consultado |
+
+**Caso comentado:** Mesma política WAF em várias contas: Firewall Manager, com Organizations e configuração necessária.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html) · [Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)

@@ -36,6 +36,26 @@
 
 - "Encontrar dados pessoais em buckets S3." → Macie.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Inventário de buckets, jobs, identificadores e findings |
+| **O que você decide/configura?** | Buckets, escopo, formatos e identificadores suportados |
+| **Em que ordem as coisas acontecem?** | Inspeciona dados elegíveis no S3 e reporta dados sensíveis/postura |
+| **O que pode fazer, e em que condição?** | Pode encontrar padrões de informação pessoal ou segredos |
+| **O que não pode presumir?** | Não varre genericamente RDS/EBS e não apaga conteúdo sensível sozinho |
+
+**Caso comentado:** Encontrar dados pessoais em documentos S3: Macie; confirme elegibilidade do formato e permissões.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Amazon Macie](https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html)

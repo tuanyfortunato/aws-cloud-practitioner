@@ -59,6 +59,31 @@
 - "Ao trocar EC2 por Lambda, o que muda?" → A responsabilidade do cliente diminui (SO e runtime passam para a AWS).
 - "Quem é responsável pela segurança dos dados no S3?" → O cliente (políticas, acesso e criptografia).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Na EC2, a AWS mantém infraestrutura e hipervisor, e o cliente mantém SO e aplicação. No RDS, a AWS também administra SO e tarefas do banco. Em Lambda, o cliente mantém código, bibliotecas e permissões.
+
+**Como escolher:** Pergunte qual camada o serviço gerencia e qual decisão o cliente continua tomando. Dados, acesso e uso adequado permanecem responsabilidades do cliente.
+
+**O que não concluir:** Gerenciado não significa segurança automática da aplicação. Em RDS, o cliente ainda decide acesso, parâmetros aplicáveis, retenção e proteção dos dados.
+
+### Exercício de decisão
+
+Quem corrige uma biblioteca vulnerável empacotada na função Lambda?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+O cliente. O gerenciamento da infraestrutura e do runtime gerenciado pela AWS não corrige automaticamente as dependências incluídas no pacote do cliente.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

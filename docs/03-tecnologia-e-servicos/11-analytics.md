@@ -57,6 +57,31 @@
 - "Criar dashboards interativos de BI." → QuickSight.
 - "Busca de texto e análise de logs." → OpenSearch Service.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Dados entram por fontes/streams; Glue cataloga e transforma; Athena consulta; Redshift organiza análise em warehouse; Quick Sight apresenta resultados; OpenSearch pesquisa documentos/logs.
+
+**Como escolher:** Observe o verbo: consultar SQL no S3, transformar, processar fluxo, executar Spark, pesquisar ou visualizar. Cada verbo aponta para uma etapa distinta.
+
+**O que não concluir:** Dashboard não coleta automaticamente todo dado. Catálogo guarda metadados, não copia necessariamente o conteúdo. Streaming e ETL não são sinônimos.
+
+### Exercício de decisão
+
+Arquivos de vendas já estão no S3 e você quer uma consulta SQL eventual, sem manter cluster. Qual serviço?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Athena. Glue Data Catalog pode descrever tabelas; Quick Sight visualiza resultados. EMR faz sentido quando o requisito é processamento com frameworks como Spark.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

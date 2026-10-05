@@ -18,7 +18,7 @@
 
 - [ ] Diferenciar **ECS** (nativo da AWS) de **EKS** (Kubernetes).
 - [ ] Saber que o **Fargate** roda contêineres **sem servidores** e o **ECR** guarda as imagens.
-- [ ] Lembrar que o **Lambda** roda por **até 15 minutos**, é disparado por eventos e cobra por requisição e duração.
+- [ ] Lembrar que a **função Lambda convencional** roda por **até 15 minutos por invocação**, é disparado por eventos e cobra por requisição e duração.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -55,11 +55,36 @@
 
 - "Qual serviço executa código sem servidores, em resposta a eventos?" → Lambda.
 - "Qual é o tempo máximo de execução do Lambda?" → 15 minutos.
-- "Como o Lambda é cobrado?" → Por requisição e por duração; nada quando não executa.
+- "Como o Lambda é cobrado?" → No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação.
 - "Rodar containers sem gerenciar instâncias." → Fargate (com ECS ou EKS).
 - "Empresa já usa Kubernetes on-premises e quer migrar." → EKS.
 - "Onde guardar imagens Docker privadas?" → ECR.
 - "Qual serviço orquestra containers e é nativo da AWS?" → ECS.
+
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** ECR armazena imagens; ECS/EKS organizam execução; Fargate fornece capacidade sem administrar hosts. Uma função Lambda executa código em resposta a uma invocação.
+
+**Como escolher:** Kubernetes necessário: EKS. Orquestração AWS: ECS. Containers sem hosts: Fargate. Função convencional por evento: Lambda. Separe orquestrador, imagem e capacidade.
+
+**O que não concluir:** Serverless significa servidores administrados pelo provedor. A função convencional tem limite de execução por invocação; não generalize esse limite a todo recurso novo do Lambda.
+
+### Exercício de decisão
+
+Você guardou uma imagem no ECR. Sua API já está rodando?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não: ECR é registro. É preciso executar a imagem em capacidade adequada, como ECS com Fargate, configurar rede, acesso e exposição da API.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

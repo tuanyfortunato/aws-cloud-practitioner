@@ -47,6 +47,26 @@
 - "API GraphQL gerenciada com dados em tempo real." → AppSync.
 - "Testar o app em vários modelos de celular reais." → Device Farm.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Aplicação/hosting/build do Amplify e API GraphQL do AppSync |
+| **O que você decide/configura?** | Código, domínio, autenticação e integrações |
+| **Em que ordem as coisas acontecem?** | Implante front-end e conecte back-end conforme configuração |
+| **O que pode fazer, e em que condição?** | Amplify facilita construir/implantar web/mobile; AppSync oferece API GraphQL |
+| **O que não pode presumir?** | Hosting não escreve regra de negócio; AppSync não aparece na lista consultada |
+
+**Caso comentado:** Publicar front-end com integração AWS: Amplify; requisito específico GraphQL: entender AppSync como complemento.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Amplify](https://docs.amplify.aws/) · [AppSync](https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html) · [Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html)

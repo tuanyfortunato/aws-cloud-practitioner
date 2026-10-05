@@ -13,6 +13,7 @@ import os
 import re
 
 from didatica_docs import DOMINIOS as DIDATICA_DOMINIOS, TOPICOS as DIDATICA_TOPICOS
+from aprofundamento import TOPICOS as APROFUNDAMENTOS, FICHAS as FICHAS_PRATICAS, bloco_topico, bloco_ficha
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GUIA = os.path.join(RAIZ, "fontes", "guia-completo-clf-c02.md")
@@ -163,12 +164,16 @@ AVISOS = {
     "3.15": "No escopo só ficaram **AWS CLI, CodeBuild, CodePipeline e X-Ray**. CodeDeploy, CodeArtifact e CloudShell estão **fora do escopo**; Cloud9, CodeCommit e CodeStar não aparecem.",
     "3.17": "**Migration Hub** e **Application Discovery Service** continuam no escopo, mas estão fechados a novos clientes desde 07/11/2025. **Transfer Family** está **fora do escopo**; Snow e DataSync não aparecem.",
     "3.18": "Vários serviços desta seção estão **fora do escopo** oficial (MSK, AppFlow, Data Exchange, Keyspaces, MemoryDB, Personalize, Device Farm, Network Firewall, AWS IQ). Use-os para reconhecer distratores.",
-    "4.5": "O exam guide atual (task 4.3) cobra os **planos novos: Basic, Business Support+, Enterprise e Unified Operations**. O conteúdo abaixo descreve o modelo clássico (válido até 01/01/2027). Estude primeiro a tabela de planos novos na seção de atualizações e na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md).",
+    "4.5": "A task 4.3 consultada cita **Developer, Business, Enterprise On-Ramp e Enterprise**; a página comercial apresenta **Business Support+, Enterprise e Unified Operations**. Estude os dois modelos, distinguindo contexto do guia e oferta comercial. Veja a [auditoria](../00-guia-do-exame/auditoria-conteudo-2026-10.md) e a [ficha de suporte](../../servicos/custos/planos-de-suporte.md).",
     "4.6": "**AWS IQ**, **AWS Activate** e **AWS Managed Services** estão **fora do escopo** oficial. A task 4.3 cita: Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center e re:Post.",
 }
 # Correções aplicadas ao texto de fontes/guia-completo-clf-c02.md na geração (o arquivo-fonte não é
 # editado). Baseadas nas verificações oficiais de 04/10/2026. Cada trecho precisa existir na fonte.
 CORRECOES = [
+    ("Por requisição e por duração; nada quando não executa.",
+     "No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação."),
+    ("| Plano | Preço de referência | Canais | Tempos de resposta | Destaques |",
+     "| Plano (modelo clássico; preços históricos, não cotação atual) | Preço mínimo histórico | Canais de suporte técnico | Tempo de primeira resposta | Recursos principais |"),
     ("Objeto de até **5 TB** (upload multipart para arquivos grandes).",
      "Objeto de até **50 TB** (🔄 desde 02/12/2025; antes 5 TB) — upload multipart para arquivos grandes."),
     ("- **Trusted Advisor por plano de suporte:** Basic e Developer só têm as verificações principais de segurança e de cotas; **Business, Enterprise On-Ramp e Enterprise têm todas as verificações** e acesso via API.",
@@ -182,7 +187,7 @@ CORRECOES = [
     ("| AWS Billing Conductor | Faturamento personalizado |",
      "| AWS Billing Conductor (❌ fora do escopo) | Faturamento personalizado |"),
     ('- **Cai na prova:** "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business;',
-     '- **Cai na prova:** 🔄 *modelo atual:* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business;'),
+     '- **Cai na prova:** 🔄 *oferta comercial atual (sem confirmação de substituição no banco da prova):* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business;'),
     ('- "Qual o plano mais barato com suporte técnico 24/7 por telefone?" → Business.',
      '- "Qual o plano mais barato com suporte técnico 24/7 por telefone?" → Business Support+ (no modelo clássico, Business).'),
     ('- "Qual o plano mais barato com todas as verificações do Trusted Advisor?" → Business.',
@@ -375,6 +380,7 @@ def gerar_topicos(secoes):
     ordem = sorted(secoes, key=lambda s: tuple(int(x) for x in s.split(".")))
     sem_didatica = set(ordem) ^ set(DIDATICA_TOPICOS)
     assert not sem_didatica, f"Tópicos sem (ou sobrando) em didatica_docs.TOPICOS: {sorted(sem_didatica)}"
+    assert set(ordem) == set(APROFUNDAMENTOS), "Cobertura do aprofundamento de tópicos incompleta"
     for i, sec in enumerate(ordem):
         titulo, corpo = secoes[sec]
         dom = sec.split(".")[0]
@@ -424,6 +430,8 @@ def gerar_topicos(secoes):
 ## 📖 Conteúdo
 
 {corpo}
+
+{bloco_topico(sec)}
 
 {extra}
 
@@ -604,7 +612,7 @@ ESCOPO = {
     "datasync-e-transfer-family": "🔀 DataSync ⚪ não listado · Transfer Family ❌ fora do escopo",
     "cost-explorer": "✅ No escopo", "budgets": "✅ No escopo",
     "pricing-calculator-cur-e-outras-ferramentas": "✅ No escopo (Billing Conductor ❌ fora do escopo)",
-    "planos-de-suporte": "✅ No escopo (AWS Support — task 4.3 cobra os planos novos)",
+    "planos-de-suporte": "✅ No escopo (AWS Support — distinguir exemplos do guia e oferta comercial atual)",
     "midia-e-jogos": "❌ Fora do escopo — documentado só para referência",
     "iot-robotica-e-satelite": "❌ Fora do escopo — documentado só para referência",
     "desenvolvimento-e-aplicacoes": "❌ Fora do escopo — documentado só para referência",
@@ -628,6 +636,20 @@ def aplicar_escopo_fichas():
         texto = re.sub(r"(> \*\*Em uma frase:\*\*[^\n]*)", lambda m: m.group(1) + linha, texto, count=1)
         with open(caminho, "w") as f:
             f.write(texto)
+
+
+def aplicar_fichas_praticas():
+    """Atualiza apenas o bloco próprio, preservando o texto e as anotações existentes."""
+    assert set(CATEGORIA) == set(FICHAS_PRATICAS), "Cobertura das fichas práticas incompleta"
+    marcador = re.compile(r"<!-- aprofundamento:inicio -->.*?<!-- aprofundamento:fim -->\n*", re.S)
+    for nome, cat in CATEGORIA.items():
+        caminho = os.path.join(RAIZ, "servicos", cat, nome + ".md")
+        with open(caminho) as f:
+            texto = marcador.sub("", f.read())
+        ancora = "## 🔗 Documentação oficial"
+        assert texto.count(ancora) == 1, f"Âncora da documentação ausente/duplicada: {caminho}"
+        texto = texto.replace(ancora, bloco_ficha(nome) + "\n" + ancora, 1)
+        escrever(caminho, texto)
 
 NOMES_CATEGORIA = {
     "computacao": "🖥️ Computação",
@@ -784,6 +806,7 @@ def main():
     total = gerar_flashcards(secoes, ordem)
     gerar_resumos(extras)
     aplicar_escopo_fichas()
+    aplicar_fichas_praticas()
     fichas = gerar_indice_servicos()
     gerar_indice_readme(secoes, ordem, total)
     print(f"{len(ordem)} tópicos, {total} flashcards e índice de {fichas} fichas gerados.")

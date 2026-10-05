@@ -43,6 +43,26 @@
 - "Levantar servidores e dependências antes de migrar." → Application Discovery Service.
 - "Acompanhar todas as migrações num painel central." → Migration Hub.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Inventário/dependências, avaliações e acompanhamento de migração |
+| **O que você decide/configura?** | Fontes, acesso e disponibilidade de cada produto |
+| **Em que ordem as coisas acontecem?** | Descubra o que existe, estime cenário e acompanhe progresso |
+| **O que pode fazer, e em que condição?** | Apoia planejamento e visibilidade |
+| **O que não pode presumir?** | Planejar/acompanhamento não move toda carga; produtos podem estar fechados a novos clientes |
+
+**Caso comentado:** Mapear dependências antes de mover servidores: Discovery; custo do cenário: Evaluator.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Migration Evaluator](https://aws.amazon.com/migration-evaluator/) · [Application Discovery Service](https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html) · [Migration Hub](https://docs.aws.amazon.com/migrationhub/latest/ug/whatishub.html)

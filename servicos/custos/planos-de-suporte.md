@@ -4,7 +4,7 @@
 >
 > **Em uma frase:** níveis de suporte técnico da AWS — quanto mais alto, mais rápido o atendimento e mais acompanhamento proativo.
 >
-> **Escopo oficial:** ✅ No escopo (AWS Support — task 4.3 cobra os planos novos) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
+> **Escopo oficial:** ✅ No escopo (AWS Support — distinguir exemplos do guia e oferta comercial atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 > Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
 
@@ -18,7 +18,9 @@
 - 🎯 **Palavras do enunciado que apontam para ele:** "plano pago de entrada, 30 min" → Business Support+; "TAM designado, 15 min" → Enterprise; "5 min" → Unified Operations.
 <!-- didatico:fim -->
 
-## 📌 Planos atuais (o que o exam guide cobra — task 4.3)
+> **Divergência entre fontes:** a [task 4.3 consultada](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html) ainda cita Developer, Business e Enterprise On-Ramp. A página comercial mostra os planos abaixo. Não há aqui evidência para afirmar que todos os exemplos da prova foram substituídos. [Ver auditoria](../../docs/00-guia-do-exame/auditoria-conteudo-2026-10.md).
+
+## 📌 Planos comerciais atuais (distinguir dos exemplos do guia)
 
 > ✔️ Comparação completa verificada em 04/10/2026 nas páginas [plans](https://aws.amazon.com/premiumsupport/plans/) e [pricing](https://aws.amazon.com/premiumsupport/pricing/).
 
@@ -88,6 +90,26 @@ Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em quest�
 - (Clássico) "Pool de TAMs e 30 min." → Enterprise On-Ramp.
 - (Clássico) "Ambiente de testes, ajuda ocasional por e-mail em horário comercial." → Developer.
 - "Quem pode mudar o plano de suporte?" → Não é mais exclusivo do root (lista oficial de 10/2026).
+
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Plano, Support Center, casos, severidade, canais e orientação |
+| **O que você decide/configura?** | Plano aplicável, impacto real e informações do caso |
+| **Em que ordem as coisas acontecem?** | Abra caso elegível; suporte dá resposta inicial e acompanha investigação |
+| **O que pode fazer, e em que condição?** | Oferece assistência conforme cobertura e termos |
+| **O que não pode presumir?** | Primeira resposta não é resolução; guia da prova e página comercial citam modelos diferentes |
+
+**Caso comentado:** Aprenda ambos: Business clássico não se confunde com Business Support+; escolha pelo nome/contexto do enunciado.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
 
 ## 🔗 Documentação oficial
 

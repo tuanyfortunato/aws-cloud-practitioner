@@ -63,6 +63,31 @@
 - "Comprar software de terceiros pago na fatura AWS." → AWS Marketplace.
 - "Onde ver recomendações de Savings Plans?" → Cost Explorer.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Calculator estima antes do uso; Cost Explorer investiga custo e consumo; Budgets acompanha limites e previsão; CUR/Data Exports fornece registros detalhados para análise.
+
+**Como escolher:** Antes de implantar: Calculator. Onde gastou: Explorer. Avisar quando ultrapassar meta: Budgets. Dados detalhados: exportação. Tags de custo precisam ser ativadas conforme sua categoria.
+
+**O que não concluir:** Budgets não é um teto rígido de cobrança. Atualização de dados e ações têm latência. Colocar tag num recurso não a torna automaticamente coluna ativa dos relatórios de custo.
+
+### Exercício de decisão
+
+A empresa quer avisar ao atingir 80% do orçamento e explicar quais serviços gastaram mais. Qual combinação?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Budgets para alerta e Cost Explorer para análise. Calculator projeta uma solução; não substitui os gastos já registrados.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

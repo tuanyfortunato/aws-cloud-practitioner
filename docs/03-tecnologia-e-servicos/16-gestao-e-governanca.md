@@ -75,6 +75,31 @@
 - "Controlar quantas licenças de SQL Server estão em uso." → License Manager.
 - "Recomendar o tamanho ideal das instâncias com base no uso." → Compute Optimizer.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** CloudFormation cria stacks; Systems Manager opera recursos gerenciados; Config avalia configuração; CloudWatch observa operação; Trusted Advisor recomenda; Health informa eventos AWS.
+
+**Como escolher:** Para criar: IaC. Para executar comandos/patches: Systems Manager. Para comparar regras: Config. Para recomendações de tamanho: Compute Optimizer. Para quota: Service Quotas.
+
+**O que não concluir:** Uma recomendação não altera o recurso automaticamente. Aumentar quota não é garantia de capacidade física disponível. Agentes, roles, suporte e integração variam por ferramenta.
+
+### Exercício de decisão
+
+Você quer aplicar patches em vários servidores e consultar limites da conta. Qual ferramenta para cada tarefa?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Systems Manager Patch Manager para a operação de patch, com pré-requisitos atendidos; Service Quotas para limites e solicitações de aumento.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

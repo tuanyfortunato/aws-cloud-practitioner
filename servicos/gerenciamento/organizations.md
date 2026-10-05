@@ -70,6 +70,26 @@ Root
 - "Desconto por volume somando várias contas." → Consolidated billing.
 - "Fatura única para 20 contas." → Organizations.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Organização, management account, member accounts, OUs e policies |
+| **O que você decide/configura?** | Estrutura, controles e compartilhamento de benefícios de cobrança |
+| **Em que ordem as coisas acontecem?** | Organize contas e aplique políticas aos escopos apropriados |
+| **O que pode fazer, e em que condição?** | Oferece governança e faturamento consolidado |
+| **O que não pode presumir?** | SCP não concede permissão; dados e redes das contas não se fundem |
+
+**Caso comentado:** Limitar serviços nas contas membro: SCP junto com permissões IAM necessárias.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)

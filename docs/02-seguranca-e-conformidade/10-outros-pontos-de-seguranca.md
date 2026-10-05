@@ -45,6 +45,31 @@
 - "Onde encontrar boletins e boas práticas de segurança?" → AWS Security Center, Security Blog e Knowledge Center.
 - "Onde comprar ferramentas de segurança de terceiros?" → AWS Marketplace.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Documentação, Security Blog e Knowledge Center explicam práticas e problemas; Marketplace oferece soluções de terceiros; Trust and Safety recebe denúncias de abuso.
+
+**Como escolher:** Diferencie proteção da sua carga, suporte técnico e denúncia de atividade abusiva em recursos AWS. As ferramentas cumprem papéis complementares.
+
+**O que não concluir:** Comprar um produto de segurança não transfere todas as obrigações ao fornecedor. Testes de segurança devem observar a política AWS e a titularidade dos recursos.
+
+### Exercício de decisão
+
+Uma empresa recebe tráfego abusivo de um recurso AWS de outra conta. Deve tentar alterar esse recurso com IAM?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. Pode denunciar ao Trust and Safety com evidências. Suas permissões IAM administram recursos autorizados, não os de terceiros.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

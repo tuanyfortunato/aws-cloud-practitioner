@@ -74,6 +74,26 @@
 - "Muitas conexões curtas de Lambda sobrecarregam o banco." → RDS Proxy.
 - "Quem aplica patch no motor do RDS?" → AWS.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | DB instance/cluster, engine, endpoint, subnet group, SG e backups |
+| **O que você decide/configura?** | Motor, tamanho, armazenamento, acesso, backup e disponibilidade |
+| **Em que ordem as coisas acontecem?** | Provisione banco e conecte aplicação ao endpoint autorizado |
+| **O que pode fazer, e em que condição?** | Administra SO e tarefas comuns; cliente administra esquema, consultas e acesso |
+| **O que não pode presumir?** | RDS convencional não entrega acesso root irrestrito ao host; Multi-AZ DB instance standby não atende leituras |
+
+**Caso comentado:** Alta disponibilidade: Multi-AZ; aliviar consultas: read replicas compatíveis, distinguindo modalidades de cluster.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)

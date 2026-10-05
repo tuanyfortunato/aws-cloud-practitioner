@@ -3,26 +3,18 @@
 > Verificado em fontes oficiais da AWS em **04/10/2026** ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
 > Pesquisa original: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md).
 
-## 🧭 Em resumo
+## Como interpretar mudanças
 
-> 💡 **Em palavras simples:** a AWS muda serviços, preços e limites o tempo todo, mas as questões da prova demoram a
-> acompanhar. Esta página mostra, para cada mudança, o **valor antigo**, o **valor atual** e **o que marcar na prova**.
+A oferta comercial e o conteúdo publicado da prova podem apresentar exemplos diferentes.
+A consulta desta revisão encontrou **Developer, Business, Enterprise On-Ramp e Enterprise** na
+[task 4.3](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html),
+enquanto a [página comercial](https://aws.amazon.com/premiumsupport/plans/) apresenta os planos novos.
+Estude ambos com seus nomes e condições. Um lançamento não comprova a data de atualização das questões.
 
-- 🎯 **Regra prática:** se só um dos valores aparece nas alternativas, marque esse; se os dois aparecem, prefira o **atual**.
-- ⭐ **A mudança mais importante:** os **planos de suporte** (o guia atual cobra os planos novos).
-
-## A regra mudou: o exam guide foi atualizado
-
-O código continua **CLF-C02**, mas o conteúdo do guia foi atualizado sem troca de código. A consequência mais
-importante:
-
-- ✅ **Planos de suporte:** a task 4.3 do guia atual cita **Basic, AWS Business Support+, AWS Enterprise Support e
-  AWS Unified Operations**. Estude os **planos novos** primeiro. Os planos clássicos (Developer, Business,
-  Enterprise On-Ramp) valem até 01/01/2027 e ainda podem aparecer em questões antigas do banco.
-- ✅ **Nomes:** o guia usa **Amazon Quick Sight** e **Amazon SageMaker AI**.
-- ✅ **Lista de serviços:** vários serviços saíram ou foram declarados fora do escopo — ver [escopo oficial](escopo-oficial.md).
-- ⚠️ **Números que mudaram** (S3 50 TB, SQS 1 MiB): o guia não cita esses valores. Regra prática: marque o valor
-  que existir entre as alternativas; se as duas versões aparecerem, prefira o valor atual.
+Números como S3 50 TB e SQS 1 MiB precisam do contexto: tamanho de objeto não é limite de um PUT simples
+ou upload pelo console. Não escolha uma resposta apenas porque contém o número mais recente.
+As listas de serviços são não exaustivas; ausência não equivale a exclusão formal.
+Veja a [auditoria](auditoria-conteudo-2026-10.md) e o [roteiro sem console](estudar-sem-console.md).
 
 ## Tabela de mudanças
 

@@ -52,6 +52,31 @@
 - "Qual prática ajusta recursos ao uso real?" → Rightsizing.
 - "Por que serviços gerenciados reduzem o TCO?" → Diminuem o trabalho operacional (patches, backups, hardware).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** TCO inclui equipamento, energia, espaço, pessoal, licenças e operação. Rightsizing ajusta capacidade ao uso observado; automação reduz tarefas repetitivas.
+
+**Como escolher:** Compare custo total e requisitos, não apenas preço de uma instância. BYOL reaproveita licenças elegíveis; licença incluída simplifica aquisição conforme o serviço e o produto.
+
+**O que não concluir:** License Manager não concede licença comercial. Desconto por compromisso pode gerar desperdício se a carga desaparecer. Estimativas dependem das premissas informadas.
+
+### Exercício de decisão
+
+Uma instância está superdimensionada e a equipe quer economizar. Comprar compromisso primeiro resolve?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Primeiro avalie rightsizing e demanda. Comprometer um valor acima da necessidade pode prender a empresa a gasto desnecessário; compromisso vem depois de entender o consumo.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

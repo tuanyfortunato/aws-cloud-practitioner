@@ -46,6 +46,31 @@
 - "Site WordPress simples com preço mensal fixo." → Lightsail.
 - "Processar milhares de jobs em lote com a capacidade ideal." → AWS Batch.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Beanstalk implanta uma aplicação e gerencia recursos do ambiente; Lightsail simplifica infraestrutura em pacotes; Batch organiza trabalhos em filas; Outposts leva infraestrutura AWS ao local do cliente.
+
+**Como escolher:** Enviar aplicação web com menor esforço operacional: Beanstalk. Projeto simples com pacote: Lightsail. Lotes e jobs: Batch. Exigência local com serviços AWS compatíveis: Outposts.
+
+**O que não concluir:** Beanstalk não dispensa manutenção do código; Batch não é endpoint web interativo. Outposts ainda exige infraestrutura física e conectividade do cliente.
+
+### Exercício de decisão
+
+Uma equipe quer executar milhares de simulações independentes, que terminam após o trabalho. Qual serviço combina com isso?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+AWS Batch: filas, definições de jobs e ambientes de computação. Um balanceador distribui tráfego, mas não agenda essa carga de lotes.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

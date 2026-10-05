@@ -51,6 +51,31 @@
 - "Qual a vantagem de IaC?" → Repetibilidade, menos erro manual, versionamento e velocidade.
 - "Qual opção de conectividade passa pela internet pública com criptografia?" → Site-to-Site VPN.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Console fornece interface visual; CLI executa comandos; SDK integra APIs ao código. CloudFormation descreve recursos e suas dependências em templates e stacks.
+
+**Como escolher:** Operação pontual: console pode bastar. Automação repetida: CLI/SDK. Ambiente reproduzível: IaC. Híbrido mantém parte no ambiente próprio com conectividade apropriada.
+
+**O que não concluir:** Mudar de interface não amplia permissões. Templates não tornam recursos gratuitos. Scripts imperativos precisam lidar com erros e repetição; IaC registra o estado desejado.
+
+### Exercício de decisão
+
+A equipe recria o mesmo ambiente de teste toda semana. Qual abordagem reduz divergências?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+IaC com CloudFormation, em vez de repetir cliques manualmente. A stack usa permissões e gera custos dos recursos criados.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

@@ -54,6 +54,31 @@
 - "Executar uma tarefa todo dia às 2h sem servidor." → EventBridge Scheduler (disparando Lambda).
 - "Orquestrar um processo com várias etapas e tratamento de erro." → Step Functions.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** SQS mantém mensagens para consumidores; SNS publica para assinantes; EventBridge filtra e roteia eventos; Step Functions controla etapas, escolhas e retentativas do fluxo.
+
+**Como escolher:** Fila de trabalho: SQS. Aviso para vários destinos: SNS. Eventos com regras: EventBridge. Sequência com estado: Step Functions. As combinações podem ser necessárias.
+
+**O que não concluir:** Ler da fila não é o mesmo que excluir. Consumidores devem tratar repetição. SNS sozinho não dá a cada assinante uma fila persistente para consumo posterior.
+
+### Exercício de decisão
+
+Cada pedido precisa acionar faturamento e estoque, e cada equipe deve processar no próprio ritmo. Como combinar?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+SNS com uma fila SQS para cada consumidor permite fan-out e desacoplamento. Uma só fila com dois consumidores normalmente distribui trabalho entre eles, em vez de entregar uma cópia para cada equipe.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 
@@ -63,7 +88,7 @@
 
 | Item | Valor |
 |---|---|
-| Tamanho máximo de mensagem | 🔄 **1 MiB** desde 04/08/2025 (antes **256 KiB**) (✔️ confirmado) — marque o valor que existir nas alternativas |
+| Tamanho máximo de mensagem | 🔄 **1 MiB** desde 04/08/2025 (antes **256 KiB**) (✔️ confirmado) — escolha pelo contexto e pelas condições pedidas |
 | Retenção | padrão **4 dias**, mínimo 60 s, máximo **14 dias** |
 | Visibility timeout | padrão **30 s**, mínimo 0, máximo **12 h** |
 | Delay queue | até **15 min** |

@@ -63,6 +63,31 @@ Revise a função de cada serviço, porque a prova pede o serviço pelo caso de 
 - "Busca inteligente nos documentos internos da empresa." → Kendra.
 - "Assistente de IA generativa para funcionários e desenvolvedores." → Amazon Q.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Serviços prontos transformam entradas em resultados por API; SageMaker AI oferece recursos para preparar, treinar e servir modelos; Amazon Q entrega assistência conforme a variante.
+
+**Como escolher:** Texto para voz: Polly. Voz para texto: Transcribe. Texto e sentimento: Comprehend. Documento e campos: Textract. Imagens: Rekognition. Conversação: Lex. Modelo próprio: SageMaker AI.
+
+**O que não concluir:** IA não garante resposta correta nem autorização para todo dado. Idioma, formato e região precisam ser suportados. Bedrock não citado na lista não implica automaticamente exclusão formal.
+
+### Exercício de decisão
+
+Um formulário escaneado tem tabelas e campos que precisam ser extraídos. Basta usar Comprehend?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Textract atende a extração documental; Comprehend pode analisar o texto depois. Escolha pelo tipo de entrada e pelo resultado esperado.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

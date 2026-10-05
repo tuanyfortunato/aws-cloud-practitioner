@@ -35,6 +35,26 @@
 
 - "Enviar e-mails de confirmação e marketing em massa." → SES.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Identidades verificadas, envio SMTP/API e eventos |
+| **O que você decide/configura?** | Domínio/remetente, acesso, limites e saída do sandbox |
+| **Em que ordem as coisas acontecem?** | Aplicação envia mensagem; serviço reporta entrega/bounce conforme configuração |
+| **O que pode fazer, e em que condição?** | Envia e-mails transacionais e de campanha nas condições da oferta |
+| **O que não pode presumir?** | Sandbox restringe envio; verificar domínio não garante entrega na caixa principal |
+
+**Caso comentado:** Confirmação de compra por e-mail: SES; caixa de entrada pessoal não é o objetivo principal.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/Welcome.html)

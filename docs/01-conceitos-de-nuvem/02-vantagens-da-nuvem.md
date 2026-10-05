@@ -48,6 +48,31 @@
 - "Uma startup quer abrir operação em outro continente em um dia." → Tornar-se global em minutos.
 - "Qual vantagem libera o time para focar no produto em vez de racks e energia?" → Parar de gastar mantendo datacenters.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Capacidade é disponibilizada conforme a demanda, em vez de ser comprada para um pico futuro. A escala da AWS permite compartilhar infraestrutura entre clientes com isolamento.
+
+**Como escolher:** Identifique o problema: capital antecipado, preço por volume, previsão de capacidade, demora de implantação, manutenção de datacenter ou alcance geográfico.
+
+**O que não concluir:** A nuvem oferece meios de economizar; recursos ociosos, tráfego e configurações inadequadas ainda geram despesas. Agilidade não é sinônimo de menor preço.
+
+### Exercício de decisão
+
+Uma loja mantém servidores para a Black Friday que ficam ociosos o resto do ano. Qual vantagem resolve isso?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Deixar de adivinhar capacidade, combinado com elasticidade: aumentar no pico e reduzir depois. Comprar uma máquina maior permanentemente continua deixando capacidade ociosa.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

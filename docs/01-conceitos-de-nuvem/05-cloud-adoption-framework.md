@@ -60,6 +60,31 @@ Guia para organizar a transformação digital de uma empresa na AWS.
 - "Quais são as fases da jornada de transformação?" → Envision, Align, Launch e Scale.
 - "Qual é um benefício do CAF?" → Reduzir risco de negócio, melhorar ESG, aumentar receita ou eficiência operacional.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** O CAF organiza capacidades da empresa nas perspectivas Business, People, Governance, Platform, Security e Operations. Envision define resultados; Align identifica lacunas; Launch testa iniciativas; Scale amplia o que funciona.
+
+**Como escolher:** Use quem é responsável e qual mudança é necessária: treinamento e cultura pertencem a People; decisões sobre investimento e risco, a Governance; infraestrutura e padrões técnicos, a Platform.
+
+**O que não concluir:** CAF não é um serviço que migra servidores nem substitui uma revisão técnica do Well-Architected. Adoção inclui organização, habilidades e processos.
+
+### Exercício de decisão
+
+A infraestrutura já funciona, mas faltam habilidades e adaptação de funções na equipe. Qual perspectiva precisa de atenção?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+People. Escolher Platform só porque o projeto usa AWS ignora que o impedimento é organizacional.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

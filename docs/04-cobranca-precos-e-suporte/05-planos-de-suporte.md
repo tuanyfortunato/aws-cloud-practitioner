@@ -4,7 +4,7 @@
 
 > 🔎 **Fichas detalhadas:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
 
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** O exam guide atual (task 4.3) cobra os **planos novos: Basic, Business Support+, Enterprise e Unified Operations**. O conteúdo abaixo descreve o modelo clássico (válido até 01/01/2027). Estude primeiro a tabela de planos novos na seção de atualizações e na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md). [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** A task 4.3 consultada cita **Developer, Business, Enterprise On-Ramp e Enterprise**; a página comercial apresenta **Business Support+, Enterprise e Unified Operations**. Estude os dois modelos, distinguindo contexto do guia e oferta comercial. Veja a [auditoria](../00-guia-do-exame/auditoria-conteudo-2026-10.md) e a [ficha de suporte](../../servicos/custos/planos-de-suporte.md). [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
 
 ⬅️ [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) · 🏠 [Índice do domínio](README.md) · [4.6 Outros recursos de ajuda](06-outros-recursos-de-ajuda.md) ➡️
 
@@ -30,11 +30,11 @@
 | **Concierge** | time de especialistas em faturamento e conta. |
 | **Caso crítico** | sistema crítico de negócio fora do ar. |
 
-> 🎯 **Como não errar na prova:** Estude **primeiro os planos novos** (veja o aviso no topo). "TAM designado + 15 min" → **Enterprise**. "5 min" → **Unified Operations**. "Plano pago de entrada, 30 min" → **Business Support+**.
+> 🎯 **Como não errar na prova:** Distinga os exemplos clássicos do guia da oferta comercial atual (veja o aviso no topo). "TAM designado + 15 min" → **Enterprise**. "5 min" → **Unified Operations**. "Plano pago de entrada, 30 min" → **Business Support+**.
 
 ## 📖 Conteúdo
 
-| Plano | Preço de referência | Canais | Tempos de resposta | Destaques |
+| Plano (modelo clássico; preços históricos, não cotação atual) | Preço mínimo histórico | Canais de suporte técnico | Tempo de primeira resposta | Recursos principais |
 | --- | --- | --- | --- | --- |
 | Basic | Gratuito | Atendimento ao cliente 24/7 só para conta e faturamento | Sem suporte técnico | Documentação, whitepapers, re:Post, Health Dashboard, verificações principais do Trusted Advisor |
 | Developer | A partir de US$ 29/mês | E-mail em horário comercial | Orientação geral: menos de 24 h úteis; sistema prejudicado: menos de 12 h úteis | Para testes e desenvolvimento; orientação de arquitetura geral |
@@ -45,7 +45,7 @@
 - **TAM (Technical Account Manager):** consultor técnico que acompanha a conta de forma proativa. Dedicado só no Enterprise; compartilhado (pool) no Enterprise On-Ramp.
 - **Concierge Support Team:** especialistas em faturamento e gestão de conta (Enterprise On-Ramp e Enterprise).
 - **Infrastructure Event Management (IEM):** apoio da AWS para planejar eventos de grande escala (lançamentos, Black Friday).
-- **Cai na prova:** 🔄 *modelo atual:* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business; "TAM dedicado" = Enterprise; "resposta em 15 minutos" = Enterprise; "só precisa de ajuda com a fatura" = Basic (atendimento ao cliente é grátis). Preços e tempos mudam com frequência: confira a página oficial de planos antes da prova.
+- **Cai na prova:** 🔄 *oferta comercial atual (sem confirmação de substituição no banco da prova):* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business; "TAM dedicado" = Enterprise; "resposta em 15 minutos" = Enterprise; "só precisa de ajuda com a fatura" = Basic (atendimento ao cliente é grátis). Preços e tempos mudam com frequência: confira a página oficial de planos antes da prova.
 
 ## ❓ Perguntas típicas
 
@@ -62,8 +62,33 @@
 - "Quem ajuda com dúvidas de faturamento em planos Enterprise?" → Concierge Support Team.
 - "Quem pode mudar o plano de suporte?" → 🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Support Center organiza casos de suporte; planos determinam canais, recursos e objetivos de resposta. TAM oferece orientação técnica proativa; cobrança/conta é uma necessidade distinta de incidente técnico.
+
+**Como escolher:** Leia o nome e o contexto: o guia consultado cita modelos clássicos; a página comercial oferece planos novos. Preserve as duas tabelas com fonte e data, sem tratar lançamento comercial como confirmação de questão.
+
+**O que não concluir:** Tempo de primeira resposta não é prazo de resolução nem SLA da aplicação. Basic não inclui atendimento técnico individual como os planos pagos.
+
+### Exercício de decisão
+
+Um plano promete primeira resposta para incidente crítico em quinze minutos. Isso garante que a aplicação será restaurada nesse prazo?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. O objetivo se refere ao contato inicial do suporte, sujeito aos termos; restaurar depende do diagnóstico, contexto e ações necessárias.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
-## 🔄 Planos novos (o que o exam guide atual cobra)
+## 🔄 Planos comerciais novos (distinguir dos exemplos do guia)
 
 > Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)). Comparação completa na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
 

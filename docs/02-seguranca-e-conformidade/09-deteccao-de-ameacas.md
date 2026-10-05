@@ -58,6 +58,31 @@
 - "Qual plano de suporte libera todas as verificações do Trusted Advisor?" → Business Support+ ou superior (no modelo clássico, Business).
 - "Qual verificação de segurança o Trusted Advisor faz?" → Buckets S3 públicos, MFA no root, portas abertas em security groups.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** GuardDuty detecta ameaças; Inspector avalia vulnerabilidades em recursos suportados; Macie descobre dados sensíveis em S3; Security Hub agrega e prioriza achados e postura.
+
+**Como escolher:** Identifique a pergunta: comportamento suspeito, software vulnerável, conteúdo sensível ou visão centralizada. Detective ajuda a investigar contexto.
+
+**O que não concluir:** Um achado não corrige a aplicação sozinho. Resposta automática requer integração e permissões. Macie não é varredura genérica de todos os bancos e discos.
+
+### Exercício de decisão
+
+Há preocupação com credenciais expostas em objetos S3 e com biblioteca vulnerável em EC2. Qual serviço para cada parte?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Macie para descoberta de dados sensíveis no S3; Inspector para vulnerabilidades em EC2 elegível. GuardDuty responde a outra pergunta: sinais de ameaça.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

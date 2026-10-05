@@ -84,6 +84,31 @@
 - "Funcionários usam o Active Directory da empresa e precisam acessar a AWS." → Federação (via Identity Center ou SAML) ou AWS Directory Service.
 - "Como acessar a AWS por linha de comando?" → AWS CLI com access keys (ou credenciais temporárias).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Autenticação confirma a identidade; autorização avalia a ação sobre o recurso. Policies definem permissões; roles fornecem sessões temporárias. Grupos agrupam usuários IAM, não roles.
+
+**Como escolher:** Funcionários em várias contas: IAM Identity Center. Aplicação na EC2: role. Clientes de um aplicativo: Cognito. API requer credenciais apropriadas, normalmente temporárias.
+
+**O que não concluir:** Um Allow pode ser limitado por boundary ou SCP, e um Deny explícito prevalece. MFA não concede autorização. Criar usuário não fornece acesso automaticamente.
+
+### Exercício de decisão
+
+Uma aplicação na EC2 precisa ler um bucket e não deve guardar chaves de longa duração. O que usar?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+IAM role associada à instância. A aplicação obtém credenciais temporárias; ainda é preciso permitir as operações no bucket e, se aplicável, na chave KMS.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

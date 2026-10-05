@@ -61,6 +61,31 @@
 - "O que significa RPO de 1 hora?" → Aceita-se perder no máximo 1 hora de dados.
 - "Aumentar o tamanho da instância é escala..." → Vertical. "Adicionar instâncias é..." → Horizontal.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Escala vertical aumenta uma máquina; horizontal adiciona máquinas. Filas desacoplam produtores e consumidores. Redundância reduz impacto de falhas; backups permitem voltar a uma cópia anterior.
+
+**Como escolher:** Separe três requisitos: crescer, continuar disponível e recuperar depois de um desastre. Para recuperação, RTO trata do tempo fora do ar; RPO trata da perda tolerável de dados.
+
+**O que não concluir:** Multi-AZ não recupera automaticamente uma exclusão lógica replicada. Backup não mantém, por si só, o sistema disponível durante a falha. Escalar não elimina gargalos de banco.
+
+### Exercício de decisão
+
+Uma empresa aceita ficar duas horas fora do ar e perder até dez minutos de dados. Quais objetivos deve registrar?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+RTO de duas horas e RPO de dez minutos. São metas diferentes: restaurar rapidamente uma cópia antiga pode cumprir o RTO e descumprir o RPO.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

@@ -79,6 +79,26 @@
 - "Firewall stateful no nível da instância." → Security group.
 - "Capturar o tráfego de rede da VPC para análise." → VPC Flow Logs.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | CIDR, subnets, rotas, gateways, endpoints, SGs e NACLs |
+| **O que você decide/configura?** | Faixas de IP, AZs, caminhos e controles de rede |
+| **Em que ordem as coisas acontecem?** | Crie rede e subnets; associe rotas e controles; conecte recursos |
+| **O que pode fazer, e em que condição?** | Isola logicamente a rede e permite conectividade pública/privada planejada |
+| **O que não pode presumir?** | SG aberto não cria rota; subnet pública não fornece endereço público automaticamente a toda carga |
+
+**Caso comentado:** EC2 pública IPv4 exige rota ao IGW, endereço apropriado, regras e aplicação escutando.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
