@@ -60,6 +60,26 @@
 - "O Elastic Beanstalk tem custo próprio?" → Não.
 - "Qual modelo de serviço o Beanstalk representa?" → PaaS.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Application, versions, environment e recursos provisionados |
+| **O que você decide/configura?** | Plataforma, versão de código, variáveis, escala e rede |
+| **Em que ordem as coisas acontecem?** | Envie versão; o ambiente implanta e acompanha recursos da aplicação |
+| **O que pode fazer, e em que condição?** | Simplifica deploy sem impedir acesso aos recursos subjacentes autorizados |
+| **O que não pode presumir?** | Aplicação, dependências e configurações continuam com o cliente; recursos usados são cobrados |
+
+**Caso comentado:** Enviar aplicação web e delegar provisionamento comum: Beanstalk, sem presumir custo zero.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)

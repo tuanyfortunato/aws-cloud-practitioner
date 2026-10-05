@@ -116,6 +116,26 @@
 - "Instâncias precisam de latência mínima entre si para HPC." → Placement group *cluster*.
 - "Licença Oracle cobrada por núcleo físico." → Dedicated Host.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Instância, AMI, tipo, subnet, security group, volume e role |
+| **O que você decide/configura?** | Sistema operacional, capacidade, rede e persistência |
+| **Em que ordem as coisas acontecem?** | Defina a configuração, inicie a máquina, conecte-se por método autorizado e opere a aplicação |
+| **O que pode fazer, e em que condição?** | Pode instalar software e administrar o SO; a aplicação usa role para APIs AWS |
+| **O que não pode presumir?** | EC2 encerrada não volta a iniciar; volumes preservados e compromissos podem continuar cobrados |
+
+**Caso comentado:** Servidor legado com controle de Linux: EC2; lembre que patch do SO é tarefa do cliente.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do usuário do EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)

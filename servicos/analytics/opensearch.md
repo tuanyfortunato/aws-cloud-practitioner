@@ -31,6 +31,26 @@
 - "Busca de texto completo no catálogo de produtos." → OpenSearch Service.
 - "Analisar e visualizar logs em tempo quase real." → OpenSearch (+ Dashboards).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Índices, documentos e domínios/collections conforme modalidade |
+| **O que você decide/configura?** | Ingestão, indexação, capacidade e acesso |
+| **Em que ordem as coisas acontecem?** | Dados são indexados para busca/agregação e exploração |
+| **O que pode fazer, e em que condição?** | Atende pesquisa e analytics de logs/documentos |
+| **O que não pode presumir?** | Não substitui automaticamente sistema transacional de registros |
+
+**Caso comentado:** Busca por texto em catálogo: OpenSearch; transações de compra: banco apropriado.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html)

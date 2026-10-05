@@ -40,6 +40,31 @@
 - "Qual é um princípio de preço da AWS?" → Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.
 - "Quais são os três principais geradores de custo?" → Computação, armazenamento e transferência de dados de saída.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** A cobrança combina unidades: tempo de computação, capacidade armazenada, requisições, processamento e transferência. Recursos relacionados podem ser cobrados separadamente.
+
+**Como escolher:** Pay-as-you-go dá flexibilidade; compromissos podem reduzir preço para consumo previsível; classes de armazenamento trocam custo por frequência e prazo de recuperação.
+
+**O que não concluir:** Grátis para um componente não significa solução inteira gratuita. Região, plataforma, volume e modalidade alteram preços; orçamento deve incluir dependências.
+
+### Exercício de decisão
+
+Uma função Lambda barata passa por NAT Gateway e grava logs. Só estimar a função basta?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. Inclua rede, logs e armazenamento conforme o uso. A cobrança acompanha os recursos utilizados, não apenas o serviço principal.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

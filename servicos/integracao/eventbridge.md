@@ -47,6 +47,26 @@
 - "Reagir a eventos de serviços AWS e de aplicações SaaS com regras." → EventBridge.
 - "Executar uma tarefa todo dia às 2h sem servidor." → EventBridge Scheduler + Lambda.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Event buses, rules, targets; Scheduler e Pipes conforme necessidade |
+| **O que você decide/configura?** | Padrão de evento, destinos, role e falhas |
+| **Em que ordem as coisas acontecem?** | Evento entra no bus, regra filtra e destino recebe |
+| **O que pode fazer, e em que condição?** | Integra eventos AWS, apps e fontes compatíveis |
+| **O que não pode presumir?** | Não executa lógica de negócio por si; evento exige consumidor/destino |
+
+**Caso comentado:** Mudança de estado dispara automação: regra EventBridge com destino autorizado.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html)

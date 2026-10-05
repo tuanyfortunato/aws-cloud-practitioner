@@ -65,6 +65,31 @@
 - "Qual opção de pagamento dá o maior desconto?" → All Upfront.
 - "Reservas compradas podem ser revendidas?" → Sim, RIs Standard no Reserved Instance Marketplace.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** On-Demand evita compromisso longo; Spot usa capacidade disponível com possibilidade de interrupção; RIs/Savings Plans reduzem preço mediante compromisso. Reserva de capacidade atende outro objetivo.
+
+**Como escolher:** Interrupção aceitável: Spot. Demanda incerta: On-Demand. Uso estável: avalie compromisso. Licença por hardware: Dedicated Host. Necessidade de capacidade em AZ: Capacity Reservation.
+
+**O que não concluir:** Savings Plans não reservam capacidade. RI regional e RI zonal têm comportamentos distintos. Terminar uma instância não cancela compromisso contratado.
+
+### Exercício de decisão
+
+A equipe precisa de capacidade garantida numa AZ amanhã. Um Compute Savings Plan sozinho resolve?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. Ele trata desconto por compromisso de gasto. Reserva de capacidade é o mecanismo adequado para a necessidade de capacidade, conforme elegibilidade e condições.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

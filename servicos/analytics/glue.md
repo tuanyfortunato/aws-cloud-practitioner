@@ -43,6 +43,26 @@
 - "Descobrir automaticamente o schema de arquivos no S3." → Glue crawler.
 - "Preparar dados visualmente sem código." → Glue DataBrew.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Data Catalog, crawlers, jobs e workflows |
+| **O que você decide/configura?** | Fonte, schema, script, role e capacidade |
+| **Em que ordem as coisas acontecem?** | Crawler descreve dados; job transforma; catálogo atende motores de consulta |
+| **O que pode fazer, e em que condição?** | Oferece integração e ETL gerenciado |
+| **O que não pode presumir?** | Catálogo não contém necessariamente os arquivos; crawler não faz sozinho a transformação de negócio |
+
+**Caso comentado:** Padronizar arquivos antes da análise: Glue job; consultar dados: Athena.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html)

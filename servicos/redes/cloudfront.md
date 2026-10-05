@@ -64,6 +64,26 @@
 - "Bloquear acesso de determinados países." → Geo restriction (ou WAF).
 - "Rodar código leve na borda para reescrever URLs." → CloudFront Functions.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Distribution, origins, behaviors, cache e políticas |
+| **O que você decide/configura?** | Origem, HTTPS, cache, acesso e caminhos |
+| **Em que ordem as coisas acontecem?** | Usuário acessa edge; cache responde ou busca a origem |
+| **O que pode fazer, e em que condição?** | Distribui conteúdo estático/dinâmico com mecanismos de cache |
+| **O que não pode presumir?** | Não substitui back-end; resposta pode permanecer em cache até atualização/invalidation; OAC não serve ao website endpoint S3 |
+
+**Caso comentado:** Conteúdo privado S3 com HTTPS: origem S3 apropriada e OAC, sem tornar bucket público.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)

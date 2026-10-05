@@ -97,6 +97,31 @@
 - "IPs estáticos globais e failover rápido entre regiões para TCP/UDP." → Global Accelerator.
 - "Criar e proteger uma API REST para funções Lambda." → API Gateway.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** VPC fornece rede lógica; subnets e tabelas de rota definem caminhos; gateways e endpoints conectam destinos; SG/NACL controlam tráfego. DNS encontra endereços, CDN entrega conteúdo.
+
+**Como escolher:** Route 53 para DNS; CloudFront para cache/distribuição; API Gateway para entrada de API; VPN para túnel; Direct Connect para conexão dedicada; PrivateLink para serviço privado suportado.
+
+**O que não concluir:** Subnet pública sozinha não torna EC2 acessível: precisa endereço adequado, rota, controles e aplicação. Direct Connect não cifra tudo por padrão; use criptografia quando requerida.
+
+### Exercício de decisão
+
+Uma instância privada precisa iniciar downloads na internet sem aceitar conexões iniciadas de fora. Qual componente típico?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+NAT Gateway para saída IPv4 com rotas adequadas. Internet Gateway sem endereço público e sem configurar o restante não resolve sozinho.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

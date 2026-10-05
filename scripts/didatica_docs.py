@@ -329,7 +329,7 @@ TOPICOS = {
                     "você); o **Lambda** é um **garçom que só aparece quando chamado** e cobra por minuto de atendimento.",
         "saber": ["Diferenciar **ECS** (nativo da AWS) de **EKS** (Kubernetes).",
                   "Saber que o **Fargate** roda contêineres **sem servidores** e o **ECR** guarda as imagens.",
-                  "Lembrar que o **Lambda** roda por **até 15 minutos**, é disparado por eventos e cobra por requisição e duração."],
+                  "Lembrar que a **função Lambda convencional** roda por **até 15 minutos por invocação**, é disparado por eventos e cobra por requisição e duração."],
         "termos": [("Contêiner", "pacote leve com a aplicação e suas dependências, que roda igual em qualquer lugar."),
                    ("Orquestrador", "sistema que decide onde e quantos contêineres rodam."),
                    ("Serverless", "você não gerencia servidores e paga só pelo uso.")],
@@ -602,7 +602,7 @@ TOPICOS = {
         "termos": [("TAM", "Technical Account Manager: consultor técnico que acompanha a conta."),
                    ("Concierge", "time de especialistas em faturamento e conta."),
                    ("Caso crítico", "sistema crítico de negócio fora do ar.")],
-        "dica": "Estude **primeiro os planos novos** (veja o aviso no topo). \"TAM designado + 15 min\" → **Enterprise**. \"5 min\" → "
+        "dica": "Distinga os exemplos clássicos do guia da oferta comercial atual (veja o aviso no topo). \"TAM designado + 15 min\" → **Enterprise**. \"5 min\" → "
                 "**Unified Operations**. \"Plano pago de entrada, 30 min\" → **Business Support+**.",
     },
     "4.6": {

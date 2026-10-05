@@ -43,6 +43,26 @@
 - "Active Directory gerenciado" → **Directory Service** (no escopo), não Cloud Directory.
 - "Analisar tráfego de rede" → **VPC Flow Logs**.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Descoberta de serviços, conectividade de aplicações e diretórios especializados |
+| **O que você decide/configura?** | Escopo de rede, identidade e serviço |
+| **Em que ordem as coisas acontecem?** | Use a ferramenta compatível com a necessidade específica |
+| **O que pode fazer, e em que condição?** | Complementam redes e serviços de diretório |
+| **O que não pode presumir?** | Fora do escopo; não são substitutos universais de VPC, DNS ou IAM |
+
+**Caso comentado:** DNS Route 53 e identidade IAM são conceitos centrais; ferramentas especializadas pedem contexto próprio.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Cloud Map](https://aws.amazon.com/cloud-map/) · [VPC Lattice](https://aws.amazon.com/vpc/lattice/) · [Network Access Analyzer](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/what-is-network-access-analyzer.html) · [Cloud Directory](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.html)

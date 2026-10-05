@@ -43,6 +43,26 @@
 - "Converter um banco Oracle para Aurora PostgreSQL." → SCT + DMS.
 - "Migrar MySQL on-premises para RDS MySQL." → DMS (homogênea, sem SCT).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Endpoints, tarefas de migração/replicação e conversão de esquema |
+| **O que você decide/configura?** | Origem/destino suportados, rede, full load/CDC e mapeamentos |
+| **Em que ordem as coisas acontecem?** | Prepare esquema, carregue dados e replique mudanças quando suportado |
+| **O que pode fazer, e em que condição?** | DMS transfere dados; SCT/conversão suportada ajuda schema/código |
+| **O que não pode presumir?** | Nem toda função/stored procedure é convertida; CDC exige pré-requisitos da origem |
+
+**Caso comentado:** Oracle para PostgreSQL: conversão e avaliação mais DMS, não promessa de compatibilidade total.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) · [AWS SCT](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html)

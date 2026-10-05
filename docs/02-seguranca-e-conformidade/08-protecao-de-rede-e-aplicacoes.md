@@ -56,6 +56,31 @@
 - "Em quais serviços o WAF pode ser usado?" → CloudFront, ALB, API Gateway, AppSync e Cognito.
 - "Como aplicar as mesmas regras de WAF em todas as contas?" → AWS Firewall Manager.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Security groups controlam tráfego em interfaces e mantêm estado; NACLs controlam tráfego de subnets e são sem estado. WAF avalia requisições web; Shield atua contra DDoS.
+
+**Como escolher:** Porta de acesso de uma EC2: SG. Regra de subnet com negação: NACL. SQL injection em HTTP: WAF. Proteção distribuída contra negação de serviço: Shield.
+
+**O que não concluir:** Uma rota não concede permissão IAM; SG não examina SQL injection. Regras de retorno precisam ser consideradas em NACLs. Associar WAF exige recurso suportado.
+
+### Exercício de decisão
+
+Uma API recebe requisições com padrões de SQL injection. Abrir ou fechar a porta 443 no SG trata o padrão malicioso?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. WAF avalia a requisição HTTP; SG só decide o tráfego de rede permitido. Fechar 443 bloquearia também os usuários legítimos.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

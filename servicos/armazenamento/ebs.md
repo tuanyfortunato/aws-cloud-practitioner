@@ -83,6 +83,26 @@
 - "Disco mais barato para dados frios." → sc1.
 - "O que acontece com o instance store ao parar a instância?" → Dados perdidos.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Volume de bloco, anexação à EC2, tipos de volume e snapshots |
+| **O que você decide/configura?** | AZ, capacidade, desempenho, criptografia e DeleteOnTermination |
+| **Em que ordem as coisas acontecem?** | Crie na AZ compatível, anexe, formate/use; snapshots geram pontos de recuperação |
+| **O que pode fazer, e em que condição?** | Pode persistir dados além da vida da EC2 se configurado para preservação |
+| **O que não pode presumir?** | Não é sistema de arquivos NFS multi-AZ; Multi-Attach tem requisitos específicos |
+
+**Caso comentado:** Disco do SO de EC2: EBS; arquivos compartilhados em AZs distintas: avalie EFS.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do EBS](https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html)

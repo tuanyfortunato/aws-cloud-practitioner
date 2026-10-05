@@ -68,7 +68,7 @@ def gerar_simulado():
               "3. Ao terminar, confira no [gabarito](#gabarito) e preencha a folha de correção.",
               "4. Leia a explicação de **todas** as questões que errou e registre os erros num arquivo "
               "a partir do [modelo de simulado](../templates/simulado.md).", "",
-              "> Na prova real, a nota mínima é 700/1000 (≈ 70%). Meta de treino: **≥ 80%**.", "", "---", ""]
+              "> Na prova real, a nota mínima é 700/1000 (nota escalonada; não equivale diretamente a 70% de acertos). Meta de treino: **≥ 80%**.", "", "---", ""]
     gabarito = []
     for n, q in enumerate(ordem, 1):
         opcoes, corretas = montar(q, rng)

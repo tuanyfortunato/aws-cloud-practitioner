@@ -44,6 +44,8 @@
 
 - "Pergunta" → Resposta.
 
+<!-- O gerador insere este bloco. Registre também o serviço em scripts/aprofundamento.py (FICHAS): recursos, escolhas, fluxo, capacidade, limite e caso comentado. Não escreva dentro de um bloco gerado. -->
+
 ## 🔗 Documentação oficial
 
 -

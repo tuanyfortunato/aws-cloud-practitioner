@@ -55,6 +55,26 @@
 - "Busca inteligente nos documentos internos." → Kendra.
 - "Recomendar produtos aos clientes." → Personalize.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | APIs especializadas com entradas como texto, áudio, imagem e documento |
+| **O que você decide/configura?** | Serviço, idioma/formato, processamento e acesso |
+| **Em que ordem as coisas acontecem?** | Envie entrada compatível e trate o resultado na aplicação |
+| **O que pode fazer, e em que condição?** | Polly fala; Transcribe transcreve; Translate traduz; Textract extrai documentos; Rekognition analisa imagens; Lex conversa; Comprehend analisa texto |
+| **O que não pode presumir?** | Nenhum cobre todo tipo de IA nem garante acerto; serviços extras na ficha têm escopo próprio |
+
+**Caso comentado:** Áudio para texto: Transcribe; texto para áudio: Polly. Inverter a direção muda a resposta.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Serviços de IA da AWS](https://aws.amazon.com/ai/services/)

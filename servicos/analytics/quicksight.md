@@ -39,6 +39,26 @@
 
 - "Criar dashboards interativos de BI para executivos." → QuickSight.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Data sources, datasets, analyses e dashboards |
+| **O que você decide/configura?** | Conexão, atualização, permissões e compartilhamento |
+| **Em que ordem as coisas acontecem?** | Conecte dados, modele visualização e publique dashboard autorizado |
+| **O que pode fazer, e em que condição?** | Entrega BI para usuários e aplicações conforme modalidade |
+| **O que não pode presumir?** | Não é ferramenta principal de ETL nem acesso irrestrito de qualquer usuário |
+
+**Caso comentado:** Gerentes precisam gráficos de vendas: Quick Sight sobre uma fonte preparada.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html)

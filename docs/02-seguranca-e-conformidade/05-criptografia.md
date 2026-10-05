@@ -55,6 +55,31 @@
 - "Quem é responsável por ativar a criptografia dos dados?" → O cliente.
 - "Como auditar quem usou uma chave do KMS?" → CloudTrail.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** TLS protege o caminho da comunicação; criptografia em repouso protege os dados armazenados. KMS administra chaves e autoriza operações criptográficas; ACM administra certificados.
+
+**Como escolher:** Necessidade de chave para EBS/S3: KMS. Certificado TLS: ACM. HSM dedicado com controle de usuários e chaves: CloudHSM. Segredo de aplicação: Secrets Manager.
+
+**O que não concluir:** Dado criptografado não fica automaticamente inacessível a um usuário autorizado. Criptografia não substitui IAM, backup ou requisitos de localização dos dados.
+
+### Exercício de decisão
+
+Um arquivo está em S3 com SSE-KMS. Dar apenas permissão de leitura no S3 é suficiente?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Pode não ser: o leitor também precisa de autorização adequada para usar a chave KMS. Criptografia e acesso ao objeto são camadas diferentes.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

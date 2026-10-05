@@ -16,7 +16,7 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon EC2 (Elastic Compute Cloud)](computacao/ec2.md) | ✅ | Servidores virtuais sob demanda, com controle total do sistema operacional (IaaS). |
 | [Amazon EC2 Auto Scaling](computacao/ec2-auto-scaling.md) | ✅ | Aumenta e reduz automaticamente o número de instâncias EC2 conforme a demanda e substitui as que falham. |
 | [Elastic Load Balancing (ELB)](computacao/elastic-load-balancing.md) | ✅ | Distribui automaticamente o tráfego entre destinos saudáveis (EC2, contêineres, IPs, Lambda) em várias AZs. |
-| [AWS Lambda](computacao/lambda.md) | ✅ | Executa seu código em resposta a eventos, sem servidores, cobrando só pelo tempo de execução. |
+| [AWS Lambda](computacao/lambda.md) | ✅ | Executa código em resposta a eventos sem você administrar servidores; o modelo base cobra requisições e duração. |
 | [Amazon ECS (Elastic Container Service)](computacao/ecs.md) | ✅ | Orquestrador de contêineres próprio da AWS, totalmente gerenciado e integrado aos demais serviços. |
 | [Amazon EKS (Elastic Kubernetes Service)](computacao/eks.md) | ✅ | Kubernetes gerenciado — a AWS opera o plano de controle e você roda seus pods. |
 | [AWS Fargate](computacao/fargate.md) | ✅ | Motor serverless que executa contêineres do ECS ou EKS sem você provisionar ou gerenciar servidores. |
@@ -76,7 +76,7 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [AWS Directory Service](seguranca/directory-service.md) | ✅ | Microsoft Active Directory gerenciado na AWS, ou ponte para o AD on-premises. |
 | [AWS KMS (Key Management Service)](seguranca/kms.md) | ✅ | Cria e controla chaves de criptografia integradas a mais de 100 serviços AWS, com auditoria de cada uso. |
 | [AWS CloudHSM](seguranca/cloudhsm.md) | ✅ | HSM (hardware security module) **dedicado e exclusivo** na nuvem, em que só você controla as chaves. |
-| [AWS Certificate Manager (ACM) e AWS Private CA](seguranca/certificate-manager.md) | ✅ | Emite, gerencia e **renova automaticamente** certificados SSL/TLS — os públicos são gratuitos. |
+| [AWS Certificate Manager (ACM) e AWS Private CA](seguranca/certificate-manager.md) | ✅ | Emite e gerencia certificados SSL/TLS, com renovação para certificados elegíveis; públicos não exportáveis em serviços integrados são gratuitos. |
 | [AWS Secrets Manager e Systems Manager Parameter Store](seguranca/secrets-manager-e-parameter-store.md) | ✅ | Guardam segredos e configurações fora do código, criptografados com KMS — o Secrets Manager também os **rotaciona automaticamente**. |
 | [AWS Shield](seguranca/shield.md) | ✅ | Proteção gerenciada contra ataques de negação de serviço distribuída (DDoS). |
 | [AWS WAF (Web Application Firewall)](seguranca/waf.md) | ✅ | Firewall de **camada 7** que filtra requisições HTTP(S) maliciosas antes que cheguem à aplicação. |

@@ -47,6 +47,26 @@
 - "Reduzir a carga de leitura do RDS com cache em memória." → ElastiCache.
 - "Armazenar sessões de usuário para aplicação stateless." → ElastiCache.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Cache, motores suportados, endpoints e política de expiração |
+| **O que você decide/configura?** | Motor, capacidade, rede e estratégia de cache |
+| **Em que ordem as coisas acontecem?** | Aplicação consulta cache; no miss, busca origem e preenche conforme estratégia |
+| **O que pode fazer, e em que condição?** | Reduz latência e consultas repetitivas ao banco principal |
+| **O que não pode presumir?** | Não acelera automaticamente código que nunca usa o cache; não trate toda modalidade como armazenamento definitivo |
+
+**Caso comentado:** Resultado muito consultado: cache com TTL; aplicação deve tratar expiração e indisponibilidade.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html)

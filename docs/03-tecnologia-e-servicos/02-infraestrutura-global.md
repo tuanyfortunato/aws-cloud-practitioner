@@ -64,6 +64,31 @@
 - "Aplicação móvel em rede 5G com ultrabaixa latência." → Wavelength.
 - "Como sobreviver à falha de uma região inteira?" → Arquitetura multi-região.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Uma região reúne AZs; cada AZ é um domínio de falha com um ou mais datacenters. Edge locations aproximam entrega e serviços de usuários.
+
+**Como escolher:** Multi-AZ para disponibilidade regional; múltiplas regiões para requisitos como recuperação regional, residência de dados e latência. CloudFront usa a borda para entrega de conteúdo.
+
+**O que não concluir:** Escolher outra região não copia automaticamente recursos e dados. Edge não equivale a uma AZ em que você instala qualquer EC2. Multi-AZ não cobre todos os desastres regionais.
+
+### Exercício de decisão
+
+A aplicação deve continuar após falha de uma AZ. Basta criar duas EC2 na mesma subnet?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não: uma subnet pertence a uma AZ. Distribua componentes entre AZs e considere balanceamento, estado e banco, não apenas número de instâncias.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

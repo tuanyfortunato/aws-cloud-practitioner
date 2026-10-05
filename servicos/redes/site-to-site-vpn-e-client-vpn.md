@@ -52,6 +52,26 @@
 - "Funcionários em casa precisam acessar a VPC." → Client VPN.
 - "Backup barato do Direct Connect." → Site-to-Site VPN.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Túneis Site-to-Site entre redes; endpoint Client VPN para usuários |
+| **O que você decide/configura?** | Endereços, autenticação, rotas e regras de autorização |
+| **Em que ordem as coisas acontecem?** | Estabeleça túnel/conexão e permita destinos específicos |
+| **O que pode fazer, e em que condição?** | Fornece conectividade criptografada nas modalidades apropriadas |
+| **O que não pode presumir?** | Não torna toda rede acessível sem rotas e autorização; Site-to-Site não é cliente remoto individual |
+
+**Caso comentado:** Filial inteira: Site-to-Site VPN; funcionário remoto individual: Client VPN.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) · [Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html)

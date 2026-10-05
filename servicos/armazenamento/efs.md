@@ -55,6 +55,26 @@
 - "Várias instâncias Linux em AZs diferentes precisam ler e gravar os mesmos arquivos." → EFS.
 - "Reduzir custo de arquivos pouco acessados no EFS." → Lifecycle para IA/Archive.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Sistema de arquivos, mount targets, access points e classes |
+| **O que você decide/configura?** | Rede NFS, permissões, modalidade regional/uma zona e lifecycle |
+| **Em que ordem as coisas acontecem?** | Crie pontos de montagem e monte nos clientes autorizados |
+| **O que pode fazer, e em que condição?** | Compartilha arquivos entre clientes Linux compatíveis |
+| **O que não pode presumir?** | Precisa de conectividade e autorização de rede/arquivo; não é disco de boot EC2 |
+
+**Caso comentado:** Vários servidores web Linux usam o mesmo conteúdo: EFS, com configuração dos mounts.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do EFS](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)

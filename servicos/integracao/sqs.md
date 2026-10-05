@@ -64,6 +64,26 @@
 - "Reduzir requisições vazias e custo." → Long polling.
 - "Retenção máxima de uma mensagem?" → 14 dias.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Fila, mensagens, produtores, consumidores e DLQ |
+| **O que você decide/configura?** | Standard/FIFO, retenção, visibility timeout e redrive |
+| **Em que ordem as coisas acontecem?** | Envie, receba, processe e exclua após sucesso |
+| **O que pode fazer, e em que condição?** | Amortece picos e desacopla execução |
+| **O que não pode presumir?** | Receber não exclui; falha/timeout pode tornar mensagem visível novamente; efeitos de negócio precisam ser idempotentes |
+
+**Caso comentado:** Worker falha após leitura: mensagem pode reaparecer; trate repetição e DLQ configurada.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)

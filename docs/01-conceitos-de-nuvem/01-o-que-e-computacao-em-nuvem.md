@@ -52,6 +52,31 @@
 - "Qual modelo de implantação liga o datacenter próprio à AWS?" → Híbrido.
 - "O que caracteriza computação em nuvem?" → Recursos sob demanda, pela internet, pagando pelo uso.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** A conta identifica o proprietário e a cobrança; serviços entregam recursos por APIs. Você escolhe o nível de gerenciamento: servidor, plataforma ou aplicação pronta. Console, CLI e SDK são formas de pedir operações a essas APIs.
+
+**Como escolher:** Compare o que sua equipe precisa administrar: EC2 entrega a máquina virtual; RDS administra parte do banco; SaaS entrega a aplicação para uso. Híbrido combina ambiente próprio e nuvem.
+
+**O que não concluir:** Usar a AWS não transfere automaticamente a responsabilidade pelos dados, acessos e aplicações. Nem todo serviço gerenciado é gratuito ou dispensa configuração.
+
+### Exercício de decisão
+
+Uma empresa quer instalar um sistema que exige administrar o Linux. Que modelo atende e quem atualiza o SO?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+IaaS com EC2; o cliente atualiza o SO convidado. Em RDS, esse controle é reduzido porque a AWS administra o sistema do banco.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

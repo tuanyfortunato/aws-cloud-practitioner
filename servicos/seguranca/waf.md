@@ -49,6 +49,26 @@
 - "Limitar requisições por IP." → Rate-based rule do WAF.
 - "Em quais serviços o WAF pode ser usado?" → CloudFront, ALB, API Gateway, AppSync, Cognito.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Web ACL, rules, rule groups e associação a recursos |
+| **O que você decide/configura?** | Critérios HTTP, rate-based rules, ação e logging |
+| **Em que ordem as coisas acontecem?** | Requisição é avaliada pelas regras antes de seguir ao recurso |
+| **O que pode fazer, e em que condição?** | Pode permitir, bloquear ou contar conforme regras e suporte |
+| **O que não pode presumir?** | Não é firewall universal de toda EC2 nem corrige a causa no código |
+
+**Caso comentado:** SQL injection em aplicação web suportada: WAF; modo Count ajuda a avaliar regra antes de bloquear.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html)

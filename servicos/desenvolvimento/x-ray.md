@@ -35,6 +35,26 @@
 
 - "Encontrar qual microsserviço deixa a requisição lenta." → X-Ray.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Traces, segments, subsegments e mapa de serviços |
+| **O que você decide/configura?** | Instrumentação, amostragem e envio autorizado |
+| **Em que ordem as coisas acontecem?** | Requisições instrumentadas produzem traces entre componentes |
+| **O que pode fazer, e em que condição?** | Ajuda localizar latência e erros no caminho distribuído |
+| **O que não pode presumir?** | Sem instrumentação não há trace completo; não registra automaticamente toda requisição sem amostragem |
+
+**Caso comentado:** Latência entre API e banco: X-Ray; tendência de CPU: CloudWatch.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)

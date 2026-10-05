@@ -37,6 +37,26 @@
 - "Levar dados do Salesforce para o S3 sem código." → Amazon AppFlow.
 - "Analisar dados com um parceiro sem compartilhar os dados brutos." → AWS Clean Rooms.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Governança de lake, brokers Kafka e serviços de troca/integração de dados |
+| **O que você decide/configura?** | Requisito e status individual no escopo |
+| **Em que ordem as coisas acontecem?** | Selecione por governança, streaming compatível, compra ou integração |
+| **O que pode fazer, e em que condição?** | Cada oferta resolve uma parte da plataforma de dados |
+| **O que não pode presumir?** | Vários nomes estão fora do escopo; não generalize capacidades/autorizações entre produtos |
+
+**Caso comentado:** Kafka gerenciado é MSK; streaming no foco CLF-C02 inclui Kinesis. Compatibilidade Kafka é requisito diferente.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html) · [MSK](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) · [Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/what-is.html) · [AppFlow](https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html)

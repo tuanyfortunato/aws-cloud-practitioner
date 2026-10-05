@@ -48,6 +48,26 @@
 - "IPs estáticos globais e failover rápido entre regiões para TCP/UDP." → Global Accelerator.
 - "Jogo multiplayer UDP com usuários no mundo todo." → Global Accelerator.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Accelerator, IPs estáticos, listeners, endpoint groups e endpoints |
+| **O que você decide/configura?** | Protocolo, regiões, saúde e pesos |
+| **Em que ordem as coisas acontecem?** | Recebe conexão na borda e encaminha pela rede AWS ao endpoint elegível |
+| **O que pode fazer, e em que condição?** | Melhora caminhos para aplicações TCP/UDP globais |
+| **O que não pode presumir?** | Não é cache/CDN de objetos e não substitui a aplicação |
+
+**Caso comentado:** Usuários globais precisam IPs fixos e tráfego TCP/UDP: Global Accelerator, em vez de escolher CloudFront por palavra global.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html)

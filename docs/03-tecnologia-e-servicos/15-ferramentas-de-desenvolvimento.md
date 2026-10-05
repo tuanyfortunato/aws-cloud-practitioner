@@ -51,6 +51,31 @@
 - "Automatizar deploy em EC2 e servidores on-premises." → CodeDeploy.
 - "Encontrar gargalos de latência entre microsserviços." → X-Ray.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** CodeBuild executa build/testes; CodePipeline coordena estágios e integra ferramentas; X-Ray acompanha traces de requisições; CLI/SDK operam APIs.
+
+**Como escolher:** Compilar: CodeBuild. Automatizar o fluxo entre etapas: CodePipeline. Investigar latência entre serviços: X-Ray. Consultar métricas/logs: CloudWatch.
+
+**O que não concluir:** Criar pipeline não escreve testes nem código. Trace depende de instrumentação e amostragem. Ferramentas fora do escopo podem ser úteis em produção sem virar foco da prova.
+
+### Exercício de decisão
+
+A equipe quer descobrir em qual serviço uma requisição demorou. O histórico de deploy sozinho resolve?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+X-Ray oferece rastreamento distribuído com instrumentação apropriada. CodePipeline informa a execução da esteira, não o caminho interno da requisição.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

@@ -63,6 +63,31 @@
 - "Como capturar o tráfego de rede da VPC?" → VPC Flow Logs.
 - "Onde ver logs de aplicação?" → CloudWatch Logs.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** CloudWatch trabalha com métricas, logs e alarmes; CloudTrail registra atividades e chamadas; Config acompanha configuração e conformidade de recursos suportados.
+
+**Como escolher:** CPU elevada: CloudWatch. Quem alterou a instância: CloudTrail. Qual era a configuração e se atendia uma regra: Config. Evento da infraestrutura AWS: Health.
+
+**O que não concluir:** Alarmes e registros precisam de configuração e retenção adequadas. CloudTrail não inclui todo evento de dados por padrão; métricas de memória da EC2 exigem coleta adicional.
+
+### Exercício de decisão
+
+Uma regra de segurança mudou e você quer saber quem mudou e como o recurso estava antes. Um único serviço resolve as duas perguntas?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+CloudTrail ajuda a identificar a ação e a identidade; Config mostra o histórico de configuração. CloudWatch complementa com o efeito operacional.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

@@ -58,7 +58,7 @@
 - Leia a pergunta inteira antes das alternativas e procure a **palavra-chave** ("mais barato", "menor esforço operacional", "alta disponibilidade") — ver [palavras-chave](../../resumos/palavras-chave.md).
 - Elimine as alternativas claramente erradas primeiro; desconfie de serviços fora do escopo.
 - Use **marcar para revisão** e volte depois.
-- Planos de suporte: o guia atual cobra os **novos** (Basic, Business Support+, Enterprise, Unified Operations). Para outros números que mudaram (S3 50 TB, SQS 1 MiB), escolha o valor que existir entre as alternativas ([detalhes](atualizacoes-2025-2026.md)).
+- Planos de suporte: a task 4.3 consultada ainda cita modelos clássicos, e a página comercial mostra planos novos. Distinga o contexto e leia o requisito; não escolha apenas por um nome ou número atual ([detalhes](atualizacoes-2025-2026.md)).
 - Ao final, revise as marcadas com o tempo restante.
 
 ## Informações da minha prova

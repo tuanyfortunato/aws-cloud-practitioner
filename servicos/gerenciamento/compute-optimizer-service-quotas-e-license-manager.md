@@ -51,6 +51,26 @@
 - "Pedir aumento do limite de instâncias." → Service Quotas.
 - "Controlar quantas licenças de SQL Server estão em uso." → License Manager.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Recomendações, quotas e configurações de licenças |
+| **O que você decide/configura?** | Opt-in/métricas, quota ajustável e regra de licença |
+| **Em que ordem as coisas acontecem?** | Analise dimensionamento, solicite quota ou acompanhe uso de licença |
+| **O que pode fazer, e em que condição?** | Resolve três necessidades diferentes de otimização/governança |
+| **O que não pode presumir?** | Quota não garante capacidade disponível; License Manager não compra licença |
+
+**Caso comentado:** Instância grande demais: Compute Optimizer; limite da conta: Service Quotas; direito comercial: contrato da licença.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Compute Optimizer](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html) · [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html) · [License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/license-manager.html)

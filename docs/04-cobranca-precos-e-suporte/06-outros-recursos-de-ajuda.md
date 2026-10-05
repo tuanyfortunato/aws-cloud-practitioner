@@ -57,6 +57,31 @@
 - "Respostas prontas para dúvidas comuns." → AWS Knowledge Center.
 - "Startup busca créditos para começar na AWS." → AWS Activate.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Documentação explica capacidades; Knowledge Center reúne orientações; re:Post oferece comunidade; Professional Services auxilia projetos; parceiros implementam/integram; Marketplace comercializa ofertas.
+
+**Como escolher:** Dúvida de documentação, incidente, projeto de migração, compra de produto e denúncia de abuso pedem recursos distintos. Leia o objetivo antes de escolher.
+
+**O que não concluir:** Marketplace não garante gratuidade nem que a AWS opera toda solução de terceiros. Comunidade não equivale a caso de suporte com objetivo contratual de resposta.
+
+### Exercício de decisão
+
+A empresa quer contratar software de fornecedor integrado ao processo de compra AWS. Qual recurso?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+AWS Marketplace. Para ajuda em projeto de adoção, avalie Professional Services ou parceiros; para incidente, o suporte apropriado.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

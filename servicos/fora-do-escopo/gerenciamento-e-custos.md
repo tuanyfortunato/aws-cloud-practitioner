@@ -49,6 +49,26 @@
 - "Separar custos por cliente ou projeto" → **cost allocation tags** (no escopo).
 - "Vender software para clientes da AWS" → **AWS Marketplace**.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Ferramentas extras de lifecycle, chat, implantação e custos |
+| **O que você decide/configura?** | Recurso suportado e disponibilidade do produto |
+| **Em que ordem as coisas acontecem?** | Identifique se a necessidade é operar, implantar, comunicar ou contabilizar |
+| **O que pode fazer, e em que condição?** | Produtos resolvem problemas distintos de governança |
+| **O que não pode presumir?** | Fora do escopo; nomes antigos/renomeados não indicam capacidades novas automaticamente |
+
+**Caso comentado:** Para orçamento de conta, estude Budgets; ferramenta extra de custo não substitui a escolha pelo requisito.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Data Lifecycle Manager](https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-lifecycle.html) · [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html) · [Launch Wizard](https://aws.amazon.com/launchwizard/)

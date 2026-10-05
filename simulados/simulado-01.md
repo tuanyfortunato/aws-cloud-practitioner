@@ -9,7 +9,7 @@ Simulado no formato da prova: **65 questões**, distribuídas como os pesos ofic
 3. Ao terminar, confira no [gabarito](#gabarito) e preencha a folha de correção.
 4. Leia a explicação de **todas** as questões que errou e registre os erros num arquivo a partir do [modelo de simulado](../templates/simulado.md).
 
-> Na prova real, a nota mínima é 700/1000 (≈ 70%). Meta de treino: **≥ 80%**.
+> Na prova real, a nota mínima é 700/1000 (nota escalonada; não equivale diretamente a 70% de acertos). Meta de treino: **≥ 80%**.
 
 ---
 
@@ -1234,7 +1234,7 @@ Uma startup quer o plano de AWS Support pago de MENOR custo, que começa em US$ 
 
 **Resposta: B**
 
-O **Business Support+** é o plano pago de entrada do modelo atual (task 4.3 do exam guide): a partir de US$ 29/mês por conta, com resposta de 30 minutos para casos críticos. O Basic é gratuito e não tem suporte técnico; o Enterprise começa em US$ 5.000/mês (15 min); o Unified Operations, em US$ 50.000/mês (5 min).
+O **Business Support+** é o plano pago de entrada do modelo comercial atual (não confundir com os exemplos clássicos ainda citados na task 4.3 consultada): a partir de US$ 29/mês por conta, com resposta de 30 minutos para casos críticos. O Basic é gratuito e não tem suporte técnico; o Enterprise começa em US$ 5.000/mês (15 min); o Unified Operations, em US$ 50.000/mês (5 min).
 
 </details>
 

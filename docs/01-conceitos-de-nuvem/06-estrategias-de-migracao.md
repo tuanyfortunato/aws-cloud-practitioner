@@ -55,6 +55,31 @@
 - "Manter a aplicação no datacenter por exigência regulatória." → Retain.
 - "Qual estratégia é a mais rápida?" → Rehost. "Qual traz mais benefícios de nuvem a longo prazo?" → Refactor.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Avalie cada aplicação e suas dependências antes de escolher um dos 7 Rs. A estratégia orienta ferramentas, esforço e testes; aplicações da mesma empresa podem ter destinos distintos.
+
+**Como escolher:** Sem mudar aplicação: Rehost. Pequeno ajuste: Replatform. Redesenho: Refactor. Troca por SaaS: Repurchase. Desligar: Retire. Manter: Retain. Mover a plataforma: Relocate.
+
+**O que não concluir:** Rehost não moderniza automaticamente a aplicação. Refactor demanda mudanças e não é sempre a opção mais rápida. Uma ferramenta de migração não decide a estratégia de negócio.
+
+### Exercício de decisão
+
+Um banco instalado em servidor próprio vai para RDS, mantendo a aplicação com poucos ajustes. Qual estratégia?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Replatform: há mudança da plataforma operacional. Levar o mesmo servidor e banco para EC2 sem ajustes seria Rehost.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

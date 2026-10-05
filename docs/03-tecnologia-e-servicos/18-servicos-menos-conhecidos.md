@@ -88,6 +88,31 @@ O exam guide lista categorias que **não caem** na prova. Se uma alternativa cit
 - "Testar a resiliência injetando falhas de propósito." → AWS Fault Injection Service.
 - "Testar um app mobile em centenas de dispositivos reais." → AWS Device Farm.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Serviços especializados resolvem necessidades específicas, como grafo, Kafka ou compartilhamento de dados. A lista oficial separa os explicitamente incluídos, excluídos e não citados.
+
+**Como escolher:** Priorize tasks e serviços incluídos; fichas mistas devem ser lidas por serviço, não por categoria inteira. Use extras para entender diferenças, sem substituir os fundamentos.
+
+**O que não concluir:** Ausência na lista não prova que nunca será cobrado. Estar fora do escopo não prova que o produto é ruim nem justifica responder sem ler o cenário.
+
+### Exercício de decisão
+
+Você reconhece Kafka em uma alternativa, mas a questão só pede streaming gerenciado no escopo. Basta escolher por popularidade?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. Compare requisito e opções, e priorize o serviço adequado ao escopo, como Kinesis. Fora do escopo reduz prioridade de estudo; não é uma regra universal de eliminação por nome.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

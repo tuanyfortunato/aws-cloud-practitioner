@@ -48,6 +48,26 @@
 - "Como estava o security group semana passada?" → Config.
 - "Verificar continuamente se todos os buckets estão criptografados e corrigir automaticamente." → Config rule + remediação (SSM Automation).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Recorder, configuration items, rules e aggregators |
+| **O que você decide/configura?** | Tipos de recurso, cobertura e regras |
+| **Em que ordem as coisas acontecem?** | Registra configuração e avalia conformidade com critérios |
+| **O que pode fazer, e em que condição?** | Mostra mudanças de estado/configuração de recursos suportados |
+| **O que não pode presumir?** | Avaliar regra não bloqueia necessariamente criação; remediação depende de integração |
+
+**Caso comentado:** Saber se bucket atende regra e seu estado anterior: Config; quem mudou: CloudTrail.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html)

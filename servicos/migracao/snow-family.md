@@ -54,6 +54,26 @@
 - "Migrar 500 TB de um datacenter com internet lenta." → Snowball Edge.
 - "Processar dados num local remoto sem conexão." → Snowball Edge Compute Optimized.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Dispositivos físicos, jobs de transferência e ferramentas locais |
+| **O que você decide/configura?** | Elegibilidade/disponibilidade, volume e procedimento de transferência |
+| **Em que ordem as coisas acontecem?** | Fluxo histórico copiava dados localmente para dispositivo e importava na AWS |
+| **O que pode fazer, e em que condição?** | Resolve transferência física quando oferta está disponível |
+| **O que não pode presumir?** | Não listado não significa exclusão formal; não recomende contratação ignorando restrições atuais |
+
+**Caso comentado:** Pouca banda e muitos dados: avalie transferência física disponível; para novos clientes consulte alternativas atuais da ficha.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS Snowball Edge](https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html)

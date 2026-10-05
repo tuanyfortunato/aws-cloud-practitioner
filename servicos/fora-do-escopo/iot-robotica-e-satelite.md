@@ -55,6 +55,26 @@
 - "Detectar anomalias de segurança" → na CLF-C02, pense em **GuardDuty** (contas AWS), não Device Defender.
 - "Reconhecer objetos em imagens" → **Rekognition** (no escopo), não Panorama.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Ferramentas especializadas de dispositivos, sensores, robótica e satélite |
+| **O que você decide/configura?** | Produto, requisitos físicos e situação de disponibilidade |
+| **Em que ordem as coisas acontecem?** | Avalie documentação e elegibilidade antes de qualquer adoção |
+| **O que pode fazer, e em que condição?** | Atendem domínios específicos, diferentes de compute genérico |
+| **O que não pode presumir?** | Estão fora do escopo; alguns serviços têm restrições/encerramento indicados na ficha |
+
+**Caso comentado:** IoT Core conecta dispositivos no escopo; serviços desta família são contexto adicional.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [IoT Device Defender](https://aws.amazon.com/iot-device-defender/) · [Monitron](https://aws.amazon.com/monitron/) · [RoboMaker](https://aws.amazon.com/robomaker/) · [Ground Station](https://aws.amazon.com/ground-station/)

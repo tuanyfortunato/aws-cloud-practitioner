@@ -48,6 +48,26 @@
 - "Chamar a AWS dentro de um código Python." → SDK (boto3).
 - "Executar comandos da CLI sem instalar nada." → CloudShell.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Console, comandos CLI, bibliotecas SDK e ambiente CloudShell |
+| **O que você decide/configura?** | Credenciais temporárias, região, serviço e operação |
+| **Em que ordem as coisas acontecem?** | Interface solicita uma API com a identidade autenticada |
+| **O que pode fazer, e em que condição?** | Permite operação manual/programática com as mesmas regras de autorização |
+| **O que não pode presumir?** | CloudShell não concede privilégio extra e está fora do escopo; SDK permanece conceito do guia |
+
+**Caso comentado:** Automatizar no Python: SDK; operar por terminal: CLI; reproduzir infraestrutura: IaC.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) · [SDKs e ferramentas](https://aws.amazon.com/developer/tools/) · [CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html)

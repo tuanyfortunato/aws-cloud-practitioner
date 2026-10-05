@@ -145,7 +145,7 @@ Qual load balancer para appliances de firewall de terceiros?	Gateway Load Balanc
 Auto Scaling e ELB juntos garantem o quê?	Alta disponibilidade e elasticidade (instâncias com falha são substituídas e o tráfego vai só para as saudáveis).	CLF-C02 dominio-3 secao-3_4
 Qual serviço executa código sem servidores, em resposta a eventos?	Lambda.	CLF-C02 dominio-3 secao-3_5
 Qual é o tempo máximo de execução do Lambda?	15 minutos.	CLF-C02 dominio-3 secao-3_5
-Como o Lambda é cobrado?	Por requisição e por duração; nada quando não executa.	CLF-C02 dominio-3 secao-3_5
+Como o Lambda é cobrado?	No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação.	CLF-C02 dominio-3 secao-3_5
 Rodar containers sem gerenciar instâncias.	Fargate (com ECS ou EKS).	CLF-C02 dominio-3 secao-3_5
 Empresa já usa Kubernetes on-premises e quer migrar.	EKS.	CLF-C02 dominio-3 secao-3_5
 Onde guardar imagens Docker privadas?	ECR.	CLF-C02 dominio-3 secao-3_5

@@ -86,6 +86,31 @@
 - "Processar dados num navio sem conexão." → Família Snow (computação na borda).
 - "Recuperar servidores em minutos após desastre." → AWS Elastic Disaster Recovery.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Bloco funciona como disco; arquivo usa protocolos de sistema de arquivos; objeto é acessado por API. Backup guarda pontos de recuperação; replicação para DR mantém dados preparados para recuperação.
+
+**Como escolher:** EBS para disco de EC2; EFS para arquivos NFS compartilhados; FSx para necessidades de sistema de arquivos específico; Storage Gateway para integrar ambiente próprio ao armazenamento AWS.
+
+**O que não concluir:** EBS pertence a uma AZ e não é um compartilhamento NFS. Multi-Attach é limitado a configurações suportadas. Backup e replicação não dispensam teste de restauração.
+
+### Exercício de decisão
+
+Duas EC2 Linux em AZs diferentes precisam dos mesmos arquivos. Um único EBS atende diretamente?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. EFS é a opção típica de arquivos compartilhados; um EBS precisa respeitar sua AZ e condições de anexação.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
 

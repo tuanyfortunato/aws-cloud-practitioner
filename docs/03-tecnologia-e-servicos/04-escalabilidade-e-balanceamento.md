@@ -64,6 +64,31 @@
 - "Qual load balancer para appliances de firewall de terceiros?" → Gateway Load Balancer.
 - "Auto Scaling e ELB juntos garantem o quê?" → Alta disponibilidade e elasticidade (instâncias com falha são substituídas e o tráfego vai só para as saudáveis).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Aprofundamento para a prova — sem abrir o console
+
+**Como funciona:** Load balancer recebe tráfego e escolhe destinos saudáveis. Auto Scaling ajusta quantidade de instâncias e substitui instâncias não saudáveis conforme configuração.
+
+**Como escolher:** ALB para HTTP e regras por host/caminho; NLB para transporte e requisitos como IP estático. Auto Scaling mantém capacidade dentro dos mínimos e máximos definidos.
+
+**O que não concluir:** Balanceador não cria sozinho novas instâncias. Auto Scaling não compartilha automaticamente sessões gravadas no disco local. Saúde e capacidade do banco também importam.
+
+### Exercício de decisão
+
+Na Black Friday o tráfego triplica. Um load balancer sem capacidade adicional garante atendimento?
+
+<details>
+<summary>Resposta e por que as alternativas confundem</summary>
+
+Não. Ele distribui a capacidade existente. Auto Scaling adiciona instâncias quando suas políticas e limites permitem; a aplicação precisa suportar o crescimento.
+
+</details>
+
+**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+
+> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
+<!-- aprofundamento:fim -->
+
 <!-- extra:inicio -->
 <!-- extra:fim -->
 

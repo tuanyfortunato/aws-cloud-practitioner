@@ -52,6 +52,26 @@
 - "Limitar requisições por cliente com chaves de API." → Usage plans + API keys.
 - "API GraphQL gerenciada." → AppSync (não API Gateway).
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | API, routes/resources, stages, integrações e autorização |
+| **O que você decide/configura?** | Tipo de API, endpoint, autenticação, throttling e integração |
+| **Em que ordem as coisas acontecem?** | Recebe requisição e chama back-end conforme rota |
+| **O que pode fazer, e em que condição?** | Publica e gerencia entrada de APIs sem administrar servidores de gateway |
+| **O que não pode presumir?** | Não implementa a regra de negócio sozinho; autorização ainda precisa ser configurada |
+
+**Caso comentado:** API chama função Lambda: API Gateway oferece entrada; Lambda executa lógica; IAM/authorizer controla acesso.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)

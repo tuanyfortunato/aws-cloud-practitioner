@@ -38,6 +38,26 @@
 - "Ver eventos de manutenção da AWS que afetam minhas instâncias." → AWS Health Dashboard.
 - "Automatizar reação a um evento de manutenção programada." → Health + EventBridge.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Eventos públicos e eventos específicos da conta |
+| **O que você decide/configura?** | Conta, região, serviço e integrações de evento |
+| **Em que ordem as coisas acontecem?** | Consulte impacto/avisos da infraestrutura e planeje ação |
+| **O que pode fazer, e em que condição?** | Mostra ocorrências AWS e manutenção relevante |
+| **O que não pode presumir?** | Ausência de evento AWS não prova que o código da aplicação está saudável |
+
+**Caso comentado:** Manutenção de recurso específico: Health; erro interno do app: logs/métricas da aplicação.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS Health](https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html)

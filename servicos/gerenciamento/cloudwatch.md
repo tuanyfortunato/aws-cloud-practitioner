@@ -55,6 +55,26 @@
 - "Reiniciar automaticamente uma instância com falha de status check." → Alarme com ação de EC2 (recover/reboot).
 - "Monitorar um site simulando usuários a cada 5 minutos." → CloudWatch Synthetics.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Métricas, logs, alarmes e dashboards |
+| **O que você decide/configura?** | Coleta, retenção, thresholds e ações |
+| **Em que ordem as coisas acontecem?** | Recurso/agente envia dados; alarme avalia condição e pode acionar integração |
+| **O que pode fazer, e em que condição?** | Observa saúde operacional e tendência |
+| **O que não pode presumir?** | Memória de EC2 não vem toda por padrão; alarme sem ação não remedia nada |
+
+**Caso comentado:** CPU acima da meta: métrica/alarme; quem mudou SG: CloudTrail.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)

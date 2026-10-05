@@ -67,6 +67,26 @@
 - "Banco relacional com leituras de baixa latência em várias regiões e DR." → Aurora Global Database.
 - "Carga intermitente sem gerenciar capacidade." → Aurora Serverless.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Cluster, writer, readers, endpoints e armazenamento compartilhado |
+| **O que você decide/configura?** | Compatibilidade MySQL/PostgreSQL, capacidade e disponibilidade |
+| **Em que ordem as coisas acontecem?** | Aplicação escreve no writer e pode distribuir leituras aos readers |
+| **O que pode fazer, e em que condição?** | Oferece banco relacional gerenciado com arquitetura própria |
+| **O que não pode presumir?** | Não é engine compatível com qualquer banco SQL; endpoints e opções dependem da configuração |
+
+**Caso comentado:** Relacional compatível MySQL com leitores: Aurora; não confunda reader com writer.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [Guia do Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)

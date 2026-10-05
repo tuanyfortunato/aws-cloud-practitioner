@@ -214,7 +214,7 @@ Lambda.
 <details>
 <summary>Como o Lambda é cobrado?</summary>
 
-Por requisição e por duração; nada quando não executa.
+No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação.
 </details>
 
 <details>

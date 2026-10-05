@@ -58,6 +58,26 @@ Família de serviços de vídeo profissional (broadcast e streaming).
 - "Analisar rostos e objetos em vídeo" → **Rekognition** (no escopo).
 - "Jogo multiplayer com IPs fixos globais" → **Global Accelerator** (no escopo), não GameLift.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Serviços de mídia/transmissão e infraestrutura especializada de jogos |
+| **O que você decide/configura?** | Tipo de mídia ou servidor de jogo e disponibilidade atual |
+| **Em que ordem as coisas acontecem?** | Consulte a oferta específica quando houver requisito real de produção |
+| **O que pode fazer, e em que condição?** | Famílias têm funções distintas de conversão, distribuição ou hospedagem |
+| **O que não pode presumir?** | Estão fora do escopo; não memorize configurações como prioridade da CLF-C02 |
+
+**Caso comentado:** Vídeo ao vivo não é sinônimo de site estático; conheça a diferença, mas estude primeiro serviços incluídos.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [AWS Elemental](https://aws.amazon.com/media-services/) · [Amazon IVS](https://aws.amazon.com/ivs/) · [Amazon GameLift](https://aws.amazon.com/gamelift/) · [Open 3D Engine](https://o3de.org/)

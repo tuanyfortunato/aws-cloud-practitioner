@@ -55,6 +55,26 @@ CodeCommit / GitHub ──▶ CodeBuild ──▶ (testes) ──▶ CodeDeploy 
 - "Automatizar deploy em EC2 e servidores on-premises." → CodeDeploy.
 - "Repositório privado de pacotes npm." → CodeArtifact.
 
+<!-- aprofundamento:inicio -->
+## 🔬 Ficha prática — visualize o serviço sem console
+
+> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+
+| Pergunta | O que você precisa compreender |
+|---|---|
+| **O que existe nesse serviço?** | Build projects, pipelines e estágios; ferramentas adicionais da esteira |
+| **O que você decide/configura?** | Código fonte, comandos, artefatos, role e integrações |
+| **Em que ordem as coisas acontecem?** | Pipeline coordena; Build compila/testa; ferramenta apropriada faz deploy |
+| **O que pode fazer, e em que condição?** | Automatiza fases repetíveis de entrega |
+| **O que não pode presumir?** | Build não escreve testes; Pipeline não é repositório nem executa todo estágio sozinho |
+
+**Caso comentado:** Compilar e rodar testes: CodeBuild; coordenar fluxo completo: CodePipeline.
+
+**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+
+**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
+<!-- aprofundamento:fim -->
+
 ## 🔗 Documentação oficial
 
 - [CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) · [CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html) · [CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html)
