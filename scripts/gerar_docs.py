@@ -781,10 +781,10 @@ def bloco_conteudo(total_cards, total_topicos):
         CONTEUDO_INI,
         "| Material | O que é | Quando usar |",
         "|---|---|---|",
-        f"| 📖 [Tópicos da prova](#4-o-que-estudar-todos-os-tópicos-da-prova) | **{total_topicos} tópicos** que cobrem os 4 domínios, "
-        "cada um com o conteúdo cobrado, *Cai na prova*, perguntas típicas e atualizações | Estudo principal, na ordem do roteiro |",
-        f"| 🔎 [Fichas de serviços](#5-serviços-aws-todas-as-fichas) | **{total_fichas} fichas** (uma por serviço ou família), "
-        f"com configurações, limites, preço, pegadinhas e perguntas; {fora} reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |",
+        f"| 📖 [Tópicos da prova](#sumário-da-apostila) | **{total_topicos} tópicos** que cobrem os 4 domínios, "
+        "com conceitos explicados, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do roteiro |",
+        f"| 🔎 [Fichas de serviços](#caderno-de-serviços) | **{total_fichas} fichas** (uma por serviço ou família), "
+        f"com funcionamento, opções, limites, segurança, custo e casos resolvidos; {fora} reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |",
         f"| 🃏 [Flashcards](flashcards/README.md) | **{total_cards} perguntas e respostas** por domínio, também em arquivo para o Anki | Todos os dias, para memorizar |",
         f"| 📝 [Simulado 01](simulados/simulado-01.md) | **{len(QUESTOES)} questões** no formato da prova, com gabarito comentado | Depois de estudar os 4 domínios (90 min, sem consulta) |",
         "| ❓ [Questões por domínio](simulados/questoes/README.md) | As mesmas questões, agrupadas por tópico | Ao terminar cada domínio |",
@@ -800,47 +800,42 @@ def bloco_conteudo(total_cards, total_topicos):
 
 
 def bloco_indice(secoes, ordem):
-    linhas = [INDICE_INI, "## 4. O que estudar: todos os tópicos da prova", "",
-              "Estude na ordem. Em cada tópico, abra também as **fichas** listadas ao lado: elas aprofundam os serviços citados.",
-              ""]
+    aberturas = {
+        "1": ("Conceitos de nuvem", "Por que usar recursos pela internet e como pensar em crescimento, falhas e migração?", "Comece pela ideia de nuvem. Depois estude as vantagens, a arquitetura, as boas práticas e a economia.", "Explique a diferença entre comprar infraestrutura e contratar recursos, e reconheça as vantagens e os limites de cada escolha."),
+        "2": ("Segurança e conformidade", "Quem pode acessar os recursos e quem precisa cuidar da segurança?", "Com a base do capítulo 1, separe as responsabilidades. Em seguida, estude identidades, permissões, proteção de dados e acompanhamento do ambiente.", "Diferencie as responsabilidades da AWS e do cliente, explique permissões e escolha ferramentas de proteção e auditoria."),
+        "3": ("Tecnologia e serviços", "Como montar uma solução usando computação, dados, armazenamento e redes?", "Use a base de nuvem e segurança para entender as peças de uma aplicação. Leia as aulas em ordem e abra as fichas indicadas dentro de cada uma.", "Relacione uma necessidade ao serviço apropriado e explique o que ele entrega, suas limitações e as decisões que ficam com o cliente."),
+        "4": ("Cobrança, preços e suporte", "Como entender a conta, controlar gastos e obter ajuda?", "Agora que você conhece os recursos, estude como o uso vira cobrança, quando compromissos de compra fazem sentido e quais ferramentas ajudam a acompanhar custos.", "Diferencie os modelos de compra e as ferramentas de estimativa, acompanhamento e orçamento, além das opções de suporte."),
+    }
+    linhas = [INDICE_INI, "## Sumário da apostila", "",
+              "Leia do capítulo 1 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.", ""]
     for dom, (pasta, nome, peso) in DOMINIOS.items():
-        n = sum(1 for s in ordem if s.split(".")[0] == dom)
-        linhas += [f"### {nome} — {peso} da prova", "",
-                   f"➡️ [Visão geral do domínio](docs/{pasta}/README.md) · 🃏 [Flashcards](flashcards/dominio-{dom}.md) · "
-                   f"❓ [Questões do domínio](simulados/questoes/dominio-{dom}.md) · {n} tópicos", "",
-                   "| # | Tópico | Fichas para abrir junto |", "|---|---|---|"]
+        titulo, pergunta, percurso, objetivo = aberturas[dom]
+        linhas += [f"### Capítulo {dom}: {titulo}", "", f"**A pergunta deste capítulo:** {pergunta}", "", percurso, "",
+                   f"Corresponde ao {nome.lower()} — **{peso} da prova**. [Apresentação do capítulo](docs/{pasta}/README.md).", "",
+                   "| Aula | Assunto |", "|---|---|"]
         for sec in ordem:
-            if sec.split(".")[0] != dom:
-                continue
-            fichas = " · ".join(
-                f"[{nome_curto(titulo_ficha(f))}](servicos/{CATEGORIA[f]}/{f}.md)"
-                for f in FICHAS_POR_TOPICO.get(sec, [])) or "—"
-            linhas.append(f"| {sec} | [{secoes[sec][0]}]({caminho_topico(sec)}) | {fichas} |")
-        linhas.append("")
-
-    linhas += ["## 5. Serviços AWS: todas as fichas", "",
-               "Cada ficha explica um serviço do jeito que a prova cobra: o que é, para que serve, configurações, limites, "
-               "preço, responsabilidade compartilhada, pegadinhas e perguntas típicas. A coluna **Prova** mostra se o serviço "
-               "está na [lista oficial](docs/00-guia-do-exame/escopo-oficial.md): ✅ no escopo · 🔀 parte dos serviços da ficha "
-               "está no escopo · ⚪ não aparece na lista · ❌ fora do escopo.", "",
-               "> Índice só das fichas: [servicos/README.md](servicos/README.md).", ""]
-    for cat, nomes in FICHAS.items():
-        tabela = ["| Ficha | O que é | Prova |", "|---|---|---|"]
-        for n in nomes:
-            caminho = os.path.join(RAIZ, "servicos", cat, n + ".md")
-            with open(caminho) as f:
-                m = re.search(r"\*\*Em uma frase:\*\* (.+)", f.read())
-            frase = m.group(1).strip() if m else ""
-            frase = frase[:1].upper() + frase[1:]
-            escopo = ESCOPO[n]
-            prova = escopo.split()[0] if escopo.startswith("✅") else escopo
-            tabela.append(f"| [{nome_curto(titulo_ficha(n))}](servicos/{cat}/{n}.md) | {frase} | {prova} |")
-        if cat == "fora-do-escopo":
-            linhas += [f"### {NOMES_CATEGORIA[cat]}", "",
-                       "<details>", f"<summary>Serviços que <b>não caem</b> na prova — abra para ver ({len(nomes)} fichas)</summary>", ""]
-            linhas += tabela + ["", "</details>", ""]
+            if sec.split(".")[0] == dom:
+                linhas.append(f"| {sec} | [{secoes[sec][0]}]({caminho_topico(sec)}) |")
+        primeira = next(sec for sec in ordem if sec.split(".")[0] == dom)
+        linhas += ["", f"**Comece pela [aula {primeira}]({caminho_topico(primeira)}).**", "", f"**Antes de avançar:** {objetivo}", "",
+                   f"**Confira seu entendimento:** [questões do capítulo {dom}](simulados/questoes/dominio-{dom}.md) · [flashcards do capítulo {dom}](flashcards/dominio-{dom}.md).", ""]
+        if int(dom) < 4:
+            linhas += [f"**Próxima etapa:** [capítulo {int(dom) + 1}](#capítulo-{int(dom) + 1}-" + {"1": "segurança-e-conformidade", "2": "tecnologia-e-serviços", "3": "cobrança-preços-e-suporte"}[dom] + ").", ""]
         else:
-            linhas += [f"### {NOMES_CATEGORIA[cat]}", ""] + tabela + [""]
+            linhas += ["**Próxima etapa:** [pratique e revise](#pratique-e-revise).", ""]
+    linhas += ["## Caderno de serviços", "",
+               "As fichas são leituras de aprofundamento. Quando uma aula citar um serviço, abra a ficha indicada nela; depois retorne à aula. Se você já conhece o nome do serviço e quer consultá-lo, abra uma categoria abaixo.", "",
+               "Cada ficha explica o problema resolvido, o funcionamento, as opções, os limites, a segurança, o custo e um caso resolvido. O status da prova aparece na própria ficha: consulte-o antes de dedicar tempo a um serviço.", "",
+               "Exemplos: [EC2 — computadores virtuais](servicos/computacao/ec2.md) · [S3 — armazenamento de objetos](servicos/armazenamento/s3.md) · [IAM — identidades e permissões](servicos/seguranca/iam.md).", "",
+               "Você também pode abrir o [índice completo das fichas, com descrições e escopo](servicos/README.md).", ""]
+    for cat, nomes in FICHAS.items():
+        nome = NOMES_CATEGORIA[cat]
+        linhas += ["<details>", f"<summary>{nome} — {len(nomes)} fichas (clique para abrir)</summary>", ""]
+        if cat == "fora-do-escopo":
+            linhas += ["Leitura complementar; estas fichas reúnem serviços fora do escopo da prova.", ""]
+        for n in nomes:
+            linhas.append(f"- [{nome_curto(titulo_ficha(n))}](servicos/{cat}/{n}.md)")
+        linhas += ["", "</details>", ""]
     linhas.append(INDICE_FIM)
     return "\n".join(linhas)
 
