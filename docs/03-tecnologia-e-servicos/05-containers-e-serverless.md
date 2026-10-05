@@ -1,24 +1,14 @@
 # 3.5 Containers e serverless
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon ECS (Elastic Container Service)](../../servicos/computacao/ecs.md) · [Amazon EKS (Elastic Kubernetes Service)](../../servicos/computacao/eks.md) · [AWS Fargate](../../servicos/computacao/fargate.md) · [Amazon ECR (Elastic Container Registry)](../../servicos/computacao/ecr.md) · [AWS Lambda](../../servicos/computacao/lambda.md)
-
-⬅️ [3.4 Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) · 🏠 [Índice do domínio](README.md) · [3.6 Outros serviços de computação](06-outros-servicos-de-computacao.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Contêineres empacotam a aplicação com tudo que ela precisa; **serverless** é rodar código sem gerenciar servidores. Este tópico mostra quem orquestra contêineres e quando usar o Lambda.
->
-> 🏠 **Analogia:** um **contêiner** é como uma **marmita pronta**: leva a comida e os talheres e funciona em qualquer micro-ondas. O **ECS/EKS** é o **gerente da cozinha** que distribui as marmitas; o **Fargate** é **não ter cozinha** (alguém esquenta para você); o **Lambda** é um **garçom que só aparece quando chamado** e cobra por minuto de atendimento.
+**Qual é a dificuldade?** Sua aplicação pode precisar rodar como um pacote completo ou executar apenas uma tarefa quando algo acontece. A equipe precisa escolher a forma de execução e quem administra os servidores.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Containers empacotam aplicações e dependências. Serviços como ECS e EKS coordenam sua execução; Fargate fornece capacidade sem administração direta das máquinas. Lambda executa funções acionadas por chamadas ou eventos.
 
-- [ ] Diferenciar **ECS** (nativo da AWS) de **EKS** (Kubernetes).
-- [ ] Saber que o **Fargate** roda contêineres **sem servidores** e o **ECR** guarda as imagens.
-- [ ] Lembrar que a **função Lambda convencional** roda por **até 15 minutos por invocação**, é disparado por eventos e cobra por requisição e duração.
+**Exemplo do dia a dia:** Um serviço de pedidos executa em containers. Uma tarefa de gerar miniatura pode ser uma função acionada quando chega uma foto.
+
+**O que não concluir?** Serverless não significa ausência de servidores, custo zero ou execução ilimitada. Empacotar, coordenar e fornecer capacidade são funções distintas.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **Orquestrador** | sistema que decide onde e quantos contêineres rodam. |
 | **Serverless** | você não gerencia servidores e paga só pelo uso. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **ECS** (nativo da AWS) de **EKS** (Kubernetes).
+- [ ] Saber que o **Fargate** roda contêineres **sem servidores** e o **ECR** guarda as imagens.
+- [ ] Lembrar que a **função Lambda convencional** roda por **até 15 minutos por invocação**, é disparado por eventos e cobra por requisição e duração.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+um **contêiner** é como uma **marmita pronta**: leva a comida e os talheres e funciona em qualquer micro-ondas. O **ECS/EKS** é o **gerente da cozinha** que distribui as marmitas; o **Fargate** é **não ter cozinha** (alguém esquenta para você); o **Lambda** é um **garçom que só aparece quando chamado** e cobra por minuto de atendimento.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Processar quando o arquivo chega ao S3" → **Lambda**. "Roda por **2 horas**" → **não** é Lambda (Fargate, Batch ou EC2). "Já usa **Kubernetes**" → **EKS**. "Contêineres sem gerenciar servidores" → **Fargate**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon ECS (Elastic Container Service)](../../servicos/computacao/ecs.md) · [Amazon EKS (Elastic Kubernetes Service)](../../servicos/computacao/eks.md) · [AWS Fargate](../../servicos/computacao/fargate.md) · [Amazon ECR (Elastic Container Registry)](../../servicos/computacao/ecr.md) · [AWS Lambda](../../servicos/computacao/lambda.md)
+
+⬅️ [3.4 Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) · 🏠 [Índice do domínio](README.md) · [3.6 Outros serviços de computação](06-outros-servicos-de-computacao.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

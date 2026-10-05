@@ -1,20 +1,30 @@
 # Amazon SageMaker AI
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A equipe quer criar um modelo de aprendizado de máquina com seus dados e precisa de ferramentas para preparar, treinar, avaliar e disponibilizar esse modelo.
+
+**Como este serviço ajuda?** SageMaker AI oferece recursos para etapas do desenvolvimento e operação de modelos. A equipe escolhe o processo, fornece dados e avalia a qualidade do resultado.
+
+**Exemplo do dia a dia:** A escola usa um histórico autorizado para experimentar um modelo de previsão de demanda e verifica seu desempenho antes de usar previsões no planejamento.
+
+**O que ele não resolve sozinho?** O serviço não garante previsões corretas nem dispensa dados adequados, avaliação e controle de acesso. Criar seu modelo é diferente de usar uma função de IA pronta.
+
+**Primeiras palavras para entender:**
+
+- **Modelo:** sistema que aprende padrões.
+- **Treinamento:** ajuste com dados.
+- **Inferência:** uso do modelo para produzir uma resposta.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** IA / machine learning · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 >
 > **Em uma frase:** plataforma completa para **construir, treinar e implantar modelos de ML próprios**.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **laboratório completo para criar o seu próprio modelo** de machine learning: preparar dados, treinar, testar e colocar no ar.
-
-- ✅ **Escolha quando:** precisa **construir, treinar e implantar modelos próprios** de ML.
-- 🚫 **Não é a resposta quando:** quer usar **modelos prontos de IA generativa** → [Bedrock](bedrock.md); quer **APIs prontas** (imagem, texto, voz) → [serviços de IA prontos](servicos-de-ia-prontos.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "treinar modelo próprio", "cientistas de dados", "implantar modelo de ML".
-<!-- didatico:fim -->
 
 ## Ciclo de ML e recursos
 

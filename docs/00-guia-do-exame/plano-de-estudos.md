@@ -1,5 +1,15 @@
 # 🗓️ Plano de Estudos (6 semanas, ~1 h/dia)
 
+<!-- didatico:inicio -->
+## 🧭 Antes de ler
+
+**Por que esta página existe?** Há muitos assuntos e você precisa distribuir leitura e revisão sem tentar aprender tudo numa sessão.
+
+**Como usar?** Este plano divide o estudo em etapas e sugere uma rotina. Ajuste o ritmo à sua disponibilidade e volte aos temas que ainda não consegue explicar.
+
+**Exemplo:** Em uma sessão, leia um tópico, explique o problema que ele resolve e só depois tente responder às perguntas. Uma resposta errada indica o que revisar.
+<!-- didatico:fim -->
+
 > Ajuste ao seu ritmo. O peso de cada domínio indica onde investir mais tempo.
 
 ## 🧭 Como usar este plano

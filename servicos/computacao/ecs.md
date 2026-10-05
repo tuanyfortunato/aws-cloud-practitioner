@@ -1,20 +1,30 @@
 # Amazon ECS (Elastic Container Service)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação empacotada precisa funcionar em várias máquinas, reiniciar quando falha e manter a quantidade desejada de cópias. Fazer isso manualmente é trabalhoso.
+
+**Como este serviço ajuda?** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências. Você descreve como rodar o pacote e escolhe a infraestrutura que vai executá-lo.
+
+**Exemplo do dia a dia:** Uma loja empacota seu serviço de pedidos e pede ao ECS que mantenha várias cópias funcionando. Elas podem executar em máquinas EC2 ou com Fargate, conforme a configuração.
+
+**O que ele não resolve sozinho?** ECS coordena containers; ele não escreve a aplicação. Usar ECS com EC2 ainda exige administrar as máquinas. Fargate muda essa parte da responsabilidade.
+
+**Primeiras palavras para entender:**
+
+- **Container:** ambiente de execução baseado num pacote de software.
+- **Imagem:** pacote usado para criar o container.
+- **Tarefa:** unidade de execução no ECS.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação / Contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
 > **Em uma frase:** orquestrador de contêineres próprio da AWS, totalmente gerenciado e integrado aos demais serviços.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **maestro de contêineres da própria AWS**: decide onde cada contêiner roda, mantém a quantidade certa e substitui os que caem.
-
-- ✅ **Escolha quando:** quer rodar contêineres com o **orquestrador nativo e mais simples** da AWS.
-- 🚫 **Não é a resposta quando:** a empresa **já usa Kubernetes** → [EKS](eks.md); quer contêineres **sem gerenciar servidores** → ECS **com** [Fargate](fargate.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "orquestrar contêineres", "nativo da AWS", "Docker", "task definition".
-<!-- didatico:fim -->
 
 ## Para que serve
 

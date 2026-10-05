@@ -92,8 +92,8 @@ questões no formato da prova com gabarito comentado e resumos para a revisão f
 Todos os 41 tópicos têm um aprofundamento com exercício comentado; as 105 fichas têm um mapa de recursos, configurações, fluxo e limites.
 
 **Cada tópico** (ex.: [2.3 IAM](docs/02-seguranca-e-conformidade/03-iam.md)) tem:
-- **🧠 Antes de começar:** a ideia em palavras simples, uma analogia, o checklist do que saber, as palavras novas
-  explicadas e como não errar na prova.
+- **🧠 Antes de começar:** o problema, a explicação em palavras simples, um exemplo concreto e o que não concluir.
+  Depois vêm palavras novas explicadas, objetivos de leitura, uma analogia opcional e revisão para a prova.
 - **📖 Conteúdo:** o que a prova cobra, com a linha **Cai na prova** mostrando os cenários mais comuns.
 - **❓ Perguntas típicas:** pergunta → resposta, no formato das questões.
 - **🔄 Atualizações 2025-2026:** o que mudou e foi conferido em fonte oficial.
@@ -101,9 +101,9 @@ Todos os 41 tópicos têm um aprofundamento com exercício comentado; as 105 fic
 - **⚠️ Aviso no topo**, quando o conteúdo mudou na prova atual.
 - **📝 Minhas anotações:** espaço para você escrever.
 
-**Cada ficha** (ex.: [Amazon S3](servicos/armazenamento/s3.md)) tem: o que é em uma frase, se está **no escopo da
-prova**, a seção **🧠 Entenda em 30 segundos** (analogia, quando escolher, quando **não** escolher e as palavras
-do enunciado que apontam para o serviço), para que serve, componentes, configurações, limites, cobrança, responsabilidade compartilhada,
+**Cada ficha** (ex.: [Amazon S3](servicos/armazenamento/s3.md)) começa com **🧠 Comece pelo problema**:
+a dificuldade que o serviço resolve, como ele ajuda, um exemplo, o que não resolve sozinho e as primeiras palavras técnicas.
+Depois vêm o resumo em uma frase, o **escopo da prova**, para que serve, componentes, configurações, limites, cobrança, responsabilidade compartilhada,
 pegadinhas e perguntas típicas.
 
 **Legenda usada em todo o repositório:** 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar ·

@@ -1,24 +1,14 @@
 # 3.4 Escalabilidade e balanceamento de carga
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon EC2 Auto Scaling](../../servicos/computacao/ec2-auto-scaling.md) · [Elastic Load Balancing (ELB)](../../servicos/computacao/elastic-load-balancing.md)
-
-⬅️ [3.3 Amazon EC2](03-ec2.md) · 🏠 [Índice do domínio](README.md) · [3.5 Containers e serverless](05-containers-e-serverless.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Dois serviços trabalham juntos: o **Auto Scaling** muda a **quantidade** de servidores conforme a demanda, e o **Load Balancer** **distribui** os usuários entre eles.
->
-> 🏠 **Analogia:** num **supermercado**, o **Auto Scaling** é o gerente que abre ou fecha caixas conforme a fila; o **Load Balancer** é o funcionário que aponta "o caixa 3 está livre" e nunca manda ninguém para o caixa fechado.
+**Qual é a dificuldade?** Muitos visitantes chegam ao mesmo tempo. Uma máquina pode não atender, e várias máquinas sem distribuição adequada também podem ficar desequilibradas.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Escalabilidade ajusta a capacidade; balanceamento distribui o tráfego. Os dois podem trabalhar juntos, mas resolvem partes diferentes do atendimento.
 
-- [ ] Explicar **mínimo, desejado e máximo** de um Auto Scaling Group e os tipos de política.
-- [ ] Diferenciar **ALB** (camada 7, HTTP, por caminho), **NLB** (camada 4, TCP/UDP, altíssima performance) e **GWLB** (appliances de rede).
-- [ ] Saber que o Auto Scaling **não tem custo** próprio (paga-se as instâncias).
+**Exemplo do dia a dia:** Durante uma promoção, o grupo adiciona máquinas e o balanceador encaminha pedidos aos destinos disponíveis. Depois, a quantidade de máquinas pode diminuir conforme as regras.
+
+**O que não concluir?** Balanceador não cria máquinas por si só; aumentar máquinas não resolve todo gargalo. A aplicação e o armazenamento também precisam suportar o desenho.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **Camada 7 / camada 4** | nível da comunicação: 7 entende HTTP (caminhos, cabeçalhos); 4 só vê conexões TCP/UDP. |
 | **Launch template** | o molde usado para criar as instâncias do grupo. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Explicar **mínimo, desejado e máximo** de um Auto Scaling Group e os tipos de política.
+- [ ] Diferenciar **ALB** (camada 7, HTTP, por caminho), **NLB** (camada 4, TCP/UDP, altíssima performance) e **GWLB** (appliances de rede).
+- [ ] Saber que o Auto Scaling **não tem custo** próprio (paga-se as instâncias).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+num **supermercado**, o **Auto Scaling** é o gerente que abre ou fecha caixas conforme a fila; o **Load Balancer** é o funcionário que aponta "o caixa 3 está livre" e nunca manda ninguém para o caixa fechado.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Aumentar/diminuir instâncias" → **Auto Scaling**. "Distribuir tráfego" → **ELB**. "/api para um serviço, /imagens para outro" → **ALB**. "TCP, latência ultrabaixa, IP fixo" → **NLB**. "Firewall de terceiros" → **GWLB**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon EC2 Auto Scaling](../../servicos/computacao/ec2-auto-scaling.md) · [Elastic Load Balancing (ELB)](../../servicos/computacao/elastic-load-balancing.md)
+
+⬅️ [3.3 Amazon EC2](03-ec2.md) · 🏠 [Índice do domínio](README.md) · [3.5 Containers e serverless](05-containers-e-serverless.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

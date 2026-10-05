@@ -1,5 +1,39 @@
 # 4.6 Outros recursos de ajuda
 
+## 🧠 Antes de começar
+
+**Qual é a dificuldade?** Uma pessoa precisa aprender, tirar uma dúvida ou contratar ajuda para executar um projeto. Nem todo canal serve para as três necessidades.
+
+**A ideia em palavras simples:** Recursos de ajuda incluem documentação, comunidades, orientação, parceiros e ofertas. Cada um responde a um tipo de necessidade.
+
+**Exemplo do dia a dia:** A escola consulta documentação para entender um recurso e avalia um parceiro quando precisa de trabalho especializado para a migração.
+
+**O que não concluir?** Uma resposta comunitária não equivale a um contrato de suporte ou de execução. Escolha o canal pelo trabalho e pela responsabilidade esperada.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **APN** | AWS Partner Network: rede de empresas parceiras certificadas. |
+| **Marketplace** | catálogo de software de terceiros cobrado na fatura AWS. |
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **re:Post** (comunidade) de **Knowledge Center** (artigos prontos).
+- [ ] Diferenciar **Professional Services** (consultoria da AWS) de **APN** (parceiros).
+- [ ] Saber para que servem o **Marketplace** e o **Trust & Safety**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é um **mapa de quem procurar**: dúvida rápida → **fórum da comunidade** (re:Post); resposta pronta → **FAQ** (Knowledge Center); projeto grande → **consultoria da AWS** (Professional Services) ou **empresa parceira** (APN); comprar software → **loja** (Marketplace); denúncia → **ouvidoria** (Trust & Safety).
+
+</details>
+
+> 🎯 **Como não errar na prova:** "Comunidade" → **re:Post**. "Consultoria da própria AWS" → **Professional Services**. "Parceiro certificado" → **APN**. "Comprar software de terceiros" → **Marketplace**.
+
+---
+
 > **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
 
 > 🔎 **Fichas detalhadas:** [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](../../servicos/custos/recursos-de-ajuda-e-parceiros.md) · [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md)
@@ -9,27 +43,6 @@
 ⬅️ [4.5 Planos de AWS Support](05-planos-de-suporte.md) · 🏠 [Índice do domínio](README.md)
 
 ---
-
-## 🧠 Antes de começar
-
-> 💡 **Em palavras simples:** Fora dos planos de suporte, há muitas fontes de ajuda: comunidade, artigos, documentação, consultoria da AWS, parceiros e um catálogo de software. A prova pergunta **a quem recorrer** em cada situação.
->
-> 🏠 **Analogia:** é um **mapa de quem procurar**: dúvida rápida → **fórum da comunidade** (re:Post); resposta pronta → **FAQ** (Knowledge Center); projeto grande → **consultoria da AWS** (Professional Services) ou **empresa parceira** (APN); comprar software → **loja** (Marketplace); denúncia → **ouvidoria** (Trust & Safety).
-
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Diferenciar **re:Post** (comunidade) de **Knowledge Center** (artigos prontos).
-- [ ] Diferenciar **Professional Services** (consultoria da AWS) de **APN** (parceiros).
-- [ ] Saber para que servem o **Marketplace** e o **Trust & Safety**.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **APN** | AWS Partner Network: rede de empresas parceiras certificadas. |
-| **Marketplace** | catálogo de software de terceiros cobrado na fatura AWS. |
-
-> 🎯 **Como não errar na prova:** "Comunidade" → **re:Post**. "Consultoria da própria AWS" → **Professional Services**. "Parceiro certificado" → **APN**. "Comprar software de terceiros" → **Marketplace**.
 
 ## 📖 Conteúdo
 

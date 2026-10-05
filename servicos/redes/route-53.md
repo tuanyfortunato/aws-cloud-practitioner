@@ -1,20 +1,30 @@
 # Amazon Route 53
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma pessoa digita o nome de um site, mas o computador precisa descobrir para qual endereço enviar a comunicação.
+
+**Como este serviço ajuda?** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde. DNS relaciona nomes a informações de endereço por registros.
+
+**Exemplo do dia a dia:** A escola usa registros DNS para fazer seu domínio apontar para o endereço que atende o site.
+
+**O que ele não resolve sozinho?** Route 53 indica o destino; ele não hospeda o código do site nem substitui a máquina que atende o pedido. Os tipos de registro e as políticas têm funções diferentes.
+
+**Primeiras palavras para entender:**
+
+- **Domínio:** nome como escola.example.
+- **DNS:** sistema que resolve nomes.
+- **Registro:** informação publicada para responder consultas DNS.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** DNS · **Domínio:** 3 · **Escopo:** **Global** · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** DNS gerenciado e altamente disponível (o "53" é a porta do DNS), com registro de domínios, roteamento inteligente e health checks.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **lista telefônica (e o GPS) da internet**: traduz nomes como exemplo.com em endereços e decide para qual servidor mandar cada usuário.
-
-- ✅ **Escolha quando:** precisa **registrar domínios**, gerenciar **DNS** e direcionar usuários por latência, localização, peso ou failover.
-- 🚫 **Não é a resposta quando:** quer **entregar e fazer cache** do conteúdo → [CloudFront](cloudfront.md); quer **IPs fixos globais** → [Global Accelerator](global-accelerator.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "DNS", "registrar domínio", "SLA de 100%", "rotear por latência, geolocalização ou peso", "failover com health check".
-<!-- didatico:fim -->
 
 ## Funções
 

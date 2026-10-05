@@ -1,20 +1,30 @@
 # Amazon Neptune
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Algumas perguntas dependem das relações entre pessoas, contas ou produtos, e não apenas dos campos de um registro isolado.
+
+**Como este serviço ajuda?** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
+
+**Exemplo do dia a dia:** Uma investigação de fraude procura contas ligadas ao mesmo dispositivo e a outras contas suspeitas. Um grafo permite explorar esses caminhos.
+
+**O que ele não resolve sozinho?** Ele não é a escolha padrão para qualquer dado nem decide sozinho se há fraude. Você modela as relações e as consultas necessárias.
+
+**Primeiras palavras para entender:**
+
+- **Grafo:** dados organizados por relações.
+- **Nó:** entidade, como uma conta.
+- **Aresta:** conexão entre entidades.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Banco de grafos · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco de grafos gerenciado para dados altamente conectados (relacionamentos).
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **mapa de conexões**: em vez de tabelas, guarda quem está ligado a quem.
-
-- ✅ **Escolha quando:** os **relacionamentos** importam mais que os dados: redes sociais, recomendações, detecção de fraude.
-- 🚫 **Não é a resposta quando:** são dados **relacionais comuns** → [RDS](rds.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "banco de grafos", "amigos de amigos", "recomendação", "fraude por conexões".
-<!-- didatico:fim -->
 
 ## Destaques
 

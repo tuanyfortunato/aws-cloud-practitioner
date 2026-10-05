@@ -1,25 +1,14 @@
 # 3.12 IA e machine learning
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) · [Amazon Bedrock](../../servicos/ia-ml/bedrock.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)](../../servicos/ia-ml/servicos-de-ia-prontos.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo: SageMaker AI, Amazon Q, Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate. **Bedrock** e **Kendra** não aparecem na lista atual; **Personalize** e **Fraud Detector** estão **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
-
-⬅️ [3.11 Analytics](11-analytics.md) · 🏠 [Índice do domínio](README.md) · [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** A prova separa três níveis de IA: **criar o seu próprio modelo** (SageMaker AI), **usar modelos generativos prontos** (Bedrock e Amazon Q) e **APIs prontas** para uma tarefa específica (imagem, texto, voz).
->
-> 🏠 **Analogia:** é como **comida**: o **SageMaker AI** é cozinhar do zero; o **Bedrock** é comprar uma massa pronta e montar o seu prato; os **serviços de IA prontos** são pratos congelados — cada um resolve uma refeição específica.
+**Qual é a dificuldade?** Uma aplicação quer transcrever áudio, fazer previsões ou gerar texto. Embora todas envolvam IA, o trabalho necessário e a solução são diferentes.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Serviços de IA podem oferecer funções prontas, ferramentas para desenvolver modelos próprios ou acesso a modelos generativos existentes. A escolha depende da tarefa.
 
-- [ ] Diferenciar **SageMaker AI** (modelo próprio) de **Bedrock** (modelos de fundação via API) e **Amazon Q** (assistente pronto).
-- [ ] Ligar cada API pronta à tarefa: imagem → Rekognition; sentimento → Comprehend; chatbot → Lex; texto em fala → Polly; fala em texto → Transcribe; tradução → Translate; documentos → Textract.
+**Exemplo do dia a dia:** Para transcrever uma aula, a escola avalia Transcribe. Para criar um modelo com seus dados, avalia SageMaker AI. Para gerar conteúdo com modelos existentes, há ofertas específicas.
+
+**O que não concluir?** IA não garante precisão e não conhece automaticamente os dados da empresa. Compatibilidade, acesso, avaliação e escopo da prova precisam ser considerados.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -29,7 +18,31 @@
 | **IA generativa** | IA que cria conteúdo novo (texto, imagem, código). |
 | **Modelo de fundação** | modelo grande, pré-treinado, usado como base para várias tarefas. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **SageMaker AI** (modelo próprio) de **Bedrock** (modelos de fundação via API) e **Amazon Q** (assistente pronto).
+- [ ] Ligar cada API pronta à tarefa: imagem → Rekognition; sentimento → Comprehend; chatbot → Lex; texto em fala → Polly; fala em texto → Transcribe; tradução → Translate; documentos → Textract.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como **comida**: o **SageMaker AI** é cozinhar do zero; o **Bedrock** é comprar uma massa pronta e montar o seu prato; os **serviços de IA prontos** são pratos congelados — cada um resolve uma refeição específica.
+
+</details>
+
 > 🎯 **Como não errar na prova:** Polly e Transcribe confundem: **P**olly **P**roduz fala (texto → voz); **Transcribe** transcreve (voz → texto). "Treinar modelo próprio" → **SageMaker AI**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) · [Amazon Bedrock](../../servicos/ia-ml/bedrock.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)](../../servicos/ia-ml/servicos-de-ia-prontos.md)
+
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo: SageMaker AI, Amazon Q, Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate. **Bedrock** e **Kendra** não aparecem na lista atual; **Personalize** e **Fraud Detector** estão **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
+⬅️ [3.11 Analytics](11-analytics.md) · 🏠 [Índice do domínio](README.md) · [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

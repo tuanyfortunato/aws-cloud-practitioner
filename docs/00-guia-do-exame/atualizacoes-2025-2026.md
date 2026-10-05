@@ -1,5 +1,15 @@
 # 🔄 O que mudou em 2025-2026: valor da prova × valor atual
 
+<!-- didatico:inicio -->
+## 🧭 Antes de ler
+
+**Por que esta página existe?** Um número ou nome de um material antigo pode não corresponder mais à oferta comercial ou ao guia do exame.
+
+**Como usar?** Esta página registra diferenças e verificações do material. Leia a observação associada ao tema para saber qual contexto está sendo descrito.
+
+**Exemplo:** Ao estudar suporte, confira se o exemplo descreve um modelo do guia ou uma oferta comercial atual. Não escolha uma resposta apenas porque reconhece um nome antigo.
+<!-- didatico:fim -->
+
 > Verificado em fontes oficiais da AWS em **04/10/2026** ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
 > Pesquisa original: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md).
 

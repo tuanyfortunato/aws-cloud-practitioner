@@ -1,20 +1,30 @@
 # AWS IoT Core, IoT Greengrass e outros serviços de IoT
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Dispositivos físicos precisam enviar dados e receber comandos. Alguns também precisam executar tarefas perto do equipamento, mesmo com conectividade limitada.
+
+**Como este serviço ajuda?** IoT Core conecta dispositivos à nuvem por mecanismos compatíveis. Greengrass leva funções de software para dispositivos de borda preparados para isso.
+
+**Exemplo do dia a dia:** Sensores de uma escola enviam leituras ao IoT Core. Uma necessidade de processamento local pode levar a uma avaliação separada do Greengrass.
+
+**O que ele não resolve sozinho?** Conectar um dispositivo não cria toda a análise dos dados nem autoriza qualquer equipamento. Identidade, políticas e software são necessários; os produtos têm escopos distintos.
+
+**Primeiras palavras para entender:**
+
+- **IoT:** dispositivos conectados.
+- **Telemetria:** dados enviados por equipamentos.
+- **Borda:** processamento próximo dos dispositivos.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Internet das Coisas · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 >
 > **Em uma frase:** conectar, gerenciar e processar dados de bilhões de dispositivos com segurança — na nuvem e na borda.
 >
 > **Escopo oficial:** 🔀 IoT Core ✅ · IoT Greengrass ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **central que conecta milhões de dispositivos** e recebe as mensagens deles com segurança.
-
-- ✅ **Escolha quando:** precisa **conectar sensores e dispositivos** à nuvem (IoT Core, o único serviço de IoT da prova).
-- 🚫 **Não é a resposta quando:** precisa guardar **séries temporais** → Timestream, na ficha de [bancos especializados](../banco-de-dados/keyspaces-timestream-e-outros.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "sensores", "dispositivos", "MQTT", "conectar milhões de dispositivos".
-<!-- didatico:fim -->
 
 ## AWS IoT Core
 

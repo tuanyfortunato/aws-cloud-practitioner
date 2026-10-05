@@ -1,5 +1,15 @@
 # Guia do Exame — AWS Certified Cloud Practitioner (CLF-C02)
 
+<!-- didatico:inicio -->
+## 🧭 Antes de ler
+
+**Por que esta página existe?** Você quer estudar AWS, mas precisa saber o que a certificação avalia e por onde começar.
+
+**Como usar?** Esta página apresenta o exame e organiza os caminhos de estudo. Comece pela ideia de nuvem, siga pelos quatro domínios e use as fichas para entender cada serviço.
+
+**Exemplo:** Se você ainda não sabe o que é um servidor, não precisa começar decorando siglas: leia a abertura do primeiro tópico e avance com os exemplos.
+<!-- didatico:fim -->
+
 > Confira sempre o [exam guide oficial](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html) e a [lista de serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html) na semana da prova.
 > O código continua **CLF-C02**, mas a AWS atualiza o conteúdo do guia **sem trocar o código** (última verificação: 04/10/2026, [detalhes](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
 

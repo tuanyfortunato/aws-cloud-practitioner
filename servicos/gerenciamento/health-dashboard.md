@@ -1,20 +1,30 @@
 # AWS Health Dashboard
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um problema da AWS ou uma manutenção pode afetar recursos. A equipe precisa distinguir isso de um erro exclusivo de sua aplicação.
+
+**Como este serviço ajuda?** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
+
+**Exemplo do dia a dia:** A equipe consulta um evento de manutenção que afeta seu ambiente e planeja a ação indicada para os recursos envolvidos.
+
+**O que ele não resolve sozinho?** A visão pública não mostra todos os detalhes específicos de uma conta. AWS Health também não substitui métricas e logs da aplicação.
+
+**Primeiras palavras para entender:**
+
+- **Evento de saúde:** aviso sobre condição ou mudança operacional.
+- **Visão pública:** estado geral dos serviços.
+- **Visão da conta:** informações associadas ao ambiente do cliente.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / operações · **Domínio:** 2 e 3 · **Escopo:** Global · **Gratuito** · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 >
 > **Em uma frase:** mostra o status dos serviços AWS e, principalmente, os eventos que afetam **os seus** recursos.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **aviso de manutenção do condomínio**: avisa quando a AWS vai mexer em algo que afeta os seus recursos.
-
-- ✅ **Escolha quando:** precisa ver **eventos e manutenções da AWS** que afetam a sua conta.
-- 🚫 **Não é a resposta quando:** quer **métricas dos seus recursos** → [CloudWatch](cloudwatch.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "evento da AWS", "manutenção programada", "afeta minhas instâncias".
-<!-- didatico:fim -->
 
 ## Duas visões
 

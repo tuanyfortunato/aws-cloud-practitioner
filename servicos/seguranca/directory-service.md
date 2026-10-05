@@ -1,20 +1,30 @@
 # AWS Directory Service
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa já organiza usuários e computadores com Active Directory e precisa usar esse tipo de identidade com aplicações e recursos na AWS.
+
+**Como este serviço ajuda?** Directory Service oferece opções para diretórios e integração com Active Directory, conforme a modalidade. Ele atende necessidades corporativas de identidade e compatibilidade.
+
+**Exemplo do dia a dia:** Uma aplicação Windows na AWS precisa reconhecer os usuários do diretório da empresa. A equipe escolhe uma modalidade compatível com essa integração.
+
+**O que ele não resolve sozinho?** As modalidades não são equivalentes: encaminhar autenticação para um diretório existente é diferente de manter um diretório gerenciado. Ele também não substitui qualquer mecanismo de login de aplicativos.
+
+**Primeiras palavras para entender:**
+
+- **Diretório:** cadastro organizado de identidades.
+- **Active Directory:** tecnologia corporativa de diretório.
+- **Domínio:** conjunto administrado por esse diretório.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / identidade · **Domínio:** 2 · **Escopo:** Regional (em VPC) · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
 >
 > **Em uma frase:** Microsoft Active Directory gerenciado na AWS, ou ponte para o AD on-premises.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **Active Directory** (o cadastro de usuários da Microsoft) rodando na AWS, ou uma ponte para o que a empresa já tem.
-
-- ✅ **Escolha quando:** aplicações dependem de **Active Directory**, ou você quer usar o **AD on-premises** na AWS.
-- 🚫 **Não é a resposta quando:** precisa de **login único nas contas AWS** → [IAM Identity Center](iam-identity-center.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "Active Directory", "AD gerenciado", "AD Connector".
-<!-- didatico:fim -->
 
 ## Opções
 

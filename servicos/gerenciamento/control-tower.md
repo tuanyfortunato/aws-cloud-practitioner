@@ -1,20 +1,30 @@
 # AWS Control Tower
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa quer começar um ambiente com várias contas AWS seguindo uma estrutura organizada e controles comuns, sem montar tudo isoladamente.
+
+**Como este serviço ajuda?** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
+
+**Exemplo do dia a dia:** A equipe cria uma base para contas de trabalho e utiliza os mecanismos previstos para acompanhar controles no ambiente.
+
+**O que ele não resolve sozinho?** Ele não é uma certificação automática de segurança nem administra toda configuração de cada aplicação. Os controles têm alcances e requisitos diferentes.
+
+**Primeiras palavras para entender:**
+
+- **Landing zone:** base organizada para um ambiente AWS de várias contas.
+- **Controle:** regra ou verificação de governança.
+- **Governança:** definição e acompanhamento de regras.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / governança multi-conta · **Domínio:** 2 · **Escopo:** Organização (região *home*) · **Tópico do guia:** [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 >
 > **Em uma frase:** monta e governa automaticamente um ambiente multi-conta seguro e padronizado (**landing zone**) sobre o Organizations.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **kit "casa pronta" para várias contas**: monta a estrutura já com as regras de segurança instaladas.
-
-- ✅ **Escolha quando:** precisa criar rapidamente um **ambiente multi-conta seguro e padronizado** (landing zone).
-- 🚫 **Não é a resposta quando:** quer só **agrupar contas e aplicar SCPs** → [Organizations](organizations.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "landing zone", "guardrails", "ambiente multi-conta com boas práticas".
-<!-- didatico:fim -->
 
 ## O que configura
 

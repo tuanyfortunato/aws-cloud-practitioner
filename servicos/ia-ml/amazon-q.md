@@ -1,20 +1,30 @@
 # Amazon Q
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma pessoa quer assistência para tarefas de desenvolvimento ou para consultar informações corporativas, conforme seu contexto de trabalho.
+
+**Como este serviço ajuda?** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
+
+**Exemplo do dia a dia:** Uma desenvolvedora pede ajuda para entender código. Em outro caso, uma funcionária faz uma pergunta sobre documentos disponibilizados ao assistente corporativo.
+
+**O que ele não resolve sozinho?** Os produtos não acessam automaticamente todo o conhecimento da empresa. Respostas e código precisam ser revisados; fontes, permissões e integrações dependem da modalidade.
+
+**Primeiras palavras para entender:**
+
+- **Assistente:** ferramenta que responde a pedidos.
+- **Fonte de dados:** conteúdo disponibilizado ao produto.
+- **Contexto:** informação usada para formular a resposta.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** IA generativa / assistentes · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 >
 > **Em uma frase:** família de **assistentes de IA generativa** prontos para desenvolvedores e para dados corporativos.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **assistente de IA pronto para usar**: ajuda desenvolvedores a programar e funcionários a encontrar respostas.
-
-- ✅ **Escolha quando:** o enunciado pede um **assistente de IA generativa pronto**, para código ou para a empresa.
-- 🚫 **Não é a resposta quando:** quer **construir a sua própria aplicação** de IA → [Bedrock](bedrock.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "assistente de IA", "gerar código na IDE", "perguntas sobre os dados da empresa".
-<!-- didatico:fim -->
 
 ## Variantes
 

@@ -1,20 +1,30 @@
 # AWS Direct Connect
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa quer uma conexão de rede dedicada entre seu ambiente e a AWS, em vez de depender apenas de um caminho pela internet pública.
+
+**Como este serviço ajuda?** Direct Connect permite estabelecer essa conectividade por conexões e locais compatíveis, com interfaces e rotas configuradas para o ambiente.
+
+**Exemplo do dia a dia:** Uma empresa com tráfego frequente entre seu datacenter e a AWS planeja uma conexão Direct Connect e uma estratégia de contingência.
+
+**O que ele não resolve sozinho?** Dedicada não significa automaticamente criptografada nem sem possibilidade de falha. A proteção dos dados e a redundância precisam ser planejadas.
+
+**Primeiras palavras para entender:**
+
+- **Circuito dedicado:** conexão destinada àquele uso.
+- **Datacenter:** local dos servidores.
+- **Redundância:** alternativas para continuar operando com falhas.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Rede / conectividade híbrida · **Domínio:** 3 · **Escopo:** Local Direct Connect ↔ regiões · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** conexão de rede **física, dedicada e privada** entre seu datacenter e a AWS, sem passar pela internet.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **estrada particular** entre o seu datacenter e a AWS: não pega o trânsito da internet, mas leva semanas para ficar pronta.
-
-- ✅ **Escolha quando:** precisa de conexão **privada, dedicada**, com banda alta e **desempenho consistente**.
-- 🚫 **Não é a resposta quando:** precisa de conexão **já**, ou **criptografada por padrão** → [Site-to-Site VPN](site-to-site-vpn-e-client-vpn.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "conexão dedicada", "privada", "não passa pela internet", "desempenho consistente", "grandes volumes todo dia".
-<!-- didatico:fim -->
 
 ## Para que serve
 

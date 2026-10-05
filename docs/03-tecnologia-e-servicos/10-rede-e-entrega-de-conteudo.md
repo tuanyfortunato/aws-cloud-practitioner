@@ -1,25 +1,14 @@
 # 3.10 Rede e entrega de conteúdo
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon VPC (Virtual Private Cloud)](../../servicos/redes/vpc.md) · [VPC Peering, Transit Gateway, VPC Endpoints e PrivateLink](../../servicos/redes/vpc-peering-transit-gateway-e-endpoints.md) · [AWS VPN (Site-to-Site VPN e Client VPN)](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) · [AWS Direct Connect](../../servicos/redes/direct-connect.md) · [Amazon Route 53](../../servicos/redes/route-53.md) · [Amazon CloudFront](../../servicos/redes/cloudfront.md) · [AWS Global Accelerator](../../servicos/redes/global-accelerator.md) · [Amazon API Gateway](../../servicos/redes/api-gateway.md)
-
-⬅️ [3.9 Outros serviços de armazenamento](09-outros-armazenamentos.md) · 🏠 [Índice do domínio](README.md) · [3.11 Analytics](11-analytics.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** A **VPC** é a sua rede privada na AWS. Este tópico mostra como dividi-la, ligá-la à internet, a outras VPCs e ao datacenter, e como entregar conteúdo rápido no mundo todo (DNS, CDN e aceleração).
->
-> 🏠 **Analogia:** a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas dão para a avenida, privadas não); o **Internet Gateway** é o portão principal; o **NAT Gateway** é uma **saída só de ida** para os moradores das ruas privadas; a **VPN** é um túnel pela estrada pública; o **Direct Connect**, uma estrada particular; o **Route 53**, a lista telefônica; o **CloudFront**, lojinhas espalhadas com cópias do conteúdo.
+**Qual é a dificuldade?** Usuários precisam chegar ao site, a aplicação precisa chegar ao banco e a empresa pode precisar conectar sua rede à AWS. Cada comunicação tem um caminho e controles.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Rede define conexões e rotas. VPC organiza recursos em uma rede virtual; DNS relaciona nomes a endereços; distribuição de conteúdo e aceleração atuam na entrega aos usuários.
 
-- [ ] Diferenciar subnet **pública** de **privada** e explicar **Internet Gateway** × **NAT Gateway**.
-- [ ] Diferenciar **VPC Peering** (não transitivo) de **Transit Gateway** (hub central) e saber o que são **VPC endpoints**.
-- [ ] Diferenciar **Site-to-Site VPN** (pela internet, rápido) de **Direct Connect** (dedicado, leva semanas).
-- [ ] Diferenciar **Route 53** (DNS), **CloudFront** (CDN com cache) e **Global Accelerator** (IPs fixos, sem cache).
+**Exemplo do dia a dia:** O aluno digita o domínio; DNS indica o destino. O pedido chega ao serviço que atende o site, e a aplicação acessa o banco por um caminho autorizado.
+
+**O que não concluir?** Nenhum serviço desta lista configura toda a comunicação sozinho. Organizar rede, permitir acesso, resolver nomes e distribuir conteúdo são funções distintas.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -30,7 +19,31 @@
 | **CDN** | rede de entrega de conteúdo com cópias perto dos usuários. |
 | **Transitivo** | se A fala com B e B com C, A fala com C — o peering **não** é. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar subnet **pública** de **privada** e explicar **Internet Gateway** × **NAT Gateway**.
+- [ ] Diferenciar **VPC Peering** (não transitivo) de **Transit Gateway** (hub central) e saber o que são **VPC endpoints**.
+- [ ] Diferenciar **Site-to-Site VPN** (pela internet, rápido) de **Direct Connect** (dedicado, leva semanas).
+- [ ] Diferenciar **Route 53** (DNS), **CloudFront** (CDN com cache) e **Global Accelerator** (IPs fixos, sem cache).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas dão para a avenida, privadas não); o **Internet Gateway** é o portão principal; o **NAT Gateway** é uma **saída só de ida** para os moradores das ruas privadas; a **VPN** é um túnel pela estrada pública; o **Direct Connect**, uma estrada particular; o **Route 53**, a lista telefônica; o **CloudFront**, lojinhas espalhadas com cópias do conteúdo.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Subnet privada baixar patches" → **NAT Gateway**. "Dezenas de VPCs" → **Transit Gateway**. "S3 sem internet" → **gateway endpoint**. "Criptografado, pronto hoje" → **VPN**; "dedicado, consistente" → **Direct Connect**. "Cache global" → **CloudFront**; "IPs estáticos, TCP/UDP" → **Global Accelerator**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon VPC (Virtual Private Cloud)](../../servicos/redes/vpc.md) · [VPC Peering, Transit Gateway, VPC Endpoints e PrivateLink](../../servicos/redes/vpc-peering-transit-gateway-e-endpoints.md) · [AWS VPN (Site-to-Site VPN e Client VPN)](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) · [AWS Direct Connect](../../servicos/redes/direct-connect.md) · [Amazon Route 53](../../servicos/redes/route-53.md) · [Amazon CloudFront](../../servicos/redes/cloudfront.md) · [AWS Global Accelerator](../../servicos/redes/global-accelerator.md) · [Amazon API Gateway](../../servicos/redes/api-gateway.md)
+
+⬅️ [3.9 Outros serviços de armazenamento](09-outros-armazenamentos.md) · 🏠 [Índice do domínio](README.md) · [3.11 Analytics](11-analytics.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

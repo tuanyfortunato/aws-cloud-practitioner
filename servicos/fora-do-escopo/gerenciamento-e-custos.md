@@ -1,5 +1,25 @@
 # Gerenciamento e custos (Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler, DevPay)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Além dos serviços principais, a operação pode precisar administrar cópias de discos, enviar avisos a chats ou apoiar uma implantação específica.
+
+**Como este serviço ajuda?** A ficha reúne ferramentas auxiliares com finalidades diferentes, incluindo opções históricas. Cada seção identifica o trabalho de uma ferramenta.
+
+**Exemplo do dia a dia:** Uma equipe pode querer automatizar o ciclo de cópias de volumes; outra, receber um aviso operacional num chat. São necessidades de operação distintas.
+
+**O que ele não resolve sozinho?** Não escolha uma dessas ferramentas apenas porque a pergunta fala em custo ou gerenciamento. Verifique finalidade, status comercial e escopo; a ficha é de referência.
+
+**Primeiras palavras para entender:**
+
+- **Ciclo de vida:** etapas e regras ao longo do tempo.
+- **Notificação:** aviso enviado a um destinatário.
+- **Implantação:** colocar recursos ou aplicações em funcionamento.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento e gestão de custos · **Domínio:** — (fora da prova) · **Escopo:** Regional / conta · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
 >
 > **Em uma frase:** ferramentas auxiliares de operação e de cobrança que existem na AWS, mas não caem na prova.
@@ -9,16 +29,6 @@
 > ❌ **Fora do escopo da CLF-C02.** Documentados aqui apenas para referência. Veja também
 > [Billing Conductor](../custos/pricing-calculator-cur-e-outras-ferramentas.md) e
 > [AWS IQ, Activate e AMS](../custos/recursos-de-ajuda-e-parceiros.md), que também estão fora do escopo.
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **ferramentas auxiliares** de operação e de cobrança.
-
-- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
-- 🚫 **Não é a resposta quando:** na prova, **backups** → [AWS Backup](../armazenamento/aws-backup.md); **alertas de custo** → [Budgets](../custos/budgets.md); **vender software** → Marketplace, em [recursos de ajuda](../custos/recursos-de-ajuda-e-parceiros.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler e DevPay aparecem, no máximo, como alternativas erradas.
-<!-- didatico:fim -->
 
 ## Amazon Data Lifecycle Manager (DLM)
 

@@ -20,5 +20,7 @@
 - Em cada tópico de `docs/`, só os blocos `<!-- extra:... -->` e `<!-- notas:... -->` são preservados ao regenerar.
 - Fichas novas seguem `templates/servico.md` e precisam ser registradas em `FICHAS` **e** em `ESCOPO` (status na lista oficial da prova) no `scripts/gerar_docs.py`; o gerador falha se faltar o status.
 - A seção didática de cada tópico ("🧠 Antes de começar") e a introdução de cada domínio ficam em `scripts/didatica_docs.py` (o gerador falha se faltar um tópico); não edite essa seção direto em `docs/`.
+- As aberturas das fichas ("🧠 Comece pelo problema") ficam em `scripts/introducoes_servicos.py`; registre cada ficha também nesse módulo. As aberturas das páginas de apoio de `docs/00-guia-do-exame/` ficam em `APOIO` de `scripts/didatica_docs.py`.
+- Ao mudar qualquer conteúdo didático desses módulos, rode `python3 scripts/gerar_docs.py`. Explique primeiro problema, solução, exemplo e limite, e depois os termos e pontos da prova.
 - Texto desatualizado vindo de `fontes/guia-completo-clf-c02.md` é corrigido pela lista `CORRECOES` do `scripts/gerar_docs.py` (a fonte não é editada); avisos no topo de tópicos ficam em `AVISOS`.
 - Informações novas só entram se confirmadas em fonte oficial da AWS; o que estiver sem confirmação vai para `docs/00-guia-do-exame/pendencias-de-verificacao.md`.

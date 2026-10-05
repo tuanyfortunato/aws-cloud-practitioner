@@ -1,22 +1,14 @@
 # 1.1 O que é computação em nuvem
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-🏠 [Índice do domínio](README.md) · [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Computação em nuvem é **usar computadores, armazenamento e programas de outra empresa pela internet**, na hora em que você precisa, pagando só pelo que usar — em vez de comprar e manter as máquinas.
->
-> 🏠 **Analogia:** é como a **energia elétrica**: você não constrói uma usina em casa; liga na tomada e paga a conta do que consumiu. Os modelos de serviço são como **pizza**: fazer em casa com ingredientes alugados (IaaS), levar a massa pronta e só escolher o recheio (PaaS) ou pedir a pizza pronta (SaaS).
+**Qual é a dificuldade?** Uma escola quer disponibilizar um sistema, mas comprar e manter computadores próprios pode exigir dinheiro e trabalho antes mesmo do primeiro aluno usar.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Nuvem é uma forma de obter recursos de tecnologia de um provedor, como a AWS, quando necessário. Você contrata recursos como computadores e armazenamento e administra a parte que cabe a você.
 
-- [ ] Definir nuvem com as três ideias da AWS: **sob demanda**, **pela internet** e **pague pelo uso**.
-- [ ] Diferenciar **IaaS, PaaS e SaaS** pelo quanto você ainda gerencia.
-- [ ] Reconhecer os modelos de implantação **nuvem, híbrido e on-premises**.
+**Exemplo do dia a dia:** Em vez de comprar uma máquina física, a escola cria um servidor virtual na AWS e instala seu sistema. Outra opção é contratar um software pronto; a responsabilidade muda conforme o modelo.
+
+**O que não concluir?** Usar nuvem não significa que tudo está pronto, gratuito ou administrado pelo provedor. Este tópico ensina a reconhecer os modelos e o trabalho que permanece com o cliente.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -27,7 +19,28 @@
 | **PaaS** | Plataforma como Serviço: você entrega o código, a plataforma cuida do resto. |
 | **SaaS** | Software como Serviço: o programa já vem pronto para usar. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Definir nuvem com as três ideias da AWS: **sob demanda**, **pela internet** e **pague pelo uso**.
+- [ ] Diferenciar **IaaS, PaaS e SaaS** pelo quanto você ainda gerencia.
+- [ ] Reconhecer os modelos de implantação **nuvem, híbrido e on-premises**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como a **energia elétrica**: você não constrói uma usina em casa; liga na tomada e paga a conta do que consumiu. Os modelos de serviço são como **pizza**: fazer em casa com ingredientes alugados (IaaS), levar a massa pronta e só escolher o recheio (PaaS) ou pedir a pizza pronta (SaaS).
+
+</details>
+
 > 🎯 **Como não errar na prova:** Pergunte-se **"o que o cliente ainda gerencia?"**. Sistema operacional → IaaS; só o código → PaaS; nada, só usa → SaaS. Se parte fica no datacenter e parte na AWS, é **híbrido**.
+
+---
+
+> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+🏠 [Índice do domínio](README.md) · [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

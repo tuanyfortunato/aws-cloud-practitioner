@@ -1,20 +1,30 @@
 # Amazon API Gateway
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um aplicativo precisa pedir dados ou executar ações em outro sistema por uma interface controlada, em vez de acessar diretamente todos os componentes internos.
+
+**Como este serviço ajuda?** API Gateway ajuda a publicar e administrar APIs. Ele recebe chamadas e as encaminha a integrações configuradas, com opções de controle e acompanhamento.
+
+**Exemplo do dia a dia:** O aplicativo da escola chama uma API para consultar matrículas. API Gateway recebe a chamada e a encaminha ao código que realiza a consulta.
+
+**O que ele não resolve sozinho?** Ele não escreve a regra de matrícula nem armazena os registros como um banco. Você define a API, seus acessos e a integração que realiza o trabalho.
+
+**Primeiras palavras para entender:**
+
+- **API:** interface para programas conversarem.
+- **Chamada:** pedido feito a essa interface.
+- **Integração:** componente acionado para atender o pedido.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Rede / front-end de APIs · **Domínio:** 3 · **Escopo:** Regional (endpoints edge-optimized usam CloudFront) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** cria, publica, protege e monitora APIs em qualquer escala — a "porta da frente" de back-ends serverless.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **portaria das suas APIs**: recebe as requisições, confere quem é, barra excessos e encaminha para o back-end (como o Lambda).
-
-- ✅ **Escolha quando:** precisa **criar, proteger e escalar APIs** REST, HTTP ou WebSocket, principalmente serverless.
-- 🚫 **Não é a resposta quando:** a API é **GraphQL** → AppSync, na ficha de [Amplify e AppSync](../aplicacoes/amplify-e-appsync.md); precisa só **distribuir tráfego** entre servidores → [ELB](../computacao/elastic-load-balancing.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "API REST", "back-end serverless com Lambda", "limitar requisições" (throttling), "chaves de API".
-<!-- didatico:fim -->
 
 ## Tipos de API
 

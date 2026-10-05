@@ -1,20 +1,30 @@
 # AWS Lambda
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Você precisa executar uma tarefa quando algo acontece, mas não quer manter uma máquina inteira só para esperar por esse acontecimento.
+
+**Como este serviço ajuda?** No Lambda, você entrega uma função, isto é, um trecho de programa. Um evento ou uma chamada dispara sua execução, e a AWS administra a infraestrutura usada para executá-la.
+
+**Exemplo do dia a dia:** Quando uma pessoa envia uma foto, uma função pode gerar uma miniatura. Você escreve o código dessa transformação e configura o que vai acioná-lo.
+
+**O que ele não resolve sozinho?** Lambda não é uma máquina em que você entra para instalar qualquer programa e deixá-lo rodando indefinidamente. Há limites de execução, e dados que precisam durar devem ser guardados em armazenamento apropriado.
+
+**Primeiras palavras para entender:**
+
+- **Evento:** acontecimento que dispara uma ação.
+- **Função:** código executado para uma tarefa.
+- **Serverless:** a AWS administra os servidores; eles continuam existindo.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação serverless · **Domínio:** 1 (serverless) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
 > **Em uma frase:** executa código em resposta a eventos sem você administrar servidores; o modelo base cobra requisições e duração.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como uma **tomada de código**: você pluga a função, ela roda só quando acontece um evento e você paga pelos milissegundos de uso.
-
-- ✅ **Escolha quando:** tarefas **curtas (até 15 minutos)** disparadas por eventos: arquivo chegando no S3, requisição de API, mensagem na fila, horário agendado.
-- 🚫 **Não é a resposta quando:** uma **única invocação convencional precisa passar de 15 minutos** → [Fargate](fargate.md) ou [Batch](batch.md); precisa de **controle do sistema operacional** → [EC2](ec2.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "sem servidores" (serverless), "em resposta a eventos", "pagar só quando executa", "processar o arquivo assim que chega ao S3".
-<!-- didatico:fim -->
 
 ## Para que serve
 

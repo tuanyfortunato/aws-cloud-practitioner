@@ -1,20 +1,30 @@
 # AWS Firewall Manager e AWS Network Firewall
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa precisa padronizar proteções em várias contas e também pode precisar inspecionar tráfego que passa pela rede.
+
+**Como este serviço ajuda?** Firewall Manager coordena políticas de proteção em recursos compatíveis de uma organização. Network Firewall inspeciona tráfego de rede conforme regras e caminhos configurados.
+
+**Exemplo do dia a dia:** A equipe central define uma política comum de proteção. Para uma necessidade de inspeção de rede, avalia separadamente Network Firewall.
+
+**O que ele não resolve sozinho?** Administrar políticas é diferente de inspecionar cada conexão. São serviços distintos e têm escopos de prova diferentes, indicados abaixo.
+
+**Primeiras palavras para entender:**
+
+- **Firewall:** controle de tráfego por regras.
+- **Política central:** regras administradas para vários ambientes.
+- **Inspeção:** análise de comunicações.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança de rede · **Domínio:** 2 · **Escopo:** Organização (Firewall Manager) / VPC (Network Firewall) · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 >
 > **Em uma frase:** o Firewall Manager **governa** regras de firewall em todas as contas; o Network Firewall **é** um firewall gerenciado para a VPC.
 >
 > **Escopo oficial:** 🔀 Firewall Manager ✅ · Network Firewall ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** o Firewall Manager é o **síndico que aplica as mesmas regras em todos os prédios** (contas); o Network Firewall é um **firewall de verdade na entrada da VPC**.
-
-- ✅ **Escolha quando:** precisa aplicar regras de WAF, Shield ou security groups em **todas as contas** da organização (Firewall Manager).
-- 🚫 **Não é a resposta quando:** as regras são para **uma aplicação só** → [WAF](waf.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "mesmas regras em todas as contas" → Firewall Manager; "inspecionar todo o tráfego da VPC (IPS)" → Network Firewall (fora da prova).
-<!-- didatico:fim -->
 
 ## AWS Firewall Manager
 

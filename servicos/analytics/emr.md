@@ -1,20 +1,30 @@
 # Amazon EMR
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A equipe precisa processar grandes conjuntos de dados usando ferramentas como Apache Spark, sem montar sozinha toda a infraestrutura necessária.
+
+**Como este serviço ajuda?** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
+
+**Exemplo do dia a dia:** Uma equipe executa um processo Spark para preparar um grande histórico antes de gerar relatórios.
+
+**O que ele não resolve sozinho?** EMR não escreve o processo de análise nem elimina decisões sobre dados, capacidade e execução. As responsabilidades variam pela modalidade escolhida.
+
+**Primeiras palavras para entender:**
+
+- **Framework:** conjunto de ferramentas para desenvolver tarefas.
+- **Spark:** ferramenta de processamento de dados.
+- **Cluster:** recursos que executam o processamento em conjunto.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Analytics / big data · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** plataforma gerenciada de **big data** para rodar Apache Spark, Hadoop, Hive, Presto/Trino, HBase e Flink.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **fábrica de big data montada sob demanda**, com Spark e Hadoop prontos.
-
-- ✅ **Escolha quando:** precisa processar **grandes volumes** com Spark, Hadoop, Hive ou Presto.
-- 🚫 **Não é a resposta quando:** quer **ETL sem servidores** → [Glue](glue.md); quer **SQL simples no S3** → [Athena](athena.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "Spark", "Hadoop", "big data", "cluster".
-<!-- didatico:fim -->
 
 ## Opções de implantação
 

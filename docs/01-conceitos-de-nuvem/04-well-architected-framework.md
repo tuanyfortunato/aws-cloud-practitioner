@@ -1,24 +1,14 @@
 # 1.4 AWS Well-Architected Framework
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
-
-⬅️ [1.3 Conceitos de arquitetura que a prova cobra](03-conceitos-de-arquitetura.md) · 🏠 [Índice do domínio](README.md) · [1.5 AWS Cloud Adoption Framework (CAF)](05-cloud-adoption-framework.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** O Well-Architected é o **manual de boas práticas da AWS**, dividido em **seis pilares**. A prova descreve uma prática e pergunta a qual pilar ela pertence.
->
-> 🏠 **Analogia:** é como a **inspeção de uma casa** em seis itens: a casa é fácil de manter (Excelência Operacional), tem tranca (Segurança), não cai (Confiabilidade), tem o tamanho certo (Eficiência de Performance), não desperdiça dinheiro (Otimização de Custos) e gasta pouca energia (Sustentabilidade).
+**Qual é a dificuldade?** Uma aplicação funciona hoje, mas a equipe precisa avaliar se é segura, recuperável, eficiente e econômica, em vez de olhar apenas se está ligada.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Well-Architected é um conjunto de orientações para revisar uma aplicação e sua operação sob seis áreas, chamadas pilares. Não é um serviço que hospeda o programa.
 
-- [ ] Citar os **6 pilares**.
-- [ ] Ligar cada prática ao pilar (várias AZs → Confiabilidade; MFA → Segurança; desligar ocioso → Custos).
-- [ ] Saber que a **Well-Architected Tool** é gratuita e revisa uma carga contra os pilares.
+**Exemplo do dia a dia:** A escola revisa quem acessa os dados, como restaura um backup e se mantém recursos ociosos. Cada pergunta se relaciona a uma área da revisão.
+
+**O que não concluir?** Seguir um checklist não certifica automaticamente a aplicação nem executa as melhorias. O objetivo é identificar decisões e oportunidades de melhoria.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -27,7 +17,30 @@
 | **Pilar** | uma das seis áreas de boas práticas do framework. |
 | **Lens** | extensão do framework para um cenário específico (serverless, SaaS, ML…). |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar os **6 pilares**.
+- [ ] Ligar cada prática ao pilar (várias AZs → Confiabilidade; MFA → Segurança; desligar ocioso → Custos).
+- [ ] Saber que a **Well-Architected Tool** é gratuita e revisa uma carga contra os pilares.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como a **inspeção de uma casa** em seis itens: a casa é fácil de manter (Excelência Operacional), tem tranca (Segurança), não cai (Confiabilidade), tem o tamanho certo (Eficiência de Performance), não desperdiça dinheiro (Otimização de Custos) e gasta pouca energia (Sustentabilidade).
+
+</details>
+
 > 🎯 **Como não errar na prova:** Associe palavras: **automação/runbooks** → Excelência Operacional; **identidade/criptografia** → Segurança; **recuperar de falhas/várias AZs** → Confiabilidade; **tipo de instância certo/serverless** → Performance; **gasto** → Custos; **energia/Graviton** → Sustentabilidade.
+
+---
+
+> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
+
+⬅️ [1.3 Conceitos de arquitetura que a prova cobra](03-conceitos-de-arquitetura.md) · 🏠 [Índice do domínio](README.md) · [1.5 AWS Cloud Adoption Framework (CAF)](05-cloud-adoption-framework.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # AWS X-Ray
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um pedido passa por vários componentes e demora muito. A equipe precisa descobrir em qual parte do caminho o tempo foi gasto ou houve erro.
+
+**Como este serviço ajuda?** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
+
+**Exemplo do dia a dia:** Ao consultar uma matrícula, a aplicação chama outro serviço e um banco. O rastreamento ajuda a localizar a etapa mais lenta.
+
+**O que ele não resolve sozinho?** Ele não coleta todos os detalhes sem preparação nem corrige a etapa lenta. A aplicação e suas integrações precisam fornecer dados de rastreamento compatíveis.
+
+**Primeiras palavras para entender:**
+
+- **Trace:** caminho de uma requisição.
+- **Instrumentação:** preparação para emitir dados de observação.
+- **Segmento:** parte registrada desse caminho.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Ferramentas de desenvolvedor / observabilidade · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.15 Ferramentas de desenvolvimento](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)
 >
 > **Em uma frase:** **rastreamento distribuído** — acompanha cada requisição através dos microsserviços para achar gargalos e erros.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **rastreador de encomendas para requisições**: mostra por onde cada uma passou e onde atrasou.
-
-- ✅ **Escolha quando:** precisa encontrar **gargalos e erros entre microsserviços**.
-- 🚫 **Não é a resposta quando:** quer **métricas e logs gerais** → [CloudWatch](../gerenciamento/cloudwatch.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "rastreamento distribuído", "microsserviços", "onde a requisição fica lenta".
-<!-- didatico:fim -->
 
 ## Conceitos
 

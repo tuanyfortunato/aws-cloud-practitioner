@@ -1,24 +1,14 @@
 # 2.4 Governança multi-conta
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS Organizations](../../servicos/gerenciamento/organizations.md) · [AWS Control Tower](../../servicos/gerenciamento/control-tower.md) · [AWS Service Catalog e AWS Resource Access Manager (RAM)](../../servicos/gerenciamento/service-catalog-e-ram.md)
-
-⬅️ [2.3 AWS IAM (Identity and Access Management)](03-iam.md) · 🏠 [Índice do domínio](README.md) · [2.5 Criptografia](05-criptografia.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Empresas grandes usam **várias contas AWS** (produção, testes, segurança). Este tópico mostra como **organizar, limitar e cobrar** todas elas de forma central.
->
-> 🏠 **Analogia:** é como uma **rede de franquias**: a matriz (Organizations) agrupa as lojas, define o que nenhuma pode fazer (SCP), paga uma fatura única e, com o Control Tower, entrega cada loja nova já montada no padrão.
+**Qual é a dificuldade?** A empresa separou testes e produção em várias contas, mas agora precisa de regras comuns e administração central.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Governança de várias contas organiza ambientes e aplica controles. Organizations, Control Tower e ferramentas relacionadas têm papéis diferentes nesse trabalho.
 
-- [ ] Explicar **Organizations**, **OUs** e **consolidated billing**.
-- [ ] Saber que **SCP só restringe** (não concede permissão) e não afeta a conta de gerenciamento.
-- [ ] Diferenciar **Organizations** (agrupar e limitar) de **Control Tower** (ambiente multi-conta pronto, com guardrails).
+**Exemplo do dia a dia:** A escola separa o ambiente experimental dos dados de produção e define regras centrais para suas contas.
+
+**O que não concluir?** Um limite de governança não concede sozinho permissão a cada pessoa. Centralizar controles também não configura todas as aplicações automaticamente.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -29,7 +19,30 @@
 | **Landing zone** | ambiente multi-conta já configurado com boas práticas. |
 | **Guardrail** | regra de proteção do Control Tower (preventiva ou detectiva). |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Explicar **Organizations**, **OUs** e **consolidated billing**.
+- [ ] Saber que **SCP só restringe** (não concede permissão) e não afeta a conta de gerenciamento.
+- [ ] Diferenciar **Organizations** (agrupar e limitar) de **Control Tower** (ambiente multi-conta pronto, com guardrails).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como uma **rede de franquias**: a matriz (Organizations) agrupa as lojas, define o que nenhuma pode fazer (SCP), paga uma fatura única e, com o Control Tower, entrega cada loja nova já montada no padrão.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Limitar o que uma **conta inteira** pode fazer" → **SCP**. "Montar rapidamente ambiente multi-conta com boas práticas" → **Control Tower**. "Uma fatura e desconto por volume" → **consolidated billing**.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS Organizations](../../servicos/gerenciamento/organizations.md) · [AWS Control Tower](../../servicos/gerenciamento/control-tower.md) · [AWS Service Catalog e AWS Resource Access Manager (RAM)](../../servicos/gerenciamento/service-catalog-e-ram.md)
+
+⬅️ [2.3 AWS IAM (Identity and Access Management)](03-iam.md) · 🏠 [Índice do domínio](README.md) · [2.5 Criptografia](05-criptografia.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

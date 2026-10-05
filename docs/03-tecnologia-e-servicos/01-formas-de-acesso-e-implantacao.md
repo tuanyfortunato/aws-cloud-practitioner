@@ -1,24 +1,14 @@
 # 3.1 Formas de acessar e implantar na AWS
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md) · [AWS CloudFormation (e CDK, SAM)](../../servicos/gerenciamento/cloudformation.md) · [AWS VPN (Site-to-Site VPN e Client VPN)](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) · [AWS Direct Connect](../../servicos/redes/direct-connect.md)
-
-🏠 [Índice do domínio](README.md) · [3.2 Infraestrutura global](02-infraestrutura-global.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Há várias **portas de entrada** para usar a AWS — clicando, digitando comandos, programando ou descrevendo a infraestrutura num arquivo. Todas usam as mesmas APIs por baixo.
->
-> 🏠 **Analogia:** é como falar com um **banco**: pelo **site** (Console), pelo **atendimento por comandos** (CLI), por um **aplicativo seu integrado ao banco** (SDK) ou deixando **instruções programadas** que se repetem sozinhas (CloudFormation).
+**Qual é a dificuldade?** Você precisa criar ou consultar recursos AWS, mas pode fazer isso por uma tela, por comandos, por um programa ou por uma descrição automatizada do ambiente.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** São maneiras diferentes de operar serviços. Console oferece interface visual; CLI usa comandos; SDK integra programas; ferramentas de infraestrutura descrevem recursos para implantação.
 
-- [ ] Diferenciar **Console, CLI, SDK e CloudShell**.
-- [ ] Saber que tarefa **pontual** pode ser no Console e tarefa **repetível** deve ser automatizada.
-- [ ] Explicar **infraestrutura como código** (CloudFormation).
+**Exemplo do dia a dia:** Uma pessoa cria um recurso pelo console e depois automatiza tarefas repetidas com comandos ou código. A permissão necessária continua sendo parte do acesso.
+
+**O que não concluir?** A forma de acesso não muda sozinha o que a identidade pode fazer. Uma ferramenta de operação também não é o serviço que hospeda a aplicação.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -27,7 +17,30 @@
 | **API** | a forma padronizada de um programa pedir algo a outro. |
 | **IaC** | infraestrutura como código: descrever servidores e redes num arquivo e criar tudo automaticamente. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **Console, CLI, SDK e CloudShell**.
+- [ ] Saber que tarefa **pontual** pode ser no Console e tarefa **repetível** deve ser automatizada.
+- [ ] Explicar **infraestrutura como código** (CloudFormation).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como falar com um **banco**: pelo **site** (Console), pelo **atendimento por comandos** (CLI), por um **aplicativo seu integrado ao banco** (SDK) ou deixando **instruções programadas** que se repetem sozinhas (CloudFormation).
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Repetível em várias regiões/contas" → **CloudFormation**. "Comandos rápidos sem instalar nada" → **CloudShell**. "Dentro do código da aplicação" → **SDK**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md) · [AWS CloudFormation (e CDK, SAM)](../../servicos/gerenciamento/cloudformation.md) · [AWS VPN (Site-to-Site VPN e Client VPN)](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) · [AWS Direct Connect](../../servicos/redes/direct-connect.md)
+
+🏠 [Índice do domínio](README.md) · [3.2 Infraestrutura global](02-infraestrutura-global.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

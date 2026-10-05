@@ -1,24 +1,14 @@
 # 2.6 Compliance e governança
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS Artifact](../../servicos/seguranca/artifact.md) · [AWS Audit Manager](../../servicos/seguranca/audit-manager.md) · [AWS Config](../../servicos/gerenciamento/config.md)
-
-⬅️ [2.5 Criptografia](05-criptografia.md) · 🏠 [Índice do domínio](README.md) · [2.7 Logs, monitoramento e auditoria](07-logs-monitoramento-e-auditoria.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Compliance é **provar que se segue as regras** (leis e normas). A AWS fornece os relatórios dela; o cliente cuida da conformidade do que ele mesmo constrói.
->
-> 🏠 **Analogia:** o **Artifact** é a **pasta de certificados da AWS** que você entrega ao auditor; o **Audit Manager** é um **assistente que junta as provas da sua própria empresa** para a sua auditoria.
+**Qual é a dificuldade?** Um auditor pede que a empresa demonstre suas práticas de segurança e os controles do provedor. A equipe precisa saber onde obter evidências e como avaliar seu ambiente.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Conformidade envolve atender requisitos e demonstrar isso. Relatórios da AWS, avaliações de configuração e evidências do cliente atendem partes diferentes desse processo.
 
-- [ ] Diferenciar **Artifact** (relatórios da AWS) de **Audit Manager** (evidências da sua conta).
-- [ ] Saber que compliance também é **responsabilidade compartilhada**.
-- [ ] Saber que os dados ficam na **região escolhida** (residência de dados).
+**Exemplo do dia a dia:** A escola consulta relatórios oficiais do provedor e reúne evidências de que ela própria protege acessos e dados.
+
+**O que não concluir?** A conformidade da AWS não torna toda aplicação do cliente automaticamente conforme. Documentos, configuração e operação precisam ser avaliados no contexto do requisito.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **SOC, PCI DSS, ISO 27001** | relatórios e certificações de segurança reconhecidos no mercado. |
 | **BAA** | acordo exigido para dados de saúde (HIPAA), aceito pelo Artifact. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **Artifact** (relatórios da AWS) de **Audit Manager** (evidências da sua conta).
+- [ ] Saber que compliance também é **responsabilidade compartilhada**.
+- [ ] Saber que os dados ficam na **região escolhida** (residência de dados).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **Artifact** é a **pasta de certificados da AWS** que você entrega ao auditor; o **Audit Manager** é um **assistente que junta as provas da sua própria empresa** para a sua auditoria.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Auditor pede o relatório **da AWS**" → **Artifact**. "Coletar evidências **da empresa**" → **Audit Manager**. "Avaliar se os recursos seguem regras" → **AWS Config**.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS Artifact](../../servicos/seguranca/artifact.md) · [AWS Audit Manager](../../servicos/seguranca/audit-manager.md) · [AWS Config](../../servicos/gerenciamento/config.md)
+
+⬅️ [2.5 Criptografia](05-criptografia.md) · 🏠 [Índice do domínio](README.md) · [2.7 Logs, monitoramento e auditoria](07-logs-monitoramento-e-auditoria.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # AWS Systems Manager (SSM)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A equipe administra muitas máquinas e precisa executar comandos, aplicar atualizações e acessar ambientes sem repetir cada tarefa manualmente.
+
+**Como este serviço ajuda?** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
+
+**Exemplo do dia a dia:** A equipe usa Session Manager para uma sessão autorizada e planeja atualizações com ferramentas de patch, em vez de entrar separadamente em cada máquina.
+
+**O que ele não resolve sozinho?** Não basta o recurso existir na conta: agente, identidade, rede e demais requisitos variam conforme a função. Automatizar exige permissões e procedimentos definidos.
+
+**Primeiras palavras para entender:**
+
+- **Nó gerenciado:** máquina preparada para usar essas ferramentas.
+- **Patch:** atualização corretiva.
+- **Runbook:** procedimento de automação.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / operações · **Domínio:** 3 · **Escopo:** Regional (EC2, on-premises e outras nuvens) · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 >
 > **Em uma frase:** central de operações para gerenciar **frotas** de servidores (EC2, on-premises, VMs) em escala, sem acesso manual.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **controle remoto para a frota de servidores**: acessa, aplica patches e roda comandos em centenas de máquinas de uma vez.
-
-- ✅ **Escolha quando:** precisa **gerenciar e operar muitas instâncias** (EC2 e on-premises) sem acesso manual.
-- 🚫 **Não é a resposta quando:** precisa **criar a infraestrutura** → [CloudFormation](cloudformation.md); precisa **avaliar configurações** → [Config](config.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "aplicar patches em massa", "acessar sem SSH" (Session Manager), "executar comando em várias instâncias", "Parameter Store".
-<!-- didatico:fim -->
 
 ## Pré-requisitos
 

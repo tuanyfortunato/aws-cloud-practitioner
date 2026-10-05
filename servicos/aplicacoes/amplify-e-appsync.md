@@ -1,20 +1,30 @@
 # AWS Amplify, AWS AppSync e AWS Device Farm
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A equipe cria uma aplicação web ou móvel e precisa de apoio para hospedar a interface e integrar recursos de sua parte interna.
+
+**Como este serviço ajuda?** Amplify oferece ferramentas para desenvolvimento e hospedagem compatíveis. AppSync atende APIs GraphQL e outros recursos próprios; os papéis não são idênticos.
+
+**Exemplo do dia a dia:** Uma equipe hospeda a interface do aplicativo com Amplify e avalia as integrações necessárias para cadastro e dados.
+
+**O que ele não resolve sozinho?** Hospedar a interface não cria automaticamente todas as regras e dados da aplicação. AppSync tem escopo distinto; a ficha identifica o que priorizar na prova.
+
+**Primeiras palavras para entender:**
+
+- **Front-end:** parte com que a pessoa interage.
+- **Back-end:** parte que processa regras e dados.
+- **GraphQL:** forma de definir e consultar uma API.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Front-end web e mobile · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 >
 > **Em uma frase:** ferramentas para criar, hospedar, conectar e testar aplicações web e mobile rapidamente.
 >
 > **Escopo oficial:** 🔀 Amplify ✅ · AppSync ⚪ não listado · Device Farm ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **kit para montar e publicar apps web e mobile** rapidamente (Amplify), com uma API GraphQL pronta (AppSync).
-
-- ✅ **Escolha quando:** precisa **criar e hospedar apps full-stack** (Amplify, no escopo da prova).
-- 🚫 **Não é a resposta quando:** precisa de **API REST** → [API Gateway](../redes/api-gateway.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "app web ou mobile full-stack", "hospedar front-end" → Amplify; "GraphQL" → AppSync; "testar em celulares reais" → Device Farm (fora da prova).
-<!-- didatico:fim -->
 
 ## AWS Amplify
 

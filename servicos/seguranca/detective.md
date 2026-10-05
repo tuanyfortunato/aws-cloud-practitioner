@@ -1,20 +1,30 @@
 # Amazon Detective
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Depois de um alerta de segurança, a equipe precisa reunir relações entre atividades, identidades e recursos para entender o que aconteceu.
+
+**Como este serviço ajuda?** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
+
+**Exemplo do dia a dia:** Após um alerta, a equipe explora atividades associadas à identidade e ao recurso envolvidos, procurando contexto para a investigação.
+
+**O que ele não resolve sozinho?** Ele apoia a investigação; não decide sozinho a causa de todo incidente nem substitui a equipe responsável pela resposta.
+
+**Primeiras palavras para entender:**
+
+- **Investigação:** análise das evidências e do contexto.
+- **Entidade:** identidade ou recurso observado.
+- **Relação:** conexão entre atividades e entidades.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / investigação · **Domínio:** 2 · **Escopo:** Regional · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 >
 > **Em uma frase:** facilita **investigar a causa raiz** de achados de segurança, montando um grafo de comportamento a partir dos logs.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **detetive que chega depois do alarme**: reconstrói o que aconteceu e mostra a causa raiz.
-
-- ✅ **Escolha quando:** precisa **investigar a origem** de um achado de segurança.
-- 🚫 **Não é a resposta quando:** precisa **detectar** a ameaça → [GuardDuty](guardduty.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "investigar", "causa raiz", "achado de segurança".
-<!-- didatico:fim -->
 
 ## Como funciona
 

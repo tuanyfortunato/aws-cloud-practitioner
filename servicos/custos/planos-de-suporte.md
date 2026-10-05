@@ -1,5 +1,25 @@
 # Planos de AWS Support
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Quando há uma dúvida ou problema, a empresa precisa saber que tipo de ajuda da AWS pode solicitar e em quais condições.
+
+**Como este serviço ajuda?** Planos de suporte definem acesso a canais, orientação e recursos de atendimento conforme a oferta. A necessidade do negócio deve orientar a escolha.
+
+**Exemplo do dia a dia:** Uma empresa com aplicação importante avalia quais recursos de suporte técnico e acompanhamento são necessários para sua operação.
+
+**O que ele não resolve sozinho?** Ter suporte não transfere toda a operação da aplicação para a AWS. Tempo inicial de resposta não é promessa de tempo de resolução; nomes e condições devem ser conferidos no contexto indicado.
+
+**Primeiras palavras para entender:**
+
+- **Caso de suporte:** solicitação de ajuda.
+- **Severidade:** impacto do problema.
+- **Tempo de resposta:** prazo para início do atendimento conforme as condições.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Suporte · **Domínio:** 4 · **Escopo:** Conta (ou organização, nos planos novos) · **Tópico do guia:** [4.5 Planos de AWS Support](../../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)
 >
 > **Em uma frase:** níveis de suporte técnico da AWS — quanto mais alto, mais rápido o atendimento e mais acompanhamento proativo.
@@ -7,16 +27,6 @@
 > **Escopo oficial:** ✅ No escopo (AWS Support — distinguir exemplos do guia e oferta comercial atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 > Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **planos de assistência técnica**: quanto maior o plano, mais rápido o atendimento e mais acompanhamento.
-
-- ✅ **Escolha quando:** precisa escolher o **nível de suporte técnico**.
-- 🚫 **Não é a resposta quando:** a dúvida pode ir para a **comunidade** → re:Post, na ficha de [recursos de ajuda](recursos-de-ajuda-e-parceiros.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "plano pago de entrada, 30 min" → Business Support+; "TAM designado, 15 min" → Enterprise; "5 min" → Unified Operations.
-<!-- didatico:fim -->
 
 > **Divergência entre fontes:** a [task 4.3 consultada](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html) ainda cita Developer, Business e Enterprise On-Ramp. A página comercial mostra os planos abaixo. Não há aqui evidência para afirmar que todos os exemplos da prova foram substituídos. [Ver auditoria](../../docs/00-guia-do-exame/auditoria-conteudo-2026-10.md).
 

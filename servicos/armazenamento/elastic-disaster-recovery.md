@@ -1,20 +1,30 @@
 # AWS Elastic Disaster Recovery (AWS DRS)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma falha grave pode interromper os servidores de uma empresa. Ela precisa de uma forma de recuperar suas aplicações na AWS, além de simplesmente guardar arquivos.
+
+**Como este serviço ajuda?** Elastic Disaster Recovery replica dados de servidores compatíveis para preparar sua recuperação em máquinas AWS. O processo inclui configuração, testes e acionamento da recuperação.
+
+**Exemplo do dia a dia:** Uma empresa prepara a recuperação de seu sistema interno e realiza um teste para verificar se consegue iniciar os servidores necessários na AWS.
+
+**O que ele não resolve sozinho?** Replicar dados não garante que todas as dependências e conexões da aplicação estejam prontas. É preciso planejar a recuperação e manter os requisitos do serviço.
+
+**Primeiras palavras para entender:**
+
+- **Desastre:** interrupção grave do ambiente.
+- **Replicação:** manter outra cópia atualizada.
+- **Recuperação:** voltar a disponibilizar o sistema.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Recuperação de desastres · **Domínio:** 1 (DR) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 >
 > **Em uma frase:** replica servidores continuamente (on-premises, outra nuvem ou outra região AWS) para a AWS e permite recuperá-los em minutos.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **servidor reserva sempre sincronizado** na AWS: se o principal cair, você liga a cópia em minutos.
-
-- ✅ **Escolha quando:** precisa de **recuperação de desastres rápida** para servidores (RPO de segundos, RTO de minutos).
-- 🚫 **Não é a resposta quando:** quer **backups periódicos** com retenção → [AWS Backup](aws-backup.md); quer **migrar de vez** → [Application Migration Service](../migracao/application-migration-service.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "recuperar em minutos", "replicação contínua", "recuperação de desastres", "RPO baixo".
-<!-- didatico:fim -->
 
 ## Como funciona
 

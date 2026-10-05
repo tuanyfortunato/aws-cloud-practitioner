@@ -1,20 +1,30 @@
 # AWS Organizations
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma empresa tem várias contas AWS e quer organizá-las, consolidar cobrança e aplicar limites de governança de forma central.
+
+**Como este serviço ajuda?** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
+
+**Exemplo do dia a dia:** A escola separa testes e produção em contas diferentes e usa a organização para administrá-las sob regras comuns.
+
+**O que ele não resolve sozinho?** Uma política de controle não concede permissão a um usuário por si só. Permissões nas contas continuam necessárias, e a cobertura das políticas tem condições específicas.
+
+**Primeiras palavras para entender:**
+
+- **Conta:** ambiente administrativo AWS.
+- **OU:** grupo de contas.
+- **SCP:** política que limita permissões disponíveis nas contas às quais se aplica.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / governança multi-conta · **Domínio:** 2 e 4 (faturamento consolidado) · **Escopo:** **Global** · **Gratuito** · **Tópico do guia:** [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 >
 > **Em uma frase:** gerencia várias contas AWS de forma centralizada, com políticas e **uma fatura única**.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como uma **holding**: reúne várias contas sob uma matriz, com regras comuns e uma fatura só.
-
-- ✅ **Escolha quando:** precisa **gerenciar várias contas**, aplicar **limites (SCP)** e **consolidar a cobrança**.
-- 🚫 **Não é a resposta quando:** quer montar rapidamente um **ambiente multi-conta com boas práticas** → [Control Tower](control-tower.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "várias contas", "SCP", "faturamento consolidado", "unidades organizacionais (OU)".
-<!-- didatico:fim -->
 
 ## Estrutura
 

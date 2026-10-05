@@ -1,20 +1,30 @@
 # Amazon ECR (Elastic Container Registry)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Sua equipe criou pacotes de uma aplicação e precisa guardá-los num lugar de onde os ambientes de execução possam baixá-los com controle de acesso.
+
+**Como este serviço ajuda?** O ECR é um repositório de imagens de containers. Ele guarda versões desses pacotes para que serviços de execução possam obtê-las.
+
+**Exemplo do dia a dia:** A equipe publica a imagem do serviço de pedidos no ECR. Depois, o ECS baixa essa imagem para iniciar os containers.
+
+**O que ele não resolve sozinho?** Guardar uma imagem no ECR não executa a aplicação. Para executá-la, você precisa de outro serviço ou ambiente.
+
+**Primeiras palavras para entender:**
+
+- **Imagem:** pacote usado para iniciar um container.
+- **Repositório:** lugar organizado para guardar imagens.
+- **Tag:** identificação de uma versão do pacote.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação / Contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
 > **Em uma frase:** registro gerenciado para guardar, versionar e distribuir imagens de contêiner (Docker/OCI).
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **estante onde ficam guardadas as imagens dos seus contêineres** — um Docker Hub privado dentro da AWS.
-
-- ✅ **Escolha quando:** precisa guardar e versionar **imagens Docker privadas** para ECS, EKS ou Lambda.
-- 🚫 **Não é a resposta quando:** quer guardar **arquivos comuns** → [S3](../armazenamento/s3.md); quer guardar **pacotes** (npm, Maven) → CodeArtifact, na ficha de [CI/CD](../desenvolvimento/code-services.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "imagens Docker privadas", "registro de contêineres", "varrer imagens em busca de vulnerabilidades".
-<!-- didatico:fim -->
 
 ## Conceitos e configurações
 

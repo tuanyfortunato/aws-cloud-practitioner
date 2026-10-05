@@ -1,20 +1,30 @@
 # AWS DataSync e AWS Transfer Family
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa precisa levar arquivos entre ambientes ou receber arquivos de parceiros usando protocolos conhecidos. São dois problemas relacionados, mas diferentes.
+
+**Como este serviço ajuda?** DataSync automatiza transferências de dados entre locais compatíveis. Transfer Family oferece acesso por protocolos de transferência compatíveis integrado a armazenamento AWS.
+
+**Exemplo do dia a dia:** Uma equipe sincroniza arquivos com DataSync. Em outro caso, um parceiro envia arquivos por SFTP a um endpoint Transfer Family preparado para isso.
+
+**O que ele não resolve sozinho?** Sincronizar arquivos não migra sozinho toda a aplicação. Cada ferramenta tem fontes, destinos e escopo próprios; a prova não lista todos os serviços desta ficha.
+
+**Primeiras palavras para entender:**
+
+- **Sincronizar:** transferir para aproximar o conteúdo dos locais.
+- **SFTP:** protocolo de transferência protegido.
+- **Endpoint:** endereço de acesso ao serviço.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Migração / transferência online · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.9 Outros armazenamentos](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md) · [3.17 Migração](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)
 >
 > **Em uma frase:** DataSync **move dados online** de forma automatizada e rápida; Transfer Family oferece **SFTP/FTPS/FTP** gerenciado com armazenamento em S3/EFS.
 >
 > **Escopo oficial:** 🔀 DataSync ⚪ não listado · Transfer Family ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** o DataSync é um **caminhão de dados pela rede**; o Transfer Family é uma **agência de correio SFTP** para parceiros.
-
-- ✅ **Escolha quando:** precisa **copiar arquivos online** para S3, EFS ou FSx, ou **receber arquivos por SFTP**.
-- 🚫 **Não é a resposta quando:** precisa de **acesso híbrido contínuo** → [Storage Gateway](../armazenamento/storage-gateway.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "transferir arquivos online" → DataSync; "SFTP" → Transfer Family (fora da prova).
-<!-- didatico:fim -->
 
 ## AWS DataSync
 

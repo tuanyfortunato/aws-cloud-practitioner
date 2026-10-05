@@ -1,20 +1,30 @@
 # Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Grandes quantidades de dados podem levar muito tempo para viajar por uma conexão limitada, e alguns locais quase não têm rede.
+
+**Como este serviço ajuda?** A família Snow foi associada a dispositivos físicos para transferência e processamento local. Esta ficha explica esses conceitos e as restrições das ofertas citadas.
+
+**Exemplo do dia a dia:** Em um cenário histórico de transferência offline, dados eram copiados para um dispositivo e transportados até a AWS, em vez de enviados todos pela internet.
+
+**O que ele não resolve sozinho?** Não trate esse exemplo como uma oferta atual disponível a qualquer cliente. Há produtos encerrados ou restritos; confira o status e as alternativas indicadas na ficha.
+
+**Primeiras palavras para entender:**
+
+- **Offline:** sem depender de conexão contínua.
+- **Borda:** processamento no local dos dados.
+- **Dispositivo:** equipamento físico usado para executar ou armazenar.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Migração / transferência offline e borda · **Domínio:** 3 · **Escopo:** dispositivo físico vinculado a uma região · **Tópico do guia:** [3.9 Outros armazenamentos](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md) · [3.17 Migração](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)
 >
 > **Em uma frase:** dispositivos físicos robustos para **mover grandes volumes de dados** quando a rede é lenta, cara ou inexistente, e para **computação na borda** desconectada.
 >
 > **Escopo oficial:** ⚪ Não listado (saiu da lista atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **HD gigante e blindado que a AWS manda pelo correio**: você copia os dados e devolve.
-
-- ✅ **Escolha quando:** precisa mover **grandes volumes sem rede boa**, ou processar dados em **locais remotos**. (A família saiu da lista atual da prova.)
-- 🚫 **Não é a resposta quando:** a transferência pode ser **online** → [DataSync](datasync-e-transfer-family.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "petabytes", "internet lenta", "local remoto sem conexão".
-<!-- didatico:fim -->
 
 ## Dispositivos
 

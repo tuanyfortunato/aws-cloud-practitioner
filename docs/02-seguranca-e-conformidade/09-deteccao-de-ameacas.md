@@ -1,24 +1,14 @@
 # 2.9 Detecção de ameaças e postura de segurança
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon GuardDuty](../../servicos/seguranca/guardduty.md) · [Amazon Inspector](../../servicos/seguranca/inspector.md) · [Amazon Macie](../../servicos/seguranca/macie.md) · [Amazon Detective](../../servicos/seguranca/detective.md) · [AWS Security Hub](../../servicos/seguranca/security-hub.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
-
-⬅️ [2.8 Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [2.10 Outros pontos de segurança](10-outros-pontos-de-seguranca.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** São os serviços que **encontram problemas de segurança**: ameaças em andamento, vulnerabilidades, dados sensíveis expostos — e os que investigam e centralizam esses alertas.
->
-> 🏠 **Analogia:** é uma **equipe de segurança**: o **GuardDuty** é o alarme que dispara; o **Inspector** é o vistoriador que procura brechas; o **Macie** procura documentos sensíveis largados; o **Detective** investiga depois do alarme; o **Security Hub** é a sala de monitoramento que junta tudo; o **Trusted Advisor** é o consultor de boas práticas.
+**Qual é a dificuldade?** Atividade suspeita, software vulnerável e arquivos com informações pessoais são problemas distintos, mesmo que todos sejam chamados de segurança.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Serviços de detecção e análise têm especialidades. GuardDuty procura sinais de ameaça; Inspector avalia vulnerabilidades; Macie procura dados sensíveis no S3; outras ferramentas ajudam a reunir ou investigar achados.
 
-- [ ] Ligar cada serviço à sua função: ameaça → GuardDuty; vulnerabilidade → Inspector; dado sensível no S3 → Macie.
-- [ ] Lembrar a sequência **detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub)**.
-- [ ] Saber o que o **Trusted Advisor** verifica e o que muda conforme o plano de suporte.
+**Exemplo do dia a dia:** A equipe investiga um alerta de uso suspeito de identidade, corrige software vulnerável e revisa um arquivo com dados pessoais usando ferramentas adequadas a cada caso.
+
+**O que não concluir?** Detectar não significa confirmar uma invasão nem corrigir tudo automaticamente. A equipe precisa avaliar os resultados e organizar a resposta.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **PII** | dados pessoais que identificam alguém (CPF, cartão, nome). |
 | **Achado (finding)** | um alerta de segurança gerado por um serviço. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada serviço à sua função: ameaça → GuardDuty; vulnerabilidade → Inspector; dado sensível no S3 → Macie.
+- [ ] Lembrar a sequência **detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub)**.
+- [ ] Saber o que o **Trusted Advisor** verifica e o que muda conforme o plano de suporte.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é uma **equipe de segurança**: o **GuardDuty** é o alarme que dispara; o **Inspector** é o vistoriador que procura brechas; o **Macie** procura documentos sensíveis largados; o **Detective** investiga depois do alarme; o **Security Hub** é a sala de monitoramento que junta tudo; o **Trusted Advisor** é o consultor de boas práticas.
+
+</details>
+
 > 🎯 **Como não errar na prova:** Procure o **substantivo**: "ameaça/atividade maliciosa" → GuardDuty; "vulnerabilidade/CVE" → Inspector; "dados pessoais" → Macie; "causa raiz" → Detective; "painel central" → Security Hub; "boas práticas e custo" → Trusted Advisor.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon GuardDuty](../../servicos/seguranca/guardduty.md) · [Amazon Inspector](../../servicos/seguranca/inspector.md) · [Amazon Macie](../../servicos/seguranca/macie.md) · [Amazon Detective](../../servicos/seguranca/detective.md) · [AWS Security Hub](../../servicos/seguranca/security-hub.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
+
+⬅️ [2.8 Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [2.10 Outros pontos de segurança](10-outros-pontos-de-seguranca.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

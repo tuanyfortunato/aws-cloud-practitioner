@@ -1,26 +1,14 @@
 # 3.15 Ferramentas de desenvolvimento
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact](../../servicos/desenvolvimento/code-services.md) · [AWS X-Ray](../../servicos/desenvolvimento/x-ray.md) · [Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo só ficaram **AWS CLI, CodeBuild, CodePipeline e X-Ray**. CodeDeploy, CodeArtifact e CloudShell estão **fora do escopo**; Cloud9, CodeCommit e CodeStar não aparecem. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
-
-⬅️ [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) · 🏠 [Índice do domínio](README.md) · [3.16 Gestão e governança](16-gestao-e-governanca.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Ferramentas que ajudam a **entregar software**: compilar e testar, automatizar a esteira de entrega e encontrar onde uma aplicação está lenta.
->
-> 🏠 **Analogia:** é uma **fábrica de software**: o **CodeBuild** monta e testa cada peça; o **CodePipeline** é a **esteira** que leva a peça de uma estação para a outra; o **X-Ray** é o **rastreador de encomendas** que mostra onde cada pedido atrasou.
+**Qual é a dificuldade?** Uma equipe precisa construir versões do programa, testá-las, publicá-las e investigar o caminho das requisições quando há lentidão.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Ferramentas de desenvolvimento e observação apoiam etapas distintas. Construção e entrega automatizada são diferentes de rastrear a execução da aplicação.
 
-- [ ] Diferenciar **CodeBuild** (compila e testa) de **CodePipeline** (orquestra a esteira de CI/CD).
-- [ ] Saber que o **X-Ray** faz **rastreamento distribuído** entre microsserviços.
-- [ ] Lembrar quais ferramentas ficaram **fora do escopo** (veja o aviso no topo).
+**Exemplo do dia a dia:** Uma alteração passa por construção e testes configurados. Depois da implantação, rastreamentos ajudam a examinar um pedido que ficou lento.
+
+**O que não concluir?** Uma ferramenta não escreve os testes nem corrige o programa automaticamente. Identifique se o pedido é construir, coordenar a entrega, implantar ou investigar.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -30,7 +18,32 @@
 | **Build** | transformar o código em algo executável e testá-lo. |
 | **Rastreamento distribuído** | seguir uma requisição por vários serviços. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **CodeBuild** (compila e testa) de **CodePipeline** (orquestra a esteira de CI/CD).
+- [ ] Saber que o **X-Ray** faz **rastreamento distribuído** entre microsserviços.
+- [ ] Lembrar quais ferramentas ficaram **fora do escopo** (veja o aviso no topo).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é uma **fábrica de software**: o **CodeBuild** monta e testa cada peça; o **CodePipeline** é a **esteira** que leva a peça de uma estação para a outra; o **X-Ray** é o **rastreador de encomendas** que mostra onde cada pedido atrasou.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Qual microsserviço deixa a requisição lenta" → **X-Ray**. "Automatizar a esteira" → **CodePipeline**. "Compilar e rodar testes" → **CodeBuild**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact](../../servicos/desenvolvimento/code-services.md) · [AWS X-Ray](../../servicos/desenvolvimento/x-ray.md) · [Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
+
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo só ficaram **AWS CLI, CodeBuild, CodePipeline e X-Ray**. CodeDeploy, CodeArtifact e CloudShell estão **fora do escopo**; Cloud9, CodeCommit e CodeStar não aparecem. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
+⬅️ [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) · 🏠 [Índice do domínio](README.md) · [3.16 Gestão e governança](16-gestao-e-governanca.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # Amazon EFS (Elastic File System)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Várias máquinas Linux precisam ler e gravar os mesmos arquivos, sem cada uma manter uma cópia separada.
+
+**Como este serviço ajuda?** O EFS oferece um sistema de arquivos compartilhado. Máquinas autorizadas podem montar esse armazenamento e usá-lo como um conjunto de pastas acessíveis pela rede.
+
+**Exemplo do dia a dia:** Vários servidores de uma aplicação acessam a mesma pasta de documentos pelo EFS. Um arquivo gravado ali pode ser acessado pelos outros servidores autorizados.
+
+**O que ele não resolve sozinho?** Ele fornece arquivos compartilhados, não um banco de dados nem armazenamento local de cada máquina. Rede, permissões e compatibilidade precisam ser configuradas.
+
+**Primeiras palavras para entender:**
+
+- **Sistema de arquivos:** organização de arquivos e pastas.
+- **Montar:** tornar esse armazenamento acessível ao sistema.
+- **NFS:** protocolo usado para acessar arquivos pela rede.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Armazenamento de arquivos · **Domínio:** 3 · **Escopo:** Regional (multi-AZ) ou One Zone · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 >
 > **Em uma frase:** sistema de arquivos NFS gerenciado e elástico, compartilhado por milhares de instâncias Linux em várias AZs.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como uma **pasta de rede compartilhada**: vários computadores Linux abrem e gravam os mesmos arquivos ao mesmo tempo, e ela cresce sozinha.
-
-- ✅ **Escolha quando:** várias instâncias **Linux**, em **várias AZs**, precisam do **mesmo sistema de arquivos**.
-- 🚫 **Não é a resposta quando:** o compartilhamento é **Windows (SMB)** → [FSx for Windows](fsx.md); é o disco de **uma única instância** → [EBS](ebs.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "sistema de arquivos compartilhado", "NFS", "várias instâncias Linux", "cresce automaticamente".
-<!-- didatico:fim -->
 
 ## Para que serve
 

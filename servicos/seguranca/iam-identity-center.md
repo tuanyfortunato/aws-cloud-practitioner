@@ -1,20 +1,30 @@
 # AWS IAM Identity Center (antigo AWS SSO)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Funcionários usam várias contas AWS e aplicações. Manter um login diferente e permissões separadas em cada uma dificulta a administração.
+
+**Como este serviço ajuda?** IAM Identity Center centraliza o acesso da força de trabalho. Pessoas entram por um portal e acessam as contas e aplicações que lhes foram atribuídas.
+
+**Exemplo do dia a dia:** Uma funcionária entra no portal corporativo e escolhe a conta de testes ou de produção, recebendo as permissões definidas para cada uma.
+
+**O que ele não resolve sozinho?** Ele não é o cadastro de clientes de um aplicativo público. Centralizar a entrada também não elimina a necessidade de definir permissões adequadas.
+
+**Primeiras palavras para entender:**
+
+- **Força de trabalho:** funcionários e colaboradores.
+- **SSO:** uma entrada para vários ambientes autorizados.
+- **Permission set:** conjunto de permissões atribuído para acesso às contas.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / identidade · **Domínio:** 2 · **Escopo:** instância de organização numa região, acesso a todas as contas · **Gratuito** · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
 >
 > **Em uma frase:** login único (SSO) para que **funcionários** acessem várias contas AWS e aplicações SaaS com um só usuário.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **único crachá corporativo** que abre as portas de todas as contas AWS e dos apps da empresa.
-
-- ✅ **Escolha quando:** **funcionários** precisam de **login único (SSO)** em várias contas e aplicações, usando o diretório da empresa.
-- 🚫 **Não é a resposta quando:** quem faz login são **clientes de um aplicativo** → [Cognito](cognito.md); precisa de um **Active Directory gerenciado** → [Directory Service](directory-service.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "single sign-on", "várias contas", "funcionários", "permission sets".
-<!-- didatico:fim -->
 
 ## Conceitos e configurações
 

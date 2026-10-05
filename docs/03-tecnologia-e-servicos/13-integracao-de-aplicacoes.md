@@ -1,24 +1,14 @@
 # 3.13 Integração de aplicações
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon SQS (Simple Queue Service)](../../servicos/integracao/sqs.md) · [Amazon SNS (Simple Notification Service)](../../servicos/integracao/sns.md) · [Amazon EventBridge](../../servicos/integracao/eventbridge.md) · [AWS Step Functions](../../servicos/integracao/step-functions.md) · [Amazon MQ](../../servicos/integracao/amazon-mq.md)
-
-⬅️ [3.12 IA e machine learning](12-ia-e-machine-learning.md) · 🏠 [Índice do domínio](README.md) · [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Integração é fazer **partes de um sistema conversarem sem depender umas das outras**: filas, notificações, eventos e fluxos de várias etapas.
->
-> 🏠 **Analogia:** o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS** é um **alto-falante** (todos ouvem ao mesmo tempo); o **EventBridge** é uma **central de regras** ("quando acontecer X, avise Y"); o **Step Functions** é um **fluxograma** que se executa sozinho.
+**Qual é a dificuldade?** Uma ação pode gerar tarefas para outros sistemas. Se cada parte depender de todas as outras responderem na hora, a aplicação fica mais difícil de operar.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Integração permite separar tarefas e coordenar comunicação. Filas guardam trabalho; notificações distribuem avisos; eventos orientam ações; fluxos coordenam etapas.
 
-- [ ] Diferenciar **SQS** (fila, o consumidor puxa) de **SNS** (pub/sub, empurra para todos).
-- [ ] Diferenciar fila **Standard** de **FIFO**.
-- [ ] Saber quando usar **EventBridge** (reagir a eventos, inclusive de SaaS) e **Step Functions** (orquestrar etapas).
+**Exemplo do dia a dia:** A matrícula confirmada gera um aviso e uma tarefa de emitir certificado. Uma fila pode guardar a tarefa; um fluxo pode acompanhar etapas do processo.
+
+**O que não concluir?** Uma fila não executa o trabalho, e uma notificação não coordena por si só todo o processo. Entenda qual parte da comunicação precisa ser resolvida.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **Pub/sub** | publicar uma vez e todos os assinantes recebem. |
 | **Fan-out** | uma mensagem do SNS copiada para várias filas SQS. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **SQS** (fila, o consumidor puxa) de **SNS** (pub/sub, empurra para todos).
+- [ ] Diferenciar fila **Standard** de **FIFO**.
+- [ ] Saber quando usar **EventBridge** (reagir a eventos, inclusive de SaaS) e **Step Functions** (orquestrar etapas).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS** é um **alto-falante** (todos ouvem ao mesmo tempo); o **EventBridge** é uma **central de regras** ("quando acontecer X, avise Y"); o **Step Functions** é um **fluxograma** que se executa sozinho.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Desacoplar/absorver picos" → **SQS**. "Notificar vários" → **SNS**. "Ordem garantida" → **SQS FIFO**. "Evento de SaaS" → **EventBridge**. "Várias etapas com aprovação" → **Step Functions**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon SQS (Simple Queue Service)](../../servicos/integracao/sqs.md) · [Amazon SNS (Simple Notification Service)](../../servicos/integracao/sns.md) · [Amazon EventBridge](../../servicos/integracao/eventbridge.md) · [AWS Step Functions](../../servicos/integracao/step-functions.md) · [Amazon MQ](../../servicos/integracao/amazon-mq.md)
+
+⬅️ [3.12 IA e machine learning](12-ia-e-machine-learning.md) · 🏠 [Índice do domínio](README.md) · [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

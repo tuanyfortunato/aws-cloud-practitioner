@@ -1,20 +1,30 @@
 # AWS Batch
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Você precisa processar muitos trabalhos que podem esperar sua vez, como converter milhares de arquivos, sem iniciar cada execução manualmente.
+
+**Como este serviço ajuda?** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
+
+**Exemplo do dia a dia:** Uma produtora envia centenas de vídeos para conversão. Cada conversão vira um trabalho; o Batch agenda as execuções conforme a capacidade disponível.
+
+**O que ele não resolve sozinho?** Batch organiza a execução, mas você fornece o programa que faz o trabalho. Ele não é a entrada interativa de um site nem um serviço que sabe converter qualquer arquivo sozinho.
+
+**Primeiras palavras para entender:**
+
+- **Job:** trabalho a executar.
+- **Fila:** trabalhos aguardando execução.
+- **Lote:** conjunto de trabalhos processados dessa forma.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação / processamento em lote · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.6 Outros serviços de computação](../../docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md)
 >
 > **Em uma frase:** executa grandes volumes de jobs em lote, escolhendo e provisionando automaticamente a computação ideal.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como uma **linha de produção**: você entrega milhares de trabalhos e o Batch arranja as máquinas certas (inclusive as baratas, Spot) para processar tudo.
-
-- ✅ **Escolha quando:** precisa processar **muitos jobs em lote**, longos ou pesados (renderização, simulações, análises).
-- 🚫 **Não é a resposta quando:** é processamento **curto por evento** → [Lambda](lambda.md); é **big data com Spark/Hadoop** → [EMR](../analytics/emr.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "jobs em lote", "milhares de tarefas", "processamento batch", "capacidade ideal automaticamente".
-<!-- didatico:fim -->
 
 ## Para que serve
 

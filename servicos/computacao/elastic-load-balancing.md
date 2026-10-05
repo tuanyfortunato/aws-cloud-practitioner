@@ -1,20 +1,30 @@
 # Elastic Load Balancing (ELB)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Várias máquinas podem atender o mesmo site. Se todos os visitantes chegarem a uma só, ela pode ficar sobrecarregada enquanto as outras estão ociosas.
+
+**Como este serviço ajuda?** O Elastic Load Balancing recebe conexões e encaminha o tráfego aos destinos configurados. Verificações de saúde ajudam a evitar destinos considerados indisponíveis.
+
+**Exemplo do dia a dia:** A loja coloca um balanceador na entrada do site. Os pedidos dos visitantes são encaminhados às máquinas que atendem a aplicação.
+
+**O que ele não resolve sozinho?** Ele distribui tráfego; não cria mais máquinas por conta própria nem corrige erros do programa. Os tipos de balanceador atendem protocolos e necessidades diferentes.
+
+**Primeiras palavras para entender:**
+
+- **Tráfego:** comunicações recebidas e enviadas.
+- **Destino:** recurso que atende o pedido.
+- **Verificação de saúde:** teste para saber se o destino responde adequadamente.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação / Rede · **Domínio:** 3 · **Escopo:** Regional (multi-AZ) · **Tópico do guia:** [3.4 Escalabilidade e balanceamento](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md)
 >
 > **Em uma frase:** distribui automaticamente o tráfego entre destinos saudáveis (EC2, contêineres, IPs, Lambda) em várias AZs.
 >
 > **Escopo oficial:** ✅ Cobrado junto com o EC2 (não aparece como item separado na lista) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como a **recepcionista que distribui os clientes** entre os atendentes livres e não manda ninguém para quem está fora do ar.
-
-- ✅ **Escolha quando:** precisa **distribuir tráfego** entre várias instâncias ou contêineres, em várias AZs, enviando só para destinos saudáveis.
-- 🚫 **Não é a resposta quando:** quer ajustar a **quantidade** de instâncias → [Auto Scaling](ec2-auto-scaling.md); quer **cache** global → [CloudFront](../redes/cloudfront.md); quer **IPs fixos globais** → [Global Accelerator](../redes/global-accelerator.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "distribuir tráfego", "health check"; "rotear por caminho (/api)" → ALB; "milhões de conexões TCP" ou "IP estático" → NLB; "appliance de firewall" → GWLB.
-<!-- didatico:fim -->
 
 ## Para que serve
 

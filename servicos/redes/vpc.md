@@ -1,20 +1,30 @@
 # Amazon VPC (Virtual Private Cloud)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma empresa precisa decidir como suas máquinas na AWS se comunicam, quais ficam acessíveis pela internet e quais ficam em áreas privadas.
+
+**Como este serviço ajuda?** A VPC é uma rede virtual isolada logicamente para seus recursos. Nela você organiza segmentos de rede, caminhos de comunicação e controles de acesso.
+
+**Exemplo do dia a dia:** A loja separa os servidores que recebem visitantes e o banco que só deve ser acessado pela aplicação. Essas áreas podem ser organizadas dentro de uma VPC.
+
+**O que ele não resolve sozinho?** Criar uma VPC não torna os recursos públicos nem seguros automaticamente. Endereços, rotas e controles precisam atender ao desenho da aplicação.
+
+**Primeiras palavras para entender:**
+
+- **Rede:** caminhos de comunicação entre recursos.
+- **Subnet:** segmento de uma VPC.
+- **Rota:** regra que indica para onde encaminhar uma comunicação.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Rede · **Domínio:** 2 (segurança de rede) e 3 · **Escopo:** **Regional** (subnets em AZs) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) · [2.8 Proteção de rede](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 >
 > **Em uma frase:** sua rede privada, isolada logicamente, dentro de uma região da AWS.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **seu terreno particular dentro da AWS**: você desenha os lotes (subnets), as ruas (rotas), os portões (gateways) e os seguranças (security groups e NACLs).
-
-- ✅ **Escolha quando:** qualquer recurso precisa de uma **rede isolada e controlada** — é a base de quase tudo na AWS.
-- 🚫 **Não é a resposta quando:** precisa ligar a VPC ao **datacenter** → [VPN](site-to-site-vpn-e-client-vpn.md) ou [Direct Connect](direct-connect.md); precisa ligar **várias VPCs** → [Peering ou Transit Gateway](vpc-peering-transit-gateway-e-endpoints.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "subnet pública ou privada", "Internet Gateway", "NAT Gateway", "security group × NACL", "Flow Logs".
-<!-- didatico:fim -->
 
 ## Componentes
 

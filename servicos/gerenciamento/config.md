@@ -1,20 +1,30 @@
 # AWS Config
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A equipe precisa acompanhar como as configurações dos recursos mudaram e verificar se elas seguem requisitos definidos.
+
+**Como este serviço ajuda?** AWS Config registra configurações de recursos compatíveis e permite avaliá-las com regras.
+
+**Exemplo do dia a dia:** A escola define uma regra para uma configuração importante e acompanha os recursos avaliados como conformes ou não conformes.
+
+**O que ele não resolve sozinho?** Config observa e avalia configuração; não é o serviço principal para medir lentidão da aplicação. Correções automáticas dependem de remediação configurada.
+
+**Primeiras palavras para entender:**
+
+- **Configuração:** propriedades de um recurso.
+- **Regra:** critério de avaliação.
+- **Remediação:** ação para corrigir uma condição inadequada.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / governança e compliance · **Domínio:** 2 · **Escopo:** Regional (agregadores multi-conta/região) · **Tópico do guia:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md) · [2.6 Compliance](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
 >
 > **Em uma frase:** registra a **configuração** dos recursos e seu histórico de mudanças, e avalia continuamente se estão **conformes** com regras.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **álbum de fotos da configuração** de cada recurso ao longo do tempo, com um fiscal que avisa quando algo sai da regra.
-
-- ✅ **Escolha quando:** precisa acompanhar o **histórico de configuração** e verificar **conformidade** continuamente.
-- 🚫 **Não é a resposta quando:** quer saber **quem fez** a mudança → [CloudTrail](cloudtrail.md); quer **métricas** → [CloudWatch](cloudwatch.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "histórico de configuração", "conformidade dos recursos", "regras", "como estava na semana passada".
-<!-- didatico:fim -->
 
 ## Componentes
 

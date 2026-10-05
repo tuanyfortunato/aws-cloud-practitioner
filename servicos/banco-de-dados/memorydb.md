@@ -1,5 +1,25 @@
 # Amazon MemoryDB
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação precisa trabalhar com dados em memória e também preservar esses dados de forma durável, em vez de manter apenas cópias temporárias.
+
+**Como este serviço ajuda?** MemoryDB oferece um banco em memória com mecanismos de durabilidade. Ele atende aplicações compatíveis com sua interface de acesso.
+
+**Exemplo do dia a dia:** Um sistema que trabalha intensamente com estruturas compatíveis pode avaliar MemoryDB como banco principal, em vez de usar apenas um cache na frente de outro banco.
+
+**O que ele não resolve sozinho?** Não confunda banco em memória durável com qualquer cache. O serviço está fora do escopo indicado nesta ficha; o exemplo explica sua função, não recomenda priorizá-lo para a prova.
+
+**Primeiras palavras para entender:**
+
+- **Durabilidade:** preservação de dados confirmados.
+- **Banco principal:** fonte central dos registros.
+- **Em memória:** processamento com dados mantidos na memória.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Banco em memória durável · **Domínio:** 3 · **Escopo:** Regional (multi-AZ) · **Tópico do guia:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 >
 > **Em uma frase:** banco de dados **primário** em memória, compatível com Valkey/Redis, com durabilidade multi-AZ.
@@ -7,16 +27,6 @@
 > **Escopo oficial:** ❌ Fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
 > ❌ **Fora do escopo da CLF-C02** — documentado só para referência. Na prova, "cache em memória" → **ElastiCache** (no escopo).
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** parece um cache em memória, mas **não esquece**: grava tudo de forma durável em várias AZs.
-
-- ✅ **Escolha quando:** precisa de um **banco principal em memória**, compatível com Redis/Valkey, sem perder dados. Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
-- 🚫 **Não é a resposta quando:** na prova, "cache em memória" é o [ElastiCache](elasticache.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "banco em memória durável", "compatível com Redis".
-<!-- didatico:fim -->
 
 ## Diferencial
 

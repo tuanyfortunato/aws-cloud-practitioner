@@ -1,20 +1,30 @@
 # Amazon EventBridge
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Aplicações produzem acontecimentos diferentes e a empresa precisa encaminhar cada tipo para a ação correta, sem ligar manualmente todos os sistemas entre si.
+
+**Como este serviço ajuda?** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis. O conteúdo do evento ajuda a decidir o caminho.
+
+**Exemplo do dia a dia:** Um evento de matrícula confirmada aciona o processo de boas-vindas; um evento de cancelamento segue para outro destino.
+
+**O que ele não resolve sozinho?** EventBridge encaminha acontecimentos, mas não realiza toda a tarefa de negócio por si só. Regras, destinos, permissões e tratamento de falhas precisam ser definidos.
+
+**Primeiras palavras para entender:**
+
+- **Evento:** informação sobre algo que aconteceu.
+- **Barramento:** canal que recebe eventos.
+- **Regra:** critério para encaminhá-los.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Integração de aplicações / eventos · **Domínio:** 3 · **Escopo:** Regional (cross-account e cross-region) · **Tópico do guia:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 >
 > **Em uma frase:** **barramento de eventos** serverless que recebe eventos de serviços AWS, das suas aplicações e de parceiros SaaS e os roteia por **regras**.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **central de eventos com regras**: "quando acontecer X, avise Y" — vale para serviços AWS, seus apps e apps SaaS.
-
-- ✅ **Escolha quando:** precisa **reagir a eventos** com regras ou **agendar tarefas** (cron) sem servidor.
-- 🚫 **Não é a resposta quando:** precisa **orquestrar várias etapas** com estado → [Step Functions](step-functions.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "reagir a eventos", "regras", "eventos de SaaS", "agendar tarefa".
-<!-- didatico:fim -->
 
 ## Componentes
 

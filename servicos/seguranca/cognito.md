@@ -1,20 +1,30 @@
 # Amazon Cognito
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Seu aplicativo precisa que clientes criem contas, façam login e provem sua identidade sem você construir do zero todo esse mecanismo.
+
+**Como este serviço ajuda?** Cognito oferece recursos de identidade para usuários de aplicações. User pools cuidam de cadastro e autenticação; identity pools podem fornecer credenciais AWS temporárias conforme a configuração.
+
+**Exemplo do dia a dia:** Alunos fazem login no aplicativo da escola por um cadastro Cognito. Depois, a aplicação usa essa identidade para aplicar suas regras de acesso.
+
+**O que ele não resolve sozinho?** Login válido não significa autorização para qualquer operação. A aplicação ainda precisa decidir quais dados e ações cada usuário pode acessar.
+
+**Primeiras palavras para entender:**
+
+- **Autenticação:** confirmar quem a pessoa é.
+- **Autorização:** decidir o que ela pode fazer.
+- **User pool:** diretório de usuários da aplicação.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / identidade de clientes (CIAM) · **Domínio:** 2 · **Escopo:** Regional · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
 >
 > **Em uma frase:** cadastro, login e controle de acesso para **usuários finais** de aplicações web e mobile.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **tela de "Entrar / Criar conta" pronta** para o seu aplicativo, inclusive com "Entrar com Google".
-
-- ✅ **Escolha quando:** **usuários finais** (clientes) de apps web ou mobile precisam se cadastrar e fazer login.
-- 🚫 **Não é a resposta quando:** são **funcionários** acessando a AWS → [IAM Identity Center](iam-identity-center.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "usuários do aplicativo", "login social", "cadastro e login", "app mobile".
-<!-- didatico:fim -->
 
 ## Componentes
 

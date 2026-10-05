@@ -1,20 +1,30 @@
 # Amazon SQS (Simple Queue Service)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um sistema recebe trabalhos mais rápido do que consegue executá-los. Se depender de tudo acontecer imediatamente, pode perder pedidos ou ficar indisponível.
+
+**Como este serviço ajuda?** SQS guarda mensagens numa fila até que consumidores as recebam e processem. Isso permite separar o envio de uma tarefa da execução dela.
+
+**Exemplo do dia a dia:** O site recebe pedidos de geração de certificados e coloca mensagens na fila. Um programa processa os pedidos no ritmo que consegue atender.
+
+**O que ele não resolve sozinho?** SQS não executa a tarefa nem garante, em toda modalidade, que ela será recebida apenas uma vez. O consumidor deve tratar falhas e as condições de entrega.
+
+**Primeiras palavras para entender:**
+
+- **Mensagem:** informação sobre uma tarefa.
+- **Fila:** lugar de espera.
+- **Consumidor:** programa que recebe e processa mensagens.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Integração de aplicações / filas · **Domínio:** 1 (acoplamento fraco) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 >
 > **Em uma frase:** fila de mensagens totalmente gerenciada que **desacopla** produtores e consumidores e absorve picos.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **fila de pedidos**: quem recebe anota o pedido na fila e quem processa pega um de cada vez, no seu ritmo.
-
-- ✅ **Escolha quando:** precisa **desacoplar componentes** e **absorver picos** sem perder mensagens.
-- 🚫 **Não é a resposta quando:** precisa enviar a **mesma mensagem para vários destinos** → [SNS](sns.md); precisa de **streaming em tempo real** → [Kinesis](../analytics/kinesis.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "desacoplar", "fila", "absorver picos", "FIFO" ou "exatamente uma vez".
-<!-- didatico:fim -->
 
 ## Como funciona
 

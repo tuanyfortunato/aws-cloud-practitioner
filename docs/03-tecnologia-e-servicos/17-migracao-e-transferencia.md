@@ -1,26 +1,14 @@
 # 3.17 Migração e transferência
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Migration Evaluator, Application Discovery Service e Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [AWS Application Migration Service (AWS MGN)](../../servicos/migracao/application-migration-service.md) · [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](../../servicos/migracao/dms-e-sct.md) · [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](../../servicos/migracao/snow-family.md) · [AWS DataSync e AWS Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** **Migration Hub** e **Application Discovery Service** continuam no escopo, mas estão fechados a novos clientes desde 07/11/2025. **Transfer Family** está **fora do escopo**; Snow e DataSync não aparecem. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
-
-⬅️ [3.16 Gestão e governança](16-gestao-e-governanca.md) · 🏠 [Índice do domínio](README.md) · [3.18 Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** As ferramentas de migração seguem a **ordem da mudança**: avaliar o custo e as dependências, acompanhar o progresso, migrar servidores e bancos e transferir dados.
->
-> 🏠 **Analogia:** é uma **mudança de casa**: o **Migration Evaluator** faz o orçamento; o **Discovery Service** mede os móveis e vê o que depende do quê; o **Migration Hub** é a planilha de acompanhamento; o **MGN** é o caminhão que leva tudo como está; o **DMS** leva o banco com a loja aberta; o **SCT** traduz a estrutura de um banco para outro.
+**Qual é a dificuldade?** Mover para a AWS envolve aplicações, bancos e arquivos, que podem exigir processos e ferramentas diferentes.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Migração inclui descobrir o ambiente, planejar mudanças, replicar ou transferir dados, testar e realizar a troca. As ferramentas atendem etapas e tipos de recurso específicos.
 
-- [ ] Ligar cada ferramenta à **etapa** (avaliar, acompanhar, migrar, transferir).
-- [ ] Diferenciar migração de banco **homogênea** (só DMS) de **heterogênea** (SCT + DMS).
-- [ ] Diferenciar transferência **offline** (Snow) de **online** (DataSync, Transfer Family).
+**Exemplo do dia a dia:** A escola prepara a migração de um servidor e de seu banco. Replica e testa cada parte antes de mudar o sistema em uso.
+
+**O que não concluir?** Transferir um banco não move automaticamente todo o programa; copiar arquivos também não migra suas dependências. Compatibilidade e disponibilidade das ofertas precisam ser verificadas.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -30,7 +18,32 @@
 | **Heterogênea** | motores diferentes (Oracle → PostgreSQL). |
 | **Schema** | a estrutura do banco: tabelas, colunas e relacionamentos. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada ferramenta à **etapa** (avaliar, acompanhar, migrar, transferir).
+- [ ] Diferenciar migração de banco **homogênea** (só DMS) de **heterogênea** (SCT + DMS).
+- [ ] Diferenciar transferência **offline** (Snow) de **online** (DataSync, Transfer Family).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é uma **mudança de casa**: o **Migration Evaluator** faz o orçamento; o **Discovery Service** mede os móveis e vê o que depende do quê; o **Migration Hub** é a planilha de acompanhamento; o **MGN** é o caminhão que leva tudo como está; o **DMS** leva o banco com a loja aberta; o **SCT** traduz a estrutura de um banco para outro.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Dependências entre servidores" → **Application Discovery Service**. "Migrar VMs sem alterar" → **MGN**. "Banco sem parar o sistema" → **DMS**. "Oracle para PostgreSQL" → **SCT**. "Justificar custo" → **Migration Evaluator**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Migration Evaluator, Application Discovery Service e Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [AWS Application Migration Service (AWS MGN)](../../servicos/migracao/application-migration-service.md) · [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](../../servicos/migracao/dms-e-sct.md) · [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](../../servicos/migracao/snow-family.md) · [AWS DataSync e AWS Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md)
+
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** **Migration Hub** e **Application Discovery Service** continuam no escopo, mas estão fechados a novos clientes desde 07/11/2025. **Transfer Family** está **fora do escopo**; Snow e DataSync não aparecem. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
+⬅️ [3.16 Gestão e governança](16-gestao-e-governanca.md) · 🏠 [Índice do domínio](README.md) · [3.18 Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # AWS Glue
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Os dados vêm de lugares diferentes, com formatos que não combinam. A equipe precisa conhecê-los e prepará-los antes de analisar.
+
+**Como este serviço ajuda?** Glue oferece catálogo e ferramentas de integração e transformação de dados. Ele ajuda a descobrir estruturas e a executar processos de preparação.
+
+**Exemplo do dia a dia:** A escola reúne arquivos de matrículas, padroniza campos e organiza informações sobre sua estrutura para análises posteriores.
+
+**O que ele não resolve sozinho?** Catalogar um dado não o torna correto nem concede acesso irrestrito. As transformações e permissões precisam ser definidas para cada processo.
+
+**Primeiras palavras para entender:**
+
+- **Catálogo:** descrição organizada de dados.
+- **ETL:** extrair, transformar e carregar dados.
+- **Crawler:** recurso que examina fontes para identificar estruturas.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Analytics / integração de dados (ETL) · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** serviço **serverless de ETL** e **catálogo de dados** para descobrir, preparar e combinar dados para análise.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **cozinha de preparo dos dados**: descobre o que tem em cada arquivo (catálogo) e limpa e transforma tudo para análise (ETL).
-
-- ✅ **Escolha quando:** precisa **catalogar e transformar dados** sem gerenciar servidores.
-- 🚫 **Não é a resposta quando:** quer **clusters Spark/Hadoop** sob seu controle → [EMR](emr.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "ETL serverless", "catálogo de dados", "crawler", "descobrir o schema".
-<!-- didatico:fim -->
 
 ## Componentes
 

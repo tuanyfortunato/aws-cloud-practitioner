@@ -1,20 +1,30 @@
 # AWS Artifact
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um auditor pede relatórios sobre os controles e a conformidade da infraestrutura AWS. A empresa precisa localizar esses documentos oficiais.
+
+**Como este serviço ajuda?** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
+
+**Exemplo do dia a dia:** A escola consulta um relatório oficial da AWS para apoiar uma avaliação dos serviços usados por sua aplicação.
+
+**O que ele não resolve sozinho?** Um relatório da AWS não certifica automaticamente a aplicação do cliente. A empresa precisa demonstrar também seus próprios controles e responsabilidades.
+
+**Primeiras palavras para entender:**
+
+- **Conformidade:** atendimento a requisitos.
+- **Relatório:** documento com informações ou evidências.
+- **Acordo:** condições aceitas pelas partes.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Compliance · **Domínio:** 2 · **Escopo:** Global (portal) · **Gratuito** · **Tópico do guia:** [2.6 Compliance e governança](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
 >
 > **Em uma frase:** portal de autoatendimento para baixar **relatórios de conformidade da AWS** e aceitar **acordos** legais.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **secretaria da AWS** onde você baixa os certificados e relatórios de auditoria **da própria AWS**.
-
-- ✅ **Escolha quando:** um **auditor** pede relatórios de conformidade da AWS (SOC, PCI, ISO) ou é preciso **aceitar um acordo** (como o BAA).
-- 🚫 **Não é a resposta quando:** precisa juntar **evidências da sua própria conta** → [Audit Manager](audit-manager.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "relatório SOC 2", "atestado PCI", "ISO", "compliance da AWS", "BAA/HIPAA".
-<!-- didatico:fim -->
 
 ## O que oferece
 

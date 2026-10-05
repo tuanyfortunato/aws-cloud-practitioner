@@ -1,17 +1,26 @@
 # Domínio 4 — Cobrança, Preços e Suporte
 
+## 🧠 Antes de começar
+
+**Qual é a dificuldade?** Depois de escolher recursos, a equipe precisa prever gastos, acompanhar consumo e saber como pedir ajuda.
+
+**A ideia em palavras simples:** Este domínio trata de **dinheiro**: como a AWS cobra, como economizar, quais ferramentas mostram e controlam os gastos e quais planos de suporte existem.
+
+**Exemplo do dia a dia:** A escola estima o custo antes de publicar seu sistema, analisa a fatura depois e configura avisos de orçamento.
+
+Comece pelas aberturas dos tópicos para entender a situação e a solução. Depois use o vocabulário,
+os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço; o índice não substitui essa leitura.
+
 **Peso na prova:** 12% das questões pontuadas
 
 Peso menor, mas as questões são diretas: decorar as tabelas desta seção garante a maior parte desses pontos.
 
 ## 🧭 Como estudar este domínio
 
-> 💡 **Em palavras simples:** Este domínio trata de **dinheiro**: como a AWS cobra, como economizar, quais ferramentas mostram e controlam os gastos e quais planos de suporte existem.
-
 - 🗺️ **Ordem sugerida:** Comece pelos **princípios de preço** (4.1), passe pelos **modelos de compra do EC2** (4.2), que mais caem, e termine com ferramentas de custo (4.4) e planos de suporte (4.5).
-- 🎯 **Dica:** As questões são diretas: decore as tabelas de **modelos de compra**, **ferramentas de custo** e **planos de suporte (novos)**.
-- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
-  palavras novas explicadas e como não errar na prova.
+- 🎯 **Dica:** Diferencie estimar, analisar gasto e acompanhar orçamento. Em suporte, leia o requisito e confira as condições no contexto do material.
+- 🧠 Cada tópico começa com a seção **Antes de começar**: problema, explicação, exemplo e limite.
+  Depois vêm palavras novas explicadas, objetivos de leitura e revisão para a prova.
 
 ## Tópicos
 

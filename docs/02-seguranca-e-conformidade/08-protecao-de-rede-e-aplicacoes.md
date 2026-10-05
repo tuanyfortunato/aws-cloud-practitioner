@@ -1,24 +1,14 @@
 # 2.8 Proteção de rede e aplicações
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon VPC (Virtual Private Cloud)](../../servicos/redes/vpc.md) · [AWS Shield](../../servicos/seguranca/shield.md) · [AWS WAF (Web Application Firewall)](../../servicos/seguranca/waf.md) · [AWS Firewall Manager e AWS Network Firewall](../../servicos/seguranca/firewall-manager-e-network-firewall.md)
-
-⬅️ [2.7 Logs, monitoramento e auditoria](07-logs-monitoramento-e-auditoria.md) · 🏠 [Índice do domínio](README.md) · [2.9 Detecção de ameaças e postura de segurança](09-deteccao-de-ameacas.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** São as **barreiras** que protegem a rede e as aplicações: firewalls na instância e na subnet, proteção contra ataques de negação de serviço (DDoS) e contra ataques à aplicação web.
->
-> 🏠 **Analogia:** o **security group** é o **porteiro do apartamento** (lembra quem entrou e deixa sair); a **NACL** é o **portão da rua** (confere entrada e saída e pode barrar alguém pelo nome); o **Shield** é um **quebra-mar** contra enxurradas de tráfego; o **WAF** é o **segurança que lê cada pedido** e barra os maliciosos.
+**Qual é a dificuldade?** Um recurso acessível pela rede pode receber conexões indevidas, pedidos web maliciosos ou tentativas de sobrecarga.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Proteção de rede e aplicação usa controles em camadas. Regras de conexão, inspeção de pedidos web e proteção contra sobrecarga tratam ameaças diferentes.
 
-- [ ] Diferenciar **security group** (instância, stateful, só permite) de **NACL** (subnet, stateless, permite e nega).
-- [ ] Diferenciar **Shield Standard** (grátis) de **Shield Advanced** (pago, com time 24/7 e proteção de custo).
-- [ ] Saber que o **WAF** bloqueia SQL injection e XSS (camada 7) e que o **Firewall Manager** aplica regras em todas as contas.
+**Exemplo do dia a dia:** A escola limita conexões ao banco, inspeciona pedidos ao site e avalia proteção contra ataques distribuídos. Cada medida atua numa parte do caminho.
+
+**O que não concluir?** Uma regra de rede não corrige o código do programa; uma proteção web não inspeciona automaticamente todos os protocolos. Identifique o tipo de tráfego e o ponto de proteção.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -29,7 +19,30 @@
 | **DDoS** | ataque que tenta derrubar o serviço com uma enxurrada de tráfego. |
 | **SQL injection / XSS** | ataques que escondem comandos maliciosos em requisições web. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **security group** (instância, stateful, só permite) de **NACL** (subnet, stateless, permite e nega).
+- [ ] Diferenciar **Shield Standard** (grátis) de **Shield Advanced** (pago, com time 24/7 e proteção de custo).
+- [ ] Saber que o **WAF** bloqueia SQL injection e XSS (camada 7) e que o **Firewall Manager** aplica regras em todas as contas.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **security group** é o **porteiro do apartamento** (lembra quem entrou e deixa sair); a **NACL** é o **portão da rua** (confere entrada e saída e pode barrar alguém pelo nome); o **Shield** é um **quebra-mar** contra enxurradas de tráfego; o **WAF** é o **segurança que lê cada pedido** e barra os maliciosos.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "**Bloquear** um IP" → **NACL** (security group não tem regra de negar). "SQL injection" → **WAF**. "DDoS" → **Shield**; com "time especialista" ou "proteção de custo" → **Shield Advanced**.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon VPC (Virtual Private Cloud)](../../servicos/redes/vpc.md) · [AWS Shield](../../servicos/seguranca/shield.md) · [AWS WAF (Web Application Firewall)](../../servicos/seguranca/waf.md) · [AWS Firewall Manager e AWS Network Firewall](../../servicos/seguranca/firewall-manager-e-network-firewall.md)
+
+⬅️ [2.7 Logs, monitoramento e auditoria](07-logs-monitoramento-e-auditoria.md) · 🏠 [Índice do domínio](README.md) · [2.9 Detecção de ameaças e postura de segurança](09-deteccao-de-ameacas.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

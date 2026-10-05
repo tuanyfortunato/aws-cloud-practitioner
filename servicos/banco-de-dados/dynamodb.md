@@ -1,20 +1,30 @@
 # Amazon DynamoDB
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação precisa buscar e atualizar muitos registros por identificadores conhecidos, sem administrar servidores de banco.
+
+**Como este serviço ajuda?** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens. Ele é especialmente associado a modelos chave-valor e documentos; o desenho das chaves deve acompanhar a forma de consultar.
+
+**Exemplo do dia a dia:** Um jogo guarda o perfil de cada jogador com seu identificador. A aplicação usa esse identificador para buscar e atualizar o perfil no DynamoDB.
+
+**O que ele não resolve sozinho?** Ele não é uma troca automática por um banco SQL com consultas relacionais arbitrárias. Você precisa modelar os dados e os padrões de acesso adequadamente.
+
+**Primeiras palavras para entender:**
+
+- **Item:** um registro.
+- **Chave:** identificação usada para localizar ou organizar itens.
+- **NoSQL:** família de bancos que não segue apenas o modelo de tabelas relacionais.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Banco NoSQL serverless · **Domínio:** 3 · **Escopo:** Regional (multi-AZ automático); Global Tables multi-região · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco chave-valor e de documentos, serverless, com latência de milissegundos de um dígito em qualquer escala.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como um **fichário gigante e instantâneo**: você procura pela chave e recebe a ficha em milissegundos, seja entre mil ou entre bilhões de fichas.
-
-- ✅ **Escolha quando:** precisa de **NoSQL serverless**, com latência de milissegundos em qualquer escala (carrinho de compras, sessões, jogos, IoT).
-- 🚫 **Não é a resposta quando:** precisa de **joins e SQL relacional** → [RDS](rds.md) ou [Aurora](aurora.md); precisa guardar **arquivos grandes** → [S3](../armazenamento/s3.md) (o item do DynamoDB tem no máximo 400 KB).
-- 🎯 **Palavras do enunciado que apontam para ele:** "NoSQL", "chave-valor", "serverless", "milissegundos em qualquer escala", "Global Tables".
-<!-- didatico:fim -->
 
 ## Para que serve
 

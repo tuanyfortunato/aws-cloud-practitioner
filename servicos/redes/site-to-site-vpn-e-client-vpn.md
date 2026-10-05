@@ -1,20 +1,30 @@
 # AWS VPN (Site-to-Site VPN e Client VPN)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa precisa conectar sua rede à AWS, ou permitir que uma pessoa trabalhando remotamente acesse recursos privados.
+
+**Como este serviço ajuda?** Site-to-Site VPN liga redes por um túnel criptografado. Client VPN permite acesso remoto de dispositivos de usuários, conforme autenticação e configuração.
+
+**Exemplo do dia a dia:** A sede usa Site-to-Site VPN para se conectar à AWS. Uma funcionária remota pode usar Client VPN para acessar recursos autorizados.
+
+**O que ele não resolve sozinho?** VPN não é um circuito físico dedicado nem torna todo usuário autorizado a tudo. Rotas, identidade e controles de acesso continuam necessários.
+
+**Primeiras palavras para entender:**
+
+- **VPN:** conexão lógica protegida.
+- **Túnel:** caminho de comunicação encapsulado.
+- **Criptografado:** protegido para impedir a leitura por quem não tem autorização.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Rede / conectividade híbrida · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** túneis criptografados (IPsec/TLS) pela internet para ligar redes ou usuários à sua VPC.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **túnel secreto pela estrada pública** (a internet): rápido de construir e criptografado, mas o trânsito pode variar.
-
-- ✅ **Escolha quando:** precisa conectar o **escritório** ou os **funcionários remotos** à VPC com criptografia, **rapidamente**.
-- 🚫 **Não é a resposta quando:** precisa de banda **dedicada e estável, sem internet** → [Direct Connect](direct-connect.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "criptografado pela internet", "pronto hoje", "IPsec" → Site-to-Site VPN; "funcionários em casa" → Client VPN.
-<!-- didatico:fim -->
 
 ## AWS Site-to-Site VPN
 

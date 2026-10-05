@@ -1,20 +1,30 @@
 # AWS IAM (Identity and Access Management) e AWS STS
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Pessoas e programas precisam acessar recursos AWS, mas nem todos devem poder ler, alterar ou apagar as mesmas coisas.
+
+**Como este serviço ajuda?** IAM define identidades e permissões. Você descreve quais ações uma identidade pode realizar em quais recursos, usando políticas e mecanismos de acesso.
+
+**Exemplo do dia a dia:** A escola permite que um programa leia documentos num bucket S3, sem dar a ele permissão para apagar os arquivos ou administrar a conta inteira.
+
+**O que ele não resolve sozinho?** Dar acesso à AWS não cria automaticamente o cadastro dos alunos dentro do aplicativo. IAM trata acesso a recursos AWS; o acesso dos clientes à aplicação é outra necessidade.
+
+**Primeiras palavras para entender:**
+
+- **Identidade:** quem faz a ação.
+- **Política:** regras de permissão.
+- **Role:** papel assumido para obter permissões, geralmente por credenciais temporárias.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / identidade · **Domínio:** 2 · **Escopo:** **Global** · **Gratuito** · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md) · [2.2 Usuário root](../../docs/02-seguranca-e-conformidade/02-usuario-root.md)
 >
 > **Em uma frase:** controla **quem** pode se autenticar e **o que** cada identidade pode fazer em quais recursos da conta.
 >
 > **Escopo oficial:** ✅ No escopo (STS ⚪ não listado) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **crachá e as regras de acesso do prédio**: diz quem pode entrar (autenticação) e em quais salas (autorização).
-
-- ✅ **Escolha quando:** precisa controlar **quem pode fazer o quê** na conta: usuários, grupos, roles e políticas.
-- 🚫 **Não é a resposta quando:** funcionários precisam de **login único em várias contas** → [IAM Identity Center](iam-identity-center.md); **clientes de um app** precisam de login → [Cognito](cognito.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "menor privilégio", "role", "política", "MFA", "credenciais temporárias", "global e gratuito".
-<!-- didatico:fim -->
 
 ## Identidades
 

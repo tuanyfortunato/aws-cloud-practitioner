@@ -1,20 +1,30 @@
 # Amazon ElastiCache
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A aplicação consulta repetidamente dados parecidos e o banco principal demora mais do que o desejado.
+
+**Como este serviço ajuda?** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
+
+**Exemplo do dia a dia:** Uma loja guarda temporariamente o resultado de uma consulta popular num cache. Nas próximas consultas, a aplicação pode usar esse resultado sem consultar o banco de novo.
+
+**O que ele não resolve sozinho?** A aplicação precisa decidir quando atualizar ou invalidar o cache. Ele não acelera qualquer consulta automaticamente nem deve ser tratado sem planejamento como a única cópia de dados essenciais.
+
+**Primeiras palavras para entender:**
+
+- **Memória:** armazenamento de acesso rápido usado durante a execução.
+- **Cache:** dados mantidos para reutilização.
+- **Invalidar:** deixar de usar uma cópia desatualizada.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Cache em memória · **Domínio:** 3 · **Escopo:** Regional (nós em AZs) · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** cache em memória gerenciado (Valkey, Redis OSS, Memcached) com latência de microssegundos.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **memória de curto prazo na frente do banco**: guarda as respostas mais pedidas para responder em microssegundos.
-
-- ✅ **Escolha quando:** quer **reduzir a carga e a latência do banco** ou guardar **sessões de usuário**.
-- 🚫 **Não é a resposta quando:** o cache é **só para DynamoDB** → DAX, na ficha do [DynamoDB](dynamodb.md); precisa de **banco em memória durável** → [MemoryDB](memorydb.md) (fora da prova).
-- 🎯 **Palavras do enunciado que apontam para ele:** "cache em memória", "Redis, Valkey, Memcached", "reduzir leituras no banco", "armazenar sessões".
-<!-- didatico:fim -->
 
 ## Para que serve
 

@@ -1,20 +1,30 @@
 # Amazon EBS (Elastic Block Store) e Instance Store
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma máquina virtual precisa de um lugar para guardar seu sistema operacional e os arquivos que seus programas usam como num disco.
+
+**Como este serviço ajuda?** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis. A ficha também compara o disco local temporário chamado instance store.
+
+**Exemplo do dia a dia:** Uma aplicação instalada em EC2 grava seus arquivos em um volume EBS. A equipe cria cópias desse volume para ajudar na recuperação.
+
+**O que ele não resolve sozinho?** EBS não deve ser confundido com uma pasta compartilhada para muitas máquinas. Discos locais instance store podem perder seus dados com ações do ciclo de vida da máquina.
+
+**Primeiras palavras para entender:**
+
+- **Volume:** disco virtual.
+- **Snapshot:** cópia de um volume em determinado momento.
+- **Persistente:** dado que pode continuar existindo além de uma execução.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Armazenamento em bloco · **Domínio:** 3 · **Escopo:** **AZ** (volume) · Regional (snapshots) · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 >
 > **Em uma frase:** discos virtuais persistentes, em rede, para instâncias EC2 — como um HD/SSD que sobrevive ao desligamento.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **HD/SSD do seu computador virtual**: fica preso a uma máquina (e a uma AZ) e guarda os dados mesmo quando ela é desligada.
-
-- ✅ **Escolha quando:** precisa de **disco persistente para uma instância EC2** (sistema operacional, banco instalado no EC2).
-- 🚫 **Não é a resposta quando:** vários servidores precisam dos **mesmos arquivos** → [EFS](efs.md); quer guardar **arquivos acessados pela internet** → [S3](s3.md); dados **temporários** e muito rápidos → *instance store*, nesta ficha.
-- 🎯 **Palavras do enunciado que apontam para ele:** "armazenamento em bloco", "disco da instância", "snapshot", "IOPS", "volume".
-<!-- didatico:fim -->
 
 ## Para que serve
 

@@ -1,21 +1,14 @@
 # 4.1 Princípios de preço da AWS
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-🏠 [Índice do domínio](README.md) · [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** A AWS cobra com base em **três princípios**: pagar pelo uso, ganhar desconto ao se comprometer e pagar menos por unidade quando usa mais. E três coisas geram a maior parte da conta.
->
-> 🏠 **Analogia:** é como o **plano de celular**: pré-pago (pague pelo uso), plano anual com desconto (compromisso) e franquia que fica mais barata por GB quando você compra mais (volume).
+**Qual é a dificuldade?** Um recurso pode estar ocioso e ainda gerar cobrança. Para planejar gastos, você precisa entender pelo que está pagando, não apenas quantas pessoas usam o sistema.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Preço pode depender de capacidade provisionada, tempo, armazenamento, chamadas ou transferência, conforme o serviço. Diferentes componentes podem ter cobranças independentes.
 
-- [ ] Citar os **3 princípios** de preço.
-- [ ] Citar os **3 geradores de custo**: computação, armazenamento e **transferência de saída**.
+**Exemplo do dia a dia:** Uma máquina ligada sem visitantes pode custar. Mesmo ao pará-la, discos ou outros recursos mantidos podem continuar cobrados.
+
+**O que não concluir?** Pagar pelo uso não significa pagar apenas por pessoas usando a aplicação. Este tópico ensina a identificar as unidades e condições de cobrança.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -24,7 +17,27 @@
 | **Pay-as-you-go** | pagar conforme o uso, sem contrato. |
 | **Transferência de saída** | dados que saem da AWS para a internet (é cobrada). |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar os **3 princípios** de preço.
+- [ ] Citar os **3 geradores de custo**: computação, armazenamento e **transferência de saída**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como o **plano de celular**: pré-pago (pague pelo uso), plano anual com desconto (compromisso) e franquia que fica mais barata por GB quando você compra mais (volume).
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Desconto em troca de compromisso de 1 ou 3 anos" → **Reservas/Savings Plans**. "Mais barato por GB quanto mais usa" → **desconto por volume**.
+
+---
+
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+🏠 [Índice do domínio](README.md) · [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

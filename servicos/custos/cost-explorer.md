@@ -1,20 +1,30 @@
 # AWS Cost Explorer
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A fatura aumentou, mas a equipe não sabe qual serviço, conta ou período explica esse crescimento.
+
+**Como este serviço ajuda?** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
+
+**Exemplo do dia a dia:** A escola compara dois meses e separa custos por serviço para investigar onde o gasto mudou.
+
+**O que ele não resolve sozinho?** Ele analisa gastos; não bloqueia automaticamente a criação de recursos. Os dados não devem ser tratados como medição instantânea nem a previsão como garantia.
+
+**Primeiras palavras para entender:**
+
+- **Filtro:** seleção de uma parte dos dados.
+- **Agrupamento:** divisão por critério, como serviço.
+- **Previsão:** estimativa baseada em dados e método.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gestão de custos · **Domínio:** 4 · **Escopo:** Conta / organização · **Tópico do guia:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 >
 > **Em uma frase:** visualiza, analisa e **prevê** seus custos e uso da AWS ao longo do tempo.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **extrato do cartão com gráficos e previsão**: mostra para onde foi o dinheiro e quanto você ainda deve gastar.
-
-- ✅ **Escolha quando:** precisa **analisar gastos passados** e **prever** os próximos meses.
-- 🚫 **Não é a resposta quando:** quer **ser avisado** ao passar de um limite → [Budgets](budgets.md); quer **estimar antes** de criar recursos → [Pricing Calculator](pricing-calculator-cur-e-outras-ferramentas.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "visualizar gastos", "prever custos", "recomendações de Reserved Instances e Savings Plans".
-<!-- didatico:fim -->
 
 ## Recursos
 

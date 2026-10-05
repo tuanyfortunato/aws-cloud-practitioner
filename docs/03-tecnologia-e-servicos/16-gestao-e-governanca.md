@@ -1,25 +1,14 @@
 # 3.16 Gestão e governança
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS CloudFormation (e CDK, SAM)](../../servicos/gerenciamento/cloudformation.md) · [AWS Systems Manager (SSM)](../../servicos/gerenciamento/systems-manager.md) · [AWS Health Dashboard](../../servicos/gerenciamento/health-dashboard.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) · [AWS Compute Optimizer, Service Quotas, License Manager e outros](../../servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) · [AWS Organizations](../../servicos/gerenciamento/organizations.md)
-
-⬅️ [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) · 🏠 [Índice do domínio](README.md) · [3.17 Migração e transferência](17-migracao-e-transferencia.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Ferramentas para **administrar o ambiente**: criar infraestrutura por código, operar muitos servidores, saber de eventos da AWS, ver limites, controlar licenças e ajustar o tamanho dos recursos.
->
-> 🏠 **Analogia:** o **CloudFormation** é a **planta da casa**; o **Systems Manager** é o **controle remoto** de todos os servidores; o **Health Dashboard** é o **aviso do condomínio**; o **Service Quotas** é a **lista de limites** do contrato; o **Compute Optimizer** é uma **balança** que mostra o que está grande ou pequeno demais.
+**Qual é a dificuldade?** A aplicação já existe, mas a equipe precisa criar ambientes de modo repetível, administrar máquinas e acompanhar mudanças, saúde e regras.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Gestão e governança reúnem ferramentas para operar recursos e aplicar controles. Cada ferramenta observa ou administra uma parte específica.
 
-- [ ] Explicar **template**, **stack**, **StackSets** e **drift detection** do CloudFormation.
-- [ ] Citar os recursos do **Systems Manager** (Session Manager, Run Command, Patch Manager, Parameter Store).
-- [ ] Diferenciar **Health Dashboard** (eventos da AWS) de **CloudWatch** (métricas dos seus recursos).
-- [ ] Saber para que servem **Service Quotas**, **License Manager** e **Compute Optimizer**.
+**Exemplo do dia a dia:** A escola descreve um ambiente com CloudFormation, administra máquinas com Systems Manager e consulta avisos relevantes no AWS Health.
+
+**O que não concluir?** Administrar recursos não significa que qualquer serviço de gestão executa todas essas tarefas. Descubra a ação desejada antes de escolher o produto.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -29,7 +18,31 @@
 | **Drift** | quando alguém altera um recurso na mão, fora do template. |
 | **Cota (quota)** | limite de uso de um serviço numa região. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Explicar **template**, **stack**, **StackSets** e **drift detection** do CloudFormation.
+- [ ] Citar os recursos do **Systems Manager** (Session Manager, Run Command, Patch Manager, Parameter Store).
+- [ ] Diferenciar **Health Dashboard** (eventos da AWS) de **CloudWatch** (métricas dos seus recursos).
+- [ ] Saber para que servem **Service Quotas**, **License Manager** e **Compute Optimizer**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **CloudFormation** é a **planta da casa**; o **Systems Manager** é o **controle remoto** de todos os servidores; o **Health Dashboard** é o **aviso do condomínio**; o **Service Quotas** é a **lista de limites** do contrato; o **Compute Optimizer** é uma **balança** que mostra o que está grande ou pequeno demais.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Acessar sem SSH" → **Session Manager**. "Patch em 500 servidores" → **Patch Manager**. "Evento da AWS afeta minhas instâncias" → **Health Dashboard**. "Passar do limite" → **Service Quotas**. "Tamanho ideal" → **Compute Optimizer**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS CloudFormation (e CDK, SAM)](../../servicos/gerenciamento/cloudformation.md) · [AWS Systems Manager (SSM)](../../servicos/gerenciamento/systems-manager.md) · [AWS Health Dashboard](../../servicos/gerenciamento/health-dashboard.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) · [AWS Compute Optimizer, Service Quotas, License Manager e outros](../../servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) · [AWS Organizations](../../servicos/gerenciamento/organizations.md)
+
+⬅️ [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) · 🏠 [Índice do domínio](README.md) · [3.17 Migração e transferência](17-migracao-e-transferencia.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

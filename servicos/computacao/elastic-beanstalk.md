@@ -1,20 +1,30 @@
 # AWS Elastic Beanstalk
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Você tem uma aplicação pronta, mas configurar máquinas, balanceamento e acompanhamento da execução manualmente pode tomar tempo.
+
+**Como este serviço ajuda?** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente. Você entrega o código e define opções do ambiente.
+
+**Exemplo do dia a dia:** Uma equipe envia sua aplicação web para um ambiente Beanstalk. O serviço organiza a infraestrutura necessária para disponibilizá-la.
+
+**O que ele não resolve sozinho?** Você continua responsável pelo código e por decisões de configuração. Os recursos criados continuam tendo custos; Beanstalk não torna a infraestrutura gratuita.
+
+**Primeiras palavras para entender:**
+
+- **Implantar:** colocar uma versão da aplicação em funcionamento.
+- **Ambiente:** conjunto de recursos usado por essa aplicação.
+- **Plataforma:** tecnologias compatíveis para executá-la.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação / PaaS · **Domínio:** 1 (modelos de serviço) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.6 Outros serviços de computação](../../docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md)
 >
 > **Em uma frase:** você envia o código e o Beanstalk provisiona e gerencia capacidade, balanceamento, escalonamento e monitoramento.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como um **buffet**: você leva a receita (o código) e eles montam cozinha, garçons e mesas (servidores, balanceador e escalonamento).
-
-- ✅ **Escolha quando:** um desenvolvedor quer **publicar uma aplicação web sem pensar na infraestrutura**, mas mantendo acesso a ela.
-- 🚫 **Não é a resposta quando:** quer descrever **qualquer infraestrutura** como código → [CloudFormation](../gerenciamento/cloudformation.md); quer só um servidor simples de **preço fixo** → [Lightsail](lightsail.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "só enviar o código", "PaaS", "sem se preocupar com capacidade e balanceamento".
-<!-- didatico:fim -->
 
 ## Para que serve
 

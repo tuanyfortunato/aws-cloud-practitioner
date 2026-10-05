@@ -1,25 +1,14 @@
 # 2.3 AWS IAM (Identity and Access Management)
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS IAM (Identity and Access Management) e AWS STS](../../servicos/seguranca/iam.md) · [AWS IAM Identity Center (antigo AWS SSO)](../../servicos/seguranca/iam-identity-center.md) · [Amazon Cognito](../../servicos/seguranca/cognito.md) · [AWS Directory Service](../../servicos/seguranca/directory-service.md) · [AWS Secrets Manager e Systems Manager Parameter Store](../../servicos/seguranca/secrets-manager-e-parameter-store.md)
-
-⬅️ [2.2 Usuário root](02-usuario-root.md) · 🏠 [Índice do domínio](README.md) · [2.4 Governança multi-conta](04-governanca-multi-conta.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** O IAM decide **quem entra** (autenticação) e **o que cada um pode fazer** (autorização) na conta AWS, usando usuários, grupos, roles e políticas em JSON.
->
-> 🏠 **Analogia:** é o **sistema de crachás de uma empresa**: o usuário é a pessoa com crachá; o grupo é o departamento; a role é um **crachá de visitante** temporário que alguém pega emprestado; a política é a lista de salas que o crachá abre.
+**Qual é a dificuldade?** Uma aplicação precisa ler documentos, enquanto uma pessoa administra recursos. Dar o mesmo acesso a todos deixa permissões desnecessárias disponíveis.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Identidade e acesso tratam de quem faz uma ação e do que essa identidade está autorizada a fazer. IAM organiza permissões AWS; outros serviços atendem funcionários ou usuários de aplicações.
 
-- [ ] Diferenciar **usuário, grupo, role e política**.
-- [ ] Aplicar a regra de avaliação: tudo começa **negado**, um **Allow** libera e um **Deny explícito sempre vence**.
-- [ ] Explicar o **menor privilégio** e por que usar **roles** em vez de access keys no EC2.
-- [ ] Diferenciar **IAM Identity Center** (funcionários, várias contas) de **Cognito** (clientes de um app).
+**Exemplo do dia a dia:** O programa da escola recebe permissão para ler um conjunto de arquivos, sem poder apagar tudo ou administrar a conta.
+
+**O que não concluir?** Confirmar um login é diferente de conceder uma ação. Você precisa distinguir a identidade, o recurso e a permissão necessária, não apenas decorar o nome de um serviço.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -30,7 +19,31 @@
 | **Role** | identidade com credenciais temporárias, assumida por quem precisa. |
 | **Federação** | entrar com uma identidade de fora (AD, Google, Okta) sem criar usuário IAM. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **usuário, grupo, role e política**.
+- [ ] Aplicar a regra de avaliação: tudo começa **negado**, um **Allow** libera e um **Deny explícito sempre vence**.
+- [ ] Explicar o **menor privilégio** e por que usar **roles** em vez de access keys no EC2.
+- [ ] Diferenciar **IAM Identity Center** (funcionários, várias contas) de **Cognito** (clientes de um app).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é o **sistema de crachás de uma empresa**: o usuário é a pessoa com crachá; o grupo é o departamento; a role é um **crachá de visitante** temporário que alguém pega emprestado; a política é a lista de salas que o crachá abre.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Aplicação no EC2 precisa acessar o S3" → **role**, nunca access key. "Login único em várias contas" → **Identity Center**. "Usuários do aplicativo" → **Cognito**. "Rotação automática de senhas" → **Secrets Manager**.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS IAM (Identity and Access Management) e AWS STS](../../servicos/seguranca/iam.md) · [AWS IAM Identity Center (antigo AWS SSO)](../../servicos/seguranca/iam-identity-center.md) · [Amazon Cognito](../../servicos/seguranca/cognito.md) · [AWS Directory Service](../../servicos/seguranca/directory-service.md) · [AWS Secrets Manager e Systems Manager Parameter Store](../../servicos/seguranca/secrets-manager-e-parameter-store.md)
+
+⬅️ [2.2 Usuário root](02-usuario-root.md) · 🏠 [Índice do domínio](README.md) · [2.4 Governança multi-conta](04-governanca-multi-conta.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

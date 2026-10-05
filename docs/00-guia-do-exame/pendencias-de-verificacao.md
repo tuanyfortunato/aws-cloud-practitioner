@@ -1,5 +1,15 @@
 # 🔍 Pendências de verificação
 
+<!-- didatico:inicio -->
+## 🧭 Antes de ler
+
+**Por que esta página existe?** Algumas afirmações do material ainda precisam de confirmação oficial. Sem uma indicação clara, elas poderiam ser tratadas como fatos seguros.
+
+**Como usar?** Esta página registra pontos em aberto para revisão. Uma pendência é algo a confirmar, não uma regra a decorar.
+
+**Exemplo:** Se encontrar um prazo sem confirmação, use as referências verificadas do tópico para estudar e mantenha esse prazo como pendente até haver evidência adequada.
+<!-- didatico:fim -->
+
 > ✅ **Nenhuma pendência aberta** desde a [segunda verificação das pendências](../../fontes/verificacao-pendencias-2026-10-rodada-2.md)
 > (04/10/2026), feita com URL oficial e trecho literal para cada item.
 >

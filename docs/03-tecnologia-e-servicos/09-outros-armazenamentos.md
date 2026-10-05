@@ -1,27 +1,14 @@
 # 3.9 Outros serviços de armazenamento
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon EBS (Elastic Block Store) e Instance Store](../../servicos/armazenamento/ebs.md) · [Amazon EFS (Elastic File System)](../../servicos/armazenamento/efs.md) · [Amazon FSx](../../servicos/armazenamento/fsx.md) · [AWS Storage Gateway](../../servicos/armazenamento/storage-gateway.md) · [AWS Backup](../../servicos/armazenamento/aws-backup.md) · [AWS Elastic Disaster Recovery (AWS DRS)](../../servicos/armazenamento/elastic-disaster-recovery.md) · [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](../../servicos/migracao/snow-family.md) · [AWS DataSync e AWS Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** A **família Snow** e o **DataSync** não aparecem na lista oficial atual (o Snowball Edge está fechado a novos clientes); **FSx for Lustre** e **Transfer Family** estão **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
-
-⬅️ [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) · 🏠 [Índice do domínio](README.md) · [3.10 Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Além do S3, há armazenamento em **bloco** (disco de uma máquina), de **arquivos** (pasta compartilhada), **híbrido** (datacenter usando a nuvem), **backup centralizado** e **transferência** de grandes volumes.
->
-> 🏠 **Analogia:** o **EBS** é o **HD do computador**; o **EFS** é a **pasta de rede** que todos abrem ao mesmo tempo; o **Storage Gateway** é a **ponte** entre o escritório e a nuvem; a **família Snow** é um **HD blindado enviado pelo correio**.
+**Qual é a dificuldade?** Sua aplicação pode precisar de um disco próprio, de pastas compartilhadas ou de ligação com arquivos mantidos na empresa. Essas necessidades não são iguais.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Este tópico compara armazenamento em blocos, arquivos compartilhados e integração com ambientes locais, além de cópias de segurança e recuperação.
 
-- [ ] Diferenciar **objeto (S3)**, **bloco (EBS)** e **arquivo (EFS/FSx)**.
-- [ ] Diferenciar **EFS** (Linux, NFS) de **FSx for Windows** (SMB, Active Directory).
-- [ ] Saber os tipos de **Storage Gateway** (Tape Gateway substitui fitas).
-- [ ] Saber quando usar **Snow** (rede lenta, volumes enormes) e **AWS Backup** (backup central).
+**Exemplo do dia a dia:** Uma máquina usa EBS como disco. Várias máquinas podem precisar de EFS para compartilhar pastas. Uma aplicação Windows pode exigir uma modalidade FSx compatível.
+
+**O que não concluir?** Escolher armazenamento só pelo nome ou preço pode causar incompatibilidade. Primeiro descubra como a aplicação precisa ler e gravar os dados.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -31,7 +18,33 @@
 | **NFS / SMB** | protocolos de compartilhamento de arquivos (Linux / Windows). |
 | **Snapshot** | cópia de um volume num ponto no tempo. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **objeto (S3)**, **bloco (EBS)** e **arquivo (EFS/FSx)**.
+- [ ] Diferenciar **EFS** (Linux, NFS) de **FSx for Windows** (SMB, Active Directory).
+- [ ] Saber os tipos de **Storage Gateway** (Tape Gateway substitui fitas).
+- [ ] Saber quando usar **Snow** (rede lenta, volumes enormes) e **AWS Backup** (backup central).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **EBS** é o **HD do computador**; o **EFS** é a **pasta de rede** que todos abrem ao mesmo tempo; o **Storage Gateway** é a **ponte** entre o escritório e a nuvem; a **família Snow** é um **HD blindado enviado pelo correio**.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Várias instâncias **Linux** lendo os mesmos arquivos" → **EFS**. "**Windows** com AD" → **FSx for Windows**. "Substituir fitas" → **Tape Gateway**. "500 TB com internet lenta" → **Snowball Edge**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon EBS (Elastic Block Store) e Instance Store](../../servicos/armazenamento/ebs.md) · [Amazon EFS (Elastic File System)](../../servicos/armazenamento/efs.md) · [Amazon FSx](../../servicos/armazenamento/fsx.md) · [AWS Storage Gateway](../../servicos/armazenamento/storage-gateway.md) · [AWS Backup](../../servicos/armazenamento/aws-backup.md) · [AWS Elastic Disaster Recovery (AWS DRS)](../../servicos/armazenamento/elastic-disaster-recovery.md) · [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](../../servicos/migracao/snow-family.md) · [AWS DataSync e AWS Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md)
+
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** A **família Snow** e o **DataSync** não aparecem na lista oficial atual (o Snowball Edge está fechado a novos clientes); **FSx for Lustre** e **Transfer Family** estão **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
+⬅️ [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) · 🏠 [Índice do domínio](README.md) · [3.10 Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # Amazon SES (Simple Email Service)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação precisa enviar mensagens por e-mail, como confirmações e avisos, sem construir sua própria infraestrutura de envio.
+
+**Como este serviço ajuda?** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
+
+**Exemplo do dia a dia:** O sistema da escola envia uma confirmação de matrícula usando uma identidade autorizada no SES.
+
+**O que ele não resolve sozinho?** Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificação de identidade, limites, reputação e tratamento de devoluções importam. Também não é uma caixa postal pessoal completa.
+
+**Primeiras palavras para entender:**
+
+- **Identidade:** endereço ou domínio autorizado.
+- **Bounce:** mensagem devolvida.
+- **Reputação:** avaliação do comportamento de envio.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Aplicações de negócio / e-mail · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 >
 > **Em uma frase:** envio (e recebimento) de **e-mails** transacionais e de marketing em grande volume.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **agência de correio para e-mails em massa**: confirmações, avisos e marketing.
-
-- ✅ **Escolha quando:** precisa enviar **e-mails transacionais ou de marketing** em volume.
-- 🚫 **Não é a resposta quando:** precisa de **notificações simples** para vários canais → [SNS](../integracao/sns.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "enviar e-mails", "e-mail marketing", "e-mails de confirmação".
-<!-- didatico:fim -->
 
 ## Configurações importantes
 

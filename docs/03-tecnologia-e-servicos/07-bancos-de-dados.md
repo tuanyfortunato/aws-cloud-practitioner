@@ -1,25 +1,14 @@
 # 3.7 Bancos de dados
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon RDS (Relational Database Service)](../../servicos/banco-de-dados/rds.md) · [Amazon Aurora](../../servicos/banco-de-dados/aurora.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md) · [Amazon ElastiCache](../../servicos/banco-de-dados/elasticache.md) · [Amazon MemoryDB](../../servicos/banco-de-dados/memorydb.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [Amazon DocumentDB (compatível com MongoDB)](../../servicos/banco-de-dados/documentdb.md) · [Amazon Neptune](../../servicos/banco-de-dados/neptune.md) · [Amazon Keyspaces, Timestream e outros bancos especializados](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md)
-
-⬅️ [3.6 Outros serviços de computação](06-outros-servicos-de-computacao.md) · 🏠 [Índice do domínio](README.md) · [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Cada tipo de dado tem o seu banco: **relacional** (tabelas e SQL), **NoSQL** (chave-valor), **cache** (memória), **grafos** (relacionamentos), **documentos** e **data warehouse** (análise). A prova pede o banco certo para o cenário.
->
-> 🏠 **Analogia:** o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fichário gigante** que acha qualquer ficha pela etiqueta na hora; o **ElastiCache** é um **post-it** com as respostas mais pedidas; o **Neptune** é um **mapa de quem conhece quem**; o **Redshift** é o **arquivo histórico** usado para relatórios.
+**Qual é a dificuldade?** Uma aplicação precisa guardar dados, mas um cadastro, uma rede de relações e um relatório sobre milhões de vendas têm formas de consulta diferentes.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Bancos de dados organizam registros para armazenar e consultar. A AWS oferece modelos relacionais, chave-valor, documentos, grafos e análise, entre outros.
 
-- [ ] Diferenciar **banco no EC2** (você cuida de tudo) de **banco gerenciado** (a AWS cuida).
-- [ ] Diferenciar **Multi-AZ** (disponibilidade) de **Read Replica** (performance de leitura).
-- [ ] Escolher o banco pelo tipo de dado (use a tabela "tipo de dado → serviço" do conteúdo).
-- [ ] Diferenciar **OLTP** (RDS/Aurora) de **OLAP** (Redshift).
+**Exemplo do dia a dia:** A escola usa tabelas relacionadas para matrículas. Um jogo pode buscar perfis por identificador; uma análise histórica pode usar um ambiente voltado a relatórios.
+
+**O que não concluir?** Não há um banco melhor para qualquer dado. Primeiro identifique a estrutura e as perguntas que a aplicação precisa fazer; depois avalie o serviço.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -30,7 +19,31 @@
 | **OLTP** | muitas transações pequenas do dia a dia (vendas, cadastros). |
 | **OLAP** | análises grandes sobre o histórico (relatórios, BI). |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **banco no EC2** (você cuida de tudo) de **banco gerenciado** (a AWS cuida).
+- [ ] Diferenciar **Multi-AZ** (disponibilidade) de **Read Replica** (performance de leitura).
+- [ ] Escolher o banco pelo tipo de dado (use a tabela "tipo de dado → serviço" do conteúdo).
+- [ ] Diferenciar **OLTP** (RDS/Aurora) de **OLAP** (Redshift).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fichário gigante** que acha qualquer ficha pela etiqueta na hora; o **ElastiCache** é um **post-it** com as respostas mais pedidas; o **Neptune** é um **mapa de quem conhece quem**; o **Redshift** é o **arquivo histórico** usado para relatórios.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Multi-AZ" → **disponibilidade**; "Read Replica" → **leitura**. "Milhões de acessos, chave-valor, serverless" → **DynamoDB**. "BI/data warehouse" → **Redshift**. "Amigos de amigos" → **Neptune**. "MongoDB" → **DocumentDB**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon RDS (Relational Database Service)](../../servicos/banco-de-dados/rds.md) · [Amazon Aurora](../../servicos/banco-de-dados/aurora.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md) · [Amazon ElastiCache](../../servicos/banco-de-dados/elasticache.md) · [Amazon MemoryDB](../../servicos/banco-de-dados/memorydb.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [Amazon DocumentDB (compatível com MongoDB)](../../servicos/banco-de-dados/documentdb.md) · [Amazon Neptune](../../servicos/banco-de-dados/neptune.md) · [Amazon Keyspaces, Timestream e outros bancos especializados](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md)
+
+⬅️ [3.6 Outros serviços de computação](06-outros-servicos-de-computacao.md) · 🏠 [Índice do domínio](README.md) · [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

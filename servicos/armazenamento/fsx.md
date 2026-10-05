@@ -1,20 +1,30 @@
 # Amazon FSx
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação precisa de arquivos compartilhados, mas depende de características de um sistema de arquivos específico, como o usado em ambientes Windows.
+
+**Como este serviço ajuda?** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes. A escolha depende da compatibilidade e das funções de que sua aplicação precisa.
+
+**Exemplo do dia a dia:** Uma empresa com aplicações Windows pode avaliar FSx for Windows File Server para compartilhar arquivos com as características esperadas por esse ambiente.
+
+**O que ele não resolve sozinho?** FSx é uma família; uma modalidade não oferece automaticamente as funções de todas as outras. Confira compatibilidade, disponibilidade e escopo de cada opção.
+
+**Primeiras palavras para entender:**
+
+- **SMB:** protocolo comum para compartilhamento de arquivos Windows.
+- **Sistema de arquivos:** forma de organizar e acessar arquivos.
+- **Modalidade:** variante do serviço.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Armazenamento de arquivos gerenciado · **Domínio:** 3 · **Escopo:** Regional (Single-AZ ou Multi-AZ) · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 >
 > **Em uma frase:** sistemas de arquivos populares de terceiros (Windows, Lustre, NetApp ONTAP, OpenZFS) totalmente gerenciados.
 >
 > **Escopo oficial:** 🔀 FSx ✅ · FSx for Lustre ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **mesmo sistema de arquivos que a empresa já conhece** (Windows, Lustre, NetApp, ZFS), só que gerenciado pela AWS.
-
-- ✅ **Escolha quando:** precisa de um **sistema de arquivos específico**, como compartilhamentos **Windows com Active Directory**.
-- 🚫 **Não é a resposta quando:** arquivos compartilhados para **Linux**, sem exigência específica → [EFS](efs.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "Windows File Server", "SMB", "Active Directory" → FSx for Windows; "HPC" → FSx for Lustre; "NetApp" → FSx for ONTAP.
-<!-- didatico:fim -->
 
 ## Os quatro sabores
 

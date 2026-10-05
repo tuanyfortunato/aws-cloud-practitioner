@@ -1,5 +1,25 @@
 # IoT, robótica, satélite e visão computacional na borda (Device Defender, Monitron, Panorama, RoboMaker, Ground Station)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Monitorar dispositivos, operar robôs ou comunicar-se com satélites são tarefas especializadas que não se resumem a hospedar uma aplicação web.
+
+**Como este serviço ajuda?** A ficha reúne serviços associados a essas áreas e explica o papel de cada um, com observações sobre suas ofertas.
+
+**Exemplo do dia a dia:** Uma equipe pode precisar avaliar a segurança de dispositivos; outra pode precisar de comunicação com satélite. A escolha depende da tarefa específica.
+
+**O que ele não resolve sozinho?** Não trate a lista como um pacote único nem presuma que toda oferta continua disponível. O conteúdo é de referência fora do escopo e deve ser lido com seu status.
+
+**Primeiras palavras para entender:**
+
+- **Dispositivo:** equipamento conectado ou monitorado.
+- **Borda:** local próximo da origem dos dados.
+- **Telemetria:** informações enviadas por equipamentos.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** IoT, robótica e satélite · **Domínio:** — (fora da prova) · **Escopo:** Regional · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
 >
 > **Em uma frase:** serviços especializados para dispositivos, robôs, satélites e câmeras inteligentes — fora da prova, que só cobra o IoT Core.
@@ -8,16 +28,6 @@
 
 > ❌ **Fora do escopo da CLF-C02.** Na prova, a única resposta de IoT é o **AWS IoT Core**.
 > Documentados aqui apenas para referência. Veja também [IoT Core e Greengrass](../aplicacoes/iot-core-e-greengrass.md).
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são serviços **especializados** para dispositivos, robôs, satélites e câmeras inteligentes.
-
-- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
-- 🚫 **Não é a resposta quando:** na prova, **IoT** → [IoT Core](../aplicacoes/iot-core-e-greengrass.md); **imagens** → Rekognition, em [serviços de IA prontos](../ia-ml/servicos-de-ia-prontos.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** Device Defender, Monitron, Panorama, RoboMaker e Ground Station aparecem, no máximo, como alternativas erradas.
-<!-- didatico:fim -->
 
 ## AWS IoT Device Defender
 

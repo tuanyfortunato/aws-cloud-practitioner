@@ -1,20 +1,30 @@
 # AWS Backup
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa tem dados em vários serviços e precisa organizar cópias de segurança, prazos de retenção e recuperação sem administrar tudo de forma isolada.
+
+**Como este serviço ajuda?** AWS Backup centraliza políticas e operações de backup para recursos compatíveis. Você define o que copiar, quando copiar e por quanto tempo manter as cópias.
+
+**Exemplo do dia a dia:** A escola define um plano que protege recursos compatíveis do sistema de matrícula e mantém pontos de recuperação por um período determinado.
+
+**O que ele não resolve sozinho?** Ter backup não mantém automaticamente uma aplicação disponível durante uma falha. Também é preciso planejar e testar a restauração; a cobertura depende do recurso e das opções usadas.
+
+**Primeiras palavras para entender:**
+
+- **Backup:** cópia de segurança.
+- **Retenção:** tempo de conservação.
+- **Ponto de recuperação:** cópia que pode ser usada numa restauração.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Armazenamento / Proteção de dados · **Domínio:** 3 · **Escopo:** Regional (cópias entre regiões e contas) · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 >
 > **Em uma frase:** centraliza e automatiza backups de vários serviços AWS com políticas, num só lugar.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **central de backup**: em vez de configurar cópia em cada serviço, você cria uma política e ela vale para todos.
-
-- ✅ **Escolha quando:** precisa **centralizar e padronizar backups** de vários serviços (EC2, RDS, DynamoDB, EFS…), inclusive entre contas e regiões.
-- 🚫 **Não é a resposta quando:** precisa **voltar a operar em minutos** depois de um desastre → [Elastic Disaster Recovery](elastic-disaster-recovery.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "centralizar backups", "política de backup", "retenção", "backup que ninguém pode apagar" (Vault Lock).
-<!-- didatico:fim -->
 
 ## Recursos suportados (exemplos)
 

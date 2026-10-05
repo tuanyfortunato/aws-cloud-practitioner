@@ -1,20 +1,30 @@
 # Amazon Inspector
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Aplicações e sistemas podem usar software com vulnerabilidades conhecidas. A equipe precisa identificar esses pontos antes de uma exploração.
+
+**Como este serviço ajuda?** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
+
+**Exemplo do dia a dia:** A equipe avalia o software de um recurso compatível e recebe achados que ajudam a priorizar atualizações e correções.
+
+**O que ele não resolve sozinho?** Encontrar uma vulnerabilidade não instala automaticamente a correção. Compatibilidade, cobertura e habilitação dos recursos de avaliação precisam ser verificadas.
+
+**Primeiras palavras para entender:**
+
+- **Vulnerabilidade:** falha que pode ser explorada.
+- **Avaliação:** exame de um recurso.
+- **Correção:** mudança para resolver a falha.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / gestão de vulnerabilidades · **Domínio:** 2 · **Escopo:** Regional (multi-conta) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 >
 > **Em uma frase:** varre continuamente cargas de trabalho em busca de **vulnerabilidades de software (CVEs)** e exposição de rede não intencional.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **vistoria automática** que procura brechas conhecidas (CVEs) nos seus servidores, imagens e funções.
-
-- ✅ **Escolha quando:** precisa **varrer EC2, imagens do ECR e Lambda** em busca de **vulnerabilidades**.
-- 🚫 **Não é a resposta quando:** a ameaça está **em andamento** → [GuardDuty](guardduty.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "vulnerabilidades", "CVE", "patches faltando", "avaliação contínua".
-<!-- didatico:fim -->
 
 ## O que varre
 

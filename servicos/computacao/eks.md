@@ -1,20 +1,30 @@
 # Amazon EKS (Elastic Kubernetes Service)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma empresa já usa Kubernetes para coordenar seus containers e quer continuar usando essa ferramenta na AWS, sem manter sozinha sua camada central de controle.
+
+**Como este serviço ajuda?** O EKS oferece Kubernetes gerenciado. Kubernetes é o sistema que organiza onde os containers executam e mantém o estado desejado da aplicação.
+
+**Exemplo do dia a dia:** Uma equipe leva uma aplicação que já usa Kubernetes para um ambiente EKS. Ela mantém suas definições de aplicação e escolhe como fornecer a capacidade de execução.
+
+**O que ele não resolve sozinho?** A AWS gerenciar a camada de controle não significa que toda a aplicação, as permissões e todas as máquinas estão administradas para você. Isso depende das opções usadas.
+
+**Primeiras palavras para entender:**
+
+- **Kubernetes:** ferramenta para coordenar containers.
+- **Cluster:** conjunto de recursos que trabalham juntos.
+- **Camada de controle:** parte que coordena esse conjunto.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação / Contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
 > **Em uma frase:** Kubernetes gerenciado — a AWS opera o plano de controle e você roda seus pods.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **mesmo Kubernetes** que você usaria em qualquer lugar, mas com a AWS cuidando do "cérebro" (o plano de controle).
-
-- ✅ **Escolha quando:** a empresa **já usa Kubernetes** ou quer portabilidade entre nuvens e datacenter.
-- 🚫 **Não é a resposta quando:** quer o orquestrador **mais simples e nativo** da AWS → [ECS](ecs.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "Kubernetes", "já usa Kubernetes on-premises", "portabilidade", "open source".
-<!-- didatico:fim -->
 
 ## Para que serve
 

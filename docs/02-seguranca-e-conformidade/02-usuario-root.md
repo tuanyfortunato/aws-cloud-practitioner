@@ -1,5 +1,39 @@
 # 2.2 Usuário root
 
+## 🧠 Antes de começar
+
+**Qual é a dificuldade?** Uma conta AWS tem uma identidade inicial com poderes muito amplos. Usá-la no dia a dia aumenta o impacto de um erro ou de credenciais expostas.
+
+**A ideia em palavras simples:** O usuário root é essa identidade inicial. O tema mostra como protegê-lo e reconhecer as tarefas que realmente exigem seu uso.
+
+**Exemplo do dia a dia:** A dona da conta protege o root e usa identidades com permissões adequadas para o trabalho diário, em vez de compartilhar o login inicial com toda a equipe.
+
+**O que não concluir?** Nem toda tarefa administrativa exige root. A lista de tarefas muda; consulte as atualizações indicadas no arquivo, em vez de memorizar listas antigas.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **MFA** | autenticação multifator: senha + um segundo fator (app, chave física). |
+| **Access key** | credencial para usar a AWS por linha de comando ou programa. |
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar as **boas práticas** do root (MFA, sem access keys, não usar no dia a dia).
+- [ ] Reconhecer as **tarefas exclusivas do root** (ex.: alterar e-mail/senha do root, fechar a conta standalone, MFA Delete no S3).
+- [ ] Saber o que **não** exige root (criar usuários IAM, ver a fatura, e agora mudar o plano de suporte e o nome da conta).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é a **chave-mestra do prédio**: abre todas as portas, então fica guardada no cofre (com MFA) e só sai para situações especiais. No dia a dia, cada um usa o próprio crachá (identidades IAM).
+
+</details>
+
+> 🎯 **Como não errar na prova:** Na lista de alternativas, procure a tarefa que **só o dono da conta** poderia fazer. Tarefas comuns de administração (criar usuário, ver fatura) **não** exigem root.
+
+---
+
 > **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
 
 > 🔎 **Fichas detalhadas:** [AWS IAM (Identity and Access Management) e AWS STS](../../servicos/seguranca/iam.md)
@@ -9,27 +43,6 @@
 ⬅️ [2.1 Modelo de responsabilidade compartilhada](01-responsabilidade-compartilhada.md) · 🏠 [Índice do domínio](README.md) · [2.3 AWS IAM (Identity and Access Management)](03-iam.md) ➡️
 
 ---
-
-## 🧠 Antes de começar
-
-> 💡 **Em palavras simples:** O usuário root é o **dono da conta**, criado com o e-mail de cadastro. Ele pode tudo e não pode ser limitado por IAM — por isso deve ser protegido e usado só nas poucas tarefas que exigem ele.
->
-> 🏠 **Analogia:** é a **chave-mestra do prédio**: abre todas as portas, então fica guardada no cofre (com MFA) e só sai para situações especiais. No dia a dia, cada um usa o próprio crachá (identidades IAM).
-
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Citar as **boas práticas** do root (MFA, sem access keys, não usar no dia a dia).
-- [ ] Reconhecer as **tarefas exclusivas do root** (ex.: alterar e-mail/senha do root, fechar a conta standalone, MFA Delete no S3).
-- [ ] Saber o que **não** exige root (criar usuários IAM, ver a fatura, e agora mudar o plano de suporte e o nome da conta).
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **MFA** | autenticação multifator: senha + um segundo fator (app, chave física). |
-| **Access key** | credencial para usar a AWS por linha de comando ou programa. |
-
-> 🎯 **Como não errar na prova:** Na lista de alternativas, procure a tarefa que **só o dono da conta** poderia fazer. Tarefas comuns de administração (criar usuário, ver fatura) **não** exigem root.
 
 ## 📖 Conteúdo
 

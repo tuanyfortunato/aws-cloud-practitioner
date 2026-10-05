@@ -1,20 +1,30 @@
 # AWS CloudHSM
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Algumas organizações precisam de controle sobre um equipamento criptográfico dedicado, com requisitos diferentes dos atendidos por um serviço de chaves mais abstrato.
+
+**Como este serviço ajuda?** CloudHSM fornece módulos de segurança de hardware para operações e armazenamento criptográfico. Você administra aspectos como usuários e chaves dentro dessa solução.
+
+**Exemplo do dia a dia:** Uma organização com exigências específicas de controle criptográfico avalia um conjunto de HSMs para sua aplicação compatível.
+
+**O que ele não resolve sozinho?** HSM dedicado não significa menos trabalho de administração. CloudHSM e KMS dividem responsabilidades de formas diferentes; a aplicação também precisa integrar-se corretamente.
+
+**Primeiras palavras para entender:**
+
+- **HSM:** equipamento especializado em proteger chaves e executar operações criptográficas.
+- **Dedicado:** destinado ao cliente.
+- **Cluster:** conjunto de equipamentos coordenados.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / criptografia · **Domínio:** 2 · **Escopo:** Regional (cluster multi-AZ na VPC) · **Tópico do guia:** [2.5 Criptografia](../../docs/02-seguranca-e-conformidade/05-criptografia.md)
 >
 > **Em uma frase:** HSM (hardware security module) **dedicado e exclusivo** na nuvem, em que só você controla as chaves.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **cofre de chaves só seu**, num hardware dedicado: nem a AWS tem a combinação.
-
-- ✅ **Escolha quando:** a regulação exige **HSM dedicado** (single-tenant), **FIPS 140 nível 3** e **controle exclusivo** das chaves.
-- 🚫 **Não é a resposta quando:** não há essa exigência e você quer chaves gerenciadas e integradas → [KMS](kms.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "HSM dedicado", "single-tenant", "controle exclusivo das chaves", "FIPS 140 nível 3".
-<!-- didatico:fim -->
 
 ## Destaques
 

@@ -1,24 +1,14 @@
 # 2.7 Logs, monitoramento e auditoria
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS CloudTrail](../../servicos/gerenciamento/cloudtrail.md) · [AWS Config](../../servicos/gerenciamento/config.md) · [Amazon CloudWatch](../../servicos/gerenciamento/cloudwatch.md) · [Amazon VPC (Virtual Private Cloud)](../../servicos/redes/vpc.md) · [AWS Health Dashboard](../../servicos/gerenciamento/health-dashboard.md)
-
-⬅️ [2.6 Compliance e governança](06-compliance-e-governanca.md) · 🏠 [Índice do domínio](README.md) · [2.8 Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Três serviços respondem três perguntas diferentes: **quem fez?** (CloudTrail), **como estava configurado?** (Config) e **como está o desempenho agora?** (CloudWatch).
->
-> 🏠 **Analogia:** o **CloudTrail** é a **câmera de segurança** (grava quem fez cada ação); o **Config** é o **álbum de fotos** da configuração ao longo do tempo; o **CloudWatch** é o **painel do carro**, com indicadores e luzes de alerta.
+**Qual é a dificuldade?** O sistema está lento, um recurso foi alterado ou uma configuração deixou de atender às regras. Cada pergunta precisa de um tipo diferente de registro.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** CloudWatch acompanha comportamento e operação; CloudTrail registra atividades AWS; Config acompanha configuração e sua avaliação. O objetivo da pergunta orienta a ferramenta.
 
-- [ ] Ligar cada pergunta ao serviço: quem fez → CloudTrail; configuração e conformidade → Config; métricas e alarmes → CloudWatch.
-- [ ] Lembrar que o CloudTrail guarda **90 dias** por padrão e que, para mais tempo, se cria um **trail** para o S3.
-- [ ] Lembrar que **memória e disco** do EC2 exigem o **CloudWatch agent**.
+**Exemplo do dia a dia:** Para lentidão, a equipe examina métricas e logs. Para saber quem alterou um recurso, procura o evento. Para avaliar sua configuração, usa o histórico e as regras aplicáveis.
+
+**O que não concluir?** Nenhuma dessas ferramentas observa tudo sem configuração. Coleta, retenção, cobertura e ações de resposta variam; registrar um problema não é o mesmo que corrigi-lo.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **Métrica** | um número medido ao longo do tempo (ex.: uso de CPU). |
 | **Alarme** | aviso disparado quando uma métrica passa de um limite. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada pergunta ao serviço: quem fez → CloudTrail; configuração e conformidade → Config; métricas e alarmes → CloudWatch.
+- [ ] Lembrar que o CloudTrail guarda **90 dias** por padrão e que, para mais tempo, se cria um **trail** para o S3.
+- [ ] Lembrar que **memória e disco** do EC2 exigem o **CloudWatch agent**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **CloudTrail** é a **câmera de segurança** (grava quem fez cada ação); o **Config** é o **álbum de fotos** da configuração ao longo do tempo; o **CloudWatch** é o **painel do carro**, com indicadores e luzes de alerta.
+
+</details>
+
 > 🎯 **Como não errar na prova:** Leia o **verbo** da pergunta: "quem **apagou**" → CloudTrail; "como **estava**" → Config; "**alertar** quando a CPU passar" → CloudWatch. "Verificar **continuamente** se segue a regra" → Config rules.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS CloudTrail](../../servicos/gerenciamento/cloudtrail.md) · [AWS Config](../../servicos/gerenciamento/config.md) · [Amazon CloudWatch](../../servicos/gerenciamento/cloudwatch.md) · [Amazon VPC (Virtual Private Cloud)](../../servicos/redes/vpc.md) · [AWS Health Dashboard](../../servicos/gerenciamento/health-dashboard.md)
+
+⬅️ [2.6 Compliance e governança](06-compliance-e-governanca.md) · 🏠 [Índice do domínio](README.md) · [2.8 Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

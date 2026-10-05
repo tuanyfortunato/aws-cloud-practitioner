@@ -1,24 +1,14 @@
 # 2.10 Outros pontos de segurança
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon GuardDuty](../../servicos/seguranca/guardduty.md) · [AWS Security Hub](../../servicos/seguranca/security-hub.md) · [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](../../servicos/custos/recursos-de-ajuda-e-parceiros.md)
-
-⬅️ [2.9 Detecção de ameaças e postura de segurança](09-deteccao-de-ameacas.md) · 🏠 [Índice do domínio](README.md)
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Pontos soltos de segurança: o que pode ser testado sem pedir autorização, **a quem denunciar abuso** vindo da AWS e **onde buscar informação** de segurança.
->
-> 🏠 **Analogia:** o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a AWS para te atacar (spam, phishing), é para lá que você reclama — não para o suporte técnico.
+**Qual é a dificuldade?** Segurança também depende de decisões cotidianas: proteger credenciais, limitar permissões e saber como comunicar uso abusivo ou um incidente.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Este tópico reúne práticas e canais que complementam os serviços de segurança. O objetivo é relacionar cada ação ao risco que ela reduz.
 
-- [ ] Saber que **pentest** é permitido sem aprovação prévia numa lista de serviços, mas DDoS simulado não.
-- [ ] Saber que abuso vindo de IPs da AWS vai para o **AWS Trust & Safety**.
-- [ ] Citar fontes de informação de segurança (Security Center, Security Blog, Bulletins, re:Post, Knowledge Center).
+**Exemplo do dia a dia:** A escola evita publicar credenciais no código, revisa acessos e define como agir quando identifica um problema.
+
+**O que não concluir?** Uma boa prática isolada não garante um ambiente seguro. Entenda a finalidade de cada ação e o canal adequado, em vez de escolher uma ferramenta genérica para qualquer problema.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -27,7 +17,30 @@
 | **Pentest** | teste de intrusão: atacar o próprio sistema, de propósito, para achar falhas. |
 | **Phishing** | golpe que imita uma empresa para roubar dados. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Saber que **pentest** é permitido sem aprovação prévia numa lista de serviços, mas DDoS simulado não.
+- [ ] Saber que abuso vindo de IPs da AWS vai para o **AWS Trust & Safety**.
+- [ ] Citar fontes de informação de segurança (Security Center, Security Blog, Bulletins, re:Post, Knowledge Center).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a AWS para te atacar (spam, phishing), é para lá que você reclama — não para o suporte técnico.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Recebi spam/phishing **vindo de um IP da AWS**" → **Trust & Safety**. "Ferramenta de segurança de terceiros" → **Marketplace**.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon GuardDuty](../../servicos/seguranca/guardduty.md) · [AWS Security Hub](../../servicos/seguranca/security-hub.md) · [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](../../servicos/custos/recursos-de-ajuda-e-parceiros.md)
+
+⬅️ [2.9 Detecção de ameaças e postura de segurança](09-deteccao-de-ameacas.md) · 🏠 [Índice do domínio](README.md)
+
+---
 
 ## 📖 Conteúdo
 

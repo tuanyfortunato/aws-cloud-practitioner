@@ -1,20 +1,30 @@
 # Classes de armazenamento do S3 (incluindo S3 Glacier)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Nem todo arquivo precisa do mesmo tipo de acesso. Uma foto usada todo dia e um documento guardado por anos podem exigir custos e tempos de recuperação diferentes.
+
+**Como este serviço ajuda?** As classes do S3 oferecem opções de armazenamento conforme frequência de acesso, disponibilidade e recuperação. Você escolhe a classe ou configura regras compatíveis para mudar objetos ao longo do tempo.
+
+**Exemplo do dia a dia:** A escola mantém materiais atuais em uma classe de acesso frequente e avalia uma classe de arquivo para documentos que quase nunca consulta.
+
+**O que ele não resolve sozinho?** Armazenamento mais barato por volume pode ter cobrança de recuperação, prazo mínimo e espera para obter o conteúdo. A classe deve atender ao tempo em que você precisa dos dados.
+
+**Primeiras palavras para entender:**
+
+- **Classe:** modalidade de armazenamento do objeto.
+- **Recuperação:** obter dados arquivados.
+- **Ciclo de vida:** regras para transições e outras ações ao longo do tempo.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Armazenamento de objetos · **Domínio:** 3 e 4 (custos) · **Escopo:** por objeto · **Tópico do guia:** [3.8 Amazon S3](../../docs/03-tecnologia-e-servicos/08-s3.md)
 >
 > **Em uma frase:** cada classe troca custo de armazenamento por custo/tempo de acesso — escolha pelo padrão de acesso.
 >
 > **Escopo oficial:** ✅ No escopo (S3 e S3 Glacier) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como **organizar a casa**: o que você usa todo dia fica na mesa (Standard); o que usa pouco vai para o armário (IA); o que quase nunca usa vai para o depósito (Glacier) — mais barato de guardar, mais demorado e caro de buscar.
-
-- ✅ **Escolha quando:** precisa escolher **onde guardar cada dado pelo padrão de acesso**, para pagar menos.
-- 🚫 **Não é a resposta quando:** quer **mover os dados entre classes automaticamente pelo tempo** → use as *lifecycle policies* da ficha do [S3](s3.md) (ou o Intelligent-Tiering, desta ficha).
-- 🎯 **Palavras do enunciado que apontam para ele:** "acesso imprevisível" → Intelligent-Tiering; "pode ser recriado" → One Zone-IA; "raro, mas precisa abrir na hora" → Glacier Instant; "guardar por 7 anos, menor custo" → Deep Archive.
-<!-- didatico:fim -->
 
 ## Tabela completa
 

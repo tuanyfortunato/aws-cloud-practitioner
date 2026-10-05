@@ -1,20 +1,30 @@
 # Amazon DocumentDB (compatível com MongoDB)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A aplicação guarda registros como documentos com vários campos e precisa de um banco com interface compatível com parte do ecossistema MongoDB.
+
+**Como este serviço ajuda?** DocumentDB armazena e consulta documentos, como registros estruturados de produtos. A AWS gerencia a infraestrutura do banco conforme a oferta.
+
+**Exemplo do dia a dia:** Um catálogo guarda, em cada documento, o nome do produto, características e outras informações. A equipe avalia a compatibilidade das consultas antes de usar DocumentDB.
+
+**O que ele não resolve sozinho?** Compatibilidade com MongoDB não significa identidade em todas as funções e versões. Ele não é um serviço para simplesmente guardar PDFs como arquivos.
+
+**Primeiras palavras para entender:**
+
+- **Documento:** registro estruturado com campos.
+- **Campo:** informação nomeada dentro do registro.
+- **Compatibilidade:** suporte às interfaces esperadas pela aplicação.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Banco de documentos · **Domínio:** 3 · **Escopo:** Regional (cluster multi-AZ) · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco de documentos JSON gerenciado, compatível com as APIs e drivers do MongoDB.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **MongoDB gerenciado** pela AWS.
-
-- ✅ **Escolha quando:** a aplicação usa **documentos JSON** e os drivers do **MongoDB**, e você quer um serviço gerenciado.
-- 🚫 **Não é a resposta quando:** precisa de **chave-valor em escala massiva** → [DynamoDB](dynamodb.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "MongoDB", "documentos JSON".
-<!-- didatico:fim -->
 
 ## Destaques
 

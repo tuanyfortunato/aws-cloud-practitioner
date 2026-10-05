@@ -1,20 +1,30 @@
 # AWS KMS (Key Management Service)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Dados protegidos por criptografia dependem de chaves. A empresa precisa controlar quem pode usar essas chaves e para quais operações.
+
+**Como este serviço ajuda?** KMS administra chaves criptográficas e oferece operações de criptografia integradas a serviços AWS. Você define políticas e autorizações de uso.
+
+**Exemplo do dia a dia:** A escola usa uma chave KMS com armazenamento compatível e permite que apenas identidades autorizadas realizem as operações necessárias sobre os dados protegidos.
+
+**O que ele não resolve sozinho?** Ter uma chave não criptografa automaticamente todos os dados da conta. É preciso configurar os serviços e controlar tanto o acesso aos dados quanto o uso da chave.
+
+**Primeiras palavras para entender:**
+
+- **Criptografia:** transformação que protege a leitura dos dados.
+- **Chave:** elemento usado para proteger ou recuperar o conteúdo.
+- **Política da chave:** regras de acesso a ela.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / criptografia · **Domínio:** 2 · **Escopo:** **Regional** (chaves multi-região opcionais) · **Tópico do guia:** [2.5 Criptografia](../../docs/02-seguranca-e-conformidade/05-criptografia.md)
 >
 > **Em uma frase:** cria e controla chaves de criptografia integradas a mais de 100 serviços AWS, com auditoria de cada uso.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **chaveiro gerenciado**: guarda e controla as chaves que trancam (criptografam) seus dados e registra cada uso.
-
-- ✅ **Escolha quando:** precisa **criptografar dados** em S3, EBS, RDS e outros serviços com chaves gerenciadas e auditáveis.
-- 🚫 **Não é a resposta quando:** a regra exige **hardware exclusivo** e controle total das chaves → [CloudHSM](cloudhsm.md); precisa guardar **senhas** → [Secrets Manager](secrets-manager-e-parameter-store.md); precisa de **certificado HTTPS** → [ACM](certificate-manager.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "chaves de criptografia", "criptografia em repouso", "integrado aos serviços", "auditar o uso da chave".
-<!-- didatico:fim -->
 
 ## Tipos de chave
 

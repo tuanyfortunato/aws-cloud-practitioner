@@ -1,20 +1,30 @@
 # AWS Storage Gateway
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa ainda usa aplicações locais, mas quer aproveitar armazenamento AWS sem mudar de uma vez a forma como essas aplicações acessam os dados.
+
+**Como este serviço ajuda?** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
+
+**Exemplo do dia a dia:** Um sistema local pode acessar um compartilhamento de arquivos fornecido por um gateway, enquanto o armazenamento em nuvem fica associado ao serviço.
+
+**O que ele não resolve sozinho?** Ele não move toda a aplicação para a AWS nem elimina os requisitos de rede e configuração. Cada modalidade apresenta uma interface e um comportamento diferentes.
+
+**Primeiras palavras para entender:**
+
+- **Gateway:** ponte entre ambientes.
+- **Local:** no ambiente da empresa.
+- **Cache:** cópia próxima para facilitar acesso a determinados dados.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Armazenamento híbrido · **Domínio:** 3 · **Escopo:** gateway on-premises ligado a uma região · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 >
 > **Em uma frase:** liga aplicações on-premises ao armazenamento da AWS usando protocolos padrão (NFS, SMB, iSCSI), com cache local.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **ponte entre o datacenter e a AWS**: os servidores locais continuam usando NFS, SMB ou fitas, mas os dados vão parar no armazenamento da AWS.
-
-- ✅ **Escolha quando:** aplicações **on-premises** precisam usar armazenamento na nuvem de forma **contínua** (arquitetura híbrida).
-- 🚫 **Não é a resposta quando:** quer só **migrar arquivos de uma vez** → [DataSync](../migracao/datasync-e-transfer-family.md); quer mover **petabytes sem internet** → [família Snow](../migracao/snow-family.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "híbrido", "substituir fitas de backup" → Tape Gateway, "arquivos locais gravados no S3" → S3 File Gateway.
-<!-- didatico:fim -->
 
 ## Para que serve
 

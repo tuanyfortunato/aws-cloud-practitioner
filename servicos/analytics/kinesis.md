@@ -1,20 +1,30 @@
 # Amazon Kinesis e Amazon Data Firehose
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Dados chegam continuamente, como cliques ou leituras de sensores. A equipe quer recebê-los e processá-los sem esperar juntar um arquivo no fim do dia.
+
+**Como este serviço ajuda?** Kinesis Data Streams organiza fluxos de registros para consumidores. A ficha também distingue Firehose, que entrega dados a destinos compatíveis, e outras ferramentas de processamento e vídeo.
+
+**Exemplo do dia a dia:** Sensores enviam leituras continuamente. Uma aplicação lê o fluxo e calcula indicadores; uma opção de entrega pode levar os dados ao armazenamento.
+
+**O que ele não resolve sozinho?** Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas da família têm funções e tempos de entrega diferentes.
+
+**Primeiras palavras para entender:**
+
+- **Streaming:** fluxo contínuo de dados.
+- **Produtor:** quem envia registros.
+- **Consumidor:** quem lê e processa esses registros.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Analytics / streaming · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** coleta, processa e entrega **dados em streaming e tempo real** (cliques, logs, telemetria, vídeo).
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **esteira rolante de dados**: recebe eventos em tempo real (cliques, sensores, vídeo) e entrega para quem vai processar ou guardar.
-
-- ✅ **Escolha quando:** precisa **ingerir e processar dados em streaming**, em tempo real.
-- 🚫 **Não é a resposta quando:** precisa de uma **fila para desacoplar** componentes → [SQS](../integracao/sqs.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "tempo real", "streaming", "cliques", "telemetria".
-<!-- didatico:fim -->
 
 ## Família
 

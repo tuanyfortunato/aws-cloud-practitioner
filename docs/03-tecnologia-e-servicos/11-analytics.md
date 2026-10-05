@@ -1,24 +1,14 @@
 # 3.11 Analytics
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon Athena](../../servicos/analytics/athena.md) · [AWS Glue](../../servicos/analytics/glue.md) · [Amazon Kinesis e Amazon Data Firehose](../../servicos/analytics/kinesis.md) · [Amazon EMR](../../servicos/analytics/emr.md) · [Amazon QuickSight (Amazon Quick Sight)](../../servicos/analytics/quicksight.md) · [Amazon OpenSearch Service](../../servicos/analytics/opensearch.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](../../servicos/analytics/lake-formation-msk-e-outros.md)
-
-⬅️ [3.10 Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) · 🏠 [Índice do domínio](README.md) · [3.12 IA e machine learning](12-ia-e-machine-learning.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Analytics é **transformar dados em respostas**: coletar em tempo real, preparar, consultar e mostrar em gráficos. Cada etapa tem um serviço.
->
-> 🏠 **Analogia:** é uma **cozinha de dados**: o **Kinesis** é a esteira que traz os ingredientes em tempo real; o **Glue** lava e corta (ETL) e etiqueta tudo (catálogo); o **Athena** prova direto da despensa (S3) com SQL; o **EMR** é a cozinha industrial (Spark/Hadoop); o **QuickSight** monta o prato bonito (dashboards).
+**Qual é a dificuldade?** A empresa acumulou dados e quer transformar registros em respostas, como quais cursos tiveram mais procura e como a demanda mudou.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Analytics reúne preparação, consulta, processamento e visualização de dados. Cada etapa pode exigir uma ferramenta diferente.
 
-- [ ] Ligar cada serviço à função: SQL no S3 → Athena; ETL e catálogo → Glue; tempo real → Kinesis.
-- [ ] Saber que o **Athena** cobra por **dados escaneados**.
-- [ ] Diferenciar **EMR** (big data com Spark/Hadoop), **QuickSight** (BI) e **OpenSearch** (busca e logs).
+**Exemplo do dia a dia:** A escola prepara arquivos com Glue, consulta dados com uma ferramenta adequada e mostra resultados num painel. Dados contínuos de sensores pedem um processo diferente de um relatório mensal.
+
+**O que não concluir?** Criar um painel não corrige os dados nem coleta qualquer fonte automaticamente. Identifique se o problema é preparar, consultar, processar um fluxo ou visualizar.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **Streaming** | dados chegando continuamente, em tempo real. |
 | **BI** | inteligência de negócio: relatórios e painéis para decisão. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada serviço à função: SQL no S3 → Athena; ETL e catálogo → Glue; tempo real → Kinesis.
+- [ ] Saber que o **Athena** cobra por **dados escaneados**.
+- [ ] Diferenciar **EMR** (big data com Spark/Hadoop), **QuickSight** (BI) e **OpenSearch** (busca e logs).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é uma **cozinha de dados**: o **Kinesis** é a esteira que traz os ingredientes em tempo real; o **Glue** lava e corta (ETL) e etiqueta tudo (catálogo); o **Athena** prova direto da despensa (S3) com SQL; o **EMR** é a cozinha industrial (Spark/Hadoop); o **QuickSight** monta o prato bonito (dashboards).
+
+</details>
+
 > 🎯 **Como não errar na prova:** "SQL em arquivos no S3, sem servidor" → **Athena**. "Tempo real/cliques" → **Kinesis**. "Painéis" → **QuickSight**. "Spark/Hadoop" → **EMR**. "Busca de texto" → **OpenSearch**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon Athena](../../servicos/analytics/athena.md) · [AWS Glue](../../servicos/analytics/glue.md) · [Amazon Kinesis e Amazon Data Firehose](../../servicos/analytics/kinesis.md) · [Amazon EMR](../../servicos/analytics/emr.md) · [Amazon QuickSight (Amazon Quick Sight)](../../servicos/analytics/quicksight.md) · [Amazon OpenSearch Service](../../servicos/analytics/opensearch.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](../../servicos/analytics/lake-formation-msk-e-outros.md)
+
+⬅️ [3.10 Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) · 🏠 [Índice do domínio](README.md) · [3.12 IA e machine learning](12-ia-e-machine-learning.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,27 +1,14 @@
 # 3.2 Infraestrutura global
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS Outposts, Local Zones e Wavelength](../../servicos/computacao/outposts-local-zones-wavelength.md) · [Amazon CloudFront](../../servicos/redes/cloudfront.md) · [AWS Global Accelerator](../../servicos/redes/global-accelerator.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** Na lista oficial atual, **Outposts** está no escopo, **Local Zones** não aparece e **Wavelength** está **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
-
-⬅️ [3.1 Formas de acessar e implantar na AWS](01-formas-de-acesso-e-implantacao.md) · 🏠 [Índice do domínio](README.md) · [3.3 Amazon EC2](03-ec2.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** A AWS está espalhada pelo mundo em **regiões**; cada região tem várias **zonas de disponibilidade (AZs)**; e há centenas de **edge locations** perto dos usuários. Existem ainda formas de levar a AWS para mais perto.
->
-> 🏠 **Analogia:** a **região** é uma **cidade**; cada **AZ** é um **bairro** com a própria energia e rede, longe o bastante para um incêndio não atingir os outros; as **edge locations** são **lojinhas de conveniência** espalhadas que guardam cópias do que mais se pede.
+**Qual é a dificuldade?** Uma aplicação precisa estar perto dos usuários e continuar atendendo se parte da infraestrutura falhar. Para planejar isso, a equipe precisa entender onde os recursos ficam.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** A infraestrutura global organiza regiões, zonas de disponibilidade e pontos de presença. São unidades com funções diferentes, não nomes intercambiáveis para o mesmo lugar.
 
-- [ ] Diferenciar **região, AZ e edge location**.
-- [ ] Citar os **4 fatores** para escolher região (compliance, proximidade, serviços disponíveis, preço).
-- [ ] Saber quando usar **várias AZs** (falha de datacenter) × **várias regiões** (desastre regional, usuários globais).
-- [ ] Diferenciar **Outposts, Local Zones e Wavelength**.
+**Exemplo do dia a dia:** A escola escolhe uma região para seus recursos e planeja partes da aplicação em zonas diferentes. Uma rede de distribuição pode entregar conteúdo por pontos de presença.
+
+**O que não concluir?** Escolher uma região não distribui automaticamente todo recurso entre várias zonas. Localização, disponibilidade e serviços oferecidos precisam ser avaliados.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -31,7 +18,33 @@
 | **Edge location** | ponto de presença usado por CloudFront, Route 53 e outros serviços para ficar perto do usuário. |
 | **Latência** | o tempo que a informação leva para ir e voltar. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **região, AZ e edge location**.
+- [ ] Citar os **4 fatores** para escolher região (compliance, proximidade, serviços disponíveis, preço).
+- [ ] Saber quando usar **várias AZs** (falha de datacenter) × **várias regiões** (desastre regional, usuários globais).
+- [ ] Diferenciar **Outposts, Local Zones e Wavelength**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+a **região** é uma **cidade**; cada **AZ** é um **bairro** com a própria energia e rede, longe o bastante para um incêndio não atingir os outros; as **edge locations** são **lojinhas de conveniência** espalhadas que guardam cópias do que mais se pede.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Falha de **um datacenter**" → **várias AZs**. "Lei exige dados no país" → escolher a **região**. "Usuários no mundo todo" → **CloudFront/edge**. "AWS dentro do **meu** datacenter" → **Outposts**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS Outposts, Local Zones e Wavelength](../../servicos/computacao/outposts-local-zones-wavelength.md) · [Amazon CloudFront](../../servicos/redes/cloudfront.md) · [AWS Global Accelerator](../../servicos/redes/global-accelerator.md)
+
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** Na lista oficial atual, **Outposts** está no escopo, **Local Zones** não aparece e **Wavelength** está **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
+⬅️ [3.1 Formas de acessar e implantar na AWS](01-formas-de-acesso-e-implantacao.md) · 🏠 [Índice do domínio](README.md) · [3.3 Amazon EC2](03-ec2.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # Amazon MQ
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação existente já usa um intermediário de mensagens específico, e trocar seu protocolo ou reescrever sua integração seria trabalhoso.
+
+**Como este serviço ajuda?** Amazon MQ oferece brokers gerenciados compatíveis com tecnologias suportadas, como ActiveMQ e RabbitMQ.
+
+**Exemplo do dia a dia:** Uma empresa avalia mover seu broker compatível para Amazon MQ preservando a interface usada por suas aplicações.
+
+**O que ele não resolve sozinho?** Ele não é intercambiável com SQS ou SNS em todas as interfaces. Migração e compatibilidade precisam ser avaliadas; o nome não consta da lista de escopo indicada nesta ficha.
+
+**Primeiras palavras para entender:**
+
+- **Broker:** intermediário de mensagens.
+- **Protocolo:** regras da comunicação.
+- **Compatibilidade:** suporte às interfaces usadas pela aplicação.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Integração de aplicações / message broker · **Domínio:** 3 · **Escopo:** Regional (Multi-AZ opcional) · **Tópico do guia:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 >
 > **Em uma frase:** brokers de mensagens gerenciados **Apache ActiveMQ** e **RabbitMQ**, compatíveis com protocolos padrão.
 >
 > **Escopo oficial:** ⚪ Não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **mesmo carteiro** (ActiveMQ ou RabbitMQ) que a aplicação já usa, só que gerenciado pela AWS.
-
-- ✅ **Escolha quando:** precisa **migrar aplicações que já usam brokers padrão** sem reescrever o código.
-- 🚫 **Não é a resposta quando:** a aplicação é **nova, feita para a nuvem** → [SQS](sqs.md) e [SNS](sns.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "RabbitMQ", "ActiveMQ", "sem mudar o código".
-<!-- didatico:fim -->
 
 ## Quando usar
 

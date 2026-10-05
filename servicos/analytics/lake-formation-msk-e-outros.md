@@ -1,5 +1,25 @@
 # Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Ao trabalhar com muitos dados, a empresa pode precisar controlar acessos, manter fluxos Kafka ou integrar fontes. Esses problemas não são uma só tarefa.
+
+**Como este serviço ajuda?** Esta ficha compara ferramentas: Lake Formation ajuda na governança de um conjunto de dados; MSK fornece Kafka gerenciado; outras opções atendem integração e colaboração em dados.
+
+**Exemplo do dia a dia:** Uma equipe controla acesso a tabelas no seu ambiente de dados. Outra precisa receber eventos de uma aplicação que já usa Kafka; ela avalia MSK.
+
+**O que ele não resolve sozinho?** A família não forma um único serviço intercambiável. Parte dos nomes está fora da prova ou não aparece na lista atual; use o escopo indicado para priorizar.
+
+**Primeiras palavras para entender:**
+
+- **Data lake:** conjunto de dados mantidos para diversos usos.
+- **Kafka:** plataforma de fluxo de eventos.
+- **Governança:** controle de regras e acessos.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Analytics / dados · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 >
 > **Em uma frase:** serviços de dados que aparecem como "qual serviço faz X" — saiba a função de cada um.
@@ -16,16 +36,6 @@
 | **Amazon DataZone / SageMaker Unified Studio** ❌ *fora do escopo* | Catálogo e governança de dados para descoberta e compartilhamento entre times | "Portal de dados corporativo" |
 | **Amazon Managed Service for Apache Flink** | Processamento de streams com Flink | "Agregações em tempo real" |
 | **AWS Data Pipeline** | Orquestração de dados legada | Fechado a novos clientes — não estudar |
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **ferramentas especializadas de dados**: o Lake Formation organiza e tranca o data lake; os outros movem, compartilham ou compram dados.
-
-- ✅ **Escolha quando:** o enunciado cita um destes nomes. Lembre que MSK, AppFlow, Data Exchange, Clean Rooms e DataZone estão **fora da prova**.
-- 🚫 **Não é a resposta quando:** na prova, **streaming** → [Kinesis](kinesis.md); **ETL** → [Glue](glue.md); **SQL no S3** → [Athena](athena.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "data lake com permissões centralizadas" → Lake Formation; "Kafka" → MSK.
-<!-- didatico:fim -->
 
 ## ❓ Perguntas típicas
 
