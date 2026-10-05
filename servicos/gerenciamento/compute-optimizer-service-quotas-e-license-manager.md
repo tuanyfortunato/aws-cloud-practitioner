@@ -26,61 +26,230 @@
 >
 > **Escopo oficial:** ✅ No escopo (Launch Wizard ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## AWS Compute Optimizer
+## Roteiro de leitura
 
-- Usa **machine learning** sobre métricas do CloudWatch (14 dias por padrão; até 93 com métricas avançadas) para recomendar o **tamanho ideal** de: **EC2**, **Auto Scaling groups**, **volumes EBS**, **funções Lambda** (memória), **tasks ECS no Fargate**, RDS e licenças comerciais.
-- Classifica recursos como *under-provisioned*, *over-provisioned* ou *optimized* e estima a economia.
-- Gratuito no básico (opt-in). Recomendações também aparecem no **Cost Optimization Hub**.
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
 
-## Service Quotas
+## 1. A sequência de funcionamento
 
-- Mostra as **cotas (limites)** de cada serviço por região, valores padrão e aplicados.
-- **Solicitar aumento** pelo console/API; *quota request templates* para contas novas da organização.
-- Alarmes do CloudWatch quando o uso se aproxima do limite.
+**Antes de ler este trecho:**
 
-## AWS License Manager
+- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
+- **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
 
-- Controla o uso de **licenças de software** (Microsoft, Oracle, SAP, IBM): regras por vCPU/núcleo/socket, limites rígidos ou alertas.
-- Ajuda com **BYOL** em Dedicated Hosts (automatiza alocação de hosts) e evita multas de auditoria.
 
-## Outros utilitários de organização
+**Passo 1.** Descubra se o problema é dimensão do recurso, limite de uso ou administração de licença.
 
-| Ferramenta | Função |
-|---|---|
-| **Tags + Tag Editor** | Pares chave-valor para organizar, controlar acesso (ABAC) e separar custos |
-| **Resource Groups** | Agrupar recursos por tag/stack para operar juntos |
-| **Resource Explorer** | Buscar recursos em todas as regiões/contas |
-| **AWS Launch Wizard** ❌ *fora do escopo* | Implantar SAP, SQL Server, Active Directory com boas práticas |
-| **AWS AppConfig** ❌ *fora do escopo* | Feature flags e configuração dinâmica de aplicações (parte do Systems Manager) |
-| **Well-Architected Tool** | Revisão gratuita de cargas contra os 6 pilares ([1.4](../../docs/01-conceitos-de-nuvem/04-well-architected-framework.md)) |
-| **AWS Management Console mobile app** | Acompanhar recursos, alarmes e Health no celular |
+**Passo 2.** Consulte a ferramenta pertinente e os dados que fundamentam a decisão.
 
-## ❓ Perguntas típicas
+**Passo 3.** Ajuste recursos, solicite aumento elegível ou revise licenças conforme o caso. Essas ações não são intercambiáveis.
 
-- "Recomendar o tamanho ideal das instâncias com base no uso." → Compute Optimizer.
-- "Pedir aumento do limite de instâncias." → Service Quotas.
-- "Controlar quantas licenças de SQL Server estão em uso." → License Manager.
+## 2. Recursos e opções, com significado
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+### AWS Compute Optimizer
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+**Antes de ler este trecho:**
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Recomendações, quotas e configurações de licenças |
-| **O que você decide/configura?** | Opt-in/métricas, quota ajustável e regra de licença |
-| **Em que ordem as coisas acontecem?** | Analise dimensionamento, solicite quota ou acompanhe uso de licença |
-| **O que pode fazer, e em que condição?** | Resolve três necessidades diferentes de otimização/governança |
-| **O que não pode presumir?** | Quota não garante capacidade disponível; License Manager não compra licença |
+- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
+- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
+- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
+- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
+- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
+- **RDS:** O RDS oferece bancos relacionais gerenciados.
+- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
+- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
+- **machine learning:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 
-**Caso comentado:** Instância grande demais: Compute Optimizer; limite da conta: Service Quotas; direito comercial: contrato da licença.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+Usa **machine learning** sobre métricas do CloudWatch (14 dias por padrão; até 93 com métricas avançadas) para recomendar o **tamanho ideal** de: **EC2**, **Auto Scaling groups**, **volumes EBS**, **funções Lambda** (memória), **tasks ECS no Fargate**, RDS e licenças comerciais.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
 
-## 🔗 Documentação oficial
+Classifica recursos como *under-provisioned*, *over-provisioned* ou *optimized* e estima a economia.
+
+
+Gratuito no básico (opt-in). Recomendações também aparecem no **Cost Optimization Hub**.
+
+### Service Quotas
+
+**Antes de ler este trecho:**
+
+- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
+
+
+Mostra as **cotas (limites)** de cada serviço por região, valores padrão e aplicados.
+
+**Antes de ler este trecho:**
+
+- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
+- **quota:** Limite de uso de um serviço ou recurso. Algumas quotas podem ser aumentadas mediante solicitação; limite não significa capacidade já reservada.
+
+
+**Solicitar aumento** pelo console/API; *quota request templates* para contas novas da organização.
+
+
+Alarmes do CloudWatch quando o uso se aproxima do limite.
+
+### AWS License Manager
+
+**Antes de ler este trecho:**
+
+- **vCPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
+- **SAP:** Tecnologias e aplicações empresariais do ecossistema SAP. Podem exigir requisitos específicos de memória, licenciamento e operação.
+
+
+Controla o uso de **licenças de software** (Microsoft, Oracle, SAP, IBM): regras por vCPU/núcleo/socket, limites rígidos ou alertas.
+
+**Antes de ler este trecho:**
+
+- **BYOL:** Trazer licença própria elegível. É necessário verificar o direito de uso e as condições do software; a AWS não cria automaticamente essa licença.
+
+
+Ajuda com **BYOL** em Dedicated Hosts (automatiza alocação de hosts) e evita multas de auditoria.
+
+### Outros utilitários de organização
+
+**Tags + Tag Editor**
+
+**Antes de ler este trecho:**
+
+- **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
+- **ABAC:** Controle de acesso baseado em atributos, como tags, dentro das condições de políticas compatíveis. Não concede acesso sem regras aplicáveis.
+
+
+**Função:** Pares chave-valor para organizar, controlar acesso (ABAC) e separar custos
+
+**Resource Groups**
+
+**Antes de ler este trecho:**
+
+- **stack:** Conjunto de recursos administrados a partir de uma descrição CloudFormation. Excluir ou atualizar a stack pode afetar os recursos conforme suas políticas.
+
+
+**Função:** Agrupar recursos por tag/stack para operar juntos
+
+**Resource Explorer**
+
+
+**Função:** Buscar recursos em todas as regiões/contas
+
+**AWS Launch Wizard ❌ fora do escopo**
+
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
+- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
+
+
+**Função:** Implantar SAP, SQL Server, Active Directory com boas práticas
+
+**AWS AppConfig ❌ fora do escopo**
+
+**Antes de ler este trecho:**
+
+- **Systems Manager:** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
+
+
+**Função:** Feature flags e configuração dinâmica de aplicações (parte do Systems Manager)
+
+**Well-Architected Tool**
+
+
+**Função:** Revisão gratuita de cargas contra os 6 pilares ([1.4](../../docs/01-conceitos-de-nuvem/04-well-architected-framework.md))
+
+**AWS Management Console mobile app**
+
+
+**Função:** Acompanhar recursos, alarmes e Health no celular
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+Uma recomendação não é uma quota, e aumentar uma quota não otimiza custo. Gerenciar licença também não compra automaticamente os direitos de uso do software.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Uma máquina parece maior que o necessário: a equipe avalia recomendações. Se precisa criar mais recursos e encontra uma quota, consulta o limite e a possibilidade de aumento.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Descubra se o problema é dimensão do recurso, limite de uso ou administração de licença.
+**Etapa 2:** Consulte a ferramenta pertinente e os dados que fundamentam a decisão.
+**Etapa 3:** Ajuste recursos, solicite aumento elegível ou revise licenças conforme o caso. Essas ações não são intercambiáveis.
+
+**Resultado e responsabilidade:** Compute Optimizer recomenda ajustes de recursos compatíveis; Service Quotas acompanha limites de uso; License Manager ajuda a administrar licenças de software.
+
+**Recursos envolvidos:** Recomendações, quotas e configurações de licenças.
+
+**Decisões que precisam ser tomadas:** Opt-in/métricas, quota ajustável e regra de licença.
+
+**Antes de ler este trecho:**
+
+- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
+- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
+
+
+**Outra situação comentada:** Instância grande demais: Compute Optimizer; limite da conta: Service Quotas; direito comercial: contrato da licença.
+
+**Por que não concluir mais do que isso:** Quota não garante capacidade disponível; License Manager não compra licença
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+A equipe pode estar usando capacidade inadequada, alcançar um limite de serviço ou perder controle sobre licenças. Cada dificuldade exige uma ferramenta diferente.
+
+**2. O que a solução fornece?**
+
+Compute Optimizer recomenda ajustes de recursos compatíveis; Service Quotas acompanha limites de uso; License Manager ajuda a administrar licenças de software.
+
+**3. Que conclusão seria incorreta?**
+
+Uma recomendação não é uma quota, e aumentar uma quota não otimiza custo. Gerenciar licença também não compra automaticamente os direitos de uso do software.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Recomendar o tamanho ideal das instâncias com base no uso."
+
+**Resposta curta:** Compute Optimizer.
+
+
+**Fundamento explicado no capítulo:** "Recomendar o tamanho ideal das instâncias com base no uso." → Compute Optimizer.
+
+**Pergunta:** "Pedir aumento do limite de instâncias."
+
+**Resposta curta:** Service Quotas.
+
+
+**Fundamento explicado no capítulo:** "Pedir aumento do limite de instâncias." → Service Quotas.
+
+**Pergunta:** "Controlar quantas licenças de SQL Server estão em uso."
+
+**Resposta curta:** License Manager.
+
+
+**Fundamento explicado no capítulo:** "Controlar quantas licenças de SQL Server estão em uso." → License Manager.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Compute Optimizer](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html) · [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html) · [License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/license-manager.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

@@ -26,7 +26,33 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## O que oferece
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+
+**Passo 1.** Identifique o relatório ou acordo que atende à avaliação pretendida.
+
+**Passo 2.** Acesse o documento disponível sob as condições aplicáveis e examine seu escopo.
+
+**Passo 3.** Use o documento junto às evidências do cliente. Um relatório do provedor não demonstra sozinho os controles da aplicação.
+
+## 2. Recursos e opções, com significado
+
+### O que oferece
+
+**Antes de ler este trecho:**
+
+- **Artifact:** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
+- **compliance:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
+- **SOC / PCI DSS / HIPAA / GDPR:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
+- **NDA / BAA:** Acordos com funções diferentes: confidencialidade e relacionamento associado a requisitos específicos de saúde. Aceitar um documento não torna toda operação conforme.
+- **ISO:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Seção | Exemplos |
 |---|---|
@@ -34,37 +60,109 @@
 | **Artifact Agreements** | **BAA** (Business Associate Addendum — **HIPAA**), NDA, acordos de GDPR; aceitar por conta ou para toda a organização. |
 | **Notificações** | Avisos de novos relatórios. |
 
-- Acesso controlado por IAM; alguns relatórios exigem aceitar termos de confidencialidade.
 
-## ⚠️ Não confundir
+**Antes de ler este trecho:**
 
-- **Artifact** = evidências **da AWS** (o que a AWS certifica). **Audit Manager** = evidências **da sua conta** para a **sua** auditoria.
+- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 
-## ❓ Perguntas típicas
 
-- "Auditor pede o relatório SOC 2 da AWS." → Artifact.
-- "Aceitar o BAA para HIPAA." → Artifact Agreements.
+Acesso controlado por IAM; alguns relatórios exigem aceitar termos de confidencialidade.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+## 3. Como escolher e reconhecer os limites
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Relatórios e agreements |
-| **O que você decide/configura?** | Documento solicitado e autorização para consulta |
-| **Em que ordem as coisas acontecem?** | Localize e obtenha evidência oficial da AWS |
-| **O que pode fazer, e em que condição?** | Ajuda a demonstrar controles da infraestrutura AWS |
-| **O que não pode presumir?** | Não registra atividade de usuários da sua conta nem certifica sua aplicação |
+**Antes de ler este trecho:**
 
-**Caso comentado:** Auditor pede relatório AWS: Artifact; quem apagou recurso: CloudTrail.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+Um relatório da AWS não certifica automaticamente a aplicação do cliente. A empresa precisa demonstrar também seus próprios controles e responsabilidades.
 
-## 🔗 Documentação oficial
+### ⚠️ Não confundir
+
+**Antes de ler este trecho:**
+
+- **Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
+
+
+**Artifact** = evidências **da AWS** (o que a AWS certifica). **Audit Manager** = evidências **da sua conta** para a **sua** auditoria.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+A escola consulta um relatório oficial da AWS para apoiar uma avaliação dos serviços usados por sua aplicação.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Identifique o relatório ou acordo que atende à avaliação pretendida.
+**Etapa 2:** Acesse o documento disponível sob as condições aplicáveis e examine seu escopo.
+**Etapa 3:** Use o documento junto às evidências do cliente. Um relatório do provedor não demonstra sozinho os controles da aplicação.
+
+**Resultado e responsabilidade:** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
+
+**Recursos envolvidos:** Relatórios e agreements.
+
+**Decisões que precisam ser tomadas:** Documento solicitado e autorização para consulta.
+
+**Antes de ler este trecho:**
+
+- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
+- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
+
+
+**Outra situação comentada:** Auditor pede relatório AWS: Artifact; quem apagou recurso: CloudTrail.
+
+**Por que não concluir mais do que isso:** Não registra atividade de usuários da sua conta nem certifica sua aplicação
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Um auditor pede relatórios sobre os controles e a conformidade da infraestrutura AWS. A empresa precisa localizar esses documentos oficiais.
+
+**2. O que a solução fornece?**
+
+Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
+
+**3. Que conclusão seria incorreta?**
+
+Um relatório da AWS não certifica automaticamente a aplicação do cliente. A empresa precisa demonstrar também seus próprios controles e responsabilidades.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Auditor pede o relatório SOC 2 da AWS."
+
+**Resposta curta:** Artifact.
+
+
+**Fundamento explicado no capítulo:** "Auditor pede o relatório SOC 2 da AWS." → Artifact.
+
+**Pergunta:** "Aceitar o BAA para HIPAA."
+
+**Resposta curta:** Artifact Agreements.
+
+
+**Fundamento explicado no capítulo:** "Aceitar o BAA para HIPAA." → Artifact Agreements.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

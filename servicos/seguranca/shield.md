@@ -26,7 +26,45 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Standard × Advanced
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+**Antes de ler este trecho:**
+
+- **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
+
+
+**Passo 1.** Identifique os recursos e o tipo de exposição que precisam de proteção contra sobrecarga.
+
+**Passo 2.** Avalie a modalidade e sua cobertura para a arquitetura. Os mecanismos de proteção atuam conforme suas condições.
+
+**Passo 3.** Observe eventos e prepare resposta. Proteção contra DDoS não corrige vulnerabilidades do código nem substitui todos os controles de aplicação.
+
+## 2. Recursos e opções, com significado
+
+### Standard × Advanced
+
+**Antes de ler este trecho:**
+
+- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
+- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
+- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
+- **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
+- **Shield:** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
+- **WAF:** WAF aplica regras ao tráfego web em integrações compatíveis.
+- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
+- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
+- **UDP:** Protocolo de transporte por datagramas, sem as mesmas garantias de entrega e ordem do TCP. A aplicação precisa lidar com os requisitos que o protocolo não fornece.
+- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
+- **ELB:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
+- **SRT:** Protocolo de transporte de mídia. Compatibilidade de transmissão depende do produto e da configuração; não é uma classe de armazenamento.
+- **SYN:** Sinalização do início de conexão TCP. Ataques que exploram esse fluxo são diferentes de uma consulta de aplicação autorizada.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | **Shield Standard** | **Shield Advanced** |
 |---|---|---|
@@ -39,40 +77,124 @@
 | WAF | Pago à parte | **Sem custo adicional** nos recursos protegidos |
 | Outros | — | Detecção e mitigação automática na camada 7, health-based detection, proteção de grupos, integração com Firewall Manager |
 
-- A assinatura do Advanced cobre **todas as contas** da Organization.
-- ✔️ Para acionar o SRT é preciso plano **Business Support+, Enterprise ou Unified Operations** (a fonte cita "Business Support") (documentação do AWS CloudFormation, 10/2026) e uma IAM role que autorize o SRT (política gerenciada `AWSShieldDRTAccessPolicy`).
 
-## ⚠️ Pegadinhas
 
-- "DDoS volumétrico" → Shield. "SQL injection/XSS" → WAF.
-- "Reembolso do custo de escalonamento + especialistas 24/7" → **Shield Advanced**.
-- "Proteção DDoS que todo cliente tem sem custo" → **Shield Standard**.
+A assinatura do Advanced cobre **todas as contas** da Organization.
 
-## ❓ Perguntas típicas
+**Antes de ler este trecho:**
 
-- "Qual proteção DDoS todo cliente tem sem custo?" → Shield Standard.
-- "Acesso a especialistas 24/7 e proteção de custo durante ataques." → Shield Advanced.
+- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
+- **AWS CloudFormation:** CloudFormation usa um arquivo de descrição para criar e atualizar conjuntos de recursos AWS compatíveis, com suas dependências.
+- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
+- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+✔️ Para acionar o SRT é preciso plano **Business Support+, Enterprise ou Unified Operations** (a fonte cita "Business Support") (documentação do AWS CloudFormation, 10/2026) e uma IAM role que autorize o SRT (política gerenciada `AWSShieldDRTAccessPolicy`).
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Proteção Standard e assinatura Advanced para recursos elegíveis |
-| **O que você decide/configura?** | Recursos protegidos e recursos extras contratados |
-| **Em que ordem as coisas acontecem?** | Proteção e mitigação atuam contra ataques DDoS conforme cobertura |
-| **O que pode fazer, e em que condição?** | Standard cobre proteção básica; Advanced acrescenta capacidades e apoio |
-| **O que não pode presumir?** | Não equivale a filtro de SQL injection nem corrige vulnerabilidades no código |
+## 3. Como escolher e reconhecer os limites
 
-**Caso comentado:** Ataque volumétrico: Shield; requisição HTTP maliciosa: WAF pode complementar.
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+**Antes de ler este trecho:**
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 
-## 🔗 Documentação oficial
+
+Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
+
+### ⚠️ Pegadinhas
+
+**Antes de ler este trecho:**
+
+- **XSS:** Ataque que busca executar conteúdo indevido no contexto de uma página acessada pelo usuário. Regras de proteção e correções do código atendem partes desse risco.
+- **SQL injection:** Tentativa de manipular comandos de banco por entradas indevidas. Proteger a entrada não dispensa corrigir como a aplicação constrói e executa consultas.
+- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
+
+
+"DDoS volumétrico" → Shield. "SQL injection/XSS" → WAF.
+
+
+"Reembolso do custo de escalonamento + especialistas 24/7" → **Shield Advanced**.
+
+
+"Proteção DDoS que todo cliente tem sem custo" → **Shield Standard**.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Um site público usa os recursos de proteção aplicáveis à sua arquitetura para reduzir o impacto de tentativas de sobrecarga.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Identifique os recursos e o tipo de exposição que precisam de proteção contra sobrecarga.
+**Etapa 2:** Avalie a modalidade e sua cobertura para a arquitetura. Os mecanismos de proteção atuam conforme suas condições.
+**Etapa 3:** Observe eventos e prepare resposta. Proteção contra DDoS não corrige vulnerabilidades do código nem substitui todos os controles de aplicação.
+
+**Resultado e responsabilidade:** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
+
+**Recursos envolvidos:** Proteção Standard e assinatura Advanced para recursos elegíveis.
+
+**Decisões que precisam ser tomadas:** Recursos protegidos e recursos extras contratados.
+
+**Antes de ler este trecho:**
+
+- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
+
+
+**Outra situação comentada:** Ataque volumétrico: Shield; requisição HTTP maliciosa: WAF pode complementar.
+
+**Por que não concluir mais do que isso:** Não equivale a filtro de SQL injection nem corrige vulnerabilidades no código
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Muitos pedidos maliciosos podem tentar sobrecarregar um serviço e impedir que pessoas legítimas o utilizem.
+
+**2. O que a solução fornece?**
+
+Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
+
+**3. Que conclusão seria incorreta?**
+
+Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Qual proteção DDoS todo cliente tem sem custo?"
+
+**Resposta curta:** Shield Standard.
+
+
+**Fundamento explicado no capítulo:** "Qual proteção DDoS todo cliente tem sem custo?" → Shield Standard.
+
+**Pergunta:** "Acesso a especialistas 24/7 e proteção de custo durante ataques."
+
+**Resposta curta:** Shield Advanced.
+
+
+**Fundamento explicado no capítulo:** "Acesso a especialistas 24/7 e proteção de custo durante ataques." → Shield Advanced.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [AWS Shield](https://docs.aws.amazon.com/waf/latest/developerguide/shield-chapter.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

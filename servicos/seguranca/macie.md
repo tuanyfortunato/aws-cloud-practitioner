@@ -26,7 +26,37 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## O que faz
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+**Antes de ler este trecho:**
+
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
+
+
+**Passo 1.** Defina os dados S3 compatíveis que precisam de avaliação e a configuração de descoberta.
+
+**Passo 2.** O serviço examina conteúdo conforme sua cobertura e produz resultados sobre possíveis dados sensíveis.
+
+**Passo 3.** Revise achados e corrija exposição quando necessário. A descoberta não anonimiza os arquivos automaticamente.
+
+## 2. Recursos e opções, com significado
+
+### O que faz
+
+**Antes de ler este trecho:**
+
+- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
+- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
+- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
+- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
+- **CPF:** Identificador pessoal brasileiro. Neste material é exemplo de dado que pode exigir proteção, não um mecanismo AWS de autenticação.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Função | Detalhe |
 |---|---|
@@ -36,36 +66,106 @@
 | **Jobs** | Varreduras completas sob demanda ou agendadas. |
 | **Integrações** | Achados no Security Hub e EventBridge. |
 
-- Teste gratuito de 30 dias. Cobrança por bucket monitorado e por GB inspecionado.
 
-## ⚠️ Pegadinha
+**Antes de ler este trecho:**
 
-- Macie atua **só no S3**. "PII", "dados sensíveis", "LGPD/GDPR no S3" → Macie.
+- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
+- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 
-## ❓ Perguntas típicas
 
-- "Encontrar dados pessoais em buckets S3." → Macie.
+Teste gratuito de 30 dias. Cobrança por bucket monitorado e por GB inspecionado.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+## 3. Como escolher e reconhecer os limites
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Inventário de buckets, jobs, identificadores e findings |
-| **O que você decide/configura?** | Buckets, escopo, formatos e identificadores suportados |
-| **Em que ordem as coisas acontecem?** | Inspeciona dados elegíveis no S3 e reporta dados sensíveis/postura |
-| **O que pode fazer, e em que condição?** | Pode encontrar padrões de informação pessoal ou segredos |
-| **O que não pode presumir?** | Não varre genericamente RDS/EBS e não apaga conteúdo sensível sozinho |
+**Antes de ler este trecho:**
 
-**Caso comentado:** Encontrar dados pessoais em documentos S3: Macie; confirme elegibilidade do formato e permissões.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
 
-## 🔗 Documentação oficial
+### ⚠️ Pegadinha
+
+**Antes de ler este trecho:**
+
+- **Macie:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
+- **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
+- **GDPR:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
+- **LGPD:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
+
+
+Macie atua **só no S3**. "PII", "dados sensíveis", "LGPD/GDPR no S3" → Macie.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+A escola avalia um bucket de documentos para identificar arquivos que podem conter informações pessoais dos alunos.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Defina os dados S3 compatíveis que precisam de avaliação e a configuração de descoberta.
+**Etapa 2:** O serviço examina conteúdo conforme sua cobertura e produz resultados sobre possíveis dados sensíveis.
+**Etapa 3:** Revise achados e corrija exposição quando necessário. A descoberta não anonimiza os arquivos automaticamente.
+
+**Resultado e responsabilidade:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
+
+**Recursos envolvidos:** Inventário de buckets, jobs, identificadores e findings.
+
+**Decisões que precisam ser tomadas:** Buckets, escopo, formatos e identificadores suportados.
+
+**Antes de ler este trecho:**
+
+- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
+- **RDS:** O RDS oferece bancos relacionais gerenciados.
+
+
+**Outra situação comentada:** Encontrar dados pessoais em documentos S3: Macie; confirme elegibilidade do formato e permissões.
+
+**Por que não concluir mais do que isso:** Não varre genericamente RDS/EBS e não apaga conteúdo sensível sozinho
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+A empresa guarda muitos arquivos no S3 e precisa localizar possíveis dados sensíveis, como informações pessoais, sem abrir cada arquivo manualmente.
+
+**2. O que a solução fornece?**
+
+Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
+
+**3. Que conclusão seria incorreta?**
+
+Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Encontrar dados pessoais em buckets S3."
+
+**Resposta curta:** Macie.
+
+
+**Fundamento explicado no capítulo:** "Encontrar dados pessoais em buckets S3." → Macie.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Amazon Macie](https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

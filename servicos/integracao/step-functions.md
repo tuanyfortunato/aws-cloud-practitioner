@@ -26,7 +26,42 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Conceitos
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+
+**Passo 1.** Descreva etapas, decisões e tratamento de falhas do processo.
+
+**Passo 2.** Inicie uma execução com seus dados de entrada. O fluxo coordena as etapas e os componentes que realizam as tarefas.
+
+**Passo 3.** Examine estado e resultado da execução. A coordenação não escreve automaticamente o código de cada tarefa.
+
+## 2. Recursos e opções, com significado
+
+### Conceitos
+
+**Antes de ler este trecho:**
+
+- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
+- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
+- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
+- **Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
+- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
+- **Glue:** Glue oferece catálogo e ferramentas de integração e transformação de dados.
+- **Bedrock:** Bedrock oferece acesso gerenciado a modelos e recursos de desenvolvimento de aplicações com IA generativa, conforme a oferta e as autorizações.
+- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
+- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
+- **JSON:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
+- **retry:** Nova tentativa após uma falha. Repetir exige considerar o efeito da execução anterior para não duplicar resultados indevidamente.
+- **workflow / state machine:** Fluxo de trabalho descrito por etapas, decisões e estados. Coordenar etapas é diferente de escrever o programa que realiza cada tarefa.
+- **SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -36,7 +71,17 @@
 | **Integrações** | Lambda, ECS/Fargate, Batch, DynamoDB, SNS, SQS, Glue, SageMaker, Bedrock e **200+ serviços via SDK**. |
 | **Callback / aprovação humana** | Pausa o fluxo até receber um token (ex.: aprovação por e-mail). |
 
-## Tipos de workflow
+### Tipos de workflow
+
+**Antes de ler este trecho:**
+
+- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
+- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
+- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
+- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | **Standard** | **Express** |
 |---|---|---|
@@ -45,37 +90,103 @@
 | Uso | Processos longos, auditáveis, com humanos | Alto volume de eventos (IoT, streaming) |
 | Cobrança | Por transição de estado | Por execução, duração e memória |
 
-## ⚠️ Não confundir
+## 3. Como escolher e reconhecer os limites
 
-- Step Functions (**orquestra** etapas com estado) × EventBridge (**roteia** eventos) × SQS (fila).
-- **SWF** (Simple Workflow Service) é o antecessor legado.
-- Solução para "processo maior que 15 min com várias Lambdas" → Step Functions encadeando etapas.
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-## ❓ Perguntas típicas
+O serviço coordena as etapas; ele não escreve automaticamente o código que cobra ou verifica os dados. As etapas precisam existir e ter acessos configurados.
 
-- "Orquestrar um processo com várias etapas e tratamento de erro." → Step Functions.
-- "Fluxo de pedido com aprovação humana no meio." → Step Functions (callback).
+### ⚠️ Não confundir
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Antes de ler este trecho:**
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
+- **Step Functions:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | State machine, states, execution e integrações |
-| **O que você decide/configura?** | Sequência, branches, retries, catches e modalidade |
-| **Em que ordem as coisas acontecem?** | Execução percorre etapas e trata resultados/falhas conforme definição |
-| **O que pode fazer, e em que condição?** | Coordena processos com estado e chamadas a serviços |
-| **O que não pode presumir?** | Não transforma todo código longo numa única função convencional sem limite |
 
-**Caso comentado:** Pedido exige validar, cobrar e confirmar: fluxo coordena etapas; cada tarefa mantém seus próprios limites.
+Step Functions (**orquestra** etapas com estado) × EventBridge (**roteia** eventos) × SQS (fila).
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+**Antes de ler este trecho:**
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
+- **SWF:** Simple Workflow Service: serviço de coordenação de trabalhos distribuídos com modelo próprio. É referência especializada, não sinônimo de todas as ferramentas de fluxo.
 
-## 🔗 Documentação oficial
+
+**SWF** (Simple Workflow Service) é o antecessor legado.
+
+
+Solução para "processo maior que 15 min com várias Lambdas" → Step Functions encadeando etapas.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Uma matrícula passa por verificação, cobrança e confirmação. O fluxo coordena essas tarefas e registra o estado de cada execução.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Descreva etapas, decisões e tratamento de falhas do processo.
+**Etapa 2:** Inicie uma execução com seus dados de entrada. O fluxo coordena as etapas e os componentes que realizam as tarefas.
+**Etapa 3:** Examine estado e resultado da execução. A coordenação não escreve automaticamente o código de cada tarefa.
+
+**Resultado e responsabilidade:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis. Você define a sequência, as decisões e o comportamento diante de falhas.
+
+**Recursos envolvidos:** State machine, states, execution e integrações.
+
+**Decisões que precisam ser tomadas:** Sequência, branches, retries, catches e modalidade.
+
+
+**Outra situação comentada:** Pedido exige validar, cobrar e confirmar: fluxo coordena etapas; cada tarefa mantém seus próprios limites.
+
+**Por que não concluir mais do que isso:** Não transforma todo código longo numa única função convencional sem limite
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Um processo tem várias etapas, algumas decisões e possibilidade de falha. Controlar toda essa sequência dentro de um único programa pode dificultar o acompanhamento.
+
+**2. O que a solução fornece?**
+
+Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis. Você define a sequência, as decisões e o comportamento diante de falhas.
+
+**3. Que conclusão seria incorreta?**
+
+O serviço coordena as etapas; ele não escreve automaticamente o código que cobra ou verifica os dados. As etapas precisam existir e ter acessos configurados.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Orquestrar um processo com várias etapas e tratamento de erro."
+
+**Resposta curta:** Step Functions.
+
+
+**Fundamento explicado no capítulo:** "Orquestrar um processo com várias etapas e tratamento de erro." → Step Functions.
+
+**Pergunta:** "Fluxo de pedido com aprovação humana no meio."
+
+**Resposta curta:** Step Functions (callback).
+
+
+**Fundamento explicado no capítulo:** "Fluxo de pedido com aprovação humana no meio." → Step Functions (callback).
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

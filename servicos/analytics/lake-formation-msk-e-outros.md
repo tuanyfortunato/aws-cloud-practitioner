@@ -37,36 +37,141 @@
 | **Amazon Managed Service for Apache Flink** | Processamento de streams com Flink | "Agregações em tempo real" |
 | **AWS Data Pipeline** | Orquestração de dados legada | Fechado a novos clientes — não estudar |
 
-## ❓ Perguntas típicas
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+**Antes de ler este trecho:**
+
+- **Kafka:** Kafka é uma plataforma de fluxo de eventos; MSK é a oferta gerenciada compatível da AWS. A aplicação ainda precisa produzir e consumir os registros.
+
+
+**Passo 1.** Separe a necessidade de governar dados da necessidade de fluxos Kafka ou integrações especializadas.
+
+**Passo 2.** Avalie o produto específico e prepare suas fontes, identidades e destinos compatíveis.
+
+**Passo 3.** Confira o resultado e a oferta atual. A categoria reúne ferramentas distintas, não uma solução única.
+
+## 2. Recursos e opções, com significado
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+A família não forma um único serviço intercambiável. Parte dos nomes está fora da prova ou não aparece na lista atual; use o escopo indicado para priorizar.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Uma equipe controla acesso a tabelas no seu ambiente de dados. Outra precisa receber eventos de uma aplicação que já usa Kafka; ela avalia MSK.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Separe a necessidade de governar dados da necessidade de fluxos Kafka ou integrações especializadas.
+**Etapa 2:** Avalie o produto específico e prepare suas fontes, identidades e destinos compatíveis.
+**Etapa 3:** Confira o resultado e a oferta atual. A categoria reúne ferramentas distintas, não uma solução única.
+
+**Resultado e responsabilidade:** Esta ficha compara ferramentas: Lake Formation ajuda na governança de um conjunto de dados; MSK fornece Kafka gerenciado; outras opções atendem integração e colaboração em dados.
+
+**Recursos envolvidos:** Governança de lake, brokers Kafka e serviços de troca/integração de dados.
+
+**Decisões que precisam ser tomadas:** Requisito e status individual no escopo.
+
+**Antes de ler este trecho:**
+
+- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
+- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
+
+
+**Outra situação comentada:** Kafka gerenciado é MSK; streaming no foco CLF-C02 inclui Kinesis. Compatibilidade Kafka é requisito diferente.
+
+**Por que não concluir mais do que isso:** Vários nomes estão fora do escopo; não generalize capacidades/autorizações entre produtos
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Ao trabalhar com muitos dados, a empresa pode precisar controlar acessos, manter fluxos Kafka ou integrar fontes. Esses problemas não são uma só tarefa.
+
+**2. O que a solução fornece?**
+
+Esta ficha compara ferramentas: Lake Formation ajuda na governança de um conjunto de dados; MSK fornece Kafka gerenciado; outras opções atendem integração e colaboração em dados.
+
+**3. Que conclusão seria incorreta?**
+
+A família não forma um único serviço intercambiável. Parte dos nomes está fora da prova ou não aparece na lista atual; use o escopo indicado para priorizar.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
 
 > ⚠️ MSK, AppFlow, Data Exchange, Clean Rooms e DataZone estão **fora do escopo** da prova: se aparecerem como alternativa, desconfie. A resposta no escopo costuma ser outra (ex.: streaming → **Kinesis**; ETL → **Glue**; SQL no S3 → **Athena**).
+**Pergunta:** "Criar um data lake no S3 com permissões centralizadas por tabela e coluna."
 
-- "Criar um data lake no S3 com permissões centralizadas por tabela e coluna." → Lake Formation.
-- "Usar Apache Kafka sem gerenciar o cluster." → Amazon MSK.
-- "Assinar conjuntos de dados de terceiros." → AWS Data Exchange.
-- "Levar dados do Salesforce para o S3 sem código." → Amazon AppFlow.
-- "Analisar dados com um parceiro sem compartilhar os dados brutos." → AWS Clean Rooms.
+**Resposta curta:** Lake Formation.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Antes de ler este trecho:**
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
+- **data lake:** Conjunto de dados mantido para usos diversos, frequentemente em armazenamento de objetos. Organização, catálogo e permissões continuam necessários.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Governança de lake, brokers Kafka e serviços de troca/integração de dados |
-| **O que você decide/configura?** | Requisito e status individual no escopo |
-| **Em que ordem as coisas acontecem?** | Selecione por governança, streaming compatível, compra ou integração |
-| **O que pode fazer, e em que condição?** | Cada oferta resolve uma parte da plataforma de dados |
-| **O que não pode presumir?** | Vários nomes estão fora do escopo; não generalize capacidades/autorizações entre produtos |
 
-**Caso comentado:** Kafka gerenciado é MSK; streaming no foco CLF-C02 inclui Kinesis. Compatibilidade Kafka é requisito diferente.
+**Fundamento explicado no capítulo:** "Criar um data lake no S3 com permissões centralizadas por tabela e coluna." → Lake Formation.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+**Pergunta:** "Usar Apache Kafka sem gerenciar o cluster."
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+**Resposta curta:** Amazon MSK.
 
-## 🔗 Documentação oficial
+**Antes de ler este trecho:**
+
+- **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
+
+
+**Fundamento explicado no capítulo:** "Usar Apache Kafka sem gerenciar o cluster." → Amazon MSK.
+
+**Pergunta:** "Assinar conjuntos de dados de terceiros."
+
+**Resposta curta:** AWS Data Exchange.
+
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+
+
+**Fundamento explicado no capítulo:** "Assinar conjuntos de dados de terceiros." → AWS Data Exchange.
+
+**Pergunta:** "Levar dados do Salesforce para o S3 sem código."
+
+**Resposta curta:** Amazon AppFlow.
+
+
+**Fundamento explicado no capítulo:** "Levar dados do Salesforce para o S3 sem código." → Amazon AppFlow.
+
+**Pergunta:** "Analisar dados com um parceiro sem compartilhar os dados brutos."
+
+**Resposta curta:** AWS Clean Rooms.
+
+
+**Fundamento explicado no capítulo:** "Analisar dados com um parceiro sem compartilhar os dados brutos." → AWS Clean Rooms.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html) · [MSK](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) · [Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/what-is.html) · [AppFlow](https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

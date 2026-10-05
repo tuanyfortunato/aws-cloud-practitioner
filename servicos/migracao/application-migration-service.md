@@ -26,53 +26,181 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Como funciona
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+**Antes de ler este trecho:**
+
+- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
+- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
+- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
+
+
+**Passo 1.** Prepare servidores compatíveis e o destino de replicação.
+
+**Passo 2.** Replique dados e teste a execução no destino com as dependências da aplicação.
+
+**Passo 3.** Planeje e realize a troca do ambiente em uso. Mover o servidor não dispensa validar rede, dados e integrações.
+
+## 2. Recursos e opções, com significado
+
+### Como funciona
+
+**Antes de ler este trecho:**
+
+- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
+
 
 1. Instala o **agente de replicação** no servidor de origem (Windows/Linux).
+
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+
+
 2. Replicação **contínua em nível de bloco** para uma *staging area* na AWS.
+
+
 3. **Instâncias de teste** sem afetar a origem.
+
+**Antes de ler este trecho:**
+
+- **cutover:** Momento planejado de trocar o ambiente em uso pelo destino da migração. Requer validar dependências e planejar a transição dos dados.
+
+
 4. **Cutover**: lança as instâncias finais em minutos; a origem pode ser desligada.
+
+
 5. Ações pós-lançamento automatizam ajustes (instalar agentes, converter licenças, modernizar).
 
-## 🔄 Nome atual
+### 🔄 Nome atual
 
-- O serviço hoje se chama **AWS Transform MGN**. O exam guide e a lista de serviços ainda usam **AWS Application Migration Service** — é esse o nome que aparece na prova.
+**Antes de ler este trecho:**
 
-## Destaques
+- **AWS Application Migration Service / Application Migration Service:** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
+- **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
 
-- Suporta qualquer aplicação/banco que rode no servidor; converte automaticamente para rodar em EC2.
-- **Gratuito por 2.160 horas (90 dias de uso contínuo) por servidor de origem** (paga só os recursos de staging e as instâncias).
-- Substitui o antigo CloudEndure Migration e o Server Migration Service (SMS).
 
-## ⚠️ Não confundir
+O serviço hoje se chama **AWS Transform MGN**. O exam guide e a lista de serviços ainda usam **AWS Application Migration Service** — é esse o nome que aparece na prova.
 
-- **MGN** (servidores inteiros) × **DMS** (bancos de dados) × **Elastic Disaster Recovery** (mesma tecnologia, objetivo de DR contínuo).
+### Destaques
 
-## ❓ Perguntas típicas
+**Antes de ler este trecho:**
 
-- "Migrar servidores físicos e VMs para EC2 sem mudar nada, com pouca indisponibilidade." → Application Migration Service.
-- "Ferramenta da estratégia Rehost." → Application Migration Service.
+- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+Suporta qualquer aplicação/banco que rode no servidor; converte automaticamente para rodar em EC2.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Servidores origem, replicação, staging e launch settings |
-| **O que você decide/configura?** | Rede, agente, destino, teste e cutover |
-| **Em que ordem as coisas acontecem?** | Replica servidor compatível, lança teste e depois destino definitivo |
-| **O que pode fazer, e em que condição?** | Apoia rehost de servidores |
-| **O que não pode presumir?** | Não refatora aplicação nem elimina teste; nomes comerciais podem mudar |
 
-**Caso comentado:** Mover servidor como está: Application Migration Service; copiar banco e converter esquema: outras ferramentas.
+**Gratuito por 2.160 horas (90 dias de uso contínuo) por servidor de origem** (paga só os recursos de staging e as instâncias).
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+**Antes de ler este trecho:**
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+- **SMS:** Mensagem de texto para dispositivos móveis. Integrações e condições de envio são diferentes de e-mail e de entrega a uma fila.
 
-## 🔗 Documentação oficial
+
+Substitui o antigo CloudEndure Migration e o Server Migration Service (SMS).
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+**Antes de ler este trecho:**
+
+- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
+
+
+Replicar não moderniza automaticamente o programa nem garante que bancos, DNS e integrações externas estejam prontos. A migração precisa ser testada.
+
+### ⚠️ Não confundir
+
+**Antes de ler este trecho:**
+
+- **Elastic Disaster Recovery:** Elastic Disaster Recovery replica dados de servidores compatíveis para preparar sua recuperação em máquinas AWS.
+- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
+- **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
+
+
+**MGN** (servidores inteiros) × **DMS** (bancos de dados) × **Elastic Disaster Recovery** (mesma tecnologia, objetivo de DR contínuo).
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+A equipe replica um servidor do sistema interno, testa sua execução na AWS e planeja o momento de trocar o ambiente em uso.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Prepare servidores compatíveis e o destino de replicação.
+**Etapa 2:** Replique dados e teste a execução no destino com as dependências da aplicação.
+**Etapa 3:** Planeje e realize a troca do ambiente em uso. Mover o servidor não dispensa validar rede, dados e integrações.
+
+**Resultado e responsabilidade:** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
+
+**Recursos envolvidos:** Servidores origem, replicação, staging e launch settings.
+
+**Decisões que precisam ser tomadas:** Rede, agente, destino, teste e cutover.
+
+
+**Outra situação comentada:** Mover servidor como está: Application Migration Service; copiar banco e converter esquema: outras ferramentas.
+
+**Por que não concluir mais do que isso:** Não refatora aplicação nem elimina teste; nomes comerciais podem mudar
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+A empresa quer mover servidores existentes para a AWS mantendo inicialmente boa parte de sua aplicação e configuração, sem reescrever tudo antes da mudança.
+
+**2. O que a solução fornece?**
+
+Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
+
+**3. Que conclusão seria incorreta?**
+
+Replicar não moderniza automaticamente o programa nem garante que bancos, DNS e integrações externas estejam prontos. A migração precisa ser testada.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Migrar servidores físicos e VMs para EC2 sem mudar nada, com pouca indisponibilidade."
+
+**Resposta curta:** Application Migration Service.
+
+
+**Fundamento explicado no capítulo:** "Migrar servidores físicos e VMs para EC2 sem mudar nada, com pouca indisponibilidade." → Application Migration Service.
+
+**Pergunta:** "Ferramenta da estratégia Rehost."
+
+**Resposta curta:** Application Migration Service.
+
+**Antes de ler este trecho:**
+
+- **rehost:** Mover um sistema com poucas mudanças iniciais. A infraestrutura muda, mas isso não moderniza automaticamente o software.
+
+
+**Fundamento explicado no capítulo:** "Ferramenta da estratégia Rehost." → Application Migration Service.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Application Migration Service](https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

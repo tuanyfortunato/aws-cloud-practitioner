@@ -30,9 +30,37 @@
 
 > **Divergência entre fontes:** a [task 4.3 consultada](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html) ainda cita Developer, Business e Enterprise On-Ramp. A página comercial mostra os planos abaixo. Não há aqui evidência para afirmar que todos os exemplos da prova foram substituídos. [Ver auditoria](../../docs/00-guia-do-exame/auditoria-conteudo-2026-10.md).
 
-## 📌 Planos comerciais atuais (distinguir dos exemplos do guia)
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+
+**Passo 1.** Identifique a necessidade de ajuda e o impacto real do problema.
+
+**Passo 2.** Confira a oferta aplicável e abra um caso elegível com informações suficientes para o atendimento.
+
+**Passo 3.** Acompanhe investigação e ações. Primeira resposta, resolução e operação cotidiana da aplicação são responsabilidades distintas.
+
+## 2. Recursos e opções, com significado
+
+### 📌 Planos comerciais atuais (distinguir dos exemplos do guia)
 
 > ✔️ Comparação completa verificada em 04/10/2026 nas páginas [plans](https://aws.amazon.com/premiumsupport/plans/) e [pricing](https://aws.amazon.com/premiumsupport/pricing/).
+
+**Antes de ler este trecho:**
+
+- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
+- **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
+- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **workload:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
+- **TAM:** Gerente técnico de conta em ofertas de suporte que incluem esse papel. Atua no acompanhamento e orientação previstos; não substitui toda a equipe do cliente.
+- **IEM:** Nome histórico de uma oferta de acompanhamento de eventos de infraestrutura. Leia o contexto e a oferta atual indicados na ficha.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | **Basic** | **AWS Business Support+** | **AWS Enterprise Support** | **AWS Unified Operations** |
 |---|---|---|---|---|
@@ -54,15 +82,31 @@
 | Incident Detection and Response | — | — | Pago à parte | **Incluído** |
 | IA (créditos de DevOps Agent) | — | 30% | 75% | 100% |
 
-- ⚠️ US$ 29 é o preço de entrada do **Business Support+** (novo) e era o do **Developer** (clássico): confira o nome do plano.
-- ⚠️ 30 min: **Business Support+** (novo) ou **Enterprise On-Ramp** (clássico). 15 min + TAM designado: **Enterprise** (nos dois modelos). 5 min + monitoramento 24/7: **Unified Operations**.
-- 📌 **Menor plano com todas as verificações do Trusted Advisor e acesso à API:** Business Support+. **Menor plano com TA Priority e TAM designado:** Enterprise.
-- ✔️ O **Enterprise** inclui **workshops conduzidos pelo TAM** e **AWS GameDays** (e exercícios de segurança). Assinatura do Skill Builder incluída: não encontrada.
 
-## Modelo clássico (válido até 01/01/2027)
+
+⚠️ US$ 29 é o preço de entrada do **Business Support+** (novo) e era o do **Developer** (clássico): confira o nome do plano.
+
+
+⚠️ 30 min: **Business Support+** (novo) ou **Enterprise On-Ramp** (clássico). 15 min + TAM designado: **Enterprise** (nos dois modelos). 5 min + monitoramento 24/7: **Unified Operations**.
+
+
+📌 **Menor plano com todas as verificações do Trusted Advisor e acesso à API:** Business Support+. **Menor plano com TA Priority e TAM designado:** Enterprise.
+
+
+✔️ O **Enterprise** inclui **workshops conduzidos pelo TAM** e **AWS GameDays** (e exercícios de segurança). Assinatura do Skill Builder incluída: não encontrada.
+
+### Modelo clássico (válido até 01/01/2027)
 
 Developer, Business e Enterprise On-Ramp **encerram em 01/01/2027** (clientes On-Ramp migram automaticamente para
+
 Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em questões antigas.
+
+**Antes de ler este trecho:**
+
+- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | **Basic** | **Developer** | **Business** | **Enterprise On-Ramp** | **Enterprise** |
 |---|---|---|---|---|---|
@@ -78,49 +122,164 @@ Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em quest�
 | Concierge (faturamento/conta) | — | — | — | ✅ | ✅ |
 | Eventos de grande escala | — | — | Pago à parte | 1 engajamento **AWS Countdown** por ano | ✅ |
 
-- Os **tempos de resposta** clássicos estão confirmados nas páginas oficiais; os **preços** de Developer, Business e On-Ramp não aparecem mais (valores históricos).
 
-## Recursos ligados ao suporte (também na task 4.3)
 
-- **AWS Trusted Advisor:** verificações completas e API a partir dos planos pagos superiores ([ficha](../gerenciamento/trusted-advisor.md)).
-- **AWS Health Dashboard** e **AWS Health API** ([ficha](../gerenciamento/health-dashboard.md)).
-- **TAM (Technical Account Manager):** consultor técnico proativo.
-- **Concierge Support Team:** especialistas em faturamento e conta.
-- **AWS Support Center:** onde se abrem e acompanham os casos de suporte (no console). No Basic, só casos de conta e faturamento.
-- **Quem muda o plano de suporte:** 🔄 deixou de ser tarefa exclusiva do root (a lista oficial atual não a inclui); uma identidade IAM com as permissões necessárias pode fazê-lo.
-- Demais recursos (Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post): [recursos de ajuda e parceiros](recursos-de-ajuda-e-parceiros.md).
+Os **tempos de resposta** clássicos estão confirmados nas páginas oficiais; os **preços** de Developer, Business e On-Ramp não aparecem mais (valores históricos).
 
-## ❓ Perguntas típicas
+### Recursos ligados ao suporte (também na task 4.3)
 
-- "Plano gratuito sem suporte técnico." → Basic.
-- "Plano pago de entrada, a partir de US$ 29 por conta, com resposta de 30 min para casos críticos." → Business Support+.
-- "TAM designado e resposta em menos de 15 min para sistema crítico." → Enterprise.
-- "Resposta em 5 minutos para incidentes críticos." → Unified Operations.
-- (Clássico) "Mais barato com suporte técnico 24/7 por telefone e < 1 h para produção fora do ar." → Business.
-- (Clássico) "Pool de TAMs e 30 min." → Enterprise On-Ramp.
-- (Clássico) "Ambiente de testes, ajuda ocasional por e-mail em horário comercial." → Developer.
-- "Quem pode mudar o plano de suporte?" → Não é mais exclusivo do root (lista oficial de 10/2026).
+**AWS Trusted Advisor:** verificações completas e API a partir dos planos pagos superiores ([ficha](../gerenciamento/trusted-advisor.md)).
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Antes de ler este trecho:**
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+- **AWS Health Dashboard / Health Dashboard:** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Plano, Support Center, casos, severidade, canais e orientação |
-| **O que você decide/configura?** | Plano aplicável, impacto real e informações do caso |
-| **Em que ordem as coisas acontecem?** | Abra caso elegível; suporte dá resposta inicial e acompanha investigação |
-| **O que pode fazer, e em que condição?** | Oferece assistência conforme cobertura e termos |
-| **O que não pode presumir?** | Primeira resposta não é resolução; guia da prova e página comercial citam modelos diferentes |
 
-**Caso comentado:** Aprenda ambos: Business clássico não se confunde com Business Support+; escolha pelo nome/contexto do enunciado.
+**AWS Health Dashboard** e **AWS Health API** ([ficha](../gerenciamento/health-dashboard.md)).
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+**TAM (Technical Account Manager):** consultor técnico proativo.
 
-## 🔗 Documentação oficial
+
+**Concierge Support Team:** especialistas em faturamento e conta.
+
+
+**AWS Support Center:** onde se abrem e acompanham os casos de suporte (no console). No Basic, só casos de conta e faturamento.
+
+**Antes de ler este trecho:**
+
+- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
+- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
+- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
+
+
+**Quem muda o plano de suporte:** 🔄 deixou de ser tarefa exclusiva do root (a lista oficial atual não a inclui); uma identidade IAM com as permissões necessárias pode fazê-lo.
+
+**Antes de ler este trecho:**
+
+- **APN:** Rede de parceiros AWS. Parceiros oferecem serviços e soluções conforme seus próprios contratos e competências.
+
+
+Demais recursos (Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post): [recursos de ajuda e parceiros](recursos-de-ajuda-e-parceiros.md).
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+Ter suporte não transfere toda a operação da aplicação para a AWS. Tempo inicial de resposta não é promessa de tempo de resolução; nomes e condições devem ser conferidos no contexto indicado.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Uma empresa com aplicação importante avalia quais recursos de suporte técnico e acompanhamento são necessários para sua operação.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Identifique a necessidade de ajuda e o impacto real do problema.
+**Etapa 2:** Confira a oferta aplicável e abra um caso elegível com informações suficientes para o atendimento.
+**Etapa 3:** Acompanhe investigação e ações. Primeira resposta, resolução e operação cotidiana da aplicação são responsabilidades distintas.
+
+**Resultado e responsabilidade:** Planos de suporte definem acesso a canais, orientação e recursos de atendimento conforme a oferta. A necessidade do negócio deve orientar a escolha.
+
+**Recursos envolvidos:** Plano, Support Center, casos, severidade, canais e orientação.
+
+**Decisões que precisam ser tomadas:** Plano aplicável, impacto real e informações do caso.
+
+
+**Outra situação comentada:** Aprenda ambos: Business clássico não se confunde com Business Support+; escolha pelo nome/contexto do enunciado.
+
+**Por que não concluir mais do que isso:** Primeira resposta não é resolução; guia da prova e página comercial citam modelos diferentes
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Quando há uma dúvida ou problema, a empresa precisa saber que tipo de ajuda da AWS pode solicitar e em quais condições.
+
+**2. O que a solução fornece?**
+
+Planos de suporte definem acesso a canais, orientação e recursos de atendimento conforme a oferta. A necessidade do negócio deve orientar a escolha.
+
+**3. Que conclusão seria incorreta?**
+
+Ter suporte não transfere toda a operação da aplicação para a AWS. Tempo inicial de resposta não é promessa de tempo de resolução; nomes e condições devem ser conferidos no contexto indicado.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Plano gratuito sem suporte técnico."
+
+**Resposta curta:** Basic.
+
+
+**Fundamento explicado no capítulo:** "Plano gratuito sem suporte técnico." → Basic.
+
+**Pergunta:** "Plano pago de entrada, a partir de US$ 29 por conta, com resposta de 30 min para casos críticos."
+
+**Resposta curta:** Business Support+.
+
+
+**Fundamento explicado no capítulo:** "Plano pago de entrada, a partir de US$ 29 por conta, com resposta de 30 min para casos críticos." → Business Support+.
+
+**Pergunta:** "TAM designado e resposta em menos de 15 min para sistema crítico."
+
+**Resposta curta:** Enterprise.
+
+
+**Fundamento explicado no capítulo:** "TAM designado e resposta em menos de 15 min para sistema crítico." → Enterprise.
+
+**Pergunta:** "Resposta em 5 minutos para incidentes críticos."
+
+**Resposta curta:** Unified Operations.
+
+
+**Fundamento explicado no capítulo:** "Resposta em 5 minutos para incidentes críticos." → Unified Operations.
+
+**Pergunta:** (Clássico) "Mais barato com suporte técnico 24/7 por telefone e < 1 h para produção fora do ar."
+
+**Resposta curta:** Business.
+
+
+**Fundamento explicado no capítulo:** (Clássico) "Mais barato com suporte técnico 24/7 por telefone e < 1 h para produção fora do ar." → Business.
+
+**Pergunta:** (Clássico) "Pool de TAMs e 30 min."
+
+**Resposta curta:** Enterprise On-Ramp.
+
+
+**Fundamento explicado no capítulo:** (Clássico) "Pool de TAMs e 30 min." → Enterprise On-Ramp.
+
+**Pergunta:** (Clássico) "Ambiente de testes, ajuda ocasional por e-mail em horário comercial."
+
+**Resposta curta:** Developer.
+
+
+**Fundamento explicado no capítulo:** (Clássico) "Ambiente de testes, ajuda ocasional por e-mail em horário comercial." → Developer.
+
+**Pergunta:** "Quem pode mudar o plano de suporte?"
+
+**Resposta curta:** Não é mais exclusivo do root (lista oficial de 10/2026).
+
+
+**Fundamento explicado no capítulo:** "Quem pode mudar o plano de suporte?" → Não é mais exclusivo do root (lista oficial de 10/2026).
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Planos de suporte](https://aws.amazon.com/premiumsupport/plans/) · [Preços do suporte](https://aws.amazon.com/premiumsupport/pricing/) · [Anúncio da transformação do suporte (12/2025)](https://aws.amazon.com/about-aws/whats-new/2025/12/aws-support-transformation-ai-powered-operations)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

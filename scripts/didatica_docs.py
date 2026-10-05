@@ -264,9 +264,9 @@ TOPICOS = {
                   "Escolher a **família** pelo uso (ML → computação acelerada; banco em memória → otimizada para memória).",
                   "Diferenciar **EBS** (persistente) de **instance store** (temporário).",
                   "Diferenciar **parar**, **encerrar** e **hibernar**."],
-        "termos": [("Instância", "um servidor virtual em execução."),
+        "termos": [("Instância", "máquina virtual criada no EC2; pode estar executando ou parada."),
                    ("AMI", "imagem pronta (sistema + software) usada para criar a instância."),
-                   ("Graviton", "processador ARM da AWS, mais barato e econômico em energia.")],
+                   ("Graviton", "família de processadores AWS baseada em arquitetura ARM; exige software compatível.")],
         "dica": "Leia o **uso** descrito: \"treinar ML/GPU\" → computação acelerada; \"muita memória\" → otimizada para memória; "
                 "\"dado temporário que pode ser perdido\" → **instance store**; \"acesso sem SSH\" → **Session Manager**.",
     },
@@ -655,6 +655,11 @@ DOMINIOS["4"].update({
 })
 
 APOIO = {
+    "estrutura-da-apostila.md": (
+        "Uma lista de nomes e valores ajuda na revisão, mas não ensina sozinha quem começa do zero.",
+        "Esta página apresenta a sequência dos capítulos e o motivo de cada parte. Use-a para ler o material ou manter novas aulas no mesmo padrão.",
+        "Ao estudar uma fila, entenda primeiro quem envia e quem executa o trabalho. Só depois compare ordenação, conservação e repetição de mensagens.",
+    ),
     "README.md": (
         "Você quer estudar AWS, mas precisa saber o que a certificação avalia e por onde começar.",
         "Esta página apresenta o exame e organiza os caminhos de estudo. Comece pela ideia de nuvem, siga pelos quatro domínios e use as fichas para entender cada serviço.",

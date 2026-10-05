@@ -18,21 +18,6 @@
 | **PII** | dados pessoais que identificam alguém (CPF, cartão, nome). |
 | **Achado (finding)** | um alerta de segurança gerado por um serviço. |
 
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Ligar cada serviço à sua função: ameaça → GuardDuty; vulnerabilidade → Inspector; dado sensível no S3 → Macie.
-- [ ] Lembrar a sequência **detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub)**.
-- [ ] Saber o que o **Trusted Advisor** verifica e o que muda conforme o plano de suporte.
-
-<details>
-<summary>Uma analogia para revisar a ideia</summary>
-
-é uma **equipe de segurança**: o **GuardDuty** é o alarme que dispara; o **Inspector** é o vistoriador que procura brechas; o **Macie** procura documentos sensíveis largados; o **Detective** investiga depois do alarme; o **Security Hub** é a sala de monitoramento que junta tudo; o **Trusted Advisor** é o consultor de boas práticas.
-
-</details>
-
-> 🎯 **Como não errar na prova:** Procure o **substantivo**: "ameaça/atividade maliciosa" → GuardDuty; "vulnerabilidade/CVE" → Inspector; "dados pessoais" → Macie; "causa raiz" → Detective; "painel central" → Security Hub; "boas práticas e custo" → Trusted Advisor.
-
 ---
 
 > **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
@@ -43,7 +28,47 @@
 
 ---
 
-## 📖 Conteúdo
+## 1. Entenda as peças e a relação entre elas
+
+
+Encontrar algo suspeito começa uma análise. Vulnerabilidade descreve uma fraqueza; ameaça descreve uma possível ação prejudicial; dado sensível descreve conteúdo que exige proteção. Esses achados precisam de interpretações e respostas diferentes.
+
+Considere a sequência detectar, avaliar e responder. Uma ferramenta pode emitir um achado, outra reunir resultados e outra fornecer contexto. Nenhuma indicação deve ser tratada automaticamente como prova completa de um incidente ou de sua correção.
+
+<details>
+<summary>Uma analogia para revisar esta ideia</summary>
+
+é uma **equipe de segurança**: o **GuardDuty** é o alarme que dispara; o **Inspector** é o vistoriador que procura brechas; o **Macie** procura documentos sensíveis largados; o **Detective** investiga depois do alarme; o **Security Hub** é a sala de monitoramento que junta tudo; o **Trusted Advisor** é o consultor de boas práticas.
+
+</details>
+
+## 2. Conceitos e opções explicados
+
+**Antes de ler este trecho:**
+
+- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
+- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
+- **ECR:** O ECR é um repositório de imagens de containers.
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
+- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
+- **Amazon GuardDuty / GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
+- **Amazon Inspector / Inspector:** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
+- **Amazon Macie / Macie:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
+- **Amazon Detective / Detective:** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
+- **AWS Security Hub / Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
+- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
+- **AWS Trusted Advisor / Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
+- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
+- **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
+- **CIS:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
+- **ML / machine learning:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
+- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
+- **CPF:** Identificador pessoal brasileiro. Neste material é exemplo de dado que pode exigir proteção, não um mecanismo AWS de autenticação.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Serviço | O que faz | Detalhes de prova |
 | --- | --- | --- |
@@ -54,47 +79,132 @@
 | AWS Security Hub | **Painel central** de segurança | Agrega achados de GuardDuty, Inspector, Macie e parceiros; verifica padrões como AWS Foundational Security Best Practices e CIS |
 | AWS Trusted Advisor | Recomendações de **boas práticas** | Categorias: otimização de custos, performance, segurança, tolerância a falhas, cotas de serviço e excelência operacional |
 
-- **Trusted Advisor por plano de suporte:** o Basic tem as verificações principais (service limits + 5 de segurança); 🔄 **Business Support+, Enterprise e Unified Operations têm todas as verificações** e acesso via API (no modelo clássico: Business, Enterprise On-Ramp e Enterprise). O **Trusted Advisor Priority** vem no Enterprise e no Unified Operations.
-- **Exemplos de verificações do Trusted Advisor:** buckets S3 com acesso público, MFA no root, security groups com portas abertas para o mundo, instâncias ociosas, cotas próximas do limite.
-- **Cai na prova:** detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub). Vulnerabilidade de software = Inspector; dado sensível = Macie.
 
-## ❓ Perguntas típicas
+**Antes de ler este trecho:**
 
-> Também estão nos [flashcards](../../flashcards/dominio-2.md).
+- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
+- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
+- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
-- "Qual serviço detecta atividade maliciosa analisando CloudTrail, VPC Flow Logs e DNS?" → GuardDuty.
-- "Qual serviço varre instâncias EC2 e imagens de container em busca de vulnerabilidades?" → Amazon Inspector.
-- "Qual serviço encontra dados pessoais em buckets S3?" → Amazon Macie.
-- "Qual serviço ajuda a investigar a causa raiz de um achado de segurança?" → Amazon Detective.
-- "Qual serviço reúne os achados de segurança de vários serviços num só painel?" → AWS Security Hub.
-- "Qual serviço recomenda melhorias de custo, segurança, performance e limites?" → Trusted Advisor.
-- "Qual plano de suporte libera todas as verificações do Trusted Advisor?" → Business Support+ ou superior (no modelo clássico, Business).
-- "Qual verificação de segurança o Trusted Advisor faz?" → Buckets S3 públicos, MFA no root, portas abertas em security groups.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Aprofundamento para a prova — sem abrir o console
+**Trusted Advisor por plano de suporte:** o Basic tem as verificações principais (service limits + 5 de segurança); 🔄 **Business Support+, Enterprise e Unified Operations têm todas as verificações** e acesso via API (no modelo clássico: Business, Enterprise On-Ramp e Enterprise). O **Trusted Advisor Priority** vem no Enterprise e no Unified Operations.
 
-**Como funciona:** GuardDuty detecta ameaças; Inspector avalia vulnerabilidades em recursos suportados; Macie descobre dados sensíveis em S3; Security Hub agrega e prioriza achados e postura.
+**Antes de ler este trecho:**
 
-**Como escolher:** Identifique a pergunta: comportamento suspeito, software vulnerável, conteúdo sensível ou visão centralizada. Detective ajuda a investigar contexto.
+- **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
+- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
 
-**O que não concluir:** Um achado não corrige a aplicação sozinho. Resposta automática requer integração e permissões. Macie não é varredura genérica de todos os bancos e discos.
 
-### Exercício de decisão
+**Exemplos de verificações do Trusted Advisor:** buckets S3 com acesso público, MFA no root, security groups com portas abertas para o mundo, instâncias ociosas, cotas próximas do limite.
+
+
+**Cai na prova:** detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub). Vulnerabilidade de software = Inspector; dado sensível = Macie.
+
+## 3. Como analisar uma situação
+
+
+**Primeiro, identifique o funcionamento:** GuardDuty detecta ameaças; Inspector avalia vulnerabilidades em recursos suportados; Macie descobre dados sensíveis em S3; Security Hub agrega e prioriza achados e postura.
+
+**Depois, compare as escolhas:** Identifique a pergunta: comportamento suspeito, software vulnerável, conteúdo sensível ou visão centralizada. Detective ajuda a investigar contexto.
+
+**Por fim, verifique o limite:** Um achado não corrige a aplicação sozinho. Resposta automática requer integração e permissões. Macie não é varredura genérica de todos os bancos e discos.
+
+## 4. Caso resolvido
 
 Há preocupação com credenciais expostas em objetos S3 e com biblioteca vulnerável em EC2. Qual serviço para cada parte?
 
-<details>
-<summary>Resposta e por que as alternativas confundem</summary>
+**Raciocínio e resposta:** Macie para descoberta de dados sensíveis no S3; Inspector para vulnerabilidades em EC2 elegível. GuardDuty responde a outra pergunta: sinais de ameaça.
 
-Macie para descoberta de dados sensíveis no S3; Inspector para vulnerabilidades em EC2 elegível. GuardDuty responde a outra pergunta: sinais de ameaça.
+A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
 
-</details>
+## 5. Revisão do capítulo
 
-**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+### Confira se você compreendeu
 
-> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
-<!-- aprofundamento:fim -->
+**1. Qual dificuldade está sendo resolvida?**
+
+Atividade suspeita, software vulnerável e arquivos com informações pessoais são problemas distintos, mesmo que todos sejam chamados de segurança.
+
+**2. O que a solução fornece?**
+
+Serviços de detecção e análise têm especialidades. GuardDuty procura sinais de ameaça; Inspector avalia vulnerabilidades; Macie procura dados sensíveis no S3; outras ferramentas ajudam a reunir ou investigar achados.
+
+**3. Que conclusão seria incorreta?**
+
+Detectar não significa confirmar uma invasão nem corrigir tudo automaticamente. A equipe precisa avaliar os resultados e organizar a resposta.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+**Objetivos de aprendizagem:**
+
+- [ ] Ligar cada serviço à sua função: ameaça → GuardDuty; vulnerabilidade → Inspector; dado sensível no S3 → Macie.
+- [ ] Lembrar a sequência **detectar (GuardDuty) → investigar (Detective) → centralizar (Security Hub)**.
+- [ ] Saber o que o **Trusted Advisor** verifica e o que muda conforme o plano de suporte.
+
+**Dica de revisão para a prova:** Procure o **substantivo**: "ameaça/atividade maliciosa" → GuardDuty; "vulnerabilidade/CVE" → Inspector; "dados pessoais" → Macie; "causa raiz" → Detective; "painel central" → Security Hub; "boas práticas e custo" → Trusted Advisor.
+
+### ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-2.md).
+**Pergunta:** "Qual serviço detecta atividade maliciosa analisando CloudTrail, VPC Flow Logs e DNS?"
+
+**Resposta curta:** GuardDuty.
+
+
+**Fundamento explicado no capítulo:** "Qual serviço detecta atividade maliciosa analisando CloudTrail, VPC Flow Logs e DNS?" → GuardDuty.
+
+**Pergunta:** "Qual serviço varre instâncias EC2 e imagens de container em busca de vulnerabilidades?"
+
+**Resposta curta:** Amazon Inspector.
+
+**Antes de ler este trecho:**
+
+- **container:** Ambiente que executa uma aplicação a partir de uma imagem com software e dependências. É diferente de criar uma máquina virtual completa para cada pacote.
+
+
+**Fundamento explicado no capítulo:** "Qual serviço varre instâncias EC2 e imagens de container em busca de vulnerabilidades?" → Amazon Inspector.
+
+**Pergunta:** "Qual serviço encontra dados pessoais em buckets S3?"
+
+**Resposta curta:** Amazon Macie.
+
+
+**Fundamento explicado no capítulo:** "Qual serviço encontra dados pessoais em buckets S3?" → Amazon Macie.
+
+**Pergunta:** "Qual serviço ajuda a investigar a causa raiz de um achado de segurança?"
+
+**Resposta curta:** Amazon Detective.
+
+
+**Fundamento explicado no capítulo:** "Qual serviço ajuda a investigar a causa raiz de um achado de segurança?" → Amazon Detective.
+
+**Pergunta:** "Qual serviço reúne os achados de segurança de vários serviços num só painel?"
+
+**Resposta curta:** AWS Security Hub.
+
+
+**Fundamento explicado no capítulo:** "Qual serviço reúne os achados de segurança de vários serviços num só painel?" → AWS Security Hub.
+
+**Pergunta:** "Qual serviço recomenda melhorias de custo, segurança, performance e limites?"
+
+**Resposta curta:** Trusted Advisor.
+
+
+**Fundamento explicado no capítulo:** "Qual serviço recomenda melhorias de custo, segurança, performance e limites?" → Trusted Advisor.
+
+**Pergunta:** "Qual plano de suporte libera todas as verificações do Trusted Advisor?"
+
+**Resposta curta:** Business Support+ ou superior (no modelo clássico, Business).
+
+
+**Fundamento explicado no capítulo:** "Qual plano de suporte libera todas as verificações do Trusted Advisor?" → Business Support+ ou superior (no modelo clássico, Business).
+
+**Pergunta:** "Qual verificação de segurança o Trusted Advisor faz?"
+
+**Resposta curta:** Buckets S3 públicos, MFA no root, portas abertas em security groups.
+
+
+**Fundamento explicado no capítulo:** "Qual verificação de segurança o Trusted Advisor faz?" → Buckets S3 públicos, MFA no root, portas abertas em security groups.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras
