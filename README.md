@@ -427,6 +427,8 @@ marcada com 🔄 ou ✔️.
 
 Siga as [regras do repositório](CLAUDE.md): as mudanças chegam por Pull Request. Os capítulos e índices gerados devem ser alterados nas suas fontes editoriais; consulte os caminhos e convenções nesse documento.
 
+As melhorias planejadas e seus critérios de conclusão estão na [pasta de pendências](pendencias/README.md), começando pela [especificação da apostila digital e impressa](pendencias/apostila-digital-e-impressa.md).
+
 | Arquivo | Uso |
 |---|---|
 | [Gerador](scripts/gerar_docs.py) | Regenera aulas, fichas, flashcards, resumos e os blocos do sumário deste README. |
