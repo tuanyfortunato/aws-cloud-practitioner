@@ -15,6 +15,7 @@ import re
 from didatica_docs import DOMINIOS as DIDATICA_DOMINIOS, TOPICOS as DIDATICA_TOPICOS, APOIO, bloco_apoio
 from aprofundamento import TOPICOS as APROFUNDAMENTOS, FICHAS as FICHAS_PRATICAS, bloco_topico, bloco_ficha
 from introducoes_servicos import FICHAS as INTRODUCOES_FICHAS, bloco_ficha as bloco_inicio_ficha
+from apostila import BASE as BASE_FICHAS, capitulo_servico, capitulo_topico, capitulos_apoio
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GUIA = os.path.join(RAIZ, "fontes", "guia-completo-clf-c02.md")
@@ -171,6 +172,10 @@ AVISOS = {
 # Correções aplicadas ao texto de fontes/guia-completo-clf-c02.md na geração (o arquivo-fonte não é
 # editado). Baseadas nas verificações oficiais de 04/10/2026. Cada trecho precisa existir na fonte.
 CORRECOES = [
+    ("**FIFO:** ordem garantida e entrega exatamente uma vez.",
+     "**FIFO:** ordenação por grupo e deduplicação no envio dentro das condições do serviço; o consumidor ainda precisa tratar recebimentos repetidos e efeitos de negócio."),
+    ('- "Garantir ordem e processamento exatamente uma vez." → Fila SQS FIFO.',
+     '- "Ordenar mensagens por grupo e tratar duplicações no envio." → Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.'),
     ("Por requisição e por duração; nada quando não executa.",
      "No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação."),
     ("| Plano | Preço de referência | Canais | Tempos de resposta | Destaques |",
@@ -373,11 +378,6 @@ def bloco_didatico(sec):
     if d.get("termos"):
         linhas += ["", "**📚 Palavras que aparecem aqui:**", "", "| Termo | Em palavras simples |", "|---|---|"]
         linhas += [f"| **{termo}** | {explicacao} |" for termo, explicacao in d["termos"]]
-    linhas += ["", "**Ao terminar este tópico, você deve saber:**", ""]
-    linhas += [f"- [ ] {item}" for item in d["saber"]]
-    linhas += ["", "<details>", "<summary>Uma analogia para revisar a ideia</summary>", "",
-               d["analogia"], "", "</details>", "",
-               f"> 🎯 **Como não errar na prova:** {d['dica']}"]
     return "\n".join(linhas)
 
 
@@ -397,6 +397,7 @@ def gerar_topicos(secoes):
         corpo = linkar_referencias(converter_marcadores(corpo), caminho)
         corpo = re.sub(r"^## ❓ Perguntas típicas", "## ❓ Perguntas típicas\n\n> Também estão nos [flashcards]("
                        + rel(caminho, f"flashcards/dominio-{dom}.md") + ").", corpo, count=1, flags=re.M)
+        corpo = capitulo_topico(sec, corpo)
 
         nav = []
         irmaos = [s for s in ordem if s.split(".")[0] == dom]
@@ -434,11 +435,7 @@ def gerar_topicos(secoes):
 
 ---
 
-## 📖 Conteúdo
-
 {corpo}
-
-{bloco_topico(sec)}
 
 {extra}
 
@@ -668,6 +665,15 @@ def aplicar_fichas_praticas():
         escrever(caminho, texto)
 
 
+def gerar_capitulos_servicos():
+    """Regenera a apresentação das fichas a partir da fonte editorial separada."""
+    assert set(CATEGORIA) == set(BASE_FICHAS), "Conteúdo-base de fichas incompleto"
+    for nome, cat in CATEGORIA.items():
+        caminho = os.path.join("servicos", cat, nome + ".md")
+        notas = ler_bloco(os.path.join(RAIZ, caminho), NOTAS_INI, NOTAS_FIM, NOTAS_VAZIO)
+        escrever(caminho, capitulo_servico(nome) + "\n" + notas + "\n")
+
+
 def inserir_abertura(texto, bloco):
     """Substitui só a abertura gerenciada e a posiciona logo após o título."""
     marcador = re.compile(r"<!-- didatico:inicio -->.*?<!-- didatico:fim -->\n*", re.S)
@@ -856,8 +862,10 @@ def main():
     gerar_readmes_dominio(secoes, intros, ordem)
     total = gerar_flashcards(secoes, ordem)
     gerar_resumos(extras)
+    gerar_capitulos_servicos()
     aplicar_escopo_fichas()
-    aplicar_fichas_praticas()
+    for nome, texto in capitulos_apoio().items():
+        escrever(os.path.join("docs", "00-guia-do-exame", nome), texto)
     aplicar_introducoes()
     fichas = gerar_indice_servicos()
     gerar_indice_readme(secoes, ordem, total)

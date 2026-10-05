@@ -26,37 +26,122 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Destaques
+## Roteiro de leitura
 
-- Modelos **Property Graph** (Gremlin, openCypher) e **RDF** (SPARQL).
-- Até 15 réplicas de leitura, 6 cópias em 3 AZs, Neptune Serverless, Neptune Analytics, Global Database.
-- Uso: **redes sociais** ("amigos de amigos"), **motores de recomendação**, **detecção de fraude**, grafos de conhecimento, segurança de rede.
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
 
-## ❓ Perguntas típicas
+## 1. A sequência de funcionamento
 
-- "Recomendações baseadas em relacionamentos complexos." → Neptune.
-- "Detectar anéis de fraude analisando conexões." → Neptune.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Passo 1.** Identifique quais entidades e relações precisam ser representadas.
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+**Passo 2.** Grave nós e conexões e escreva consultas que percorram essas relações.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Banco de grafos, vértices/arestas ou triplas e endpoints |
-| **O que você decide/configura?** | Modelo e linguagem de consulta compatíveis, capacidade e acesso |
-| **Em que ordem as coisas acontecem?** | Modele relações e percorra conexões com consultas de grafo |
-| **O que pode fazer, e em que condição?** | Ajuda a explorar redes de relações complexas |
-| **O que não pode presumir?** | Não é sinônimo de dashboard nem banco relacional tradicional |
+**Passo 3.** Avalie se as respostas atendem ao problema. O banco permite explorar relações; o julgamento de fraude ou outra regra ainda precisa ser definido.
 
-**Caso comentado:** Descobrir relações entre pessoas e contas para fraude: grafo com Neptune.
+## 2. Recursos e opções, com significado
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+### Destaques
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+**Antes de ler este trecho:**
 
-## 🔗 Documentação oficial
+- **RDF / SPARQL:** RDF representa informações por relações; SPARQL é uma linguagem de consulta desse modelo. São opções específicas de trabalho com grafos.
+
+
+Modelos **Property Graph** (Gremlin, openCypher) e **RDF** (SPARQL).
+
+**Antes de ler este trecho:**
+
+- **Neptune:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
+- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
+- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
+
+
+Até 15 réplicas de leitura, 6 cópias em 3 AZs, Neptune Serverless, Neptune Analytics, Global Database.
+
+**Antes de ler este trecho:**
+
+- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
+
+
+Uso: **redes sociais** ("amigos de amigos"), **motores de recomendação**, **detecção de fraude**, grafos de conhecimento, segurança de rede.
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+Ele não é a escolha padrão para qualquer dado nem decide sozinho se há fraude. Você modela as relações e as consultas necessárias.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Uma investigação de fraude procura contas ligadas ao mesmo dispositivo e a outras contas suspeitas. Um grafo permite explorar esses caminhos.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Identifique quais entidades e relações precisam ser representadas.
+**Etapa 2:** Grave nós e conexões e escreva consultas que percorram essas relações.
+**Etapa 3:** Avalie se as respostas atendem ao problema. O banco permite explorar relações; o julgamento de fraude ou outra regra ainda precisa ser definido.
+
+**Resultado e responsabilidade:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
+
+**Recursos envolvidos:** Banco de grafos, vértices/arestas ou triplas e endpoints.
+
+**Decisões que precisam ser tomadas:** Modelo e linguagem de consulta compatíveis, capacidade e acesso.
+
+
+**Outra situação comentada:** Descobrir relações entre pessoas e contas para fraude: grafo com Neptune.
+
+**Por que não concluir mais do que isso:** Não é sinônimo de dashboard nem banco relacional tradicional
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Algumas perguntas dependem das relações entre pessoas, contas ou produtos, e não apenas dos campos de um registro isolado.
+
+**2. O que a solução fornece?**
+
+Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
+
+**3. Que conclusão seria incorreta?**
+
+Ele não é a escolha padrão para qualquer dado nem decide sozinho se há fraude. Você modela as relações e as consultas necessárias.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Recomendações baseadas em relacionamentos complexos."
+
+**Resposta curta:** Neptune.
+
+
+**Fundamento explicado no capítulo:** "Recomendações baseadas em relacionamentos complexos." → Neptune.
+
+**Pergunta:** "Detectar anéis de fraude analisando conexões."
+
+**Resposta curta:** Neptune.
+
+
+**Fundamento explicado no capítulo:** "Detectar anéis de fraude analisando conexões." → Neptune.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Neptune](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

@@ -18,21 +18,6 @@
 | **Streaming** | dados chegando continuamente, em tempo real. |
 | **BI** | inteligência de negócio: relatórios e painéis para decisão. |
 
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Ligar cada serviço à função: SQL no S3 → Athena; ETL e catálogo → Glue; tempo real → Kinesis.
-- [ ] Saber que o **Athena** cobra por **dados escaneados**.
-- [ ] Diferenciar **EMR** (big data com Spark/Hadoop), **QuickSight** (BI) e **OpenSearch** (busca e logs).
-
-<details>
-<summary>Uma analogia para revisar a ideia</summary>
-
-é uma **cozinha de dados**: o **Kinesis** é a esteira que traz os ingredientes em tempo real; o **Glue** lava e corta (ETL) e etiqueta tudo (catálogo); o **Athena** prova direto da despensa (S3) com SQL; o **EMR** é a cozinha industrial (Spark/Hadoop); o **QuickSight** monta o prato bonito (dashboards).
-
-</details>
-
-> 🎯 **Como não errar na prova:** "SQL em arquivos no S3, sem servidor" → **Athena**. "Tempo real/cliques" → **Kinesis**. "Painéis" → **QuickSight**. "Spark/Hadoop" → **EMR**. "Busca de texto" → **OpenSearch**.
-
 ---
 
 > **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
@@ -43,57 +28,205 @@
 
 ---
 
-## 📖 Conteúdo
+## 1. Entenda as peças e a relação entre elas
 
-- **Amazon Athena:** Pontos de prova: SQL **serverless** direto em arquivos no S3 (CSV, JSON, Parquet); cobrado por **dados escaneados**; formatos colunares e particionamento reduzem custo; usa o catálogo do Glue.
-- **AWS Glue:** **ETL serverless** (extrair, transformar e carregar dados) e **Data Catalog** (catálogo de metadados usado por Athena, Redshift e EMR). Crawlers descobrem o schema automaticamente.
-- **Amazon Kinesis:** dados em **streaming e tempo real**.
-  - **Kinesis Data Streams:** ingestão e processamento de streams (cliques, logs, telemetria).
-  - **Amazon Data Firehose** (antes Kinesis Data Firehose): entrega streams automaticamente em S3, Redshift, OpenSearch e outros, sem administração.
-  - **Kinesis Video Streams:** streaming de vídeo de dispositivos.
-- **Amazon EMR:** plataforma de **big data** gerenciada com Apache Spark, Hadoop, Hive e Presto.
-- **Amazon QuickSight:** **BI** serverless; dashboards e relatórios interativos, inclusive com perguntas em linguagem natural.
-- **Amazon OpenSearch Service:** **busca** e **análise de logs** (sucessor do Elasticsearch gerenciado), com OpenSearch Dashboards.
-- **Amazon Redshift:** data warehouse (ver [3.7](07-bancos-de-dados.md)).
-- **Cai na prova:** "consultar logs no S3 com SQL sem servidor" = Athena; "processar cliques em tempo real" = Kinesis; "painéis para executivos" = QuickSight; "preparar e catalogar dados" = Glue; "Spark/Hadoop gerenciado" = EMR; "busca de texto em produtos" = OpenSearch.
 
-## ❓ Perguntas típicas
+Um dado bruto precisa de estrutura e significado antes de responder bem a uma pergunta. Preparação padroniza; catálogo descreve; consulta seleciona e agrega; processamento executa transformações; visualização apresenta resultados.
 
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
-
-- "Consultar arquivos no S3 com SQL padrão, sem infraestrutura." → Athena.
-- "Como o Athena é cobrado?" → Por volume de dados escaneados.
-- "Serviço de ETL serverless e catálogo de dados." → Glue.
-- "Ingerir e processar dados de cliques em tempo real." → Kinesis Data Streams.
-- "Entregar dados de streaming no S3 sem administração." → Amazon Data Firehose.
-- "Rodar Spark e Hadoop gerenciados." → EMR.
-- "Criar dashboards interativos de BI." → QuickSight.
-- "Busca de texto e análise de logs." → OpenSearch Service.
-
-<!-- aprofundamento:inicio -->
-## 🔬 Aprofundamento para a prova — sem abrir o console
-
-**Como funciona:** Dados entram por fontes/streams; Glue cataloga e transforma; Athena consulta; Redshift organiza análise em warehouse; Quick Sight apresenta resultados; OpenSearch pesquisa documentos/logs.
-
-**Como escolher:** Observe o verbo: consultar SQL no S3, transformar, processar fluxo, executar Spark, pesquisar ou visualizar. Cada verbo aponta para uma etapa distinta.
-
-**O que não concluir:** Dashboard não coleta automaticamente todo dado. Catálogo guarda metadados, não copia necessariamente o conteúdo. Streaming e ETL não são sinônimos.
-
-### Exercício de decisão
-
-Arquivos de vendas já estão no S3 e você quer uma consulta SQL eventual, sem manter cluster. Qual serviço?
+Uma fonte contínua pode exigir processamento enquanto os registros chegam. Uma análise mensal pode trabalhar sobre arquivos acumulados. Escolha a ferramenta pela etapa e pela forma de chegada dos dados, e não apenas pela categoria ‘analytics’.
 
 <details>
-<summary>Resposta e por que as alternativas confundem</summary>
+<summary>Uma analogia para revisar esta ideia</summary>
 
-Athena. Glue Data Catalog pode descrever tabelas; Quick Sight visualiza resultados. EMR faz sentido quando o requisito é processamento com frameworks como Spark.
+é uma **cozinha de dados**: o **Kinesis** é a esteira que traz os ingredientes em tempo real; o **Glue** lava e corta (ETL) e etiqueta tudo (catálogo); o **Athena** prova direto da despensa (S3) com SQL; o **EMR** é a cozinha industrial (Spark/Hadoop); o **QuickSight** monta o prato bonito (dashboards).
 
 </details>
 
-**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+## 2. Conceitos e opções explicados
 
-> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
-<!-- aprofundamento:fim -->
+**Antes de ler este trecho:**
+
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
+- **Amazon Athena / Athena:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL.
+- **Glue:** Glue oferece catálogo e ferramentas de integração e transformação de dados.
+- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
+- **JSON / CSV / Parquet:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
+- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
+
+
+**Amazon Athena:** Pontos de prova: SQL **serverless** direto em arquivos no S3 (CSV, JSON, Parquet); cobrado por **dados escaneados**; formatos colunares e particionamento reduzem custo; usa o catálogo do Glue.
+
+**Antes de ler este trecho:**
+
+- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
+- **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
+- **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
+- **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
+
+
+**AWS Glue:** **ETL serverless** (extrair, transformar e carregar dados) e **Data Catalog** (catálogo de metadados usado por Athena, Redshift e EMR). Crawlers descobrem o schema automaticamente.
+
+**Antes de ler este trecho:**
+
+- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
+
+
+**Amazon Kinesis:** dados em **streaming e tempo real**.
+
+**Antes de ler este trecho:**
+
+- **telemetria:** Medidas e informações enviadas por um equipamento ou sistema. Coletar dados é uma etapa diferente de analisá-los ou agir sobre eles.
+
+
+  - **Kinesis Data Streams:** ingestão e processamento de streams (cliques, logs, telemetria).
+
+  - **Amazon Data Firehose** (antes Kinesis Data Firehose): entrega streams automaticamente em S3, Redshift, OpenSearch e outros, sem administração.
+
+  - **Kinesis Video Streams:** streaming de vídeo de dispositivos.
+**Antes de ler este trecho:**
+
+- **Apache Spark / Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
+
+
+**Amazon EMR:** plataforma de **big data** gerenciada com Apache Spark, Hadoop, Hive e Presto.
+
+**Antes de ler este trecho:**
+
+- **Amazon QuickSight / QuickSight:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis.
+- **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
+
+
+**Amazon QuickSight:** **BI** serverless; dashboards e relatórios interativos, inclusive com perguntas em linguagem natural.
+
+**Antes de ler este trecho:**
+
+- **Amazon OpenSearch Service / OpenSearch Service:** OpenSearch oferece busca e análise de dados indexados.
+- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
+
+
+**Amazon OpenSearch Service:** **busca** e **análise de logs** (sucessor do Elasticsearch gerenciado), com OpenSearch Dashboards.
+
+**Antes de ler este trecho:**
+
+- **data warehouse:** Ambiente de dados organizado para análise de grandes conjuntos. O modelo e as consultas são orientados a perguntas analíticas.
+
+
+**Amazon Redshift:** data warehouse (ver [3.7](07-bancos-de-dados.md)).
+
+**Antes de ler este trecho:**
+
+- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
+
+
+**Cai na prova:** "consultar logs no S3 com SQL sem servidor" = Athena; "processar cliques em tempo real" = Kinesis; "painéis para executivos" = QuickSight; "preparar e catalogar dados" = Glue; "Spark/Hadoop gerenciado" = EMR; "busca de texto em produtos" = OpenSearch.
+
+## 3. Como analisar uma situação
+
+
+**Primeiro, identifique o funcionamento:** Dados entram por fontes/streams; Glue cataloga e transforma; Athena consulta; Redshift organiza análise em warehouse; Quick Sight apresenta resultados; OpenSearch pesquisa documentos/logs.
+
+**Depois, compare as escolhas:** Observe o verbo: consultar SQL no S3, transformar, processar fluxo, executar Spark, pesquisar ou visualizar. Cada verbo aponta para uma etapa distinta.
+
+**Por fim, verifique o limite:** Dashboard não coleta automaticamente todo dado. Catálogo guarda metadados, não copia necessariamente o conteúdo. Streaming e ETL não são sinônimos.
+
+## 4. Caso resolvido
+
+Arquivos de vendas já estão no S3 e você quer uma consulta SQL eventual, sem manter cluster. Qual serviço?
+
+**Raciocínio e resposta:** Athena. Glue Data Catalog pode descrever tabelas; Quick Sight visualiza resultados. EMR faz sentido quando o requisito é processamento com frameworks como Spark.
+
+A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
+
+## 5. Revisão do capítulo
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+A empresa acumulou dados e quer transformar registros em respostas, como quais cursos tiveram mais procura e como a demanda mudou.
+
+**2. O que a solução fornece?**
+
+Analytics reúne preparação, consulta, processamento e visualização de dados. Cada etapa pode exigir uma ferramenta diferente.
+
+**3. Que conclusão seria incorreta?**
+
+Criar um painel não corrige os dados nem coleta qualquer fonte automaticamente. Identifique se o problema é preparar, consultar, processar um fluxo ou visualizar.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+**Objetivos de aprendizagem:**
+
+- [ ] Ligar cada serviço à função: SQL no S3 → Athena; ETL e catálogo → Glue; tempo real → Kinesis.
+- [ ] Saber que o **Athena** cobra por **dados escaneados**.
+- [ ] Diferenciar **EMR** (big data com Spark/Hadoop), **QuickSight** (BI) e **OpenSearch** (busca e logs).
+
+**Dica de revisão para a prova:** "SQL em arquivos no S3, sem servidor" → **Athena**. "Tempo real/cliques" → **Kinesis**. "Painéis" → **QuickSight**. "Spark/Hadoop" → **EMR**. "Busca de texto" → **OpenSearch**.
+
+### ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-3.md).
+**Pergunta:** "Consultar arquivos no S3 com SQL padrão, sem infraestrutura."
+
+**Resposta curta:** Athena.
+
+
+**Fundamento explicado no capítulo:** "Consultar arquivos no S3 com SQL padrão, sem infraestrutura." → Athena.
+
+**Pergunta:** "Como o Athena é cobrado?"
+
+**Resposta curta:** Por volume de dados escaneados.
+
+**Antes de ler este trecho:**
+
+- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
+
+
+**Fundamento explicado no capítulo:** "Como o Athena é cobrado?" → Por volume de dados escaneados.
+
+**Pergunta:** "Serviço de ETL serverless e catálogo de dados."
+
+**Resposta curta:** Glue.
+
+
+**Fundamento explicado no capítulo:** "Serviço de ETL serverless e catálogo de dados." → Glue.
+
+**Pergunta:** "Ingerir e processar dados de cliques em tempo real."
+
+**Resposta curta:** Kinesis Data Streams.
+
+
+**Fundamento explicado no capítulo:** "Ingerir e processar dados de cliques em tempo real." → Kinesis Data Streams.
+
+**Pergunta:** "Entregar dados de streaming no S3 sem administração."
+
+**Resposta curta:** Amazon Data Firehose.
+
+
+**Fundamento explicado no capítulo:** "Entregar dados de streaming no S3 sem administração." → Amazon Data Firehose.
+
+**Pergunta:** "Rodar Spark e Hadoop gerenciados."
+
+**Resposta curta:** EMR.
+
+
+**Fundamento explicado no capítulo:** "Rodar Spark e Hadoop gerenciados." → EMR.
+
+**Pergunta:** "Criar dashboards interativos de BI."
+
+**Resposta curta:** QuickSight.
+
+
+**Fundamento explicado no capítulo:** "Criar dashboards interativos de BI." → QuickSight.
+
+**Pergunta:** "Busca de texto e análise de logs."
+
+**Resposta curta:** OpenSearch Service.
+
+
+**Fundamento explicado no capítulo:** "Busca de texto e análise de logs." → OpenSearch Service.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

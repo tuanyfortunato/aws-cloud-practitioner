@@ -26,7 +26,48 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## AWS Site-to-Site VPN
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+**Antes de ler este trecho:**
+
+- **VPN:** Conexão lógica protegida que liga usuários ou redes. Um túnel VPN não concede automaticamente acesso a todos os recursos do destino.
+- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
+
+
+**Passo 1.** Identifique se precisa ligar redes ou permitir acesso de dispositivos de usuários.
+
+**Passo 2.** Prepare a modalidade de VPN correspondente, autenticação quando aplicável e rotas para os recursos necessários.
+
+**Passo 3.** Verifique comunicação e permissões. Um túnel protegido não torna toda aplicação automaticamente acessível.
+
+## 2. Recursos e opções, com significado
+
+### AWS Site-to-Site VPN
+
+**Antes de ler este trecho:**
+
+- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
+- **Direct Connect:** Direct Connect permite estabelecer essa conectividade por conexões e locais compatíveis, com interfaces e rotas configuradas para o ambiente.
+- **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
+- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
+- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
+- **virtual:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
+- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
+- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
+- **redundância:** Existência de componentes alternativos. Duas cópias só ajudam se forem utilizáveis na falha que você pretende enfrentar.
+- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
+- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
+- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
+- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
+- **BGP:** Protocolo para troca de informações de rotas entre redes. A conexão física ainda precisa das interfaces e configurações apropriadas.
+- **VGW:** Virtual Private Gateway: componente de conectividade associado a uma VPC em cenários compatíveis de ligação com outras redes.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -40,13 +81,34 @@
 | **Prazo** | **Minutos** para configurar. |
 | **Limite** | 🧊 Throughput por túnel limitado (≈1,25 Gbps); depende da qualidade da internet. |
 
-## AWS Client VPN
+### AWS Client VPN
 
-- VPN gerenciada (baseada em OpenVPN) para **usuários remotos** (notebooks) acessarem VPCs e redes on-premises.
-- Autenticação por certificados, Active Directory ou SAML; escala automaticamente.
-- Pago por associação de subnet-hora + conexão-hora.
+**Antes de ler este trecho:**
 
-## Comparação
+- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
+
+
+VPN gerenciada (baseada em OpenVPN) para **usuários remotos** (notebooks) acessarem VPCs e redes on-premises.
+
+**Antes de ler este trecho:**
+
+- **SAML:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
+- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
+
+
+Autenticação por certificados, Active Directory ou SAML; escala automaticamente.
+
+
+Pago por associação de subnet-hora + conexão-hora.
+
+### Comparação
+
+**Antes de ler este trecho:**
+
+- **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | Site-to-Site VPN | Client VPN | Direct Connect |
 |---|---|---|---|
@@ -56,32 +118,102 @@
 | Tempo de setup | Minutos | Minutos | Semanas |
 | Desempenho | Variável | Variável | Consistente |
 
-## ❓ Perguntas típicas
+## 3. Como escolher e reconhecer os limites
 
-- "Conexão criptografada com o datacenter, pronta hoje." → Site-to-Site VPN.
-- "Funcionários em casa precisam acessar a VPC." → Client VPN.
-- "Backup barato do Direct Connect." → Site-to-Site VPN.
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Antes de ler este trecho:**
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Túneis Site-to-Site entre redes; endpoint Client VPN para usuários |
-| **O que você decide/configura?** | Endereços, autenticação, rotas e regras de autorização |
-| **Em que ordem as coisas acontecem?** | Estabeleça túnel/conexão e permita destinos específicos |
-| **O que pode fazer, e em que condição?** | Fornece conectividade criptografada nas modalidades apropriadas |
-| **O que não pode presumir?** | Não torna toda rede acessível sem rotas e autorização; Site-to-Site não é cliente remoto individual |
 
-**Caso comentado:** Filial inteira: Site-to-Site VPN; funcionário remoto individual: Client VPN.
+VPN não é um circuito físico dedicado nem torna todo usuário autorizado a tudo. Rotas, identidade e controles de acesso continuam necessários.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+## 4. Operação, segurança e custo
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
-## 🔗 Documentação oficial
+## 5. Caso resolvido: ligando as peças
+
+A sede usa Site-to-Site VPN para se conectar à AWS. Uma funcionária remota pode usar Client VPN para acessar recursos autorizados.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Identifique se precisa ligar redes ou permitir acesso de dispositivos de usuários.
+**Etapa 2:** Prepare a modalidade de VPN correspondente, autenticação quando aplicável e rotas para os recursos necessários.
+**Etapa 3:** Verifique comunicação e permissões. Um túnel protegido não torna toda aplicação automaticamente acessível.
+
+**Resultado e responsabilidade:** Site-to-Site VPN liga redes por um túnel criptografado. Client VPN permite acesso remoto de dispositivos de usuários, conforme autenticação e configuração.
+
+**Recursos envolvidos:** Túneis Site-to-Site entre redes; endpoint Client VPN para usuários.
+
+**Decisões que precisam ser tomadas:** Endereços, autenticação, rotas e regras de autorização.
+
+**Antes de ler este trecho:**
+
+- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
+
+
+**Outra situação comentada:** Filial inteira: Site-to-Site VPN; funcionário remoto individual: Client VPN.
+
+**Por que não concluir mais do que isso:** Não torna toda rede acessível sem rotas e autorização; Site-to-Site não é cliente remoto individual
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+A empresa precisa conectar sua rede à AWS, ou permitir que uma pessoa trabalhando remotamente acesse recursos privados.
+
+**2. O que a solução fornece?**
+
+Site-to-Site VPN liga redes por um túnel criptografado. Client VPN permite acesso remoto de dispositivos de usuários, conforme autenticação e configuração.
+
+**3. Que conclusão seria incorreta?**
+
+VPN não é um circuito físico dedicado nem torna todo usuário autorizado a tudo. Rotas, identidade e controles de acesso continuam necessários.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Conexão criptografada com o datacenter, pronta hoje."
+
+**Resposta curta:** Site-to-Site VPN.
+
+
+**Fundamento explicado no capítulo:** "Conexão criptografada com o datacenter, pronta hoje." → Site-to-Site VPN.
+
+**Pergunta:** "Funcionários em casa precisam acessar a VPC."
+
+**Resposta curta:** Client VPN.
+
+
+**Fundamento explicado no capítulo:** "Funcionários em casa precisam acessar a VPC." → Client VPN.
+
+**Pergunta:** "Backup barato do Direct Connect."
+
+**Resposta curta:** Site-to-Site VPN.
+
+**Antes de ler este trecho:**
+
+- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
+
+
+**Fundamento explicado no capítulo:** "Backup barato do Direct Connect." → Site-to-Site VPN.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) · [Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

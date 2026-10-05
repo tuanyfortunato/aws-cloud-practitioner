@@ -26,7 +26,37 @@
 >
 > **Escopo oficial:** ✅ No escopo (WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Comparação
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+
+**Passo 1.** Identifique se o usuário precisa de desktop completo, aplicação transmitida ou navegação corporativa.
+
+**Passo 2.** Prepare a modalidade, identidades e software necessários. A pessoa inicia uma sessão autorizada.
+
+**Passo 3.** Administre acesso e experiência. Cada modalidade oferece uma experiência diferente de trabalho remoto.
+
+## 2. Recursos e opções, com significado
+
+### Comparação
+
+**Antes de ler este trecho:**
+
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
+- **VPN:** Conexão lógica protegida que liga usuários ou redes. Um túnel VPN não concede automaticamente acesso a todos os recursos do destino.
+- **virtual:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
+- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
+- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
+- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
+- **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
+- **BYOD:** Uso de dispositivo próprio pelo usuário. Compatibilidade e controles do ambiente remoto continuam necessários.
+- **CAD:** CRM trata relacionamento com clientes; CAD, projeto assistido por computador; EDI, troca eletrônica estruturada de dados. São necessidades de aplicação distintas.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | **WorkSpaces (Personal / Pools)** | **AppStream 2.0** | **WorkSpaces Secure Browser** (✔️ renomeado de WorkSpaces Web em maio/2024) |
 |---|---|---|---|
@@ -35,37 +65,119 @@
 | Uso | Funcionários remotos, terceirizados, BYOD | Software pesado (CAD, IDEs) em qualquer dispositivo, treinamentos | Acessar sites internos/SaaS sem VPN, sem dados no dispositivo |
 | Cobrança | **Mensal** (AlwaysOn) ou **por hora** (AutoStop) | Por hora das instâncias da *fleet* (always-on, on-demand ou elastic) | Por usuário/mês |
 
-- 🔄 Os protocolos **PCoIP** e o **WorkSpaces Pools** estão em *sunset*; o WorkSpaces continua no escopo.
-- O protocolo de streaming **NICE DCV** agora se chama **Amazon DCV** (versão 2024.0) ✔️.
-- **WorkSpaces Thin Client:** dispositivo físico barato para acessar esses serviços.
-- Integração com Active Directory/Identity Center; dados ficam na AWS (não no dispositivo).
 
-## ❓ Perguntas típicas
 
-- "Oferecer desktops virtuais a funcionários remotos." → WorkSpaces.
-- "Disponibilizar um aplicativo de desktop pelo navegador." → AppStream 2.0.
-- "Acessar sites internos com navegador seguro sem VPN." → WorkSpaces Secure Browser.
+🔄 Os protocolos **PCoIP** e o **WorkSpaces Pools** estão em *sunset*; o WorkSpaces continua no escopo.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Antes de ler este trecho:**
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+- **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
+- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
+- **NICE:** Nome associado a tecnologias de transmissão de ambiente ou aplicação remota. A modalidade determina a experiência e os requisitos.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Desktops WorkSpaces, fleets/stacks AppStream e portal Secure Browser |
-| **O que você decide/configura?** | Identidade, rede, imagem e regras de sessão |
-| **Em que ordem as coisas acontecem?** | Usuário autentica e recebe desktop, aplicação ou navegador remoto |
-| **O que pode fazer, e em que condição?** | Entrega experiência remota sem instalar toda carga no dispositivo |
-| **O que não pode presumir?** | São produtos distintos; persistência depende da modalidade; políticas de cópia/download devem ser configuradas |
 
-**Caso comentado:** Desktop completo: WorkSpaces; app específico: AppStream; navegação isolada: Secure Browser.
+O protocolo de streaming **NICE DCV** agora se chama **Amazon DCV** (versão 2024.0) ✔️.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+**WorkSpaces Thin Client:** dispositivo físico barato para acessar esses serviços.
 
-## 🔗 Documentação oficial
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
+
+
+Integração com Active Directory/Identity Center; dados ficam na AWS (não no dispositivo).
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+**Antes de ler este trecho:**
+
+- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
+- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
+
+
+Um desktop completo, uma aplicação transmitida e um navegador remoto são soluções diferentes. Identidade, aplicações, rede e modalidade precisam ser planejadas.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Uma empresa fornece a colaboradores um ambiente remoto ou acesso a uma aplicação corporativa, escolhendo o produto adequado à experiência necessária.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Identifique se o usuário precisa de desktop completo, aplicação transmitida ou navegação corporativa.
+**Etapa 2:** Prepare a modalidade, identidades e software necessários. A pessoa inicia uma sessão autorizada.
+**Etapa 3:** Administre acesso e experiência. Cada modalidade oferece uma experiência diferente de trabalho remoto.
+
+**Resultado e responsabilidade:** WorkSpaces oferece ambientes de trabalho virtuais em modalidades próprias. AppStream transmite aplicações; WorkSpaces Secure Browser atende acesso web corporativo controlado.
+
+**Recursos envolvidos:** Desktops WorkSpaces, fleets/stacks AppStream e portal Secure Browser.
+
+**Decisões que precisam ser tomadas:** Identidade, rede, imagem e regras de sessão.
+
+
+**Outra situação comentada:** Desktop completo: WorkSpaces; app específico: AppStream; navegação isolada: Secure Browser.
+
+**Por que não concluir mais do que isso:** São produtos distintos; persistência depende da modalidade; políticas de cópia/download devem ser configuradas
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Pessoas precisam usar um ambiente de trabalho ou uma aplicação à distância, sem instalar tudo no próprio computador.
+
+**2. O que a solução fornece?**
+
+WorkSpaces oferece ambientes de trabalho virtuais em modalidades próprias. AppStream transmite aplicações; WorkSpaces Secure Browser atende acesso web corporativo controlado.
+
+**3. Que conclusão seria incorreta?**
+
+Um desktop completo, uma aplicação transmitida e um navegador remoto são soluções diferentes. Identidade, aplicações, rede e modalidade precisam ser planejadas.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Oferecer desktops virtuais a funcionários remotos."
+
+**Resposta curta:** WorkSpaces.
+
+
+**Fundamento explicado no capítulo:** "Oferecer desktops virtuais a funcionários remotos." → WorkSpaces.
+
+**Pergunta:** "Disponibilizar um aplicativo de desktop pelo navegador."
+
+**Resposta curta:** AppStream 2.0.
+
+
+**Fundamento explicado no capítulo:** "Disponibilizar um aplicativo de desktop pelo navegador." → AppStream 2.0.
+
+**Pergunta:** "Acessar sites internos com navegador seguro sem VPN."
+
+**Resposta curta:** WorkSpaces Secure Browser.
+
+
+**Fundamento explicado no capítulo:** "Acessar sites internos com navegador seguro sem VPN." → WorkSpaces Secure Browser.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) · [AppStream 2.0](https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

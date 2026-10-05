@@ -17,21 +17,6 @@
 | **Pentest** | teste de intrusão: atacar o próprio sistema, de propósito, para achar falhas. |
 | **Phishing** | golpe que imita uma empresa para roubar dados. |
 
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Saber que **pentest** é permitido sem aprovação prévia numa lista de serviços, mas DDoS simulado não.
-- [ ] Saber que abuso vindo de IPs da AWS vai para o **AWS Trust & Safety**.
-- [ ] Citar fontes de informação de segurança (Security Center, Security Blog, Bulletins, re:Post, Knowledge Center).
-
-<details>
-<summary>Uma analogia para revisar a ideia</summary>
-
-o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a AWS para te atacar (spam, phishing), é para lá que você reclama — não para o suporte técnico.
-
-</details>
-
-> 🎯 **Como não errar na prova:** "Recebi spam/phishing **vindo de um IP da AWS**" → **Trust & Safety**. "Ferramenta de segurança de terceiros" → **Marketplace**.
-
 ---
 
 > **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
@@ -42,46 +27,143 @@ o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a
 
 ---
 
-## 📖 Conteúdo
+## 1. Entenda as peças e a relação entre elas
 
-- **Testes de intrusão (pentest):** permitidos sem aprovação prévia para uma lista de serviços (ex.: EC2, RDS, Lambda); ataques DDoS simulados e alguns testes são proibidos ou exigem aprovação.
-- **AWS Trust & Safety:** time para reportar abuso de recursos AWS (spam, phishing, ataques vindos de IPs da AWS).
-- **Onde buscar informação de segurança:** AWS Security Center, AWS Security Blog, Security Bulletins, Knowledge Center, AWS re:Post e documentação. Ferramentas de segurança de terceiros: AWS Marketplace.
-- **Cai na prova:** "recebi phishing vindo de um IP da AWS" = AWS Trust & Safety.
+**Antes de ler este trecho:**
 
-## ❓ Perguntas típicas
+- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
+- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
+- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
+- **menor privilégio:** Conceder apenas o acesso necessário ao trabalho. Evita que uma tarefa simples carregue poder desnecessário sobre outros recursos.
 
-> Também estão nos [flashcards](../../flashcards/dominio-2.md).
 
-- "É preciso pedir autorização para fazer pentest no EC2?" → Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.
-- "Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?" → AWS Trust & Safety.
-- "Onde encontrar boletins e boas práticas de segurança?" → AWS Security Center, Security Blog e Knowledge Center.
-- "Onde comprar ferramentas de segurança de terceiros?" → AWS Marketplace.
+Segurança precisa de processos além de ferramentas. Definir quem recebe um aviso, como credenciais são protegidas e quem pode alterar dados evita que uma capacidade técnica fique sem uso adequado.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Aprofundamento para a prova — sem abrir o console
-
-**Como funciona:** Documentação, Security Blog e Knowledge Center explicam práticas e problemas; Marketplace oferece soluções de terceiros; Trust and Safety recebe denúncias de abuso.
-
-**Como escolher:** Diferencie proteção da sua carga, suporte técnico e denúncia de atividade abusiva em recursos AWS. As ferramentas cumprem papéis complementares.
-
-**O que não concluir:** Comprar um produto de segurança não transfere todas as obrigações ao fornecedor. Testes de segurança devem observar a política AWS e a titularidade dos recursos.
-
-### Exercício de decisão
-
-Uma empresa recebe tráfego abusivo de um recurso AWS de outra conta. Deve tentar alterar esse recurso com IAM?
+Relacione cada prática ao risco: autenticação adicional protege a entrada; menor privilégio reduz o poder disponível; comunicação de abuso aciona um canal apropriado. As ações não são intercambiáveis só por pertencerem à segurança.
 
 <details>
-<summary>Resposta e por que as alternativas confundem</summary>
+<summary>Uma analogia para revisar esta ideia</summary>
 
-Não. Pode denunciar ao Trust and Safety com evidências. Suas permissões IAM administram recursos autorizados, não os de terceiros.
+o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a AWS para te atacar (spam, phishing), é para lá que você reclama — não para o suporte técnico.
 
 </details>
 
-**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+## 2. Conceitos e opções explicados
 
-> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
-<!-- aprofundamento:fim -->
+**Antes de ler este trecho:**
+
+- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
+- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
+- **RDS:** O RDS oferece bancos relacionais gerenciados.
+- **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
+
+
+**Testes de intrusão (pentest):** permitidos sem aprovação prévia para uma lista de serviços (ex.: EC2, RDS, Lambda); ataques DDoS simulados e alguns testes são proibidos ou exigem aprovação.
+
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+
+
+**AWS Trust & Safety:** time para reportar abuso de recursos AWS (spam, phishing, ataques vindos de IPs da AWS).
+
+
+**Onde buscar informação de segurança:** AWS Security Center, AWS Security Blog, Security Bulletins, Knowledge Center, AWS re:Post e documentação. Ferramentas de segurança de terceiros: AWS Marketplace.
+
+**Antes de ler este trecho:**
+
+- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
+
+
+**Cai na prova:** "recebi phishing vindo de um IP da AWS" = AWS Trust & Safety.
+
+## 3. Como analisar uma situação
+
+**Antes de ler este trecho:**
+
+- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
+- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
+- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
+
+
+**Primeiro, identifique o funcionamento:** Documentação, Security Blog e Knowledge Center explicam práticas e problemas; Marketplace oferece soluções de terceiros; Trust and Safety recebe denúncias de abuso.
+
+**Depois, compare as escolhas:** Diferencie proteção da sua carga, suporte técnico e denúncia de atividade abusiva em recursos AWS. As ferramentas cumprem papéis complementares.
+
+**Por fim, verifique o limite:** Comprar um produto de segurança não transfere todas as obrigações ao fornecedor. Testes de segurança devem observar a política AWS e a titularidade dos recursos.
+
+## 4. Caso resolvido
+
+Uma empresa recebe tráfego abusivo de um recurso AWS de outra conta. Deve tentar alterar esse recurso com IAM?
+
+**Raciocínio e resposta:** Não. Pode denunciar ao Trust and Safety com evidências. Suas permissões IAM administram recursos autorizados, não os de terceiros.
+
+A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
+
+## 5. Revisão do capítulo
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Segurança também depende de decisões cotidianas: proteger credenciais, limitar permissões e saber como comunicar uso abusivo ou um incidente.
+
+**2. O que a solução fornece?**
+
+Este tópico reúne práticas e canais que complementam os serviços de segurança. O objetivo é relacionar cada ação ao risco que ela reduz.
+
+**3. Que conclusão seria incorreta?**
+
+Uma boa prática isolada não garante um ambiente seguro. Entenda a finalidade de cada ação e o canal adequado, em vez de escolher uma ferramenta genérica para qualquer problema.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+**Objetivos de aprendizagem:**
+
+- [ ] Saber que **pentest** é permitido sem aprovação prévia numa lista de serviços, mas DDoS simulado não.
+- [ ] Saber que abuso vindo de IPs da AWS vai para o **AWS Trust & Safety**.
+- [ ] Citar fontes de informação de segurança (Security Center, Security Blog, Bulletins, re:Post, Knowledge Center).
+
+**Dica de revisão para a prova:** "Recebi spam/phishing **vindo de um IP da AWS**" → **Trust & Safety**. "Ferramenta de segurança de terceiros" → **Marketplace**.
+
+### ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-2.md).
+**Pergunta:** "É preciso pedir autorização para fazer pentest no EC2?"
+
+**Resposta curta:** Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.
+
+**Antes de ler este trecho:**
+
+- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
+
+
+**Fundamento explicado no capítulo:** "É preciso pedir autorização para fazer pentest no EC2?" → Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.
+
+**Pergunta:** "Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?"
+
+**Resposta curta:** AWS Trust & Safety.
+
+**Antes de ler este trecho:**
+
+- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
+
+
+**Fundamento explicado no capítulo:** "Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?" → AWS Trust & Safety.
+
+**Pergunta:** "Onde encontrar boletins e boas práticas de segurança?"
+
+**Resposta curta:** AWS Security Center, Security Blog e Knowledge Center.
+
+
+**Fundamento explicado no capítulo:** "Onde encontrar boletins e boas práticas de segurança?" → AWS Security Center, Security Blog e Knowledge Center.
+
+**Pergunta:** "Onde comprar ferramentas de segurança de terceiros?"
+
+**Resposta curta:** AWS Marketplace.
+
+
+**Fundamento explicado no capítulo:** "Onde comprar ferramentas de segurança de terceiros?" → AWS Marketplace.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

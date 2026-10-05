@@ -17,21 +17,6 @@
 | **PaaS** | plataforma onde você entrega o código e ela cuida da infraestrutura. |
 | **Job em lote (batch)** | trabalho processado sem interação, em grande quantidade. |
 
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Saber que o **Elastic Beanstalk** é PaaS e não tem custo adicional (paga os recursos criados).
-- [ ] Saber que o **Lightsail** tem **preço mensal fixo** e é para quem está começando.
-- [ ] Saber que o **Batch** escolhe a computação ideal para jobs em lote.
-
-<details>
-<summary>Uma analogia para revisar a ideia</summary>
-
-o **Elastic Beanstalk** é um **buffet** (você leva a receita e eles montam tudo); o **Lightsail** é um **plano pré-pago** de servidor; o **Batch** é uma **linha de produção** que processa milhares de pedidos.
-
-</details>
-
-> 🎯 **Como não errar na prova:** "Desenvolvedor sem pensar em infraestrutura" → **Elastic Beanstalk**. "Preço fixo, simples" → **Lightsail**. "Milhares de jobs" → **Batch**.
-
 ---
 
 > **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
@@ -42,47 +27,141 @@ o **Elastic Beanstalk** é um **buffet** (você leva a receita e eles montam tud
 
 ---
 
-## 📖 Conteúdo
+## 1. Entenda as peças e a relação entre elas
 
-- **AWS Elastic Beanstalk:** PaaS. Você envia o código (Java, .NET, Node.js, Python, PHP, Ruby, Go, Docker) e ele provisiona e gerencia capacidade, load balancer, Auto Scaling e monitoramento. Você mantém acesso aos recursos. Não tem custo adicional; paga só os recursos criados.
-- **Amazon Lightsail:** servidores virtuais simples com **preço mensal fixo e previsível** (inclui computação, armazenamento e transferência). Bom para sites WordPress, apps pequenos e quem está começando.
-- **AWS Batch:** executa grandes volumes de **jobs em lote**, provisionando a computação ideal automaticamente (EC2, Spot ou Fargate).
-- **AWS Outposts:** ver [3.2](02-infraestrutura-global.md).
-- **Cai na prova:** "desenvolvedor quer subir aplicação web sem pensar em infraestrutura" = Elastic Beanstalk; "pequena empresa quer servidor com preço fixo" = Lightsail; "milhares de jobs de processamento" = Batch.
+**Antes de ler este trecho:**
 
-## ❓ Perguntas típicas
+- **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
 
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
 
-- "Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento." → Elastic Beanstalk.
-- "Elastic Beanstalk tem custo próprio?" → Não; paga-se só os recursos que ele cria.
-- "Site WordPress simples com preço mensal fixo." → Lightsail.
-- "Processar milhares de jobs em lote com a capacidade ideal." → AWS Batch.
+Escolher computação também envolve o trabalho operacional desejado. Uma oferta simples reduz opções iniciais; uma plataforma facilita implantação; um agendador organiza trabalhos que podem esperar e executar por lote. Essas diferenças importam mais que uma palavra comum no nome.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Aprofundamento para a prova — sem abrir o console
-
-**Como funciona:** Beanstalk implanta uma aplicação e gerencia recursos do ambiente; Lightsail simplifica infraestrutura em pacotes; Batch organiza trabalhos em filas; Outposts leva infraestrutura AWS ao local do cliente.
-
-**Como escolher:** Enviar aplicação web com menor esforço operacional: Beanstalk. Projeto simples com pacote: Lightsail. Lotes e jobs: Batch. Exigência local com serviços AWS compatíveis: Outposts.
-
-**O que não concluir:** Beanstalk não dispensa manutenção do código; Batch não é endpoint web interativo. Outposts ainda exige infraestrutura física e conectividade do cliente.
-
-### Exercício de decisão
-
-Uma equipe quer executar milhares de simulações independentes, que terminam após o trabalho. Qual serviço combina com isso?
+Para um site pequeno, examine hospedagem e manutenção. Para uma aplicação pronta, examine a plataforma compatível. Para conversões de muitos arquivos, examine a organização de trabalhos. Localização próxima exige outra comparação, incluindo disponibilidade da oferta.
 
 <details>
-<summary>Resposta e por que as alternativas confundem</summary>
+<summary>Uma analogia para revisar esta ideia</summary>
 
-AWS Batch: filas, definições de jobs e ambientes de computação. Um balanceador distribui tráfego, mas não agenda essa carga de lotes.
+o **Elastic Beanstalk** é um **buffet** (você leva a receita e eles montam tudo); o **Lightsail** é um **plano pré-pago** de servidor; o **Batch** é uma **linha de produção** que processa milhares de pedidos.
 
 </details>
 
-**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+## 2. Conceitos e opções explicados
 
-> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
-<!-- aprofundamento:fim -->
+**Antes de ler este trecho:**
+
+- **AWS Elastic Beanstalk / Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **PaaS:** Plataforma como serviço: parte da infraestrutura e do ambiente de execução é administrada para você entregar a aplicação. O código e suas regras continuam sendo do cliente.
+- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
+- **load balancer:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
+- **PHP:** Linguagem de programação usada em aplicações. A plataforma de hospedagem precisa de ambiente compatível para executar seu código.
+
+
+**AWS Elastic Beanstalk:** PaaS. Você envia o código (Java, .NET, Node.js, Python, PHP, Ruby, Go, Docker) e ele provisiona e gerencia capacidade, load balancer, Auto Scaling e monitoramento. Você mantém acesso aos recursos. Não tem custo adicional; paga só os recursos criados.
+
+**Antes de ler este trecho:**
+
+- **Amazon Lightsail / Lightsail:** O Lightsail reúne recursos como servidores virtuais, armazenamento e rede em ofertas simplificadas.
+
+
+**Amazon Lightsail:** servidores virtuais simples com **preço mensal fixo e previsível** (inclui computação, armazenamento e transferência). Bom para sites WordPress, apps pequenos e quem está começando.
+
+**Antes de ler este trecho:**
+
+- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
+- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
+- **AWS Batch / Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
+
+
+**AWS Batch:** executa grandes volumes de **jobs em lote**, provisionando a computação ideal automaticamente (EC2, Spot ou Fargate).
+
+
+**AWS Outposts:** ver [3.2](02-infraestrutura-global.md).
+
+**Antes de ler este trecho:**
+
+- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
+
+
+**Cai na prova:** "desenvolvedor quer subir aplicação web sem pensar em infraestrutura" = Elastic Beanstalk; "pequena empresa quer servidor com preço fixo" = Lightsail; "milhares de jobs de processamento" = Batch.
+
+## 3. Como analisar uma situação
+
+**Antes de ler este trecho:**
+
+- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
+
+
+**Primeiro, identifique o funcionamento:** Beanstalk implanta uma aplicação e gerencia recursos do ambiente; Lightsail simplifica infraestrutura em pacotes; Batch organiza trabalhos em filas; Outposts leva infraestrutura AWS ao local do cliente.
+
+**Depois, compare as escolhas:** Enviar aplicação web com menor esforço operacional: Beanstalk. Projeto simples com pacote: Lightsail. Lotes e jobs: Batch. Exigência local com serviços AWS compatíveis: Outposts.
+
+**Por fim, verifique o limite:** Beanstalk não dispensa manutenção do código; Batch não é endpoint web interativo. Outposts ainda exige infraestrutura física e conectividade do cliente.
+
+## 4. Caso resolvido
+
+Uma equipe quer executar milhares de simulações independentes, que terminam após o trabalho. Qual serviço combina com isso?
+
+**Raciocínio e resposta:** AWS Batch: filas, definições de jobs e ambientes de computação. Um balanceador distribui tráfego, mas não agenda essa carga de lotes.
+
+A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
+
+## 5. Revisão do capítulo
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Nem toda necessidade pede administrar uma máquina diretamente. Você pode querer uma hospedagem simples, uma implantação facilitada ou muitos trabalhos em lote.
+
+**2. O que a solução fornece?**
+
+Este tópico compara formas de execução: Lightsail simplifica ofertas, Beanstalk apoia a implantação de aplicações e Batch organiza trabalhos. Opções de proximidade atendem necessidades específicas de localização.
+
+**3. Que conclusão seria incorreta?**
+
+Esses serviços não fazem o mesmo trabalho. Escolha pelo tipo de tarefa e pela responsabilidade desejada, verificando compatibilidade e escopo.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+**Objetivos de aprendizagem:**
+
+- [ ] Saber que o **Elastic Beanstalk** é PaaS e não tem custo adicional (paga os recursos criados).
+- [ ] Saber que o **Lightsail** tem **preço mensal fixo** e é para quem está começando.
+- [ ] Saber que o **Batch** escolhe a computação ideal para jobs em lote.
+
+**Dica de revisão para a prova:** "Desenvolvedor sem pensar em infraestrutura" → **Elastic Beanstalk**. "Preço fixo, simples" → **Lightsail**. "Milhares de jobs" → **Batch**.
+
+### ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-3.md).
+**Pergunta:** "Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento."
+
+**Resposta curta:** Elastic Beanstalk.
+
+
+**Fundamento explicado no capítulo:** "Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento." → Elastic Beanstalk.
+
+**Pergunta:** "Elastic Beanstalk tem custo próprio?"
+
+**Resposta curta:** Não; paga-se só os recursos que ele cria.
+
+
+**Fundamento explicado no capítulo:** "Elastic Beanstalk tem custo próprio?" → Não; paga-se só os recursos que ele cria.
+
+**Pergunta:** "Site WordPress simples com preço mensal fixo."
+
+**Resposta curta:** Lightsail.
+
+
+**Fundamento explicado no capítulo:** "Site WordPress simples com preço mensal fixo." → Lightsail.
+
+**Pergunta:** "Processar milhares de jobs em lote com a capacidade ideal."
+
+**Resposta curta:** AWS Batch.
+
+
+**Fundamento explicado no capítulo:** "Processar milhares de jobs em lote com a capacidade ideal." → AWS Batch.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

@@ -26,7 +26,40 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## AWS Service Catalog
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+**Antes de ler este trecho:**
+
+- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
+- **RAM:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
+- **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
+
+
+**Passo 1.** Identifique se quer oferecer uma configuração aprovada ou compartilhar um recurso já existente.
+
+**Passo 2.** Use produtos e portfólios do catálogo no primeiro caso; compartilhamentos compatíveis no RAM no segundo.
+
+**Passo 3.** Verifique acessos e alcance. Um produto provisionável e um recurso compartilhado são objetos diferentes.
+
+## 2. Recursos e opções, com significado
+
+### AWS Service Catalog
+
+**Antes de ler este trecho:**
+
+- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
+- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
+- **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
+- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
+- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
+- **servidor web:** Programa ou computador que atende pedidos web. Guardar uma página estática e executar regras de um sistema completo são necessidades distintas.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -36,7 +69,17 @@
 | **Compartilhamento** | Portfólios entre contas da organização. |
 | **Uso** | Times provisionam sozinhos, dentro das regras e da governança da empresa. |
 
-## AWS RAM
+### AWS RAM
+
+**Antes de ler este trecho:**
+
+- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
+- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
+- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
+- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -44,31 +87,90 @@
 | **Com quem** | Contas específicas, OUs ou a organização inteira. |
 | **Benefício** | Evita duplicar recursos e reduz custo/complexidade. Sem custo próprio. |
 
-## ❓ Perguntas típicas
+## 3. Como escolher e reconhecer os limites
 
-- "Deixar times criarem só recursos aprovados pela empresa." → Service Catalog.
-- "Compartilhar uma subnet com outra conta." → AWS RAM.
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+Aprovar um produto é diferente de compartilhar um recurso já existente. RAM não permite compartilhar qualquer coisa sem restrições nem concede todo acesso aos dados.
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+## 4. Operação, segurança e custo
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Portfolios/products/constraints no Catalog; resource shares no RAM |
-| **O que você decide/configura?** | Produto aprovado ou recurso compartilhável e destinatários |
-| **Em que ordem as coisas acontecem?** | Catalog provisiona produto autorizado; RAM compartilha recurso suportado |
-| **O que pode fazer, e em que condição?** | Evita configurações repetidas e distribui recursos conforme permissões |
-| **O que não pode presumir?** | Compartilhar não transfere propriedade nem permite qualquer tipo de recurso |
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
-**Caso comentado:** Catálogo de stacks aprovadas: Service Catalog; compartilhar subnet compatível: RAM.
+## 5. Caso resolvido: ligando as peças
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa compartilha um recurso compatível com outra conta pelo RAM.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+**Aplicando a sequência à situação:**
 
-## 🔗 Documentação oficial
+**Etapa 1:** Identifique se quer oferecer uma configuração aprovada ou compartilhar um recurso já existente.
+**Etapa 2:** Use produtos e portfólios do catálogo no primeiro caso; compartilhamentos compatíveis no RAM no segundo.
+**Etapa 3:** Verifique acessos e alcance. Um produto provisionável e um recurso compartilhado são objetos diferentes.
+
+**Resultado e responsabilidade:** Service Catalog organiza produtos de infraestrutura aprovados. RAM compartilha recursos compatíveis com outros destinatários autorizados. São duas funções diferentes.
+
+**Recursos envolvidos:** Portfolios/products/constraints no Catalog; resource shares no RAM.
+
+**Decisões que precisam ser tomadas:** Produto aprovado ou recurso compartilhável e destinatários.
+
+**Antes de ler este trecho:**
+
+- **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
+
+
+**Outra situação comentada:** Catálogo de stacks aprovadas: Service Catalog; compartilhar subnet compatível: RAM.
+
+**Por que não concluir mais do que isso:** Compartilhar não transfere propriedade nem permite qualquer tipo de recurso
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+A empresa quer padronizar o que suas equipes podem provisionar e, em outro caso, compartilhar recursos compatíveis entre contas sem duplicá-los.
+
+**2. O que a solução fornece?**
+
+Service Catalog organiza produtos de infraestrutura aprovados. RAM compartilha recursos compatíveis com outros destinatários autorizados. São duas funções diferentes.
+
+**3. Que conclusão seria incorreta?**
+
+Aprovar um produto é diferente de compartilhar um recurso já existente. RAM não permite compartilhar qualquer coisa sem restrições nem concede todo acesso aos dados.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Deixar times criarem só recursos aprovados pela empresa."
+
+**Resposta curta:** Service Catalog.
+
+
+**Fundamento explicado no capítulo:** "Deixar times criarem só recursos aprovados pela empresa." → Service Catalog.
+
+**Pergunta:** "Compartilhar uma subnet com outra conta."
+
+**Resposta curta:** AWS RAM.
+
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+
+
+**Fundamento explicado no capítulo:** "Compartilhar uma subnet com outra conta." → AWS RAM.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) · [RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

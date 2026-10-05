@@ -18,20 +18,6 @@
 | **IA generativa** | IA que cria conteúdo novo (texto, imagem, código). |
 | **Modelo de fundação** | modelo grande, pré-treinado, usado como base para várias tarefas. |
 
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Diferenciar **SageMaker AI** (modelo próprio) de **Bedrock** (modelos de fundação via API) e **Amazon Q** (assistente pronto).
-- [ ] Ligar cada API pronta à tarefa: imagem → Rekognition; sentimento → Comprehend; chatbot → Lex; texto em fala → Polly; fala em texto → Transcribe; tradução → Translate; documentos → Textract.
-
-<details>
-<summary>Uma analogia para revisar a ideia</summary>
-
-é como **comida**: o **SageMaker AI** é cozinhar do zero; o **Bedrock** é comprar uma massa pronta e montar o seu prato; os **serviços de IA prontos** são pratos congelados — cada um resolve uma refeição específica.
-
-</details>
-
-> 🎯 **Como não errar na prova:** Polly e Transcribe confundem: **P**olly **P**roduz fala (texto → voz); **Transcribe** transcreve (voz → texto). "Treinar modelo próprio" → **SageMaker AI**.
-
 ---
 
 > **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
@@ -44,9 +30,40 @@
 
 ---
 
-## 📖 Conteúdo
+## 1. Entenda as peças e a relação entre elas
+
+**Antes de ler este trecho:**
+
+- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
+- **treinamento:** Ajuste de um modelo com dados. É uma etapa diferente de utilizar o modelo já treinado para responder a uma nova entrada.
+
+
+Diferencie usar uma função pronta, construir um modelo próprio e usar um modelo generativo existente. Na função pronta, você solicita uma transformação específica. No modelo próprio, precisa preparar treinamento e avaliação. Na geração, fornece instrução e contexto para uma resposta.
+
+Em todos os casos, dados e resultados exigem cuidado. Precisão não é garantida; acesso aos documentos deve ser autorizado; produzir uma resposta não a transforma em evidência. O requisito da tarefa e o escopo da prova orientam qual produto estudar.
+
+<details>
+<summary>Uma analogia para revisar esta ideia</summary>
+
+é como **comida**: o **SageMaker AI** é cozinhar do zero; o **Bedrock** é comprar uma massa pronta e montar o seu prato; os **serviços de IA prontos** são pratos congelados — cada um resolve uma refeição específica.
+
+</details>
+
+## 2. Conceitos e opções explicados
 
 Revise a função de cada serviço, porque a prova pede o serviço pelo caso de uso.
+
+**Antes de ler este trecho:**
+
+- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
+- **Amazon SageMaker AI / SageMaker AI:** SageMaker AI oferece recursos para etapas do desenvolvimento e operação de modelos.
+- **AI / IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
+- **Amazon Bedrock / Bedrock:** Bedrock oferece acesso gerenciado a modelos e recursos de desenvolvimento de aplicações com IA generativa, conforme a oferta e as autorizações.
+- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
+- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Serviço | Função |
 | --- | --- |
@@ -62,44 +79,118 @@ Revise a função de cada serviço, porque a prova pede o serviço pelo caso de 
 | Amazon Textract | Extrair texto, formulários e tabelas de documentos digitalizados |
 | Amazon Kendra | Busca inteligente em documentos corporativos |
 
-## ❓ Perguntas típicas
+## 3. Como analisar uma situação
 
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
+**Antes de ler este trecho:**
 
-- "Construir, treinar e implantar modelos de ML próprios." → SageMaker AI.
-- "Identificar rostos e objetos em fotos." → Rekognition.
-- "Analisar o sentimento de avaliações de clientes." → Comprehend.
-- "Criar um chatbot de atendimento." → Lex.
-- "Converter texto em voz." → Polly. "Converter áudio em texto." → Transcribe.
-- "Traduzir conteúdo do site." → Translate.
-- "Extrair dados de formulários escaneados." → Textract.
-- "Busca inteligente nos documentos internos da empresa." → Kendra.
-- "Assistente de IA generativa para funcionários e desenvolvedores." → Amazon Q.
+- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
+- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Aprofundamento para a prova — sem abrir o console
 
-**Como funciona:** Serviços prontos transformam entradas em resultados por API; SageMaker AI oferece recursos para preparar, treinar e servir modelos; Amazon Q entrega assistência conforme a variante.
+**Primeiro, identifique o funcionamento:** Serviços prontos transformam entradas em resultados por API; SageMaker AI oferece recursos para preparar, treinar e servir modelos; Amazon Q entrega assistência conforme a variante.
 
-**Como escolher:** Texto para voz: Polly. Voz para texto: Transcribe. Texto e sentimento: Comprehend. Documento e campos: Textract. Imagens: Rekognition. Conversação: Lex. Modelo próprio: SageMaker AI.
+**Depois, compare as escolhas:** Texto para voz: Polly. Voz para texto: Transcribe. Texto e sentimento: Comprehend. Documento e campos: Textract. Imagens: Rekognition. Conversação: Lex. Modelo próprio: SageMaker AI.
 
-**O que não concluir:** IA não garante resposta correta nem autorização para todo dado. Idioma, formato e região precisam ser suportados. Bedrock não citado na lista não implica automaticamente exclusão formal.
+**Por fim, verifique o limite:** IA não garante resposta correta nem autorização para todo dado. Idioma, formato e região precisam ser suportados. Bedrock não citado na lista não implica automaticamente exclusão formal.
 
-### Exercício de decisão
+## 4. Caso resolvido
 
 Um formulário escaneado tem tabelas e campos que precisam ser extraídos. Basta usar Comprehend?
 
-<details>
-<summary>Resposta e por que as alternativas confundem</summary>
+**Raciocínio e resposta:** Textract atende a extração documental; Comprehend pode analisar o texto depois. Escolha pelo tipo de entrada e pelo resultado esperado.
 
-Textract atende a extração documental; Comprehend pode analisar o texto depois. Escolha pelo tipo de entrada e pelo resultado esperado.
+A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
 
-</details>
+## 5. Revisão do capítulo
 
-**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+### Confira se você compreendeu
 
-> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
-<!-- aprofundamento:fim -->
+**1. Qual dificuldade está sendo resolvida?**
+
+Uma aplicação quer transcrever áudio, fazer previsões ou gerar texto. Embora todas envolvam IA, o trabalho necessário e a solução são diferentes.
+
+**2. O que a solução fornece?**
+
+Serviços de IA podem oferecer funções prontas, ferramentas para desenvolver modelos próprios ou acesso a modelos generativos existentes. A escolha depende da tarefa.
+
+**3. Que conclusão seria incorreta?**
+
+IA não garante precisão e não conhece automaticamente os dados da empresa. Compatibilidade, acesso, avaliação e escopo da prova precisam ser considerados.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+**Objetivos de aprendizagem:**
+
+- [ ] Diferenciar **SageMaker AI** (modelo próprio) de **Bedrock** (modelos de fundação via API) e **Amazon Q** (assistente pronto).
+- [ ] Ligar cada API pronta à tarefa: imagem → Rekognition; sentimento → Comprehend; chatbot → Lex; texto em fala → Polly; fala em texto → Transcribe; tradução → Translate; documentos → Textract.
+
+**Dica de revisão para a prova:** Polly e Transcribe confundem: **P**olly **P**roduz fala (texto → voz); **Transcribe** transcreve (voz → texto). "Treinar modelo próprio" → **SageMaker AI**.
+
+### ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-3.md).
+**Pergunta:** "Construir, treinar e implantar modelos de ML próprios."
+
+**Resposta curta:** SageMaker AI.
+
+
+**Fundamento explicado no capítulo:** "Construir, treinar e implantar modelos de ML próprios." → SageMaker AI.
+
+**Pergunta:** "Identificar rostos e objetos em fotos."
+
+**Resposta curta:** Rekognition.
+
+
+**Fundamento explicado no capítulo:** "Identificar rostos e objetos em fotos." → Rekognition.
+
+**Pergunta:** "Analisar o sentimento de avaliações de clientes."
+
+**Resposta curta:** Comprehend.
+
+
+**Fundamento explicado no capítulo:** "Analisar o sentimento de avaliações de clientes." → Comprehend.
+
+**Pergunta:** "Criar um chatbot de atendimento."
+
+**Resposta curta:** Lex.
+
+
+**Fundamento explicado no capítulo:** "Criar um chatbot de atendimento." → Lex.
+
+**Pergunta:** "Converter texto em voz."
+
+**Resposta curta:** Polly. "Converter áudio em texto." → Transcribe.
+
+
+**Fundamento explicado no capítulo:** "Converter texto em voz." → Polly. "Converter áudio em texto." → Transcribe.
+
+**Pergunta:** "Traduzir conteúdo do site."
+
+**Resposta curta:** Translate.
+
+
+**Fundamento explicado no capítulo:** "Traduzir conteúdo do site." → Translate.
+
+**Pergunta:** "Extrair dados de formulários escaneados."
+
+**Resposta curta:** Textract.
+
+
+**Fundamento explicado no capítulo:** "Extrair dados de formulários escaneados." → Textract.
+
+**Pergunta:** "Busca inteligente nos documentos internos da empresa."
+
+**Resposta curta:** Kendra.
+
+
+**Fundamento explicado no capítulo:** "Busca inteligente nos documentos internos da empresa." → Kendra.
+
+**Pergunta:** "Assistente de IA generativa para funcionários e desenvolvedores."
+
+**Resposta curta:** Amazon Q.
+
+
+**Fundamento explicado no capítulo:** "Assistente de IA generativa para funcionários e desenvolvedores." → Amazon Q.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

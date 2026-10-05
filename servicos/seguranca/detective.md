@@ -26,41 +26,138 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Como funciona
+## Roteiro de leitura
 
-- Coleta automaticamente CloudTrail, **VPC Flow Logs**, achados do **GuardDuty**, audit logs do EKS e achados do Security Hub.
-- Constrói um **behavior graph** (ML + estatística) mostrando relações entre usuários, roles, IPs, instâncias, ao longo de até 1 ano.
-- Visualizações prontas: "o que este IP fez?", "esse usuário costuma chamar essa API?", *finding groups* que agrupam achados relacionados.
-- Teste gratuito de 30 dias; cobrado por volume de dados ingeridos.
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
 
-## ⚠️ Não confundir
+## 1. A sequência de funcionamento
 
-- **GuardDuty detecta → Detective investiga → Security Hub centraliza.**
 
-## ❓ Perguntas típicas
+**Passo 1.** Prepare as fontes e o ambiente de investigação compatível.
 
-- "Investigar a causa raiz de um achado de segurança." → Detective.
+**Passo 2.** Use as relações de atividades, identidades e recursos para entender o contexto de um alerta.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Passo 3.** Compare evidências e registre conclusões da investigação. A ferramenta ajuda a analisar; a decisão e a resposta continuam precisando de responsáveis.
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+## 2. Recursos e opções, com significado
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Behavior graph e investigação de entidades/eventos |
-| **O que você decide/configura?** | Conta, região, fontes e acesso |
-| **Em que ordem as coisas acontecem?** | Agrega contexto para explorar relações em atividade suspeita |
-| **O que pode fazer, e em que condição?** | Ajuda investigação após sinais ou achados |
-| **O que não pode presumir?** | Não é firewall ou substituto automático da detecção/remediação |
+### Como funciona
 
-**Caso comentado:** Após finding GuardDuty, investigar contexto: Detective; bloquear requer ação apropriada.
+**Antes de ler este trecho:**
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+- **EKS:** O EKS oferece Kubernetes gerenciado.
+- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
+- **GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
+- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
+- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
 
-## 🔗 Documentação oficial
+Coleta automaticamente CloudTrail, **VPC Flow Logs**, achados do **GuardDuty**, audit logs do EKS e achados do Security Hub.
+
+**Antes de ler este trecho:**
+
+- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
+
+
+Constrói um **behavior graph** (ML + estatística) mostrando relações entre usuários, roles, IPs, instâncias, ao longo de até 1 ano.
+
+**Antes de ler este trecho:**
+
+- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
+- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
+
+
+Visualizações prontas: "o que este IP fez?", "esse usuário costuma chamar essa API?", *finding groups* que agrupam achados relacionados.
+
+**Antes de ler este trecho:**
+
+- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
+
+
+Teste gratuito de 30 dias; cobrado por volume de dados ingeridos.
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+Ele apoia a investigação; não decide sozinho a causa de todo incidente nem substitui a equipe responsável pela resposta.
+
+### ⚠️ Não confundir
+
+**Antes de ler este trecho:**
+
+- **Detective:** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
+
+
+**GuardDuty detecta → Detective investiga → Security Hub centraliza.**
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Após um alerta, a equipe explora atividades associadas à identidade e ao recurso envolvidos, procurando contexto para a investigação.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Prepare as fontes e o ambiente de investigação compatível.
+**Etapa 2:** Use as relações de atividades, identidades e recursos para entender o contexto de um alerta.
+**Etapa 3:** Compare evidências e registre conclusões da investigação. A ferramenta ajuda a analisar; a decisão e a resposta continuam precisando de responsáveis.
+
+**Resultado e responsabilidade:** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
+
+**Recursos envolvidos:** Behavior graph e investigação de entidades/eventos.
+
+**Decisões que precisam ser tomadas:** Conta, região, fontes e acesso.
+
+**Antes de ler este trecho:**
+
+- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
+
+
+**Outra situação comentada:** Após finding GuardDuty, investigar contexto: Detective; bloquear requer ação apropriada.
+
+**Por que não concluir mais do que isso:** Não é firewall ou substituto automático da detecção/remediação
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Depois de um alerta de segurança, a equipe precisa reunir relações entre atividades, identidades e recursos para entender o que aconteceu.
+
+**2. O que a solução fornece?**
+
+Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
+
+**3. Que conclusão seria incorreta?**
+
+Ele apoia a investigação; não decide sozinho a causa de todo incidente nem substitui a equipe responsável pela resposta.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Investigar a causa raiz de um achado de segurança."
+
+**Resposta curta:** Detective.
+
+
+**Fundamento explicado no capítulo:** "Investigar a causa raiz de um achado de segurança." → Detective.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Amazon Detective](https://docs.aws.amazon.com/detective/latest/userguide/what-is-detective.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

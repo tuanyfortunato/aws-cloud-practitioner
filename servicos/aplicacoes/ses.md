@@ -26,7 +26,41 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Configurações importantes
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+**Antes de ler este trecho:**
+
+- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
+- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
+
+
+**Passo 1.** Verifique a identidade de envio e prepare as condições de acesso e volume aplicáveis.
+
+**Passo 2.** Faça a aplicação solicitar o envio de uma mensagem com conteúdo e destinatário pertinentes.
+
+**Passo 3.** Acompanhe devoluções, reclamações e reputação. Aceitar uma solicitação de envio não garante chegada à caixa principal do destinatário.
+
+## 2. Recursos e opções, com significado
+
+### Configurações importantes
+
+**Antes de ler este trecho:**
+
+- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
+- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
+- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
+- **virtual:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
+- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
+- **DKIM / SPF / DMARC:** Mecanismos de autenticação e política para e-mail que ajudam a validar origem e tratar mensagens. Não garantem chegada de toda mensagem à caixa principal.
+- **SMTP:** Protocolo para envio e transferência de e-mail. Usar o protocolo não dispensa identidade verificada, permissões e regras do serviço de envio.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -37,34 +71,84 @@
 | **Recebimento** | Regras para gravar no S3, acionar Lambda/SNS. |
 | **Mail Manager** | Roteamento e arquivamento de e-mail corporativo. |
 
-## ⚠️ Não confundir
+## 3. Como escolher e reconhecer os limites
 
-- **SES** (e-mails ricos/formatados em volume) × **SNS** (notificações simples para vários canais) × **WorkMail** (caixa de e-mail corporativa).
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-## ❓ Perguntas típicas
+Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificação de identidade, limites, reputação e tratamento de devoluções importam. Também não é uma caixa postal pessoal completa.
 
-- "Enviar e-mails de confirmação e marketing em massa." → SES.
+### ⚠️ Não confundir
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+**Antes de ler este trecho:**
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+- **SES:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Identidades verificadas, envio SMTP/API e eventos |
-| **O que você decide/configura?** | Domínio/remetente, acesso, limites e saída do sandbox |
-| **Em que ordem as coisas acontecem?** | Aplicação envia mensagem; serviço reporta entrega/bounce conforme configuração |
-| **O que pode fazer, e em que condição?** | Envia e-mails transacionais e de campanha nas condições da oferta |
-| **O que não pode presumir?** | Sandbox restringe envio; verificar domínio não garante entrega na caixa principal |
 
-**Caso comentado:** Confirmação de compra por e-mail: SES; caixa de entrada pessoal não é o objetivo principal.
+**SES** (e-mails ricos/formatados em volume) × **SNS** (notificações simples para vários canais) × **WorkMail** (caixa de e-mail corporativa).
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+## 4. Operação, segurança e custo
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
-## 🔗 Documentação oficial
+## 5. Caso resolvido: ligando as peças
+
+O sistema da escola envia uma confirmação de matrícula usando uma identidade autorizada no SES.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Verifique a identidade de envio e prepare as condições de acesso e volume aplicáveis.
+**Etapa 2:** Faça a aplicação solicitar o envio de uma mensagem com conteúdo e destinatário pertinentes.
+**Etapa 3:** Acompanhe devoluções, reclamações e reputação. Aceitar uma solicitação de envio não garante chegada à caixa principal do destinatário.
+
+**Resultado e responsabilidade:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
+
+**Recursos envolvidos:** Identidades verificadas, envio SMTP/API e eventos.
+
+**Decisões que precisam ser tomadas:** Domínio/remetente, acesso, limites e saída do sandbox.
+
+
+**Outra situação comentada:** Confirmação de compra por e-mail: SES; caixa de entrada pessoal não é o objetivo principal.
+
+**Por que não concluir mais do que isso:** Sandbox restringe envio; verificar domínio não garante entrega na caixa principal
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Uma aplicação precisa enviar mensagens por e-mail, como confirmações e avisos, sem construir sua própria infraestrutura de envio.
+
+**2. O que a solução fornece?**
+
+SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
+
+**3. Que conclusão seria incorreta?**
+
+Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificação de identidade, limites, reputação e tratamento de devoluções importam. Também não é uma caixa postal pessoal completa.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Enviar e-mails de confirmação e marketing em massa."
+
+**Resposta curta:** SES.
+
+
+**Fundamento explicado no capítulo:** "Enviar e-mails de confirmação e marketing em massa." → SES.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/Welcome.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

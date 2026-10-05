@@ -18,21 +18,6 @@
 | **Pub/sub** | publicar uma vez e todos os assinantes recebem. |
 | **Fan-out** | uma mensagem do SNS copiada para várias filas SQS. |
 
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Diferenciar **SQS** (fila, o consumidor puxa) de **SNS** (pub/sub, empurra para todos).
-- [ ] Diferenciar fila **Standard** de **FIFO**.
-- [ ] Saber quando usar **EventBridge** (reagir a eventos, inclusive de SaaS) e **Step Functions** (orquestrar etapas).
-
-<details>
-<summary>Uma analogia para revisar a ideia</summary>
-
-o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS** é um **alto-falante** (todos ouvem ao mesmo tempo); o **EventBridge** é uma **central de regras** ("quando acontecer X, avise Y"); o **Step Functions** é um **fluxograma** que se executa sozinho.
-
-</details>
-
-> 🎯 **Como não errar na prova:** "Desacoplar/absorver picos" → **SQS**. "Notificar vários" → **SNS**. "Ordem garantida" → **SQS FIFO**. "Evento de SaaS" → **EventBridge**. "Várias etapas com aprovação" → **Step Functions**.
-
 ---
 
 > **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
@@ -43,54 +28,186 @@ o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS
 
 ---
 
-## 📖 Conteúdo
+## 1. Entenda as peças e a relação entre elas
 
-- **Amazon SQS:** Pontos de prova:
-  - Fila gerenciada que **desacopla** componentes; o consumidor **puxa** (poll) as mensagens.
-  - **Standard:** throughput quase ilimitado, entrega pelo menos uma vez, ordem não garantida. **FIFO:** ordem garantida e entrega exatamente uma vez.
-  - Retenção padrão de 4 dias, configurável até 14 dias; **visibility timeout**; **dead-letter queue** para mensagens com falha.
-- **Amazon SNS:** **pub/sub**. Um produtor publica num **tópico** e a mensagem é **empurrada** (push) para todos os assinantes: e-mail, SMS, HTTP, Lambda, filas SQS e push mobile.
-  - **Fan-out:** SNS publica e várias filas SQS recebem a mesma mensagem para processamento paralelo.
-- **Amazon EventBridge:** **barramento de eventos** serverless. Recebe eventos de serviços AWS, de aplicações e de parceiros SaaS e os roteia com **regras** para destinos. **EventBridge Scheduler** agenda tarefas (estilo cron).
-- **AWS Step Functions:** **orquestra fluxos de trabalho** com várias etapas em máquinas de estado visuais, com tratamento de erros e novas tentativas (ex.: várias Lambdas em sequência, com aprovação humana no meio).
-- **Cai na prova:** "desacoplar e absorver picos" = SQS; "notificar vários sistemas ao mesmo tempo" = SNS; "reagir a eventos de um SaaS" = EventBridge; "coordenar várias etapas de um processo" = Step Functions.
+**Antes de ler este trecho:**
 
-## ❓ Perguntas típicas
+- **consumidor:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
+- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
 
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
 
-- "Desacoplar componentes para que um pico não derrube o processamento." → SQS.
-- "Garantir ordem e processamento exatamente uma vez." → Fila SQS FIFO.
-- "Enviar a mesma mensagem para vários sistemas e para e-mail." → SNS.
-- "Um evento precisa ser processado por várias filas em paralelo." → Fan-out com SNS + SQS.
-- "Reagir a eventos de serviços AWS e de aplicações SaaS com regras." → EventBridge.
-- "Executar uma tarefa todo dia às 2h sem servidor." → EventBridge Scheduler (disparando Lambda).
-- "Orquestrar um processo com várias etapas e tratamento de erro." → Step Functions.
+Enviar uma solicitação e executar seu trabalho não precisam acontecer no mesmo instante. Uma fila conserva trabalho; uma notificação avisa interessados; um evento descreve algo ocorrido; um fluxo coordena tarefas. Essa separação reduz dependências imediatas.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Aprofundamento para a prova — sem abrir o console
-
-**Como funciona:** SQS mantém mensagens para consumidores; SNS publica para assinantes; EventBridge filtra e roteia eventos; Step Functions controla etapas, escolhas e retentativas do fluxo.
-
-**Como escolher:** Fila de trabalho: SQS. Aviso para vários destinos: SNS. Eventos com regras: EventBridge. Sequência com estado: Step Functions. As combinações podem ser necessárias.
-
-**O que não concluir:** Ler da fila não é o mesmo que excluir. Consumidores devem tratar repetição. SNS sozinho não dá a cada assinante uma fila persistente para consumo posterior.
-
-### Exercício de decisão
-
-Cada pedido precisa acionar faturamento e estoque, e cada equipe deve processar no próprio ritmo. Como combinar?
+Pense num certificado: o site confirma que recebeu o pedido, a fila guarda a tarefa e um consumidor gera o arquivo depois. Se o processamento falhar, receber de novo pode ser necessário. A aplicação precisa evitar que repetição crie efeitos indevidos.
 
 <details>
-<summary>Resposta e por que as alternativas confundem</summary>
+<summary>Uma analogia para revisar esta ideia</summary>
 
-SNS com uma fila SQS para cada consumidor permite fan-out e desacoplamento. Uma só fila com dois consumidores normalmente distribui trabalho entre eles, em vez de entregar uma cópia para cada equipe.
+o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS** é um **alto-falante** (todos ouvem ao mesmo tempo); o **EventBridge** é uma **central de regras** ("quando acontecer X, avise Y"); o **Step Functions** é um **fluxograma** que se executa sozinho.
 
 </details>
 
-**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+## 2. Conceitos e opções explicados
 
-> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
-<!-- aprofundamento:fim -->
+**Antes de ler este trecho:**
+
+- **Amazon SQS / SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
+
+
+**Amazon SQS:** Pontos de prova:
+
+
+  - Fila gerenciada que **desacopla** componentes; o consumidor **puxa** (poll) as mensagens.
+**Antes de ler este trecho:**
+
+- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
+- **FIFO:** Primeiro a entrar, primeiro a sair. No SQS, a ordenação considera grupos de mensagens; deduplicação no envio não garante ausência de repetição de efeitos no programa.
+- **deduplicação:** Identificação e tratamento de entradas repetidas conforme um critério e uma janela. É diferente de garantir toda a execução da aplicação apenas uma vez.
+
+
+  - **Standard:** throughput quase ilimitado, entrega pelo menos uma vez, ordem não garantida. **FIFO:** ordenação por grupo e deduplicação no envio dentro das condições do serviço; o consumidor ainda precisa tratar recebimentos repetidos e efeitos de negócio.
+**Antes de ler este trecho:**
+
+- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
+- **visibility timeout:** Intervalo em que uma mensagem recebida do SQS fica temporariamente invisível a outros recebimentos. Se ela não for excluída e o prazo terminar, pode voltar a ser recebida.
+- **dead-letter queue:** Fila separada para mensagens que atingiram condições configuradas de falha. Ajuda a isolar e investigar o problema; não corrige a mensagem automaticamente.
+- **timeout:** Limite de espera ou duração. Ao excedê-lo, uma operação pode falhar ou exigir tratamento; não presuma que nada aconteceu antes da interrupção.
+
+
+  - Retenção padrão de 4 dias, configurável até 14 dias; **visibility timeout**; **dead-letter queue** para mensagens com falha.
+**Antes de ler este trecho:**
+
+- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
+- **Amazon SNS / SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
+- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
+- **produtor:** Componente que envia dados ou mensagens. Enviar uma mensagem não significa que o trabalho correspondente já foi realizado.
+- **pub/sub:** Publicação de uma mensagem para destinatários inscritos. Distribuir avisos a vários destinos é diferente de manter uma tarefa aguardando um consumidor.
+- **push:** Em pull, o consumidor busca dados. Em push, o envio é iniciado para o destinatário. A forma de entrega não executa automaticamente a regra de negócio.
+- **SMS:** Mensagem de texto para dispositivos móveis. Integrações e condições de envio são diferentes de e-mail e de entrega a uma fila.
+
+
+**Amazon SNS:** **pub/sub**. Um produtor publica num **tópico** e a mensagem é **empurrada** (push) para todos os assinantes: e-mail, SMS, HTTP, Lambda, filas SQS e push mobile.
+
+
+  - **Fan-out:** SNS publica e várias filas SQS recebem a mesma mensagem para processamento paralelo.
+**Antes de ler este trecho:**
+
+- **Amazon EventBridge / EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
+- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
+
+
+**Amazon EventBridge:** **barramento de eventos** serverless. Recebe eventos de serviços AWS, de aplicações e de parceiros SaaS e os roteia com **regras** para destinos. **EventBridge Scheduler** agenda tarefas (estilo cron).
+
+**Antes de ler este trecho:**
+
+- **AWS Step Functions / Step Functions:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis.
+
+
+**AWS Step Functions:** **orquestra fluxos de trabalho** com várias etapas em máquinas de estado visuais, com tratamento de erros e novas tentativas (ex.: várias Lambdas em sequência, com aprovação humana no meio).
+
+
+**Cai na prova:** "desacoplar e absorver picos" = SQS; "notificar vários sistemas ao mesmo tempo" = SNS; "reagir a eventos de um SaaS" = EventBridge; "coordenar várias etapas de um processo" = Step Functions.
+
+## 3. Como analisar uma situação
+
+
+**Primeiro, identifique o funcionamento:** SQS mantém mensagens para consumidores; SNS publica para assinantes; EventBridge filtra e roteia eventos; Step Functions controla etapas, escolhas e retentativas do fluxo.
+
+**Depois, compare as escolhas:** Fila de trabalho: SQS. Aviso para vários destinos: SNS. Eventos com regras: EventBridge. Sequência com estado: Step Functions. As combinações podem ser necessárias.
+
+**Por fim, verifique o limite:** Ler da fila não é o mesmo que excluir. Consumidores devem tratar repetição. SNS sozinho não dá a cada assinante uma fila persistente para consumo posterior.
+
+## 4. Caso resolvido
+
+Cada pedido precisa acionar faturamento e estoque, e cada equipe deve processar no próprio ritmo. Como combinar?
+
+**Raciocínio e resposta:** SNS com uma fila SQS para cada consumidor permite fan-out e desacoplamento. Uma só fila com dois consumidores normalmente distribui trabalho entre eles, em vez de entregar uma cópia para cada equipe.
+
+A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
+
+## 5. Revisão do capítulo
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Uma ação pode gerar tarefas para outros sistemas. Se cada parte depender de todas as outras responderem na hora, a aplicação fica mais difícil de operar.
+
+**2. O que a solução fornece?**
+
+Integração permite separar tarefas e coordenar comunicação. Filas guardam trabalho; notificações distribuem avisos; eventos orientam ações; fluxos coordenam etapas.
+
+**3. Que conclusão seria incorreta?**
+
+Uma fila não executa o trabalho, e uma notificação não coordena por si só todo o processo. Entenda qual parte da comunicação precisa ser resolvida.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+**Objetivos de aprendizagem:**
+
+- [ ] Diferenciar **SQS** (fila, o consumidor puxa) de **SNS** (pub/sub, empurra para todos).
+- [ ] Diferenciar fila **Standard** de **FIFO**.
+- [ ] Saber quando usar **EventBridge** (reagir a eventos, inclusive de SaaS) e **Step Functions** (orquestrar etapas).
+
+**Dica de revisão para a prova:** "Desacoplar/absorver picos" → **SQS**. "Notificar vários" → **SNS**. "Ordem garantida" → **SQS FIFO**. "Evento de SaaS" → **EventBridge**. "Várias etapas com aprovação" → **Step Functions**.
+
+### ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-3.md).
+**Pergunta:** "Desacoplar componentes para que um pico não derrube o processamento."
+
+**Resposta curta:** SQS.
+
+
+**Fundamento explicado no capítulo:** "Desacoplar componentes para que um pico não derrube o processamento." → SQS.
+
+**Pergunta:** "Ordenar mensagens por grupo e tratar duplicações no envio."
+
+**Resposta curta:** Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.
+
+
+**Fundamento explicado no capítulo:** "Ordenar mensagens por grupo e tratar duplicações no envio." → Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.
+
+**Pergunta:** "Enviar a mesma mensagem para vários sistemas e para e-mail."
+
+**Resposta curta:** SNS.
+
+
+**Fundamento explicado no capítulo:** "Enviar a mesma mensagem para vários sistemas e para e-mail." → SNS.
+
+**Pergunta:** "Um evento precisa ser processado por várias filas em paralelo."
+
+**Resposta curta:** Fan-out com SNS + SQS.
+
+
+**Fundamento explicado no capítulo:** "Um evento precisa ser processado por várias filas em paralelo." → Fan-out com SNS + SQS.
+
+**Pergunta:** "Reagir a eventos de serviços AWS e de aplicações SaaS com regras."
+
+**Resposta curta:** EventBridge.
+
+
+**Fundamento explicado no capítulo:** "Reagir a eventos de serviços AWS e de aplicações SaaS com regras." → EventBridge.
+
+**Pergunta:** "Executar uma tarefa todo dia às 2h sem servidor."
+
+**Resposta curta:** EventBridge Scheduler (disparando Lambda).
+
+**Antes de ler este trecho:**
+
+- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
+
+
+**Fundamento explicado no capítulo:** "Executar uma tarefa todo dia às 2h sem servidor." → EventBridge Scheduler (disparando Lambda).
+
+**Pergunta:** "Orquestrar um processo com várias etapas e tratamento de erro."
+
+**Resposta curta:** Step Functions.
+
+
+**Fundamento explicado no capítulo:** "Orquestrar um processo com várias etapas e tratamento de erro." → Step Functions.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

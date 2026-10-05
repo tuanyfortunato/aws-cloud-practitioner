@@ -29,9 +29,44 @@
 > ❌ **Fora do escopo da CLF-C02.** Todos os serviços desta ficha estão declarados fora do escopo na lista oficial.
 > Se aparecerem como alternativa, quase sempre são **distratores**. Documentados aqui apenas para referência.
 
-## AWS Elemental Media Services
+## Roteiro de leitura
+
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
+
+## 1. A sequência de funcionamento
+
+
+**Passo 1.** Separe preparação de mídia, transmissão ao vivo e hospedagem de partidas.
+
+**Passo 2.** Identifique o produto associado à etapa específica e confira sua oferta e suas restrições.
+
+**Passo 3.** Compare o resultado com a necessidade. Esta ficha é de referência e não uma recomendação de uso de ofertas antigas.
+
+## 2. Recursos e opções, com significado
+
+### AWS Elemental Media Services
+
+**Antes de ler este trecho:**
+
+- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
+
 
 Família de serviços de vídeo profissional (broadcast e streaming).
+
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
+- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
+- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
+- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
+- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
+- **HLS / DASH:** Formatos e tecnologias de distribuição adaptativa de vídeo. Permitem alternativas de qualidade e entrega conforme o ecossistema compatível.
+- **VOD / DVR:** Vídeo sob demanda e funções de gravação ou acesso temporal de transmissão. São experiências diferentes de simples armazenamento de arquivos.
+- **DRM / SSAI:** Proteção de direitos de mídia e inserção de publicidade no servidor. São funções especializadas da distribuição de conteúdo, não controles IAM genéricos.
+
+
+Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Serviço | O que faz | Exemplo |
 |---|---|---|
@@ -43,51 +78,134 @@ Família de serviços de vídeo profissional (broadcast e streaming).
 | **AWS Elemental MediaStore** | Armazenamento otimizado para mídia como origem de vídeo (🔄 **encerrado em 13/11/2025**) | Origem de baixa latência para vídeo ao vivo |
 | **AWS Elemental Appliances and Software** | Codificadores e software Elemental para rodar on-premises | Emissoras com equipamento próprio |
 
-## Amazon Interactive Video Service (IVS)
+### Amazon Interactive Video Service (IVS)
 
-- Streaming ao vivo **gerenciado e de baixa latência**, com a mesma tecnologia da Twitch; inclui chat e recursos interativos.
-- Uso: lives em aplicativos, aulas ao vivo, leilões e e-commerce ao vivo.
+**Antes de ler este trecho:**
 
-## Amazon Elastic Transcoder
+- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
-- Serviço de transcodificação de arquivos de mídia armazenados no S3.
-- 🔄 **Encerrado em 13/11/2025**; a alternativa indicada é o **MediaConvert**.
 
-## Amazon GameLift
+Streaming ao vivo **gerenciado e de baixa latência**, com a mesma tecnologia da Twitch; inclui chat e recursos interativos.
 
-- Hospedagem gerenciada de **servidores dedicados para jogos multiplayer**: escalonamento, matchmaking e uso de instâncias Spot (GameLift Servers), além de streaming de jogos (GameLift Streams).
 
-## Amazon Lumberyard
+Uso: lives em aplicativos, aulas ao vivo, leilões e e-commerce ao vivo.
 
-- Antigo **motor de jogos** gratuito da AWS. 🔄 **Não é mais oferecido**; foi descontinuado e deu origem ao projeto open source **Open 3D Engine (O3DE)**.
+### Amazon Elastic Transcoder
 
-## ⚠️ Como isso aparece na prova
+**Antes de ler este trecho:**
 
-- "Distribuir vídeos com baixa latência para usuários globais" → a resposta da CLF-C02 é **CloudFront** (no escopo), não Elemental.
-- "Armazenar vídeos" → **S3**; "processar vídeo quando chega ao bucket" → **Lambda/S3 events** no escopo da prova.
-- "Analisar rostos e objetos em vídeo" → **Rekognition** (no escopo).
-- "Jogo multiplayer com IPs fixos globais" → **Global Accelerator** (no escopo), não GameLift.
+- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+Serviço de transcodificação de arquivos de mídia armazenados no S3.
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Serviços de mídia/transmissão e infraestrutura especializada de jogos |
-| **O que você decide/configura?** | Tipo de mídia ou servidor de jogo e disponibilidade atual |
-| **Em que ordem as coisas acontecem?** | Consulte a oferta específica quando houver requisito real de produção |
-| **O que pode fazer, e em que condição?** | Famílias têm funções distintas de conversão, distribuição ou hospedagem |
-| **O que não pode presumir?** | Estão fora do escopo; não memorize configurações como prioridade da CLF-C02 |
 
-**Caso comentado:** Vídeo ao vivo não é sinônimo de site estático; conheça a diferença, mas estude primeiro serviços incluídos.
+🔄 **Encerrado em 13/11/2025**; a alternativa indicada é o **MediaConvert**.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+### Amazon GameLift
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+Hospedagem gerenciada de **servidores dedicados para jogos multiplayer**: escalonamento, matchmaking e uso de instâncias Spot (GameLift Servers), além de streaming de jogos (GameLift Streams).
 
-## 🔗 Documentação oficial
+### Amazon Lumberyard
+
+**Antes de ler este trecho:**
+
+- **O3DE:** Motor de desenvolvimento 3D. Desenvolver o conteúdo e operar os recursos necessários são trabalhos diferentes.
+
+
+Antigo **motor de jogos** gratuito da AWS. 🔄 **Não é mais oferecido**; foi descontinuado e deu origem ao projeto open source **Open 3D Engine (O3DE)**.
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha serve para referência fora do escopo indicado, e não para decorar alternativas como respostas universais.
+
+### ⚠️ Como isso aparece na prova
+
+**Antes de ler este trecho:**
+
+- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
+
+
+"Distribuir vídeos com baixa latência para usuários globais" → a resposta da CLF-C02 é **CloudFront** (no escopo), não Elemental.
+
+**Antes de ler este trecho:**
+
+- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
+- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
+
+
+"Armazenar vídeos" → **S3**; "processar vídeo quando chega ao bucket" → **Lambda/S3 events** no escopo da prova.
+
+
+"Analisar rostos e objetos em vídeo" → **Rekognition** (no escopo).
+
+**Antes de ler este trecho:**
+
+- **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
+- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
+
+
+"Jogo multiplayer com IPs fixos globais" → **Global Accelerator** (no escopo), não GameLift.
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+## 5. Caso resolvido: ligando as peças
+
+Compare preparar um vídeo em vários formatos, transmitir uma sessão ao vivo e hospedar partidas. São problemas diferentes, mesmo que todos envolvam conteúdo digital.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Separe preparação de mídia, transmissão ao vivo e hospedagem de partidas.
+**Etapa 2:** Identifique o produto associado à etapa específica e confira sua oferta e suas restrições.
+**Etapa 3:** Compare o resultado com a necessidade. Esta ficha é de referência e não uma recomendação de uso de ofertas antigas.
+
+**Resultado e responsabilidade:** Esta ficha compara produtos para preparar e distribuir mídia e para operar jogos. Cada produto cobre uma parte do processo, conforme sua oferta.
+
+**Recursos envolvidos:** Serviços de mídia/transmissão e infraestrutura especializada de jogos.
+
+**Decisões que precisam ser tomadas:** Tipo de mídia ou servidor de jogo e disponibilidade atual.
+
+**Antes de ler este trecho:**
+
+- **site estático:** Conteúdo entregue como arquivos, sem executar ali toda uma aplicação de processamento de negócio. Pode integrar-se a outros serviços para funções adicionais.
+
+
+**Outra situação comentada:** Vídeo ao vivo não é sinônimo de site estático; conheça a diferença, mas estude primeiro serviços incluídos.
+
+**Por que não concluir mais do que isso:** Estão fora do escopo; não memorize configurações como prioridade da CLF-C02
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Vídeo ao vivo, processamento de mídia e sessões de jogos exigem funções específicas, além de simplesmente guardar um arquivo ou executar uma página.
+
+**2. O que a solução fornece?**
+
+Esta ficha compara produtos para preparar e distribuir mídia e para operar jogos. Cada produto cobre uma parte do processo, conforme sua oferta.
+
+**3. Que conclusão seria incorreta?**
+
+Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha serve para referência fora do escopo indicado, e não para decorar alternativas como respostas universais.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [AWS Elemental](https://aws.amazon.com/media-services/) · [Amazon IVS](https://aws.amazon.com/ivs/) · [Amazon GameLift](https://aws.amazon.com/gamelift/) · [Open 3D Engine](https://o3de.org/)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

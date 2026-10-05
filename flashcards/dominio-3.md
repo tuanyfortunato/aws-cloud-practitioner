@@ -686,9 +686,9 @@ SQS.
 </details>
 
 <details>
-<summary>Garantir ordem e processamento exatamente uma vez.</summary>
+<summary>Ordenar mensagens por grupo e tratar duplicações no envio.</summary>
 
-Fila SQS FIFO.
+Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.
 </details>
 
 <details>

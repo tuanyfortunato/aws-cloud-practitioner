@@ -26,48 +26,136 @@
 >
 > **Escopo oficial:** ⚪ Não listado (saiu da lista atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 🔄 Status
+## Roteiro de leitura
 
-- **Fechado a novos clientes desde 30/04/2026** e **não aparece** na lista atual de serviços da prova (versões traduzidas antigas ainda o citam).
+Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
 
-## Como funciona
+## 1. A sequência de funcionamento
 
-- **Frameworks** prontos (PCI DSS, HIPAA, GDPR, SOC 2, CIS, NIST, FedRAMP, ISO…) ou customizados.
-- **Assessments** coletam evidências automaticamente de **Config**, **Security Hub**, **CloudTrail** e chamadas de API (snapshots de configuração), além de evidências manuais.
-- Gera **relatórios de avaliação** para os auditores; delegação de controles para revisão por responsáveis.
 
-## Cobrança
+**Passo 1.** Defina uma avaliação e os controles que precisam de evidências.
 
-- Por evidência coletada.
+**Passo 2.** Organize coleta de evidências compatíveis e complemente o material necessário.
 
-## ⚠️ Não confundir
+**Passo 3.** Revise a avaliação para a auditoria. A ferramenta não certifica automaticamente a organização nem dispensa controles manuais.
 
-- Artifact (relatórios da AWS) × Audit Manager (evidências do cliente) × Config (avalia regras dos recursos).
+## 2. Recursos e opções, com significado
 
-## ❓ Perguntas típicas
+### 🔄 Status
 
-- "Coletar evidências continuamente para a auditoria da empresa." → Audit Manager.
+**Fechado a novos clientes desde 30/04/2026** e **não aparece** na lista atual de serviços da prova (versões traduzidas antigas ainda o citam).
 
-<!-- aprofundamento:inicio -->
-## 🔬 Ficha prática — visualize o serviço sem console
+### Como funciona
 
-> Este é um mapa dos recursos e decisões, não uma reprodução da tela. Capacidades dependem da modalidade, região e permissões; siga o status de escopo no topo desta ficha.
+**Antes de ler este trecho:**
 
-| Pergunta | O que você precisa compreender |
-|---|---|
-| **O que existe nesse serviço?** | Frameworks, assessments, controls e evidências |
-| **O que você decide/configura?** | Escopo de avaliação e responsáveis |
-| **Em que ordem as coisas acontecem?** | Coleta/organiza evidências e permite revisão humana |
-| **O que pode fazer, e em que condição?** | Ajuda preparação de auditoria conforme disponibilidade do serviço |
-| **O que não pode presumir?** | Não decide conformidade legal automaticamente; observe restrição a novos clientes indicada na ficha |
+- **CIS / NIST / SOC / PCI DSS / HIPAA / GDPR:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
+- **ISO:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
 
-**Caso comentado:** Evidência da conta do cliente difere de relatório da AWS: Audit Manager e Artifact têm papéis distintos.
 
-**Antes de escolher na prova:** identifique o recurso, a ação e o requisito. Diferencie impossibilidade do serviço de falta de configuração, permissão ou modalidade compatível.
+**Frameworks** prontos (PCI DSS, HIPAA, GDPR, SOC 2, CIS, NIST, FedRAMP, ISO…) ou customizados.
 
-**Base técnica:** consulte os links da seção Documentação oficial desta ficha; as comparações reaproveitam os fundamentos descritos acima. [Roteiro de leitura](../../docs/00-guia-do-exame/estudar-sem-console.md).
-<!-- aprofundamento:fim -->
+**Antes de ler este trecho:**
 
-## 🔗 Documentação oficial
+- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
+- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
+- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
+- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
+
+
+**Assessments** coletam evidências automaticamente de **Config**, **Security Hub**, **CloudTrail** e chamadas de API (snapshots de configuração), além de evidências manuais.
+
+
+Gera **relatórios de avaliação** para os auditores; delegação de controles para revisão por responsáveis.
+
+## 3. Como escolher e reconhecer os limites
+
+Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+
+Organizar evidências não garante aprovação na auditoria nem elimina controles manuais. A ficha está identificada como não listada no escopo atual.
+
+### ⚠️ Não confundir
+
+**Antes de ler este trecho:**
+
+- **Artifact:** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
+- **Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+
+
+Artifact (relatórios da AWS) × Audit Manager (evidências do cliente) × Config (avalia regras dos recursos).
+
+## 4. Operação, segurança e custo
+
+Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+
+### Cobrança
+
+Por evidência coletada.
+
+## 5. Caso resolvido: ligando as peças
+
+Uma equipe reúne evidências de seu ambiente AWS e complementa o material com documentos necessários para uma avaliação.
+
+**Aplicando a sequência à situação:**
+
+**Etapa 1:** Defina uma avaliação e os controles que precisam de evidências.
+**Etapa 2:** Organize coleta de evidências compatíveis e complemente o material necessário.
+**Etapa 3:** Revise a avaliação para a auditoria. A ferramenta não certifica automaticamente a organização nem dispensa controles manuais.
+
+**Resultado e responsabilidade:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
+
+**Recursos envolvidos:** Frameworks, assessments, controls e evidências.
+
+**Decisões que precisam ser tomadas:** Escopo de avaliação e responsáveis.
+
+**Antes de ler este trecho:**
+
+- **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
+
+
+**Outra situação comentada:** Evidência da conta do cliente difere de relatório da AWS: Audit Manager e Artifact têm papéis distintos.
+
+**Por que não concluir mais do que isso:** Não decide conformidade legal automaticamente; observe restrição a novos clientes indicada na ficha
+
+## 6. Revisão e perguntas
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+A organização precisa reunir evidências sobre seus controles e organizá-las para uma auditoria, sem depender apenas de coleta manual.
+
+**2. O que a solução fornece?**
+
+Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
+
+**3. Que conclusão seria incorreta?**
+
+Organizar evidências não garante aprovação na auditoria nem elimina controles manuais. A ficha está identificada como não listada no escopo atual.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+### ❓ Perguntas típicas
+
+**Pergunta:** "Coletar evidências continuamente para a auditoria da empresa."
+
+**Resposta curta:** Audit Manager.
+
+
+**Fundamento explicado no capítulo:** "Coletar evidências continuamente para a auditoria da empresa." → Audit Manager.
+
+
+## 7. Fontes e próximos passos
+
+Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
+
+### 🔗 Documentação oficial
 
 - [Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html)
+
+<!-- notas:inicio -->
+## 📝 Minhas anotações
+
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->

@@ -220,7 +220,7 @@ Extrair dados de formulários escaneados.	Textract.	CLF-C02 dominio-3 secao-3_12
 Busca inteligente nos documentos internos da empresa.	Kendra.	CLF-C02 dominio-3 secao-3_12
 Assistente de IA generativa para funcionários e desenvolvedores.	Amazon Q.	CLF-C02 dominio-3 secao-3_12
 Desacoplar componentes para que um pico não derrube o processamento.	SQS.	CLF-C02 dominio-3 secao-3_13
-Garantir ordem e processamento exatamente uma vez.	Fila SQS FIFO.	CLF-C02 dominio-3 secao-3_13
+Ordenar mensagens por grupo e tratar duplicações no envio.	Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.	CLF-C02 dominio-3 secao-3_13
 Enviar a mesma mensagem para vários sistemas e para e-mail.	SNS.	CLF-C02 dominio-3 secao-3_13
 Um evento precisa ser processado por várias filas em paralelo.	Fan-out com SNS + SQS.	CLF-C02 dominio-3 secao-3_13
 Reagir a eventos de serviços AWS e de aplicações SaaS com regras.	EventBridge.	CLF-C02 dominio-3 secao-3_13

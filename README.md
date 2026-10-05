@@ -89,13 +89,16 @@ questões no formato da prova com gabarito comentado e resumos para a revisão f
 <details>
 <summary><b>Como ler um tópico e uma ficha</b> (clique para ver)</summary>
 
-Todos os 41 tópicos têm um aprofundamento com exercício comentado; as 105 fichas têm um mapa de recursos, configurações, fluxo e limites.
+Os 41 tópicos e as 105 fichas seguem uma leitura de apostila, com conceitos antes das opções,
+vocabulário local, funcionamento, casos resolvidos e revisão. Veja [como esta apostila ensina](docs/00-guia-do-exame/estrutura-da-apostila.md).
 
 **Cada tópico** (ex.: [2.3 IAM](docs/02-seguranca-e-conformidade/03-iam.md)) tem:
 - **🧠 Antes de começar:** o problema, a explicação em palavras simples, um exemplo concreto e o que não concluir.
   Depois vêm palavras novas explicadas, objetivos de leitura, uma analogia opcional e revisão para a prova.
-- **📖 Conteúdo:** o que a prova cobra, com a linha **Cai na prova** mostrando os cenários mais comuns.
-- **❓ Perguntas típicas:** pergunta → resposta, no formato das questões.
+- **Conceitos e relação entre as peças:** explicações para compreender a função de cada parte antes de memorizar nomes.
+- **Conceitos e opções explicados:** recursos com definições locais; tabelas de comparação depois das explicações.
+- **Análise e caso resolvido:** necessidade, decisão e raciocínio da resposta.
+- **Revisão:** perguntas com respostas, fundamentos recuperados do capítulo e objetivos de aprendizagem.
 - **🔄 Atualizações 2025-2026:** o que mudou e foi conferido em fonte oficial.
 - **🔎 Fichas detalhadas:** links para os serviços citados.
 - **⚠️ Aviso no topo**, quando o conteúdo mudou na prova atual.
@@ -103,8 +106,8 @@ Todos os 41 tópicos têm um aprofundamento com exercício comentado; as 105 fic
 
 **Cada ficha** (ex.: [Amazon S3](servicos/armazenamento/s3.md)) começa com **🧠 Comece pelo problema**:
 a dificuldade que o serviço resolve, como ele ajuda, um exemplo, o que não resolve sozinho e as primeiras palavras técnicas.
-Depois vêm o resumo em uma frase, o **escopo da prova**, para que serve, componentes, configurações, limites, cobrança, responsabilidade compartilhada,
-pegadinhas e perguntas típicas.
+Depois vêm o **escopo da prova** e capítulos de funcionamento, recursos e opções, escolhas e limites,
+operação e custo, caso resolvido, revisão e fontes. As definições aparecem antes dos trechos que dependem delas.
 
 **Legenda usada em todo o repositório:** 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar ·
 ✔️ confirmado em fonte oficial · ✅ no escopo da prova · ❌ fora do escopo.

@@ -17,21 +17,6 @@
 | **CapEx** | despesa de capital: comprar equipamento antes de usar (investimento antecipado). |
 | **OpEx** | despesa operacional: pagar aos poucos, conforme o uso. |
 
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Citar as **6 vantagens** com o nome oficial.
-- [ ] Ligar cada cenário à vantagem certa (ex.: Black Friday sem comprar servidor → parar de adivinhar capacidade).
-- [ ] Explicar **CapEx × OpEx** em uma frase.
-
-<details>
-<summary>Uma analogia para revisar a ideia</summary>
-
-é como trocar o **carro próprio por aplicativo de transporte**: você não paga o carro à vista (despesa variável), a empresa compra em volume (economia de escala), chama um carro maior quando precisa (parar de adivinhar capacidade), pede em minutos (agilidade), não cuida de oficina (sem manter datacenter) e usa o app em outras cidades (global em minutos).
-
-</details>
-
-> 🎯 **Como não errar na prova:** Procure a palavra que denuncia a vantagem: **"investimento inicial"** → despesa variável; **"não sabe quanto tráfego"** → capacidade; **"preço menor por volume"** → economia de escala; **"outro continente"** → global em minutos.
-
 ---
 
 > **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
@@ -40,51 +25,147 @@
 
 ---
 
-## 📖 Conteúdo
+## 1. Entenda as peças e a relação entre elas
 
-1. **Trocar despesa de capital por despesa variável:** sem investimento antecipado em hardware (CapEx → OpEx).
-2. **Beneficiar-se de economias de escala massivas:** a AWS compra em volume e repassa preços menores.
-3. **Parar de adivinhar capacidade:** escala conforme a demanda real, sem sobra nem falta.
-4. **Aumentar velocidade e agilidade:** recursos em minutos, experimentação barata.
-5. **Parar de gastar dinheiro mantendo datacenters:** foco no negócio, não em racks e energia.
-6. **Tornar-se global em minutos:** implantar em várias regiões com poucos cliques.
+**Antes de ler este trecho:**
 
-- **Cai na prova:** a questão descreve um benefício e pede o nome oficial. Ex.: "não precisa mais comprar servidores para o pico de Black Friday" = parar de adivinhar capacidade.
+- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 
-## ❓ Perguntas típicas
 
-> Também estão nos [flashcards](../../flashcards/dominio-1.md).
+A demanda muda, mas um equipamento comprado permanece na empresa mesmo quando não é utilizado. Obter recursos sob demanda permite aproximar capacidade e necessidade. Isso também reduz a espera para experimentar ou atender um novo projeto.
 
-- "Qual vantagem permite trocar investimento inicial em servidores por pagamento conforme o uso?" → Trocar despesa de capital por despesa variável.
-- "Uma empresa não sabe quanto tráfego terá no lançamento. Qual vantagem ajuda?" → Parar de adivinhar capacidade.
-- "Como a AWS consegue preços menores que um datacenter próprio?" → Economias de escala massivas.
-- "Uma startup quer abrir operação em outro continente em um dia." → Tornar-se global em minutos.
-- "Qual vantagem libera o time para focar no produto em vez de racks e energia?" → Parar de gastar mantendo datacenters.
-
-<!-- aprofundamento:inicio -->
-## 🔬 Aprofundamento para a prova — sem abrir o console
-
-**Como funciona:** Capacidade é disponibilizada conforme a demanda, em vez de ser comprada para um pico futuro. A escala da AWS permite compartilhar infraestrutura entre clientes com isolamento.
-
-**Como escolher:** Identifique o problema: capital antecipado, preço por volume, previsão de capacidade, demora de implantação, manutenção de datacenter ou alcance geográfico.
-
-**O que não concluir:** A nuvem oferece meios de economizar; recursos ociosos, tráfego e configurações inadequadas ainda geram despesas. Agilidade não é sinônimo de menor preço.
-
-### Exercício de decisão
-
-Uma loja mantém servidores para a Black Friday que ficam ociosos o resto do ano. Qual vantagem resolve isso?
+Diferencie o benefício de sua implementação. A nuvem permite ajustar capacidade, mas a equipe precisa configurar esse ajuste. Também é possível manter recursos ociosos na nuvem e pagar por eles; o benefício não acontece só por mudar o local.
 
 <details>
-<summary>Resposta e por que as alternativas confundem</summary>
+<summary>Uma analogia para revisar esta ideia</summary>
 
-Deixar de adivinhar capacidade, combinado com elasticidade: aumentar no pico e reduzir depois. Comprar uma máquina maior permanentemente continua deixando capacidade ociosa.
+é como trocar o **carro próprio por aplicativo de transporte**: você não paga o carro à vista (despesa variável), a empresa compra em volume (economia de escala), chama um carro maior quando precisa (parar de adivinhar capacidade), pede em minutos (agilidade), não cuida de oficina (sem manter datacenter) e usa o app em outras cidades (global em minutos).
 
 </details>
 
-**Verifique seu entendimento:** explique a escolha em voz alta e cite uma condição que mudaria a resposta. Nomear um serviço sem explicar o motivo ainda não demonstra domínio.
+## 2. Conceitos e opções explicados
 
-> Escopo e limites de estudo: [como estudar sem console](../00-guia-do-exame/estudar-sem-console.md). Os cenários são autorais; não são questões oficiais nem previsão do que cairá.
-<!-- aprofundamento:fim -->
+**Antes de ler este trecho:**
+
+- **CapEx / OpEx:** Despesa de capital e despesa operacional. Comprar equipamentos antecipadamente e pagar recursos ao longo do uso têm estruturas econômicas diferentes.
+
+
+1. **Trocar despesa de capital por despesa variável:** sem investimento antecipado em hardware (CapEx → OpEx).
+
+**Antes de ler este trecho:**
+
+- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
+- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
+
+
+2. **Beneficiar-se de economias de escala massivas:** a AWS compra em volume e repassa preços menores.
+
+
+3. **Parar de adivinhar capacidade:** escala conforme a demanda real, sem sobra nem falta.
+
+
+4. **Aumentar velocidade e agilidade:** recursos em minutos, experimentação barata.
+
+
+5. **Parar de gastar dinheiro mantendo datacenters:** foco no negócio, não em racks e energia.
+
+**Antes de ler este trecho:**
+
+- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
+
+
+6. **Tornar-se global em minutos:** implantar em várias regiões com poucos cliques.
+
+
+
+**Cai na prova:** a questão descreve um benefício e pede o nome oficial. Ex.: "não precisa mais comprar servidores para o pico de Black Friday" = parar de adivinhar capacidade.
+
+## 3. Como analisar uma situação
+
+**Antes de ler este trecho:**
+
+- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
+- **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
+- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
+
+
+**Primeiro, identifique o funcionamento:** Capacidade é disponibilizada conforme a demanda, em vez de ser comprada para um pico futuro. A escala da AWS permite compartilhar infraestrutura entre clientes com isolamento.
+
+**Depois, compare as escolhas:** Identifique o problema: capital antecipado, preço por volume, previsão de capacidade, demora de implantação, manutenção de datacenter ou alcance geográfico.
+
+**Por fim, verifique o limite:** A nuvem oferece meios de economizar; recursos ociosos, tráfego e configurações inadequadas ainda geram despesas. Agilidade não é sinônimo de menor preço.
+
+## 4. Caso resolvido
+
+Uma loja mantém servidores para a Black Friday que ficam ociosos o resto do ano. Qual vantagem resolve isso?
+
+**Raciocínio e resposta:** Deixar de adivinhar capacidade, combinado com elasticidade: aumentar no pico e reduzir depois. Comprar uma máquina maior permanentemente continua deixando capacidade ociosa.
+
+A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
+
+## 5. Revisão do capítulo
+
+### Confira se você compreendeu
+
+**1. Qual dificuldade está sendo resolvida?**
+
+Uma loja não sabe quantas pessoas chegarão durante uma promoção. Comprar capacidade para o maior pico pode deixar equipamentos ociosos no resto do ano.
+
+**2. O que a solução fornece?**
+
+Os benefícios da nuvem incluem obter recursos mais rapidamente, ajustar capacidade e mudar a forma de investir em infraestrutura. Cada benefício responde a uma dificuldade diferente.
+
+**3. Que conclusão seria incorreta?**
+
+Nuvem não garante economia em qualquer projeto. Recursos precisam ser escolhidos e acompanhados; este tópico explica benefícios, não uma promessa de redução automática da fatura.
+
+Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+
+**Objetivos de aprendizagem:**
+
+- [ ] Citar as **6 vantagens** com o nome oficial.
+- [ ] Ligar cada cenário à vantagem certa (ex.: Black Friday sem comprar servidor → parar de adivinhar capacidade).
+- [ ] Explicar **CapEx × OpEx** em uma frase.
+
+**Dica de revisão para a prova:** Procure a palavra que denuncia a vantagem: **"investimento inicial"** → despesa variável; **"não sabe quanto tráfego"** → capacidade; **"preço menor por volume"** → economia de escala; **"outro continente"** → global em minutos.
+
+### ❓ Perguntas típicas
+
+> Também estão nos [flashcards](../../flashcards/dominio-1.md).
+**Pergunta:** "Qual vantagem permite trocar investimento inicial em servidores por pagamento conforme o uso?"
+
+**Resposta curta:** Trocar despesa de capital por despesa variável.
+
+
+**Fundamento explicado no capítulo:** "Qual vantagem permite trocar investimento inicial em servidores por pagamento conforme o uso?" → Trocar despesa de capital por despesa variável.
+
+**Pergunta:** "Uma empresa não sabe quanto tráfego terá no lançamento. Qual vantagem ajuda?"
+
+**Resposta curta:** Parar de adivinhar capacidade.
+
+
+**Fundamento explicado no capítulo:** "Uma empresa não sabe quanto tráfego terá no lançamento. Qual vantagem ajuda?" → Parar de adivinhar capacidade.
+
+**Pergunta:** "Como a AWS consegue preços menores que um datacenter próprio?"
+
+**Resposta curta:** Economias de escala massivas.
+
+
+**Fundamento explicado no capítulo:** "Como a AWS consegue preços menores que um datacenter próprio?" → Economias de escala massivas.
+
+**Pergunta:** "Uma startup quer abrir operação em outro continente em um dia."
+
+**Resposta curta:** Tornar-se global em minutos.
+
+
+**Fundamento explicado no capítulo:** "Uma startup quer abrir operação em outro continente em um dia." → Tornar-se global em minutos.
+
+**Pergunta:** "Qual vantagem libera o time para focar no produto em vez de racks e energia?"
+
+**Resposta curta:** Parar de gastar mantendo datacenters.
+
+
+**Fundamento explicado no capítulo:** "Qual vantagem libera o time para focar no produto em vez de racks e energia?" → Parar de gastar mantendo datacenters.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->
