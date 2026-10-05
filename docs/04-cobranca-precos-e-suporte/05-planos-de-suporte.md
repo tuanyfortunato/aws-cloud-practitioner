@@ -1,26 +1,14 @@
 # 4.5 Planos de AWS Support
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** A task 4.3 consultada cita **Developer, Business, Enterprise On-Ramp e Enterprise**; a página comercial apresenta **Business Support+, Enterprise e Unified Operations**. Estude os dois modelos, distinguindo contexto do guia e oferta comercial. Veja a [auditoria](../00-guia-do-exame/auditoria-conteudo-2026-10.md) e a [ficha de suporte](../../servicos/custos/planos-de-suporte.md). [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
-
-⬅️ [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) · 🏠 [Índice do domínio](README.md) · [4.6 Outros recursos de ajuda](06-outros-recursos-de-ajuda.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Os planos de suporte definem **quão rápido e com quanto acompanhamento** a AWS atende você. A prova pede o plano certo pelo tempo de resposta, pelo preço ou por um benefício (como o TAM).
->
-> 🏠 **Analogia:** é como **planos de assistência técnica**: o básico só tem o manual e o FAQ; os planos maiores dão atendimento 24 h, resposta mais rápida e, no topo, um **consultor dedicado** (TAM) que acompanha você de perto.
+**Qual é a dificuldade?** Quando o sistema tem um problema, a empresa precisa saber como pedir ajuda e quais recursos de atendimento estão incluídos em sua oferta.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Planos de suporte definem canais e condições de auxílio. A escolha deve considerar a necessidade de orientação e o impacto dos incidentes.
 
-- [ ] Diferenciar os **planos novos** (Basic, Business Support+, Enterprise, Unified Operations) dos **clássicos**.
-- [ ] Ligar os tempos de resposta a cada plano (30 min, 15 min, 5 min no modelo novo).
-- [ ] Saber o que é **TAM**, **Concierge** e quem tem **todas as verificações do Trusted Advisor**.
+**Exemplo do dia a dia:** Uma empresa avalia o acesso a suporte técnico necessário para sua aplicação e confere as condições da oferta aplicável.
+
+**O que não concluir?** Tempo de primeira resposta não é prazo garantido de correção. Os nomes comerciais e os exemplos do guia podem diferir; leia os avisos e o contexto.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -30,7 +18,32 @@
 | **Concierge** | time de especialistas em faturamento e conta. |
 | **Caso crítico** | sistema crítico de negócio fora do ar. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar os **planos novos** (Basic, Business Support+, Enterprise, Unified Operations) dos **clássicos**.
+- [ ] Ligar os tempos de resposta a cada plano (30 min, 15 min, 5 min no modelo novo).
+- [ ] Saber o que é **TAM**, **Concierge** e quem tem **todas as verificações do Trusted Advisor**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como **planos de assistência técnica**: o básico só tem o manual e o FAQ; os planos maiores dão atendimento 24 h, resposta mais rápida e, no topo, um **consultor dedicado** (TAM) que acompanha você de perto.
+
+</details>
+
 > 🎯 **Como não errar na prova:** Distinga os exemplos clássicos do guia da oferta comercial atual (veja o aviso no topo). "TAM designado + 15 min" → **Enterprise**. "5 min" → **Unified Operations**. "Plano pago de entrada, 30 min" → **Business Support+**.
+
+---
+
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
+
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** A task 4.3 consultada cita **Developer, Business, Enterprise On-Ramp e Enterprise**; a página comercial apresenta **Business Support+, Enterprise e Unified Operations**. Estude os dois modelos, distinguindo contexto do guia e oferta comercial. Veja a [auditoria](../00-guia-do-exame/auditoria-conteudo-2026-10.md) e a [ficha de suporte](../../servicos/custos/planos-de-suporte.md). [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
+⬅️ [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) · 🏠 [Índice do domínio](README.md) · [4.6 Outros recursos de ajuda](06-outros-recursos-de-ajuda.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

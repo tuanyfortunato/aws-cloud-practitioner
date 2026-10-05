@@ -1,20 +1,30 @@
 # Amazon EC2 Auto Scaling
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma loja tem poucos visitantes de madrugada e muitos durante uma promoção. Manter sempre a mesma quantidade de máquinas pode desperdiçar dinheiro ou deixar o site lento.
+
+**Como este serviço ajuda?** O EC2 Auto Scaling aumenta ou diminui a quantidade de máquinas EC2 seguindo regras que você configura. Ele também pode substituir máquinas consideradas sem saúde pelo grupo.
+
+**Exemplo do dia a dia:** A loja configura um grupo que adiciona máquinas quando a demanda aumenta e reduz a quantidade depois da promoção. O programa precisa estar preparado para funcionar em várias máquinas.
+
+**O que ele não resolve sozinho?** Ele gerencia a quantidade de máquinas; não distribui sozinho cada pedido dos visitantes entre elas. Essa distribuição costuma ser feita por um balanceador.
+
+**Primeiras palavras para entender:**
+
+- **Escalar:** ajustar capacidade.
+- **Grupo:** conjunto de máquinas administrado em conjunto.
+- **Política:** regra para decidir quando ajustar esse conjunto.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação · **Domínio:** 1 (elasticidade) e 3 · **Escopo:** Regional (grupo distribuído entre AZs) · **Tópico do guia:** [3.4 Escalabilidade e balanceamento](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md)
 >
 > **Em uma frase:** aumenta e reduz automaticamente o número de instâncias EC2 conforme a demanda e substitui as que falham.
 >
 > **Escopo oficial:** ✅ No escopo (AWS Auto Scaling) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como um **gerente que chama funcionários extras no horário de pico** e dispensa quando o movimento cai — e substitui quem faltar.
-
-- ✅ **Escolha quando:** a carga varia e você quer **aumentar e reduzir instâncias automaticamente**, ou garantir um número mínimo de instâncias saudáveis.
-- 🚫 **Não é a resposta quando:** precisa **distribuir o tráfego** entre as instâncias → [Elastic Load Balancing](elastic-load-balancing.md); quer uma instância **maior** (escala vertical) → trocar o tipo da [EC2](ec2.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "elasticidade", "escalar automaticamente", "pico toda sexta", "manter a CPU em 50%", "substituir instâncias com falha".
-<!-- didatico:fim -->
 
 ## Para que serve
 

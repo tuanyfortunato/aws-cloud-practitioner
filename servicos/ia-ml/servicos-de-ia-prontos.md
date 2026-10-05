@@ -1,20 +1,30 @@
 # Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A aplicação precisa de uma capacidade específica, como transcrever áudio ou extrair texto, e a equipe não quer desenvolver um modelo próprio para isso.
+
+**Como este serviço ajuda?** Serviços de IA prontos oferecem funções delimitadas: Transcribe transforma fala em texto, Textract extrai conteúdo de documentos, Polly gera fala e outros atendem tradução, imagem ou linguagem.
+
+**Exemplo do dia a dia:** A escola usa uma função de transcrição para produzir texto de uma gravação e revisa o resultado antes de disponibilizá-lo.
+
+**O que ele não resolve sozinho?** Cada serviço trata um tipo de tarefa. Nenhum garante precisão perfeita nem deve ser escolhido só porque a pergunta menciona IA. Compatibilidade e escopo variam por produto.
+
+**Primeiras palavras para entender:**
+
+- **Transcrição:** fala convertida em texto.
+- **Extração:** identificação de conteúdo.
+- **API:** interface pela qual a aplicação pede a função.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** IA / serviços de alto nível · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 >
 > **Em uma frase:** APIs de IA já treinadas pela AWS — você não precisa de experiência em ML, só chama a API.
 >
 > **Escopo oficial:** 🔀 Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate ✅ · Kendra ⚪ não listado · Personalize e Fraud Detector ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **APIs que já vêm treinadas**: você manda a foto, o texto ou o áudio e recebe a resposta.
-
-- ✅ **Escolha quando:** precisa de uma **capacidade de IA específica** sem ter experiência em machine learning.
-- 🚫 **Não é a resposta quando:** precisa de um **modelo próprio** → [SageMaker AI](sagemaker-ai.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "rostos e objetos" → Rekognition; "sentimento" → Comprehend; "chatbot" → Lex; "texto em fala" → Polly; "fala em texto" → Transcribe; "formulários escaneados" → Textract; "traduzir" → Translate.
-<!-- didatico:fim -->
 
 ## Tabela de associação (📌 decorar)
 

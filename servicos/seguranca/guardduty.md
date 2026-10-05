@@ -1,20 +1,30 @@
 # Amazon GuardDuty
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa precisa perceber sinais de atividade suspeita, como comportamento incomum de credenciais ou recursos, sem analisar manualmente todos os registros.
+
+**Como este serviço ajuda?** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
+
+**Exemplo do dia a dia:** O serviço identifica um padrão suspeito associado a uma identidade ou recurso e gera um achado para a equipe investigar.
+
+**O que ele não resolve sozinho?** Um achado não confirma sozinho uma invasão. GuardDuty não é, por si só, um bloqueador de todo tráfego; respostas automáticas exigem recursos e configurações apropriados.
+
+**Primeiras palavras para entender:**
+
+- **Ameaça:** possível ação prejudicial.
+- **Achado:** indicação de segurança para análise.
+- **Detecção:** identificação de sinais suspeitos.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / detecção de ameaças · **Domínio:** 2 · **Escopo:** Regional (multi-conta via Organizations) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 >
 > **Em uma frase:** detecção inteligente e contínua de **ameaças ativas** usando machine learning, detecção de anomalias e inteligência de ameaças.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **alarme inteligente** que vigia os registros da conta e avisa quando algo suspeito acontece.
-
-- ✅ **Escolha quando:** precisa **detectar ameaças ativas**: mineração de criptomoeda, acesso de IP malicioso, credenciais roubadas.
-- 🚫 **Não é a resposta quando:** procura **vulnerabilidades de software** → [Inspector](inspector.md); procura **dados sensíveis** no S3 → [Macie](macie.md); quer **investigar a causa** → [Detective](detective.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "atividade maliciosa", "detecção de ameaças", "analisa CloudTrail, VPC Flow Logs e DNS".
-<!-- didatico:fim -->
 
 ## Fontes de dados
 

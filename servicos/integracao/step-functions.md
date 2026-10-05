@@ -1,20 +1,30 @@
 # AWS Step Functions
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um processo tem várias etapas, algumas decisões e possibilidade de falha. Controlar toda essa sequência dentro de um único programa pode dificultar o acompanhamento.
+
+**Como este serviço ajuda?** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis. Você define a sequência, as decisões e o comportamento diante de falhas.
+
+**Exemplo do dia a dia:** Uma matrícula passa por verificação, cobrança e confirmação. O fluxo coordena essas tarefas e registra o estado de cada execução.
+
+**O que ele não resolve sozinho?** O serviço coordena as etapas; ele não escreve automaticamente o código que cobra ou verifica os dados. As etapas precisam existir e ter acessos configurados.
+
+**Primeiras palavras para entender:**
+
+- **Workflow:** fluxo de trabalho.
+- **Estado:** etapa ou condição da execução.
+- **Retry:** nova tentativa após determinada falha.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Integração de aplicações / orquestração · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 >
 > **Em uma frase:** orquestra **fluxos de trabalho de várias etapas** como máquinas de estado visuais, com tratamento de erros e retentativas.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **fluxograma que se executa sozinho**: passo 1, depois o 2; se der erro, tenta de novo; se precisar, espera aprovação.
-
-- ✅ **Escolha quando:** precisa **orquestrar processos de várias etapas** com tratamento de erro.
-- 🚫 **Não é a resposta quando:** precisa só **reagir a um evento** → [EventBridge](eventbridge.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "orquestrar", "workflow", "várias etapas", "aprovação humana".
-<!-- didatico:fim -->
 
 ## Conceitos
 

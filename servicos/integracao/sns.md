@@ -1,20 +1,30 @@
 # Amazon SNS (Simple Notification Service)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um acontecimento precisa avisar vários interessados, e o sistema não quer enviar manualmente uma mensagem diferente para cada um.
+
+**Como este serviço ajuda?** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis. Cada assinante recebe a notificação pelo mecanismo configurado.
+
+**Exemplo do dia a dia:** Quando um pedido é confirmado, um tópico avisa sistemas de faturamento e acompanhamento por assinaturas compatíveis.
+
+**O que ele não resolve sozinho?** Publicar para vários assinantes é diferente de guardar trabalhos numa fila para um consumidor. Entrega, conteúdo e destinatários precisam de configuração apropriada.
+
+**Primeiras palavras para entender:**
+
+- **Tópico:** canal de publicação.
+- **Assinante:** destino inscrito nesse canal.
+- **Pub/sub:** padrão de publicar mensagens e recebê-las por assinaturas.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Integração de aplicações / pub-sub · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 >
 > **Em uma frase:** serviço **pub/sub**: um produtor publica num **tópico** e a mensagem é **empurrada** para todos os assinantes.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **alto-falante**: você publica uma vez e todos os inscritos recebem (e-mail, SMS, filas, funções).
-
-- ✅ **Escolha quando:** precisa **notificar vários sistemas ou pessoas ao mesmo tempo** (pub/sub, fan-out).
-- 🚫 **Não é a resposta quando:** a mensagem deve ser **processada no ritmo do consumidor** → [SQS](sqs.md); são **e-mails de marketing** → [SES](../aplicacoes/ses.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "notificar", "pub/sub", "fan-out", "SMS", "vários assinantes".
-<!-- didatico:fim -->
 
 ## Conceitos
 

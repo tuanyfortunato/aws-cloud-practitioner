@@ -1,20 +1,30 @@
 # AWS WAF (Web Application Firewall)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um site precisa analisar pedidos web e bloquear padrões indesejados, como tentativas de explorar campos de entrada ou volumes excessivos de chamadas.
+
+**Como este serviço ajuda?** WAF aplica regras ao tráfego web em integrações compatíveis. Você define critérios de inspeção e ações como permitir ou bloquear.
+
+**Exemplo do dia a dia:** A escola configura regras para inspecionar pedidos ao seu site e limitar padrões de requisições suspeitos.
+
+**O que ele não resolve sozinho?** WAF não corrige o código vulnerável nem protege automaticamente todo protocolo e recurso AWS. A regra deve estar associada ao ponto de entrada compatível.
+
+**Primeiras palavras para entender:**
+
+- **Requisição:** pedido feito ao site.
+- **Regra:** condição e ação de inspeção.
+- **Web ACL:** conjunto de regras aplicado pelo WAF.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / proteção de aplicações · **Domínio:** 2 · **Escopo:** Global (CloudFront) ou Regional · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 >
 > **Em uma frase:** firewall de **camada 7** que filtra requisições HTTP(S) maliciosas antes que cheguem à aplicação.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **porteiro que lê cada requisição web** e barra as perigosas (SQL injection, XSS) ou excessivas.
-
-- ✅ **Escolha quando:** precisa proteger **aplicações web** em CloudFront, ALB ou API Gateway contra ataques na camada 7.
-- 🚫 **Não é a resposta quando:** o problema é **DDoS volumétrico** → [Shield](shield.md); precisa de **firewall de rede** da VPC → security groups e NACLs, na ficha da [VPC](../redes/vpc.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "SQL injection", "cross-site scripting (XSS)", "bloquear países", "limitar requisições por IP".
-<!-- didatico:fim -->
 
 ## Onde se associa
 

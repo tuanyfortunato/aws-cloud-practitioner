@@ -12,8 +12,9 @@ import csv
 import os
 import re
 
-from didatica_docs import DOMINIOS as DIDATICA_DOMINIOS, TOPICOS as DIDATICA_TOPICOS
+from didatica_docs import DOMINIOS as DIDATICA_DOMINIOS, TOPICOS as DIDATICA_TOPICOS, APOIO, bloco_apoio
 from aprofundamento import TOPICOS as APROFUNDAMENTOS, FICHAS as FICHAS_PRATICAS, bloco_topico, bloco_ficha
+from introducoes_servicos import FICHAS as INTRODUCOES_FICHAS, bloco_ficha as bloco_inicio_ficha
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GUIA = os.path.join(RAIZ, "fontes", "guia-completo-clf-c02.md")
@@ -365,14 +366,18 @@ def bloco_didatico(sec):
     """Seção "Antes de começar" do tópico (conteúdo em scripts/didatica_docs.py)."""
     d = DIDATICA_TOPICOS[sec]
     linhas = ["## 🧠 Antes de começar", "",
-              f"> 💡 **Em palavras simples:** {d['simples']}", ">",
-              f"> 🏠 **Analogia:** {d['analogia']}", "",
-              "**Ao terminar este tópico, você deve saber:**", ""]
-    linhas += [f"- [ ] {item}" for item in d["saber"]]
+              f"**Qual é a dificuldade?** {d['problema']}", "",
+              f"**A ideia em palavras simples:** {d['simples']}", "",
+              f"**Exemplo do dia a dia:** {d['exemplo']}", "",
+              f"**O que não concluir?** {d['limite']}"]
     if d.get("termos"):
         linhas += ["", "**📚 Palavras que aparecem aqui:**", "", "| Termo | Em palavras simples |", "|---|---|"]
         linhas += [f"| **{termo}** | {explicacao} |" for termo, explicacao in d["termos"]]
-    linhas += ["", f"> 🎯 **Como não errar na prova:** {d['dica']}"]
+    linhas += ["", "**Ao terminar este tópico, você deve saber:**", ""]
+    linhas += [f"- [ ] {item}" for item in d["saber"]]
+    linhas += ["", "<details>", "<summary>Uma analogia para revisar a ideia</summary>", "",
+               d["analogia"], "", "</details>", "",
+               f"> 🎯 **Como não errar na prova:** {d['dica']}"]
     return "\n".join(linhas)
 
 
@@ -419,13 +424,15 @@ def gerar_topicos(secoes):
         notas = ler_bloco(os.path.join(RAIZ, caminho), NOTAS_INI, NOTAS_FIM, NOTAS_VAZIO)
         conteudo = f"""# {rotulo} {titulo}
 
+{bloco_didatico(sec)}
+
+---
+
 > **{nome_dom} ({peso})** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
 {bloco_fichas}{aviso}
 {" · ".join(nav)}
 
 ---
-
-{bloco_didatico(sec)}
 
 ## 📖 Conteúdo
 
@@ -463,18 +470,27 @@ def gerar_readmes_dominio(secoes, intros, ordem):
             intro = "".join(blocos)
         escrever(caminho, f"""# {nome}
 
+## 🧠 Antes de começar
+
+**Qual é a dificuldade?** {DIDATICA_DOMINIOS[dom]['problema']}
+
+**A ideia em palavras simples:** {DIDATICA_DOMINIOS[dom]['simples']}
+
+**Exemplo do dia a dia:** {DIDATICA_DOMINIOS[dom]['exemplo']}
+
+Comece pelas aberturas dos tópicos para entender a situação e a solução. Depois use o vocabulário,
+os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço; o índice não substitui essa leitura.
+
 **Peso na prova:** {peso} das questões pontuadas
 
 {intro}
 
 ## 🧭 Como estudar este domínio
 
-> 💡 **Em palavras simples:** {DIDATICA_DOMINIOS[dom]['simples']}
-
 - 🗺️ **Ordem sugerida:** {DIDATICA_DOMINIOS[dom]['ordem']}
 - 🎯 **Dica:** {DIDATICA_DOMINIOS[dom]['dica']}
-- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
-  palavras novas explicadas e como não errar na prova.
+- 🧠 Cada tópico começa com a seção **Antes de começar**: problema, explicação, exemplo e limite.
+  Depois vêm palavras novas explicadas, objetivos de leitura e revisão para a prova.
 
 ## Tópicos
 
@@ -651,6 +667,37 @@ def aplicar_fichas_praticas():
         texto = texto.replace(ancora, bloco_ficha(nome) + "\n" + ancora, 1)
         escrever(caminho, texto)
 
+
+def inserir_abertura(texto, bloco):
+    """Substitui só a abertura gerenciada e a posiciona logo após o título."""
+    marcador = re.compile(r"<!-- didatico:inicio -->.*?<!-- didatico:fim -->\n*", re.S)
+    quantidade = len(marcador.findall(texto))
+    assert quantidade <= 1, "Bloco didático duplicado"
+    assert (texto.count("<!-- didatico:inicio -->") ==
+            texto.count("<!-- didatico:fim -->") == quantidade), "Marcadores didáticos incompletos"
+    texto = marcador.sub("", texto)
+    titulo, separador, resto = texto.partition("\n")
+    assert separador and titulo.startswith("# "), "Título inicial ausente"
+    return titulo + "\n\n" + bloco + "\n\n" + resto.lstrip("\n")
+
+
+def aplicar_introducoes():
+    """Aberturas completas; sem alterar notas, conteúdo técnico ou fontes originais."""
+    assert set(CATEGORIA) == set(INTRODUCOES_FICHAS), "Cobertura das introduções de fichas incompleta"
+    for nome, cat in CATEGORIA.items():
+        caminho = os.path.join("servicos", cat, nome + ".md")
+        with open(os.path.join(RAIZ, caminho)) as f:
+            texto = f.read()
+        escrever(caminho, inserir_abertura(texto, bloco_inicio_ficha(nome)))
+    pasta = os.path.join("docs", "00-guia-do-exame")
+    existentes = {n for n in os.listdir(os.path.join(RAIZ, pasta)) if n.endswith(".md")}
+    assert existentes == set(APOIO), "Cobertura das introduções do guia incompleta"
+    for nome in APOIO:
+        caminho = os.path.join(pasta, nome)
+        with open(os.path.join(RAIZ, caminho)) as f:
+            texto = f.read()
+        escrever(caminho, inserir_abertura(texto, bloco_apoio(nome)))
+
 NOMES_CATEGORIA = {
     "computacao": "🖥️ Computação",
     "armazenamento": "🗄️ Armazenamento",
@@ -671,6 +718,10 @@ NOMES_CATEGORIA = {
 
 def gerar_indice_servicos():
     partes = ["# 🔎 Fichas de serviços AWS\n",
+              "## 🧭 Por onde começar\n\n"
+              "Se você ainda não conhece um serviço, abra sua ficha e leia **Comece pelo problema**. "
+              "A abertura explica a dificuldade, a solução, um exemplo, os limites e as primeiras palavras técnicas. "
+              "Só depois avance para componentes, configurações e questões da prova.\n",
               "Uma ficha por serviço (ou família de serviços), com o que cai na prova e o que vai além: "
               "componentes, configurações, limites, cobrança, responsabilidade compartilhada, "
               "atualizações 2025-2026, pegadinhas e perguntas típicas.\n",
@@ -807,6 +858,7 @@ def main():
     gerar_resumos(extras)
     aplicar_escopo_fichas()
     aplicar_fichas_praticas()
+    aplicar_introducoes()
     fichas = gerar_indice_servicos()
     gerar_indice_readme(secoes, ordem, total)
     print(f"{len(ordem)} tópicos, {total} flashcards e índice de {fichas} fichas gerados.")

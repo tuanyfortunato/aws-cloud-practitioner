@@ -1,7 +1,10 @@
 """Conteúdo didático inserido pelo gerar_docs.py nos tópicos e nos índices de domínio de docs/.
 
-Cada tópico ganha a seção "🧠 Antes de começar", logo antes do "📖 Conteúdo":
+Cada tópico ganha a seção "🧠 Antes de começar", logo após o título:
+- problema: dificuldade concreta que dá sentido ao tema;
 - simples:  a ideia do tópico em palavras simples;
+- exemplo: situação ilustrativa com a solução explicada;
+- limite: o que o tema ou serviço não resolve por si só;
 - analogia: comparação com algo do dia a dia;
 - saber:    o que você deve saber responder ao terminar (checklist);
 - termos:   palavras novas explicadas sem jargão (opcional);
@@ -13,8 +16,6 @@ Tudo aqui só explica o que já está no conteúdo do tópico: não acrescenta f
 TOPICOS = {
     # ------------------------------------------------------------------ Domínio 1
     "1.1": {
-        "simples": "Computação em nuvem é **usar computadores, armazenamento e programas de outra empresa pela internet**, "
-                   "na hora em que você precisa, pagando só pelo que usar — em vez de comprar e manter as máquinas.",
         "analogia": "é como a **energia elétrica**: você não constrói uma usina em casa; liga na tomada e paga a conta do que consumiu. "
                     "Os modelos de serviço são como **pizza**: fazer em casa com ingredientes alugados (IaaS), "
                     "levar a massa pronta e só escolher o recheio (PaaS) ou pedir a pizza pronta (SaaS).",
@@ -29,8 +30,6 @@ TOPICOS = {
                 "Se parte fica no datacenter e parte na AWS, é **híbrido**.",
     },
     "1.2": {
-        "simples": "A AWS resume os benefícios da nuvem em **seis frases oficiais**. A prova descreve uma situação e pede "
-                   "qual dessas frases ela representa.",
         "analogia": "é como trocar o **carro próprio por aplicativo de transporte**: você não paga o carro à vista (despesa variável), "
                     "a empresa compra em volume (economia de escala), chama um carro maior quando precisa (parar de adivinhar capacidade), "
                     "pede em minutos (agilidade), não cuida de oficina (sem manter datacenter) e usa o app em outras cidades (global em minutos).",
@@ -43,8 +42,6 @@ TOPICOS = {
                 "capacidade; **\"preço menor por volume\"** → economia de escala; **\"outro continente\"** → global em minutos.",
     },
     "1.3": {
-        "simples": "São as **palavras de arquitetura** que a AWS usa para descrever um bom sistema na nuvem: crescer, "
-                   "aguentar falhas, voltar de desastres e manter as partes independentes.",
         "analogia": "pense num **restaurante**: contratar garçons extras no sábado e dispensá-los na segunda é **elasticidade**; "
                     "ter duas cozinhas para o caso de uma pegar fogo é **alta disponibilidade**; os pedidos ficarem num quadro "
                     "em vez de o garçom esperar o cozinheiro é **acoplamento fraco**.",
@@ -60,8 +57,6 @@ TOPICOS = {
                 "\"Falha de um componente não afetar os outros\" → **acoplamento fraco** (SQS, SNS, EventBridge).",
     },
     "1.4": {
-        "simples": "O Well-Architected é o **manual de boas práticas da AWS**, dividido em **seis pilares**. A prova descreve "
-                   "uma prática e pergunta a qual pilar ela pertence.",
         "analogia": "é como a **inspeção de uma casa** em seis itens: a casa é fácil de manter (Excelência Operacional), tem tranca "
                     "(Segurança), não cai (Confiabilidade), tem o tamanho certo (Eficiência de Performance), não desperdiça dinheiro "
                     "(Otimização de Custos) e gasta pouca energia (Sustentabilidade).",
@@ -75,8 +70,6 @@ TOPICOS = {
                 "**gasto** → Custos; **energia/Graviton** → Sustentabilidade.",
     },
     "1.5": {
-        "simples": "O CAF é o **guia da AWS para a empresa inteira se preparar** para a nuvem — não só a TI, mas também "
-                   "negócio, pessoas e governança. Ele divide o trabalho em **6 perspectivas** e **4 fases**.",
         "analogia": "é como **mudar a família inteira para outro país**: alguém cuida do dinheiro e do objetivo (Business), "
                     "alguém prepara as pessoas e o idioma (People), alguém controla orçamento e riscos (Governance), "
                     "e os outros cuidam da casa nova (Platform), da segurança (Security) e do dia a dia (Operations).",
@@ -89,8 +82,6 @@ TOPICOS = {
                 "arquitetura → **Platform**; monitoramento e incidentes → **Operations**.",
     },
     "1.6": {
-        "simples": "Antes de migrar, cada aplicação recebe uma **estratégia**: desligar, manter, mover como está, ajustar um pouco, "
-                   "trocar por outro produto ou reescrever. São os **7 Rs**.",
         "analogia": "é como **mudar de casa** e decidir o destino de cada móvel: jogar fora (Retire), deixar na casa antiga (Retain), "
                     "levar como está (Rehost), levar o cômodo inteiro de uma vez (Relocate), levar e trocar o estofado (Replatform), "
                     "comprar um novo (Repurchase) ou mandar fazer um sob medida (Refactor).",
@@ -103,8 +94,6 @@ TOPICOS = {
                 "\"ninguém usa\" → Retire; \"ainda não pode sair\" → Retain.",
     },
     "1.7": {
-        "simples": "Economia da nuvem é **comparar o custo total** de manter um datacenter com o de usar a nuvem — e conhecer "
-                   "as práticas que reduzem a conta (licenças, tamanho certo, serviços gerenciados, automação).",
         "analogia": "é como comparar **ter carro próprio** (compra, seguro, IPVA, garagem, manutenção) com **usar aplicativo**: "
                     "o preço da corrida parece maior, mas o custo total costuma ser menor quando você soma tudo (isso é o **TCO**).",
         "saber": ["Diferenciar custos **fixos e antecipados** (on-premises) de **variáveis** (nuvem).",
@@ -118,8 +107,6 @@ TOPICOS = {
     },
     # ------------------------------------------------------------------ Domínio 2
     "2.1": {
-        "simples": "A segurança é dividida: a **AWS protege a nuvem em si** (prédios, hardware, rede) e **o cliente protege o que "
-                   "coloca nela** (dados, acessos, configurações). A fronteira muda conforme o serviço.",
         "analogia": "é como **morar de aluguel num prédio**: o condomínio cuida da portaria, da estrutura e dos elevadores (AWS); "
                     "você tranca a porta do seu apartamento e decide quem recebe a chave (cliente). "
                     "Num **hotel** (serviço gerenciado), o hotel faz ainda mais por você.",
@@ -132,8 +119,6 @@ TOPICOS = {
                 "criptografia ativada → cliente. Quanto **mais gerenciado** o serviço, **menos** o cliente faz.",
     },
     "2.2": {
-        "simples": "O usuário root é o **dono da conta**, criado com o e-mail de cadastro. Ele pode tudo e não pode ser limitado "
-                   "por IAM — por isso deve ser protegido e usado só nas poucas tarefas que exigem ele.",
         "analogia": "é a **chave-mestra do prédio**: abre todas as portas, então fica guardada no cofre (com MFA) e só sai para "
                     "situações especiais. No dia a dia, cada um usa o próprio crachá (identidades IAM).",
         "saber": ["Citar as **boas práticas** do root (MFA, sem access keys, não usar no dia a dia).",
@@ -145,8 +130,6 @@ TOPICOS = {
                 "(criar usuário, ver fatura) **não** exigem root.",
     },
     "2.3": {
-        "simples": "O IAM decide **quem entra** (autenticação) e **o que cada um pode fazer** (autorização) na conta AWS, usando "
-                   "usuários, grupos, roles e políticas em JSON.",
         "analogia": "é o **sistema de crachás de uma empresa**: o usuário é a pessoa com crachá; o grupo é o departamento; "
                     "a role é um **crachá de visitante** temporário que alguém pega emprestado; a política é a lista de salas que o crachá abre.",
         "saber": ["Diferenciar **usuário, grupo, role e política**.",
@@ -161,8 +144,6 @@ TOPICOS = {
                 "\"Usuários do aplicativo\" → **Cognito**. \"Rotação automática de senhas\" → **Secrets Manager**.",
     },
     "2.4": {
-        "simples": "Empresas grandes usam **várias contas AWS** (produção, testes, segurança). Este tópico mostra como "
-                   "**organizar, limitar e cobrar** todas elas de forma central.",
         "analogia": "é como uma **rede de franquias**: a matriz (Organizations) agrupa as lojas, define o que nenhuma pode fazer (SCP), "
                     "paga uma fatura única e, com o Control Tower, entrega cada loja nova já montada no padrão.",
         "saber": ["Explicar **Organizations**, **OUs** e **consolidated billing**.",
@@ -176,8 +157,6 @@ TOPICOS = {
                 "**Control Tower**. \"Uma fatura e desconto por volume\" → **consolidated billing**.",
     },
     "2.5": {
-        "simples": "Criptografar é **embaralhar os dados** para que só quem tem a chave consiga ler. Este tópico mostra quando "
-                   "criptografar (guardado ou trafegando) e qual serviço cuida das chaves e dos certificados.",
         "analogia": "a criptografia é um **cadeado**; a chave é o que abre. O **KMS** é um chaveiro gerenciado pela AWS; o **CloudHSM** é "
                     "um **cofre só seu**; o **ACM** fornece o cadeado do HTTPS (o ícone de cadeado no navegador).",
         "saber": ["Diferenciar criptografia **em repouso** de **em trânsito**.",
@@ -191,8 +170,6 @@ TOPICOS = {
                 "\"Certificado HTTPS\" → **ACM**. Quem **ativa** a criptografia dos dados é o **cliente**.",
     },
     "2.6": {
-        "simples": "Compliance é **provar que se segue as regras** (leis e normas). A AWS fornece os relatórios dela; o cliente "
-                   "cuida da conformidade do que ele mesmo constrói.",
         "analogia": "o **Artifact** é a **pasta de certificados da AWS** que você entrega ao auditor; o **Audit Manager** é um "
                     "**assistente que junta as provas da sua própria empresa** para a sua auditoria.",
         "saber": ["Diferenciar **Artifact** (relatórios da AWS) de **Audit Manager** (evidências da sua conta).",
@@ -205,8 +182,6 @@ TOPICOS = {
                 "\"Avaliar se os recursos seguem regras\" → **AWS Config**.",
     },
     "2.7": {
-        "simples": "Três serviços respondem três perguntas diferentes: **quem fez?** (CloudTrail), **como estava configurado?** "
-                   "(Config) e **como está o desempenho agora?** (CloudWatch).",
         "analogia": "o **CloudTrail** é a **câmera de segurança** (grava quem fez cada ação); o **Config** é o **álbum de fotos** da "
                     "configuração ao longo do tempo; o **CloudWatch** é o **painel do carro**, com indicadores e luzes de alerta.",
         "saber": ["Ligar cada pergunta ao serviço: quem fez → CloudTrail; configuração e conformidade → Config; métricas e alarmes → CloudWatch.",
@@ -219,8 +194,6 @@ TOPICOS = {
                 "CloudWatch. \"Verificar **continuamente** se segue a regra\" → Config rules.",
     },
     "2.8": {
-        "simples": "São as **barreiras** que protegem a rede e as aplicações: firewalls na instância e na subnet, proteção contra "
-                   "ataques de negação de serviço (DDoS) e contra ataques à aplicação web.",
         "analogia": "o **security group** é o **porteiro do apartamento** (lembra quem entrou e deixa sair); a **NACL** é o **portão da "
                     "rua** (confere entrada e saída e pode barrar alguém pelo nome); o **Shield** é um **quebra-mar** contra enxurradas de "
                     "tráfego; o **WAF** é o **segurança que lê cada pedido** e barra os maliciosos.",
@@ -235,8 +208,6 @@ TOPICOS = {
                 "com \"time especialista\" ou \"proteção de custo\" → **Shield Advanced**.",
     },
     "2.9": {
-        "simples": "São os serviços que **encontram problemas de segurança**: ameaças em andamento, vulnerabilidades, dados "
-                   "sensíveis expostos — e os que investigam e centralizam esses alertas.",
         "analogia": "é uma **equipe de segurança**: o **GuardDuty** é o alarme que dispara; o **Inspector** é o vistoriador que procura "
                     "brechas; o **Macie** procura documentos sensíveis largados; o **Detective** investiga depois do alarme; o "
                     "**Security Hub** é a sala de monitoramento que junta tudo; o **Trusted Advisor** é o consultor de boas práticas.",
@@ -250,8 +221,6 @@ TOPICOS = {
                 "\"causa raiz\" → Detective; \"painel central\" → Security Hub; \"boas práticas e custo\" → Trusted Advisor.",
     },
     "2.10": {
-        "simples": "Pontos soltos de segurança: o que pode ser testado sem pedir autorização, **a quem denunciar abuso** vindo "
-                   "da AWS e **onde buscar informação** de segurança.",
         "analogia": "o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a AWS para te atacar (spam, phishing), "
                     "é para lá que você reclama — não para o suporte técnico.",
         "saber": ["Saber que **pentest** é permitido sem aprovação prévia numa lista de serviços, mas DDoS simulado não.",
@@ -263,8 +232,6 @@ TOPICOS = {
     },
     # ------------------------------------------------------------------ Domínio 3
     "3.1": {
-        "simples": "Há várias **portas de entrada** para usar a AWS — clicando, digitando comandos, programando ou descrevendo a "
-                   "infraestrutura num arquivo. Todas usam as mesmas APIs por baixo.",
         "analogia": "é como falar com um **banco**: pelo **site** (Console), pelo **atendimento por comandos** (CLI), por um **aplicativo "
                     "seu integrado ao banco** (SDK) ou deixando **instruções programadas** que se repetem sozinhas (CloudFormation).",
         "saber": ["Diferenciar **Console, CLI, SDK e CloudShell**.",
@@ -276,8 +243,6 @@ TOPICOS = {
                 "\"Dentro do código da aplicação\" → **SDK**.",
     },
     "3.2": {
-        "simples": "A AWS está espalhada pelo mundo em **regiões**; cada região tem várias **zonas de disponibilidade (AZs)**; "
-                   "e há centenas de **edge locations** perto dos usuários. Existem ainda formas de levar a AWS para mais perto.",
         "analogia": "a **região** é uma **cidade**; cada **AZ** é um **bairro** com a própria energia e rede, longe o bastante para um "
                     "incêndio não atingir os outros; as **edge locations** são **lojinhas de conveniência** espalhadas que guardam cópias "
                     "do que mais se pede.",
@@ -292,8 +257,6 @@ TOPICOS = {
                 "**CloudFront/edge**. \"AWS dentro do **meu** datacenter\" → **Outposts**.",
     },
     "3.3": {
-        "simples": "O EC2 é o **servidor virtual** da AWS: você escolhe o tamanho, o sistema operacional e o disco, e controla "
-                   "tudo dentro dele.",
         "analogia": "é como **alugar um computador**: a **AMI** é o \"molde\" com o sistema já instalado; a **família de instância** é o "
                     "modelo do computador (para jogos, para planilhas pesadas, para muita memória); o **EBS** é o HD que fica guardado "
                     "mesmo com o computador desligado.",
@@ -308,8 +271,6 @@ TOPICOS = {
                 "\"dado temporário que pode ser perdido\" → **instance store**; \"acesso sem SSH\" → **Session Manager**.",
     },
     "3.4": {
-        "simples": "Dois serviços trabalham juntos: o **Auto Scaling** muda a **quantidade** de servidores conforme a demanda, e o "
-                   "**Load Balancer** **distribui** os usuários entre eles.",
         "analogia": "num **supermercado**, o **Auto Scaling** é o gerente que abre ou fecha caixas conforme a fila; o **Load Balancer** é "
                     "o funcionário que aponta \"o caixa 3 está livre\" e nunca manda ninguém para o caixa fechado.",
         "saber": ["Explicar **mínimo, desejado e máximo** de um Auto Scaling Group e os tipos de política.",
@@ -322,8 +283,6 @@ TOPICOS = {
                 "**ALB**. \"TCP, latência ultrabaixa, IP fixo\" → **NLB**. \"Firewall de terceiros\" → **GWLB**.",
     },
     "3.5": {
-        "simples": "Contêineres empacotam a aplicação com tudo que ela precisa; **serverless** é rodar código sem gerenciar "
-                   "servidores. Este tópico mostra quem orquestra contêineres e quando usar o Lambda.",
         "analogia": "um **contêiner** é como uma **marmita pronta**: leva a comida e os talheres e funciona em qualquer micro-ondas. "
                     "O **ECS/EKS** é o **gerente da cozinha** que distribui as marmitas; o **Fargate** é **não ter cozinha** (alguém esquenta para "
                     "você); o **Lambda** é um **garçom que só aparece quando chamado** e cobra por minuto de atendimento.",
@@ -337,8 +296,6 @@ TOPICOS = {
                 "\"Já usa **Kubernetes**\" → **EKS**. \"Contêineres sem gerenciar servidores\" → **Fargate**.",
     },
     "3.6": {
-        "simples": "Três jeitos mais simples de rodar aplicações: **enviar só o código** (Elastic Beanstalk), **servidor de preço "
-                   "fixo** (Lightsail) e **processar jobs em lote** (Batch).",
         "analogia": "o **Elastic Beanstalk** é um **buffet** (você leva a receita e eles montam tudo); o **Lightsail** é um **plano "
                     "pré-pago** de servidor; o **Batch** é uma **linha de produção** que processa milhares de pedidos.",
         "saber": ["Saber que o **Elastic Beanstalk** é PaaS e não tem custo adicional (paga os recursos criados).",
@@ -350,8 +307,6 @@ TOPICOS = {
                 "\"Milhares de jobs\" → **Batch**.",
     },
     "3.7": {
-        "simples": "Cada tipo de dado tem o seu banco: **relacional** (tabelas e SQL), **NoSQL** (chave-valor), **cache** (memória), "
-                   "**grafos** (relacionamentos), **documentos** e **data warehouse** (análise). A prova pede o banco certo para o cenário.",
         "analogia": "o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fichário gigante** que acha qualquer ficha "
                     "pela etiqueta na hora; o **ElastiCache** é um **post-it** com as respostas mais pedidas; o **Neptune** é um **mapa de "
                     "quem conhece quem**; o **Redshift** é o **arquivo histórico** usado para relatórios.",
@@ -367,8 +322,6 @@ TOPICOS = {
                 "\"BI/data warehouse\" → **Redshift**. \"Amigos de amigos\" → **Neptune**. \"MongoDB\" → **DocumentDB**.",
     },
     "3.8": {
-        "simples": "O S3 guarda **arquivos (objetos)** em **buckets**, com durabilidade altíssima. O preço depende da **classe de "
-                   "armazenamento**, escolhida pela frequência de acesso.",
         "analogia": "o S3 é um **guarda-volumes infinito**; as classes são como **organizar a casa**: o que usa todo dia fica na mesa "
                     "(Standard), o que usa pouco vai para o armário (IA) e o que quase nunca usa vai para o depósito (Glacier) — mais "
                     "barato de guardar, mais caro e demorado de buscar.",
@@ -383,8 +336,6 @@ TOPICOS = {
                 "\"Pode ser recriado\" → **One Zone-IA**. \"Raro, mas abrir na hora\" → **Glacier Instant Retrieval**.",
     },
     "3.9": {
-        "simples": "Além do S3, há armazenamento em **bloco** (disco de uma máquina), de **arquivos** (pasta compartilhada), "
-                   "**híbrido** (datacenter usando a nuvem), **backup centralizado** e **transferência** de grandes volumes.",
         "analogia": "o **EBS** é o **HD do computador**; o **EFS** é a **pasta de rede** que todos abrem ao mesmo tempo; o **Storage "
                     "Gateway** é a **ponte** entre o escritório e a nuvem; a **família Snow** é um **HD blindado enviado pelo correio**.",
         "saber": ["Diferenciar **objeto (S3)**, **bloco (EBS)** e **arquivo (EFS/FSx)**.",
@@ -398,8 +349,6 @@ TOPICOS = {
                 "\"Substituir fitas\" → **Tape Gateway**. \"500 TB com internet lenta\" → **Snowball Edge**.",
     },
     "3.10": {
-        "simples": "A **VPC** é a sua rede privada na AWS. Este tópico mostra como dividi-la, ligá-la à internet, a outras VPCs e ao "
-                   "datacenter, e como entregar conteúdo rápido no mundo todo (DNS, CDN e aceleração).",
         "analogia": "a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas dão para a avenida, privadas não); o "
                     "**Internet Gateway** é o portão principal; o **NAT Gateway** é uma **saída só de ida** para os moradores das ruas "
                     "privadas; a **VPN** é um túnel pela estrada pública; o **Direct Connect**, uma estrada particular; o **Route 53**, "
@@ -417,8 +366,6 @@ TOPICOS = {
                 "\"Cache global\" → **CloudFront**; \"IPs estáticos, TCP/UDP\" → **Global Accelerator**.",
     },
     "3.11": {
-        "simples": "Analytics é **transformar dados em respostas**: coletar em tempo real, preparar, consultar e mostrar em "
-                   "gráficos. Cada etapa tem um serviço.",
         "analogia": "é uma **cozinha de dados**: o **Kinesis** é a esteira que traz os ingredientes em tempo real; o **Glue** lava e corta "
                     "(ETL) e etiqueta tudo (catálogo); o **Athena** prova direto da despensa (S3) com SQL; o **EMR** é a cozinha industrial "
                     "(Spark/Hadoop); o **QuickSight** monta o prato bonito (dashboards).",
@@ -432,8 +379,6 @@ TOPICOS = {
                 "\"Spark/Hadoop\" → **EMR**. \"Busca de texto\" → **OpenSearch**.",
     },
     "3.12": {
-        "simples": "A prova separa três níveis de IA: **criar o seu próprio modelo** (SageMaker AI), **usar modelos generativos "
-                   "prontos** (Bedrock e Amazon Q) e **APIs prontas** para uma tarefa específica (imagem, texto, voz).",
         "analogia": "é como **comida**: o **SageMaker AI** é cozinhar do zero; o **Bedrock** é comprar uma massa pronta e montar o seu "
                     "prato; os **serviços de IA prontos** são pratos congelados — cada um resolve uma refeição específica.",
         "saber": ["Diferenciar **SageMaker AI** (modelo próprio) de **Bedrock** (modelos de fundação via API) e **Amazon Q** (assistente pronto).",
@@ -446,8 +391,6 @@ TOPICOS = {
                 "\"Treinar modelo próprio\" → **SageMaker AI**.",
     },
     "3.13": {
-        "simples": "Integração é fazer **partes de um sistema conversarem sem depender umas das outras**: filas, notificações, "
-                   "eventos e fluxos de várias etapas.",
         "analogia": "o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS** é um **alto-falante** (todos ouvem "
                     "ao mesmo tempo); o **EventBridge** é uma **central de regras** (\"quando acontecer X, avise Y\"); o **Step Functions** "
                     "é um **fluxograma** que se executa sozinho.",
@@ -461,8 +404,6 @@ TOPICOS = {
                 "\"Evento de SaaS\" → **EventBridge**. \"Várias etapas com aprovação\" → **Step Functions**.",
     },
     "3.14": {
-        "simples": "São serviços **prontos para o negócio**: central de atendimento, envio de e-mails, desktops virtuais, criação "
-                   "de apps e conexão de dispositivos IoT.",
         "analogia": "é uma **caixa de ferramentas de escritório**: o **Connect** é a central telefônica; o **SES**, o correio; o "
                     "**WorkSpaces**, o computador de trabalho na nuvem; o **Amplify**, um kit para montar apps; o **IoT Core**, a central "
                     "que recebe mensagens dos sensores.",
@@ -476,8 +417,6 @@ TOPICOS = {
                 "**AppStream 2.0**. \"Sensores\" → **IoT Core**.",
     },
     "3.15": {
-        "simples": "Ferramentas que ajudam a **entregar software**: compilar e testar, automatizar a esteira de entrega e "
-                   "encontrar onde uma aplicação está lenta.",
         "analogia": "é uma **fábrica de software**: o **CodeBuild** monta e testa cada peça; o **CodePipeline** é a **esteira** que leva "
                     "a peça de uma estação para a outra; o **X-Ray** é o **rastreador de encomendas** que mostra onde cada pedido atrasou.",
         "saber": ["Diferenciar **CodeBuild** (compila e testa) de **CodePipeline** (orquestra a esteira de CI/CD).",
@@ -490,8 +429,6 @@ TOPICOS = {
                 "\"Compilar e rodar testes\" → **CodeBuild**.",
     },
     "3.16": {
-        "simples": "Ferramentas para **administrar o ambiente**: criar infraestrutura por código, operar muitos servidores, saber "
-                   "de eventos da AWS, ver limites, controlar licenças e ajustar o tamanho dos recursos.",
         "analogia": "o **CloudFormation** é a **planta da casa**; o **Systems Manager** é o **controle remoto** de todos os servidores; o "
                     "**Health Dashboard** é o **aviso do condomínio**; o **Service Quotas** é a **lista de limites** do contrato; o "
                     "**Compute Optimizer** é uma **balança** que mostra o que está grande ou pequeno demais.",
@@ -506,8 +443,6 @@ TOPICOS = {
                 "**Health Dashboard**. \"Passar do limite\" → **Service Quotas**. \"Tamanho ideal\" → **Compute Optimizer**.",
     },
     "3.17": {
-        "simples": "As ferramentas de migração seguem a **ordem da mudança**: avaliar o custo e as dependências, acompanhar o "
-                   "progresso, migrar servidores e bancos e transferir dados.",
         "analogia": "é uma **mudança de casa**: o **Migration Evaluator** faz o orçamento; o **Discovery Service** mede os móveis e vê o "
                     "que depende do quê; o **Migration Hub** é a planilha de acompanhamento; o **MGN** é o caminhão que leva tudo como está; "
                     "o **DMS** leva o banco com a loja aberta; o **SCT** traduz a estrutura de um banco para outro.",
@@ -521,8 +456,6 @@ TOPICOS = {
                 "\"Banco sem parar o sistema\" → **DMS**. \"Oracle para PostgreSQL\" → **SCT**. \"Justificar custo\" → **Migration Evaluator**.",
     },
     "3.18": {
-        "simples": "Uma coleção de **serviços menos famosos** que já apareceram em provas, mais a lista do que **não cai**. "
-                   "Basta saber **para que cada um serve** — sem detalhes.",
         "analogia": "é como **conhecer os figurantes de um filme**: você não precisa saber a história deles, só reconhecer quem é quem "
                     "quando aparecem — e perceber quando alguém **nem é do elenco** (serviço fora do escopo).",
         "saber": ["Saber que a **Customer Carbon Footprint Tool** mostra a estimativa de emissões de carbono (pilar Sustentabilidade).",
@@ -535,8 +468,6 @@ TOPICOS = {
     },
     # ------------------------------------------------------------------ Domínio 4
     "4.1": {
-        "simples": "A AWS cobra com base em **três princípios**: pagar pelo uso, ganhar desconto ao se comprometer e pagar menos "
-                   "por unidade quando usa mais. E três coisas geram a maior parte da conta.",
         "analogia": "é como o **plano de celular**: pré-pago (pague pelo uso), plano anual com desconto (compromisso) e franquia que "
                     "fica mais barata por GB quando você compra mais (volume).",
         "saber": ["Citar os **3 princípios** de preço.",
@@ -547,8 +478,6 @@ TOPICOS = {
                 "**desconto por volume**.",
     },
     "4.2": {
-        "simples": "Há várias formas de **pagar pelo EC2**: sem compromisso, com compromisso de 1 ou 3 anos, aproveitando sobras "
-                   "baratas (que podem ser retomadas) ou com servidor físico dedicado. A prova pede o modelo certo para o cenário.",
         "analogia": "é como **hospedagem**: **On-Demand** é a diária de hotel (cara, sem compromisso); **Reserved/Savings Plans** é o "
                     "aluguel anual (desconto alto); **Spot** é a passagem de última hora com desconto enorme, mas você pode ser tirado "
                     "do voo; **Dedicated Host** é alugar a casa inteira só para você.",
@@ -563,8 +492,6 @@ TOPICOS = {
                 "\"Desconto que cobre Fargate e Lambda\" → **Compute Savings Plans**. \"Licença por núcleo físico\" → **Dedicated Host**.",
     },
     "4.3": {
-        "simples": "Além do EC2, cada recurso tem a sua forma de cobrança. O ponto mais cobrado é a **transferência de dados**: "
-                   "**entrar é grátis, sair é pago**. Também caem os serviços sem custo próprio e o Free Tier.",
         "analogia": "é como um **estacionamento**: entrar é grátis, mas você paga para sair — e quanto mais carros saem, menor o preço "
                     "por carro (faixas de volume).",
         "saber": ["Saber o que é **grátis** e o que é **pago** na transferência de dados.",
@@ -577,8 +504,6 @@ TOPICOS = {
                 "**CloudFront**. \"Serviço grátis, paga os recursos\" → CloudFormation/Beanstalk/Auto Scaling.",
     },
     "4.4": {
-        "simples": "Cada ferramenta de custo responde a uma pergunta: **quanto vai custar?** (antes), **quanto gastei e quanto vou "
-                   "gastar?** (análise), **me avise se passar do limite** (alerta) e **quero o detalhe máximo** (relatório).",
         "analogia": "a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o **extrato com gráficos**; o **Budgets** é o "
                     "**aviso do cartão** quando passa do limite; o **CUR** é a **nota fiscal detalhada**, item por item; as **tags** são "
                     "**etiquetas** para separar a conta por departamento.",
@@ -592,8 +517,6 @@ TOPICOS = {
                 "**Budgets**. \"Mais **granular**\" → **CUR**. \"Ratear por departamento\" → **cost allocation tags**.",
     },
     "4.5": {
-        "simples": "Os planos de suporte definem **quão rápido e com quanto acompanhamento** a AWS atende você. A prova pede o "
-                   "plano certo pelo tempo de resposta, pelo preço ou por um benefício (como o TAM).",
         "analogia": "é como **planos de assistência técnica**: o básico só tem o manual e o FAQ; os planos maiores dão atendimento 24 h, "
                     "resposta mais rápida e, no topo, um **consultor dedicado** (TAM) que acompanha você de perto.",
         "saber": ["Diferenciar os **planos novos** (Basic, Business Support+, Enterprise, Unified Operations) dos **clássicos**.",
@@ -606,8 +529,6 @@ TOPICOS = {
                 "**Unified Operations**. \"Plano pago de entrada, 30 min\" → **Business Support+**.",
     },
     "4.6": {
-        "simples": "Fora dos planos de suporte, há muitas fontes de ajuda: comunidade, artigos, documentação, consultoria da AWS, "
-                   "parceiros e um catálogo de software. A prova pergunta **a quem recorrer** em cada situação.",
         "analogia": "é um **mapa de quem procurar**: dúvida rápida → **fórum da comunidade** (re:Post); resposta pronta → **FAQ** "
                     "(Knowledge Center); projeto grande → **consultoria da AWS** (Professional Services) ou **empresa parceira** (APN); "
                     "comprar software → **loja** (Marketplace); denúncia → **ouvidoria** (Trust & Safety).",
@@ -644,14 +565,139 @@ DOMINIOS = {
                    "pede **o serviço certo para cada cenário**.",
         "ordem": "Estude em blocos: **infraestrutura e computação** (3.1 a 3.6), **dados e armazenamento** (3.7 a 3.9), **rede** (3.10) "
                  "e depois os **demais serviços** (3.11 a 3.18). Use as fichas de serviço para aprofundar o que tiver dúvida.",
-        "dica": "Para cada serviço, saiba responder: **para que serve** e **qual o vizinho com que ele é confundido**. A seção "
-                "\"Entenda em 30 segundos\" de cada ficha resume exatamente isso.",
     },
     "4": {
         "simples": "Este domínio trata de **dinheiro**: como a AWS cobra, como economizar, quais ferramentas mostram e controlam "
                    "os gastos e quais planos de suporte existem.",
         "ordem": "Comece pelos **princípios de preço** (4.1), passe pelos **modelos de compra do EC2** (4.2), que mais caem, e termine "
                  "com ferramentas de custo (4.4) e planos de suporte (4.5).",
-        "dica": "As questões são diretas: decore as tabelas de **modelos de compra**, **ferramentas de custo** e **planos de suporte (novos)**.",
     },
 }
+
+# Aberturas por situação concreta. Reescrevem a explicação inicial e acrescentam
+# problema, exemplo e limite; as analogias, o vocabulário e os objetivos seguem acima.
+# Exemplos são autorais e ilustrativos, apoiados nas capacidades já documentadas.
+_ABERTURAS = """
+1.1 | Uma escola quer disponibilizar um sistema, mas comprar e manter computadores próprios pode exigir dinheiro e trabalho antes mesmo do primeiro aluno usar. | Nuvem é uma forma de obter recursos de tecnologia de um provedor, como a AWS, quando necessário. Você contrata recursos como computadores e armazenamento e administra a parte que cabe a você. | Em vez de comprar uma máquina física, a escola cria um servidor virtual na AWS e instala seu sistema. Outra opção é contratar um software pronto; a responsabilidade muda conforme o modelo. | Usar nuvem não significa que tudo está pronto, gratuito ou administrado pelo provedor. Este tópico ensina a reconhecer os modelos e o trabalho que permanece com o cliente.
+1.2 | Uma loja não sabe quantas pessoas chegarão durante uma promoção. Comprar capacidade para o maior pico pode deixar equipamentos ociosos no resto do ano. | Os benefícios da nuvem incluem obter recursos mais rapidamente, ajustar capacidade e mudar a forma de investir em infraestrutura. Cada benefício responde a uma dificuldade diferente. | A loja cria capacidade para a campanha e a reduz depois, em vez de comprar máquinas permanentes apenas para o pico. | Nuvem não garante economia em qualquer projeto. Recursos precisam ser escolhidos e acompanhados; este tópico explica benefícios, não uma promessa de redução automática da fatura.
+1.3 | Um sistema pode crescer, ficar lento ou perder uma máquina. A equipe precisa escolher como continuar atendendo e como recuperar dados e operação. | Conceitos de arquitetura descrevem capacidade, disponibilidade, recuperação e dependências entre partes. Eles ajudam a explicar o objetivo antes de escolher um serviço. | Se uma máquina não atende mais os visitantes, você pode usar uma maior ou distribuir o trabalho entre várias. Se uma falhar, outra pode ajudar a manter o atendimento, conforme o projeto. | Crescer não é o mesmo que suportar falhas; ter cópias também não garante recuperação imediata. Aprenda a distinguir as necessidades antes de escolher uma solução.
+1.4 | Uma aplicação funciona hoje, mas a equipe precisa avaliar se é segura, recuperável, eficiente e econômica, em vez de olhar apenas se está ligada. | Well-Architected é um conjunto de orientações para revisar uma aplicação e sua operação sob seis áreas, chamadas pilares. Não é um serviço que hospeda o programa. | A escola revisa quem acessa os dados, como restaura um backup e se mantém recursos ociosos. Cada pergunta se relaciona a uma área da revisão. | Seguir um checklist não certifica automaticamente a aplicação nem executa as melhorias. O objetivo é identificar decisões e oportunidades de melhoria.
+1.5 | Mudar para a nuvem afeta orçamento, equipes, processos e segurança. A mudança pode fracassar mesmo que as máquinas funcionem. | O Cloud Adoption Framework, ou CAF, ajuda a organizar a preparação da empresa em perspectivas. Cada perspectiva reúne capacidades e responsáveis por uma parte da adoção. | A escola planeja treinamento para a equipe, regras de orçamento e operação do sistema, além da migração técnica. | CAF não transfere servidores nem substitui ferramentas de implantação. Ele organiza a transformação da empresa; Well-Architected se concentra na revisão de uma aplicação e sua operação.
+1.6 | Uma empresa quer levar um sistema para a AWS, mas não sabe se deve copiá-lo, adaptá-lo, reescrevê-lo ou até encerrá-lo. | Estratégias de migração descrevem essas escolhas. O esforço e o resultado mudam conforme a decisão sobre cada aplicação. | Um sistema antigo pode ser movido com poucas mudanças; outro pode ser substituído por um software pronto. Não é necessário escolher a mesma estratégia para tudo. | Migrar não significa modernizar automaticamente. Antes de escolher, considere dependências, riscos e a necessidade de manter ou mudar o sistema.
+1.7 | Comparar apenas o preço de uma máquina própria com o de uma máquina AWS pode esconder gastos como manutenção, energia e trabalho operacional. | Economia da nuvem trata do conjunto de custos e do valor das escolhas. O custo total inclui mais que o preço de um recurso isolado. | A escola compara equipamentos, manutenção e equipe do ambiente atual com recursos e operação previstos na AWS. | Uma estimativa depende das hipóteses usadas. Este tópico ensina o raciocínio econômico; não determina que qualquer migração sempre será mais barata.
+2.1 | Ao usar um serviço AWS, a equipe precisa saber quem protege cada parte. Se ambos presumirem que o outro fará uma tarefa, ela pode ficar sem responsável. | A responsabilidade compartilhada divide tarefas entre AWS e cliente. A divisão muda com o tipo de serviço: quanto mais gerenciado, mais tarefas de infraestrutura a AWS assume. | Em uma máquina EC2, o cliente atualiza o sistema operacional. Num banco RDS, a AWS assume tarefas de administração previstas pelo serviço, enquanto o cliente controla dados e acessos. | Gerenciado não significa que o cliente deixou de ser responsável pela segurança. Sempre identifique o serviço e a camada de que a pergunta trata.
+2.2 | Uma conta AWS tem uma identidade inicial com poderes muito amplos. Usá-la no dia a dia aumenta o impacto de um erro ou de credenciais expostas. | O usuário root é essa identidade inicial. O tema mostra como protegê-lo e reconhecer as tarefas que realmente exigem seu uso. | A dona da conta protege o root e usa identidades com permissões adequadas para o trabalho diário, em vez de compartilhar o login inicial com toda a equipe. | Nem toda tarefa administrativa exige root. A lista de tarefas muda; consulte as atualizações indicadas no arquivo, em vez de memorizar listas antigas.
+2.3 | Uma aplicação precisa ler documentos, enquanto uma pessoa administra recursos. Dar o mesmo acesso a todos deixa permissões desnecessárias disponíveis. | Identidade e acesso tratam de quem faz uma ação e do que essa identidade está autorizada a fazer. IAM organiza permissões AWS; outros serviços atendem funcionários ou usuários de aplicações. | O programa da escola recebe permissão para ler um conjunto de arquivos, sem poder apagar tudo ou administrar a conta. | Confirmar um login é diferente de conceder uma ação. Você precisa distinguir a identidade, o recurso e a permissão necessária, não apenas decorar o nome de um serviço.
+2.4 | A empresa separou testes e produção em várias contas, mas agora precisa de regras comuns e administração central. | Governança de várias contas organiza ambientes e aplica controles. Organizations, Control Tower e ferramentas relacionadas têm papéis diferentes nesse trabalho. | A escola separa o ambiente experimental dos dados de produção e define regras centrais para suas contas. | Um limite de governança não concede sozinho permissão a cada pessoa. Centralizar controles também não configura todas as aplicações automaticamente.
+2.5 | Dados podem ser interceptados durante uma comunicação ou lidos no armazenamento por alguém sem autorização. | Criptografia protege a leitura dos dados por meio de chaves e tecnologias de conexão. É preciso distinguir proteção durante o transporte, no armazenamento e administração de chaves. | O site usa HTTPS para a comunicação com o aluno e configura proteção dos documentos armazenados. São duas camadas diferentes. | Criptografia não impede todo apagamento, erro de permissão ou vazamento por um usuário autorizado. Ela é uma proteção específica dentro de um conjunto de controles.
+2.6 | Um auditor pede que a empresa demonstre suas práticas de segurança e os controles do provedor. A equipe precisa saber onde obter evidências e como avaliar seu ambiente. | Conformidade envolve atender requisitos e demonstrar isso. Relatórios da AWS, avaliações de configuração e evidências do cliente atendem partes diferentes desse processo. | A escola consulta relatórios oficiais do provedor e reúne evidências de que ela própria protege acessos e dados. | A conformidade da AWS não torna toda aplicação do cliente automaticamente conforme. Documentos, configuração e operação precisam ser avaliados no contexto do requisito.
+2.7 | O sistema está lento, um recurso foi alterado ou uma configuração deixou de atender às regras. Cada pergunta precisa de um tipo diferente de registro. | CloudWatch acompanha comportamento e operação; CloudTrail registra atividades AWS; Config acompanha configuração e sua avaliação. O objetivo da pergunta orienta a ferramenta. | Para lentidão, a equipe examina métricas e logs. Para saber quem alterou um recurso, procura o evento. Para avaliar sua configuração, usa o histórico e as regras aplicáveis. | Nenhuma dessas ferramentas observa tudo sem configuração. Coleta, retenção, cobertura e ações de resposta variam; registrar um problema não é o mesmo que corrigi-lo.
+2.8 | Um recurso acessível pela rede pode receber conexões indevidas, pedidos web maliciosos ou tentativas de sobrecarga. | Proteção de rede e aplicação usa controles em camadas. Regras de conexão, inspeção de pedidos web e proteção contra sobrecarga tratam ameaças diferentes. | A escola limita conexões ao banco, inspeciona pedidos ao site e avalia proteção contra ataques distribuídos. Cada medida atua numa parte do caminho. | Uma regra de rede não corrige o código do programa; uma proteção web não inspeciona automaticamente todos os protocolos. Identifique o tipo de tráfego e o ponto de proteção.
+2.9 | Atividade suspeita, software vulnerável e arquivos com informações pessoais são problemas distintos, mesmo que todos sejam chamados de segurança. | Serviços de detecção e análise têm especialidades. GuardDuty procura sinais de ameaça; Inspector avalia vulnerabilidades; Macie procura dados sensíveis no S3; outras ferramentas ajudam a reunir ou investigar achados. | A equipe investiga um alerta de uso suspeito de identidade, corrige software vulnerável e revisa um arquivo com dados pessoais usando ferramentas adequadas a cada caso. | Detectar não significa confirmar uma invasão nem corrigir tudo automaticamente. A equipe precisa avaliar os resultados e organizar a resposta.
+2.10 | Segurança também depende de decisões cotidianas: proteger credenciais, limitar permissões e saber como comunicar uso abusivo ou um incidente. | Este tópico reúne práticas e canais que complementam os serviços de segurança. O objetivo é relacionar cada ação ao risco que ela reduz. | A escola evita publicar credenciais no código, revisa acessos e define como agir quando identifica um problema. | Uma boa prática isolada não garante um ambiente seguro. Entenda a finalidade de cada ação e o canal adequado, em vez de escolher uma ferramenta genérica para qualquer problema.
+3.1 | Você precisa criar ou consultar recursos AWS, mas pode fazer isso por uma tela, por comandos, por um programa ou por uma descrição automatizada do ambiente. | São maneiras diferentes de operar serviços. Console oferece interface visual; CLI usa comandos; SDK integra programas; ferramentas de infraestrutura descrevem recursos para implantação. | Uma pessoa cria um recurso pelo console e depois automatiza tarefas repetidas com comandos ou código. A permissão necessária continua sendo parte do acesso. | A forma de acesso não muda sozinha o que a identidade pode fazer. Uma ferramenta de operação também não é o serviço que hospeda a aplicação.
+3.2 | Uma aplicação precisa estar perto dos usuários e continuar atendendo se parte da infraestrutura falhar. Para planejar isso, a equipe precisa entender onde os recursos ficam. | A infraestrutura global organiza regiões, zonas de disponibilidade e pontos de presença. São unidades com funções diferentes, não nomes intercambiáveis para o mesmo lugar. | A escola escolhe uma região para seus recursos e planeja partes da aplicação em zonas diferentes. Uma rede de distribuição pode entregar conteúdo por pontos de presença. | Escolher uma região não distribui automaticamente todo recurso entre várias zonas. Localização, disponibilidade e serviços oferecidos precisam ser avaliados.
+3.3 | Você quer colocar um programa em funcionamento sem depender do seu computador pessoal, mas precisa escolher o sistema e administrar o que será instalado. | EC2 permite criar computadores virtuais na AWS. Cada máquina é uma instância; você escolhe sua capacidade, instala a aplicação e controla o acesso. | A escola instala seu sistema de matrícula numa instância. Os alunos usam o sistema pela rede; a equipe administra o servidor e atualiza seu software. | EC2 fornece a máquina, não um sistema de matrícula pronto. Publicação, segurança, dados e custos associados continuam exigindo configuração e acompanhamento.
+3.4 | Muitos visitantes chegam ao mesmo tempo. Uma máquina pode não atender, e várias máquinas sem distribuição adequada também podem ficar desequilibradas. | Escalabilidade ajusta a capacidade; balanceamento distribui o tráfego. Os dois podem trabalhar juntos, mas resolvem partes diferentes do atendimento. | Durante uma promoção, o grupo adiciona máquinas e o balanceador encaminha pedidos aos destinos disponíveis. Depois, a quantidade de máquinas pode diminuir conforme as regras. | Balanceador não cria máquinas por si só; aumentar máquinas não resolve todo gargalo. A aplicação e o armazenamento também precisam suportar o desenho.
+3.5 | Sua aplicação pode precisar rodar como um pacote completo ou executar apenas uma tarefa quando algo acontece. A equipe precisa escolher a forma de execução e quem administra os servidores. | Containers empacotam aplicações e dependências. Serviços como ECS e EKS coordenam sua execução; Fargate fornece capacidade sem administração direta das máquinas. Lambda executa funções acionadas por chamadas ou eventos. | Um serviço de pedidos executa em containers. Uma tarefa de gerar miniatura pode ser uma função acionada quando chega uma foto. | Serverless não significa ausência de servidores, custo zero ou execução ilimitada. Empacotar, coordenar e fornecer capacidade são funções distintas.
+3.6 | Nem toda necessidade pede administrar uma máquina diretamente. Você pode querer uma hospedagem simples, uma implantação facilitada ou muitos trabalhos em lote. | Este tópico compara formas de execução: Lightsail simplifica ofertas, Beanstalk apoia a implantação de aplicações e Batch organiza trabalhos. Opções de proximidade atendem necessidades específicas de localização. | Um site pequeno pode avaliar Lightsail; uma aplicação com plataforma compatível, Beanstalk; centenas de conversões de arquivos, Batch. | Esses serviços não fazem o mesmo trabalho. Escolha pelo tipo de tarefa e pela responsabilidade desejada, verificando compatibilidade e escopo.
+3.7 | Uma aplicação precisa guardar dados, mas um cadastro, uma rede de relações e um relatório sobre milhões de vendas têm formas de consulta diferentes. | Bancos de dados organizam registros para armazenar e consultar. A AWS oferece modelos relacionais, chave-valor, documentos, grafos e análise, entre outros. | A escola usa tabelas relacionadas para matrículas. Um jogo pode buscar perfis por identificador; uma análise histórica pode usar um ambiente voltado a relatórios. | Não há um banco melhor para qualquer dado. Primeiro identifique a estrutura e as perguntas que a aplicação precisa fazer; depois avalie o serviço.
+3.8 | O sistema precisa guardar fotos, PDFs e outros conteúdos sem vincular cada arquivo ao disco de uma única máquina. | S3 armazena dados como objetos em buckets. Um objeto contém o dado e sua identificação; o bucket é o recipiente em que ele fica organizado. | A escola guarda PDFs de materiais e permite que o aplicativo disponibilize cada documento aos alunos autorizados. | S3 não executa sozinho o sistema da escola nem torna os arquivos públicos ao recebê-los. Acesso, proteção, classe de armazenamento e custo precisam ser definidos.
+3.9 | Sua aplicação pode precisar de um disco próprio, de pastas compartilhadas ou de ligação com arquivos mantidos na empresa. Essas necessidades não são iguais. | Este tópico compara armazenamento em blocos, arquivos compartilhados e integração com ambientes locais, além de cópias de segurança e recuperação. | Uma máquina usa EBS como disco. Várias máquinas podem precisar de EFS para compartilhar pastas. Uma aplicação Windows pode exigir uma modalidade FSx compatível. | Escolher armazenamento só pelo nome ou preço pode causar incompatibilidade. Primeiro descubra como a aplicação precisa ler e gravar os dados.
+3.10 | Usuários precisam chegar ao site, a aplicação precisa chegar ao banco e a empresa pode precisar conectar sua rede à AWS. Cada comunicação tem um caminho e controles. | Rede define conexões e rotas. VPC organiza recursos em uma rede virtual; DNS relaciona nomes a endereços; distribuição de conteúdo e aceleração atuam na entrega aos usuários. | O aluno digita o domínio; DNS indica o destino. O pedido chega ao serviço que atende o site, e a aplicação acessa o banco por um caminho autorizado. | Nenhum serviço desta lista configura toda a comunicação sozinho. Organizar rede, permitir acesso, resolver nomes e distribuir conteúdo são funções distintas.
+3.11 | A empresa acumulou dados e quer transformar registros em respostas, como quais cursos tiveram mais procura e como a demanda mudou. | Analytics reúne preparação, consulta, processamento e visualização de dados. Cada etapa pode exigir uma ferramenta diferente. | A escola prepara arquivos com Glue, consulta dados com uma ferramenta adequada e mostra resultados num painel. Dados contínuos de sensores pedem um processo diferente de um relatório mensal. | Criar um painel não corrige os dados nem coleta qualquer fonte automaticamente. Identifique se o problema é preparar, consultar, processar um fluxo ou visualizar.
+3.12 | Uma aplicação quer transcrever áudio, fazer previsões ou gerar texto. Embora todas envolvam IA, o trabalho necessário e a solução são diferentes. | Serviços de IA podem oferecer funções prontas, ferramentas para desenvolver modelos próprios ou acesso a modelos generativos existentes. A escolha depende da tarefa. | Para transcrever uma aula, a escola avalia Transcribe. Para criar um modelo com seus dados, avalia SageMaker AI. Para gerar conteúdo com modelos existentes, há ofertas específicas. | IA não garante precisão e não conhece automaticamente os dados da empresa. Compatibilidade, acesso, avaliação e escopo da prova precisam ser considerados.
+3.13 | Uma ação pode gerar tarefas para outros sistemas. Se cada parte depender de todas as outras responderem na hora, a aplicação fica mais difícil de operar. | Integração permite separar tarefas e coordenar comunicação. Filas guardam trabalho; notificações distribuem avisos; eventos orientam ações; fluxos coordenam etapas. | A matrícula confirmada gera um aviso e uma tarefa de emitir certificado. Uma fila pode guardar a tarefa; um fluxo pode acompanhar etapas do processo. | Uma fila não executa o trabalho, e uma notificação não coordena por si só todo o processo. Entenda qual parte da comunicação precisa ser resolvida.
+3.14 | Uma organização pode precisar atender pessoas, enviar e-mails, oferecer trabalho remoto ou conectar equipamentos. Cada necessidade vai além de criar uma máquina. | Este tópico reúne serviços voltados a experiências e aplicações específicas. É importante reconhecer o problema de cada produto, e não memorizar a categoria como se fosse um serviço só. | A escola pode usar um serviço de e-mail para confirmações e uma plataforma de atendimento para a secretaria. Sensores conectados exigem outro conjunto de recursos. | Um serviço pronto continua exigindo configuração, identidade e integração. As ferramentas desta seção não substituem umas às outras.
+3.15 | Uma equipe precisa construir versões do programa, testá-las, publicá-las e investigar o caminho das requisições quando há lentidão. | Ferramentas de desenvolvimento e observação apoiam etapas distintas. Construção e entrega automatizada são diferentes de rastrear a execução da aplicação. | Uma alteração passa por construção e testes configurados. Depois da implantação, rastreamentos ajudam a examinar um pedido que ficou lento. | Uma ferramenta não escreve os testes nem corrige o programa automaticamente. Identifique se o pedido é construir, coordenar a entrega, implantar ou investigar.
+3.16 | A aplicação já existe, mas a equipe precisa criar ambientes de modo repetível, administrar máquinas e acompanhar mudanças, saúde e regras. | Gestão e governança reúnem ferramentas para operar recursos e aplicar controles. Cada ferramenta observa ou administra uma parte específica. | A escola descreve um ambiente com CloudFormation, administra máquinas com Systems Manager e consulta avisos relevantes no AWS Health. | Administrar recursos não significa que qualquer serviço de gestão executa todas essas tarefas. Descubra a ação desejada antes de escolher o produto.
+3.17 | Mover para a AWS envolve aplicações, bancos e arquivos, que podem exigir processos e ferramentas diferentes. | Migração inclui descobrir o ambiente, planejar mudanças, replicar ou transferir dados, testar e realizar a troca. As ferramentas atendem etapas e tipos de recurso específicos. | A escola prepara a migração de um servidor e de seu banco. Replica e testa cada parte antes de mudar o sistema em uso. | Transferir um banco não move automaticamente todo o programa; copiar arquivos também não migra suas dependências. Compatibilidade e disponibilidade das ofertas precisam ser verificadas.
+3.18 | Alguns nomes AWS aparecem em listas antigas ou em problemas muito específicos. Tentar decorar todos sem entender a função dificulta o estudo. | Esta seção organiza serviços adicionais por finalidade e identifica seu status no escopo. O objetivo é reconhecer o tipo de problema e saber quando aprofundar. | Ao encontrar um nome novo, descubra primeiro se ele atende armazenamento, integração, rede ou outra necessidade e confira se está na lista atual da prova. | Estar nesta seção não significa que o serviço continua disponível ou que é prioritário para o exame. Use as marcações de escopo e as observações de cada ficha.
+4.1 | Um recurso pode estar ocioso e ainda gerar cobrança. Para planejar gastos, você precisa entender pelo que está pagando, não apenas quantas pessoas usam o sistema. | Preço pode depender de capacidade provisionada, tempo, armazenamento, chamadas ou transferência, conforme o serviço. Diferentes componentes podem ter cobranças independentes. | Uma máquina ligada sem visitantes pode custar. Mesmo ao pará-la, discos ou outros recursos mantidos podem continuar cobrados. | Pagar pelo uso não significa pagar apenas por pessoas usando a aplicação. Este tópico ensina a identificar as unidades e condições de cobrança.
+4.2 | Uma máquina usada ocasionalmente, uma aplicação estável e um trabalho que pode ser interrompido não precisam da mesma forma de compra. | Modelos de compra EC2 trocam flexibilidade, compromisso, risco de interrupção e requisitos de capacidade por condições diferentes. | Um teste de curta duração pode usar On-Demand. Um trabalho tolerante a interrupções pode avaliar Spot. Uso estável pode justificar avaliar um compromisso. | Desconto não significa que a opção atende qualquer tarefa. Compromisso, interrupção e garantia de capacidade são conceitos diferentes; escolha pelo requisito.
+4.3 | Parar a computação ou reduzir visitas não elimina necessariamente os custos de dados armazenados e comunicações. | A cobrança pode envolver armazenamento, requisições, endereços e transferências, além da execução. Cada recurso precisa ser analisado separadamente. | A escola para uma máquina de testes, mas mantém volumes e cópias de dados. Esses recursos podem continuar tendo custo. | Não aplique a regra de um serviço a todos os outros. Identifique qual recurso permanece e qual condição gera cobrança.
+4.4 | A equipe quer planejar um projeto, entender uma fatura e acompanhar um orçamento. São três perguntas diferentes sobre dinheiro. | Calculadora estima; análise de custos explica gastos; orçamento acompanha metas; relatórios fornecem detalhe. A ferramenta depende da pergunta. | Antes de criar o sistema, a escola estima o custo. Depois, analisa o consumo e configura avisos para acompanhar o orçamento. | Estimar não garante a fatura, e um aviso não é um bloqueio automático de todo gasto. Não confunda planejamento, análise e controle.
+4.5 | Quando o sistema tem um problema, a empresa precisa saber como pedir ajuda e quais recursos de atendimento estão incluídos em sua oferta. | Planos de suporte definem canais e condições de auxílio. A escolha deve considerar a necessidade de orientação e o impacto dos incidentes. | Uma empresa avalia o acesso a suporte técnico necessário para sua aplicação e confere as condições da oferta aplicável. | Tempo de primeira resposta não é prazo garantido de correção. Os nomes comerciais e os exemplos do guia podem diferir; leia os avisos e o contexto.
+4.6 | Uma pessoa precisa aprender, tirar uma dúvida ou contratar ajuda para executar um projeto. Nem todo canal serve para as três necessidades. | Recursos de ajuda incluem documentação, comunidades, orientação, parceiros e ofertas. Cada um responde a um tipo de necessidade. | A escola consulta documentação para entender um recurso e avalia um parceiro quando precisa de trabalho especializado para a migração. | Uma resposta comunitária não equivale a um contrato de suporte ou de execução. Escolha o canal pelo trabalho e pela responsabilidade esperada.
+"""
+
+_linhas = {}
+for _linha in _ABERTURAS.strip().splitlines():
+    _campos = [c.strip() for c in _linha.split("|")]
+    if len(_campos) != 5 or not all(_campos):
+        raise ValueError(f"Abertura incompleta: {_linha}")
+    _sec, *_valores = _campos
+    if _sec in _linhas:
+        raise ValueError(f"Abertura duplicada: {_sec}")
+    _linhas[_sec] = dict(zip(("problema", "simples", "exemplo", "limite"), _valores))
+if set(_linhas) != set(TOPICOS):
+    raise ValueError("Cobertura das aberturas didáticas diferente dos tópicos")
+for _sec, _abertura in _linhas.items():
+    TOPICOS[_sec].update(_abertura)
+
+DOMINIOS["1"].update({
+    "problema": "Antes de escolher um serviço, você precisa entender por que usar nuvem e quais responsabilidades e decisões isso envolve.",
+    "exemplo": "Uma escola quer colocar seu sistema na internet. Primeiro compara manter equipamentos próprios com contratar recursos e planeja como crescer e recuperar falhas.",
+})
+DOMINIOS["2"].update({
+    "problema": "Dados e recursos precisam de proteção, e a equipe precisa saber quem pode fazer cada ação e quem é responsável por cada camada.",
+    "exemplo": "A escola permite que alunos consultem seus dados e que a equipe administre recursos, sem compartilhar uma identidade com poder sobre tudo.",
+})
+DOMINIOS["3"].update({
+    "problema": "A AWS tem muitos nomes, mas você precisa primeiro descobrir qual dificuldade cada serviço atende.",
+    "exemplo": "O sistema da escola precisa executar um programa, guardar PDFs, manter matrículas e receber trabalhos em espera. São quatro problemas, com soluções diferentes.",
+    "dica": "Para cada serviço, explique o problema, a solução e o que continua exigindo configuração. A abertura ‘Comece pelo problema’ das fichas prepara essa leitura.",
+})
+DOMINIOS["4"].update({
+    "problema": "Depois de escolher recursos, a equipe precisa prever gastos, acompanhar consumo e saber como pedir ajuda.",
+    "exemplo": "A escola estima o custo antes de publicar seu sistema, analisa a fatura depois e configura avisos de orçamento.",
+    "dica": "Diferencie estimar, analisar gasto e acompanhar orçamento. Em suporte, leia o requisito e confira as condições no contexto do material.",
+})
+
+APOIO = {
+    "README.md": (
+        "Você quer estudar AWS, mas precisa saber o que a certificação avalia e por onde começar.",
+        "Esta página apresenta o exame e organiza os caminhos de estudo. Comece pela ideia de nuvem, siga pelos quatro domínios e use as fichas para entender cada serviço.",
+        "Se você ainda não sabe o que é um servidor, não precisa começar decorando siglas: leia a abertura do primeiro tópico e avance com os exemplos.",
+    ),
+    "plano-de-estudos.md": (
+        "Há muitos assuntos e você precisa distribuir leitura e revisão sem tentar aprender tudo numa sessão.",
+        "Este plano divide o estudo em etapas e sugere uma rotina. Ajuste o ritmo à sua disponibilidade e volte aos temas que ainda não consegue explicar.",
+        "Em uma sessão, leia um tópico, explique o problema que ele resolve e só depois tente responder às perguntas. Uma resposta errada indica o que revisar.",
+    ),
+    "escopo-oficial.md": (
+        "Um serviço pode existir na AWS e, ainda assim, não estar na lista de estudo do exame. Também há listas antigas circulando.",
+        "Esta página separa tarefas e serviços conforme o guia oficial consultado. Use-a para priorizar o estudo e interpretar as marcações das fichas.",
+        "Ao encontrar uma ficha de referência, confira a marcação antes de investir tempo em detalhes. ‘Não listado’ e ‘explicitamente fora do escopo’ não são a mesma classificação.",
+    ),
+    "atualizacoes-2025-2026.md": (
+        "Um número ou nome de um material antigo pode não corresponder mais à oferta comercial ou ao guia do exame.",
+        "Esta página registra diferenças e verificações do material. Leia a observação associada ao tema para saber qual contexto está sendo descrito.",
+        "Ao estudar suporte, confira se o exemplo descreve um modelo do guia ou uma oferta comercial atual. Não escolha uma resposta apenas porque reconhece um nome antigo.",
+    ),
+    "pendencias-de-verificacao.md": (
+        "Algumas afirmações do material ainda precisam de confirmação oficial. Sem uma indicação clara, elas poderiam ser tratadas como fatos seguros.",
+        "Esta página registra pontos em aberto para revisão. Uma pendência é algo a confirmar, não uma regra a decorar.",
+        "Se encontrar um prazo sem confirmação, use as referências verificadas do tópico para estudar e mantenha esse prazo como pendente até haver evidência adequada.",
+    ),
+    "auditoria-conteudo-2026-10.md": (
+        "Você precisa saber o que foi conferido no material e quais limites essa revisão tem, em vez de assumir que uma lista de arquivos prova domínio do exame.",
+        "Esta página documenta a revisão realizada, sua cobertura e suas ressalvas. Ela serve para acompanhar a qualidade do material; não é uma aula sobre um serviço.",
+        "Use a auditoria para localizar a revisão de um tema e depois leia sua explicação. Um tópico coberto ainda pode precisar de estudo e confirmação de entendimento.",
+    ),
+    "estudar-sem-console.md": (
+        "Você lê o nome e as opções de um serviço, mas ainda não consegue explicar qual trabalho ele faz sem ver uma tela.",
+        "Este roteiro ensina a estudar pela necessidade, pelo recurso, pela ação e pelos limites. Primeiro entenda o problema; depois imagine o que é configurado e o que acontece.",
+        "Para EC2, explique que você recebe uma máquina virtual para executar seu programa. Para S3, explique que recebe armazenamento de objetos. Eles atendem trabalhos diferentes.",
+    ),
+}
+
+
+def bloco_apoio(nome):
+    problema, explicacao, exemplo = APOIO[nome]
+    return "\n".join([
+        "<!-- didatico:inicio -->", "## 🧭 Antes de ler", "",
+        f"**Por que esta página existe?** {problema}", "",
+        f"**Como usar?** {explicacao}", "",
+        f"**Exemplo:** {exemplo}", "<!-- didatico:fim -->",
+    ])

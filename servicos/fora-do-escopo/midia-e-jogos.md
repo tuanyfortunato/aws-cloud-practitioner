@@ -1,5 +1,25 @@
 # Serviços de mídia e jogos (Elemental, IVS, Elastic Transcoder, GameLift, Lumberyard)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Vídeo ao vivo, processamento de mídia e sessões de jogos exigem funções específicas, além de simplesmente guardar um arquivo ou executar uma página.
+
+**Como este serviço ajuda?** Esta ficha compara produtos para preparar e distribuir mídia e para operar jogos. Cada produto cobre uma parte do processo, conforme sua oferta.
+
+**Exemplo do dia a dia:** Compare preparar um vídeo em vários formatos, transmitir uma sessão ao vivo e hospedar partidas. São problemas diferentes, mesmo que todos envolvam conteúdo digital.
+
+**O que ele não resolve sozinho?** Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha serve para referência fora do escopo indicado, e não para decorar alternativas como respostas universais.
+
+**Primeiras palavras para entender:**
+
+- **Transcodificação:** conversão de formato ou qualidade de mídia.
+- **Streaming:** transmissão contínua.
+- **Sessão de jogo:** execução compartilhada de uma partida.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Mídia e Game Tech · **Domínio:** — (fora da prova) · **Escopo:** Regional · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
 >
 > **Em uma frase:** serviços para processar e transmitir vídeo e para hospedar jogos — úteis para conhecer, mas a prova os usa só como distratores.
@@ -8,16 +28,6 @@
 
 > ❌ **Fora do escopo da CLF-C02.** Todos os serviços desta ficha estão declarados fora do escopo na lista oficial.
 > Se aparecerem como alternativa, quase sempre são **distratores**. Documentados aqui apenas para referência.
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são os serviços de **TV e games** da AWS: processar vídeo, transmitir ao vivo e hospedar jogos.
-
-- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
-- 🚫 **Não é a resposta quando:** na prova, **entregar vídeo com baixa latência** → [CloudFront](../redes/cloudfront.md); **jogo com IPs fixos globais** → [Global Accelerator](../redes/global-accelerator.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** Elemental, IVS e GameLift aparecem, no máximo, como alternativas erradas.
-<!-- didatico:fim -->
 
 ## AWS Elemental Media Services
 

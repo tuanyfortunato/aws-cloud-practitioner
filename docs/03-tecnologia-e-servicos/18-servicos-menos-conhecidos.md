@@ -1,5 +1,39 @@
 # 3.18 Serviços menos conhecidos que podem aparecer
 
+## 🧠 Antes de começar
+
+**Qual é a dificuldade?** Alguns nomes AWS aparecem em listas antigas ou em problemas muito específicos. Tentar decorar todos sem entender a função dificulta o estudo.
+
+**A ideia em palavras simples:** Esta seção organiza serviços adicionais por finalidade e identifica seu status no escopo. O objetivo é reconhecer o tipo de problema e saber quando aprofundar.
+
+**Exemplo do dia a dia:** Ao encontrar um nome novo, descubra primeiro se ele atende armazenamento, integração, rede ou outra necessidade e confira se está na lista atual da prova.
+
+**O que não concluir?** Estar nesta seção não significa que o serviço continua disponível ou que é prioritário para o exame. Use as marcações de escopo e as observações de cada ficha.
+
+**📚 Palavras que aparecem aqui:**
+
+| Termo | Em palavras simples |
+|---|---|
+| **Distrator** | alternativa errada colocada para confundir. |
+| **Engenharia do caos** | provocar falhas de propósito para testar se o sistema se recupera. |
+
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Saber que a **Customer Carbon Footprint Tool** mostra a estimativa de emissões de carbono (pilar Sustentabilidade).
+- [ ] Reconhecer a função dos serviços da tabela (ex.: STS → credenciais temporárias; Amazon MQ → RabbitMQ/ActiveMQ).
+- [ ] Lembrar as categorias **fora do escopo** (games, mídia, robótica, satélite, blockchain).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como **conhecer os figurantes de um filme**: você não precisa saber a história deles, só reconhecer quem é quem quando aparecem — e perceber quando alguém **nem é do elenco** (serviço fora do escopo).
+
+</details>
+
+> 🎯 **Como não errar na prova:** Se uma alternativa cita serviço de **games, mídia, robótica, satélite ou blockchain**, ou um serviço marcado fora do escopo, ela provavelmente é **distrator**.
+
+---
+
 > **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
 
 > 🔎 **Fichas detalhadas:** [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](../../servicos/analytics/lake-formation-msk-e-outros.md) · [Amazon MQ](../../servicos/integracao/amazon-mq.md) · [AWS Firewall Manager e AWS Network Firewall](../../servicos/seguranca/firewall-manager-e-network-firewall.md) · [Amazon Keyspaces, Timestream e outros bancos especializados](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)](../../servicos/ia-ml/servicos-de-ia-prontos.md) · [Serviços de mídia e jogos (Elemental, IVS, Elastic Transcoder, GameLift, Lumberyard)](../../servicos/fora-do-escopo/midia-e-jogos.md) · [IoT, robótica, satélite e visão computacional na borda (Device Defender, Monitron, Panorama, RoboMaker, Ground Station)](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) · [Desenvolvimento e aplicações (AppConfig, Infrastructure Composer, CodeGuru, Copilot, Refactor Spaces, AppFabric, SWF, WorkDocs)](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) · [Rede e diretório (Cloud Map, VPC Lattice, Network Access Analyzer, Cloud Directory)](../../servicos/fora-do-escopo/rede-e-diretorio.md) · [Gerenciamento e custos (Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler, DevPay)](../../servicos/fora-do-escopo/gerenciamento-e-custos.md)
@@ -9,27 +43,6 @@
 ⬅️ [3.17 Migração e transferência](17-migracao-e-transferencia.md) · 🏠 [Índice do domínio](README.md)
 
 ---
-
-## 🧠 Antes de começar
-
-> 💡 **Em palavras simples:** Uma coleção de **serviços menos famosos** que já apareceram em provas, mais a lista do que **não cai**. Basta saber **para que cada um serve** — sem detalhes.
->
-> 🏠 **Analogia:** é como **conhecer os figurantes de um filme**: você não precisa saber a história deles, só reconhecer quem é quem quando aparecem — e perceber quando alguém **nem é do elenco** (serviço fora do escopo).
-
-**Ao terminar este tópico, você deve saber:**
-
-- [ ] Saber que a **Customer Carbon Footprint Tool** mostra a estimativa de emissões de carbono (pilar Sustentabilidade).
-- [ ] Reconhecer a função dos serviços da tabela (ex.: STS → credenciais temporárias; Amazon MQ → RabbitMQ/ActiveMQ).
-- [ ] Lembrar as categorias **fora do escopo** (games, mídia, robótica, satélite, blockchain).
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Distrator** | alternativa errada colocada para confundir. |
-| **Engenharia do caos** | provocar falhas de propósito para testar se o sistema se recupera. |
-
-> 🎯 **Como não errar na prova:** Se uma alternativa cita serviço de **games, mídia, robótica, satélite ou blockchain**, ou um serviço marcado fora do escopo, ela provavelmente é **distrator**.
 
 ## 📖 Conteúdo
 

@@ -1,24 +1,14 @@
 # 2.1 Modelo de responsabilidade compartilhada
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon EC2 (Elastic Compute Cloud)](../../servicos/computacao/ec2.md) · [Amazon RDS (Relational Database Service)](../../servicos/banco-de-dados/rds.md) · [AWS Lambda](../../servicos/computacao/lambda.md) · [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md)
-
-🏠 [Índice do domínio](README.md) · [2.2 Usuário root](02-usuario-root.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** A segurança é dividida: a **AWS protege a nuvem em si** (prédios, hardware, rede) e **o cliente protege o que coloca nela** (dados, acessos, configurações). A fronteira muda conforme o serviço.
->
-> 🏠 **Analogia:** é como **morar de aluguel num prédio**: o condomínio cuida da portaria, da estrutura e dos elevadores (AWS); você tranca a porta do seu apartamento e decide quem recebe a chave (cliente). Num **hotel** (serviço gerenciado), o hotel faz ainda mais por você.
+**Qual é a dificuldade?** Ao usar um serviço AWS, a equipe precisa saber quem protege cada parte. Se ambos presumirem que o outro fará uma tarefa, ela pode ficar sem responsável.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** A responsabilidade compartilhada divide tarefas entre AWS e cliente. A divisão muda com o tipo de serviço: quanto mais gerenciado, mais tarefas de infraestrutura a AWS assume.
 
-- [ ] Separar **segurança DA nuvem** (AWS) de **segurança NA nuvem** (cliente).
-- [ ] Dizer quem aplica patch no SO do **EC2** (cliente) e no motor do **RDS** (AWS).
-- [ ] Explicar controles **herdados**, **compartilhados** e **específicos do cliente**.
+**Exemplo do dia a dia:** Em uma máquina EC2, o cliente atualiza o sistema operacional. Num banco RDS, a AWS assume tarefas de administração previstas pelo serviço, enquanto o cliente controla dados e acessos.
+
+**O que não concluir?** Gerenciado não significa que o cliente deixou de ser responsável pela segurança. Sempre identifique o serviço e a camada de que a pergunta trata.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -27,7 +17,30 @@
 | **Patch** | atualização de correção de software. |
 | **Hipervisor** | a camada que divide um servidor físico em várias máquinas virtuais (responsabilidade da AWS). |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Separar **segurança DA nuvem** (AWS) de **segurança NA nuvem** (cliente).
+- [ ] Dizer quem aplica patch no SO do **EC2** (cliente) e no motor do **RDS** (AWS).
+- [ ] Explicar controles **herdados**, **compartilhados** e **específicos do cliente**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como **morar de aluguel num prédio**: o condomínio cuida da portaria, da estrutura e dos elevadores (AWS); você tranca a porta do seu apartamento e decide quem recebe a chave (cliente). Num **hotel** (serviço gerenciado), o hotel faz ainda mais por você.
+
+</details>
+
 > 🎯 **Como não errar na prova:** Pergunte: **"isso é físico ou é configuração/dado?"**. Físico, hardware, datacenter → AWS. Dados, IAM, security group, criptografia ativada → cliente. Quanto **mais gerenciado** o serviço, **menos** o cliente faz.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon EC2 (Elastic Compute Cloud)](../../servicos/computacao/ec2.md) · [Amazon RDS (Relational Database Service)](../../servicos/banco-de-dados/rds.md) · [AWS Lambda](../../servicos/computacao/lambda.md) · [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md)
+
+🏠 [Índice do domínio](README.md) · [2.2 Usuário root](02-usuario-root.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

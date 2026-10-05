@@ -1,20 +1,30 @@
 # AWS Trusted Advisor
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa precisa identificar oportunidades de melhoria no uso da AWS, como recursos ociosos ou configurações que merecem atenção.
+
+**Como este serviço ajuda?** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
+
+**Exemplo do dia a dia:** A equipe consulta uma recomendação sobre recursos pouco usados e decide se pode ajustá-los ou removê-los sem prejudicar a aplicação.
+
+**O que ele não resolve sozinho?** Uma recomendação não conhece sozinha todas as necessidades do negócio. Cobertura e acesso dependem das condições aplicáveis; a equipe deve avaliar antes de agir.
+
+**Primeiras palavras para entender:**
+
+- **Verificação:** análise segundo um critério.
+- **Recomendação:** orientação de melhoria.
+- **Ocioso:** recurso com pouco ou nenhum uso.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / boas práticas · **Domínio:** 2, 3 e 4 · **Escopo:** Global (conta e organização) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md) · [4.5 Planos de suporte](../../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)
 >
 > **Em uma frase:** inspeciona sua conta e recomenda melhorias com base nas boas práticas da AWS.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **consultor automático** que inspeciona a conta e aponta onde economizar, o que está inseguro e o que está perto do limite.
-
-- ✅ **Escolha quando:** quer **recomendações de boas práticas**: custo, segurança, desempenho, tolerância a falhas, limites e excelência operacional.
-- 🚫 **Não é a resposta quando:** quer **alertas de segurança centralizados** → [Security Hub](../seguranca/security-hub.md); quer o **tamanho ideal** das instâncias com ML → [Compute Optimizer](compute-optimizer-service-quotas-e-license-manager.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "recomendações de boas práticas", "buckets públicos", "MFA no root", "limites de serviço".
-<!-- didatico:fim -->
 
 ## Categorias
 

@@ -1,20 +1,30 @@
 # Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma pessoa ou empresa precisa de orientação, conhecimento, software ou profissionais para usar a AWS, mas essas necessidades pedem canais diferentes.
+
+**Como este serviço ajuda?** A ficha organiza recursos de ajuda e o ecossistema: documentação e comunidades para aprender, Marketplace para ofertas e parceiros ou serviços profissionais para trabalhos especializados.
+
+**Exemplo do dia a dia:** Uma equipe consulta orientação oficial para uma decisão e avalia um parceiro quando precisa de apoio para executar uma migração.
+
+**O que ele não resolve sozinho?** Um fórum não é um contrato de operação, e uma oferta de software não garante adequação ao projeto. Verifique função, condições e escopo de cada recurso.
+
+**Primeiras palavras para entender:**
+
+- **Marketplace:** catálogo de ofertas.
+- **Parceiro:** empresa do ecossistema AWS.
+- **Orientação:** material para apoiar uma decisão ou atividade.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Suporte e capacitação do cliente · **Domínio:** 4 · **Escopo:** Global · **Tópico do guia:** [4.6 Outros recursos de ajuda](../../docs/04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md)
 >
 > **Em uma frase:** além dos planos de suporte, a AWS oferece comunidade, documentação, consultoria, parceiros e operação terceirizada — a prova pede quem procurar em cada situação.
 >
 > **Escopo oficial:** 🔀 Marketplace, APN, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post e Trust and Safety ✅ (task 4.3) · AWS IQ, Activate e AMS ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **mapa de quem procurar**: comunidade, documentação, consultoria da AWS, parceiros ou a equipe de abuso.
-
-- ✅ **Escolha quando:** a pergunta é **"a quem recorrer"**.
-- 🚫 **Não é a resposta quando:** precisa de **suporte técnico pago** → [planos de suporte](planos-de-suporte.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "comunidade" → re:Post; "parceiro certificado" → APN; "consultoria da própria AWS" → Professional Services; "phishing vindo da AWS" → Trust & Safety.
-<!-- didatico:fim -->
 
 ## 🎯 Escopo da prova
 

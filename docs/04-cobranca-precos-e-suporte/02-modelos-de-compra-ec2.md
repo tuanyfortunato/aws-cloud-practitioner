@@ -1,25 +1,14 @@
 # 4.2 Modelos de compra do EC2
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon EC2 (Elastic Compute Cloud)](../../servicos/computacao/ec2.md)
-
-⬅️ [4.1 Princípios de preço da AWS](01-principios-de-preco.md) · 🏠 [Índice do domínio](README.md) · [4.3 Como outros recursos são cobrados](03-cobranca-de-outros-recursos.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Há várias formas de **pagar pelo EC2**: sem compromisso, com compromisso de 1 ou 3 anos, aproveitando sobras baratas (que podem ser retomadas) ou com servidor físico dedicado. A prova pede o modelo certo para o cenário.
->
-> 🏠 **Analogia:** é como **hospedagem**: **On-Demand** é a diária de hotel (cara, sem compromisso); **Reserved/Savings Plans** é o aluguel anual (desconto alto); **Spot** é a passagem de última hora com desconto enorme, mas você pode ser tirado do voo; **Dedicated Host** é alugar a casa inteira só para você.
+**Qual é a dificuldade?** Uma máquina usada ocasionalmente, uma aplicação estável e um trabalho que pode ser interrompido não precisam da mesma forma de compra.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Modelos de compra EC2 trocam flexibilidade, compromisso, risco de interrupção e requisitos de capacidade por condições diferentes.
 
-- [ ] Escolher o modelo pelo cenário (curto e imprevisível → On-Demand; 24/7 por anos → Reserved/Savings Plans; tolera interrupção → Spot).
-- [ ] Diferenciar **Compute Savings Plans** (vale para EC2, Fargate e Lambda) de **EC2 Instance Savings Plans**.
-- [ ] Diferenciar **Dedicated Host** (servidor físico inteiro, licença por núcleo) de **Dedicated Instance**.
-- [ ] Lembrar o **aviso de 2 minutos** do Spot e as formas de pagamento (All, Partial, No Upfront).
+**Exemplo do dia a dia:** Um teste de curta duração pode usar On-Demand. Um trabalho tolerante a interrupções pode avaliar Spot. Uso estável pode justificar avaliar um compromisso.
+
+**O que não concluir?** Desconto não significa que a opção atende qualquer tarefa. Compromisso, interrupção e garantia de capacidade são conceitos diferentes; escolha pelo requisito.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -29,7 +18,31 @@
 | **Interrupção** | a AWS retomar a instância Spot quando precisa da capacidade. |
 | **Capacity Reservation** | garantir capacidade numa AZ, mesmo sem desconto. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Escolher o modelo pelo cenário (curto e imprevisível → On-Demand; 24/7 por anos → Reserved/Savings Plans; tolera interrupção → Spot).
+- [ ] Diferenciar **Compute Savings Plans** (vale para EC2, Fargate e Lambda) de **EC2 Instance Savings Plans**.
+- [ ] Diferenciar **Dedicated Host** (servidor físico inteiro, licença por núcleo) de **Dedicated Instance**.
+- [ ] Lembrar o **aviso de 2 minutos** do Spot e as formas de pagamento (All, Partial, No Upfront).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como **hospedagem**: **On-Demand** é a diária de hotel (cara, sem compromisso); **Reserved/Savings Plans** é o aluguel anual (desconto alto); **Spot** é a passagem de última hora com desconto enorme, mas você pode ser tirado do voo; **Dedicated Host** é alugar a casa inteira só para você.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Não pode ser interrompida e é imprevisível" → **On-Demand**. "Maior desconto e tolera interrupção" → **Spot**. "Desconto que cobre Fargate e Lambda" → **Compute Savings Plans**. "Licença por núcleo físico" → **Dedicated Host**.
+
+---
+
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon EC2 (Elastic Compute Cloud)](../../servicos/computacao/ec2.md)
+
+⬅️ [4.1 Princípios de preço da AWS](01-principios-de-preco.md) · 🏠 [Índice do domínio](README.md) · [4.3 Como outros recursos são cobrados](03-cobranca-de-outros-recursos.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

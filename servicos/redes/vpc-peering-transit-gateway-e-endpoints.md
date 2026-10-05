@@ -1,20 +1,30 @@
 # VPC Peering, Transit Gateway, VPC Endpoints e PrivateLink
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Duas redes privadas precisam conversar, ou uma aplicação precisa acessar um serviço AWS por conectividade privada. São necessidades diferentes.
+
+**Como este serviço ajuda?** Peering conecta VPCs; Transit Gateway centraliza conexões entre redes; endpoints fornecem acesso a serviços compatíveis por caminhos privados. Esta ficha compara essas funções.
+
+**Exemplo do dia a dia:** Duas VPCs podem usar peering. Uma empresa com muitas redes pode avaliar Transit Gateway. Uma aplicação pode usar um endpoint compatível para acessar um serviço AWS.
+
+**O que ele não resolve sozinho?** Criar uma conexão não concede todas as permissões nem configura todas as rotas. Endpoints não equivalem a uma conexão geral entre todas as redes.
+
+**Primeiras palavras para entender:**
+
+- **Peering:** ligação entre duas VPCs.
+- **Hub:** ponto central de conexões.
+- **Endpoint:** ponto de acesso a um serviço.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Rede · **Domínio:** 3 · **Escopo:** Regional (peering e TGW podem ligar regiões) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** formas de conectar VPCs entre si e de acessar serviços sem passar pela internet.
 >
 > **Escopo oficial:** ✅ No escopo (Transit Gateway e PrivateLink listados) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **pontes entre terrenos**: o peering é uma ponte entre dois vizinhos; o Transit Gateway, uma **rodoviária central** que liga todo mundo; os endpoints, **passagens privadas** até os serviços da AWS sem sair para a rua (internet).
-
-- ✅ **Escolha quando:** precisa **conectar VPCs entre si** ou acessar serviços AWS **sem passar pela internet**.
-- 🚫 **Não é a resposta quando:** precisa conectar o **datacenter** → [Direct Connect](direct-connect.md) ou [VPN](site-to-site-vpn-e-client-vpn.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "conectar duas VPCs" → Peering; "dezenas de VPCs e on-premises" → Transit Gateway; "acessar o S3 sem internet" → gateway endpoint; "expor um serviço de forma privada" → PrivateLink.
-<!-- didatico:fim -->
 
 ## VPC Peering
 

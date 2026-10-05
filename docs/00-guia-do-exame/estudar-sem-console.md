@@ -1,5 +1,15 @@
 # Estudar AWS sem abrir o console
 
+<!-- didatico:inicio -->
+## 🧭 Antes de ler
+
+**Por que esta página existe?** Você lê o nome e as opções de um serviço, mas ainda não consegue explicar qual trabalho ele faz sem ver uma tela.
+
+**Como usar?** Este roteiro ensina a estudar pela necessidade, pelo recurso, pela ação e pelos limites. Primeiro entenda o problema; depois imagine o que é configurado e o que acontece.
+
+**Exemplo:** Para EC2, explique que você recebe uma máquina virtual para executar seu programa. Para S3, explique que recebe armazenamento de objetos. Eles atendem trabalhos diferentes.
+<!-- didatico:fim -->
+
 O objetivo da CLF-C02 é reconhecer conceitos, posicionar serviços e escolher soluções para necessidades comuns.
 O [guia oficial](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
 exclui tarefas como implementação, programação, troubleshooting e testes de carga do perfil esperado.

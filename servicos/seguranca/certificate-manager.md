@@ -1,20 +1,30 @@
 # AWS Certificate Manager (ACM) e AWS Private CA
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um site precisa oferecer conexão HTTPS, mas obter, instalar e acompanhar a validade dos certificados pode causar trabalho e interrupções.
+
+**Como este serviço ajuda?** ACM ajuda a provisionar e gerenciar certificados para integrações compatíveis. Certificados participam da identificação do servidor e da proteção da conexão.
+
+**Exemplo do dia a dia:** A escola configura um certificado compatível no balanceador que recebe conexões HTTPS para seu site.
+
+**O que ele não resolve sozinho?** Pedir um certificado não configura HTTPS em todos os recursos automaticamente. Validação do domínio, instalação ou integração e condições de renovação dependem da modalidade.
+
+**Primeiras palavras para entender:**
+
+- **HTTPS:** comunicação web protegida.
+- **Certificado:** documento digital que associa uma identidade a uma chave pública.
+- **TLS:** tecnologia de proteção da conexão.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / criptografia em trânsito · **Domínio:** 2 · **Escopo:** Regional (para CloudFront, **us-east-1**) · **Tópico do guia:** [2.5 Criptografia](../../docs/02-seguranca-e-conformidade/05-criptografia.md)
 >
 > **Em uma frase:** emite e gerencia certificados SSL/TLS, com renovação para certificados elegíveis; públicos não exportáveis em serviços integrados são gratuitos.
 >
 > **Escopo oficial:** ✅ No escopo (Private CA ⚪ não listado) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **cartório dos cadeados HTTPS**: emite e renova sozinho os certificados que fazem aparecer o cadeado no navegador.
-
-- ✅ **Escolha quando:** precisa de **certificados SSL/TLS** para ELB, CloudFront ou API Gateway.
-- 🚫 **Não é a resposta quando:** precisa de **chaves para criptografar dados** → [KMS](kms.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "certificado SSL/TLS", "HTTPS", "renovação automática", "gratuito".
-<!-- didatico:fim -->
 
 ## Destaques
 

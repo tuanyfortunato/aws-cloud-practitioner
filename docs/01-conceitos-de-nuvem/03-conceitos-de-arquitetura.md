@@ -1,23 +1,14 @@
 # 1.3 Conceitos de arquitetura que a prova cobra
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-⬅️ [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** São as **palavras de arquitetura** que a AWS usa para descrever um bom sistema na nuvem: crescer, aguentar falhas, voltar de desastres e manter as partes independentes.
->
-> 🏠 **Analogia:** pense num **restaurante**: contratar garçons extras no sábado e dispensá-los na segunda é **elasticidade**; ter duas cozinhas para o caso de uma pegar fogo é **alta disponibilidade**; os pedidos ficarem num quadro em vez de o garçom esperar o cozinheiro é **acoplamento fraco**.
+**Qual é a dificuldade?** Um sistema pode crescer, ficar lento ou perder uma máquina. A equipe precisa escolher como continuar atendendo e como recuperar dados e operação.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Conceitos de arquitetura descrevem capacidade, disponibilidade, recuperação e dependências entre partes. Eles ajudam a explicar o objetivo antes de escolher um serviço.
 
-- [ ] Diferenciar **escalabilidade** (crescer) de **elasticidade** (crescer **e encolher** sozinho).
-- [ ] Diferenciar escala **vertical** (máquina maior) de **horizontal** (mais máquinas).
-- [ ] Ordenar as estratégias de **DR** da mais barata para a mais rápida e explicar **RTO** e **RPO**.
-- [ ] Explicar por que filas e eventos (**acoplamento fraco**) evitam que uma falha derrube tudo.
+**Exemplo do dia a dia:** Se uma máquina não atende mais os visitantes, você pode usar uma maior ou distribuir o trabalho entre várias. Se uma falhar, outra pode ajudar a manter o atendimento, conforme o projeto.
+
+**O que não concluir?** Crescer não é o mesmo que suportar falhas; ter cópias também não garante recuperação imediata. Aprenda a distinguir as necessidades antes de escolher uma solução.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +19,29 @@
 | **RTO** | quanto tempo você aceita ficar fora do ar depois de um desastre. |
 | **RPO** | quantos dados (em tempo) você aceita perder. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar **escalabilidade** (crescer) de **elasticidade** (crescer **e encolher** sozinho).
+- [ ] Diferenciar escala **vertical** (máquina maior) de **horizontal** (mais máquinas).
+- [ ] Ordenar as estratégias de **DR** da mais barata para a mais rápida e explicar **RTO** e **RPO**.
+- [ ] Explicar por que filas e eventos (**acoplamento fraco**) evitam que uma falha derrube tudo.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+pense num **restaurante**: contratar garçons extras no sábado e dispensá-los na segunda é **elasticidade**; ter duas cozinhas para o caso de uma pegar fogo é **alta disponibilidade**; os pedidos ficarem num quadro em vez de o garçom esperar o cozinheiro é **acoplamento fraco**.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Encolher sozinho" → **elasticidade**. "Mais barato" em DR → **Backup and Restore**; "menor tempo" → **Multi-site**. "Falha de um componente não afetar os outros" → **acoplamento fraco** (SQS, SNS, EventBridge).
+
+---
+
+> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+⬅️ [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

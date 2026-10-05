@@ -1,20 +1,30 @@
 # AWS Global Accelerator
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Usuários de lugares diferentes precisam chegar a aplicações por caminhos de rede mais consistentes, com pontos de entrada fixos.
+
+**Como este serviço ajuda?** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
+
+**Exemplo do dia a dia:** Uma aplicação distribuída usa endereços de entrada fixos e encaminha conexões para seus destinos AWS configurados.
+
+**O que ele não resolve sozinho?** Ele encaminha tráfego; não guarda cópias de imagens ou páginas como uma CDN. Também não corrige lentidão causada pelo código ou pelo banco.
+
+**Primeiras palavras para entender:**
+
+- **IP:** endereço de rede.
+- **Destino:** recurso que recebe o tráfego.
+- **Roteamento:** escolha do caminho de uma comunicação.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Rede / desempenho global · **Domínio:** 3 · **Escopo:** **Global** · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** fornece **2 IPs anycast estáticos** e leva o tráfego TCP/UDP pela rede global da AWS até o endpoint saudável mais próximo.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **via expressa da AWS**: o usuário entra pela rampa mais próxima (2 IPs fixos) e segue pela rede da AWS até a região mais saudável.
-
-- ✅ **Escolha quando:** aplicações **TCP/UDP** (jogos, VoIP) precisam de **IPs estáticos globais** e **failover rápido** entre regiões.
-- 🚫 **Não é a resposta quando:** precisa de **cache de conteúdo** → [CloudFront](cloudfront.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "IPs estáticos", "anycast", "TCP/UDP", "failover entre regiões", "sem cache".
-<!-- didatico:fim -->
 
 ## Como funciona
 

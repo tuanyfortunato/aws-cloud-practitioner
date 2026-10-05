@@ -1,24 +1,14 @@
 # 2.5 Criptografia
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS KMS (Key Management Service)](../../servicos/seguranca/kms.md) · [AWS CloudHSM](../../servicos/seguranca/cloudhsm.md) · [AWS Certificate Manager (ACM) e AWS Private CA](../../servicos/seguranca/certificate-manager.md) · [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md)
-
-⬅️ [2.4 Governança multi-conta](04-governanca-multi-conta.md) · 🏠 [Índice do domínio](README.md) · [2.6 Compliance e governança](06-compliance-e-governanca.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Criptografar é **embaralhar os dados** para que só quem tem a chave consiga ler. Este tópico mostra quando criptografar (guardado ou trafegando) e qual serviço cuida das chaves e dos certificados.
->
-> 🏠 **Analogia:** a criptografia é um **cadeado**; a chave é o que abre. O **KMS** é um chaveiro gerenciado pela AWS; o **CloudHSM** é um **cofre só seu**; o **ACM** fornece o cadeado do HTTPS (o ícone de cadeado no navegador).
+**Qual é a dificuldade?** Dados podem ser interceptados durante uma comunicação ou lidos no armazenamento por alguém sem autorização.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Criptografia protege a leitura dos dados por meio de chaves e tecnologias de conexão. É preciso distinguir proteção durante o transporte, no armazenamento e administração de chaves.
 
-- [ ] Diferenciar criptografia **em repouso** de **em trânsito**.
-- [ ] Diferenciar **KMS** (chaves gerenciadas e integradas) de **CloudHSM** (hardware dedicado, só você controla).
-- [ ] Saber que o **ACM** emite e renova certificados SSL/TLS e que o S3 criptografa objetos novos por padrão.
+**Exemplo do dia a dia:** O site usa HTTPS para a comunicação com o aluno e configura proteção dos documentos armazenados. São duas camadas diferentes.
+
+**O que não concluir?** Criptografia não impede todo apagamento, erro de permissão ou vazamento por um usuário autorizado. Ela é uma proteção específica dentro de um conjunto de controles.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -29,7 +19,30 @@
 | **HSM** | equipamento físico feito para guardar chaves com segurança. |
 | **TLS/SSL** | o protocolo que protege o HTTPS. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar criptografia **em repouso** de **em trânsito**.
+- [ ] Diferenciar **KMS** (chaves gerenciadas e integradas) de **CloudHSM** (hardware dedicado, só você controla).
+- [ ] Saber que o **ACM** emite e renova certificados SSL/TLS e que o S3 criptografa objetos novos por padrão.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+a criptografia é um **cadeado**; a chave é o que abre. O **KMS** é um chaveiro gerenciado pela AWS; o **CloudHSM** é um **cofre só seu**; o **ACM** fornece o cadeado do HTTPS (o ícone de cadeado no navegador).
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Hardware **dedicado**" ou "controle **exclusivo** das chaves" → **CloudHSM**. "Chaves integradas aos serviços" → **KMS**. "Certificado HTTPS" → **ACM**. Quem **ativa** a criptografia dos dados é o **cliente**.
+
+---
+
+> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS KMS (Key Management Service)](../../servicos/seguranca/kms.md) · [AWS CloudHSM](../../servicos/seguranca/cloudhsm.md) · [AWS Certificate Manager (ACM) e AWS Private CA](../../servicos/seguranca/certificate-manager.md) · [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md)
+
+⬅️ [2.4 Governança multi-conta](04-governanca-multi-conta.md) · 🏠 [Índice do domínio](README.md) · [2.6 Compliance e governança](06-compliance-e-governanca.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

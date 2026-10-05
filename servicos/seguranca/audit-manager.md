@@ -1,20 +1,30 @@
 # AWS Audit Manager
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A organização precisa reunir evidências sobre seus controles e organizá-las para uma auditoria, sem depender apenas de coleta manual.
+
+**Como este serviço ajuda?** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
+
+**Exemplo do dia a dia:** Uma equipe reúne evidências de seu ambiente AWS e complementa o material com documentos necessários para uma avaliação.
+
+**O que ele não resolve sozinho?** Organizar evidências não garante aprovação na auditoria nem elimina controles manuais. A ficha está identificada como não listada no escopo atual.
+
+**Primeiras palavras para entender:**
+
+- **Evidência:** material que demonstra uma prática.
+- **Controle:** requisito avaliado.
+- **Avaliação:** conjunto organizado de controles e evidências.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Compliance · **Domínio:** 2 · **Escopo:** Regional (multi-conta) · **Tópico do guia:** [2.6 Compliance e governança](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
 >
 > **Em uma frase:** coleta **evidências da sua conta** continuamente e as mapeia para frameworks, para preparar as suas auditorias.
 >
 > **Escopo oficial:** ⚪ Não listado (saiu da lista atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **assistente que junta sozinho as provas** de que a sua conta segue as regras, para a sua auditoria.
-
-- ✅ **Escolha quando:** precisa coletar **evidências contínuas da sua conta** para frameworks de auditoria. (Saiu da lista atual da prova.)
-- 🚫 **Não é a resposta quando:** precisa dos **relatórios da AWS** → [Artifact](artifact.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "coletar evidências", "preparar auditoria", "frameworks de compliance".
-<!-- didatico:fim -->
 
 ## 🔄 Status
 

@@ -1,20 +1,30 @@
 # Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A equipe precisa estimar um projeto antes de criar recursos e, depois, pode precisar entender a cobrança em mais detalhe.
+
+**Como este serviço ajuda?** Pricing Calculator estima custos com entradas fornecidas por você. Relatórios de custos e uso ajudam a analisar consumo ocorrido; outras ferramentas atendem organização e administração da cobrança.
+
+**Exemplo do dia a dia:** A escola descreve a capacidade planejada para estimar um sistema. Depois de usá-lo, consulta dados de cobrança para comparar a estimativa com o consumo real.
+
+**O que ele não resolve sozinho?** Estimativa não é uma proposta de preço garantido nem a fatura futura. Relatório de gasto real também não escolhe sozinho a arquitetura mais econômica.
+
+**Primeiras palavras para entender:**
+
+- **Estimativa:** cálculo com hipóteses.
+- **Uso:** consumo efetivo de recursos.
+- **CUR:** relatório detalhado de custos e uso.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gestão de custos e faturamento · **Domínio:** 4 · **Escopo:** Conta / organização · **Tópico do guia:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 >
 > **Em uma frase:** ferramentas para estimar, detalhar, ratear, otimizar e acompanhar os custos da AWS.
 >
 > **Escopo oficial:** ✅ No escopo (Billing Conductor ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **orçamento antes da obra** (Pricing Calculator) e a **nota fiscal detalhada depois** (Cost and Usage Report).
-
-- ✅ **Escolha quando:** precisa **estimar custos antes** de criar recursos, ou obter os **dados mais detalhados** de cobrança.
-- 🚫 **Não é a resposta quando:** quer **gráficos do gasto** → [Cost Explorer](cost-explorer.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "estimar antes" → Pricing Calculator; "relatório mais detalhado" → Cost and Usage Report; "separar custos por projeto" → cost allocation tags.
-<!-- didatico:fim -->
 
 ## Tabela de ferramentas
 

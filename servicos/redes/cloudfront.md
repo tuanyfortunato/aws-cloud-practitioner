@@ -1,20 +1,30 @@
 # Amazon CloudFront
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Visitantes em lugares diferentes precisam receber imagens, vídeos ou páginas sem sempre buscar tudo no servidor de origem, que pode estar distante.
+
+**Como este serviço ajuda?** CloudFront distribui conteúdo por uma rede de pontos de presença. Pode manter cópias em cache e encaminhar solicitações à origem conforme as regras.
+
+**Exemplo do dia a dia:** A escola distribui imagens do site pelo CloudFront. Visitantes podem obter cópias a partir de um ponto próximo, sem pedir cada arquivo ao servidor original.
+
+**O que ele não resolve sozinho?** Ele não transforma automaticamente toda aplicação em conteúdo estático nem permite guardar qualquer resposta em cache sem cuidado. A origem, as regras e os acessos precisam ser configurados.
+
+**Primeiras palavras para entender:**
+
+- **CDN:** rede de distribuição de conteúdo.
+- **Origem:** lugar de onde o conteúdo vem.
+- **Cache:** cópia mantida para reutilização.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** CDN / entrega de conteúdo · **Domínio:** 3 (e 2: proteção na borda) · **Escopo:** **Global** (edge locations) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 >
 > **Em uma frase:** rede de distribuição de conteúdo (CDN) que faz **cache** perto dos usuários, reduzindo latência e carga na origem.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **rede de mini-depósitos espalhados pelo mundo**: guarda cópias do seu conteúdo perto dos usuários para entregar mais rápido.
-
-- ✅ **Escolha quando:** precisa entregar **sites, vídeos e APIs com baixa latência** para usuários do mundo todo.
-- 🚫 **Não é a resposta quando:** o tráfego é **TCP/UDP sem cache**, com IPs fixos → [Global Accelerator](global-accelerator.md); precisa só **resolver nomes** → [Route 53](route-53.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "CDN", "cache", "edge locations", "baixa latência para usuários globais", "conteúdo estático".
-<!-- didatico:fim -->
 
 ## Para que serve
 

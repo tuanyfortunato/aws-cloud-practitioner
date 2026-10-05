@@ -1,20 +1,30 @@
 # AWS Service Catalog e AWS Resource Access Manager (RAM)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa quer padronizar o que suas equipes podem provisionar e, em outro caso, compartilhar recursos compatíveis entre contas sem duplicá-los.
+
+**Como este serviço ajuda?** Service Catalog organiza produtos de infraestrutura aprovados. RAM compartilha recursos compatíveis com outros destinatários autorizados. São duas funções diferentes.
+
+**Exemplo do dia a dia:** Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa compartilha um recurso compatível com outra conta pelo RAM.
+
+**O que ele não resolve sozinho?** Aprovar um produto é diferente de compartilhar um recurso já existente. RAM não permite compartilhar qualquer coisa sem restrições nem concede todo acesso aos dados.
+
+**Primeiras palavras para entender:**
+
+- **Produto:** definição provisionável no catálogo.
+- **Provisionar:** criar recursos.
+- **Compartilhamento:** disponibilizar um recurso compatível a destinatários definidos.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / governança · **Domínio:** 2 e 3 · **Escopo:** Regional (compartilháveis entre contas) · **Tópico do guia:** [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 >
 > **Em uma frase:** Service Catalog oferece um **catálogo de produtos aprovados** para autoatendimento; RAM **compartilha recursos** entre contas.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** o Service Catalog é um **cardápio aprovado pela TI**; o RAM é o **empréstimo de recursos entre contas**.
-
-- ✅ **Escolha quando:** quer que os times criem **só recursos aprovados** (Service Catalog) ou precisa **compartilhar recursos entre contas** (RAM).
-- 🚫 **Não é a resposta quando:** quer **limitar o que uma conta pode fazer** → SCP, na ficha do [Organizations](organizations.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "produtos aprovados", "autoatendimento" → Service Catalog; "compartilhar subnet ou Transit Gateway" → RAM.
-<!-- didatico:fim -->
 
 ## AWS Service Catalog
 

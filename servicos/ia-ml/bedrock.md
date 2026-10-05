@@ -1,20 +1,30 @@
 # Amazon Bedrock
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A aplicação quer usar modelos de IA generativa existentes, sem treinar do zero um grande modelo nem administrar sua infraestrutura de execução.
+
+**Como este serviço ajuda?** Bedrock oferece acesso gerenciado a modelos e recursos de desenvolvimento de aplicações com IA generativa, conforme a oferta e as autorizações.
+
+**Exemplo do dia a dia:** Uma aplicação pede a um modelo um resumo de um texto fornecido. A equipe avalia a resposta e define como esse recurso pode ser usado.
+
+**O que ele não resolve sozinho?** Respostas podem conter erros; o serviço não garante verdade nem conhece automaticamente os documentos da empresa. O acesso aos dados e os mecanismos de avaliação precisam ser definidos.
+
+**Primeiras palavras para entender:**
+
+- **IA generativa:** produção de conteúdo, como texto.
+- **Modelo de base:** modelo previamente treinado.
+- **Prompt:** instrução e contexto enviados ao modelo.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** IA generativa · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 >
 > **Em uma frase:** acesso **serverless via API** a modelos de fundação (foundation models) de vários provedores para criar aplicações de IA generativa.
 >
 > **Escopo oficial:** ⚪ Não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **loja de "cérebros" prontos**: você escolhe um modelo de IA generativa e usa pela API, sem treinar do zero.
-
-- ✅ **Escolha quando:** precisa criar **aplicações de IA generativa** (chatbots, resumos, respostas sobre documentos) com modelos de fundação.
-- 🚫 **Não é a resposta quando:** precisa **treinar um modelo próprio** → [SageMaker AI](sagemaker-ai.md); quer um **assistente pronto** → [Amazon Q](amazon-q.md). (O Bedrock não aparece na lista atual da prova.)
-- 🎯 **Palavras do enunciado que apontam para ele:** "IA generativa", "modelos de fundação", "via API", "RAG".
-<!-- didatico:fim -->
 
 ## Destaques
 

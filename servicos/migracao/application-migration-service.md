@@ -1,20 +1,30 @@
 # AWS Application Migration Service (AWS MGN)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa quer mover servidores existentes para a AWS mantendo inicialmente boa parte de sua aplicação e configuração, sem reescrever tudo antes da mudança.
+
+**Como este serviço ajuda?** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
+
+**Exemplo do dia a dia:** A equipe replica um servidor do sistema interno, testa sua execução na AWS e planeja o momento de trocar o ambiente em uso.
+
+**O que ele não resolve sozinho?** Replicar não moderniza automaticamente o programa nem garante que bancos, DNS e integrações externas estejam prontos. A migração precisa ser testada.
+
+**Primeiras palavras para entender:**
+
+- **Rehost:** mover com poucas mudanças iniciais.
+- **Replicação:** cópia contínua de dados.
+- **Cutover:** troca para o ambiente de destino.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Migração de servidores · **Domínio:** 1 (Rehost) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.17 Migração e transferência](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)
 >
 > **Em uma frase:** migração **lift-and-shift (Rehost)** de servidores físicos, virtuais ou de outras nuvens para EC2, com mínima indisponibilidade.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **caminhão de mudança que copia seus servidores** para a AWS sem desmontar nada (lift-and-shift).
-
-- ✅ **Escolha quando:** precisa **migrar servidores inteiros sem mudanças** (Rehost).
-- 🚫 **Não é a resposta quando:** precisa migrar **banco de dados** → [DMS](dms-e-sct.md); precisa de **recuperação de desastres** → [Elastic Disaster Recovery](../armazenamento/elastic-disaster-recovery.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "lift-and-shift", "Rehost", "migrar servidores ou VMs".
-<!-- didatico:fim -->
 
 ## Como funciona
 

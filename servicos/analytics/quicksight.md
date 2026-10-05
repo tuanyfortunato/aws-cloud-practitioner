@@ -1,20 +1,30 @@
 # Amazon QuickSight (Amazon Quick Sight)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Há resultados e tabelas, mas as pessoas do negócio precisam enxergar indicadores em gráficos e painéis, sem ler dados brutos.
+
+**Como este serviço ajuda?** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis. Você prepara as conexões, os conjuntos de dados e as visualizações.
+
+**Exemplo do dia a dia:** A escola cria um painel com matrículas por curso e período para a equipe administrativa acompanhar a demanda.
+
+**O que ele não resolve sozinho?** O painel não coleta nem corrige automaticamente qualquer dado. Permissões, qualidade e atualização dos dados precisam ser planejadas.
+
+**Primeiras palavras para entender:**
+
+- **BI:** análise de dados para apoiar decisões.
+- **Dashboard:** painel de indicadores.
+- **Visualização:** gráfico ou outra representação dos dados.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Analytics / BI · **Domínio:** 3 · **Escopo:** Regional (conta) · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** BI **serverless** para criar dashboards e relatórios interativos, inclusive com perguntas em linguagem natural.
 >
 > **Escopo oficial:** ✅ No escopo (como Amazon Quick Sight) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **painel de gráficos da diretoria**: transforma dados em dashboards interativos.
-
-- ✅ **Escolha quando:** precisa criar **dashboards e relatórios de BI**.
-- 🚫 **Não é a resposta quando:** precisa **guardar e consultar** os dados → [Redshift](../banco-de-dados/redshift.md) ou [Athena](athena.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "dashboards", "BI", "visualização", "relatórios interativos".
-<!-- didatico:fim -->
 
 ## Destaques
 

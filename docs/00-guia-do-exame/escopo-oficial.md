@@ -1,5 +1,15 @@
 # 🎯 Escopo oficial da CLF-C02 (verificado em 04/10/2026)
 
+<!-- didatico:inicio -->
+## 🧭 Antes de ler
+
+**Por que esta página existe?** Um serviço pode existir na AWS e, ainda assim, não estar na lista de estudo do exame. Também há listas antigas circulando.
+
+**Como usar?** Esta página separa tarefas e serviços conforme o guia oficial consultado. Use-a para priorizar o estudo e interpretar as marcações das fichas.
+
+**Exemplo:** Ao encontrar uma ficha de referência, confira a marcação antes de investir tempo em detalhes. ‘Não listado’ e ‘explicitamente fora do escopo’ não são a mesma classificação.
+<!-- didatico:fim -->
+
 > Fontes: [verificação em fontes oficiais](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md), feitas no
 > [exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
 > e na [lista de serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html).

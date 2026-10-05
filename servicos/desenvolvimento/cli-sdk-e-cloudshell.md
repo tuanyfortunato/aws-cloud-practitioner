@@ -1,20 +1,30 @@
 # Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Operar tudo clicando em telas pode ser lento. A equipe quer executar comandos ou fazer seu próprio programa interagir com a AWS.
+
+**Como este serviço ajuda?** CLI oferece comandos; SDKs oferecem bibliotecas para programação; CloudShell fornece um terminal pelo navegador. São formas diferentes de acessar operações AWS.
+
+**Exemplo do dia a dia:** Uma desenvolvedora usa um comando para consultar recursos. Seu aplicativo usa um SDK para enviar um arquivo a um serviço autorizado.
+
+**O que ele não resolve sozinho?** Mudar a forma de acesso não concede mais permissões. CLI e SDK não são recursos de hospedagem; o escopo da prova para cada ferramenta está indicado abaixo.
+
+**Primeiras palavras para entender:**
+
+- **CLI:** interface por comandos de texto.
+- **SDK:** biblioteca para desenvolver integrações.
+- **Terminal:** ambiente para executar comandos.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Ferramentas de desenvolvedor / acesso · **Domínio:** 3 · **Escopo:** Global (console) / por região (endpoints de API) · **Tópico do guia:** [3.1 Formas de acesso e implantação](../../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
 >
 > **Em uma frase:** toda ação na AWS é uma **chamada de API** — Console, CLI e SDKs são apenas formas diferentes de fazê-la.
 >
 > **Escopo oficial:** 🔀 CLI e Management Console ✅ · CloudShell ❌ fora do escopo · Cloud9 ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **portas diferentes para o mesmo prédio**: o Console é a porta da frente (cliques), a CLI é o interfone (comandos), os SDKs são a entrada pelo seu próprio programa e o CloudShell é uma CLI pronta no navegador.
-
-- ✅ **Escolha quando:** precisa decidir **como interagir com a AWS**.
-- 🚫 **Não é a resposta quando:** precisa criar **ambientes repetíveis** → [CloudFormation](../gerenciamento/cloudformation.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "linha de comando" → CLI; "dentro do código" → SDK; "terminal no navegador" → CloudShell (fora da prova).
-<!-- didatico:fim -->
 
 ## Comparação
 

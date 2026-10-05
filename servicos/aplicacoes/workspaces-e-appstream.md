@@ -1,20 +1,30 @@
 # Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Pessoas precisam usar um ambiente de trabalho ou uma aplicação à distância, sem instalar tudo no próprio computador.
+
+**Como este serviço ajuda?** WorkSpaces oferece ambientes de trabalho virtuais em modalidades próprias. AppStream transmite aplicações; WorkSpaces Secure Browser atende acesso web corporativo controlado.
+
+**Exemplo do dia a dia:** Uma empresa fornece a colaboradores um ambiente remoto ou acesso a uma aplicação corporativa, escolhendo o produto adequado à experiência necessária.
+
+**O que ele não resolve sozinho?** Um desktop completo, uma aplicação transmitida e um navegador remoto são soluções diferentes. Identidade, aplicações, rede e modalidade precisam ser planejadas.
+
+**Primeiras palavras para entender:**
+
+- **Desktop virtual:** ambiente de trabalho remoto.
+- **Streaming de aplicação:** uso de software transmitido ao dispositivo.
+- **Sessão:** período de acesso do usuário.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação para usuário final (EUC) · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 >
 > **Em uma frase:** entregam desktops, aplicações ou um navegador seguro hospedados na AWS para qualquer dispositivo.
 >
 > **Escopo oficial:** ✅ No escopo (WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **seu computador de trabalho na nuvem**: abre de qualquer lugar e os dados ficam na AWS, não no aparelho.
-
-- ✅ **Escolha quando:** precisa dar **desktops virtuais** (WorkSpaces), **apps de desktop pelo navegador** (AppStream 2.0) ou um **navegador seguro** (WorkSpaces Secure Browser).
-- 🚫 **Não é a resposta quando:** precisa de um **servidor** para rodar uma aplicação → [EC2](../computacao/ec2.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "desktop virtual" → WorkSpaces; "app de desktop no navegador" → AppStream 2.0; "navegador seguro sem VPN" → Secure Browser.
-<!-- didatico:fim -->
 
 ## Comparação
 

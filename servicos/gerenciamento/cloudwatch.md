@@ -1,20 +1,30 @@
 # Amazon CloudWatch
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um sistema ficou lento ou falhou. A equipe precisa acompanhar seu comportamento e perceber problemas, em vez de esperar alguém reclamar.
+
+**Como este serviço ajuda?** CloudWatch reúne recursos para métricas, logs e alarmes. Você observa dados do ambiente e define condições que devem gerar avisos ou ações integradas.
+
+**Exemplo do dia a dia:** A escola acompanha uma métrica da aplicação e cria um alarme quando ela ultrapassa um limite definido. Logs ajudam a entender erros do programa.
+
+**O que ele não resolve sozinho?** Nem todo dado é coletado automaticamente, e um alarme não corrige qualquer problema sozinho. Você precisa coletar os dados certos e configurar a resposta desejada.
+
+**Primeiras palavras para entender:**
+
+- **Métrica:** medida ao longo do tempo.
+- **Log:** registro de acontecimentos.
+- **Alarme:** condição monitorada que pode mudar de estado e acionar respostas.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / observabilidade · **Domínio:** 2 e 3 · **Escopo:** Regional (dashboards e alarmes entre regiões/contas) · **Tópico do guia:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)
 >
 > **Em uma frase:** monitoramento de **métricas, logs e alarmes** de recursos e aplicações AWS e on-premises.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **painel do carro**: mostra os indicadores (métricas), guarda o diário de bordo (logs) e acende a luz de alerta (alarmes).
-
-- ✅ **Escolha quando:** precisa **monitorar desempenho**, coletar **logs** e criar **alarmes**.
-- 🚫 **Não é a resposta quando:** quer saber **quem fez** uma ação → [CloudTrail](cloudtrail.md); quer o **histórico de configuração** → [Config](config.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "métricas", "alarme", "CPU acima de 80%", "logs da aplicação", "dashboard".
-<!-- didatico:fim -->
 
 ## Componentes
 

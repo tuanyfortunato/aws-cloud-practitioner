@@ -1,20 +1,30 @@
 # AWS CloudTrail
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Um recurso foi alterado e a equipe precisa descobrir qual identidade realizou a ação, quando e por qual chamada AWS.
+
+**Como este serviço ajuda?** CloudTrail registra atividades e chamadas compatíveis realizadas na conta. Ele ajuda a auditar ações, conforme a cobertura configurada.
+
+**Exemplo do dia a dia:** A equipe investiga quem solicitou uma alteração num recurso e consulta o evento correspondente no CloudTrail.
+
+**O que ele não resolve sozinho?** Ele não é o registro de todo erro dentro do seu programa. Diferentes tipos de evento e retenção têm condições próprias; não presuma que todo acesso foi registrado do mesmo modo.
+
+**Primeiras palavras para entender:**
+
+- **Evento:** registro de uma atividade.
+- **API:** interface usada para operar serviços.
+- **Auditoria:** exame de ações e evidências.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / auditoria · **Domínio:** 2 · **Escopo:** Regional (trails multi-região e de organização) · **Tópico do guia:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)
 >
 > **Em uma frase:** registra as **chamadas de API** da conta — quem fez, o quê, quando, de onde e em qual recurso.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **câmera de segurança da conta**: registra quem fez cada ação, quando e de onde.
-
-- ✅ **Escolha quando:** precisa **auditar chamadas de API** e descobrir **quem fez o quê**.
-- 🚫 **Não é a resposta quando:** quer **desempenho** → [CloudWatch](cloudwatch.md); quer saber **como estava a configuração** → [Config](config.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "quem fez", "chamadas de API", "auditoria", "90 dias de histórico".
-<!-- didatico:fim -->
 
 ## Tipos de eventos
 

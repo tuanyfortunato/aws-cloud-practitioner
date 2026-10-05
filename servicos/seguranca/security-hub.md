@@ -1,20 +1,30 @@
 # AWS Security Hub
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa recebe achados de segurança de várias ferramentas e precisa de uma visão organizada para acompanhar prioridades e postura de segurança.
+
+**Como este serviço ajuda?** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
+
+**Exemplo do dia a dia:** A equipe consulta uma visão central de achados e controles para acompanhar problemas em seus ambientes AWS.
+
+**O que ele não resolve sozinho?** Centralizar achados não corrige todos os recursos automaticamente nem garante conformidade com qualquer norma. Integrações, controles e ações de resposta exigem configuração.
+
+**Primeiras palavras para entender:**
+
+- **Postura de segurança:** situação dos controles e riscos.
+- **Achado:** resultado de uma avaliação.
+- **Controle:** requisito ou prática verificada.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / postura (CSPM) · **Domínio:** 2 · **Escopo:** Regional com agregação entre regiões e contas · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 >
 > **Em uma frase:** **painel central** de segurança que agrega achados de vários serviços e verifica a conta contra padrões de boas práticas.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **painel da central de segurança**: junta os alertas de vários serviços e dá uma nota para a sua conta.
-
-- ✅ **Escolha quando:** precisa **centralizar achados de segurança** e verificar a conta contra padrões (CIS, FSBP, PCI DSS).
-- 🚫 **Não é a resposta quando:** quer **recomendações de custo, desempenho e limites** → [Trusted Advisor](../gerenciamento/trusted-advisor.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "painel central de segurança", "achados de vários serviços", "CIS Benchmark", "padrões de segurança".
-<!-- didatico:fim -->
 
 ## O que faz
 

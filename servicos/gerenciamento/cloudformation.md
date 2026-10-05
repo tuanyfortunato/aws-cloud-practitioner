@@ -1,20 +1,30 @@
 # AWS CloudFormation (e CDK, SAM)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Criar recursos manualmente dificulta repetir o mesmo ambiente e acompanhar exatamente o que foi configurado.
+
+**Como este serviço ajuda?** CloudFormation usa um arquivo de descrição para criar e atualizar conjuntos de recursos AWS compatíveis, com suas dependências.
+
+**Exemplo do dia a dia:** A escola descreve seu ambiente de testes num template e usa uma stack para administrar os recursos desse ambiente em conjunto.
+
+**O que ele não resolve sozinho?** Ele não inventa uma arquitetura segura nem impede todo erro de configuração. A descrição precisa estar correta, e mudanças ou exclusões podem afetar recursos e dados.
+
+**Primeiras palavras para entender:**
+
+- **Template:** arquivo que descreve recursos.
+- **Stack:** conjunto administrado a partir do template.
+- **Infraestrutura como código:** recursos descritos em arquivos versionáveis.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / infraestrutura como código · **Domínio:** 1 (automação), 3 · **Escopo:** Regional (StackSets: multi-conta/região) · **Gratuito** · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md) · [3.1 Formas de acesso](../../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
 >
 > **Em uma frase:** descreve a infraestrutura em templates JSON/YAML e cria tudo de forma **repetível, versionada e automatizada**.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **planta da casa**: você descreve a infraestrutura num arquivo e a AWS constrói igualzinho quantas vezes quiser.
-
-- ✅ **Escolha quando:** precisa criar **ambientes repetíveis e versionados** (infraestrutura como código).
-- 🚫 **Não é a resposta quando:** quer só **publicar uma aplicação web** sem pensar em infraestrutura → [Elastic Beanstalk](../computacao/elastic-beanstalk.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "infraestrutura como código", "template JSON/YAML", "repetível", "várias contas e regiões" (StackSets).
-<!-- didatico:fim -->
 
 ## Template
 

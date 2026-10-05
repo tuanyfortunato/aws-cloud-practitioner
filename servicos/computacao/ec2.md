@@ -1,20 +1,30 @@
 # Amazon EC2 (Elastic Compute Cloud)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Você tem um programa que precisa ficar funcionando mesmo quando seu computador pessoal está desligado. Comprar uma máquina, instalar tudo e manter essa máquina na empresa dá trabalho.
+
+**Como este serviço ajuda?** O EC2 permite alugar um computador que funciona no datacenter da AWS. Você escolhe a capacidade e o sistema operacional, instala seu programa e decide quem pode acessá-lo. A AWS cuida do equipamento físico; você continua administrando o sistema e a aplicação.
+
+**Exemplo do dia a dia:** Uma escola quer disponibilizar seu sistema de matrícula pela internet. Ela pode instalar esse sistema numa máquina EC2, configurar o acesso e manter o programa funcionando ali. Os alunos usam o sistema; não precisam acessar a máquina como administradores.
+
+**O que ele não resolve sozinho?** Criar a máquina não instala nem publica automaticamente o seu sistema. Você precisa configurá-lo, protegê-lo e atualizá-lo. Parar a máquina também não elimina o custo de todos os recursos associados, como os discos mantidos.
+
+**Primeiras palavras para entender:**
+
+- **Servidor:** computador que atende pedidos de outros computadores.
+- **Instância:** uma máquina virtual criada no EC2.
+- **Sistema operacional:** software básico da máquina, como Linux ou Windows.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação · **Domínio:** 3 (e 4: modelos de compra) · **Escopo:** Regional (cada instância vive numa AZ) · **Tópico do guia:** [3.3 Amazon EC2](../../docs/03-tecnologia-e-servicos/03-ec2.md)
 >
 > **Em uma frase:** servidores virtuais sob demanda, com controle total do sistema operacional (IaaS).
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como **alugar um computador** num datacenter da AWS: você escolhe o tamanho, instala o que quiser e paga pelo tempo em que ele fica ligado.
-
-- ✅ **Escolha quando:** precisa de **controle total do sistema operacional**, de software legado ou de licenças específicas, ou vai mover servidores sem mudanças (lift-and-shift).
-- 🚫 **Não é a resposta quando:** não quer gerenciar servidores → [Lambda](lambda.md) ou [Fargate](fargate.md); quer só enviar o código → [Elastic Beanstalk](elastic-beanstalk.md); quer preço fixo e simples → [Lightsail](lightsail.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "servidor virtual", "instância", "controle do sistema operacional", "tipo de instância", "lift-and-shift".
-<!-- didatico:fim -->
 
 ## Para que serve
 

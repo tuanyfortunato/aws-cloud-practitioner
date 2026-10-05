@@ -1,20 +1,30 @@
 # Amazon Aurora
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação usa banco relacional e quer uma opção AWS compatível com MySQL ou PostgreSQL, com arquitetura própria para armazenamento e disponibilidade.
+
+**Como este serviço ajuda?** Aurora é um banco relacional da AWS dentro da família RDS. Ele combina compatibilidade com esses mecanismos e uma arquitetura gerenciada com recursos próprios.
+
+**Exemplo do dia a dia:** Uma loja que usa PostgreSQL avalia Aurora PostgreSQL para seu banco de pedidos, verificando a compatibilidade da aplicação e as necessidades de capacidade.
+
+**O que ele não resolve sozinho?** Aurora não é compatível com todos os mecanismos disponíveis no RDS. Compatibilidade também não significa que toda extensão e configuração funcionará sem avaliação.
+
+**Primeiras palavras para entender:**
+
+- **Relacional:** dados em tabelas relacionadas.
+- **Compatibilidade:** capacidade de usar interfaces e comportamentos esperados.
+- **Réplica de leitura:** cópia usada para consultas.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Banco relacional nativo da AWS · **Domínio:** 3 · **Escopo:** Regional (cluster multi-AZ); Global Database multi-região · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco relacional compatível com MySQL e PostgreSQL, com desempenho e disponibilidade de nível comercial a custo de open source.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **RDS turbinado**, criado pela própria AWS: fala MySQL e PostgreSQL, mas é mais rápido e guarda 6 cópias dos dados.
-
-- ✅ **Escolha quando:** precisa de banco **relacional compatível com MySQL ou PostgreSQL** com máximo desempenho e disponibilidade.
-- 🚫 **Não é a resposta quando:** precisa de **Oracle ou SQL Server** → [RDS](rds.md); precisa de **NoSQL** → [DynamoDB](dynamodb.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "compatível com MySQL e PostgreSQL", "6 cópias em 3 AZs", "até 15 réplicas", "Global Database".
-<!-- didatico:fim -->
 
 ## Para que serve
 

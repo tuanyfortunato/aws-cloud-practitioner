@@ -1,25 +1,14 @@
 # 4.3 Como outros recursos são cobrados
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md) · [Amazon EBS (Elastic Block Store) e Instance Store](../../servicos/armazenamento/ebs.md) · [AWS Lambda](../../servicos/computacao/lambda.md)
-
-⬅️ [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) · 🏠 [Índice do domínio](README.md) · [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Além do EC2, cada recurso tem a sua forma de cobrança. O ponto mais cobrado é a **transferência de dados**: **entrar é grátis, sair é pago**. Também caem os serviços sem custo próprio e o Free Tier.
->
-> 🏠 **Analogia:** é como um **estacionamento**: entrar é grátis, mas você paga para sair — e quanto mais carros saem, menor o preço por carro (faixas de volume).
+**Qual é a dificuldade?** Parar a computação ou reduzir visitas não elimina necessariamente os custos de dados armazenados e comunicações.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** A cobrança pode envolver armazenamento, requisições, endereços e transferências, além da execução. Cada recurso precisa ser analisado separadamente.
 
-- [ ] Saber o que é **grátis** e o que é **pago** na transferência de dados.
-- [ ] Saber que o **EBS** cobra pelo volume **provisionado**, mesmo vazio.
-- [ ] Citar serviços **sem custo próprio** (CloudFormation, Elastic Beanstalk, Auto Scaling, IAM, Organizations).
-- [ ] Reconhecer os tipos de **Free Tier**.
+**Exemplo do dia a dia:** A escola para uma máquina de testes, mas mantém volumes e cópias de dados. Esses recursos podem continuar tendo custo.
+
+**O que não concluir?** Não aplique a regra de um serviço a todos os outros. Identifique qual recurso permanece e qual condição gera cobrança.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +17,31 @@
 | **Provisionado** | o tamanho que você reservou, usado ou não. |
 | **Free Tier** | uso gratuito oferecido pela AWS, com limites. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Saber o que é **grátis** e o que é **pago** na transferência de dados.
+- [ ] Saber que o **EBS** cobra pelo volume **provisionado**, mesmo vazio.
+- [ ] Citar serviços **sem custo próprio** (CloudFormation, Elastic Beanstalk, Auto Scaling, IAM, Organizations).
+- [ ] Reconhecer os tipos de **Free Tier**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como um **estacionamento**: entrar é grátis, mas você paga para sair — e quanto mais carros saem, menor o preço por carro (faixas de volume).
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Sempre grátis" → **transferência de entrada** e serviços como **IAM**. "Reduzir custo de saída para usuários globais" → **CloudFront**. "Serviço grátis, paga os recursos" → CloudFormation/Beanstalk/Auto Scaling.
+
+---
+
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md) · [Amazon EBS (Elastic Block Store) e Instance Store](../../servicos/armazenamento/ebs.md) · [AWS Lambda](../../servicos/computacao/lambda.md)
+
+⬅️ [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) · 🏠 [Índice do domínio](README.md) · [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # AWS Outposts, Local Zones e Wavelength
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Algumas aplicações precisam executar perto de equipamentos, pessoas ou redes específicas. Uma região AWS distante pode não atender ao requisito de proximidade.
+
+**Como este serviço ajuda?** Esta ficha compara formas de aproximar infraestrutura AWS: Outposts no local do cliente, Local Zones perto de centros urbanos e Wavelength em redes de operadoras compatíveis.
+
+**Exemplo do dia a dia:** Uma fábrica pode precisar processar dados perto das máquinas e avaliar Outposts. Uma aplicação urbana pode avaliar uma Local Zone, conforme a disponibilidade.
+
+**O que ele não resolve sozinho?** As três opções não são o mesmo produto nem oferecem todos os serviços de uma região. Disponibilidade e escopo da prova diferem entre elas; confira a identificação abaixo.
+
+**Primeiras palavras para entender:**
+
+- **Latência:** tempo de uma comunicação.
+- **Datacenter:** local onde ficam servidores.
+- **Borda:** execução próxima da origem ou do consumidor dos dados.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Infraestrutura híbrida e de borda · **Domínio:** 3 · **Escopo:** extensões de uma região · **Tópico do guia:** [3.2 Infraestrutura global](../../docs/03-tecnologia-e-servicos/02-infraestrutura-global.md)
 >
 > **Em uma frase:** três formas de levar a infraestrutura AWS para mais perto de onde a latência ou a localização dos dados importam.
 >
 > **Escopo oficial:** 🔀 Outposts ✅ · Local Zones ⚪ não listado · Wavelength ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são três jeitos de **trazer a AWS para mais perto**: o Outposts é uma "filial" da AWS **dentro do seu prédio**; a Local Zone, uma filial **numa cidade**; o Wavelength, uma filial **dentro da rede 5G** da operadora.
-
-- ✅ **Escolha quando:** precisa de **latência muito baixa** ou de **manter os dados num local específico**.
-- 🚫 **Não é a resposta quando:** só quer entregar **conteúdo mais perto** dos usuários → [CloudFront](../redes/cloudfront.md) (edge locations).
-- 🎯 **Palavras do enunciado que apontam para ele:** "serviços AWS no próprio datacenter" → Outposts; "latência de um dígito de milissegundo numa cidade" → Local Zones; "5G" → Wavelength.
-<!-- didatico:fim -->
 
 ## Comparação
 

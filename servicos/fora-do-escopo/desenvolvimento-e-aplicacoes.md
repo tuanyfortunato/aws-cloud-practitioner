@@ -1,5 +1,25 @@
 # Desenvolvimento e aplicações (AppConfig, Infrastructure Composer, CodeGuru, Copilot, Refactor Spaces, AppFabric, SWF, WorkDocs)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Equipes podem precisar controlar configurações, apoiar análise de código ou modernizar aplicações. Esses trabalhos têm objetivos e ferramentas distintos.
+
+**Como este serviço ajuda?** Esta ficha organiza ferramentas especializadas de desenvolvimento e aplicações, explicando sua finalidade e as restrições registradas no material.
+
+**Exemplo do dia a dia:** Alterar uma configuração com controle é um problema diferente de analisar código ou dividir uma aplicação antiga em partes. Leia cada produto pelo trabalho que ele atende.
+
+**O que ele não resolve sozinho?** Não existe uma ferramenta desta lista que faça toda a modernização sozinha. Há produtos antigos e restrições comerciais; a ficha está fora do escopo indicado da prova.
+
+**Primeiras palavras para entender:**
+
+- **Configuração:** valor que orienta o comportamento do programa.
+- **Modernização:** mudança da forma de construir ou operar a aplicação.
+- **Código:** instruções do programa.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Ferramentas de desenvolvedor e aplicações · **Domínio:** — (fora da prova) · **Escopo:** Regional · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
 >
 > **Em uma frase:** ferramentas de desenvolvimento, modernização e colaboração que existem na AWS, mas não caem na prova.
@@ -10,16 +30,6 @@
 > CodePipeline e X-Ray**. Documentados aqui apenas para referência. Veja também
 > [CodeDeploy, CodeArtifact e outros](../desenvolvimento/code-services.md) e [CloudShell](../desenvolvimento/cli-sdk-e-cloudshell.md),
 > que também estão fora do escopo.
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **ferramentas de desenvolvimento e colaboração** que existem na AWS, mas não caem na prova.
-
-- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
-- 🚫 **Não é a resposta quando:** na prova, **CI/CD** → [CodeBuild e CodePipeline](../desenvolvimento/code-services.md); **workflow** → [Step Functions](../integracao/step-functions.md); **infraestrutura como código** → [CloudFormation](../gerenciamento/cloudformation.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** AppConfig, CodeGuru, Copilot, SWF e WorkDocs aparecem, no máximo, como alternativas erradas.
-<!-- didatico:fim -->
 
 ## AWS AppConfig
 

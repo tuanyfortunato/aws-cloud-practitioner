@@ -1,5 +1,16 @@
 # Domínio 3 — Tecnologia e Serviços de Nuvem
 
+## 🧠 Antes de começar
+
+**Qual é a dificuldade?** A AWS tem muitos nomes, mas você precisa primeiro descobrir qual dificuldade cada serviço atende.
+
+**A ideia em palavras simples:** Este é o domínio **maior** e mais **amplo**: um passeio pelos principais serviços da AWS — computação, bancos, armazenamento, rede, analytics, IA, integração, ferramentas e migração. A prova não pede detalhes de configuração; pede **o serviço certo para cada cenário**.
+
+**Exemplo do dia a dia:** O sistema da escola precisa executar um programa, guardar PDFs, manter matrículas e receber trabalhos em espera. São quatro problemas, com soluções diferentes.
+
+Comece pelas aberturas dos tópicos para entender a situação e a solução. Depois use o vocabulário,
+os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço; o índice não substitui essa leitura.
+
 **Peso na prova:** 34% das questões pontuadas
 
 **Como o conteúdo está dividido:**
@@ -12,12 +23,10 @@
 
 ## 🧭 Como estudar este domínio
 
-> 💡 **Em palavras simples:** Este é o domínio **maior** e mais **amplo**: um passeio pelos principais serviços da AWS — computação, bancos, armazenamento, rede, analytics, IA, integração, ferramentas e migração. A prova não pede detalhes de configuração; pede **o serviço certo para cada cenário**.
-
 - 🗺️ **Ordem sugerida:** Estude em blocos: **infraestrutura e computação** (3.1 a 3.6), **dados e armazenamento** (3.7 a 3.9), **rede** (3.10) e depois os **demais serviços** (3.11 a 3.18). Use as fichas de serviço para aprofundar o que tiver dúvida.
-- 🎯 **Dica:** Para cada serviço, saiba responder: **para que serve** e **qual o vizinho com que ele é confundido**. A seção "Entenda em 30 segundos" de cada ficha resume exatamente isso.
-- 🧠 Cada tópico começa com a seção **Antes de começar**: ideia em palavras simples, analogia, checklist do que saber,
-  palavras novas explicadas e como não errar na prova.
+- 🎯 **Dica:** Para cada serviço, explique o problema, a solução e o que continua exigindo configuração. A abertura ‘Comece pelo problema’ das fichas prepara essa leitura.
+- 🧠 Cada tópico começa com a seção **Antes de começar**: problema, explicação, exemplo e limite.
+  Depois vêm palavras novas explicadas, objetivos de leitura e revisão para a prova.
 
 ## Tópicos
 

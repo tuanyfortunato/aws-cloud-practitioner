@@ -1,20 +1,30 @@
 # Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma equipe precisa transformar código em uma versão executável, verificar o resultado e disponibilizá-lo com um processo repetível.
+
+**Como este serviço ajuda?** A ficha compara ferramentas de desenvolvimento e entrega. CodeBuild executa tarefas de construção e testes; CodePipeline coordena etapas de uma entrega automatizada.
+
+**Exemplo do dia a dia:** Ao enviar uma mudança, o processo constrói a aplicação, executa testes configurados e encaminha a versão às etapas de entrega previstas.
+
+**O que ele não resolve sozinho?** Automatizar uma sequência não cria os testes nem garante que a aplicação esteja correta. As ferramentas da família têm papéis e condições comerciais diferentes.
+
+**Primeiras palavras para entender:**
+
+- **Build:** preparação de uma versão executável.
+- **Pipeline:** sequência de etapas.
+- **Deploy:** colocação de uma versão em funcionamento.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Ferramentas de desenvolvedor / DevOps · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.15 Ferramentas de desenvolvimento](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)
 >
 > **Em uma frase:** serviços gerenciados que cobrem a esteira **código → build → teste → deploy**.
 >
 > **Escopo oficial:** 🔀 CodeBuild e CodePipeline ✅ · CodeDeploy e CodeArtifact ❌ fora do escopo · CodeCommit e CodeStar ⚪ não listados · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **linha de montagem do software**: guardar o código, compilar e testar, e entregar em produção.
-
-- ✅ **Escolha quando:** precisa **automatizar a esteira de CI/CD**.
-- 🚫 **Não é a resposta quando:** precisa achar **lentidão entre serviços** → [X-Ray](x-ray.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "esteira de CI/CD" → CodePipeline; "compilar e testar" → CodeBuild; "automatizar deploy" → CodeDeploy (fora da prova).
-<!-- didatico:fim -->
 
 ## Visão da esteira
 

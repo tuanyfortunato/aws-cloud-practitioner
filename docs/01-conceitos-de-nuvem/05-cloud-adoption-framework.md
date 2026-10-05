@@ -1,22 +1,14 @@
 # 1.5 AWS Cloud Adoption Framework (CAF)
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-⬅️ [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) · 🏠 [Índice do domínio](README.md) · [1.6 Estratégias de migração (os 7 Rs)](06-estrategias-de-migracao.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** O CAF é o **guia da AWS para a empresa inteira se preparar** para a nuvem — não só a TI, mas também negócio, pessoas e governança. Ele divide o trabalho em **6 perspectivas** e **4 fases**.
->
-> 🏠 **Analogia:** é como **mudar a família inteira para outro país**: alguém cuida do dinheiro e do objetivo (Business), alguém prepara as pessoas e o idioma (People), alguém controla orçamento e riscos (Governance), e os outros cuidam da casa nova (Platform), da segurança (Security) e do dia a dia (Operations).
+**Qual é a dificuldade?** Mudar para a nuvem afeta orçamento, equipes, processos e segurança. A mudança pode fracassar mesmo que as máquinas funcionem.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** O Cloud Adoption Framework, ou CAF, ajuda a organizar a preparação da empresa em perspectivas. Cada perspectiva reúne capacidades e responsáveis por uma parte da adoção.
 
-- [ ] Citar as **6 perspectivas** e separar as de **negócio** (Business, People, Governance) das **técnicas** (Platform, Security, Operations).
-- [ ] Citar as **4 fases**: Envision, Align, Launch e Scale.
-- [ ] Reconhecer os **benefícios** declarados (menos risco, melhor ESG, mais receita, mais eficiência).
+**Exemplo do dia a dia:** A escola planeja treinamento para a equipe, regras de orçamento e operação do sistema, além da migração técnica.
+
+**O que não concluir?** CAF não transfere servidores nem substitui ferramentas de implantação. Ele organiza a transformação da empresa; Well-Architected se concentra na revisão de uma aplicação e sua operação.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -25,7 +17,28 @@
 | **Perspectiva** | um grupo de capacidades com um público responsável (ex.: People → RH e liderança). |
 | **ESG** | ambiental, social e governança. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar as **6 perspectivas** e separar as de **negócio** (Business, People, Governance) das **técnicas** (Platform, Security, Operations).
+- [ ] Citar as **4 fases**: Envision, Align, Launch e Scale.
+- [ ] Reconhecer os **benefícios** declarados (menos risco, melhor ESG, mais receita, mais eficiência).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como **mudar a família inteira para outro país**: alguém cuida do dinheiro e do objetivo (Business), alguém prepara as pessoas e o idioma (People), alguém controla orçamento e riscos (Governance), e os outros cuidam da casa nova (Platform), da segurança (Security) e do dia a dia (Operations).
+
+</details>
+
 > 🎯 **Como não errar na prova:** Leia **quem** está envolvido no enunciado: RH, cultura ou treinamento → **People**; orçamento e risco → **Governance**; arquitetura → **Platform**; monitoramento e incidentes → **Operations**.
+
+---
+
+> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+⬅️ [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) · 🏠 [Índice do domínio](README.md) · [1.6 Estratégias de migração (os 7 Rs)](06-estrategias-de-migracao.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

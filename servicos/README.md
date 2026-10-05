@@ -1,5 +1,9 @@
 # 🔎 Fichas de serviços AWS
 
+## 🧭 Por onde começar
+
+Se você ainda não conhece um serviço, abra sua ficha e leia **Comece pelo problema**. A abertura explica a dificuldade, a solução, um exemplo, os limites e as primeiras palavras técnicas. Só depois avance para componentes, configurações e questões da prova.
+
 Uma ficha por serviço (ou família de serviços), com o que cai na prova e o que vai além: componentes, configurações, limites, cobrança, responsabilidade compartilhada, atualizações 2025-2026, pegadinhas e perguntas típicas.
 
 > Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.

@@ -1,20 +1,30 @@
 # AWS Compute Optimizer, Service Quotas, License Manager e outros
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A equipe pode estar usando capacidade inadequada, alcançar um limite de serviço ou perder controle sobre licenças. Cada dificuldade exige uma ferramenta diferente.
+
+**Como este serviço ajuda?** Compute Optimizer recomenda ajustes de recursos compatíveis; Service Quotas acompanha limites de uso; License Manager ajuda a administrar licenças de software.
+
+**Exemplo do dia a dia:** Uma máquina parece maior que o necessário: a equipe avalia recomendações. Se precisa criar mais recursos e encontra uma quota, consulta o limite e a possibilidade de aumento.
+
+**O que ele não resolve sozinho?** Uma recomendação não é uma quota, e aumentar uma quota não otimiza custo. Gerenciar licença também não compra automaticamente os direitos de uso do software.
+
+**Primeiras palavras para entender:**
+
+- **Dimensionar:** escolher capacidade adequada.
+- **Quota:** limite de uso.
+- **Licença:** direito de usar software sob determinadas condições.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gerenciamento / otimização e governança · **Domínio:** 3 e 4 · **Escopo:** Regional · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 >
 > **Em uma frase:** ferramentas para dimensionar recursos, controlar limites e licenças, e organizar o ambiente.
 >
 > **Escopo oficial:** ✅ No escopo (Launch Wizard ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é uma **balança para os recursos** (mostra o que está grande ou pequeno demais), junto com a **lista de limites** da conta e o **controle de licenças**.
-
-- ✅ **Escolha quando:** precisa ajustar o **tamanho dos recursos** (Compute Optimizer), **pedir aumento de limite** (Service Quotas) ou **controlar licenças** (License Manager).
-- 🚫 **Não é a resposta quando:** quer **recomendações amplas** de boas práticas → [Trusted Advisor](trusted-advisor.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "tamanho ideal das instâncias" → Compute Optimizer; "aumentar o limite" → Service Quotas; "licenças por núcleo" → License Manager.
-<!-- didatico:fim -->
 
 ## AWS Compute Optimizer
 

@@ -1,20 +1,30 @@
 # AWS Budgets
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa quer acompanhar um limite planejado de custo ou uso e receber avisos antes de perder o controle do orçamento.
+
+**Como este serviço ajuda?** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
+
+**Exemplo do dia a dia:** A escola configura um orçamento mensal e um aviso para determinados níveis de gasto observado ou previsto.
+
+**O que ele não resolve sozinho?** Um orçamento não é, por padrão, um teto rígido que interrompe todo consumo. Alertas e ações não substituem controle de acesso e acompanhamento dos recursos.
+
+**Primeiras palavras para entender:**
+
+- **Orçamento:** meta de gasto ou uso.
+- **Limite de aviso:** condição para notificação.
+- **Ação:** operação configurada para determinada condição.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Gestão de custos · **Domínio:** 4 · **Escopo:** Conta / organização · **Tópico do guia:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 >
 > **Em uma frase:** define orçamentos de custo e uso e **alerta** (ou **age**) quando o valor real ou **previsto** ultrapassa o limite.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **limite do cartão com aviso no celular**: avisa (ou age) quando o gasto real ou previsto passa do combinado.
-
-- ✅ **Escolha quando:** precisa **definir orçamentos** e **receber alertas**.
-- 🚫 **Não é a resposta quando:** quer **analisar o histórico** de gastos → [Cost Explorer](cost-explorer.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "alertar quando o gasto passar de", "orçamento", "gasto previsto".
-<!-- didatico:fim -->
 
 ## Tipos de orçamento
 

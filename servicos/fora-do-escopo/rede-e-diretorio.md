@@ -1,5 +1,25 @@
 # Rede e diretório (Cloud Map, VPC Lattice, Network Access Analyzer, Cloud Directory)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Aplicações podem precisar localizar outros serviços ou controlar a comunicação entre eles, além de apenas ter uma rede virtual criada.
+
+**Como este serviço ajuda?** A ficha distingue descoberta de serviços, comunicação de aplicações, análise de caminhos e diretórios especializados. Cada ferramenta trata uma dessas necessidades.
+
+**Exemplo do dia a dia:** Se uma parte da aplicação precisa descobrir onde está outra, descoberta de serviços é uma função pertinente. Isso é diferente de cadastrar funcionários para login.
+
+**O que ele não resolve sozinho?** Esses produtos não substituem uns aos outros nem tornam toda rede acessível automaticamente. O conteúdo é de referência fora do escopo indicado.
+
+**Primeiras palavras para entender:**
+
+- **Descoberta de serviços:** localizar recursos de uma aplicação.
+- **Diretório:** organização de entidades e relações.
+- **Caminho de rede:** percurso de uma comunicação.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Redes e diretório · **Domínio:** — (fora da prova) · **Escopo:** Regional · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
 >
 > **Em uma frase:** serviços de rede de aplicação e de diretório que complementam a VPC, mas não caem na prova.
@@ -9,16 +29,6 @@
 > ❌ **Fora do escopo da CLF-C02.** Documentados aqui apenas para referência. Na prova, rede = VPC, Route 53,
 > CloudFront, Global Accelerator, Direct Connect, VPN, Transit Gateway, PrivateLink e API Gateway. Veja também
 > [Network Firewall](../seguranca/firewall-manager-e-network-firewall.md), que também está fora do escopo.
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** são **complementos de rede e de diretório** que ficam fora da prova.
-
-- ✅ **Escolha quando:** Só para referência — **não cai na prova**. Se aparecer como alternativa, provavelmente é distrator.
-- 🚫 **Não é a resposta quando:** na prova, **rede** → [VPC](../redes/vpc.md) e [Transit Gateway e PrivateLink](../redes/vpc-peering-transit-gateway-e-endpoints.md); **Active Directory** → [Directory Service](../seguranca/directory-service.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** Cloud Map, VPC Lattice, Network Access Analyzer e Cloud Directory aparecem, no máximo, como alternativas erradas.
-<!-- didatico:fim -->
 
 ## AWS Cloud Map
 

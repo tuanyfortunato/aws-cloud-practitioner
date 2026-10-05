@@ -1,20 +1,30 @@
 # Amazon OpenSearch Service
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A aplicação precisa encontrar textos e explorar registros rapidamente, com filtros e busca, em vez de abrir cada documento manualmente.
+
+**Como este serviço ajuda?** OpenSearch oferece busca e análise de dados indexados. Você envia dados, define seu índice e usa consultas ou visualizações compatíveis.
+
+**Exemplo do dia a dia:** Uma equipe envia logs da aplicação para procurar erros por palavra, horário e outros campos.
+
+**O que ele não resolve sozinho?** O serviço não é um substituto universal de banco nem armazena automaticamente todos os logs da conta. Ingestão, índices e permissões precisam ser configurados.
+
+**Primeiras palavras para entender:**
+
+- **Índice:** estrutura organizada para busca.
+- **Ingestão:** envio dos dados ao serviço.
+- **Log:** registro de acontecimentos.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Analytics / busca e logs · **Domínio:** 3 · **Escopo:** Regional (VPC) · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** busca de texto, análise de logs e observabilidade com OpenSearch (sucessor do Elasticsearch gerenciado).
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é o **buscador interno do seu sistema**, que também lê e organiza montanhas de logs.
-
-- ✅ **Escolha quando:** precisa de **busca de texto** ou de **análise de logs**.
-- 🚫 **Não é a resposta quando:** quer **SQL sobre arquivos** → [Athena](athena.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "busca de texto", "análise de logs", "Elasticsearch".
-<!-- didatico:fim -->
 
 ## Destaques
 

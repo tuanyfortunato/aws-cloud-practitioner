@@ -1,20 +1,30 @@
 # AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa precisa mover dados de um banco e pode também precisar adaptar sua estrutura quando o banco de destino usa outra tecnologia.
+
+**Como este serviço ajuda?** DMS move dados entre fontes e destinos compatíveis, incluindo replicação de mudanças em cenários suportados. SCT ajuda a converter estruturas e identificar adaptações necessárias.
+
+**Exemplo do dia a dia:** A equipe avalia a estrutura de um banco e transfere seus dados para um destino compatível, planejando também a continuidade das alterações.
+
+**O que ele não resolve sozinho?** Mover dados é diferente de converter todas as consultas e regras da aplicação. Conversão automática pode ser incompleta; compatibilidade e testes são essenciais.
+
+**Primeiras palavras para entender:**
+
+- **Schema:** estrutura do banco.
+- **Replicação:** manter uma cópia de dados.
+- **CDC:** captura de alterações para transferi-las ao destino.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Migração de bancos de dados · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.17 Migração e transferência](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)
 >
 > **Em uma frase:** o DMS **move os dados** (com o banco de origem funcionando); o SCT **converte o schema** entre motores diferentes.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** o DMS é a **transportadora que leva os dados com a loja aberta**; o SCT é o **tradutor** que adapta a estrutura de um banco para outro.
-
-- ✅ **Escolha quando:** precisa **migrar bancos de dados** com pouca indisponibilidade.
-- 🚫 **Não é a resposta quando:** precisa migrar **servidores inteiros** → [Application Migration Service](application-migration-service.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "migrar banco sem parar a aplicação" → DMS; "Oracle para PostgreSQL" → SCT + DMS.
-<!-- didatico:fim -->
 
 ## AWS DMS
 

@@ -1,20 +1,30 @@
 # Migration Evaluator, Application Discovery Service e Migration Hub
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Antes de mover sistemas para a AWS, a empresa precisa saber o que tem, suas dependências, custos e o andamento da migração.
+
+**Como este serviço ajuda?** A ficha distingue descoberta do ambiente, avaliação econômica e acompanhamento da migração. Essas ferramentas ajudam a planejar e acompanhar o trabalho.
+
+**Exemplo do dia a dia:** Uma empresa inventaria seus servidores e avalia o uso atual para preparar uma estimativa e uma sequência de migração.
+
+**O que ele não resolve sozinho?** Planejar e acompanhar não significa transferir automaticamente todas as aplicações. Algumas ofertas têm restrições para novos clientes, descritas no conteúdo da ficha.
+
+**Primeiras palavras para entender:**
+
+- **Inventário:** lista de recursos.
+- **Dependência:** recurso de que outro precisa.
+- **Migração:** mudança de um sistema para outro ambiente.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Migração / avaliação e planejamento · **Domínio:** 1 (migração) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.17 Migração e transferência](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md) · [1.6 Estratégias de migração](../../docs/01-conceitos-de-nuvem/06-estrategias-de-migracao.md)
 >
 > **Em uma frase:** as ferramentas das fases **avaliar → planejar → acompanhar** de uma migração.
 >
 > **Escopo oficial:** ✅ No escopo (Migration Hub e Application Discovery Service fechados a novos clientes) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é a **preparação da mudança**: medir os móveis (Discovery), fazer o orçamento (Migration Evaluator) e acompanhar a obra (Migration Hub).
-
-- ✅ **Escolha quando:** precisa **planejar e acompanhar** uma migração.
-- 🚫 **Não é a resposta quando:** precisa **migrar de fato** → [Application Migration Service](application-migration-service.md) ou [DMS](dms-e-sct.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "dependências entre servidores" → Application Discovery Service; "custo da migração (TCO)" → Migration Evaluator; "painel central" → Migration Hub.
-<!-- didatico:fim -->
 
 ## Comparação
 

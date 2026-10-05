@@ -1,20 +1,30 @@
 # AWS Fargate
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Você quer executar containers, mas não quer escolher, atualizar e manter as máquinas que ficam por baixo deles.
+
+**Como este serviço ajuda?** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução. Você define, entre outras coisas, os recursos necessários ao container.
+
+**Exemplo do dia a dia:** A equipe informa que seu serviço de pedidos precisa de determinada capacidade e o executa pelo ECS com Fargate, sem criar um grupo próprio de máquinas EC2.
+
+**O que ele não resolve sozinho?** Fargate não substitui a aplicação nem o coordenador ECS/EKS. Configuração, permissões, rede e custo continuam exigindo decisões.
+
+**Primeiras palavras para entender:**
+
+- **Container:** pacote em execução com a aplicação.
+- **Capacidade:** recursos como processamento e memória.
+- **Gerenciado:** parte do trabalho operacional fica com a AWS.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Computação serverless para contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 >
 > **Em uma frase:** motor serverless que executa contêineres do ECS ou EKS sem você provisionar ou gerenciar servidores.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é como **pegar um táxi em vez de ter carro**: você diz quanto precisa (CPU e memória) e não compra, abastece nem faz manutenção do servidor.
-
-- ✅ **Escolha quando:** quer rodar **contêineres sem gerenciar instâncias**, inclusive tarefas longas (horas).
-- 🚫 **Não é a resposta quando:** é uma **função curta** disparada por evento → [Lambda](lambda.md); precisa de **GPU ou acesso ao host** → ECS/EKS com [EC2](ec2.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "contêineres sem gerenciar servidores", "serverless para contêineres", "tarefa de 2 horas sem servidor".
-<!-- didatico:fim -->
 
 ## Para que serve
 

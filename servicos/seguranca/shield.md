@@ -1,20 +1,30 @@
 # AWS Shield
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Muitos pedidos maliciosos podem tentar sobrecarregar um serviço e impedir que pessoas legítimas o utilizem.
+
+**Como este serviço ajuda?** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
+
+**Exemplo do dia a dia:** Um site público usa os recursos de proteção aplicáveis à sua arquitetura para reduzir o impacto de tentativas de sobrecarga.
+
+**O que ele não resolve sozinho?** Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
+
+**Primeiras palavras para entender:**
+
+- **DDoS:** ataque distribuído para sobrecarregar um serviço.
+- **Disponibilidade:** conseguir usar o sistema quando necessário.
+- **Mitigação:** reduzir o impacto de um ataque.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / proteção DDoS · **Domínio:** 2 · **Escopo:** Global (borda) e regional · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 >
 > **Em uma frase:** proteção gerenciada contra ataques de negação de serviço distribuída (DDoS).
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **quebra-mar contra ondas de tráfego falso (DDoS)**: o Standard protege todos de graça; o Advanced traz equipe especializada e reembolso de custos.
-
-- ✅ **Escolha quando:** precisa de proteção contra **ataques DDoS**.
-- 🚫 **Não é a resposta quando:** o ataque é **na aplicação**, como SQL injection → [WAF](waf.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "DDoS" → Shield; "especialistas 24/7" e "proteção de custo" → Shield Advanced.
-<!-- didatico:fim -->
 
 ## Standard × Advanced
 

@@ -1,20 +1,30 @@
 # Amazon Athena
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Há arquivos com dados no S3 e a equipe quer fazer perguntas sobre esse conteúdo sem administrar um servidor de consultas.
+
+**Como este serviço ajuda?** Athena permite consultar dados em formatos e fontes compatíveis usando SQL. Você precisa descrever ou disponibilizar a estrutura dos dados para que a consulta faça sentido.
+
+**Exemplo do dia a dia:** A escola guarda registros de acesso em arquivos e consulta quantos acessos ocorreram por dia.
+
+**O que ele não resolve sozinho?** Athena não corrige sozinho dados desorganizados nem é o banco transacional do aplicativo. Formato, organização e quantidade de dados consultados influenciam o resultado e o custo.
+
+**Primeiras palavras para entender:**
+
+- **Consulta:** pergunta expressa para obter dados.
+- **SQL:** linguagem de consulta.
+- **Schema:** descrição dos campos e tipos dos dados.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Analytics / consulta interativa · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** consultas **SQL serverless** direto em arquivos no S3, pagando só pelos dados escaneados.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é **fazer perguntas em SQL direto para arquivos no S3**, sem montar banco de dados nenhum.
-
-- ✅ **Escolha quando:** precisa de **consultas pontuais em logs e arquivos no S3**, pagando só pelo que é lido.
-- 🚫 **Não é a resposta quando:** precisa de um **data warehouse sempre disponível** → [Redshift](../banco-de-dados/redshift.md); precisa de **Spark/Hadoop** → [EMR](emr.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "SQL no S3", "serverless", "pago por dados escaneados", "consultar logs".
-<!-- didatico:fim -->
 
 ## Para que serve
 

@@ -1,22 +1,14 @@
 # 1.2 As 6 vantagens da computação em nuvem
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-⬅️ [1.1 O que é computação em nuvem](01-o-que-e-computacao-em-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.3 Conceitos de arquitetura que a prova cobra](03-conceitos-de-arquitetura.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** A AWS resume os benefícios da nuvem em **seis frases oficiais**. A prova descreve uma situação e pede qual dessas frases ela representa.
->
-> 🏠 **Analogia:** é como trocar o **carro próprio por aplicativo de transporte**: você não paga o carro à vista (despesa variável), a empresa compra em volume (economia de escala), chama um carro maior quando precisa (parar de adivinhar capacidade), pede em minutos (agilidade), não cuida de oficina (sem manter datacenter) e usa o app em outras cidades (global em minutos).
+**Qual é a dificuldade?** Uma loja não sabe quantas pessoas chegarão durante uma promoção. Comprar capacidade para o maior pico pode deixar equipamentos ociosos no resto do ano.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Os benefícios da nuvem incluem obter recursos mais rapidamente, ajustar capacidade e mudar a forma de investir em infraestrutura. Cada benefício responde a uma dificuldade diferente.
 
-- [ ] Citar as **6 vantagens** com o nome oficial.
-- [ ] Ligar cada cenário à vantagem certa (ex.: Black Friday sem comprar servidor → parar de adivinhar capacidade).
-- [ ] Explicar **CapEx × OpEx** em uma frase.
+**Exemplo do dia a dia:** A loja cria capacidade para a campanha e a reduz depois, em vez de comprar máquinas permanentes apenas para o pico.
+
+**O que não concluir?** Nuvem não garante economia em qualquer projeto. Recursos precisam ser escolhidos e acompanhados; este tópico explica benefícios, não uma promessa de redução automática da fatura.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -25,7 +17,28 @@
 | **CapEx** | despesa de capital: comprar equipamento antes de usar (investimento antecipado). |
 | **OpEx** | despesa operacional: pagar aos poucos, conforme o uso. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Citar as **6 vantagens** com o nome oficial.
+- [ ] Ligar cada cenário à vantagem certa (ex.: Black Friday sem comprar servidor → parar de adivinhar capacidade).
+- [ ] Explicar **CapEx × OpEx** em uma frase.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como trocar o **carro próprio por aplicativo de transporte**: você não paga o carro à vista (despesa variável), a empresa compra em volume (economia de escala), chama um carro maior quando precisa (parar de adivinhar capacidade), pede em minutos (agilidade), não cuida de oficina (sem manter datacenter) e usa o app em outras cidades (global em minutos).
+
+</details>
+
 > 🎯 **Como não errar na prova:** Procure a palavra que denuncia a vantagem: **"investimento inicial"** → despesa variável; **"não sabe quanto tráfego"** → capacidade; **"preço menor por volume"** → economia de escala; **"outro continente"** → global em minutos.
+
+---
+
+> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+⬅️ [1.1 O que é computação em nuvem](01-o-que-e-computacao-em-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.3 Conceitos de arquitetura que a prova cobra](03-conceitos-de-arquitetura.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

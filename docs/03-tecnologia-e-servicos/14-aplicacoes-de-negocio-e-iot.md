@@ -1,26 +1,14 @@
 # 3.14 Aplicações de negócio, usuário final, front-end e IoT
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [Amazon Connect](../../servicos/aplicacoes/amazon-connect.md) · [Amazon SES (Simple Email Service)](../../servicos/aplicacoes/ses.md) · [Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser](../../servicos/aplicacoes/workspaces-e-appstream.md) · [AWS Amplify, AWS AppSync e AWS Device Farm](../../servicos/aplicacoes/amplify-e-appsync.md) · [AWS IoT Core, IoT Greengrass e outros serviços de IoT](../../servicos/aplicacoes/iot-core-e-greengrass.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo: Connect, SES, AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser, **Amplify** e **IoT Core**. AppSync não aparece na lista atual. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
-
-⬅️ [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** São serviços **prontos para o negócio**: central de atendimento, envio de e-mails, desktops virtuais, criação de apps e conexão de dispositivos IoT.
->
-> 🏠 **Analogia:** é uma **caixa de ferramentas de escritório**: o **Connect** é a central telefônica; o **SES**, o correio; o **WorkSpaces**, o computador de trabalho na nuvem; o **Amplify**, um kit para montar apps; o **IoT Core**, a central que recebe mensagens dos sensores.
+**Qual é a dificuldade?** Uma organização pode precisar atender pessoas, enviar e-mails, oferecer trabalho remoto ou conectar equipamentos. Cada necessidade vai além de criar uma máquina.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Este tópico reúne serviços voltados a experiências e aplicações específicas. É importante reconhecer o problema de cada produto, e não memorizar a categoria como se fosse um serviço só.
 
-- [ ] Ligar cada serviço ao cenário: call center → Connect; e-mails → SES; desktop virtual → WorkSpaces.
-- [ ] Diferenciar **WorkSpaces** (desktop inteiro) de **AppStream 2.0** (só o aplicativo no navegador).
-- [ ] Diferenciar **SES** (e-mails formatados a clientes) de **SNS** (notificações simples).
+**Exemplo do dia a dia:** A escola pode usar um serviço de e-mail para confirmações e uma plataforma de atendimento para a secretaria. Sensores conectados exigem outro conjunto de recursos.
+
+**O que não concluir?** Um serviço pronto continua exigindo configuração, identidade e integração. As ferramentas desta seção não substituem umas às outras.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -30,7 +18,32 @@
 | **DaaS** | desktop como serviço. |
 | **IoT** | internet das coisas: sensores e dispositivos conectados. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada serviço ao cenário: call center → Connect; e-mails → SES; desktop virtual → WorkSpaces.
+- [ ] Diferenciar **WorkSpaces** (desktop inteiro) de **AppStream 2.0** (só o aplicativo no navegador).
+- [ ] Diferenciar **SES** (e-mails formatados a clientes) de **SNS** (notificações simples).
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é uma **caixa de ferramentas de escritório**: o **Connect** é a central telefônica; o **SES**, o correio; o **WorkSpaces**, o computador de trabalho na nuvem; o **Amplify**, um kit para montar apps; o **IoT Core**, a central que recebe mensagens dos sensores.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Call center" → **Connect**. "Funcionário remoto precisa de desktop" → **WorkSpaces**. "App de desktop no navegador" → **AppStream 2.0**. "Sensores" → **IoT Core**.
+
+---
+
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [Amazon Connect](../../servicos/aplicacoes/amazon-connect.md) · [Amazon SES (Simple Email Service)](../../servicos/aplicacoes/ses.md) · [Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser](../../servicos/aplicacoes/workspaces-e-appstream.md) · [AWS Amplify, AWS AppSync e AWS Device Farm](../../servicos/aplicacoes/amplify-e-appsync.md) · [AWS IoT Core, IoT Greengrass e outros serviços de IoT](../../servicos/aplicacoes/iot-core-e-greengrass.md)
+
+> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo: Connect, SES, AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser, **Amplify** e **IoT Core**. AppSync não aparece na lista atual. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+
+⬅️ [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

@@ -1,20 +1,30 @@
 # Amazon Redshift
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa quer analisar muitos registros históricos de vendas e comparar períodos, regiões e produtos, sem sobrecarregar o banco que atende as compras.
+
+**Como este serviço ajuda?** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse. Você prepara os dados e executa consultas para obter resultados analíticos.
+
+**Exemplo do dia a dia:** Uma loja reúne seu histórico de vendas e consulta o total vendido por mês e categoria no Redshift.
+
+**O que ele não resolve sozinho?** Seu papel principal é análise; ele não deve ser escolhido apenas porque a aplicação precisa salvar um pedido individual. Carregar e organizar dados continua exigindo planejamento.
+
+**Primeiras palavras para entender:**
+
+- **Data warehouse:** banco organizado para análise.
+- **Analítico:** voltado a padrões e agregações.
+- **SQL:** linguagem para consultar dados.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Data warehouse · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md) · [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 >
 > **Em uma frase:** data warehouse colunar e massivamente paralelo (MPP) para análises SQL (OLAP) sobre terabytes a petabytes.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **armazém de dados** para fazer perguntas sobre o histórico inteiro da empresa — feito para analisar, não para registrar as vendas uma a uma.
-
-- ✅ **Escolha quando:** precisa de **relatórios de BI e análises SQL** sobre terabytes ou petabytes (OLAP).
-- 🚫 **Não é a resposta quando:** precisa registrar as **transações do dia a dia** → [RDS](rds.md); quer consultar **arquivos no S3 sem carregar nada** → [Athena](../analytics/athena.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "data warehouse", "OLAP", "BI", "petabytes", "armazenamento colunar".
-<!-- didatico:fim -->
 
 ## Para que serve
 

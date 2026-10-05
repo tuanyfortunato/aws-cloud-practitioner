@@ -1,5 +1,15 @@
 # Auditoria de cobertura e aprofundamento — CLF-C02
 
+<!-- didatico:inicio -->
+## 🧭 Antes de ler
+
+**Por que esta página existe?** Você precisa saber o que foi conferido no material e quais limites essa revisão tem, em vez de assumir que uma lista de arquivos prova domínio do exame.
+
+**Como usar?** Esta página documenta a revisão realizada, sua cobertura e suas ressalvas. Ela serve para acompanhar a qualidade do material; não é uma aula sobre um serviço.
+
+**Exemplo:** Use a auditoria para localizar a revisão de um tema e depois leia sua explicação. Um tópico coberto ainda pode precisar de estudo e confirmação de entendimento.
+<!-- didatico:fim -->
+
 Revisão iniciada em **04/10/2026**, a partir do commit `1bdfdbff098dc1648c633fb86c39ff6f968a4b85`.
 A data identifica a consulta; não assegura que páginas e ofertas permanecerão iguais até sua prova.
 

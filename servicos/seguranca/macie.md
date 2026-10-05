@@ -1,20 +1,30 @@
 # Amazon Macie
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** A empresa guarda muitos arquivos no S3 e precisa localizar possíveis dados sensíveis, como informações pessoais, sem abrir cada arquivo manualmente.
+
+**Como este serviço ajuda?** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
+
+**Exemplo do dia a dia:** A escola avalia um bucket de documentos para identificar arquivos que podem conter informações pessoais dos alunos.
+
+**O que ele não resolve sozinho?** Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
+
+**Primeiras palavras para entender:**
+
+- **Dado sensível:** informação que exige proteção especial.
+- **Classificação:** identificação do tipo de conteúdo.
+- **Bucket:** recipiente de objetos no S3.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Segurança / proteção de dados · **Domínio:** 2 · **Escopo:** Regional (multi-conta) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 >
 > **Em uma frase:** usa machine learning e padrões para **descobrir e proteger dados sensíveis (PII) no Amazon S3**.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **detector de dados sensíveis**: vasculha os buckets S3 procurando CPF, cartão de crédito e outros dados pessoais.
-
-- ✅ **Escolha quando:** precisa **descobrir e proteger dados pessoais (PII)** no S3.
-- 🚫 **Não é a resposta quando:** procura **vulnerabilidades** → [Inspector](inspector.md); procura **ameaças** → [GuardDuty](guardduty.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "PII", "dados sensíveis", "dados pessoais no S3", "LGPD/GDPR".
-<!-- didatico:fim -->
 
 ## O que faz
 

@@ -1,20 +1,30 @@
 # Amazon RDS (Relational Database Service)
 
+<!-- didatico:inicio -->
+## 🧠 Comece pelo problema
+
+**Qual é a dificuldade?** Uma aplicação precisa guardar registros relacionados, como alunos, cursos e matrículas. Instalar e manter o software do banco numa máquina própria exige trabalho.
+
+**Como este serviço ajuda?** O RDS oferece bancos relacionais gerenciados. Você escolhe um mecanismo compatível, define a estrutura dos dados e usa o banco; a AWS assume tarefas de infraestrutura e administração previstas pelo serviço.
+
+**Exemplo do dia a dia:** O sistema da escola mantém tabelas de alunos e matrículas num banco RDS e consulta quais alunos estão inscritos em cada curso.
+
+**O que ele não resolve sozinho?** RDS não cria as regras de negócio nem as consultas da aplicação. Você continua responsável por dados, acessos e configurações; as opções de disponibilidade e recuperação precisam ser escolhidas.
+
+**Primeiras palavras para entender:**
+
+- **Banco relacional:** dados organizados em tabelas que podem se relacionar.
+- **SQL:** linguagem para trabalhar com esses dados.
+- **Mecanismo:** software do banco, como PostgreSQL.
+
+*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
+<!-- didatico:fim -->
+
 > **Categoria:** Banco de dados relacional gerenciado · **Domínio:** 2 (responsabilidade) e 3 · **Escopo:** Regional (instância numa AZ; Multi-AZ opcional) · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 >
 > **Em uma frase:** banco relacional gerenciado — a AWS cuida de hardware, SO, patches do motor, backups e failover.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
-
-<!-- didatico:inicio -->
-## 🧠 Entenda em 30 segundos
-
-> 💡 **Analogia:** é um **banco relacional com zelador**: a AWS cuida de instalação, patches, backups e failover; você cuida das tabelas e das consultas.
-
-- ✅ **Escolha quando:** aplicações **transacionais (OLTP)** com SQL: lojas virtuais, ERPs, sistemas web.
-- 🚫 **Não é a resposta quando:** precisa de **NoSQL em escala massiva** → [DynamoDB](dynamodb.md); de **análise de grandes volumes** (BI) → [Redshift](redshift.md); de **acesso ao sistema operacional** → banco instalado no [EC2](../computacao/ec2.md).
-- 🎯 **Palavras do enunciado que apontam para ele:** "banco relacional gerenciado", "MySQL, PostgreSQL, Oracle, SQL Server"; "Multi-AZ" → disponibilidade; "read replica" → escalar leitura.
-<!-- didatico:fim -->
 
 ## Para que serve
 

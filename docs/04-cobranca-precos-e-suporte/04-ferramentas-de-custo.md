@@ -1,24 +1,14 @@
 # 4.4 Ferramentas de custo e faturamento
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS Cost Explorer](../../servicos/custos/cost-explorer.md) · [AWS Budgets](../../servicos/custos/budgets.md) · [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md)
-
-⬅️ [4.3 Como outros recursos são cobrados](03-cobranca-de-outros-recursos.md) · 🏠 [Índice do domínio](README.md) · [4.5 Planos de AWS Support](05-planos-de-suporte.md) ➡️
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Cada ferramenta de custo responde a uma pergunta: **quanto vai custar?** (antes), **quanto gastei e quanto vou gastar?** (análise), **me avise se passar do limite** (alerta) e **quero o detalhe máximo** (relatório).
->
-> 🏠 **Analogia:** a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o **extrato com gráficos**; o **Budgets** é o **aviso do cartão** quando passa do limite; o **CUR** é a **nota fiscal detalhada**, item por item; as **tags** são **etiquetas** para separar a conta por departamento.
+**Qual é a dificuldade?** A equipe quer planejar um projeto, entender uma fatura e acompanhar um orçamento. São três perguntas diferentes sobre dinheiro.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Calculadora estima; análise de custos explica gastos; orçamento acompanha metas; relatórios fornecem detalhe. A ferramenta depende da pergunta.
 
-- [ ] Ligar cada pergunta à ferramenta certa (estimar, analisar/prever, alertar, detalhar).
-- [ ] Saber que as **cost allocation tags** precisam ser **ativadas** no Billing.
-- [ ] Saber que o **consolidated billing** dá fatura única e desconto por volume.
+**Exemplo do dia a dia:** Antes de criar o sistema, a escola estima o custo. Depois, analisa o consumo e configura avisos para acompanhar o orçamento.
+
+**O que não concluir?** Estimar não garante a fatura, e um aviso não é um bloqueio automático de todo gasto. Não confunda planejamento, análise e controle.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **Tag** | etiqueta chave-valor colocada num recurso (ex.: projeto=site). |
 | **Anomalia** | gasto fora do padrão. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Ligar cada pergunta à ferramenta certa (estimar, analisar/prever, alertar, detalhar).
+- [ ] Saber que as **cost allocation tags** precisam ser **ativadas** no Billing.
+- [ ] Saber que o **consolidated billing** dá fatura única e desconto por volume.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o **extrato com gráficos**; o **Budgets** é o **aviso do cartão** quando passa do limite; o **CUR** é a **nota fiscal detalhada**, item por item; as **tags** são **etiquetas** para separar a conta por departamento.
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Estimar **antes**" → **Pricing Calculator**. "Tendência e **previsão**" → **Cost Explorer**. "**Alerta** ao passar de US$ X" → **Budgets**. "Mais **granular**" → **CUR**. "Ratear por departamento" → **cost allocation tags**.
+
+---
+
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS Cost Explorer](../../servicos/custos/cost-explorer.md) · [AWS Budgets](../../servicos/custos/budgets.md) · [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md)
+
+⬅️ [4.3 Como outros recursos são cobrados](03-cobranca-de-outros-recursos.md) · 🏠 [Índice do domínio](README.md) · [4.5 Planos de AWS Support](05-planos-de-suporte.md) ➡️
+
+---
 
 ## 📖 Conteúdo
 

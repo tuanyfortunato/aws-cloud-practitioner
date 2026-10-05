@@ -1,24 +1,14 @@
 # 1.7 Economia da nuvem
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
-
-> 🔎 **Fichas detalhadas:** [AWS Compute Optimizer, Service Quotas, License Manager e outros](../../servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) · [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md)
-
-⬅️ [1.6 Estratégias de migração (os 7 Rs)](06-estrategias-de-migracao.md) · 🏠 [Índice do domínio](README.md)
-
----
-
 ## 🧠 Antes de começar
 
-> 💡 **Em palavras simples:** Economia da nuvem é **comparar o custo total** de manter um datacenter com o de usar a nuvem — e conhecer as práticas que reduzem a conta (licenças, tamanho certo, serviços gerenciados, automação).
->
-> 🏠 **Analogia:** é como comparar **ter carro próprio** (compra, seguro, IPVA, garagem, manutenção) com **usar aplicativo**: o preço da corrida parece maior, mas o custo total costuma ser menor quando você soma tudo (isso é o **TCO**).
+**Qual é a dificuldade?** Comparar apenas o preço de uma máquina própria com o de uma máquina AWS pode esconder gastos como manutenção, energia e trabalho operacional.
 
-**Ao terminar este tópico, você deve saber:**
+**A ideia em palavras simples:** Economia da nuvem trata do conjunto de custos e do valor das escolhas. O custo total inclui mais que o preço de um recurso isolado.
 
-- [ ] Diferenciar custos **fixos e antecipados** (on-premises) de **variáveis** (nuvem).
-- [ ] Explicar **TCO** e citar as ferramentas Migration Evaluator e Pricing Calculator.
-- [ ] Explicar **BYOL** e **rightsizing**.
+**Exemplo do dia a dia:** A escola compara equipamentos, manutenção e equipe do ambiente atual com recursos e operação previstos na AWS.
+
+**O que não concluir?** Uma estimativa depende das hipóteses usadas. Este tópico ensina o raciocínio econômico; não determina que qualquer migração sempre será mais barata.
 
 **📚 Palavras que aparecem aqui:**
 
@@ -28,7 +18,30 @@
 | **BYOL** | trazer a sua própria licença de software. |
 | **Rightsizing** | ajustar o tipo e o tamanho do recurso ao uso real. |
 
+**Ao terminar este tópico, você deve saber:**
+
+- [ ] Diferenciar custos **fixos e antecipados** (on-premises) de **variáveis** (nuvem).
+- [ ] Explicar **TCO** e citar as ferramentas Migration Evaluator e Pricing Calculator.
+- [ ] Explicar **BYOL** e **rightsizing**.
+
+<details>
+<summary>Uma analogia para revisar a ideia</summary>
+
+é como comparar **ter carro próprio** (compra, seguro, IPVA, garagem, manutenção) com **usar aplicativo**: o preço da corrida parece maior, mas o custo total costuma ser menor quando você soma tudo (isso é o **TCO**).
+
+</details>
+
 > 🎯 **Como não errar na prova:** "Caso de negócio da migração" → **Migration Evaluator**; "reduzir custo de licença" → **BYOL com Dedicated Hosts**; "recurso grande demais" → **rightsizing**; "custo que some ao migrar" → energia, refrigeração e espaço do datacenter.
+
+---
+
+> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+
+> 🔎 **Fichas detalhadas:** [AWS Compute Optimizer, Service Quotas, License Manager e outros](../../servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) · [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md)
+
+⬅️ [1.6 Estratégias de migração (os 7 Rs)](06-estrategias-de-migracao.md) · 🏠 [Índice do domínio](README.md)
+
+---
 
 ## 📖 Conteúdo
 
