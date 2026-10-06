@@ -119,7 +119,7 @@ Cada item deve registrar: status, responsável quando definido, PRs, evidências
 
 **Aceite:** os cinco erros concretos não aparecem na saída gerada; os sentidos alternativos têm exemplos de regressão pertinentes; revisão humana do piloto confirma que as definições correspondem ao parágrafo. Não usar apenas presença de palavras como teste de correção.
 
-**Evidências iniciais:** [aula 2.8](../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md), [ficha EC2](../servicos/computacao/ec2.md), [aula 4.1](../docs/04-cobranca-precos-e-suporte/01-principios-de-preco.md), [auditoria](../docs/00-guia-do-exame/auditoria-conteudo-2026-10.md).
+**Evidências iniciais:** [aula 2.8](../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md), [ficha EC2](../servicos/computacao/ec2.md), [aula 4.1](../docs/04-cobranca-precos-e-suporte/01-principios-de-preco.md), [auditoria](auditoria-conteudo-2026-10.md).
 
 <a id="ap-02"></a>
 ### AP-02 — Substituir repetição por comentários que ensinam

@@ -1,103 +1,86 @@
-# 🔄 O que mudou em 2025-2026: valor da prova × valor atual
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧭 Antes de ler
+# O que mudou na AWS em 2025 e 2026
 
-**Por que esta página existe?** Um número ou nome de um material antigo pode não corresponder mais à oferta comercial ou ao guia do exame.
+🏠 [Guia do exame](README.md)
 
-**Como usar?** Esta página registra diferenças e verificações do material. Leia a observação associada ao tema para saber qual contexto está sendo descrito.
+---
 
-**Exemplo:** Ao estudar suporte, confira se o exemplo descreve um modelo do guia ou uma oferta comercial atual. Não escolha uma resposta apenas porque reconhece um nome antigo.
-<!-- didatico:fim -->
+A AWS muda preços, limites, nomes e serviços o tempo todo, e materiais de estudo envelhecem rápido. Uma apostila de 2024 ainda diz que o maior objeto do S3 tem 5 TB, que o plano de suporte de entrada se chama Developer e que o QuickSight é um produto separado. Nada disso vale mais.
 
-> Verificado em fontes oficiais da AWS em **04/10/2026** ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
-> Pesquisa original: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md).
+Esta página reúne as mudanças que alteram respostas ou nomes que aparecem na prova. Cada linha aponta para a aula ou a ficha que explica o assunto e lista a fonte oficial da informação.
 
-## Como interpretar mudanças
+## Como interpretar uma mudança
 
-A oferta comercial e o conteúdo publicado da prova podem apresentar exemplos diferentes.
+Uma mudança na oferta da AWS não muda a prova no mesmo dia. O guia do exame é atualizado em outro ritmo, e um lançamento não prova que as questões já foram revistas. Por isso, numa questão, não escolha a alternativa só porque ela traz o número mais recente: leia o requisito e veja qual alternativa o atende.
 
-Em 06/10/2026, a [task 4.3](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html)
+Um número também precisa de contexto. O S3 aceita objetos de até 50 TB, mas só com o envio em partes (*multipart upload*); o envio comum, numa única operação, tem outro limite. Antes de usar um número para decidir uma questão, confira a que ele se refere.
 
-já cita os planos atuais (Basic Support, Business Support+, Enterprise Support e Unified Operations), os mesmos da
+## Mudanças que podem alterar uma resposta
 
-[página comercial](https://aws.amazon.com/premiumsupport/plans/). Os planos antigos ainda podem aparecer em materiais de estudo.
+| Tema | Antes | Agora | Onde estudar |
+|---|---|---|---|
+| Planos de suporte | Basic, Developer, Business, Enterprise On-Ramp e Enterprise | Basic Support, Business Support+ (a partir de US$ 29 por mês), Enterprise Support (a partir de US$ 5.000) e Unified Operations (a partir de US$ 50.000), com resposta a casos críticos em 30, 15 e 5 minutos. Os planos antigos terminam em 01/01/2027, e a tarefa 4.3 do guia já cita os novos | [Aula 4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) |
+| Maior objeto do S3 | 5 TB | 50 TB, com envio em partes | [Ficha do S3](../../servicos/armazenamento/s3.md) |
+| Mensagem do SQS | 256 KiB | 1 MiB | [Ficha do SQS](../../servicos/integracao/sqs.md) |
+| Mensagem do SNS | 256 KiB | 256 KiB por padrão; até 1 MiB configurando o tópico | [Ficha do SNS](../../servicos/integracao/sns.md) |
+| Nível gratuito | 12 meses gratuitos, ofertas sempre gratuitas e testes | Contas novas recebem US$ 100 em créditos e podem ganhar mais US$ 100 em atividades; o plano gratuito dura até seis meses ou até acabar o crédito. Mais de 30 serviços continuam com uso gratuito mensal | [Aula 4.3](../04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md) |
+| Categorias do Trusted Advisor | Cinco | Seis: otimização de custos, desempenho, segurança, tolerância a falhas, limites de serviço e excelência operacional | [Ficha do Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) |
+| Tarefas exclusivas do root | Incluíam mudar o nome da conta e o plano de suporte | Nome da conta, contatos e Regiões não exigem mais o root | [Aula 2.2](../02-seguranca-e-conformidade/02-usuario-root.md) |
+| Savings Plans | Compute, EC2 Instance e SageMaker AI | Também Database Savings Plans, com até 35% de desconto em serviços de banco de dados | [Aula 4.2](../04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md) |
 
-Um lançamento não comprova a data de atualização das questões.
+## Nomes novos
 
-Números como S3 50 TB e SQS 1 MiB precisam do contexto: tamanho de objeto não é limite de um PUT simples
+A lista oficial de serviços ainda usa alguns nomes antigos. Na prova, reconheça os dois.
 
-ou upload pelo console. Não escolha uma resposta apenas porque contém o número mais recente.
+| Nome na lista do exame | Nome atual | Onde estudar |
+|---|---|---|
+| AWS Application Migration Service | AWS Transform MGN | [Ficha](../../servicos/migracao/application-migration-service.md) |
+| Amazon AppStream 2.0 | Amazon WorkSpaces Applications | [Ficha](../../servicos/aplicacoes/workspaces-e-appstream.md) |
+| Amazon Connect | Amazon Connect Customer | [Ficha](../../servicos/aplicacoes/amazon-connect.md) |
+| Amazon Quick Sight | Parte do Amazon Quick | [Ficha](../../servicos/analytics/quicksight.md) |
+| AWS Chatbot (lista fora do escopo) | Amazon Q Developer in chat applications | [Ficha](../../servicos/fora-do-escopo/gerenciamento-e-custos.md) |
 
-As listas de serviços são não exaustivas; ausência não equivale a exclusão formal.
+## Serviços que mudaram de situação
 
-Veja a [auditoria](auditoria-conteudo-2026-10.md) e o [roteiro de estudo](estrutura-da-apostila.md).
+Alguns serviços da lista do exame deixaram de aceitar clientes novos, mas continuam na lista e podem cair na prova. O AWS Migration Hub e o AWS Application Discovery Service não aceitam clientes novos desde 07/11/2025. O WorkSpaces Secure Browser deixa de aceitar em 29/10/2026. O WorkSpaces Pools, uma modalidade do WorkSpaces, não aceita clientes novos desde 31/07/2026, e o suporte termina em 31/12/2027.
 
-## Tabela de mudanças
+Outros serviços que aparecem em materiais de estudo também mudaram. O AWS Audit Manager está em modo de manutenção desde 30/04/2026. O Timestream for LiveAnalytics não aceita clientes novos desde 20/06/2025. A família Snow não oferece mais dispositivos a clientes novos. Nenhum desses três está na lista do exame.
 
-| Tema | Valor antigo | Valor atual (oficial) | Desde | Onde estudar |
-|---|---|---|---|---|
-| **Planos de suporte** | Basic, Developer, Business, Enterprise On-Ramp, Enterprise | **Basic, Business Support+ (US$ 29/mês por conta, crítico 30 min), Enterprise (US$ 5.000/mês, 15 min), Unified Operations (US$ 50.000/mês, 5 min, compromisso de 90 dias)**. Legados encerram em 01/01/2027 | 02/12/2025 | [Planos de suporte](../../servicos/custos/planos-de-suporte.md) |
-| Enterprise Support | A partir de US$ 15.000/mês | Mínimo de **US$ 5.000/mês** | 02/12/2025 | [Planos de suporte](../../servicos/custos/planos-de-suporte.md) |
-| Tamanho máximo de objeto S3 | 5 TB | **50 TB**, em todas as classes (não vale no GovCloud) | 02/12/2025 | [S3](../../servicos/armazenamento/s3.md) |
-| Mensagem SQS | 256 KiB | **1 MiB** (Standard e FIFO; Lambda event source mapping também) | 04/08/2025 | [SQS](../../servicos/integracao/sqs.md) |
-| Mensagem SNS | 256 KiB | Até **1 MiB** configurando `MaximumMessageSize` no tópico; o **padrão continua 256 KiB** | 18/09/2026 | [SNS](../../servicos/integracao/sns.md) |
-| Free Tier | Always Free + 12 meses + trials | US$ 100 no cadastro + até US$ 100 por atividades (EC2, RDS, Lambda, Bedrock, Budgets); Free plan por 6 meses ou até acabar o crédito | 15/07/2025 | [4.3](../04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md) |
-| Categorias do Trusted Advisor | 5 | **6** (+ Operational Excellence) | — | [Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) |
-| Família Snow | Snowcone, Snowball Edge, Snowmobile | Snowball Edge só para clientes existentes; novos → DataSync, AWS Data Transfer Terminal ou parceiros. **Saiu da lista do escopo** | 07/11/2025 | [Snow Family](../../servicos/migracao/snow-family.md) |
-| AWS IQ | Contratar especialistas | Encerrado → AWS Marketplace Professional Services. **Fora do escopo** | 28/05/2026 | [Recursos de ajuda](../../servicos/custos/recursos-de-ajuda-e-parceiros.md) |
-| Cloud9 / CodeStar / CodeCommit | Ferramentas de dev | Cloud9 fechado a novos clientes; CodeStar descontinuado; CodeCommit de volta a GA. **Nenhum dos três está na lista atual** | 2024–2025 | [Code*](../../servicos/desenvolvimento/code-services.md) |
-| QuickSight | Amazon QuickSight | **Amazon Quick Sight** (BI dentro do Amazon Quick Suite, hoje "Amazon Quick") | — | [Quick Sight](../../servicos/analytics/quicksight.md) |
-| SageMaker | Amazon SageMaker | **Amazon SageMaker AI** | — | [SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) |
-| Timestream | Séries temporais | LiveAnalytics fechado a novos clientes | 20/06/2025 | [Keyspaces, Timestream e outros](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md) |
-| Savings Plans | Compute, EC2 Instance, SageMaker | + **Database Savings Plans**: até 35% (serverless) / até 20% (provisionado), 1 ano, sem pagamento adiantado | 02/12/2025 | [4.2](../04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md) |
-| Application Migration Service | AWS Application Migration Service (MGN) | Hoje se chama **AWS Transform MGN** (a prova usa o nome antigo) | — | [MGN](../../servicos/migracao/application-migration-service.md) |
-| Trusted Advisor no Basic | "7 core checks" (com IAM Use) | Service limits + **5 checks de segurança** (sem IAM Use) | — | [Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) |
-| EBS gp3 | Até 16 TB / 16.000 IOPS | Até **64 TB / 80.000 IOPS** (base continua 3.000 IOPS e 125 MB/s) | — | [EBS](../../servicos/armazenamento/ebs.md) |
-| Fargate | Até 16 vCPU / 120 GB | Até **32 vCPU / 244 GB** | — | [Fargate](../../servicos/computacao/fargate.md) |
-| DynamoDB PITR | 35 dias fixos | Configurável de **1 a 35 dias** | 01/2025 | [DynamoDB](../../servicos/banco-de-dados/dynamodb.md) |
-| Testes gratuitos de segurança | GuardDuty, Macie, Detective (30 dias), Inspector (15 dias) | Mesmos prazos, mas vinculados ao **Paid plan** no Free Tier novo | — | [GuardDuty](../../servicos/seguranca/guardduty.md) |
-| **Tarefas exclusivas do root** | Inclui alterar o nome da conta e mudar o plano de suporte | ✔️ **Nome da conta, contatos e regiões não exigem root**; **mudar o plano de suporte saiu da lista**. Continuam: e-mail/senha/access keys do root, fechar conta standalone, restaurar admin IAM, Billing e faturas fiscais, GovCloud, vendedor de RI, recuperação de chave KMS, MFA Delete, desbloquear políticas S3/SQS | 10/2026 | [2.2](../02-seguranca-e-conformidade/02-usuario-root.md) |
-| Snowball Edge | Disponível | Fim do suporte comercial em **31/12/2026** (Storage e Compute Optimized, regiões comerciais) | 31/12/2026 | [Snow Family](../../servicos/migracao/snow-family.md) |
-| Amazon Q Developer (IDE) | Plugins de IDE | Fim de suporte dos plugins de IDE em **30/04/2027**; alternativa indicada: **Kiro** | 30/04/2027 | [Amazon Q](../../servicos/ia-ml/amazon-q.md) |
-| Organizations | Sem SCP padrão | Organizações criadas pelo console após 10/07/2026 recebem SCP que nega sair da organização e fechar a conta | 10/07/2026 | [Organizations](../../servicos/gerenciamento/organizations.md) |
-| Storage Gateway | S3 File, FSx File, Volume e Tape Gateway | **FSx File Gateway** (e Tape Gateway em Snowball Edge) descontinuados para novos clientes; S3 File e Volume continuam | — | [Storage Gateway](../../servicos/armazenamento/storage-gateway.md) |
-| GuardDuty | Planos S3, EKS, Runtime, Malware, RDS, Lambda | + **AI Protection** e Malware Protection para AWS Backup | — | [GuardDuty](../../servicos/seguranca/guardduty.md) |
-| Migration Hub / Application Discovery Service | Abertos | **Fechados a novos clientes** (continuam no escopo) | 07/11/2025 | [Discovery, Hub e Evaluator](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) |
-| Amazon Q Business | Assistente corporativo | Em manutenção, sem novos clientes; apps podem ser conectados ao Quick Suite | 30/07/2026 | [Amazon Q](../../servicos/ia-ml/amazon-q.md) |
-| ACM | Certificados públicos só em serviços integrados | + certificados públicos **exportáveis** (pagos, validade de 395 dias) | 17/06/2025 | [ACM](../../servicos/seguranca/certificate-manager.md) |
-| CloudFront | Pagamento por uso | + **planos de preço fixo** (Free, Pro US$ 15, Business US$ 200, Premium US$ 1.000) com CDN, WAF e DDoS | 18/11/2025 | [CloudFront](../../servicos/redes/cloudfront.md) |
+## Serviços encerrados
 
-## Serviços em manutenção ou encerrados (não estudar a fundo)
+A AWS publica duas tabelas oficiais: uma com os serviços que vão encerrar (*sunset*) e outra com os que já foram desligados (*full shutdown*). Dos serviços que ainda aparecem em materiais de estudo, já foram desligados:
 
-**Fechados a novos clientes desde 07/11/2025:** Amazon Glacier (serviço original de *vaults*, diferente das classes S3 Glacier), S3 Object Lambda, Systems Manager Change Manager e Incident Manager, CodeCatalyst, CodeGuru Reviewer, Cloud Directory, Snowball Edge, Fraud Detector, Migration Hub, Application Discovery Service.
+- o AWS CodeStar (25/07/2024);
+- o AWS OpsWorks (01/05/2024);
+- o AWS Snowmobile (14/03/2024);
+- o Amazon WorkDocs (25/04/2025);
+- o Amazon QLDB (31/07/2025);
+- o AWS RoboMaker (10/09/2025);
+- o Amazon Elastic Transcoder (13/11/2025);
+- o AWS Elemental MediaStore (12/11/2025);
+- o Amazon Lookout for Metrics (10/10/2025);
+- o AWS IQ, o AWS Panorama, o AWS IoT Events e o Amazon Inspector Classic, em maio de 2026.
 
-**Desde 30/04/2026:** AWS Audit Manager, AWS App Runner, IoT FleetWise.
+Vários deles estão na lista de fora do escopo da prova. Se uma alternativa citar um deles, desconfie, mas leia o requisito antes de descartá-la.
 
-**Desde 31/05/2026:** CloudTrail Lake (anúncio de 31/03/2026; trails e Event history continuam).
+Antes da prova, reabra as duas tabelas, porque elas crescem a cada trimestre.
 
-**Desde 30/07/2026:** Amazon Kendra, Amazon Q Business, Directory Service Simple AD, Service Catalog AppRegistry, Cognito Sync. Bedrock Agents passou a se chamar "Bedrock Agents Classic".
+## Fontes oficiais
 
-**Encerrados:** Application Cost Profiler (30/09/2024), QLDB (31/07/2025), RoboMaker (10/09/2025), Elastic Transcoder e Elemental MediaStore (13/11/2025), Panorama (31/05/2026), Copilot CLI (fim de suporte em 12/06/2026), Lookout for Metrics (12/09/2025), Lookout for Vision (31/10/2025), IoT Analytics (15/12/2025), IoT Events (20/05/2026), AWS IQ (28/05/2026). Anunciados em maio/2025: Inspector Classic, Pinpoint, Panorama, Connect Voice ID, DMS Fleet Advisor.
+Verificadas em 06/10/2026.
 
-**WorkSpaces:** PCoIP e Pools em *sunset* (o serviço continua no escopo).
+- [Content Domain 4](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html): planos de suporte citados na tarefa 4.3.
+- [Upload de objetos no S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html): objetos de até 50 TB com envio em partes.
+- [Cotas de mensagens do SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html): mensagem de até 1 MiB.
+- [AWS Free Tier](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html): créditos, plano gratuito de seis meses e serviços sempre gratuitos.
+- [Referência de verificações do Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-check-reference.html): as seis categorias.
+- [WorkSpaces Pools end of support](https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-pools-end-of-support.html): fim da entrada de clientes novos e do suporte.
+- [AWS services sunset](https://docs.aws.amazon.com/general/latest/gr/sunset_services.html) e [Services in full shutdown](https://docs.aws.amazon.com/general/latest/gr/full_shutdown_services.html): serviços que vão encerrar e já encerrados, com as datas.
+- As demais mudanças têm a fonte oficial na aula ou na ficha indicada em cada linha.
 
-**Próximos encerramentos (tabela oficial de *sunset*):** App Mesh (30/09/2026), IoT Greengrass V1 (01/10/2026), Proton, FinSpace e Lookout for Equipment (07/10/2026), Pinpoint (30/10/2026), AMS Advanced (30/06/2027). Monitron fechado a novos clientes.
+<!-- notas:inicio -->
+## 📝 Minhas anotações
 
-**Encerrado em 29/09/2026:** Amazon Mechanical Turk (a lista oficial de tarefas do root ainda cita o vínculo com o MTurk).
-
-**Encerrados antes:** Snowmobile (14/03/2024) e WorkDocs (25/04/2025), confirmados na página "Services in Full Shutdown".
-
-**Renomeações:** AWS Chatbot → Amazon Q Developer in chat applications (19/02/2025); Lumberyard não é mais oferecido (sucessor: O3DE).
-
-Tabela oficial: [AWS services sunset](https://docs.aws.amazon.com/general/latest/gr/sunset_services.html).
-
-## Divergências antigas resolvidas pela verificação
-
-| Antes | Resultado oficial |
-|---|---|
-| Read replicas de Oracle/SQL Server: 5 ou 15? | **Até 5** (Oracle, SQL Server); **até 3** (Db2); até 15 (MySQL, MariaDB, PostgreSQL) |
-| Desconto máximo de Convertible RI: 66% ou 54%? | **Até 66%** (guia de Savings Plans/RIs) |
-| Glacier Flexible Retrieval Expedited 1–5 min | Não confirmado em página oficial consultada (Standard 3–5 h e Bulk 5–12 h confirmados) |
-| Enterprise On-Ramp inclui 1 IEM por ano | A página fala em **1 engajamento AWS Countdown por ano** |
-| Preços clássicos de Developer (US$ 29), Business (US$ 100), On-Ramp (US$ 5.500) | Não aparecem mais nas páginas oficiais; trate como valores históricos |
+<!-- Anote aqui mudanças que você encontrar e ainda não estejam nesta página. -->
+<!-- notas:fim -->
