@@ -1,10 +1,11 @@
 # 🃏 Flashcards
 
-Gerados automaticamente a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
+Gerados automaticamente (`python3 scripts/gerar_docs.py`): os do capítulo 0 vêm da seção *Revisão* de cada aula; os dos domínios, das *Perguntas típicas* de cada tópico.
 Clique na pergunta para revelar a resposta.
 
-| Arquivo | Domínio |
+| Arquivo | Capítulo |
 |---|---|
+| [capitulo-0.md](capitulo-0.md) | Fundamentos de TI |
 | [dominio-1.md](dominio-1.md) | Conceitos de Nuvem |
 | [dominio-2.md](dominio-2.md) | Segurança e Conformidade |
 | [dominio-3.md](dominio-3.md) | Tecnologia e Serviços |
@@ -14,12 +15,15 @@ Clique na pergunta para revelar a resposta.
 ## Importar no Anki
 
 1. Anki → **Arquivo → Importar** → selecione `anki-clf-c02.tsv`.
-2. Separador: **Tab**. Campos: 1 = Frente, 2 = Verso, 3 = **Tags** (ex.: `dominio-2 secao-2_7`).
+2. Separador: **Tab**. Campos: 1 = Frente, 2 = Verso, 3 = **Tags** (ex.: `capitulo-0 aula-0_3` ou `dominio-2 secao-2_7`).
 3. Use as tags para estudar por domínio ou tópico.
 
 ## Adicionar cards
 
-Acrescente a pergunta na seção *Perguntas típicas* do tópico em
+No capítulo 0 (e em toda aula marcada como `<!-- autoral -->`), acrescente uma pergunta na seção `## Revisão` da
+própria aula: um subtítulo `###` com a pergunta e a resposta logo abaixo. O primeiro parágrafo da resposta vira o card.
+
+Nas demais aulas, acrescente a pergunta na seção *Perguntas típicas* do tópico em
 [`fontes/guia-completo-clf-c02.md`](../fontes/guia-completo-clf-c02.md), no formato:
 
 ```markdown

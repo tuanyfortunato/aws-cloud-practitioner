@@ -18,6 +18,8 @@ Este capítulo explica essas peças em prosa, com o mesmo caso da escola usado n
 | 0.4 | [Como programas conversam: API, requisição e fila](04-api-e-filas.md) | 3.1, 3.13 |
 | 0.5 | [Segurança básica: identidade, autenticação, autorização e criptografia](05-seguranca-basica.md) | 2.1 a 2.5 |
 
+Para revisar, use os [flashcards do capítulo 0](../../flashcards/capitulo-0.md), tirados das perguntas de revisão das aulas.
+
 Os termos destas aulas também estão no [glossário](../../glossario.md), para consulta rápida. O glossário serve para relembrar; a explicação está nas aulas.
 
 Acompanhe o seu avanço no [progresso](../../progresso.md).

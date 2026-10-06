@@ -252,7 +252,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 |---|---|---|---|
 | 0 | Concluída | #21 (marcador autoral) · #22 (métricas) | Linha de base registrada na seção 3 |
 | 1 | Em andamento | PR 1.2 (revisão circular e repetições) | PR 1.1 (vocabulário) depende do glossário da Fase 2 |
-| 2 | Concluída | #24 (capítulo 0 e aula 0.1) · #25 (aulas 0.2 e 0.3) · #26 (aulas 0.4 e 0.5) · PR 2.2 (glossário) | Capítulo 0 completo; glossário com 129 termos. Pendente: flashcards do capítulo 0 |
+| 2 | Concluída | #24 (capítulo 0 e aula 0.1) · #25 (aulas 0.2 e 0.3) · #26 (aulas 0.4 e 0.5) · #27 (glossário) · #28 (correções) · flashcards do capítulo 0 | Capítulo 0 completo; glossário com 129 termos; correções após conferir as páginas oficiais inteiras (#28); flashcards do capítulo 0 em `flashcards/capitulo-0.md` |
 | 3 | Pendente | — | — |
 | 4 | Pendente | — | — |
 | 5 | Pendente | — | — |
