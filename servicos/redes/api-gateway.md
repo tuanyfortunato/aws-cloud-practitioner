@@ -1,125 +1,70 @@
+<!-- autoral -->
+
 # Amazon API Gateway
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Um aplicativo precisa pedir dados ou executar ações em outro sistema por uma interface controlada, em vez de acessar diretamente todos os componentes internos.
-
-**Como este serviço ajuda?** API Gateway ajuda a publicar e administrar APIs. Ele recebe chamadas e as encaminha a integrações configuradas, com opções de controle e acompanhamento.
-
-**Exemplo do dia a dia:** O aplicativo da escola chama uma API para consultar matrículas. API Gateway recebe a chamada e a encaminha ao código que realiza a consulta.
-
-**O que ele não resolve sozinho?** Ele não escreve a regra de matrícula nem armazena os registros como um banco. Você define a API, seus acessos e a integração que realiza o trabalho.
-
-**Primeiras palavras para entender:**
-
-- **API:** interface para programas conversarem.
-- **Chamada:** pedido feito a essa interface.
-- **Integração:** componente acionado para atender o pedido.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Rede / front-end de APIs · **Domínio:** 3 · **Escopo:** Regional (endpoints edge-optimized usam CloudFront) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
+> **Categoria:** Rede e entrada de APIs · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** cria, publica, protege e monitora APIs em qualquer escala — a "porta da frente" de back-ends serverless.
+> **Em uma frase:** cria, publica, mantém, monitora e protege APIs REST, HTTP e WebSocket em qualquer escala; a porta de entrada de back-ends serverless.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.10 Redes e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) · uso com Lambda em [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 
-**Passo 1.** Descreva as operações que outro programa pode solicitar e seus dados de entrada.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure uma API e suas integrações e controles. Cada chamada segue para o componente que realiza o trabalho.
+---
 
-**Passo 3.** Observe falhas e acesso. A API não cria por si só o banco nem as regras que aprovam ou recusam uma operação.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+O aplicativo da escola precisa consultar notas e enviar justificativas de falta. A lógica está em funções Lambda, mas alguém precisa receber os pedidos do aplicativo, conferir quem está chamando, limitar abusos e encaminhar cada pedido para a função certa.
 
-### Tipos de API
+O API Gateway é essa porta de entrada. Ele cria e publica **APIs** (REST, HTTP e WebSocket), que recebem os pedidos e os entregam a funções Lambda, serviços da AWS ou outros servidores web. Ele também cuida de controle de acesso, limite de pedidos (*throttling*) e monitoramento, em qualquer escala.
 
-| Tipo | Destaques | Uso |
+O limite: o API Gateway recebe e encaminha; a lógica fica no back-end, como o [Lambda](../computacao/lambda.md). E ele não substitui o balanceador para distribuir tráfego entre instâncias ([Elastic Load Balancing](../computacao/elastic-load-balancing.md)).
+
+## Como funciona
+
+1. Você cria uma API e define os recursos e métodos, como `GET /notas`.
+2. Liga cada método a um back-end: uma função Lambda, outro serviço da AWS ou um endereço HTTP.
+3. Configura autorização e limites de pedidos e publica a API num **estágio** (por exemplo, produção).
+4. O aplicativo chama o endereço da API, e o API Gateway encaminha o pedido e devolve a resposta.
+
+## Opções principais
+
+| Tipo de API | O que faz | Pista no enunciado |
 |---|---|---|
-| **REST API** | Mais recursos: **cache**, **usage plans e API keys**, validação de requisições, transformação, WAF, endpoints privados | APIs completas e gerenciadas |
-| **HTTP API** | Mais simples, **mais barata** e de menor latência; JWT/OIDC nativo | Proxies para Lambda/HTTP |
-| **WebSocket API** | Conexões bidirecionais persistentes | Chats, painéis em tempo real |
+| REST API | Mais recursos: chaves de API, limite por cliente, validação, cache, integração com WAF e APIs privadas | "Chaves de API", "planos de uso", "cache" |
+| HTTP API | Menos recursos, preço menor | "API simples para o Lambda pelo menor custo" |
+| WebSocket API | Comunicação nos dois sentidos, com estado, entre cliente e servidor | "Chat", "atualização em tempo real" |
 
-### Configurações importantes
+## Números que a prova cobra
 
-| Item | Detalhe |
-|---|---|
-| **Integrações** | **Lambda** (clássico serverless), HTTP, serviços AWS (ex.: gravar direto no SQS/DynamoDB), VPC link (recursos privados via NLB/ALB). |
-| **Tipos de endpoint** | **Edge-optimized** (via CloudFront), **Regional**, **Private** (só da VPC via interface endpoint). |
-| **Autorização** | **IAM**, **Cognito user pools**, **Lambda authorizer**, JWT (HTTP API). |
-| **Throttling** | Limites de requisições por segundo (conta, stage, método, usage plan) → protege o back-end. Padrão: **10.000 req/s por conta e região**, burst de 5.000 (algumas regiões novas: 2.500 / 1.250) 🧊. |
-| **Stages** | `dev`, `prod`… com variáveis e deploys separados; *canary release*. |
-| **Cache** | Respostas em cache por TTL (REST). |
-| **Domínio customizado** | Com certificado do ACM. |
-| **Monitoramento** | CloudWatch (métricas, logs de acesso), X-Ray. |
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Limite padrão de pedidos por conta e Região | 10.000 por segundo (ajustável), com rajada | 06/10/2026 |
+| Tipos de API | 3 (REST, HTTP e WebSocket) | 06/10/2026 |
 
-## 3. Como escolher e reconhecer os limites
+## Como é cobrado
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+Você paga pelas chamadas recebidas (preço por milhão) e pela transferência de dados de saída. As APIs WebSocket cobram mensagens e minutos de conexão. O cache das REST APIs é opcional e cobrado por hora, de acordo com o tamanho.
 
-Ele não escreve a regra de matrícula nem armazena os registros como um banco. Você define a API, seus acessos e a integração que realiza o trabalho.
+## Não confundir com
 
-### ⚠️ Pegadinhas e não confundir
+| Serviço | Diferença para o API Gateway | Pista no enunciado |
+|---|---|---|
+| [AWS Lambda](../computacao/lambda.md) | Roda a lógica; o API Gateway recebe os pedidos | "Código que processa o pedido" |
+| [Elastic Load Balancing](../computacao/elastic-load-balancing.md) | Distribui tráfego entre instâncias ou containers | "Várias instâncias atrás de um endereço" |
+| [Amazon CloudFront](cloudfront.md) | Entrega conteúdo com cache nos locais de borda | "Baixa latência no mundo todo" |
+| [Amazon EventBridge](../integracao/eventbridge.md) | Roteia eventos entre serviços, não pedidos de clientes | "Reagir a eventos" |
 
-API Gateway (APIs REST/HTTP/WebSocket) × **AppSync** (APIs **GraphQL**).
+## Fontes oficiais
 
-API Gateway × ALB: ambos podem chamar Lambda; API Gateway tem throttling, chaves de API, autenticação e cache.
+Verificadas em 06/10/2026.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por **milhão de chamadas** (HTTP API é mais barata) + dados transferidos + cache-hora; WebSocket por mensagens e minutos de conexão.
-
-## 5. Caso resolvido: ligando as peças
-
-O aplicativo da escola chama uma API para consultar matrículas. API Gateway recebe a chamada e a encaminha ao código que realiza a consulta.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Descreva as operações que outro programa pode solicitar e seus dados de entrada.
-**Etapa 2:** Configure uma API e suas integrações e controles. Cada chamada segue para o componente que realiza o trabalho.
-**Etapa 3:** Observe falhas e acesso. A API não cria por si só o banco nem as regras que aprovam ou recusam uma operação.
-
-**Resultado e responsabilidade:** API Gateway ajuda a publicar e administrar APIs. Ele recebe chamadas e as encaminha a integrações configuradas, com opções de controle e acompanhamento.
-
-**Recursos envolvidos:** API, routes/resources, stages, integrações e autorização.
-
-**Decisões que precisam ser tomadas:** Tipo de API, endpoint, autenticação, throttling e integração.
-
-**Outra situação comentada:** API chama função Lambda: API Gateway oferece entrada; Lambda executa lógica; IAM/authorizer controla acesso.
-
-**Por que não concluir mais do que isso:** Não implementa a regra de negócio sozinho; autorização ainda precisa ser configurada
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Criar e proteger uma API REST para funções Lambda."
-
-**Resposta curta:** API Gateway.
-
-**Pergunta:** "Limitar requisições por cliente com chaves de API."
-
-**Resposta curta:** Usage plans + API keys.
-
-**Pergunta:** "API GraphQL gerenciada."
-
-**Resposta curta:** AppSync (não API Gateway).
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
+- [O que é o Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
+- [REST APIs ou HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html)
+- [Cotas do API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html)
+- [Preços do Amazon API Gateway](https://aws.amazon.com/api-gateway/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

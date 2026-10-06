@@ -1,138 +1,74 @@
+<!-- autoral -->
+
 # VPC Peering, Transit Gateway, VPC Endpoints e PrivateLink
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Duas redes privadas precisam conversar, ou uma aplicação precisa acessar um serviço AWS por conectividade privada. São necessidades diferentes.
-
-**Como este serviço ajuda?** Peering conecta VPCs; Transit Gateway centraliza conexões entre redes; endpoints fornecem acesso a serviços compatíveis por caminhos privados. Esta ficha compara essas funções.
-
-**Exemplo do dia a dia:** Duas VPCs podem usar peering. Uma empresa com muitas redes pode avaliar Transit Gateway. Uma aplicação pode usar um endpoint compatível para acessar um serviço AWS.
-
-**O que ele não resolve sozinho?** Criar uma conexão não concede todas as permissões nem configura todas as rotas. Endpoints não equivalem a uma conexão geral entre todas as redes.
-
-**Primeiras palavras para entender:**
-
-- **Peering:** ligação entre duas VPCs.
-- **Hub:** ponto central de conexões.
-- **Endpoint:** ponto de acesso a um serviço.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Rede · **Domínio:** 3 · **Escopo:** Regional (peering e TGW podem ligar regiões) · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
+> **Categoria:** Rede · **Domínio:** 3 · **Abrangência:** Regional (peering e Transit Gateway também ligam Regiões) · **Ficha:** núcleo
 >
-> **Em uma frase:** formas de conectar VPCs entre si e de acessar serviços sem passar pela internet.
+> **Em uma frase:** formas de ligar VPCs entre si e de acessar serviços de forma privada, sem passar pela internet.
 >
 > **Escopo oficial:** ✅ No escopo (Transit Gateway e PrivateLink listados) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.10 Redes e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 
-**Passo 1.** Descreva quem precisa comunicar-se com quem: duas redes, muitas redes ou um serviço específico.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha a conexão pertinente e configure suas associações, rotas e controles.
+---
 
-**Passo 3.** Teste o caminho autorizado. Não suponha trânsito entre redes ou permissão a dados apenas porque existe uma conexão.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A rede de escolas passou a ter várias VPCs: uma para a matrícula, outra para o portal, outra para a contabilidade. Agora elas precisam conversar, e as instâncias privadas precisam gravar no S3 sem sair pela internet.
 
-### VPC Peering
+Três peças resolvem isso. O **VPC peering** liga duas VPCs, que passam a conversar por endereços privados. O **Transit Gateway** é um ponto central (hub) que interliga muitas VPCs e as redes locais. O **PrivateLink** e os **VPC endpoints** conectam a VPC, de forma privada, a serviços como se estivessem dentro dela.
 
-Conexão privada **um-para-um** entre duas VPCs (mesma conta, outra conta, outra região).
+O limite: o peering **não é transitivo** e vira um emaranhado com muitas VPCs; aí entra o Transit Gateway. E nenhuma dessas peças liga o datacenter da empresa sozinha: para isso há a [VPN](site-to-site-vpn-e-client-vpn.md) e o [Direct Connect](direct-connect.md), que podem se ligar ao Transit Gateway.
 
-⚠️ **Não é transitivo:** A↔B e B↔C não permite A↔C.
+## Como funciona
 
-CIDRs **não podem se sobrepor**. Precisa atualizar route tables e SGs dos dois lados.
+1. **Peering:** uma VPC pede a conexão, a outra aceita, e as tabelas de rotas das duas apontam uma para a outra. Funciona entre contas e entre Regiões.
+2. **Transit Gateway:** cada VPC, VPN ou Direct Connect se liga uma vez ao hub, que roteia entre todos.
+3. **Endpoint de interface (PrivateLink):** cria uma interface de rede na sua sub-rede para falar com o serviço, sem internet gateway, NAT ou endereço público.
+4. **Gateway endpoint:** uma rota na tabela leva o tráfego para o S3 ou o DynamoDB sem sair da rede da AWS.
 
-Sem custo por hora; paga transferência de dados.
+## Opções principais
 
-### AWS Transit Gateway
+| Peça | O que faz | Pista no enunciado |
+|---|---|---|
+| VPC peering | Liga duas VPCs um a um; não é transitivo | "Duas VPCs precisam conversar" |
+| AWS Transit Gateway | Hub que interliga muitas VPCs e redes locais | "Dezenas de VPCs", "simplificar a topologia" |
+| Endpoint de interface (PrivateLink) | Acesso privado a serviços da AWS, de parceiros ou próprios | "Sem passar pela internet", "oferecer um serviço a outras contas" |
+| Gateway endpoint | Acesso privado ao S3 e ao DynamoDB, sem cobrança adicional | "Instância privada gravando no S3" |
 
-**Hub regional** que conecta milhares de VPCs, VPNs, Direct Connect e outros TGWs (peering entre regiões) — modelo *hub-and-spoke*.
+## Números que a prova cobra
 
-Route tables do TGW permitem segmentar (ex.: prod não fala com dev).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Serviços com gateway endpoint | 2 (S3 e DynamoDB) | 06/10/2026 |
+| Taxa para criar um peering | Nenhuma (paga-se a transferência) | 06/10/2026 |
 
-Compartilhável entre contas via **RAM**.
+## Como é cobrado
 
-Pago por anexo-hora + GB processado.
+Criar um peering não tem custo; a transferência de dados pelo peering é cobrada, inclusive entre zonas da mesma Região. O Transit Gateway cobra por hora de cada anexo (VPC, VPN, Direct Connect) e por GB processado. O endpoint de interface cobra por hora em cada zona e por GB processado. O gateway endpoint não tem cobrança adicional.
 
-### VPC Endpoints
+## Não confundir com
 
-| Tipo | Serviços | Como funciona | Custo |
-|---|---|---|---|
-| **Gateway endpoint** | **Só S3 e DynamoDB** | Entrada na route table | **Gratuito** |
-| **Interface endpoint** (PrivateLink) | Maioria dos serviços AWS e serviços de parceiros | ENI com IP privado na sua subnet + DNS privado | Por hora + GB |
-| **Gateway Load Balancer endpoint** | Appliances de segurança | Encaminha tráfego para o GWLB | Por hora + GB |
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon VPC](vpc.md) | A rede em si, com sub-redes e gateways | "Rede isolada na Região" |
+| [AWS Site-to-Site VPN](site-to-site-vpn-e-client-vpn.md) | Liga a rede local à AWS pela internet | "Datacenter", "IPsec" |
+| [AWS Direct Connect](direct-connect.md) | Liga a rede local à AWS por conexão dedicada | "Sem passar pela internet pública" |
+| NAT gateway ([VPC](vpc.md)) | Saída para a internet, não acesso privado aos serviços | "Baixar atualizações da internet" |
 
-Endpoint policies restringem o que pode ser acessado pelo endpoint.
+## Fontes oficiais
 
-### AWS PrivateLink
+Verificadas em 06/10/2026.
 
-Tecnologia dos interface endpoints. Também permite **expor um serviço seu** (atrás de um NLB) para outras VPCs/contas/clientes de forma privada, sem peering e sem expor a VPC inteira.
-
-### Comparação rápida
-
-| Necessidade | Solução |
-|---|---|
-| Ligar 2 VPCs | VPC Peering |
-| Ligar dezenas de VPCs + on-premises | Transit Gateway |
-| Acessar S3/DynamoDB sem internet | Gateway endpoint (grátis) |
-| Acessar outros serviços AWS sem internet | Interface endpoint |
-| Oferecer seu serviço privadamente a outras contas | PrivateLink (endpoint service) |
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Criar uma conexão não concede todas as permissões nem configura todas as rotas. Endpoints não equivalem a uma conexão geral entre todas as redes.
-
-## 4. Caso resolvido: ligando as peças
-
-Duas VPCs podem usar peering. Uma empresa com muitas redes pode avaliar Transit Gateway. Uma aplicação pode usar um endpoint compatível para acessar um serviço AWS.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Descreva quem precisa comunicar-se com quem: duas redes, muitas redes ou um serviço específico.
-**Etapa 2:** Escolha a conexão pertinente e configure suas associações, rotas e controles.
-**Etapa 3:** Teste o caminho autorizado. Não suponha trânsito entre redes ou permissão a dados apenas porque existe uma conexão.
-
-**Resultado e responsabilidade:** Peering conecta VPCs; Transit Gateway centraliza conexões entre redes; endpoints fornecem acesso a serviços compatíveis por caminhos privados. Esta ficha compara essas funções.
-
-**Recursos envolvidos:** Peering entre VPCs; hub Transit Gateway; endpoints e PrivateLink.
-
-**Decisões que precisam ser tomadas:** Redes envolvidas, rotas, serviço exposto e permissões.
-
-**Outra situação comentada:** Três redes precisam comunicação por hub: TGW; consumidor só precisa de serviço privado: PrivateLink.
-
-**Por que não concluir mais do que isso:** Peering não é transitivo; endpoint não substitui IAM
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Conectar duas VPCs de contas diferentes."
-
-**Resposta curta:** VPC Peering.
-
-**Pergunta:** "A falou com B e B com C; A fala com C via peering?"
-
-**Resposta curta:** Não, peering não é transitivo.
-
-**Pergunta:** "Conectar 50 VPCs e o datacenter num hub."
-
-**Resposta curta:** Transit Gateway.
-
-**Pergunta:** "Acessar o S3 a partir da VPC sem passar pela internet."
-
-**Resposta curta:** Gateway VPC endpoint.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) · [Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) · [PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html)
+- [Conceitos do VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html)
+- [Perguntas frequentes da Amazon VPC](https://aws.amazon.com/vpc/faqs/)
+- [O que é um transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html)
+- [O que é o AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html)
+- [Gateway endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html)
+- [Preços do AWS Transit Gateway](https://aws.amazon.com/transit-gateway/pricing/)
+- [Preços do AWS PrivateLink](https://aws.amazon.com/privatelink/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

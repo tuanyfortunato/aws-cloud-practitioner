@@ -1,121 +1,68 @@
+<!-- autoral -->
+
 # AWS Global Accelerator
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Usuários de lugares diferentes precisam chegar a aplicações por caminhos de rede mais consistentes, com pontos de entrada fixos.
-
-**Como este serviço ajuda?** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
-
-**Exemplo do dia a dia:** Uma aplicação distribuída usa endereços de entrada fixos e encaminha conexões para seus destinos AWS configurados.
-
-**O que ele não resolve sozinho?** Ele encaminha tráfego; não guarda cópias de imagens ou páginas como uma CDN. Também não corrige lentidão causada pelo código ou pelo banco.
-
-**Primeiras palavras para entender:**
-
-- **IP:** endereço de rede.
-- **Destino:** recurso que recebe o tráfego.
-- **Roteamento:** escolha do caminho de uma comunicação.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Rede / desempenho global · **Domínio:** 3 · **Escopo:** **Global** · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
+> **Categoria:** Rede e desempenho global · **Domínio:** 3 · **Abrangência:** Global · **Ficha:** núcleo
 >
-> **Em uma frase:** fornece **2 IPs anycast estáticos** e leva o tráfego TCP/UDP pela rede global da AWS até o endpoint saudável mais próximo.
+> **Em uma frase:** dá à aplicação dois IPs estáticos anycast e leva o tráfego TCP ou UDP pela rede global da AWS até o endpoint saudável mais adequado.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.10 Redes e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 
-**Passo 1.** Defina destinos compatíveis e o comportamento de atendimento entre eles.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare os pontos de entrada e o encaminhamento pela rede AWS conforme a configuração e a saúde observada.
+---
 
-**Passo 3.** Observe o resultado nas conexões. O serviço encaminha tráfego; ele não mantém cópias dos arquivos da aplicação.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+O aplicativo de aulas ao vivo da escola tem usuários em vários países e roda em duas Regiões. Pela internet pública, cada conexão passa por muitas redes até chegar à AWS, e a qualidade varia. Além disso, as escolas parceiras liberam no firewall só endereços IP fixos.
 
-### Como funciona
+O Global Accelerator dá à aplicação **endereços IP estáticos**, anunciados a partir da rede de borda da AWS (anycast). O usuário entra na rede da AWS no ponto mais próximo, e o tráfego segue pela **rede global da AWS** até o endpoint na Região mais adequada, considerando saúde, localização e as regras configuradas. Se um endpoint falha, o tráfego muda na hora para outro saudável.
 
-1. O usuário se conecta a um dos **2 IPs estáticos** anycast, que entram na rede AWS pela edge location mais próxima.
+O limite: o Global Accelerator não guarda cópias do conteúdo. Para entregar arquivos repetidos com cache, a resposta é o [CloudFront](cloudfront.md).
 
-2. O tráfego segue pela **backbone da AWS** (não pela internet pública) até o **endpoint group** da região.
+## Como funciona
 
-3. Health checks redirecionam em segundos para outra região se houver falha.
+1. Você cria um **acelerador** e recebe dois IPs estáticos IPv4 (quatro, com IPv6).
+2. Adiciona **listeners** para as portas e protocolos (TCP ou UDP).
+3. Associa **grupos de endpoints** por Região: balanceadores (ALB ou NLB), instâncias do EC2 ou Elastic IPs.
+4. O Global Accelerator acompanha a saúde dos endpoints e encaminha cada conexão para um saudável.
 
-### Configurações
+## Opções principais
 
-| Item | Detalhe |
-|---|---|
-| **Listeners** | Portas/protocolos TCP e UDP. |
-| **Endpoint groups** | Um por região; **traffic dial** controla o percentual enviado a cada região. |
-| **Endpoints** | ALB, NLB, instâncias EC2, Elastic IPs; com **pesos**. |
-| **Client affinity** | Mantém o mesmo usuário no mesmo endpoint. |
-| **Custom routing** | Mapeia usuários para instâncias específicas (jogos, VoIP). |
-| **Proteção** | Shield Standard incluso. |
+| Opção | O que faz | Pista no enunciado |
+|---|---|---|
+| IPs estáticos | Os endereços continuam do acelerador enquanto ele existir | "Lista de IPs liberados no firewall" |
+| Endpoints em várias Regiões | Tráfego vai para a Região adequada e saudável | "Failover entre Regiões" |
+| Traga seus IPs (BYOIP) | Usa endereços IPv4 próprios como entrada | "Manter os IPs da empresa" |
 
-## 3. Como escolher e reconhecer os limites
+## Números que a prova cobra
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| IPs estáticos por acelerador | 2 IPv4 (4 com IPv6) | 06/10/2026 |
+| Protocolos dos listeners | TCP e UDP | 06/10/2026 |
 
-Ele encaminha tráfego; não guarda cópias de imagens ou páginas como uma CDN. Também não corrige lentidão causada pelo código ou pelo banco.
+## Como é cobrado
 
-### ⚠️ Pegadinhas e não confundir
+Cada acelerador, ativado ou desativado, cobra uma **taxa fixa por hora** até ser apagado, mais uma taxa sobre a transferência de dados (DT-Premium), calculada a cada hora na direção dominante do tráfego.
 
-⚠️ **Não faz cache.** Para cache → CloudFront.
+## Não confundir com
 
-IP fixo **global** → Global Accelerator; IP fixo **regional** → NLB com Elastic IP.
+| Serviço | Diferença para o Global Accelerator | Pista no enunciado |
+|---|---|---|
+| [Amazon CloudFront](cloudfront.md) | Entrega cópias guardadas nos locais de borda (HTTP/HTTPS) | "Cache", "vídeos e imagens" |
+| [Amazon Route 53](route-53.md) | Failover pelo DNS: muda o endereço devolvido nas consultas | "Política de failover no DNS", "nome de domínio" |
+| [Elastic Load Balancing](../computacao/elastic-load-balancing.md) | Distribui dentro de uma Região; pode ser endpoint do acelerador | "Distribuir entre instâncias" |
 
-Failover regional rápido sem depender de TTL de DNS → Global Accelerator (o Route 53 depende do cache DNS dos clientes).
+## Fontes oficiais
 
-## 4. Operação, segurança e custo
+Verificadas em 06/10/2026.
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Taxa fixa por acelerador-hora + **DT-Premium** por GB transferido.
-
-## 5. Caso resolvido: ligando as peças
-
-Uma aplicação distribuída usa endereços de entrada fixos e encaminha conexões para seus destinos AWS configurados.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina destinos compatíveis e o comportamento de atendimento entre eles.
-**Etapa 2:** Prepare os pontos de entrada e o encaminhamento pela rede AWS conforme a configuração e a saúde observada.
-**Etapa 3:** Observe o resultado nas conexões. O serviço encaminha tráfego; ele não mantém cópias dos arquivos da aplicação.
-
-**Resultado e responsabilidade:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
-
-**Recursos envolvidos:** Accelerator, IPs estáticos, listeners, endpoint groups e endpoints.
-
-**Decisões que precisam ser tomadas:** Protocolo, regiões, saúde e pesos.
-
-**Outra situação comentada:** Usuários globais precisam IPs fixos e tráfego TCP/UDP: Global Accelerator, em vez de escolher CloudFront por palavra global.
-
-**Por que não concluir mais do que isso:** Não é cache/CDN de objetos e não substitui a aplicação
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "IPs estáticos globais e failover rápido entre regiões para TCP/UDP."
-
-**Resposta curta:** Global Accelerator.
-
-**Pergunta:** "Jogo multiplayer UDP com usuários no mundo todo."
-
-**Resposta curta:** Global Accelerator.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html)
+- [O que é o AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html)
+- [Listeners](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-listeners.html)
+- [Preços do AWS Global Accelerator](https://aws.amazon.com/global-accelerator/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
