@@ -137,9 +137,9 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
 | [Amazon SQS (Simple Queue Service)](integracao/sqs.md) | ✅ | núcleo | Fila de mensagens gerenciada que **desacopla** quem pede um trabalho de quem o executa e absorve picos. |
-| [Amazon SNS (Simple Notification Service)](integracao/sns.md) | ✅ | núcleo | Serviço **pub/sub**: um produtor publica num **tópico** e a mensagem é **empurrada** para todos os assinantes. |
-| [Amazon EventBridge](integracao/eventbridge.md) | ✅ | núcleo | **barramento de eventos** serverless que recebe eventos de serviços AWS, das suas aplicações e de parceiros SaaS e os roteia por **regras**. |
-| [AWS Step Functions](integracao/step-functions.md) | ✅ | núcleo | Orquestra **fluxos de trabalho de várias etapas** como máquinas de estado visuais, com tratamento de erros e retentativas. |
+| [Amazon SNS (Simple Notification Service)](integracao/sns.md) | ✅ | núcleo | Serviço de **publicar e assinar**: o publicador envia a mensagem a um **tópico**, e o SNS a empurra para todos os assinantes. |
+| [Amazon EventBridge](integracao/eventbridge.md) | ✅ | núcleo | Serviço serverless que recebe **eventos** de serviços da AWS, de aplicações próprias e de softwares de terceiros e os entrega aos destinos certos por **regras**. |
+| [AWS Step Functions](integracao/step-functions.md) | ✅ | núcleo | Coordena **fluxos de trabalho** de várias etapas, com decisões, novas tentativas e acompanhamento visual de cada execução. |
 | [Amazon MQ](integracao/amazon-mq.md) | ⚪ | referência | Brokers de mensagens gerenciados **Apache ActiveMQ** e **RabbitMQ**, compatíveis com protocolos padrão. |
 
 ## 🛠️ Ferramentas de desenvolvedor

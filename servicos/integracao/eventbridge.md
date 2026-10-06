@@ -1,136 +1,81 @@
+<!-- autoral -->
+
 # Amazon EventBridge
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Aplicações produzem acontecimentos diferentes e a empresa precisa encaminhar cada tipo para a ação correta, sem ligar manualmente todos os sistemas entre si.
-
-**Como este serviço ajuda?** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis. O conteúdo do evento ajuda a decidir o caminho.
-
-**Exemplo do dia a dia:** Um evento de matrícula confirmada aciona o processo de boas-vindas; um evento de cancelamento segue para outro destino.
-
-**O que ele não resolve sozinho?** EventBridge encaminha acontecimentos, mas não realiza toda a tarefa de negócio por si só. Regras, destinos, permissões e tratamento de falhas precisam ser definidos.
-
-**Primeiras palavras para entender:**
-
-- **Evento:** informação sobre algo que aconteceu.
-- **Barramento:** canal que recebe eventos.
-- **Regra:** critério para encaminhá-los.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Integração de aplicações / eventos · **Domínio:** 3 · **Escopo:** Regional (cross-account e cross-region) · **Tópico do guia:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
+> **Categoria:** Integração de aplicações · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** **barramento de eventos** serverless que recebe eventos de serviços AWS, das suas aplicações e de parceiros SaaS e os roteia por **regras**.
+> **Em uma frase:** serviço serverless que recebe **eventos** de serviços da AWS, de aplicações próprias e de softwares de terceiros e os entrega aos destinos certos por **regras**.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 
-**Passo 1.** Defina a origem dos eventos e o critério que distingue cada situação.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure regras e destinos compatíveis. Um evento que corresponde à regra é encaminhado ao destino apropriado.
+---
 
-**Passo 3.** Observe entrega e ação do destino. Encaminhar o acontecimento e concluir o trabalho de negócio são etapas diferentes.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Muita coisa acontece na escola sem que alguém peça: o sistema de pagamento de terceiros aprova a taxa de matrícula, uma instância EC2 para, um arquivo chega ao S3. Cada um desses acontecimentos é um **evento**, e vários sistemas precisam reagir a ele. Ligar cada origem a cada destino com código próprio gera uma teia difícil de manter.
 
-### Componentes
+O EventBridge resolve isso com um **barramento de eventos** (*event bus*), que recebe os eventos e os entrega aos destinos por **regras**. Uma regra descreve quais eventos interessam (o **padrão de evento**) e para onde mandar (os **destinos**, como uma função Lambda ou um fluxo do Step Functions). Quem emite o evento não precisa saber quem vai reagir: é a **arquitetura orientada a eventos**, uma forma de acoplamento fraco.
 
-**Event bus**
+O limite: o EventBridge entrega o evento, mas não faz o trabalho; quem confirma a vaga é a função Lambda acionada. A explicação completa, com o exemplo do pagamento aprovado, está na [aula 3.13](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md).
 
-**Detalhe:** **Default** (eventos de serviços AWS), **custom** (suas aplicações) e **partner** (SaaS: Zendesk, Datadog, Shopify…).
+## Como funciona
 
-**Rules**
+1. Uma **origem** envia um evento ao barramento: um serviço da AWS, uma aplicação própria ou um software de terceiros (parceiro SaaS).
+2. O EventBridge compara o evento com as **regras** daquele barramento.
+3. Para cada regra cujo padrão o evento atende, o EventBridge entrega o evento aos **destinos** da regra, que rodam em paralelo. Antes de entregar, a regra pode transformar o evento.
+4. O destino faz o trabalho: uma função Lambda roda, uma mensagem entra numa fila do SQS, um fluxo do Step Functions começa.
 
-**Detalhe:** *Event pattern* (filtra por conteúdo do evento) → **targets** (Lambda, SQS, SNS, Step Functions, ECS task, Kinesis, API Gateway, outro bus…).
+## Opções principais
 
-**EventBridge Scheduler**
+| Recurso | O que faz | Quando lembrar |
+|---|---|---|
+| Barramento padrão (*default*) | Existe em toda conta e recebe automaticamente os eventos de mudança de estado dos serviços da AWS | "Quando uma instância EC2 parar, avisar a equipe" |
+| Barramento personalizado (*custom*) | Recebe os eventos das suas aplicações | Integrar sistemas próprios por eventos |
+| Barramento de parceiro (*partner*) | Recebe eventos de softwares de terceiros integrados ao EventBridge | "Reagir a um evento de um SaaS" |
+| EventBridge Scheduler | Agendador serverless: tarefas recorrentes (expressões cron e rate) ou únicas, com novas tentativas | "Rodar um relatório toda noite"; substitui as antigas regras agendadas |
+| EventBridge Pipes | Liga uma origem a um destino, ponto a ponto, com filtro e enriquecimento no caminho | Integração de uma origem com um destino, sem código de ligação |
+| Arquivo e replay | Guarda eventos e os reenvia ao barramento depois | Recuperar de um erro ou testar uma funcionalidade nova |
 
-**Detalhe:** Agendamentos **cron/rate ou únicos**, com fuso horário, para milhões de tarefas (substitui as *scheduled rules*).
+Em setembro de 2026, a AWS lançou um barramento personalizado novo, em que cada consumidor cria seus próprios **assinantes**, e o barramento guarda os eventos por um período definido, com entrega em ordem e replay. O barramento com regras passou a se chamar *Custom Event Bus - Classic* e continua disponível.
 
-**Pipes**
+## Números que a prova cobra
 
-**Detalhe:** Conexões ponto-a-ponto origem → filtro → enriquecimento → destino (ex.: SQS → Step Functions).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Eventos de gerenciamento da AWS recebidos no barramento (Classic) | Grátis | 06/10/2026 |
+| Invocações grátis do Scheduler | 14 milhões por mês | 06/10/2026 |
+| Serviços que o Scheduler aciona | Mais de 270 serviços da AWS | 06/10/2026 |
 
-**Archive & replay**
+## Como é cobrado
 
-**Detalhe:** Guardar e reprocessar eventos.
+No barramento com regras (Classic), os eventos de gerenciamento que os serviços da AWS enviam são recebidos de graça; eventos próprios, de parceiros e eventos de dados que você ativa (como os do S3) são cobrados por milhão. Entregar a um serviço na mesma conta é grátis; entregar a outro barramento ou a outra conta é cobrado. Cada pedaço de 64 KB do evento conta como um evento.
 
-**Schema registry**
+O barramento personalizado novo cobra pelo volume de dados recebidos e entregues, com 24 horas de armazenamento incluídas. O Scheduler cobra por invocação depois das 14 milhões grátis do mês; o Pipes cobra pelas requisições que passam pelo filtro; o arquivo de eventos também é cobrado. Não há taxa mínima.
 
-**Detalhe:** Descobre e documenta o formato dos eventos.
+## Não confundir com
 
-**API destinations**
+| Serviço | Diferença para o EventBridge | Pista no enunciado |
+|---|---|---|
+| [Amazon SNS](sns.md) | Publica num tópico e empurra para todos os assinantes, inclusive pessoas por e-mail e SMS | "Notificar a equipe", "alerta por SMS" |
+| [Amazon SQS](sqs.md) | Guarda mensagens numa fila até um consumidor buscar | "Absorver picos", "processar no próprio ritmo" |
+| [AWS Step Functions](step-functions.md) | Coordena as etapas de um processo em ordem, com decisões e novas tentativas | "Fluxo de várias etapas", "esperar aprovação" |
 
-**Detalhe:** Envia eventos para APIs HTTP externas.
+## Fontes oficiais
 
-### Exemplos
+Verificadas em 06/10/2026.
 
-"Quando uma instância EC2 mudar para `stopped`, notificar no Slack."
-
-Achado do GuardDuty → Lambda que isola a instância.
-
-Evento de um SaaS (novo ticket) → workflow interno.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-EventBridge encaminha acontecimentos, mas não realiza toda a tarefa de negócio por si só. Regras, destinos, permissões e tratamento de falhas precisam ser definidos.
-
-### ⚠️ Não confundir
-
-**EventBridge** (roteia e reage a eventos, inclusive de SaaS) × **SNS** (notificação pub/sub) × **Step Functions** (orquestra fluxos com estado) × **CloudWatch Events** (nome antigo do EventBridge).
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por milhão de eventos publicados (eventos de serviços AWS no bus default são gratuitos); Scheduler por invocação; Pipes por requisição.
-
-## 5. Caso resolvido: ligando as peças
-
-Um evento de matrícula confirmada aciona o processo de boas-vindas; um evento de cancelamento segue para outro destino.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina a origem dos eventos e o critério que distingue cada situação.
-**Etapa 2:** Configure regras e destinos compatíveis. Um evento que corresponde à regra é encaminhado ao destino apropriado.
-**Etapa 3:** Observe entrega e ação do destino. Encaminhar o acontecimento e concluir o trabalho de negócio são etapas diferentes.
-
-**Resultado e responsabilidade:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis. O conteúdo do evento ajuda a decidir o caminho.
-
-**Recursos envolvidos:** Event buses, rules, targets; Scheduler e Pipes conforme necessidade.
-
-**Decisões que precisam ser tomadas:** Padrão de evento, destinos, role e falhas.
-
-**Outra situação comentada:** Mudança de estado dispara automação: regra EventBridge com destino autorizado.
-
-**Por que não concluir mais do que isso:** Não executa lógica de negócio por si; evento exige consumidor/destino
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Reagir a eventos de serviços AWS e de aplicações SaaS com regras."
-
-**Resposta curta:** EventBridge.
-
-**Pergunta:** "Executar uma tarefa todo dia às 2h sem servidor."
-
-**Resposta curta:** EventBridge Scheduler + Lambda.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html)
+- [O que é o Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html)
+- [Barramento padrão e Classic](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html)
+- [Barramento personalizado novo](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-custom-bus.html)
+- [Regras](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html)
+- [EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html)
+- [EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
+- [Arquivo e replay](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-archive.html)
+- [Preços do Amazon EventBridge](https://aws.amazon.com/eventbridge/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
