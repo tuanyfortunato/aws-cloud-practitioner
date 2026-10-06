@@ -7,6 +7,8 @@ Esta pasta guarda as especificações das melhorias planejadas para o material d
 | Documento | Objetivo | Status |
 |---|---|---|
 | [Apostila digital e impressa](apostila-digital-e-impressa.md) | Corrigir os problemas encontrados na avaliação pedagógica de 05/10/2026 e preparar uma base comum para leitura digital e impressão. | Pendente |
+| [Avaliação pedagógica: profundidade](avaliacao-pedagogica-profundidade.md) | Registrar o diagnóstico sobre vocabulário automático, explicações rasas e edição impressa, e propor nova ordem de execução dos itens AP. | Pendente |
+| [Plano de implementação](plano-de-implementacao.md) | Migrar aulas e fichas do conteúdo gerado para conteúdo escrito à mão, em fases e PRs, até a edição impressa. | Pendente |
 
 ## Como acompanhar o trabalho
 
