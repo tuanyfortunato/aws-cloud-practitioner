@@ -1,0 +1,132 @@
+/* Folha de estilo da edição impressa (scripts/gerar_impressa.py), feita para o WeasyPrint.
+   A4, margens para encadernação, impressão em preto e branco. */
+
+@page {
+  size: A4;
+  margin: 22mm 18mm 22mm 25mm;
+  @footnote { border-top: 0.4pt solid #777; padding-top: 2mm; }
+}
+@page :left {
+  margin: 22mm 25mm 22mm 18mm;
+  @top-left { content: string(parte); font: 8pt "DejaVu Sans", sans-serif; color: #444; }
+  @bottom-left { content: counter(page); font: 9pt "DejaVu Sans", sans-serif; }
+}
+@page :right {
+  @top-right { content: string(capitulo); font: 8pt "DejaVu Sans", sans-serif; color: #444; }
+  @bottom-right { content: counter(page); font: 9pt "DejaVu Sans", sans-serif; }
+}
+@page capa {
+  margin: 30mm 25mm;
+  @top-left { content: none; } @top-right { content: none; }
+  @bottom-left { content: none; } @bottom-right { content: none; }
+}
+@page :blank {
+  @top-left { content: none; } @top-right { content: none; }
+}
+
+html {
+  font-family: "Noto Serif", "DejaVu Serif", serif;
+  font-size: 10pt;
+  line-height: 1.45;
+  color: #000;
+  hyphens: auto;
+}
+body { margin: 0; }
+
+/* Capa e colofão */
+.capa { page: capa; text-align: left; padding-top: 60mm; }
+.serie { font: 11pt "DejaVu Sans", sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+.titulo-capa { font: bold 32pt "DejaVu Sans", sans-serif; margin: 6mm 0; border-bottom: 2pt solid #000; padding-bottom: 4mm; }
+.subtitulo-capa { font: 14pt "DejaVu Sans", sans-serif; }
+.colofao { page: capa; break-before: page; padding-top: 150mm; font-size: 9pt; }
+.legenda { border: 0.6pt solid #000; padding: 3mm; }
+
+/* Sumário */
+.sumario { break-before: right; }
+.titulo-sumario { font: bold 20pt "DejaVu Sans", sans-serif; margin-bottom: 8mm; }
+.sumario ul { list-style: none; padding: 0; margin: 0; }
+.sumario li { margin: 0; }
+.sumario li.nivel-1 { font: bold 10pt "DejaVu Sans", sans-serif; margin-top: 4mm; }
+.sumario li.nivel-2 { padding-left: 6mm; font-size: 9.5pt; }
+.sumario a { color: #000; text-decoration: none; }
+.sumario a::after { content: leader(".") target-counter(attr(href), page); }
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 { font-family: "DejaVu Sans", sans-serif; line-height: 1.2; break-after: avoid; }
+h1.parte {
+  break-before: right;
+  string-set: parte content(), capitulo "";
+  font-size: 24pt;
+  padding-top: 70mm;
+  border-bottom: 2pt solid #000;
+  padding-bottom: 3mm;
+}
+.descricao-parte { font: 11pt "DejaVu Sans", sans-serif; }
+h2.aula, h2.ficha, h2.apresentacao, h2.apendice, h2.questoes {
+  break-before: page;
+  string-set: capitulo content();
+  font-size: 17pt;
+  border-bottom: 1pt solid #000;
+  padding-bottom: 2mm;
+  margin-top: 0;
+}
+h2.apresentacao, h2.glossario { break-before: right; }
+h2.glossario { string-set: parte content(), capitulo content(); }
+h1.parte + .descricao-parte + h2, h1.parte + h2 { break-before: page; }
+h3 { font-size: 12.5pt; margin: 6mm 0 2mm; }
+h4 { font-size: 10.5pt; margin: 4mm 0 1.5mm; }
+h5 { font-size: 10pt; }
+
+p, li { orphans: 2; widows: 2; }
+a { color: #000; text-decoration: none; }
+code { font-family: "DejaVu Sans Mono", monospace; font-size: 8.5pt; }
+strong { font-weight: bold; }
+
+blockquote {
+  margin: 3mm 0;
+  padding: 1.5mm 3mm;
+  border-left: 2pt solid #555;
+  font-size: 9pt;
+}
+blockquote p { margin: 1mm 0; }
+
+/* Tabelas */
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 8.5pt; line-height: 1.3; page-break-inside: auto; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { border: 0.5pt solid #666; padding: 1.2mm 1.5mm; vertical-align: top; text-align: left; overflow-wrap: break-word; hyphens: auto; }
+th { background: #e4e4e4; font-family: "DejaVu Sans", sans-serif; font-weight: bold; }
+
+/* Notas de rodapé com os links externos */
+.nota {
+  float: footnote;
+  font: 7pt "DejaVu Sans", sans-serif;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  text-align: left;
+  hyphens: none;
+}
+::footnote-call { content: counter(footnote); font-size: 70%; vertical-align: super; line-height: 0; }
+::footnote-marker { content: counter(footnote) ". "; }
+
+/* Diagramas */
+.diagrama { text-align: center; margin: 4mm 0 1mm; break-inside: avoid; }
+.diagrama img { max-width: 100%; max-height: 110mm; }
+
+/* Revisão e gabarito */
+.ver-gabarito { font: italic 8.5pt "DejaVu Sans", sans-serif; color: #333; margin-top: 0; }
+.ver-gabarito a::after { content: target-counter(attr(href), page); }
+.grupo-gabarito { break-after: avoid; border-bottom: 0.5pt solid #000; }
+.resposta { margin-bottom: 3mm; font-size: 9pt; }
+.resposta p { margin: 1mm 0; }
+
+/* Linhas pautadas no lugar de "Minhas anotações" */
+.anotacoes { break-inside: avoid; margin-top: 6mm; }
+.titulo-anotacoes { font: bold 10pt "DejaVu Sans", sans-serif; margin-bottom: 2mm; }
+.anotacoes .linha { height: 8mm; border-bottom: 0.4pt solid #888; }
+
+sub { font-size: 8pt; vertical-align: baseline; }
+
+/* Questões: alternativas sem marcador e junto do enunciado */
+.caderno-de-exercicios ul { list-style: none; padding-left: 4mm; }
+p + ul { break-before: avoid; }

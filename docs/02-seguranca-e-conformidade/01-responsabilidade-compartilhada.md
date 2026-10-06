@@ -54,6 +54,7 @@ flowchart LR
         direction TB
         S1["Dados, acessos<br/>e criptografia (cliente)"] --- S2["Plataforma, SO, hardware<br/>e datacenter (AWS)"]
     end
+    EC2 ~~~ RDS ~~~ LAMBDA ~~~ S3
 ```
 
 *Figura 2.1 — As mesmas camadas em quatro serviços, de cima (mais perto dos dados) para baixo (mais perto do prédio). Do EC2 para o S3, a AWS assume cada vez mais camadas, mas os dados e o controle de acesso continuam com o cliente em todos.*
