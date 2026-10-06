@@ -258,7 +258,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 | 1 | Concluída | #23 (revisão circular e repetições) · PR 1.1 (vocabulário automático desligado) | Aceite atingido: zero blocos de vocabulário, zero revisões circulares; a única seção "só com texto padrão" é a tabela de labs, escrita à mão |
 | 2 | Concluída | #24 (capítulo 0 e aula 0.1) · #25 (aulas 0.2 e 0.3) · #26 (aulas 0.4 e 0.5) · #27 (glossário) · #28 (correções) · flashcards do capítulo 0 | Capítulo 0 completo; glossário com 129 termos; correções após conferir as páginas oficiais inteiras (#28); flashcards do capítulo 0 em `flashcards/capitulo-0.md` |
 | 3 | Em andamento | #31 (modelo de aula em `templates/topico.md`) · #32 (aula-piloto 2.1) | Aula-piloto lida e aprovada pela dona do repositório em 06/10/2026 (AP-14). Falta a ficha-piloto SQS, que depende do modelo de ficha da Fase 5 |
-| 4 | Em andamento | Onda A: #33 (aulas 2.2 e 2.3) · #34 (2.4 e 2.5) · aulas 2.6 e 2.7 | Próximas: 2.8 a 2.10 |
+| 4 | Em andamento | Onda A concluída: #33 (aulas 2.2 e 2.3) · #34 (2.4 e 2.5) · #35 (2.6 e 2.7) · aulas 2.8 a 2.10 | Próxima: onda B (1.1 a 1.7) |
 | 5 | Pendente | — | — |
 | 6 | Pendente | — | — |
 | 7 | Pendente | — | — |

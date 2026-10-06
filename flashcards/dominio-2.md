@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 56 cards
+**Total:** 50 cards
 
 
 ## [2.1 Modelo de responsabilidade compartilhada](../docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md)
@@ -239,133 +239,97 @@ Criando um alarme de cobrança no CloudWatch, com notificação por um tópico d
 ## [2.8 Proteção de rede e aplicações](../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 
 <details>
-<summary>Qual firewall atua no nível da instância e é stateful?</summary>
+<summary>Qual é a diferença entre um security group e uma ACL de rede?</summary>
 
-Security group.
+O security group atua no recurso, só tem regras de permitir e é stateful (a resposta volta sozinha). A ACL de rede atua na sub-rede, tem regras de permitir e negar, avaliadas em ordem numérica, e é stateless (a resposta precisa de regra própria).
 </details>
 
 <details>
-<summary>Qual firewall atua no nível da subnet e é stateless?</summary>
+<summary>Um security group novo deixa algum tráfego entrar?</summary>
 
-Network ACL.
+Não. Um security group novo não tem regras de entrada, então nada entra até alguém liberar; ele já vem com uma regra que permite todo o tráfego de saída.
 </details>
 
 <details>
-<summary>Como bloquear um endereço IP malicioso?</summary>
+<summary>Qual serviço protege contra injeção de SQL num site atrás de um load balancer?</summary>
 
-Regra de negação na NACL (ou regra no WAF para tráfego web).
+O AWS WAF, com um web ACL associado ao Application Load Balancer e regras que inspecionam os pedidos HTTP em busca de código SQL malicioso.
 </details>
 
 <details>
-<summary>Qual proteção DDoS todo cliente tem sem custo?</summary>
+<summary>Qual é a diferença entre o Shield Standard e o Shield Advanced?</summary>
 
-Shield Standard.
+O Standard protege todos os clientes automaticamente, sem custo adicional, contra os ataques DDoS de rede e transporte mais comuns. O Advanced é pago, com compromisso de um ano, e acrescenta proteção contra ataques maiores e na camada de aplicação, acesso 24 horas ao Shield Response Team e proteção contra aumentos de cobrança causados por DDoS.
 </details>
 
 <details>
-<summary>Qual serviço dá acesso a especialistas 24/7 e proteção de custo durante ataques DDoS?</summary>
+<summary>Para que serve o AWS Firewall Manager?</summary>
 
-Shield Advanced.
-</details>
-
-<details>
-<summary>Como bloquear SQL injection e XSS?</summary>
-
-AWS WAF.
-</details>
-
-<details>
-<summary>Como bloquear acesso de certos países ao site?</summary>
-
-WAF (regra geográfica) ou restrição geográfica do CloudFront.
-</details>
-
-<details>
-<summary>Em quais serviços o WAF pode ser usado?</summary>
-
-CloudFront, ALB, API Gateway, AppSync e Cognito.
-</details>
-
-<details>
-<summary>Como aplicar as mesmas regras de WAF em todas as contas?</summary>
-
-AWS Firewall Manager.
+Para administrar de forma central regras do WAF, do Shield Advanced, de security groups, de ACLs de rede e do Network Firewall em todas as contas de uma organização, aplicando-as também às contas e recursos novos.
 </details>
 
 
 ## [2.9 Detecção de ameaças e postura de segurança](../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 
 <details>
-<summary>Qual serviço detecta atividade maliciosa analisando CloudTrail, VPC Flow Logs e DNS?</summary>
+<summary>Qual serviço detecta uma instância EC2 se comunicando com um servidor de mineração de criptomoeda?</summary>
 
-GuardDuty.
+O Amazon GuardDuty, que analisa continuamente fontes como Flow Logs, eventos do CloudTrail e consultas DNS, usando inteligência de ameaças e aprendizado de máquina.
 </details>
 
 <details>
-<summary>Qual serviço varre instâncias EC2 e imagens de container em busca de vulnerabilidades?</summary>
+<summary>Qual é a diferença entre o GuardDuty e o Inspector?</summary>
 
-Amazon Inspector.
+O GuardDuty detecta ameaças e atividade maliciosa em andamento. O Inspector encontra vulnerabilidades de software e exposição de rede em instâncias EC2, imagens no ECR e funções Lambda.
 </details>
 
 <details>
-<summary>Qual serviço encontra dados pessoais em buckets S3?</summary>
+<summary>Qual serviço encontra dados pessoais guardados no S3?</summary>
 
-Amazon Macie.
+O Amazon Macie, que usa aprendizado de máquina e reconhecimento de padrões para descobrir dados sensíveis nos objetos do S3 e também avalia a segurança dos buckets.
 </details>
 
 <details>
-<summary>Qual serviço ajuda a investigar a causa raiz de um achado de segurança?</summary>
+<summary>Para que serve o Amazon Detective?</summary>
 
-Amazon Detective.
+Para investigar a causa raiz de achados de segurança e atividades suspeitas, com visualizações que mostram como identidades e recursos se relacionaram ao longo do tempo.
 </details>
 
 <details>
-<summary>Qual serviço reúne os achados de segurança de vários serviços num só painel?</summary>
+<summary>O que o AWS Security Hub faz?</summary>
 
-AWS Security Hub.
-</details>
-
-<details>
-<summary>Qual serviço recomenda melhorias de custo, segurança, performance e limites?</summary>
-
-Trusted Advisor.
-</details>
-
-<details>
-<summary>Qual plano de suporte libera todas as verificações do Trusted Advisor?</summary>
-
-Business Support+ ou superior (no modelo clássico, Business).
-</details>
-
-<details>
-<summary>Qual verificação de segurança o Trusted Advisor faz?</summary>
-
-Buckets S3 públicos, MFA no root, portas abertas em security groups.
+Reúne, correlaciona e prioriza os achados de serviços como GuardDuty, Inspector e Macie e verifica as contas contra padrões de segurança, como AWS Foundational Security Best Practices, CIS e PCI DSS.
 </details>
 
 
 ## [2.10 Outros pontos de segurança](../docs/02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.md)
 
 <details>
-<summary>É preciso pedir autorização para fazer pentest no EC2?</summary>
+<summary>O cliente precisa de aprovação da AWS para fazer um teste de intrusão na própria instância EC2?</summary>
 
-Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.
+Não. EC2 está na lista de serviços que o cliente pode testar na própria infraestrutura sem aprovação prévia.
 </details>
 
 <details>
-<summary>Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?</summary>
+<summary>Um teste de intrusão pode incluir uma simulação de DDoS livremente?</summary>
 
-AWS Trust & Safety.
+Não. DoS e DDoS, reais ou simulados, estão entre as atividades proibidas pela política de testes de intrusão e só podem seguir a política específica de simulação de DDoS.
 </details>
 
 <details>
-<summary>Onde encontrar boletins e boas práticas de segurança?</summary>
+<summary>A quem denunciar spam ou ataques vindos de um endereço IP da AWS?</summary>
 
-AWS Security Center, Security Blog e Knowledge Center.
+À equipe AWS Trust & Safety, pelo formulário de abuso da AWS.
 </details>
 
 <details>
-<summary>Onde comprar ferramentas de segurança de terceiros?</summary>
+<summary>Onde a AWS publica avisos sobre vulnerabilidades que afetam seus serviços?</summary>
 
-AWS Marketplace.
+Nos Security Bulletins, a página de boletins de segurança da AWS. Outras fontes oficiais de informação de segurança são a página de segurança da AWS, o AWS Security Blog e o AWS Knowledge Center.
+</details>
+
+<details>
+<summary>Onde encontrar produtos de segurança de outros fabricantes para usar na AWS?</summary>
+
+No AWS Marketplace, catálogo curado de software, dados e serviços de terceiros, com categoria própria de segurança.
 </details>

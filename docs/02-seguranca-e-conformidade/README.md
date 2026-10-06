@@ -36,9 +36,9 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 | 2.5 | [Criptografia](05-criptografia.md) | 5 |
 | 2.6 | [Compliance e governança](06-compliance-e-governanca.md) | 5 |
 | 2.7 | [Logs, monitoramento e auditoria](07-logs-monitoramento-e-auditoria.md) | 5 |
-| 2.8 | [Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) | 9 |
-| 2.9 | [Detecção de ameaças e postura de segurança](09-deteccao-de-ameacas.md) | 8 |
-| 2.10 | [Outros pontos de segurança](10-outros-pontos-de-seguranca.md) | 4 |
+| 2.8 | [Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) | 5 |
+| 2.9 | [Detecção de ameaças e postura de segurança](09-deteccao-de-ameacas.md) | 5 |
+| 2.10 | [Outros pontos de segurança](10-outros-pontos-de-seguranca.md) | 5 |
 
 > Acompanhe o seu avanço no [progresso](../../progresso.md).
 
