@@ -1,136 +1,72 @@
+<!-- autoral -->
+
 # AWS Glue
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Os dados vêm de lugares diferentes, com formatos que não combinam. A equipe precisa conhecê-los e prepará-los antes de analisar.
-
-**Como este serviço ajuda?** Glue oferece catálogo e ferramentas de integração e transformação de dados. Ele ajuda a descobrir estruturas e a executar processos de preparação.
-
-**Exemplo do dia a dia:** A escola reúne arquivos de matrículas, padroniza campos e organiza informações sobre sua estrutura para análises posteriores.
-
-**O que ele não resolve sozinho?** Catalogar um dado não o torna correto nem concede acesso irrestrito. As transformações e permissões precisam ser definidas para cada processo.
-
-**Primeiras palavras para entender:**
-
-- **Catálogo:** descrição organizada de dados.
-- **ETL:** extrair, transformar e carregar dados.
-- **Crawler:** recurso que examina fontes para identificar estruturas.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Analytics / integração de dados (ETL) · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
+> **Categoria:** Analytics e integração de dados (ETL) · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** serviço **serverless de ETL** e **catálogo de dados** para descobrir, preparar e combinar dados para análise.
+> **Em uma frase:** serviço serverless de integração de dados que descobre fontes, mantém um catálogo central e roda pipelines de ETL para preparar os dados para análise.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 
-**Passo 1.** Defina fontes, estruturas e a transformação necessária para preparar os dados.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Catalogue ou descubra estruturas e execute trabalhos de transformação compatíveis.
+---
 
-**Passo 3.** Verifique o conteúdo de saída e suas permissões. Padronizar nomes de campos não garante qualidade de todo registro.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Os dados da rede de escolas estão espalhados: registros de acesso em JSON no S3, exportações do banco de matrículas em CSV e planilhas das secretarias, cada uma com colunas diferentes. Antes de qualquer análise, alguém precisa descobrir o que existe, limpar e juntar tudo num formato comum.
 
-### Componentes
+Esse trabalho chama-se **ETL**: extrair (*extract*) da origem, transformar (*transform*) e carregar (*load*) no destino. O **Glue** faz isso sem servidor para gerenciar. Um **crawler** percorre as fontes, reconhece o formato e cria ou atualiza tabelas no **catálogo de dados** (*Data Catalog*), que registra onde está cada conjunto de dados e qual a sua estrutura. **Jobs de ETL**, criados visualmente no Glue Studio ou em código, transformam os dados e os gravam no data lake. O Athena, o EMR e o Redshift consultam os dados catalogados.
 
-**Data Catalog**
+O limite: o Glue prepara e cataloga, mas não é a ferramenta de consulta nem de painel; a pergunta da direção é respondida pelo [Athena](athena.md) ou pelo [Redshift](../banco-de-dados/redshift.md), e mostrada no [Quick Sight](quicksight.md). E um job mal dimensionado custa mais, porque a cobrança é pelo tempo de processamento.
 
-**Detalhe:** Repositório central de metadados (bancos, tabelas, schemas) usado por **Athena, Redshift Spectrum, EMR e Lake Formation**.
+## Como funciona
 
-**Crawlers**
+1. Um crawler lê as fontes (S3, bancos e outras) e cria as tabelas no catálogo de dados.
+2. Você cria um job de ETL, visualmente ou em código, que lê as tabelas, transforma e grava o resultado, por exemplo no S3 em formato colunar.
+3. O job roda sob demanda, agendado ou disparado por eventos, num motor serverless baseado em Apache Spark.
+4. Athena, EMR e Redshift usam o catálogo para consultar os dados preparados.
 
-**Detalhe:** Percorrem S3, JDBC, DynamoDB e **inferem o schema** automaticamente, criando/atualizando tabelas.
+## Opções principais
 
-**ETL jobs**
+| Peça | O que faz | Exemplo na escola |
+|---|---|---|
+| Crawler | Descobre o formato e cria tabelas no catálogo | Catalogar os registros de acesso no S3 |
+| Catálogo de dados | Registro central de onde estão os dados e sua estrutura | Athena sabe as colunas dos arquivos |
+| Jobs de ETL | Transformam e carregam os dados | Juntar planilhas e banco num só formato |
+| Glue Studio | Interface visual para criar e acompanhar os jobs | Equipe sem muita programação |
+| Glue DataBrew | Preparação visual de dados | Limpar colunas de uma planilha |
 
-**Detalhe:** Spark (PySpark/Scala), Python shell ou Ray; serverless; *job bookmarks* processam só dados novos.
+## Números que a prova cobra
 
-**Glue Studio**
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Fontes de dados | Mais de 70 | 06/10/2026 |
+| Catálogo de dados gratuito | Primeiro milhão de objetos e primeiro milhão de acessos | 06/10/2026 |
+| Unidade de cobrança dos jobs | DPU-hora (1 DPU = 4 vCPU e 16 GB), por segundo | 06/10/2026 |
 
-**Detalhe:** Interface visual para criar jobs.
+## Como é cobrado
 
-**Glue DataBrew**
+Jobs de ETL e crawlers são cobrados por hora de DPU (unidade de processamento), medida por segundo, sem custo de início nem de parada. O catálogo tem taxa mensal pelo armazenamento e pelos acessos, com o primeiro milhão de cada grátis.
 
-**Detalhe:** Preparação visual de dados **sem código** (250+ transformações).
+## Não confundir com
 
-**Data Quality**
+| Serviço | Diferença para o Glue | Pista no enunciado |
+|---|---|---|
+| [Amazon Athena](athena.md) | Consulta os dados com SQL | "SQL no S3" |
+| [Amazon EMR](emr.md) | Clusters de Hadoop e Spark que a equipe opera | "Hadoop", "cluster" |
+| [Amazon Data Firehose](kinesis.md) | Entrega fluxos em tempo real ao destino | "Streaming", "tempo real" |
+| [AWS DMS](../migracao/dms-e-sct.md) | Migra bancos de dados | "Migrar o banco" |
 
-**Detalhe:** Regras de qualidade de dados.
+## Fontes oficiais
 
-**Triggers / Workflows**
+Verificadas em 06/10/2026.
 
-**Detalhe:** Agendam e encadeiam crawlers e jobs.
-
-**Zero-ETL / conectores**
-
-**Detalhe:** Integrações com fontes SaaS e bancos.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Catalogar um dado não o torna correto nem concede acesso irrestrito. As transformações e permissões precisam ser definidas para cada processo.
-
-### ⚠️ Não confundir
-
-Glue (ETL **serverless** + catálogo) × **EMR** (clusters Spark/Hadoop sob seu controle) × **Data Firehose** (entrega de streaming com transformações simples).
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Jobs e crawlers por **DPU-hora** (por segundo); Data Catalog por objetos armazenados e requisições (camada gratuita).
-
-## 5. Caso resolvido: ligando as peças
-
-A escola reúne arquivos de matrículas, padroniza campos e organiza informações sobre sua estrutura para análises posteriores.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina fontes, estruturas e a transformação necessária para preparar os dados.
-**Etapa 2:** Catalogue ou descubra estruturas e execute trabalhos de transformação compatíveis.
-**Etapa 3:** Verifique o conteúdo de saída e suas permissões. Padronizar nomes de campos não garante qualidade de todo registro.
-
-**Resultado e responsabilidade:** Glue oferece catálogo e ferramentas de integração e transformação de dados. Ele ajuda a descobrir estruturas e a executar processos de preparação.
-
-**Recursos envolvidos:** Data Catalog, crawlers, jobs e workflows.
-
-**Decisões que precisam ser tomadas:** Fonte, schema, script, role e capacidade.
-
-**Outra situação comentada:** Padronizar arquivos antes da análise: Glue job; consultar dados: Athena.
-
-**Por que não concluir mais do que isso:** Catálogo não contém necessariamente os arquivos; crawler não faz sozinho a transformação de negócio
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Serviço de ETL serverless e catálogo de dados."
-
-**Resposta curta:** Glue.
-
-**Pergunta:** "Descobrir automaticamente o schema de arquivos no S3."
-
-**Resposta curta:** Glue crawler.
-
-**Pergunta:** "Preparar dados visualmente sem código."
-
-**Resposta curta:** Glue DataBrew.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html)
+- [O que é o AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html)
+- [Crawlers e catálogo de dados](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+- [Preços do AWS Glue](https://aws.amazon.com/glue/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

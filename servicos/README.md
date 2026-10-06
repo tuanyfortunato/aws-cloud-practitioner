@@ -115,11 +115,11 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Amazon Athena](analytics/athena.md) | ✅ | núcleo | Consultas **SQL serverless** direto em arquivos no S3, pagando só pelos dados escaneados. |
-| [AWS Glue](analytics/glue.md) | ✅ | núcleo | Serviço **serverless de ETL** e **catálogo de dados** para descobrir, preparar e combinar dados para análise. |
-| [Amazon Kinesis e Amazon Data Firehose](analytics/kinesis.md) | ✅ | núcleo | Coleta, processa e entrega **dados em streaming e tempo real** (cliques, logs, telemetria, vídeo). |
+| [Amazon Athena](analytics/athena.md) | ✅ | núcleo | Consulta com SQL padrão os dados guardados no Amazon S3, sem servidor e sem mover os dados, cobrando pelos dados lidos em cada consulta. |
+| [AWS Glue](analytics/glue.md) | ✅ | núcleo | Serviço serverless de integração de dados que descobre fontes, mantém um catálogo central e roda pipelines de ETL para preparar os dados para análise. |
+| [Amazon Kinesis e Amazon Data Firehose](analytics/kinesis.md) | ✅ | núcleo | O Kinesis Data Streams coleta e guarda por um tempo fluxos de dados para aplicações processarem em tempo real; o Data Firehose entrega fluxos a destinos como S3 e Redshift sem aplicação para escrever. |
 | [Amazon EMR](analytics/emr.md) | ✅ | complementar | Plataforma gerenciada de **big data** para rodar Apache Spark, Hadoop, Hive, Presto/Trino, HBase e Flink. |
-| [Amazon QuickSight (Amazon Quick Sight)](analytics/quicksight.md) | ✅ | núcleo | BI **serverless** para criar dashboards e relatórios interativos, inclusive com perguntas em linguagem natural. |
+| [Amazon QuickSight (Amazon Quick Sight)](analytics/quicksight.md) | ✅ | núcleo | Serviço de visualização de dados e BI que se conecta às fontes, cria painéis interativos e permite incorporar análises em aplicações; hoje faz parte do Amazon Quick. |
 | [Amazon OpenSearch Service](analytics/opensearch.md) | ✅ | complementar | Busca de texto, análise de logs e observabilidade com OpenSearch (sucessor do Elasticsearch gerenciado). |
 | [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](analytics/lake-formation-msk-e-outros.md) | 🔀 | referência | Serviços de dados que aparecem como "qual serviço faz X" — saiba a função de cada um. |
 

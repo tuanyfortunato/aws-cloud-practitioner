@@ -1,121 +1,70 @@
+<!-- autoral -->
+
 # Amazon Athena
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Há arquivos com dados no S3 e a equipe quer fazer perguntas sobre esse conteúdo sem administrar um servidor de consultas.
-
-**Como este serviço ajuda?** Athena permite consultar dados em formatos e fontes compatíveis usando SQL. Você precisa descrever ou disponibilizar a estrutura dos dados para que a consulta faça sentido.
-
-**Exemplo do dia a dia:** A escola guarda registros de acesso em arquivos e consulta quantos acessos ocorreram por dia.
-
-**O que ele não resolve sozinho?** Athena não corrige sozinho dados desorganizados nem é o banco transacional do aplicativo. Formato, organização e quantidade de dados consultados influenciam o resultado e o custo.
-
-**Primeiras palavras para entender:**
-
-- **Consulta:** pergunta expressa para obter dados.
-- **SQL:** linguagem de consulta.
-- **Schema:** descrição dos campos e tipos dos dados.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Analytics / consulta interativa · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
+> **Categoria:** Analytics e consulta interativa · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** consultas **SQL serverless** direto em arquivos no S3, pagando só pelos dados escaneados.
+> **Em uma frase:** consulta com SQL padrão os dados guardados no Amazon S3, sem servidor e sem mover os dados, cobrando pelos dados lidos em cada consulta.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 
-**Passo 1.** Identifique a fonte compatível e descreva a estrutura dos dados.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escreva uma consulta para responder a uma pergunta concreta e execute-a sobre os dados necessários.
+---
 
-**Passo 3.** Leia o resultado e examine o volume consultado. Dados mal interpretados não se tornam corretos só porque a consulta executou.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A direção quer saber em que horário o site da escola recebe mais acessos nos últimos dois anos. Os registros de acesso já estão no S3, em arquivos de texto. A equipe de TI é pequena e não quer montar um banco só para responder uma pergunta.
 
-### Para que serve
+O **Athena** consulta os arquivos onde eles estão. Você aponta o Athena para os dados no S3, descreve a estrutura das tabelas (ou usa o catálogo do [Glue](glue.md)) e escreve SQL padrão. É **serverless**: não há servidor para montar, e a resposta chega em segundos. Paga-se pelos dados lidos em cada consulta.
 
-Analisar logs (CloudTrail, ALB, VPC Flow Logs, CloudFront) e dados do data lake sem carregar em banco.
+O limite é o outro lado da cobrança: uma consulta que varre arquivos grandes, sem compressão nem partição, lê tudo e custa mais, mesmo que a resposta seja pequena. Comprimir, particionar e converter os dados para formatos colunares reduz o custo em até 90%. E para relatórios pesados e frequentes sobre dados estruturados, o lugar é um data warehouse como o [Redshift](../banco-de-dados/redshift.md).
 
-Consultas ad hoc, exploração de dados, relatórios com QuickSight, análise do CUR.
+## Como funciona
 
-### Conceitos e configurações
+1. Os dados ficam no S3, em formatos como CSV, JSON, Avro ou colunares, como Parquet e ORC.
+2. Uma tabela descreve a estrutura dos arquivos; o catálogo do Glue pode guardar essa descrição.
+3. Você escreve a consulta SQL no console ou por API, e o Athena lê os dados direto no S3 (com partições, só as partes que a consulta pede).
+4. O resultado sai em segundos, fica guardado num local de resultados e pode alimentar painéis do [Quick Sight](quicksight.md).
 
-| Item | Detalhe |
-|---|---|
-| **Formatos** | CSV, JSON, **Parquet**, **ORC**, Avro, Iceberg, logs. |
-| **Catálogo** | Usa o **AWS Glue Data Catalog** (tabelas/schemas); crawlers descobrem o schema. |
-| **Resultados** | Gravados num bucket S3. |
-| **Workgroups** | Separam times/custos e impõem limites de dados escaneados. |
-| **Federated query** | Consulta outras fontes (RDS, DynamoDB, Redshift, on-premises) via conectores Lambda. |
-| **Otimização de custo** | **Formatos colunares**, **compressão** e **particionamento** reduzem o volume escaneado (e o custo). |
-| **Athena for Apache Spark** | Notebooks Spark serverless. |
-| **Capacidade provisionada** | Opcional, preço fixo por DPU. |
+## Opções principais
 
-## 3. Como escolher e reconhecer os limites
+| Opção | O que faz | Quando usar |
+|---|---|---|
+| Cobrança por consulta | Paga pelos dados lidos | Consultas pontuais ou variáveis |
+| Reservas de capacidade | Capacidade dedicada com preço por hora | Muitas consultas com custo previsível |
+| Apache Spark no Athena | Roda código Spark sem gerenciar recursos | Análises em Python com Spark |
+| Partição e formato colunar | Faz a consulta ler menos dados | Reduzir custo e tempo |
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Números que a prova cobra
 
-Athena não corrige sozinho dados desorganizados nem é o banco transacional do aplicativo. Formato, organização e quantidade de dados consultados influenciam o resultado e o custo.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Cobrança | Por dados lidos, com mínimo de 10 MB por consulta | 06/10/2026 |
+| Economia com compressão, partição e formato colunar | Até 90% por consulta | 06/10/2026 |
+| Consultas com erro e comandos DDL | Sem cobrança | 06/10/2026 |
 
-### ⚠️ Não confundir
+## Como é cobrado
 
-Athena (SQL sob demanda no S3) × **Redshift** (data warehouse carregado e sempre disponível) × **Redshift Spectrum** (Redshift lendo o S3) × **EMR** (clusters Spark/Hadoop).
+Paga-se por terabyte de dados lidos, arredondado para o megabyte acima, com mínimo de 10 MB por consulta. Comandos que só definem tabelas (DDL) e consultas que falham não são cobrados; consultas canceladas pagam o que já leram. O armazenamento no S3 é cobrado à parte.
 
-## 4. Operação, segurança e custo
+## Não confundir com
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+| Serviço | Diferença para o Athena | Pista no enunciado |
+|---|---|---|
+| [Amazon Redshift](../banco-de-dados/redshift.md) | Data warehouse para relatórios grandes e frequentes | "Data warehouse", "petabytes" |
+| [AWS Glue](glue.md) | Descobre, cataloga e transforma os dados | "ETL", "catálogo de dados" |
+| [Amazon EMR](emr.md) | Clusters de Hadoop e Spark | "Hadoop", "Spark" |
+| [Amazon Quick Sight](quicksight.md) | Mostra os resultados em painéis | "Dashboard", "BI" |
 
-### Cobrança
+## Fontes oficiais
 
-Por **TB de dados escaneados** (🧊 valor), com mínimo por consulta; DDL e consultas com falha não cobram.
+Verificadas em 06/10/2026.
 
-## 5. Caso resolvido: ligando as peças
-
-A escola guarda registros de acesso em arquivos e consulta quantos acessos ocorreram por dia.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique a fonte compatível e descreva a estrutura dos dados.
-**Etapa 2:** Escreva uma consulta para responder a uma pergunta concreta e execute-a sobre os dados necessários.
-**Etapa 3:** Leia o resultado e examine o volume consultado. Dados mal interpretados não se tornam corretos só porque a consulta executou.
-
-**Resultado e responsabilidade:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL. Você precisa descrever ou disponibilizar a estrutura dos dados para que a consulta faça sentido.
-
-**Recursos envolvidos:** Workgroups, consultas, catálogo e local de resultados.
-
-**Decisões que precisam ser tomadas:** Dados, schema, formato, permissão e configurações do workgroup.
-
-**Outra situação comentada:** Consultar logs S3 eventualmente: Athena com catálogo/resultado autorizados.
-
-**Por que não concluir mais do que isso:** Não é banco OLTP nem deixa leitura de todo arquivo gratuita; otimizar leitura pode reduzir custo
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Consultar arquivos no S3 com SQL padrão, sem infraestrutura."
-
-**Resposta curta:** Athena.
-
-**Pergunta:** "Como o Athena é cobrado?"
-
-**Resposta curta:** Por volume de dados escaneados.
-
-**Pergunta:** "Reduzir custo de consultas no Athena."
-
-**Resposta curta:** Parquet/ORC, compressão e particionamento.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html)
+- [O que é o Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html)
+- [Preços do Amazon Athena](https://aws.amazon.com/athena/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

@@ -1,115 +1,75 @@
+<!-- autoral -->
+
 # Amazon Kinesis e Amazon Data Firehose
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Dados chegam continuamente, como cliques ou leituras de sensores. A equipe quer recebê-los e processá-los sem esperar juntar um arquivo no fim do dia.
-
-**Como este serviço ajuda?** Kinesis Data Streams organiza fluxos de registros para consumidores. A ficha também distingue Firehose, que entrega dados a destinos compatíveis, e outras ferramentas de processamento e vídeo.
-
-**Exemplo do dia a dia:** Sensores enviam leituras continuamente. Uma aplicação lê o fluxo e calcula indicadores; uma opção de entrega pode levar os dados ao armazenamento.
-
-**O que ele não resolve sozinho?** Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas da família têm funções e tempos de entrega diferentes.
-
-**Primeiras palavras para entender:**
-
-- **Streaming:** fluxo contínuo de dados.
-- **Produtor:** quem envia registros.
-- **Consumidor:** quem lê e processa esses registros.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Analytics / streaming · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
+> **Categoria:** Analytics e dados em tempo real · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** coleta, processa e entrega **dados em streaming e tempo real** (cliques, logs, telemetria, vídeo).
+> **Em uma frase:** o Kinesis Data Streams coleta e guarda por um tempo fluxos de dados para aplicações processarem em tempo real; o Data Firehose entrega fluxos a destinos como S3 e Redshift sem aplicação para escrever.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 
-**Passo 1.** Defina quem produz registros e quem precisa processá-los ou recebê-los num destino.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha o produto apropriado para fluxo, processamento ou entrega e envie os dados pelas interfaces compatíveis.
+---
 
-**Passo 3.** Acompanhe consumo, conservação e destino dos registros. Cada produto tem condições diferentes de processamento e espera.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+No primeiro dia de inscrições, a coordenação quer ver ao vivo quantas pessoas estão preenchendo o formulário de matrícula e em que etapa desistem. Cada clique é um registro pequeno, e chegam milhares por minuto. Esperar o relatório do fim do dia não serve.
 
-### Família
+Um **fluxo de dados** (*streaming*) é essa sequência contínua de registros. O **Kinesis Data Streams** recebe o fluxo e guarda os registros em ordem por um período (24 horas por padrão, até 365 dias), para que uma ou mais aplicações os leiam e reajam enquanto chegam, como o painel ao vivo da coordenação. O **Data Firehose** (antes Kinesis Data Firehose) cuida de outra parte: entregar o fluxo a um destino, como S3, Redshift, OpenSearch Service ou Splunk, sem que você escreva a aplicação que lê. O **Kinesis Video Streams** faz o mesmo papel para vídeo ao vivo de dispositivos.
 
-| Serviço | O que faz | Detalhes |
+O limite: o Data Streams guarda e distribui os registros, mas o processamento é da aplicação que lê. E o Firehose entrega, mas não é lugar de análise; a consulta acontece depois, no destino, com ferramentas como o [Athena](athena.md).
+
+## Como funciona
+
+1. O site envia cada clique como um registro para um fluxo do Kinesis Data Streams.
+2. O fluxo guarda os registros em ordem pelo período de retenção e escala sozinho no modo sob demanda, ou pela capacidade escolhida no modo provisionado.
+3. Uma aplicação lê o fluxo e atualiza o painel ao vivo; outra pode ler os mesmos registros para outro fim.
+4. Um fluxo do Data Firehose recebe os mesmos eventos e os entrega no S3 para análise posterior.
+
+## Opções principais
+
+| Serviço | O que faz | Exemplo na escola |
 |---|---|---|
-| **Kinesis Data Streams** | Ingestão e armazenamento de streams para **processamento em tempo real** por vários consumidores | **Shards** (capacidade); modos **provisioned** ou **on-demand**; retenção padrão **24 h**, até **365 dias** (8.760 h; acima de 24 h é pago); dados podem ser **relidos**; consumidores: Lambda, KCL, Managed Flink, Firehose |
-| **Amazon Data Firehose** (antes Kinesis Data Firehose) | **Entrega** streams automaticamente em destinos, **sem administração** | Destinos: **S3**, **Redshift**, **OpenSearch**, Splunk, HTTP, parceiros, tabelas Iceberg; buffer por tamanho/tempo (**quase tempo real**); transformação com Lambda, conversão para Parquet, compressão |
-| **Kinesis Video Streams** | Ingestão e armazenamento de **vídeo** de dispositivos (câmeras) | Integra com Rekognition Video, ML |
-| **Amazon Managed Service for Apache Flink** (antes Kinesis Data Analytics) | Processamento de streams com Flink (SQL, Java, Python) | Agregações, janelas, detecção de anomalias |
+| Kinesis Data Streams | Recebe e guarda fluxos para processamento em tempo real | Painel ao vivo das inscrições |
+| Amazon Data Firehose | Entrega fluxos a S3, Redshift, OpenSearch, Splunk e outros | Guardar os cliques no S3 |
+| Kinesis Video Streams | Leva vídeo ao vivo de dispositivos para a AWS | Câmeras da portaria |
+| Modo sob demanda (Data Streams) | Escala sozinho, sem planejar capacidade | Pico imprevisível do primeiro dia |
+| Modo provisionado (Data Streams) | Capacidade definida por você | Volume estável e conhecido |
 
-## 3. Como escolher e reconhecer os limites
+## Números que a prova cobra
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Retenção padrão do Data Streams | 24 horas | 06/10/2026 |
+| Retenção máxima do Data Streams | 365 dias | 06/10/2026 |
+| Cobrança do Data Firehose | Pelo volume de dados recebidos, sem taxa inicial | 06/10/2026 |
 
-Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas da família têm funções e tempos de entrega diferentes.
+## Como é cobrado
 
-### ⚠️ Não confundir
+No Data Streams sob demanda, paga-se pelo volume de dados gravados e lidos e por hora de cada fluxo; retenção estendida (além de 24 horas) e longa (além de sete dias) são cobradas à parte. No Data Firehose, paga-se pelo volume recebido, mais recursos opcionais como conversão de formato e partição dinâmica.
 
-**Kinesis × SQS:** streaming em tempo real com **vários consumidores relendo** dados ordenados × fila de mensagens para desacoplar (mensagem consumida e apagada).
+## Não confundir com
 
-**Data Streams × Firehose:** processamento customizado em tempo real × entrega gerenciada em destinos.
+| Serviço | Diferença para o Kinesis | Pista no enunciado |
+|---|---|---|
+| [Amazon SQS](../integracao/sqs.md) | Fila de mensagens entre partes de uma aplicação | "Desacoplar", "fila" |
+| [Amazon EventBridge](../integracao/eventbridge.md) | Roteia eventos entre serviços por regras | "Reagir a um evento" |
+| [AWS Glue](glue.md) | ETL de dados já guardados | "Preparar dados", "catálogo" |
+| [Amazon Athena](athena.md) | Consulta os dados depois de guardados | "SQL no S3" |
 
-**Kinesis × MSK:** serviço nativo AWS × Apache Kafka gerenciado.
+## Fontes oficiais
 
-## 4. Operação, segurança e custo
+Verificadas em 06/10/2026.
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Data Streams: por shard-hora (provisioned) ou por GB e stream-hora (on-demand). Firehose: por GB ingerido e conversões. Video: por GB ingerido/armazenado.
-
-## 5. Caso resolvido: ligando as peças
-
-Sensores enviam leituras continuamente. Uma aplicação lê o fluxo e calcula indicadores; uma opção de entrega pode levar os dados ao armazenamento.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina quem produz registros e quem precisa processá-los ou recebê-los num destino.
-**Etapa 2:** Escolha o produto apropriado para fluxo, processamento ou entrega e envie os dados pelas interfaces compatíveis.
-**Etapa 3:** Acompanhe consumo, conservação e destino dos registros. Cada produto tem condições diferentes de processamento e espera.
-
-**Resultado e responsabilidade:** Kinesis Data Streams organiza fluxos de registros para consumidores. A ficha também distingue Firehose, que entrega dados a destinos compatíveis, e outras ferramentas de processamento e vídeo.
-
-**Recursos envolvidos:** Streams, producers, consumers e oferta Firehose associada.
-
-**Decisões que precisam ser tomadas:** Capacidade, retenção e destinos conforme produto.
-
-**Outra situação comentada:** Telemetria contínua: Data Streams para consumidores; Firehose para entrega suportada com buffering.
-
-**Por que não concluir mais do que isso:** Kinesis não é apenas notificação por e-mail; produtos da família têm funções distintas
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Ingerir e processar dados de cliques em tempo real."
-
-**Resposta curta:** Kinesis Data Streams.
-
-**Pergunta:** "Entregar dados de streaming no S3 sem administração."
-
-**Resposta curta:** Amazon Data Firehose.
-
-**Pergunta:** "Transmitir vídeo de câmeras para análise."
-
-**Resposta curta:** Kinesis Video Streams.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/introduction.html) · [Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html)
+- [O que é o Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/introduction.html)
+- [Conceitos do Data Streams](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html)
+- [Modos de capacidade](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html)
+- [O que é o Amazon Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html)
+- [O que é o Kinesis Video Streams](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html)
+- [Preços do Data Streams](https://aws.amazon.com/kinesis/data-streams/pricing/) e [do Data Firehose](https://aws.amazon.com/firehose/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
