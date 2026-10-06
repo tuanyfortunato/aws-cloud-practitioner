@@ -28,7 +28,7 @@ Esse modelo é **síncrono**: quem chamou fica esperando a resposta para continu
 
 A **fila** resolve esse problema mudando a forma da conversa. Em vez de chamar o outro programa e esperar, quem precisa de um trabalho deixa uma **mensagem** numa fila e segue em frente. Do outro lado, um ou mais programas **consumidores** retiram as mensagens da fila e fazem o trabalho no seu próprio ritmo. É como deixar o pedido no balcão: quem pediu não precisa ficar parado na frente da cozinha.
 
-Essa forma de comunicação é **assíncrona** e traz três vantagens. Se o consumidor cair, as mensagens esperam na fila até ele voltar, e nada se perde. Se chegar um pico, como na abertura das matrículas, a fila absorve o excesso e os consumidores processam aos poucos. E os dois lados podem ser trocados ou escalados separadamente. Dizemos que a fila **desacopla** os componentes. O limite: o resultado não volta na hora. A fila serve para trabalhos que podem acontecer daqui a alguns segundos, como mandar um e-mail ou gerar um PDF, e não para responder algo que o usuário está esperando na tela.
+Essa forma de comunicação é **assíncrona** e traz três vantagens. Se o consumidor cair, as mensagens esperam na fila até ele voltar, dentro do prazo que a fila guarda cada mensagem. Se chegar um pico, como na abertura das matrículas, a fila absorve o excesso e os consumidores processam aos poucos. E os dois lados podem ser trocados ou escalados separadamente. Dizemos que a fila **desacopla** os componentes. O limite: o resultado não volta na hora. A fila serve para trabalhos que podem acontecer daqui a alguns segundos, como mandar um e-mail ou gerar um PDF, e não para responder algo que o usuário está esperando na tela.
 
 ```mermaid
 flowchart LR
@@ -46,7 +46,7 @@ flowchart LR
 
 Os serviços da AWS também são usados por API. Criar uma instância, gravar um objeto no S3 ou mudar uma permissão são operações das APIs dos serviços. Além do console no navegador, há a **AWS CLI**, que faz essas chamadas por comandos no terminal, e os **SDKs**, bibliotecas que fazem as mesmas chamadas de dentro de um programa. Com a CLI e os SDKs, tarefas repetitivas viram scripts. A aula [3.1](../03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md) compara essas formas de acesso.
 
-Para quem cria a própria API, o **Amazon API Gateway** é o serviço que publica, protege e monitora APIs, funcionando como a porta de entrada para os programas que estão por trás. A fila é o **Amazon SQS**, um serviço de filas totalmente gerenciado que guarda as mensagens entre os componentes e permite desacoplá-los. O modelo de publicação e inscrição é o **Amazon SNS**, em que um tópico entrega cada mensagem a vários inscritos, inclusive filas do SQS. Os dois voltam na aula [3.13](../03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md).
+Para quem cria a própria API, o **Amazon API Gateway** é o serviço que publica, protege e monitora APIs, funcionando como a porta de entrada para os programas que estão por trás. A fila é o **Amazon SQS**, um serviço de filas totalmente gerenciado que guarda as mensagens entre os componentes e permite desacoplá-los. Por padrão, cada mensagem fica guardada por 4 dias, e esse prazo pode ir de 1 minuto a 14 dias. O modelo de publicação e inscrição é o **Amazon SNS**, em que um tópico entrega cada mensagem a vários inscritos, inclusive filas do SQS. Os dois voltam na aula [3.13](../03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md).
 
 ## Na prova
 
@@ -126,7 +126,9 @@ Verificadas em 06/10/2026.
 
 - [What is the AWS Command Line Interface?](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html): a CLI dá acesso direto às APIs públicas dos serviços da AWS a partir de comandos no terminal.
 - [What is Amazon API Gateway?](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html): serviço para criar, publicar, manter, monitorar e proteger APIs; as APIs são a porta de entrada para os serviços por trás delas.
-- [Amazon Simple Queue Service](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html): serviço de filas totalmente gerenciado que move dados entre componentes distribuídos e ajuda a desacoplá-los.
+- [Amazon SQS](https://aws.amazon.com/sqs/): fila de mensagens totalmente gerenciada.
+- [Amazon Simple Queue Service API Reference](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html): o SQS move dados entre componentes distribuídos e ajuda a desacoplá-los.
+- [Amazon SQS message quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html): retenção padrão de 4 dias, mínima de 60 segundos e máxima de 14 dias.
 - [What is Amazon SNS?](https://docs.aws.amazon.com/sns/latest/dg/welcome.html): entrega mensagens de publicadores a inscritos por meio de tópicos, inclusive para filas do SQS, funções Lambda e endpoints HTTP/S.
 
 <!-- notas:inicio -->

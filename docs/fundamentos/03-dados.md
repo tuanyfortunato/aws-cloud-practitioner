@@ -28,7 +28,7 @@ A vantagem é o compartilhamento com a organização de pastas que todo mundo j�
 
 Os documentos dos pais têm um padrão diferente: são gravados uma vez, quase nunca alterados e lidos de vez em quando. E podem ser milhões. Para esse padrão existe o **armazenamento de objetos**. Cada arquivo vira um **objeto**, que reúne o conteúdo, um identificador único (a **chave**) e **metadados**, como tipo, tamanho, data de criação e etiquetas que você escolher.
 
-Os objetos não ficam em pastas de verdade nem num disco que você formata. Você grava e lê cada objeto inteiro pela rede, por chamadas de **API** sobre HTTP, informando a chave. Em troca, o armazenamento cresce sem que você precise prever a capacidade, e o provedor cuida da durabilidade dos dados. O limite é que, para mudar um pedaço do objeto, você grava o objeto inteiro de novo. Por isso ele não serve como disco de sistema operacional nem para um banco de dados que altera pequenos trechos o tempo todo.
+Os objetos não ficam em pastas de verdade nem num disco que você formata. Você grava cada objeto inteiro pela rede, por chamadas de **API** sobre HTTP, informando a chave, e lê pela mesma API, seja o objeto todo ou só um trecho dele. Em troca, o armazenamento cresce sem que você precise prever a capacidade, e o provedor cuida da durabilidade dos dados. O limite é que não dá para alterar só um pedaço: para mudar qualquer parte, você grava o objeto inteiro de novo. Por isso ele não serve como disco de sistema operacional nem para um banco de dados que altera pequenos trechos o tempo todo.
 
 ```mermaid
 flowchart LR
@@ -44,7 +44,7 @@ flowchart LR
     end
 ```
 
-*Figura 0.3 — As três formas de armazenar. Bloco: um disco ligado a um servidor, que o formata. Arquivo: pastas compartilhadas pela rede entre vários servidores. Objeto: conteúdo, chave e metadados, gravados e lidos inteiros por API.*
+*Figura 0.3 — As três formas de armazenar. Bloco: um disco ligado a um servidor, que o formata. Arquivo: pastas compartilhadas pela rede entre vários servidores. Objeto: conteúdo, chave e metadados, gravados inteiros e lidos por API.*
 
 ## Banco de dados relacional: tabelas que se relacionam
 
@@ -56,7 +56,7 @@ Para consultar, usa-se a linguagem **SQL**, que permite cruzar tabelas ("todos o
 
 Agora imagine que a escola lança um aplicativo e quer guardar a sessão de cada usuário conectado: milhões de leituras e gravações por dia, sempre buscando pelo identificador do usuário, sem cruzar tabelas. Um **banco de dados não relacional** (também chamado **NoSQL**) é feito para isso. No modelo **chave-valor**, cada item é encontrado direto pela sua chave; no modelo **documento**, cada item é um registro com campos que podem variar de um para outro.
 
-Como as consultas são simples e cada item é independente, esse tipo de banco consegue espalhar os dados por muitas máquinas e responder rápido mesmo com volume enorme. O limite é justamente a simplicidade: consultas que cruzam muitos dados ou exigem transações complexas são difíceis ou impossíveis, e o desenho dos dados precisa partir das consultas que a aplicação vai fazer.
+Como as consultas são simples e cada item é independente, esse tipo de banco consegue espalhar os dados por muitas máquinas e responder rápido mesmo com volume enorme. O limite é justamente a simplicidade: consultas que cruzam muitos dados ficam difíceis ou impossíveis, as transações costumam ter mais restrições que num banco relacional, e o desenho dos dados precisa partir das consultas que a aplicação vai fazer.
 
 ## Onde isso aparece na AWS
 
@@ -89,7 +89,7 @@ Tente responder antes de abrir cada resposta.
 <details>
 <summary>Ver resposta</summary>
 
-No bloco, o sistema operacional formata o disco e altera pequenos trechos diretamente; no objeto, cada arquivo é gravado e lido inteiro por API, com uma chave e metadados.
+No bloco, o sistema operacional formata o disco e altera pequenos trechos diretamente; no objeto, cada arquivo é gravado inteiro e lido por API, com uma chave e metadados, e mudar um trecho exige gravar o objeto de novo.
 
 Por isso o bloco serve de disco para sistema operacional e bancos de dados, e o objeto serve para grandes volumes de arquivos que mudam pouco. Na AWS, bloco é EBS e objeto é S3.
 
@@ -124,7 +124,7 @@ As transações garantem que um conjunto de alterações aconteça inteiro ou n�
 
 Porque as consultas são simples e cada item é encontrado pela sua chave, o que permite espalhar os dados por muitas máquinas.
 
-O preço é perder consultas que cruzam muitos dados e transações complexas. Na AWS, o DynamoDB é o banco NoSQL serverless, com os modelos chave-valor e documento.
+O preço é perder consultas que cruzam muitos dados e aceitar transações com mais restrições. Na AWS, o DynamoDB é o banco NoSQL serverless, com os modelos chave-valor e documento; ele não tem junção de tabelas e oferece transações, com algumas limitações.
 
 </details>
 
@@ -132,7 +132,7 @@ O preço é perder consultas que cruzam muitos dados e transações complexas. N
 
 - Bloco: disco dividido em blocos, formatado pelo sistema operacional, rápido e ligado a uma máquina; na AWS, EBS.
 - Arquivo: pastas compartilhadas pela rede entre várias máquinas; na AWS, EFS.
-- Objeto: conteúdo, chave e metadados, gravados e lidos inteiros por API, com capacidade que cresce sem planejamento; na AWS, S3.
+- Objeto: conteúdo, chave e metadados, gravados inteiros e lidos por API, com capacidade que cresce sem planejamento; na AWS, S3.
 - Banco relacional: tabelas que se relacionam, esquema definido, SQL e transações; na AWS, RDS.
 - Banco não relacional: acesso por chave, esquema flexível e escala horizontal, com consultas mais simples; na AWS, DynamoDB.
 
@@ -140,9 +140,13 @@ O preço é perder consultas que cruzam muitos dados e transações complexas. N
 
 Verificadas em 06/10/2026.
 
-- [Block vs File vs Object Storage](https://aws.amazon.com/compare/the-difference-between-block-file-object-storage/): definições de armazenamento em bloco, arquivo e objeto; EBS como bloco para uma instância EC2, EFS como arquivos compartilhados por muitos clientes e S3 como objetos com metadados.
-- [What is Amazon DynamoDB?](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html): banco NoSQL serverless e totalmente gerenciado, com modelos chave-valor e documento.
-- [Select a database service for your Lambda-based applications](https://docs.aws.amazon.com/lambda/latest/dg/ddb-rds-database-decision.html): RDS como banco relacional gerenciado, com backups automáticos e patches; DynamoDB quando não há consultas complexas com joins.
+- [Block vs File vs Object Storage](https://aws.amazon.com/compare/the-difference-between-block-file-object-storage/): definições de armazenamento em bloco, arquivo e objeto; EBS como bloco para cargas de trabalho do EC2, EFS como armazenamento de arquivos e S3 como armazenamento de objetos.
+- [What is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html): EFS permite compartilhar dados de arquivos, com acesso em paralelo de muitas instâncias de computação.
+- [Working with objects in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingObjects.html): cada objeto tem chave, conteúdo e metadados.
+- [GetObject (Amazon S3 API Reference)](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html): o parâmetro `Range` baixa só um intervalo de bytes do objeto.
+- [What is Amazon DynamoDB?](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html): banco NoSQL serverless e totalmente gerenciado, com modelos chave-valor e documento; não tem operador JOIN.
+- [What is Amazon RDS?](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html): RDS é um serviço gerenciado de banco relacional, com motores como MySQL e PostgreSQL, que cuida de backups e de patches do software.
+- [Select a database service for your Lambda-based applications](https://docs.aws.amazon.com/lambda/latest/dg/ddb-rds-database-decision.html): RDS para consultas SQL complexas e joins; no DynamoDB, joins ficam no código da aplicação e as transações têm algumas limitações.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
