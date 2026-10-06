@@ -66,6 +66,11 @@ class Metricas(unittest.TestCase):
                  "### Cobrança\n\nTaxa fixa por hora.\n")
         self.assertEqual(self.medir(texto)["titulos_padrao"], [])
 
+    def test_lista_propria_nao_conta_como_vocabulario(self):
+        texto = ("# Aula\n\n## Na prova\n\n- **Disco de instância é bloco.** Volume do EC2 é EBS.\n"
+                 "- **Arquivo compartilhado.** Várias instâncias: EFS.\n")
+        self.assertEqual(self.medir(texto)["titulos_padrao"], [])
+
     def test_reconhece_arquivo_autoral(self):
         r = self.medir("<!-- autoral -->\n\n# 2.1 Aula à mão\n\nTexto.\n")
         self.assertTrue(r["autoral"])
