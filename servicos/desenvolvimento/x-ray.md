@@ -1,98 +1,41 @@
+<!-- autoral -->
+
 # AWS X-Ray
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Um pedido passa por vários componentes e demora muito. A equipe precisa descobrir em qual parte do caminho o tempo foi gasto ou houve erro.
-
-**Como este serviço ajuda?** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
-
-**Exemplo do dia a dia:** Ao consultar uma matrícula, a aplicação chama outro serviço e um banco. O rastreamento ajuda a localizar a etapa mais lenta.
-
-**O que ele não resolve sozinho?** Ele não coleta todos os detalhes sem preparação nem corrige a etapa lenta. A aplicação e suas integrações precisam fornecer dados de rastreamento compatíveis.
-
-**Primeiras palavras para entender:**
-
-- **Trace:** caminho de uma requisição.
-- **Instrumentação:** preparação para emitir dados de observação.
-- **Segmento:** parte registrada desse caminho.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Ferramentas de desenvolvedor / observabilidade · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.15 Ferramentas de desenvolvimento](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)
+> **Categoria:** Ferramentas de desenvolvedor / observabilidade · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** **rastreamento distribuído** — acompanha cada requisição através dos microsserviços para achar gargalos e erros.
+> **Em uma frase:** coleta dados sobre as requisições que a aplicação atende e mostra o caminho de cada uma pelos serviços, bancos e APIs, para achar lentidão e erros.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.15 Ferramentas de desenvolvimento](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)
 
-**Passo 1.** Prepare a aplicação para emitir dados de rastreamento nas partes que precisa observar.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Acompanhe o caminho de uma requisição e os tempos de cada segmento registrado.
+---
 
-**Passo 3.** Investigue a etapa problemática e valide a correção. Um rastreamento não observa automaticamente todo detalhe que não foi instrumentado.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+O sistema de matrícula virou um conjunto de peças: site, filas, funções Lambda e banco. Quando uma inscrição demora, ninguém sabe em qual peça. O **AWS X-Ray** faz **rastreamento distribuído**: acompanha uma requisição de ponta a ponta e mostra as chamadas que a aplicação fez a outros recursos da AWS, microsserviços, bancos e APIs.
 
-### Conceitos
+1. A aplicação é instrumentada para enviar dados de rastreamento; serviços como o Lambda já se integram ao X-Ray.
+2. Cada requisição rastreada gera um registro das chamadas que ela fez.
+3. O X-Ray reúne esses dados.
+4. A equipe visualiza e filtra os rastros para achar onde está a demora ou o erro.
 
-| Item | Detalhe |
-|---|---|
-| **Trace** | Caminho completo de uma requisição. |
-| **Segments / subsegments** | Tempo gasto em cada serviço e chamada (banco, HTTP, AWS SDK). |
-| **Service map** | Mapa visual das dependências com latência e taxa de erro. |
-| **Sampling** | Regras para registrar só uma amostra das requisições (controla custo). |
-| **Instrumentação** | SDKs do X-Ray ou **OpenTelemetry (ADOT)**; integração nativa com Lambda, API Gateway, ECS, Elastic Beanstalk, App Runner. |
-| **Integração** | Visualização no CloudWatch (Application Signals / Transaction Search). |
+## Não confundir com
 
-## 3. Como escolher e reconhecer os limites
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon CloudWatch](../gerenciamento/cloudwatch.md) | Métricas e logs de cada recurso | "CPU", "alarme" |
+| [AWS CloudTrail](../gerenciamento/cloudtrail.md) | Registra as chamadas de API da conta | "Quem fez o quê" |
+| [Ferramentas de CI/CD](code-services.md) | Compilam, testam e entregam o código | "Pipeline" |
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Fontes oficiais
 
-Ele não coleta todos os detalhes sem preparação nem corrige a etapa lenta. A aplicação e suas integrações precisam fornecer dados de rastreamento compatíveis.
+Verificadas em 06/10/2026.
 
-### ⚠️ Não confundir
-
-**X-Ray** (rastreia requisições entre serviços) × **CloudWatch** (métricas/logs) × **CloudTrail** (chamadas de API da conta).
-
-## 4. Caso resolvido: ligando as peças
-
-Ao consultar uma matrícula, a aplicação chama outro serviço e um banco. O rastreamento ajuda a localizar a etapa mais lenta.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Prepare a aplicação para emitir dados de rastreamento nas partes que precisa observar.
-**Etapa 2:** Acompanhe o caminho de uma requisição e os tempos de cada segmento registrado.
-**Etapa 3:** Investigue a etapa problemática e valide a correção. Um rastreamento não observa automaticamente todo detalhe que não foi instrumentado.
-
-**Resultado e responsabilidade:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
-
-**Recursos envolvidos:** Traces, segments, subsegments e mapa de serviços.
-
-**Decisões que precisam ser tomadas:** Instrumentação, amostragem e envio autorizado.
-
-**Outra situação comentada:** Latência entre API e banco: X-Ray; tendência de CPU: CloudWatch.
-
-**Por que não concluir mais do que isso:** Sem instrumentação não há trace completo; não registra automaticamente toda requisição sem amostragem
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Encontrar qual microsserviço deixa a requisição lenta."
-
-**Resposta curta:** X-Ray.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
-
+- [O que é o AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

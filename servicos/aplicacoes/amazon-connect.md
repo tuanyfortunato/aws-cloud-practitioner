@@ -1,99 +1,42 @@
+<!-- autoral -->
+
 # Amazon Connect
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma organização precisa atender clientes por um centro de contato e organizar filas, agentes e jornadas de atendimento.
-
-**Como este serviço ajuda?** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis. A empresa configura a experiência e a operação do atendimento.
-
-**Exemplo do dia a dia:** A escola organiza chamadas para sua secretaria, encaminhando as pessoas às filas e aos atendentes adequados.
-
-**O que ele não resolve sozinho?** Ele não substitui sozinho os atendentes, as regras do negócio ou todas as integrações com cadastro e pagamento. A operação depende de configuração e recursos contratados.
-
-**Primeiras palavras para entender:**
-
-- **Contact center:** central de atendimento.
-- **Agente:** pessoa ou recurso de atendimento.
-- **Fluxo:** caminho definido para a interação.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Aplicações de negócio / contact center · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
+> **Categoria:** Aplicações de negócio / contact center · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** **central de atendimento (contact center) omnicanal na nuvem**, pronta em minutos e paga por uso.
+> **Em uma frase:** central de atendimento (contact center) na nuvem, com voz, chat e SMS, filas, roteamento e IA, cobrada pelo uso.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 
-**Passo 1.** Descreva como o cliente deve entrar e como suas solicitações serão encaminhadas.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure fluxos, canais e atendimento compatíveis com a operação.
+---
 
-**Passo 3.** Observe filas e qualidade do atendimento. Plataforma de contato e regras do sistema de cadastro precisam ser integradas quando necessário.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+Em janeiro, a central telefônica da secretaria vive congestionada, e comprar mais linhas e equipamentos para um mês por ano não compensa. O **Amazon Connect** é a central de atendimento da AWS, na nuvem, sem custo fixo. A AWS passou a chamar o produto de **Amazon Connect Customer**; na prova, "central de atendimento na nuvem" continua apontando para o Amazon Connect.
 
-### Destaques
+1. O administrador configura números de telefone, filas e roteamento.
+2. Os pais entram em contato pelo canal que preferem, como voz, chat ou SMS.
+3. Os recursos de IA resolvem parte dos atendimentos; o restante vai para os atendentes.
+4. Os supervisores acompanham as métricas da equipe.
 
-Canais: **voz** (números de telefone, URA), **chat**, **SMS**, **tarefas**, e-mail.
+## Não confundir com
 
-**Fluxos de contato** visuais (drag-and-drop), roteamento por habilidade.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon SES](ses.md) | Envio e recebimento de e-mails | "E-mail transacional" |
+| [Amazon SNS](../integracao/sns.md) | Notificações por tópico, inclusive SMS | "Notificar assinantes" |
+| [Amazon Lex](../ia-ml/servicos-de-ia-prontos.md) | Cria chatbots de voz e texto | "Chatbot" |
 
-IA integrada: **Lex** (bots/URA conversacional), **Amazon Q in Connect** (assistência ao agente), **Contact Lens** (análise de sentimento e transcrição de chamadas), previsão e escala de agentes.
+## Fontes oficiais
 
-Perfis de clientes, casos, campanhas de saída.
+Verificadas em 06/10/2026.
 
-Cobrança **por minuto de uso**/mensagem, sem licenças por agente nem compromisso.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Ele não substitui sozinho os atendentes, as regras do negócio ou todas as integrações com cadastro e pagamento. A operação depende de configuração e recursos contratados.
-
-## 4. Caso resolvido: ligando as peças
-
-A escola organiza chamadas para sua secretaria, encaminhando as pessoas às filas e aos atendentes adequados.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Descreva como o cliente deve entrar e como suas solicitações serão encaminhadas.
-**Etapa 2:** Configure fluxos, canais e atendimento compatíveis com a operação.
-**Etapa 3:** Observe filas e qualidade do atendimento. Plataforma de contato e regras do sistema de cadastro precisam ser integradas quando necessário.
-
-**Resultado e responsabilidade:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis. A empresa configura a experiência e a operação do atendimento.
-
-**Recursos envolvidos:** Instância, contact flows, queues, routing profiles e agentes.
-
-**Decisões que precisam ser tomadas:** Canais, atendimento, gravação e integrações.
-
-**Outra situação comentada:** Criar central de atendimento: Connect; envio transacional de e-mail: SES.
-
-**Por que não concluir mais do que isso:** Não substitui equipe de atendimento nem autoriza automaticamente gravações/uso de dados
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Criar uma central de atendimento na nuvem."
-
-**Resposta curta:** Amazon Connect.
-
-**Pergunta:** "Exemplo de SaaS da AWS."
-
-**Resposta curta:** Amazon Connect.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html)
-
+- [O que é o Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html)
+- [Preços do Amazon Connect](https://aws.amazon.com/connect/pricing/)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

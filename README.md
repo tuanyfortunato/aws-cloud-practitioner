@@ -329,7 +329,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 <summary>🛠️ Ferramentas de desenvolvedor — 3 fichas (clique para abrir)</summary>
 
 - [Formas de acesso: Console, CLI, SDKs e CloudShell](servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
-- [Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact](servicos/desenvolvimento/code-services.md)
+- [Ferramentas de CI/CD: CodeBuild e CodePipeline](servicos/desenvolvimento/code-services.md)
 - [AWS X-Ray](servicos/desenvolvimento/x-ray.md)
 
 </details>
@@ -339,9 +339,9 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 - [Amazon Connect](servicos/aplicacoes/amazon-connect.md)
 - [Amazon SES](servicos/aplicacoes/ses.md)
-- [Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser](servicos/aplicacoes/workspaces-e-appstream.md)
-- [AWS Amplify, AWS AppSync e AWS Device Farm](servicos/aplicacoes/amplify-e-appsync.md)
-- [AWS IoT Core, IoT Greengrass e outros serviços de IoT](servicos/aplicacoes/iot-core-e-greengrass.md)
+- [Amazon WorkSpaces, WorkSpaces Applications](servicos/aplicacoes/workspaces-e-appstream.md)
+- [AWS Amplify](servicos/aplicacoes/amplify-e-appsync.md)
+- [AWS IoT Core e IoT Greengrass](servicos/aplicacoes/iot-core-e-greengrass.md)
 
 </details>
 

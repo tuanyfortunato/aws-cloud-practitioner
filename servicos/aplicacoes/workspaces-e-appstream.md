@@ -1,108 +1,42 @@
-# Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Amazon WorkSpaces, WorkSpaces Applications (AppStream 2.0) e WorkSpaces Secure Browser
 
-**Qual é a dificuldade?** Pessoas precisam usar um ambiente de trabalho ou uma aplicação à distância, sem instalar tudo no próprio computador.
-
-**Como este serviço ajuda?** WorkSpaces oferece ambientes de trabalho virtuais em modalidades próprias. AppStream transmite aplicações; WorkSpaces Secure Browser atende acesso web corporativo controlado.
-
-**Exemplo do dia a dia:** Uma empresa fornece a colaboradores um ambiente remoto ou acesso a uma aplicação corporativa, escolhendo o produto adequado à experiência necessária.
-
-**O que ele não resolve sozinho?** Um desktop completo, uma aplicação transmitida e um navegador remoto são soluções diferentes. Identidade, aplicações, rede e modalidade precisam ser planejadas.
-
-**Primeiras palavras para entender:**
-
-- **Desktop virtual:** ambiente de trabalho remoto.
-- **Streaming de aplicação:** uso de software transmitido ao dispositivo.
-- **Sessão:** período de acesso do usuário.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação para usuário final (EUC) · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
+> **Categoria:** Computação para o usuário final · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** entregam desktops, aplicações ou um navegador seguro hospedados na AWS para qualquer dispositivo.
+> **Em uma frase:** serviços em que o programa roda na AWS e o dispositivo só mostra a tela: desktops virtuais, streaming de aplicações e navegador seguro.
 >
 > **Escopo oficial:** ✅ No escopo (WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 
-**Passo 1.** Identifique se o usuário precisa de desktop completo, aplicação transmitida ou navegação corporativa.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare a modalidade, identidades e software necessários. A pessoa inicia uma sessão autorizada.
+---
 
-**Passo 3.** Administre acesso e experiência. Cada modalidade oferece uma experiência diferente de trabalho remoto.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+Os professores precisam usar de casa um programa de notas que só está instalado nos computadores da escola, e a secretaria quer computadores completos sem comprar hardware. Nos três serviços, o programa roda na AWS e o dispositivo do usuário só mostra a tela.
 
-### Comparação
+1. **Amazon WorkSpaces:** desktops virtuais Windows ou Linux, acessados de vários dispositivos ou pelo navegador; o WorkSpaces Personal é persistente e de uma pessoa, o WorkSpaces Pools é recriado a cada uso.
+2. **Amazon WorkSpaces Applications** (no guia do exame, Amazon AppStream 2.0): faz streaming de um programa de desktop pelo navegador, sem entregar o desktop inteiro; todos usam a versão mais recente.
+3. **Amazon WorkSpaces Secure Browser:** acesso seguro, pelo navegador, a sites internos e aplicações SaaS, sem que os dados cheguem ao dispositivo; deixa de aceitar clientes novos em 29/10/2026.
 
-| | **WorkSpaces (Personal / Pools)** | **AppStream 2.0** | **WorkSpaces Secure Browser** (✔️ renomeado de WorkSpaces Web em maio/2024) |
-|---|---|---|---|
-| Entrega | **Desktop virtual completo** (DaaS) Windows, Linux ou Ubuntu | **Uma aplicação** de desktop transmitida para o navegador | **Navegador** isolado e gerenciado |
-| Persistência | Personal: desktop persistente por usuário; Pools: não persistente | Não persistente (pode salvar em S3/home folders) | Não persistente |
-| Uso | Funcionários remotos, terceirizados, BYOD | Software pesado (CAD, IDEs) em qualquer dispositivo, treinamentos | Acessar sites internos/SaaS sem VPN, sem dados no dispositivo |
-| Cobrança | **Mensal** (AlwaysOn) ou **por hora** (AutoStop) | Por hora das instâncias da *fleet* (always-on, on-demand ou elastic) | Por usuário/mês |
+## Não confundir com
 
-🔄 Os protocolos **PCoIP** e o **WorkSpaces Pools** estão em *sunset*; o WorkSpaces continua no escopo.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon EC2](../computacao/ec2.md) | Servidores, não desktops para usuários | "Servidor", "instância" |
+| [AWS Amplify](amplify-e-appsync.md) | Cria e hospeda aplicações web e móveis | "Front-end" |
+| [AWS Directory Service](../seguranca/directory-service.md) | Diretório usado no login dos WorkSpaces | "Active Directory" |
 
-O protocolo de streaming **NICE DCV** agora se chama **Amazon DCV** (versão 2024.0) ✔️.
+## Fontes oficiais
 
-**WorkSpaces Thin Client:** dispositivo físico barato para acessar esses serviços.
+Verificadas em 06/10/2026.
 
-Integração com Active Directory/Identity Center; dados ficam na AWS (não no dispositivo).
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Um desktop completo, uma aplicação transmitida e um navegador remoto são soluções diferentes. Identidade, aplicações, rede e modalidade precisam ser planejadas.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma empresa fornece a colaboradores um ambiente remoto ou acesso a uma aplicação corporativa, escolhendo o produto adequado à experiência necessária.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique se o usuário precisa de desktop completo, aplicação transmitida ou navegação corporativa.
-**Etapa 2:** Prepare a modalidade, identidades e software necessários. A pessoa inicia uma sessão autorizada.
-**Etapa 3:** Administre acesso e experiência. Cada modalidade oferece uma experiência diferente de trabalho remoto.
-
-**Resultado e responsabilidade:** WorkSpaces oferece ambientes de trabalho virtuais em modalidades próprias. AppStream transmite aplicações; WorkSpaces Secure Browser atende acesso web corporativo controlado.
-
-**Recursos envolvidos:** Desktops WorkSpaces, fleets/stacks AppStream e portal Secure Browser.
-
-**Decisões que precisam ser tomadas:** Identidade, rede, imagem e regras de sessão.
-
-**Outra situação comentada:** Desktop completo: WorkSpaces; app específico: AppStream; navegação isolada: Secure Browser.
-
-**Por que não concluir mais do que isso:** São produtos distintos; persistência depende da modalidade; políticas de cópia/download devem ser configuradas
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Oferecer desktops virtuais a funcionários remotos."
-
-**Resposta curta:** WorkSpaces.
-
-**Pergunta:** "Disponibilizar um aplicativo de desktop pelo navegador."
-
-**Resposta curta:** AppStream 2.0.
-
-**Pergunta:** "Acessar sites internos com navegador seguro sem VPN."
-
-**Resposta curta:** WorkSpaces Secure Browser.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) · [AppStream 2.0](https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html)
-
+- [O que é o Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html)
+- [O que é o Amazon WorkSpaces Applications](https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html)
+- [Amazon WorkSpaces Secure Browser](https://aws.amazon.com/workspaces/secure-browser/)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 
