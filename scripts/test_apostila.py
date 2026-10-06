@@ -171,5 +171,25 @@ O cliente, porque a instância é dele.
         self.assertEqual(extrair_cards_revisao(recolhida), [('O que é IP?', 'O endereço de uma máquina na rede.')])
 
 
+class Glossario(unittest.TestCase):
+    def termos(self):
+        with open(os.path.join(gerar_docs.RAIZ, 'glossario.md'), encoding='utf-8') as f:
+            texto = f.read()
+        return re.findall(r'^\| \*\*(.+?)\*\* \| (.+) \|$', texto, re.M)
+
+    def test_glossario_em_ordem_alfabetica_e_sem_repeticao(self):
+        import unicodedata
+        def chave(nome):
+            s = unicodedata.normalize('NFKD', nome).encode('ascii', 'ignore').decode().casefold()
+            return (not s[0].isalpha(), s)
+        nomes = [n for n, _ in self.termos()]
+        self.assertEqual(len(nomes), len({chave(n) for n in nomes}))
+        self.assertEqual(nomes, sorted(nomes, key=chave))
+
+    def test_glossario_nao_usa_definicoes_defensivas(self):
+        for nome, definicao in self.termos():
+            self.assertNotRegex(definicao, r'compatíve|conforme', nome)
+
+
 if __name__=='__main__':
     unittest.main()

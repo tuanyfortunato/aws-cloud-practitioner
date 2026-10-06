@@ -410,7 +410,7 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 | ⚖️ [Pares que confundem](resumos/comparativos.md) | **55 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
 | 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **28 gatilhos** do enunciado que apontam a resposta | Revisão final |
 | 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |
-| 📖 [Glossário](glossario.md) | **114 termos** e siglas | Sempre que travar num termo |
+| 📖 [Glossário](glossario.md) | **129 termos** e siglas | Sempre que travar num termo |
 | ✅ [Progresso](progresso.md) | Checklist de todos os tópicos e marcos | Para acompanhar o seu avanço |
 | 🧪 [Labs](labs/README.md) | Exercícios práticos no console AWS, com cuidado de custos | Opcional, para fixar |
 <!-- conteudo:fim -->
