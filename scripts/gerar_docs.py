@@ -571,8 +571,31 @@ def cards_do_topico(sec, corpo):
     return extrair_cards(corpo)
 
 
+def gerar_flashcards_capitulo_zero(todas):
+    """Flashcards do capítulo 0, tirados da seção Revisão de cada aula autoral."""
+    aulas = aulas_fundamentos()
+    if not aulas:
+        return
+    partes = ["# 🃏 Flashcards — Capítulo 0 — Fundamentos de TI\n",
+              "Clique na pergunta para ver a resposta. Gerado a partir da seção *Revisão* "
+              "de cada aula (`python3 scripts/gerar_docs.py`).\n"]
+    total = 0
+    for numero, titulo, caminho in aulas:
+        with open(os.path.join(RAIZ, caminho)) as f:
+            cards = extrair_cards_revisao(f.read())
+        assert cards, f"Aula do capítulo 0 sem perguntas na seção Revisão: {caminho}"
+        partes.append(f"\n## [{numero} {titulo}]({rel('flashcards/capitulo-0.md', caminho)})\n")
+        for q, a in cards:
+            total += 1
+            todas.append((q, a, f"CLF-C02 capitulo-0 aula-{numero.replace('.', '_')}"))
+            partes.append(f"<details>\n<summary>{q}</summary>\n\n{a}\n</details>\n")
+    partes.insert(2, f"**Total:** {total} cards\n")
+    escrever("flashcards/capitulo-0.md", "\n".join(partes))
+
+
 def gerar_flashcards(secoes, ordem):
     todas = []
+    gerar_flashcards_capitulo_zero(todas)
     for dom, (pasta, nome, peso) in DOMINIOS.items():
         partes = [f"# 🃏 Flashcards — {nome}\n",
                   "Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* "
@@ -843,7 +866,7 @@ def bloco_conteudo(total_cards, total_topicos):
         "com conceitos explicados, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do roteiro |",
         f"| 🔎 [Fichas de serviços](#caderno-de-serviços) | **{total_fichas} fichas** (uma por serviço ou família), "
         f"com funcionamento, opções, limites, segurança, custo e casos resolvidos; {fora} reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |",
-        f"| 🃏 [Flashcards](flashcards/README.md) | **{total_cards} perguntas e respostas** por domínio, também em arquivo para o Anki | Todos os dias, para memorizar |",
+        f"| 🃏 [Flashcards](flashcards/README.md) | **{total_cards} perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |",
         f"| 📝 [Simulado 01](simulados/simulado-01.md) | **{len(QUESTOES)} questões** no formato da prova, com gabarito comentado | Depois de estudar os 4 domínios (90 min, sem consulta) |",
         "| ❓ [Questões por domínio](simulados/questoes/README.md) | As mesmas questões, agrupadas por tópico | Ao terminar cada domínio |",
         f"| ⚖️ [Pares que confundem](resumos/comparativos.md) | **{contar_linhas_tabela('resumos/comparativos.md')} pares** de serviços parecidos e a diferença em uma linha | Revisão final |",
@@ -888,6 +911,7 @@ def bloco_capitulo_zero():
               "| Aula | Assunto |", "|---|---|"]
     linhas += [f"| {numero} | [{titulo}]({caminho}) |" for numero, titulo, caminho in aulas]
     linhas += ["", f"**Comece pela [aula {aulas[0][0]}]({aulas[0][2]}).**", "",
+               "**Confira seu entendimento:** [flashcards do capítulo 0](flashcards/capitulo-0.md).", "",
                "**Próxima etapa:** [capítulo 1](#capítulo-1-conceitos-de-nuvem).", ""]
     return linhas
 

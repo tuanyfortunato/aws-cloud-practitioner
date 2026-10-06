@@ -170,6 +170,31 @@ O cliente, porque a instância é dele.
                      'O endereço de uma máquina na rede.\n\nComentário longo.\n\n</details>\n')
         self.assertEqual(extrair_cards_revisao(recolhida), [('O que é IP?', 'O endereço de uma máquina na rede.')])
 
+    def test_flashcards_do_capitulo_zero_cobrem_todas_as_aulas(self):
+        aulas = gerar_docs.aulas_fundamentos()
+        self.assertTrue(aulas)
+        esperado = 0
+        for numero, _, caminho in aulas:
+            with open(os.path.join(gerar_docs.RAIZ, caminho), encoding='utf-8') as f:
+                cards = extrair_cards_revisao(f.read())
+            self.assertGreaterEqual(len(cards), 3, caminho)
+            esperado += len(cards)
+        todas = []
+        with tempfile.TemporaryDirectory() as tmp:
+            raiz = gerar_docs.RAIZ
+            os.makedirs(os.path.join(tmp, 'flashcards'))
+            shutil.copytree(os.path.join(raiz, 'docs', 'fundamentos'), os.path.join(tmp, 'docs', 'fundamentos'))
+            gerar_docs.RAIZ = tmp
+            try:
+                gerar_docs.gerar_flashcards_capitulo_zero(todas)
+                with open(os.path.join(tmp, 'flashcards', 'capitulo-0.md'), encoding='utf-8') as f:
+                    texto = f.read()
+            finally:
+                gerar_docs.RAIZ = raiz
+        self.assertEqual(len(todas), esperado)
+        self.assertEqual(texto.count('<details>'), esperado)
+        self.assertTrue(all('capitulo-0' in tags for _, _, tags in todas))
+
 
 class Glossario(unittest.TestCase):
     def termos(self):

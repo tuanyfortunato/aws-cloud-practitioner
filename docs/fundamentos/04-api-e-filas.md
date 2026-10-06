@@ -94,7 +94,7 @@ A síncrona é simples, mas faz uma lentidão ou falha de um lado travar o outro
 <details>
 <summary>Ver resposta</summary>
 
-Porque as mensagens se acumulam na fila e os consumidores as processam no próprio ritmo, sem perder pedidos nem sobrecarregar quem faz o trabalho.
+Porque as mensagens se acumulam na fila e os consumidores as processam no próprio ritmo, sem sobrecarregar quem faz o trabalho.
 
 O mesmo vale quando o consumidor cai: as mensagens esperam até ele voltar. Na AWS, o serviço de filas é o SQS.
 

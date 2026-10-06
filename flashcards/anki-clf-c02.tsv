@@ -1,3 +1,24 @@
+Qual é a diferença entre memória e armazenamento?	A memória guarda o que os programas estão usando agora e perde tudo quando a máquina desliga; o armazenamento guarda os dados de forma permanente, mas é mais lento.	CLF-C02 capitulo-0 aula-0_1
+O que faz um computador ser um servidor?	O papel que ele cumpre: rodar um programa que espera pedidos de outros computadores (os clientes) e responde a eles.	CLF-C02 capitulo-0 aula-0_1
+Para que serve o hipervisor?	Ele divide um computador físico em várias máquinas virtuais, reparte o hardware entre elas e mantém cada uma isolada das outras.	CLF-C02 capitulo-0 aula-0_1
+Numa instância EC2, quem aplica os patches do sistema operacional?	O cliente. O sistema operacional da instância é o SO convidado, e a AWS é responsável só pelo que fica abaixo dele: hipervisor, máquina física e datacenter.	CLF-C02 capitulo-0 aula-0_1
+Qual é a diferença entre IP público e IP privado?	O IP público é único na internet e pode receber dados de qualquer lugar; o IP privado só vale dentro de uma rede interna e não é alcançável diretamente da internet.	CLF-C02 capitulo-0 aula-0_2
+Para que serve a porta, se a máquina já tem um endereço IP?	O IP leva os dados até a máquina; a porta indica qual programa daquela máquina deve recebê-los.	CLF-C02 capitulo-0 aula-0_2
+O que o DNS faz, e o que ele não faz?	O DNS traduz um nome de domínio no endereço IP do servidor; ele não protege o servidor nem garante que o site esteja funcionando.	CLF-C02 capitulo-0 aula-0_2
+O que o HTTPS acrescenta ao HTTP?	Criptografia da conversa por TLS e um certificado que prova ao navegador que ele está falando com o site verdadeiro.	CLF-C02 capitulo-0 aula-0_2
+O que faz uma sub-rede da VPC ser pública?	Ter, na sua tabela de rotas, uma rota para um internet gateway.	CLF-C02 capitulo-0 aula-0_2
+Qual é a diferença entre armazenamento em bloco e armazenamento de objetos?	No bloco, o sistema operacional formata o disco e altera pequenos trechos diretamente; no objeto, cada arquivo é gravado inteiro e lido por API, com uma chave e metadados, e mudar um trecho exige gravar o objeto de novo.	CLF-C02 capitulo-0 aula-0_3
+Quando faz sentido usar armazenamento de arquivos?	Quando vários servidores precisam acessar os mesmos arquivos ao mesmo tempo, organizados em pastas.	CLF-C02 capitulo-0 aula-0_3
+O que caracteriza um banco de dados relacional?	Dados em tabelas com esquema definido, que se relacionam entre si e são consultadas com SQL, com suporte a transações.	CLF-C02 capitulo-0 aula-0_3
+Por que um banco não relacional escala com mais facilidade?	Porque as consultas são simples e cada item é encontrado pela sua chave, o que permite espalhar os dados por muitas máquinas.	CLF-C02 capitulo-0 aula-0_3
+O que é uma API?	O conjunto de operações que um programa oferece a outros programas, com as regras de como pedir cada uma.	CLF-C02 capitulo-0 aula-0_4
+Qual é a diferença entre comunicação síncrona e assíncrona?	Na síncrona, quem chama espera a resposta para continuar; na assíncrona, quem chama deixa o pedido, por exemplo numa fila, e segue em frente sem esperar.	CLF-C02 capitulo-0 aula-0_4
+Por que uma fila ajuda quando há um pico de pedidos?	Porque as mensagens se acumulam na fila e os consumidores as processam no próprio ritmo, sem sobrecarregar quem faz o trabalho.	CLF-C02 capitulo-0 aula-0_4
+Quando usar um tópico em vez de uma fila?	Quando a mesma mensagem precisa chegar a vários programas ao mesmo tempo.	CLF-C02 capitulo-0 aula-0_4
+Qual é a diferença entre autenticação e autorização?	Autenticação prova quem a identidade é; autorização decide o que essa identidade, já autenticada, pode fazer.	CLF-C02 capitulo-0 aula-0_5
+Por que o MFA protege mesmo quando a senha vaza?	Porque exige uma segunda prova de outro tipo, normalmente algo que só o usuário tem, como um código gerado no celular.	CLF-C02 capitulo-0 aula-0_5
+O que é o princípio do menor privilégio?	Dar a cada identidade só as permissões necessárias para o seu trabalho, nada além.	CLF-C02 capitulo-0 aula-0_5
+Qual é a diferença entre criptografia em trânsito e em repouso?	Em trânsito protege os dados enquanto viajam pela rede, como no HTTPS; em repouso protege os dados guardados em disco, banco de dados ou objeto.	CLF-C02 capitulo-0 aula-0_5
 Qual modelo de serviço dá mais controle sobre o sistema operacional?	IaaS (EC2).	CLF-C02 dominio-1 secao-1_1
 Uma empresa quer só enviar o código sem gerenciar infraestrutura. Qual modelo?	PaaS (Elastic Beanstalk).	CLF-C02 dominio-1 secao-1_1
 Qual é um exemplo de SaaS?	Amazon Connect, WorkSpaces ou um software pronto como e-mail.	CLF-C02 dominio-1 secao-1_1
