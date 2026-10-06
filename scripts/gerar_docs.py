@@ -237,9 +237,26 @@ NOTAS_FIM = "<!-- notas:fim -->"
 NOTAS_VAZIO = ("## 📝 Minhas anotações\n\n"
                "<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->")
 
+# Marcador de conteúdo autoral: aula ou ficha escrita à mão, cujo Markdown é a fonte
+# da verdade. O gerador não reescreve esses arquivos (ver pendencias/plano-de-implementacao.md).
+AUTORAL = "<!-- autoral -->"
+
 
 def caminho_topico(secao):
     return os.path.join("docs", DOMINIOS[secao.split(".")[0]][0], ARQUIVOS[secao] + ".md")
+
+
+def caminho_ficha(nome):
+    return os.path.join("servicos", CATEGORIA[nome], nome + ".md")
+
+
+def eh_autoral(caminho):
+    """Diz se o arquivo traz o marcador de conteúdo autoral nas primeiras linhas."""
+    abs_ = caminho if os.path.isabs(caminho) else os.path.join(RAIZ, caminho)
+    if not os.path.exists(abs_):
+        return False
+    with open(abs_) as f:
+        return AUTORAL in "".join(f.readlines()[:10])
 
 
 def rel(origem, destino):
@@ -391,6 +408,9 @@ def gerar_topicos(secoes):
         dom = sec.split(".")[0]
         pasta, nome_dom, peso = DOMINIOS[dom]
         caminho = caminho_topico(sec)
+        if eh_autoral(caminho):
+            # Aula escrita à mão: o Markdown é a fonte da verdade.
+            continue
         if sec == "3.18":
             # Subtítulos ### viram ## no arquivo próprio.
             corpo = re.sub(r"^### ", "## ", corpo, flags=re.M)
@@ -457,7 +477,7 @@ def gerar_readmes_dominio(secoes, intros, ordem):
             if sec.split(".")[0] != dom:
                 continue
             titulo, corpo = secoes[sec]
-            n = len(extrair_cards(corpo))
+            n = len(cards_do_topico(sec, corpo))
             linhas.append(f"| {sec} | [{titulo}]({ARQUIVOS[sec]}.md) | {n} | 🔴 |")
         blocos = intros.get(dom, [])
         if len(blocos) > 1:
@@ -521,6 +541,34 @@ def extrair_cards(corpo):
     return cards
 
 
+def extrair_cards_revisao(texto):
+    """Perguntas de revisão de uma aula autoral.
+
+    Formato: uma seção `## Revisão` (o título pode trazer emoji), com uma pergunta por
+    subtítulo `### ` e a resposta comentada em seguida. O primeiro parágrafo da resposta
+    vira a resposta do flashcard; o resto fica só na aula.
+    """
+    m = re.search(r"^## [^\n]*\bRevisão\b[^\n]*\n(.*?)(?=\n## |\Z)", texto, re.S | re.M)
+    if not m:
+        return []
+    cards = []
+    for bloco in re.split(r"^### ", m.group(1), flags=re.M)[1:]:
+        pergunta, _, resposta = bloco.partition("\n")
+        paragrafos = [p.strip() for p in resposta.strip().split("\n\n") if p.strip()]
+        if pergunta.strip() and paragrafos:
+            cards.append((pergunta.strip(), paragrafos[0]))
+    return cards
+
+
+def cards_do_topico(sec, corpo):
+    """Flashcards da aula: da própria aula quando autoral, do guia original quando gerada."""
+    caminho = caminho_topico(sec)
+    if eh_autoral(caminho):
+        with open(os.path.join(RAIZ, caminho)) as f:
+            return extrair_cards_revisao(f.read())
+    return extrair_cards(corpo)
+
+
 def gerar_flashcards(secoes, ordem):
     todas = []
     for dom, (pasta, nome, peso) in DOMINIOS.items():
@@ -532,7 +580,7 @@ def gerar_flashcards(secoes, ordem):
             if sec.split(".")[0] != dom:
                 continue
             titulo, corpo = secoes[sec]
-            cards = extrair_cards(corpo)
+            cards = cards_do_topico(sec, corpo)
             if not cards:
                 continue
             link = rel(f"flashcards/dominio-{dom}.md", caminho_topico(sec))
@@ -641,6 +689,8 @@ def aplicar_escopo_fichas():
     faltando = [n for n in CATEGORIA if n not in ESCOPO]
     assert not faltando, f"Fichas sem status de escopo: {faltando}"
     for nome, cat in CATEGORIA.items():
+        if eh_autoral(caminho_ficha(nome)):
+            continue
         caminho = os.path.join(RAIZ, "servicos", cat, nome + ".md")
         with open(caminho) as f:
             texto = LINHA_ESCOPO.sub("", f.read())
@@ -656,6 +706,8 @@ def aplicar_fichas_praticas():
     assert set(CATEGORIA) == set(FICHAS_PRATICAS), "Cobertura das fichas práticas incompleta"
     marcador = re.compile(r"<!-- aprofundamento:inicio -->.*?<!-- aprofundamento:fim -->\n*", re.S)
     for nome, cat in CATEGORIA.items():
+        if eh_autoral(caminho_ficha(nome)):
+            continue
         caminho = os.path.join(RAIZ, "servicos", cat, nome + ".md")
         with open(caminho) as f:
             texto = marcador.sub("", f.read())
@@ -669,7 +721,9 @@ def gerar_capitulos_servicos():
     """Regenera a apresentação das fichas a partir da fonte editorial separada."""
     assert set(CATEGORIA) == set(BASE_FICHAS), "Conteúdo-base de fichas incompleto"
     for nome, cat in CATEGORIA.items():
-        caminho = os.path.join("servicos", cat, nome + ".md")
+        caminho = caminho_ficha(nome)
+        if eh_autoral(caminho):
+            continue
         notas = ler_bloco(os.path.join(RAIZ, caminho), NOTAS_INI, NOTAS_FIM, NOTAS_VAZIO)
         escrever(caminho, capitulo_servico(nome) + "\n" + notas + "\n")
 
@@ -691,7 +745,9 @@ def aplicar_introducoes():
     """Aberturas completas; sem alterar notas, conteúdo técnico ou fontes originais."""
     assert set(CATEGORIA) == set(INTRODUCOES_FICHAS), "Cobertura das introduções de fichas incompleta"
     for nome, cat in CATEGORIA.items():
-        caminho = os.path.join("servicos", cat, nome + ".md")
+        caminho = caminho_ficha(nome)
+        if eh_autoral(caminho):
+            continue
         with open(os.path.join(RAIZ, caminho)) as f:
             texto = f.read()
         escrever(caminho, inserir_abertura(texto, bloco_inicio_ficha(nome)))

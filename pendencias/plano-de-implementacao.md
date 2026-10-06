@@ -248,7 +248,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 
 | Fase | Status | PRs | Observações |
 |---|---|---|---|
-| 0 | Em andamento | PR 0.1 (marcador autoral) · PR 0.2 (métricas) | Linha de base registrada na seção 3 |
+| 0 | Em andamento | PR 0.1 (marcador autoral, #21, mergeado) · PR 0.2 (métricas) | Linha de base registrada na seção 3 |
 | 1 | Pendente | — | — |
 | 2 | Pendente | — | — |
 | 3 | Pendente | — | — |
