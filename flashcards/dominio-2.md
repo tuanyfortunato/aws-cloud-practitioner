@@ -2,45 +2,39 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 67 cards
+**Total:** 66 cards
 
 
 ## [2.1 Modelo de responsabilidade compartilhada](../docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md)
 
 <details>
-<summary>Qual é responsabilidade da AWS?</summary>
+<summary>Qual é a diferença entre segurança da nuvem e segurança na nuvem?</summary>
 
-Segurança física dos datacenters, hardware, rede global, hipervisor, patch do SO em serviços gerenciados (RDS, Lambda).
+Segurança da nuvem é proteger a infraestrutura que roda os serviços, e é da AWS; segurança na nuvem é proteger o que o cliente coloca e configura nos serviços, e é do cliente.
 </details>
 
 <details>
-<summary>Qual é responsabilidade do cliente?</summary>
+<summary>Por que a escola tem menos trabalho de segurança no RDS do que num banco instalado numa instância EC2?</summary>
 
-Dados, IAM, security groups, criptografia, patch do SO no EC2, configuração dos serviços.
+Porque no RDS a AWS assume o sistema operacional e o software do banco, incluindo instalação, patches e backups, que no EC2 seriam da escola.
 </details>
 
 <details>
-<summary>Qual é um controle compartilhado?</summary>
+<summary>Uma biblioteca empacotada numa função Lambda tem uma falha de segurança. Quem corrige?</summary>
 
-Gestão de patches, gestão de configuração ou treinamento.
+O cliente, que precisa atualizar a biblioteca e publicar a função de novo.
 </details>
 
 <details>
-<summary>Qual é um controle herdado da AWS?</summary>
+<summary>O que é um controle compartilhado? Dê um exemplo.</summary>
 
-Controles físicos e ambientais.
+É um controle que vale para as duas camadas, com cada lado fazendo a sua parte; a gestão de patches é o exemplo clássico: a AWS corrige a infraestrutura e o cliente corrige o SO convidado e as aplicações.
 </details>
 
 <details>
-<summary>Ao trocar EC2 por Lambda, o que muda?</summary>
+<summary>Num serviço como o S3, o que continua sendo responsabilidade do cliente?</summary>
 
-A responsabilidade do cliente diminui (SO e runtime passam para a AWS).
-</details>
-
-<details>
-<summary>Quem é responsável pela segurança dos dados no S3?</summary>
-
-O cliente (políticas, acesso e criptografia).
+Os dados e o acesso a eles: as opções de criptografia, a classificação do que é sensível e as permissões que dizem quem pode ler e gravar.
 </details>
 
 
