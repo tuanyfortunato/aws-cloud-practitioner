@@ -40,7 +40,7 @@ A terceira exigência é a mais trabalhosa: mostrar que os controles da escola f
 
 O **AWS Config** registra a configuração dos recursos da conta, como eles se relacionam e como estavam configurados no passado, para mostrar as mudanças ao longo do tempo. Sobre esse registro, as **regras do Config** representam a configuração desejada e avaliam cada recurso: por exemplo, "todo bucket S3 deve bloquear acesso público". A AWS oferece regras prontas, chamadas regras gerenciadas, e o cliente pode escrever as suas. Recursos fora da regra podem ser corrigidos com **remediação**, que executa automações do AWS Systems Manager. Um **pacote de conformidade** (*conformance pack*) é um conjunto de regras e remediações implantado de uma vez numa conta e Região ou na organização inteira. O Config volta na [aula 2.7](07-logs-monitoramento-e-auditoria.md), ao lado dos outros serviços de registro.
 
-O **AWS Audit Manager** automatiza a coleta de evidências para auditorias. Ele oferece **frameworks** prontos, conjuntos de controles organizados segundo uma norma ou regulamento, e coleta continuamente dados das contas escolhidas, transformando-os em evidências ligadas a cada controle. Também aceita evidências enviadas à mão, de sistemas fora da AWS. O limite é explícito na documentação: o Audit Manager coleta evidências, mas não avalia se o cliente está em conformidade. A conclusão continua sendo da auditoria.
+O **AWS Audit Manager** automatiza a coleta de evidências para auditorias. Ele oferece **frameworks** prontos, conjuntos de controles organizados segundo uma norma ou regulamento, e coleta continuamente dados das contas escolhidas, transformando-os em evidências ligadas a cada controle. Também aceita evidências enviadas à mão, de sistemas fora da AWS. O limite é explícito na documentação: o Audit Manager coleta evidências, mas não avalia se o cliente está em conformidade. A conclusão continua sendo da auditoria. Desde 30/04/2026, o Audit Manager está em modo de manutenção: não pode ser configurado em contas novas, e quem já usa continua usando. Ele também não aparece na lista atual de serviços do exame.
 
 ```mermaid
 flowchart LR
@@ -156,6 +156,7 @@ Verificadas em 06/10/2026.
 - [What Is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html): registro da configuração, das relações e do histórico dos recursos.
 - [Evaluating Resources with AWS Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html), [Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) e [Remediation](https://docs.aws.amazon.com/config/latest/developerguide/remediation.html): regras gerenciadas e personalizadas, pacotes de conformidade e remediação com automações do Systems Manager.
 - [What is AWS Audit Manager?](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html): frameworks prontos, coleta contínua de evidências, evidências enviadas à mão e o limite de não avaliar a conformidade.
+- [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html): modo de manutenção desde 30/04/2026, sem configuração em contas novas.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

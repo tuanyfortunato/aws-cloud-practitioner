@@ -53,11 +53,11 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon Aurora](banco-de-dados/aurora.md) | ✅ | núcleo | Motor relacional da AWS que funciona com MySQL e PostgreSQL, com armazenamento que cresce sozinho e cópias em três zonas. |
 | [Amazon DynamoDB](banco-de-dados/dynamodb.md) | ✅ | núcleo | Banco NoSQL serverless, de chave-valor e documento, com respostas em milissegundos de um dígito em qualquer escala. |
 | [Amazon ElastiCache](banco-de-dados/elasticache.md) | ✅ | núcleo | Cache em memória gerenciado, com Valkey, Memcached ou Redis OSS, que responde em microssegundos e alivia o banco. |
-| [Amazon MemoryDB](banco-de-dados/memorydb.md) | ❌ | referência | Banco de dados **primário** em memória, compatível com Valkey/Redis, com durabilidade multi-AZ. |
+| [Amazon MemoryDB](banco-de-dados/memorydb.md) | ❌ | referência | Banco de dados em memória e durável, que trabalha com Valkey e Redis OSS e pode ser o banco principal de uma aplicação, não só um cache. |
 | [Amazon Redshift](banco-de-dados/redshift.md) | ✅ | núcleo | Data warehouse gerenciado na escala de petabytes, consultado com SQL e ferramentas de relatório (BI). |
 | [Amazon DocumentDB](banco-de-dados/documentdb.md) | ✅ | complementar | Banco de documentos totalmente gerenciado para aplicações feitas para o MongoDB, que roda o mesmo código, drivers e ferramentas. |
 | [Amazon Neptune](banco-de-dados/neptune.md) | ✅ | complementar | Banco de grafos totalmente gerenciado, que guarda itens e as ligações entre eles, para recomendações, detecção de fraude e grafos de conhecimento. |
-| [Amazon Keyspaces, Timestream e outros bancos especializados](banco-de-dados/keyspaces-timestream-e-outros.md) | 🔀 | referência | A AWS tem um banco "sob medida" para cada modelo de dados — saiba associar o modelo ao serviço. |
+| [Amazon Keyspaces e Amazon Timestream](banco-de-dados/keyspaces-timestream-e-outros.md) | 🔀 | referência | Dois bancos especializados fora da prova: o Keyspaces para aplicações Apache Cassandra e o Timestream para séries temporais. |
 
 ## 🌐 Redes e entrega de conteúdo
 
@@ -93,7 +93,7 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon Detective](seguranca/detective.md) | ✅ | complementar | Ajuda a investigar a causa raiz de achados de segurança e atividades suspeitas, com visualizações de como identidades, recursos e endereços se relacionaram ao longo do tempo. |
 | [AWS Security Hub](seguranca/security-hub.md) | ✅ | núcleo | Reúne, correlaciona e prioriza os sinais de segurança do GuardDuty, do Inspector, do Macie e das verificações de postura, e confere as contas contra padrões de boas práticas. |
 | [AWS Artifact](seguranca/artifact.md) | ✅ | núcleo | Portal de autoatendimento, gratuito, para baixar os relatórios de segurança e compliance da AWS e aceitar acordos com ela. |
-| [AWS Audit Manager](seguranca/audit-manager.md) | ⚪ | referência | Coleta **evidências da sua conta** continuamente e as mapeia para frameworks, para preparar as suas auditorias. |
+| [AWS Audit Manager](seguranca/audit-manager.md) | ⚪ | referência | Automatiza a coleta de evidências para auditorias, com frameworks prontos de controles; está em modo de manutenção e fora da lista atual do exame. |
 
 ## ⚙️ Gerenciamento e governança
 
@@ -121,14 +121,14 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon EMR](analytics/emr.md) | ✅ | complementar | Plataforma gerenciada de clusters para rodar ferramentas de big data de código aberto, como Apache Hadoop e Apache Spark, e processar volumes muito grandes de dados. |
 | [Amazon QuickSight (Amazon Quick Sight)](analytics/quicksight.md) | ✅ | núcleo | Serviço de visualização de dados e BI que se conecta às fontes, cria painéis interativos e permite incorporar análises em aplicações; hoje faz parte do Amazon Quick. |
 | [Amazon OpenSearch Service](analytics/opensearch.md) | ✅ | complementar | Serviço gerenciado para implantar, operar e escalar clusters do OpenSearch, para busca, análise de registros e monitoramento de aplicações em tempo real. |
-| [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](analytics/lake-formation-msk-e-outros.md) | 🔀 | referência | Serviços de dados que aparecem como "qual serviço faz X" — saiba a função de cada um. |
+| [Lake Formation, MSK, Data Exchange, AppFlow e Clean Rooms](analytics/lake-formation-msk-e-outros.md) | 🔀 | referência | Serviços de dados fora da prova: governança de data lake, Kafka gerenciado, troca de dados com outras organizações, integração com aplicações SaaS e análise conjunta sem expor dados. |
 
 ## 🤖 IA e machine learning
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
 | [Amazon SageMaker AI](ia-ml/sagemaker-ai.md) | ✅ | núcleo | Serviço de machine learning totalmente gerenciado para criar, treinar e implantar modelos próprios, sem montar nem gerenciar os servidores. |
-| [Amazon Bedrock](ia-ml/bedrock.md) | ⚪ | referência | Acesso **serverless via API** a modelos de fundação (foundation models) de vários provedores para criar aplicações de IA generativa. |
+| [Amazon Bedrock](ia-ml/bedrock.md) | ⚪ | referência | Serviço totalmente gerenciado que dá acesso a modelos de fundação de várias empresas de IA para criar aplicações de IA generativa; não está na lista do exame. |
 | [Amazon Q](ia-ml/amazon-q.md) | ✅ | núcleo | Família de assistentes de IA generativa da AWS; o Amazon Q Developer responde perguntas sobre a AWS e os recursos da conta e ajuda a escrever e melhorar código. |
 | [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate e Textract)](ia-ml/servicos-de-ia-prontos.md) | 🔀 | núcleo | Serviços que a AWS já treinou para tarefas comuns (conversar, falar, transcrever, traduzir, entender textos, analisar imagens e ler documentos), usados por chamadas de API, sem conhecimento de machine learning. |
 
@@ -140,7 +140,7 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon SNS (Simple Notification Service)](integracao/sns.md) | ✅ | núcleo | Serviço de **publicar e assinar**: o publicador envia a mensagem a um **tópico**, e o SNS a empurra para todos os assinantes. |
 | [Amazon EventBridge](integracao/eventbridge.md) | ✅ | núcleo | Serviço serverless que recebe **eventos** de serviços da AWS, de aplicações próprias e de softwares de terceiros e os entrega aos destinos certos por **regras**. |
 | [AWS Step Functions](integracao/step-functions.md) | ✅ | núcleo | Coordena **fluxos de trabalho** de várias etapas, com decisões, novas tentativas e acompanhamento visual de cada execução. |
-| [Amazon MQ](integracao/amazon-mq.md) | ⚪ | referência | Brokers de mensagens gerenciados **Apache ActiveMQ** e **RabbitMQ**, compatíveis com protocolos padrão. |
+| [Amazon MQ](integracao/amazon-mq.md) | ⚪ | referência | Serviço gerenciado de message broker para Apache ActiveMQ Classic e RabbitMQ, para migrar sistemas que já usam esses brokers sem reescrever o código de mensagens. |
 
 ## 🛠️ Ferramentas de desenvolvedor
 
@@ -167,8 +167,8 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Migration Evaluator, Application Discovery Service e Migration Hub](migracao/discovery-migration-hub-e-evaluator.md) | ✅ | complementar | Ferramentas para antes e durante a migração: o Migration Evaluator monta o caso de negócio, o Discovery Service levanta servidores e dependências e o Migration Hub acompanha o andamento. |
 | [AWS Application Migration Service (AWS MGN)](migracao/application-migration-service.md) | ✅ | núcleo | Automatiza o rehost (*lift and shift*) de servidores físicos, virtuais e de outras nuvens para a AWS, com replicação contínua e virada em minutos; hoje se chama AWS Transform MGN. |
 | [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](migracao/dms-e-sct.md) | ✅ | núcleo | O DMS move os dados de um banco para a AWS, uma vez ou com replicação contínua; a SCT converte o esquema quando o banco muda de motor. |
-| [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](migracao/snow-family.md) | ⚪ | referência | Dispositivos físicos robustos para **mover grandes volumes de dados** quando a rede é lenta, cara ou inexistente, e para **computação na borda** desconectada. |
-| [AWS DataSync e AWS Transfer Family](migracao/datasync-e-transfer-family.md) | 🔀 | referência | DataSync **move dados online** de forma automatizada e rápida; Transfer Family oferece **SFTP/FTPS/FTP** gerenciado com armazenamento em S3/EFS. |
+| [Família AWS Snow](migracao/snow-family.md) | ⚪ | referência | Dispositivos físicos que a AWS enviava ao cliente para levar dados fora da rede e processar na borda; não estão mais disponíveis para novos clientes. |
+| [AWS DataSync e AWS Transfer Family](migracao/datasync-e-transfer-family.md) | 🔀 | referência | O DataSync copia arquivos e objetos pela rede para S3, EFS e FSx; o Transfer Family recebe e envia arquivos por SFTP, FTPS, FTP e AS2. |
 
 ## 💰 Custos e suporte
 

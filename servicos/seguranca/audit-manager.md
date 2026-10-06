@@ -1,107 +1,43 @@
+<!-- autoral -->
+
 # AWS Audit Manager
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A organização precisa reunir evidências sobre seus controles e organizá-las para uma auditoria, sem depender apenas de coleta manual.
-
-**Como este serviço ajuda?** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
-
-**Exemplo do dia a dia:** Uma equipe reúne evidências de seu ambiente AWS e complementa o material com documentos necessários para uma avaliação.
-
-**O que ele não resolve sozinho?** Organizar evidências não garante aprovação na auditoria nem elimina controles manuais. A ficha está identificada como não listada no escopo atual.
-
-**Primeiras palavras para entender:**
-
-- **Evidência:** material que demonstra uma prática.
-- **Controle:** requisito avaliado.
-- **Avaliação:** conjunto organizado de controles e evidências.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Compliance · **Domínio:** 2 · **Escopo:** Regional (multi-conta) · **Tópico do guia:** [2.6 Compliance e governança](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
+> **Categoria:** Conformidade · **Domínio:** 2 · **Abrangência:** Regional · **Ficha:** referência
 >
-> **Em uma frase:** coleta **evidências da sua conta** continuamente e as mapeia para frameworks, para preparar as suas auditorias.
+> **Em uma frase:** automatiza a coleta de evidências para auditorias, com frameworks prontos de controles; está em modo de manutenção e fora da lista atual do exame.
 >
 > **Escopo oficial:** ⚪ Não listado (saiu da lista atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.6 Compliance e governança](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
 
-**Passo 1.** Defina uma avaliação e os controles que precisam de evidências.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Organize coleta de evidências compatíveis e complemente o material necessário.
+---
 
-**Passo 3.** Revise a avaliação para a auditoria. A ferramenta não certifica automaticamente a organização nem dispensa controles manuais.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+Na auditoria anual, a escola precisa provar que seus controles funcionam o tempo todo, não só no dia da visita. O **AWS Audit Manager** coleta continuamente dados das contas e os transforma em evidências ligadas a cada controle. Desde 30/04/2026 ele está em modo de manutenção: não pode ser configurado em contas novas, e quem já usa continua usando.
 
-### 🔄 Status
+1. Escolhe-se um framework pronto, um conjunto de controles organizado por norma, como SOC 2, PCI DSS ou HIPAA.
+2. Cria-se uma avaliação para as contas que entram na auditoria.
+3. O Audit Manager coleta as evidências automaticamente; evidências de fora da AWS podem ser enviadas à mão.
+4. A auditoria usa as evidências; o Audit Manager não declara se a escola está em conformidade.
 
-**Fechado a novos clientes desde 30/04/2026** e **não aparece** na lista atual de serviços da prova (versões traduzidas antigas ainda o citam).
+## Não confundir com
 
-### Como funciona
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS Artifact](artifact.md) | Relatórios de conformidade da própria AWS | "Relatório SOC da AWS" |
+| [AWS Config](../gerenciamento/config.md) | Registra a configuração e avalia regras | "Configuração desejada" |
+| [AWS Security Hub](security-hub.md) | Reúne achados e verifica padrões de segurança | "Pontuação de segurança" |
 
-**Frameworks** prontos (PCI DSS, HIPAA, GDPR, SOC 2, CIS, NIST, FedRAMP, ISO…) ou customizados.
+## Fontes oficiais
 
-**Assessments** coletam evidências automaticamente de **Config**, **Security Hub**, **CloudTrail** e chamadas de API (snapshots de configuração), além de evidências manuais.
+Verificadas em 06/10/2026.
 
-Gera **relatórios de avaliação** para os auditores; delegação de controles para revisão por responsáveis.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Organizar evidências não garante aprovação na auditoria nem elimina controles manuais. A ficha está identificada como não listada no escopo atual.
-
-### ⚠️ Não confundir
-
-Artifact (relatórios da AWS) × Audit Manager (evidências do cliente) × Config (avalia regras dos recursos).
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por evidência coletada.
-
-## 5. Caso resolvido: ligando as peças
-
-Uma equipe reúne evidências de seu ambiente AWS e complementa o material com documentos necessários para uma avaliação.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina uma avaliação e os controles que precisam de evidências.
-**Etapa 2:** Organize coleta de evidências compatíveis e complemente o material necessário.
-**Etapa 3:** Revise a avaliação para a auditoria. A ferramenta não certifica automaticamente a organização nem dispensa controles manuais.
-
-**Resultado e responsabilidade:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
-
-**Recursos envolvidos:** Frameworks, assessments, controls e evidências.
-
-**Decisões que precisam ser tomadas:** Escopo de avaliação e responsáveis.
-
-**Outra situação comentada:** Evidência da conta do cliente difere de relatório da AWS: Audit Manager e Artifact têm papéis distintos.
-
-**Por que não concluir mais do que isso:** Não decide conformidade legal automaticamente; observe restrição a novos clientes indicada na ficha
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Coletar evidências continuamente para a auditoria da empresa."
-
-**Resposta curta:** Audit Manager.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html)
-
+- [O que é o AWS Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html)
+- [Mudança de disponibilidade do Audit Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html)
+- [Serviços no escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 
