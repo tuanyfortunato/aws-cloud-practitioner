@@ -19,16 +19,16 @@ Qual é a diferença entre autenticação e autorização?	Autenticação prova 
 Por que o MFA protege mesmo quando a senha vaza?	Porque exige uma segunda prova de outro tipo, normalmente algo que só o usuário tem, como um código gerado no celular.	CLF-C02 capitulo-0 aula-0_5
 O que é o princípio do menor privilégio?	Dar a cada identidade só as permissões necessárias para o seu trabalho, nada além.	CLF-C02 capitulo-0 aula-0_5
 Qual é a diferença entre criptografia em trânsito e em repouso?	Em trânsito protege os dados enquanto viajam pela rede, como no HTTPS; em repouso protege os dados guardados em disco, banco de dados ou objeto.	CLF-C02 capitulo-0 aula-0_5
-Qual modelo de serviço dá mais controle sobre o sistema operacional?	IaaS (EC2).	CLF-C02 dominio-1 secao-1_1
-Uma empresa quer só enviar o código sem gerenciar infraestrutura. Qual modelo?	PaaS (Elastic Beanstalk).	CLF-C02 dominio-1 secao-1_1
-Qual é um exemplo de SaaS?	Amazon Connect, WorkSpaces ou um software pronto como e-mail.	CLF-C02 dominio-1 secao-1_1
-Qual modelo de implantação liga o datacenter próprio à AWS?	Híbrido.	CLF-C02 dominio-1 secao-1_1
-O que caracteriza computação em nuvem?	Recursos sob demanda, pela internet, pagando pelo uso.	CLF-C02 dominio-1 secao-1_1
-Qual vantagem permite trocar investimento inicial em servidores por pagamento conforme o uso?	Trocar despesa de capital por despesa variável.	CLF-C02 dominio-1 secao-1_2
-Uma empresa não sabe quanto tráfego terá no lançamento. Qual vantagem ajuda?	Parar de adivinhar capacidade.	CLF-C02 dominio-1 secao-1_2
-Como a AWS consegue preços menores que um datacenter próprio?	Economias de escala massivas.	CLF-C02 dominio-1 secao-1_2
-Uma startup quer abrir operação em outro continente em um dia.	Tornar-se global em minutos.	CLF-C02 dominio-1 secao-1_2
-Qual vantagem libera o time para focar no produto em vez de racks e energia?	Parar de gastar mantendo datacenters.	CLF-C02 dominio-1 secao-1_2
+Como a AWS define computação em nuvem?	Como a entrega sob demanda de recursos de TI, como computação, bancos de dados, armazenamento e aplicações, pela internet, com preço pago pelo uso.	CLF-C02 dominio-1 secao-1_1
+Qual é a diferença entre IaaS, PaaS e SaaS?	É quanto o provedor administra. No IaaS, o provedor entrega rede, computadores e armazenamento, e o cliente cuida do sistema operacional para cima. No PaaS, o provedor também cuida do hardware e do sistema operacional, e o cliente cuida da aplicação. No SaaS, o provedor entrega um produto completo, e o cliente só o usa.	CLF-C02 dominio-1 secao-1_1
+O que quer dizer serverless?	Que o cliente roda código ou usa um serviço sem provisionar nem administrar servidores. No AWS Lambda, a AWS cuida da manutenção dos servidores, da capacidade, do escalonamento e dos patches.	CLF-C02 dominio-1 secao-1_1
+Uma empresa mantém dados no próprio datacenter e usa a AWS para o resto, com os dois lados conectados. Qual é o modelo de implantação?	Híbrido: recursos na nuvem e recursos fora dela, conectados.	CLF-C02 dominio-1 secao-1_1
+Por que usar a nuvem não tira toda a responsabilidade do cliente?	Porque o provedor assume o hardware e, dependendo do modelo, outras camadas, mas o cliente continua decidindo e configurando o que coloca na nuvem, como dados, acessos e, no IaaS, o sistema operacional.	CLF-C02 dominio-1 secao-1_1
+Quais são as seis vantagens da computação em nuvem segundo a AWS?	Trocar despesa fixa por variável, beneficiar-se de economias de escala, parar de adivinhar a capacidade, aumentar a velocidade e a agilidade, parar de gastar com datacenters e tornar-se global em minutos.	CLF-C02 dominio-1 secao-1_2
+Uma loja tem servidores ociosos o ano todo, exceto na Black Friday. Qual vantagem resolve isso?	Parar de adivinhar a capacidade: na nuvem, a loja aumenta a capacidade no pico e reduz depois, pagando só pelo que usa.	CLF-C02 dominio-1 secao-1_2
+Por que a AWS consegue preços menores que uma empresa sozinha?	Pelas economias de escala: o uso de centenas de milhares de clientes é somado, o que permite custos menores, repassados no preço por uso.	CLF-C02 dominio-1 secao-1_2
+O que quer dizer trocar CapEx por OpEx?	Trocar o investimento antecipado em equipamento (despesa de capital) por gastos contínuos de acordo com o uso (despesa operacional). É a vantagem de trocar despesa fixa por variável.	CLF-C02 dominio-1 secao-1_2
+Como a nuvem ajuda a atender usuários em outros continentes?	Permitindo implantar a aplicação em várias Regiões do mundo com poucos cliques, mais perto dos usuários, o que reduz a latência. É a vantagem de tornar-se global em minutos.	CLF-C02 dominio-1 secao-1_2
 A aplicação adiciona instâncias no pico e remove de madrugada, sozinha.	Elasticidade.	CLF-C02 dominio-1 secao-1_3
 Como garantir que a falha de um datacenter não derrube a aplicação?	Implantar em várias AZs (alta disponibilidade).	CLF-C02 dominio-1 secao-1_3
 Qual estratégia de DR tem menor custo?	Backup and Restore.	CLF-C02 dominio-1 secao-1_3

@@ -8,66 +8,66 @@ Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas*
 ## [1.1 O que é computação em nuvem](../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md)
 
 <details>
-<summary>Qual modelo de serviço dá mais controle sobre o sistema operacional?</summary>
+<summary>Como a AWS define computação em nuvem?</summary>
 
-IaaS (EC2).
+Como a entrega sob demanda de recursos de TI, como computação, bancos de dados, armazenamento e aplicações, pela internet, com preço pago pelo uso.
 </details>
 
 <details>
-<summary>Uma empresa quer só enviar o código sem gerenciar infraestrutura. Qual modelo?</summary>
+<summary>Qual é a diferença entre IaaS, PaaS e SaaS?</summary>
 
-PaaS (Elastic Beanstalk).
+É quanto o provedor administra. No IaaS, o provedor entrega rede, computadores e armazenamento, e o cliente cuida do sistema operacional para cima. No PaaS, o provedor também cuida do hardware e do sistema operacional, e o cliente cuida da aplicação. No SaaS, o provedor entrega um produto completo, e o cliente só o usa.
 </details>
 
 <details>
-<summary>Qual é um exemplo de SaaS?</summary>
+<summary>O que quer dizer serverless?</summary>
 
-Amazon Connect, WorkSpaces ou um software pronto como e-mail.
+Que o cliente roda código ou usa um serviço sem provisionar nem administrar servidores. No AWS Lambda, a AWS cuida da manutenção dos servidores, da capacidade, do escalonamento e dos patches.
 </details>
 
 <details>
-<summary>Qual modelo de implantação liga o datacenter próprio à AWS?</summary>
+<summary>Uma empresa mantém dados no próprio datacenter e usa a AWS para o resto, com os dois lados conectados. Qual é o modelo de implantação?</summary>
 
-Híbrido.
+Híbrido: recursos na nuvem e recursos fora dela, conectados.
 </details>
 
 <details>
-<summary>O que caracteriza computação em nuvem?</summary>
+<summary>Por que usar a nuvem não tira toda a responsabilidade do cliente?</summary>
 
-Recursos sob demanda, pela internet, pagando pelo uso.
+Porque o provedor assume o hardware e, dependendo do modelo, outras camadas, mas o cliente continua decidindo e configurando o que coloca na nuvem, como dados, acessos e, no IaaS, o sistema operacional.
 </details>
 
 
 ## [1.2 As 6 vantagens da computação em nuvem](../docs/01-conceitos-de-nuvem/02-vantagens-da-nuvem.md)
 
 <details>
-<summary>Qual vantagem permite trocar investimento inicial em servidores por pagamento conforme o uso?</summary>
+<summary>Quais são as seis vantagens da computação em nuvem segundo a AWS?</summary>
 
-Trocar despesa de capital por despesa variável.
+Trocar despesa fixa por variável, beneficiar-se de economias de escala, parar de adivinhar a capacidade, aumentar a velocidade e a agilidade, parar de gastar com datacenters e tornar-se global em minutos.
 </details>
 
 <details>
-<summary>Uma empresa não sabe quanto tráfego terá no lançamento. Qual vantagem ajuda?</summary>
+<summary>Uma loja tem servidores ociosos o ano todo, exceto na Black Friday. Qual vantagem resolve isso?</summary>
 
-Parar de adivinhar capacidade.
+Parar de adivinhar a capacidade: na nuvem, a loja aumenta a capacidade no pico e reduz depois, pagando só pelo que usa.
 </details>
 
 <details>
-<summary>Como a AWS consegue preços menores que um datacenter próprio?</summary>
+<summary>Por que a AWS consegue preços menores que uma empresa sozinha?</summary>
 
-Economias de escala massivas.
+Pelas economias de escala: o uso de centenas de milhares de clientes é somado, o que permite custos menores, repassados no preço por uso.
 </details>
 
 <details>
-<summary>Uma startup quer abrir operação em outro continente em um dia.</summary>
+<summary>O que quer dizer trocar CapEx por OpEx?</summary>
 
-Tornar-se global em minutos.
+Trocar o investimento antecipado em equipamento (despesa de capital) por gastos contínuos de acordo com o uso (despesa operacional). É a vantagem de trocar despesa fixa por variável.
 </details>
 
 <details>
-<summary>Qual vantagem libera o time para focar no produto em vez de racks e energia?</summary>
+<summary>Como a nuvem ajuda a atender usuários em outros continentes?</summary>
 
-Parar de gastar mantendo datacenters.
+Permitindo implantar a aplicação em várias Regiões do mundo com poucos cliques, mais perto dos usuários, o que reduz a latência. É a vantagem de tornar-se global em minutos.
 </details>
 
 
