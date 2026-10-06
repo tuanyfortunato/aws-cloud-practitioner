@@ -1,156 +1,67 @@
+<!-- autoral -->
+
 # AWS Elastic Beanstalk
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Você tem uma aplicação pronta, mas configurar máquinas, balanceamento e acompanhamento da execução manualmente pode tomar tempo.
-
-**Como este serviço ajuda?** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente. Você entrega o código e define opções do ambiente.
-
-**Exemplo do dia a dia:** Uma equipe envia sua aplicação web para um ambiente Beanstalk. O serviço organiza a infraestrutura necessária para disponibilizá-la.
-
-**O que ele não resolve sozinho?** Você continua responsável pelo código e por decisões de configuração. Os recursos criados continuam tendo custos; Beanstalk não torna a infraestrutura gratuita.
-
-**Primeiras palavras para entender:**
-
-- **Implantar:** colocar uma versão da aplicação em funcionamento.
-- **Ambiente:** conjunto de recursos usado por essa aplicação.
-- **Plataforma:** tecnologias compatíveis para executá-la.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação / PaaS · **Domínio:** 1 (modelos de serviço) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.6 Outros serviços de computação](../../docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md)
+> **Categoria:** Computação (PaaS) · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** você envia o código e o Beanstalk provisiona e gerencia capacidade, balanceamento, escalonamento e monitoramento.
+> **Em uma frase:** você envia o código, e o Elastic Beanstalk cria e gerencia instâncias, balanceamento, escalonamento e monitoramento para rodá-lo.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.6 Outros serviços de computação](../../docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md) · base em [1.1 O que é computação em nuvem](../../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md)
 
-**Passo 1.** Escolha uma plataforma compatível e prepare o pacote da aplicação.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Crie um ambiente com opções de capacidade, acesso e implantação. Beanstalk organiza recursos AWS para atender essa configuração.
+---
 
-**Passo 3.** Envie versões e acompanhe a saúde da aplicação. Código, escolhas operacionais e recursos cobrados continuam exigindo atenção.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Um desenvolvedor terminou o site de inscrições para um evento da escola e quer vê-lo no ar. Montar o ambiente à mão exige criar instâncias, um balanceador, um grupo do Auto Scaling e o monitoramento, peças das [aulas 3.3](../../docs/03-tecnologia-e-servicos/03-ec2.md) e [3.4](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md), e ele só quer cuidar do código.
 
-### Para que serve
+O Elastic Beanstalk é a **plataforma como serviço** (PaaS) da [aula 1.1](../../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) dentro da AWS. Você envia o pacote com o código, e ele cria e configura os recursos, monitora a saúde do ambiente e escala com a demanda. Os recursos ficam na sua conta, então você continua podendo vê-los e ajustá-los.
 
-Desenvolvedores que querem publicar aplicações web **sem pensar em infraestrutura**.
+O limite: o Elastic Beanstalk monta recursos que continuam existindo e sendo cobrados. Ele reduz o trabalho de montar o ambiente, mas não é serverless.
 
-Plataformas: Java, .NET (Windows e Linux), Node.js, Python, PHP, Ruby, Go, Docker, Tomcat.
+## Como funciona
 
-### Conceitos e componentes
+1. Você cria uma aplicação no Elastic Beanstalk e envia o pacote com o código.
+2. Ele cria o ambiente: instâncias do EC2 (ou um cluster do EKS), balanceador de carga e escalonamento automático.
+3. Ele monitora a saúde do ambiente e escala as instâncias com a demanda.
+4. Para uma versão nova, você envia outro pacote, e o Elastic Beanstalk atualiza o ambiente.
 
-**Application**
+## Opções principais
 
-**O que é:** Conjunto de versões e ambientes.
+| Opção | O que faz | Quando lembrar |
+|---|---|---|
+| Modo Standard | Roda a aplicação direto em instâncias do EC2 | O caso comum |
+| Modo Cluster | Roda a aplicação no Amazon EKS | Aplicações que vão para Kubernetes sem que a equipe o monte |
+| Plataformas | Go, Java, .NET, Node.js, PHP, Python, Ruby e containers Docker | "Linguagem X sem administrar servidores" |
 
-**Application version**
+## Números que a prova cobra
 
-**O que é:** Pacote de código (zip no S3).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Cobrança própria do Elastic Beanstalk | Nenhuma | 06/10/2026 |
 
-**Environment**
+## Como é cobrado
 
-**O que é:** Recursos rodando uma versão: **Web server** (com ELB + ASG) ou **Worker** (consome fila SQS).
+O Elastic Beanstalk não tem cobrança adicional: você paga os recursos que ele cria, como as instâncias do EC2, o balanceador e os buckets do S3, sem taxa mínima nem compromisso. Um ambiente ligado sem acessos continua pagando as instâncias e o balanceador.
 
-**Platform**
+## Não confundir com
 
-**O que é:** Combinação de SO, runtime e servidor web, atualizada pela AWS (*managed platform updates*).
+| Serviço | Diferença para o Elastic Beanstalk | Pista no enunciado |
+|---|---|---|
+| [Amazon EC2](ec2.md) | Você monta e administra cada instância | "Controle do sistema operacional" |
+| [Amazon Lightsail](lightsail.md) | Servidor e recursos prontos num plano com preço mensal previsível | "Preço fixo", "projeto simples" |
+| [AWS CloudFormation](../gerenciamento/cloudformation.md) | Cria qualquer conjunto de recursos a partir de um modelo em código (infraestrutura como código) | "Modelo", "infraestrutura como código" |
+| [AWS Lambda](lambda.md) | Serverless: roda funções por evento, sem instâncias | "Sem servidores", "cobrar só quando roda" |
 
-**.ebextensions / platform hooks**
+## Fontes oficiais
 
-**O que é:** Personalização da configuração.
+Verificadas em 06/10/2026.
 
-### Configurações e opções importantes
-
-**Tipo de ambiente**
-
-**Detalhe:** Single instance (barato, dev) ou load balanced (produção).
-
-**Políticas de deploy**
-
-**Detalhe:** All at once, Rolling, Rolling with additional batch, **Immutable**, Traffic splitting (canary); **blue/green** trocando o CNAME entre ambientes.
-
-**Monitoramento**
-
-**Detalhe:** Health básico ou *enhanced health*.
-
-**Acesso**
-
-**Detalhe:** Você continua com acesso total aos recursos criados (EC2, ELB, RDS…).
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Você continua responsável pelo código e por decisões de configuração. Os recursos criados continuam tendo custos; Beanstalk não torna a infraestrutura gratuita.
-
-### ⚠️ Pegadinhas e não confundir
-
-**Beanstalk × CloudFormation:** Beanstalk = sobe *a aplicação* sem pensar em infra; CloudFormation = descreve *qualquer infraestrutura* como código (o Beanstalk usa CloudFormation por baixo).
-
-**Beanstalk × Lightsail:** PaaS que escala × servidor simples de preço fixo.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-**Sem custo adicional** — paga só os recursos que ele cria (EC2, ELB, S3, RDS…).
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** provisionamento, atualizações de plataforma (quando ativadas), orquestração.
-
-**Cliente:** código, configuração, dados, IAM, security groups.
-
-## 5. Caso resolvido: ligando as peças
-
-Uma equipe envia sua aplicação web para um ambiente Beanstalk. O serviço organiza a infraestrutura necessária para disponibilizá-la.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Escolha uma plataforma compatível e prepare o pacote da aplicação.
-**Etapa 2:** Crie um ambiente com opções de capacidade, acesso e implantação. Beanstalk organiza recursos AWS para atender essa configuração.
-**Etapa 3:** Envie versões e acompanhe a saúde da aplicação. Código, escolhas operacionais e recursos cobrados continuam exigindo atenção.
-
-**Resultado e responsabilidade:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente. Você entrega o código e define opções do ambiente.
-
-**Recursos envolvidos:** Application, versions, environment e recursos provisionados.
-
-**Decisões que precisam ser tomadas:** Plataforma, versão de código, variáveis, escala e rede.
-
-**Outra situação comentada:** Enviar aplicação web e delegar provisionamento comum: Beanstalk, sem presumir custo zero.
-
-**Por que não concluir mais do que isso:** Aplicação, dependências e configurações continuam com o cliente; recursos usados são cobrados
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento."
-
-**Resposta curta:** Elastic Beanstalk.
-
-**Pergunta:** "O Elastic Beanstalk tem custo próprio?"
-
-**Resposta curta:** Não.
-
-**Pergunta:** "Qual modelo de serviço o Beanstalk representa?"
-
-**Resposta curta:** PaaS.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)
+- [O que é o AWS Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)
+- [Preços do AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
