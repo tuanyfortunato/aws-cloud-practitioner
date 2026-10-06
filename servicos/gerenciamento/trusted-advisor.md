@@ -1,122 +1,76 @@
+<!-- autoral -->
+
 # AWS Trusted Advisor
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa precisa identificar oportunidades de melhoria no uso da AWS, como recursos ociosos ou configurações que merecem atenção.
-
-**Como este serviço ajuda?** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-
-**Exemplo do dia a dia:** A equipe consulta uma recomendação sobre recursos pouco usados e decide se pode ajustá-los ou removê-los sem prejudicar a aplicação.
-
-**O que ele não resolve sozinho?** Uma recomendação não conhece sozinha todas as necessidades do negócio. Cobertura e acesso dependem das condições aplicáveis; a equipe deve avaliar antes de agir.
-
-**Primeiras palavras para entender:**
-
-- **Verificação:** análise segundo um critério.
-- **Recomendação:** orientação de melhoria.
-- **Ocioso:** recurso com pouco ou nenhum uso.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gerenciamento / boas práticas · **Domínio:** 2, 3 e 4 · **Escopo:** Global (conta e organização) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md) · [4.5 Planos de suporte](../../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)
+> **Categoria:** Gerenciamento e boas práticas · **Domínio:** 2, 3 e 4 · **Abrangência:** Conta e organização · **Ficha:** núcleo
 >
-> **Em uma frase:** inspeciona sua conta e recomenda melhorias com base nas boas práticas da AWS.
+> **Em uma frase:** examina o ambiente da AWS e recomenda onde economizar, melhorar desempenho e disponibilidade, fechar brechas de segurança e respeitar os limites de serviço.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md) · [4.5 Planos de suporte](../../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)
 
-**Passo 1.** Consulte verificações compatíveis com seu ambiente e seu nível de acesso.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Leia o problema e a recomendação associados ao recurso. Compare-os com os requisitos reais da aplicação.
+---
 
-**Passo 3.** Faça a mudança adequada e acompanhe o resultado. Não remova um recurso apenas por uma recomendação sem avaliar seu papel.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A conta da escola cresceu sem revisão: load balancers sem uso, um security group com a porta de administração aberta para qualquer endereço, a conta root sem MFA e o número de instâncias perto do limite da conta. Ninguém tem tempo de procurar esses problemas um por um.
 
-### Categorias
+O **Trusted Advisor** procura por você. Ele roda **verificações** em seis categorias (otimização de custos, desempenho, segurança, tolerância a falhas, limites de serviço e excelência operacional) e mostra cada resultado com a recomendação. Entre as verificações de segurança estão permissões de buckets S3, security groups com portas liberadas sem restrição e MFA na conta root.
 
-1. **Cost optimization** — instâncias ociosas, volumes EBS sem uso, Elastic IPs não associados, RIs/SPs subutilizados.
+O limite: quantas verificações você vê depende do plano de suporte. No Basic, são todas as de limites de serviço e algumas de segurança e tolerância a falhas, atualizadas à mão. E o Trusted Advisor aponta configurações fora das boas práticas, não ataques em andamento; isso é o [GuardDuty](../seguranca/guardduty.md).
 
-2. **Performance** — instâncias sobrecarregadas, configuração do CloudFront.
+## Como funciona
 
-3. **Security** — buckets S3 abertos, SGs com portas irrestritas, **MFA no root**, uso do IAM, snapshots públicos, access keys expostas.
+1. O Trusted Advisor examina os recursos da conta.
+2. Cada verificação mostra o resultado, os recursos afetados e a recomendação.
+3. Nos planos Business Support+, Enterprise e Unified Operations, todas as verificações ficam disponíveis, com atualização automática e acesso pela API.
+4. Com o AWS Organizations, a **visão organizacional** reúne os resultados de todas as contas num relatório.
 
-4. **Fault tolerance** — EBS sem snapshot, instâncias numa só AZ, RDS sem Multi-AZ, backups.
+## Opções principais
 
-5. **Service limits (quotas)** — uso acima de 80% da cota.
-
-6. 🔄 **Operational excellence** — práticas operacionais (logs, monitoramento). *(confirmado na documentação oficial; materiais antigos listam só as 5 primeiras)*
-
-Status das verificações: 🟢 sem problema · 🟡 investigação recomendada · 🔴 ação recomendada.
-
-### Por plano de suporte
-
-| Plano | Verificações | Extras |
+| Categoria | O que verifica | Exemplo na escola |
 |---|---|---|
-| **Basic / Developer** | 📌 **Core checks**: todos de **Service Limits** + **5 de segurança**: S3 Bucket Permissions, Security Groups – Specific Ports Unrestricted, MFA on Root Account, EBS Public Snapshots, RDS Public Snapshots (✔️ lista oficial de 10/2026; "IAM Use" não aparece mais) | Refresh manual |
-| **Business Support+ / Enterprise / Unified Operations** (e os clássicos Business / Enterprise On-Ramp) | **Todas** as verificações | **AWS Support API**, integração com **EventBridge**, notificações semanais, visão organizacional |
-| **Enterprise e superior** | + **Trusted Advisor Priority** (recomendações priorizadas pelo time de conta) | — |
+| Otimização de custos | Recursos ociosos ou subutilizados | Load balancer ocioso, NAT gateway sem uso |
+| Desempenho | Configurações que limitam o desempenho | Volume EBS subdimensionado para o uso |
+| Segurança | Brechas de configuração | Porta aberta para qualquer endereço, root sem MFA |
+| Tolerância a falhas | Pontos únicos de falha | Banco RDS com todas as instâncias na mesma zona |
+| Limites de serviço | Uso perto das cotas da conta | Instâncias perto do limite da Região |
+| Excelência operacional | Boas práticas de operação | VPC sem Flow Logs |
 
-## 3. Como escolher e reconhecer os limites
+## Números que a prova cobra
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Categorias de verificação | 6 | 06/10/2026 |
+| Plano Basic | Todas as de limites de serviço e algumas de segurança e tolerância a falhas, sem atualização automática | 06/10/2026 |
+| Todas as verificações e a API | Business Support+, Enterprise ou Unified Operations | 06/10/2026 |
+| Trusted Advisor Priority | Enterprise ou Unified Operations, na conta de gerenciamento | 06/10/2026 |
 
-Uma recomendação não conhece sozinha todas as necessidades do negócio. Cobertura e acesso dependem das condições aplicáveis; a equipe deve avaliar antes de agir.
+## Como é cobrado
 
-### ⚠️ Não confundir
+O Trusted Advisor não tem cobrança própria: o acesso vem com o plano de suporte. O Basic, gratuito, dá as verificações principais; os planos pagos liberam todas.
 
-Trusted Advisor (boas práticas amplas: custo, desempenho, segurança, cotas) × **Security Hub** (achados de segurança) × **Compute Optimizer** (rightsizing com ML) × **Well-Architected Tool** (revisão de uma carga contra os pilares).
+## Não confundir com
 
-## 4. Caso resolvido: ligando as peças
+| Serviço | Diferença para o Trusted Advisor | Pista no enunciado |
+|---|---|---|
+| [AWS Compute Optimizer](compute-optimizer-service-quotas-e-license-manager.md) | Recomenda o tamanho certo a partir das métricas de uso | "Tamanho certo da instância" |
+| [Service Quotas](compute-optimizer-service-quotas-e-license-manager.md) | Mostra as cotas e recebe o pedido de aumento | "Pedir aumento de limite" |
+| [AWS Config](config.md) | Avalia regras definidas pelo cliente e guarda histórico | "Histórico de configuração" |
+| [AWS Security Hub](../seguranca/security-hub.md) | Reúne achados de segurança e confere padrões | "Visão única de segurança" |
+| [Amazon GuardDuty](../seguranca/guardduty.md) | Detecta ameaças em andamento | "Atividade suspeita" |
 
-A equipe consulta uma recomendação sobre recursos pouco usados e decide se pode ajustá-los ou removê-los sem prejudicar a aplicação.
+## Fontes oficiais
 
-**Aplicando a sequência à situação:**
+Verificadas em 06/10/2026.
 
-**Etapa 1:** Consulte verificações compatíveis com seu ambiente e seu nível de acesso.
-**Etapa 2:** Leia o problema e a recomendação associados ao recurso. Compare-os com os requisitos reais da aplicação.
-**Etapa 3:** Faça a mudança adequada e acompanhe o resultado. Não remova um recurso apenas por uma recomendação sem avaliar seu papel.
-
-**Resultado e responsabilidade:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-
-**Recursos envolvidos:** Checks, recomendações e visão de resultados.
-
-**Decisões que precisam ser tomadas:** Conta, plano e acesso aos checks.
-
-**Outra situação comentada:** Recomendação geral de boas práticas: Trusted Advisor; tamanho por uso observado: Compute Optimizer.
-
-**Por que não concluir mais do que isso:** Não é garantia de aplicação perfeita nem alteração automática de toda recomendação
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Recomendar melhorias de custo, segurança, desempenho e limites."
-
-**Resposta curta:** Trusted Advisor.
-
-**Pergunta:** "Menor plano com todas as verificações do Trusted Advisor."
-
-**Resposta curta:** Business Support+ (no modelo clássico, Business).
-
-**Pergunta:** "Menor plano com Trusted Advisor Priority."
-
-**Resposta curta:** Enterprise.
-
-**Pergunta:** "Verificações disponíveis no Basic."
-
-**Resposta curta:** Core checks (segurança essenciais + service limits).
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html)
+- [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html)
+- [Referência das verificações](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-check-reference.html)
+- [Visão organizacional](https://docs.aws.amazon.com/awssupport/latest/user/organizational-view.html)
+- [Trusted Advisor Priority](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-priority.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

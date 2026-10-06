@@ -1,125 +1,75 @@
-# AWS Systems Manager (SSM)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# AWS Systems Manager
 
-**Qual é a dificuldade?** A equipe administra muitas máquinas e precisa executar comandos, aplicar atualizações e acessar ambientes sem repetir cada tarefa manualmente.
-
-**Como este serviço ajuda?** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
-
-**Exemplo do dia a dia:** A equipe usa Session Manager para uma sessão autorizada e planeja atualizações com ferramentas de patch, em vez de entrar separadamente em cada máquina.
-
-**O que ele não resolve sozinho?** Não basta o recurso existir na conta: agente, identidade, rede e demais requisitos variam conforme a função. Automatizar exige permissões e procedimentos definidos.
-
-**Primeiras palavras para entender:**
-
-- **Nó gerenciado:** máquina preparada para usar essas ferramentas.
-- **Patch:** atualização corretiva.
-- **Runbook:** procedimento de automação.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gerenciamento / operações · **Domínio:** 3 · **Escopo:** Regional (EC2, on-premises e outras nuvens) · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
+> **Categoria:** Gerenciamento e operações · **Domínio:** 3 · **Abrangência:** Regional (EC2, servidores locais e outras nuvens) · **Ficha:** núcleo
 >
-> **Em uma frase:** central de operações para gerenciar **frotas** de servidores (EC2, on-premises, VMs) em escala, sem acesso manual.
+> **Em uma frase:** permite ver e operar de forma central muitas máquinas, em várias contas e Regiões: aplicar patches, rodar comandos, conectar-se sem abrir portas e guardar configurações.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 
-**Passo 1.** Prepare as máquinas para torná-las nós gerenciados, com requisitos de agente, rede e identidade atendidos.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha a ferramenta operacional correspondente, como sessão, comando ou atualização. Execute a ação autorizada.
+---
 
-**Passo 3.** Confira resultados e falhas em cada alvo. Administrar muitas máquinas não torna toda operação segura sem planejamento.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A rede de escolas tem cinquenta instâncias EC2 e alguns servidores ainda no datacenter da secretaria. Uma auditoria pede que todas recebam a atualização de segurança até o fim do dia. Entrar em cada uma por SSH levaria o dia todo e exigiria deixar a porta 22 aberta.
 
-### Pré-requisitos
+O **Systems Manager** opera as máquinas em grupo. Cada uma, chamada de **nó**, roda o **SSM Agent** e conversa com o serviço. A partir daí, o **Patch Manager** aplica atualizações em todas de uma vez, o **Run Command** executa um comando em muitas máquinas, o **Session Manager** abre uma sessão de terminal sem porta de entrada aberta nem bastion, e o **Parameter Store** guarda configurações e segredos usados pelas aplicações.
 
-**SSM Agent** instalado (vem nas AMIs da AWS) + **IAM role** com `AmazonSSMManagedInstanceCore` + conectividade com os endpoints do SSM (internet/NAT ou VPC endpoints).
+O limite: só gerencia o nó que tem o agente funcionando e conversando com o serviço. E ele aplica os patches, mas não descobre sozinho quais falhas de segurança existem; quem encontra as CVEs é o [Inspector](../seguranca/inspector.md).
 
-On-premises: *hybrid activations*.
+## Como funciona
 
-### Capacidades principais
+1. Cada nó roda o SSM Agent, que precisa conseguir falar com o Systems Manager; aí o nó passa a ser gerenciado.
+2. Os nós aparecem no console, com inventário do software instalado.
+3. Você escolhe a ferramenta: aplicar patches, rodar comandos, abrir sessões ou executar automações.
+4. As tarefas podem ser agendadas em janelas de manutenção.
 
-| Capacidade | O que faz | Exemplo de prova |
+## Opções principais
+
+| Ferramenta | O que faz | Exemplo na escola |
 |---|---|---|
-| **Session Manager** | Shell/PowerShell no navegador ou CLI **sem porta 22/3389, sem bastion, sem chaves SSH**; sessões auditadas (logs no S3/CloudWatch) | "Acessar instância sem abrir SSH" |
-| **Run Command** | Executa comandos/scripts em muitas instâncias ao mesmo tempo | "Rodar script em 200 servidores" |
-| **Patch Manager** | Aplica patches de SO/aplicações com **patch baselines** e **maintenance windows** | "Aplicar patches em 500 servidores" |
-| **State Manager** | Mantém configuração desejada (ex.: agente instalado) | — |
-| **Automation** | **Runbooks** para tarefas operacionais (criar AMI, remediar achados do Config) | "Remediação automática" |
-| **Parameter Store** | Configurações e segredos ([ficha](../seguranca/secrets-manager-e-parameter-store.md)) | — |
-| **Inventory** | Software instalado, configurações | "Quais servidores têm a versão X?" |
-| **Fleet Manager** | Console para gerenciar os nós remotamente | — |
-| **Distributor** | Distribui pacotes de software | — |
-| **OpsCenter / Explorer** | Itens operacionais e visão agregada | — |
-| **Incident Manager / Change Manager** | Resposta a incidentes / aprovação de mudanças | 🔄 Fechados a novos clientes desde 07/11/2025 |
-| **Maintenance Windows** | Janelas agendadas para tarefas | — |
+| Session Manager | Terminal na máquina sem porta de entrada aberta | Acessar o servidor com a porta SSH fechada |
+| Patch Manager | Aplica patches em grande escala | Atualização de segurança em todas as instâncias |
+| Run Command | Executa comandos em muitas máquinas | Reiniciar um serviço em todos os servidores |
+| Parameter Store | Guarda configurações e segredos | Endereço do banco usado pela aplicação |
+| Automation | Executa rotinas de administração | Remediação acionada por uma regra do Config |
+| Maintenance Windows | Agenda as tarefas | Patches toda madrugada de domingo |
 
-## 3. Como escolher e reconhecer os limites
+## Números que a prova cobra
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Requisito em cada nó | SSM Agent instalado e com acesso ao serviço | 06/10/2026 |
+| Session Manager, Patch Manager e Run Command no EC2 | Sem custo adicional | 06/10/2026 |
+| Parameter Store, nível padrão | Sem custo adicional, até 10.000 parâmetros de 4 KB | 06/10/2026 |
 
-Não basta o recurso existir na conta: agente, identidade, rede e demais requisitos variam conforme a função. Automatizar exige permissões e procedimentos definidos.
+## Como é cobrado
 
-### ⚠️ Não confundir
+A maior parte das ferramentas não tem custo adicional para instâncias EC2. São cobrados, por exemplo, os parâmetros avançados do Parameter Store, algumas automações e o uso em servidores locais e em outras nuvens.
 
-Systems Manager (opera **dentro** das instâncias) × Config (avalia **configuração** dos recursos) × CloudFormation (cria a infraestrutura).
+## Não confundir com
 
-## 4. Operação, segurança e custo
+| Serviço | Diferença para o Systems Manager | Pista no enunciado |
+|---|---|---|
+| [Amazon Inspector](../seguranca/inspector.md) | Encontra as vulnerabilidades que o Patch Manager corrige | "CVE", "vulnerabilidade" |
+| [AWS CloudFormation](cloudformation.md) | Cria a infraestrutura a partir de um modelo | "Infraestrutura como código" |
+| [AWS Secrets Manager](../seguranca/secrets-manager-e-parameter-store.md) | Guarda segredos com rotação automática | "Rotacionar a senha do banco" |
+| [AWS Config](config.md) | Avalia configurações; usa automações do Systems Manager para corrigir | "Recurso fora da regra" |
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+## Fontes oficiais
 
-### Cobrança
+Verificadas em 06/10/2026.
 
-A maioria das capacidades é **gratuita** para EC2; pagos: nós on-premises avançados, Automation acima da cota, Parameter Store Advanced, OpsCenter etc.
-
-## 5. Caso resolvido: ligando as peças
-
-A equipe usa Session Manager para uma sessão autorizada e planeja atualizações com ferramentas de patch, em vez de entrar separadamente em cada máquina.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Prepare as máquinas para torná-las nós gerenciados, com requisitos de agente, rede e identidade atendidos.
-**Etapa 2:** Escolha a ferramenta operacional correspondente, como sessão, comando ou atualização. Execute a ação autorizada.
-**Etapa 3:** Confira resultados e falhas em cada alvo. Administrar muitas máquinas não torna toda operação segura sem planejamento.
-
-**Resultado e responsabilidade:** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
-
-**Recursos envolvidos:** Managed nodes, Session Manager, Run Command, Patch Manager e Automation.
-
-**Decisões que precisam ser tomadas:** Agente/conectividade/role e documentos de operação.
-
-**Outra situação comentada:** Operar EC2 sem porta 22 aberta: Session Manager com agente, role e endpoints/rede adequados.
-
-**Por que não concluir mais do que isso:** Session Manager exige pré-requisitos; fechar SSH não dispensa configuração do serviço
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Gerenciar e aplicar patches numa frota, inclusive on-premises."
-
-**Resposta curta:** Systems Manager (Patch Manager).
-
-**Pergunta:** "Acessar a instância sem abrir a porta 22."
-
-**Resposta curta:** Session Manager.
-
-**Pergunta:** "Executar o mesmo comando em centenas de instâncias."
-
-**Resposta curta:** Run Command.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
+- [O que é o AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
+- [Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)
+- [Patch Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager.html)
+- [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
+- [Preços do AWS Systems Manager](https://aws.amazon.com/systems-manager/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

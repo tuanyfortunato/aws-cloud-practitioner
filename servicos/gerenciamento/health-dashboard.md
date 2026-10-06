@@ -1,105 +1,74 @@
+<!-- autoral -->
+
 # AWS Health Dashboard
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Um problema da AWS ou uma manutenção pode afetar recursos. A equipe precisa distinguir isso de um erro exclusivo de sua aplicação.
-
-**Como este serviço ajuda?** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
-
-**Exemplo do dia a dia:** A equipe consulta um evento de manutenção que afeta seu ambiente e planeja a ação indicada para os recursos envolvidos.
-
-**O que ele não resolve sozinho?** A visão pública não mostra todos os detalhes específicos de uma conta. AWS Health também não substitui métricas e logs da aplicação.
-
-**Primeiras palavras para entender:**
-
-- **Evento de saúde:** aviso sobre condição ou mudança operacional.
-- **Visão pública:** estado geral dos serviços.
-- **Visão da conta:** informações associadas ao ambiente do cliente.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gerenciamento / operações · **Domínio:** 2 e 3 · **Escopo:** Global · **Gratuito** · **Tópico do guia:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
+> **Categoria:** Gerenciamento e operações · **Domínio:** 2 e 3 · **Abrangência:** Global · **Ficha:** núcleo
 >
-> **Em uma frase:** mostra o status dos serviços AWS e, principalmente, os eventos que afetam **os seus** recursos.
+> **Em uma frase:** mostra os eventos da AWS que afetam os serviços e as suas contas, como falhas em andamento e manutenções planejadas.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.16 Gestão e governança](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 
-**Passo 1.** Consulte a visão geral ou específica da conta conforme a investigação.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Leia os eventos e identifique os recursos e prazos relevantes.
+---
 
-**Passo 3.** Execute as ações pertinentes e acompanhe a aplicação com suas próprias ferramentas de observação.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+No dia das inscrições, parte dos pais reclama de lentidão. A equipe de TI olha as métricas e não acha nada de errado na aplicação. A dúvida que sobra é: o problema é da escola ou da AWS?
 
-### Duas visões
+O **AWS Health** dá essa resposta. O **Health Dashboard** tem duas visões. A **saúde dos serviços** (*service health*) é uma página pública com os eventos dos serviços da AWS em todas as Regiões, sem precisar de login. A **saúde da sua conta** (*your account health*) mostra os eventos que podem afetar as suas contas e recursos, inclusive manutenções planejadas, para que a escola se prepare. Ela está disponível para todos os clientes, sem configuração e sem custo adicional.
 
-| Visão | O que mostra | Acesso |
+O limite: o Health fala dos eventos da AWS, não dos problemas da aplicação da escola nem de quem mudou algo na conta. Para isso existem o [CloudWatch](cloudwatch.md) e o [CloudTrail](cloudtrail.md). E consultar os eventos por programa, pela **AWS Health API**, exige um plano de suporte pago.
+
+## Como funciona
+
+1. A AWS publica eventos de serviço e de conta no AWS Health.
+2. A página pública mostra a saúde dos serviços; o console mostra os eventos que afetam a sua conta.
+3. Com o AWS Organizations, a **visão organizacional** reúne os eventos de todas as contas.
+4. Regras do EventBridge podem reagir aos eventos, por exemplo avisando a equipe de uma manutenção.
+
+## Opções principais
+
+| Visão ou recurso | O que mostra | Quem usa |
 |---|---|---|
-| **Service health** | Status **público** de todos os serviços em todas as regiões | Sem login |
-| **Your account health** | Eventos **personalizados**: manutenções programadas (ex.: reinício de instância por hardware), problemas que afetam seus recursos, avisos (fim de versões, certificados) — com **orientação de correção** | Console, para todos os clientes |
+| Saúde dos serviços | Eventos dos serviços em todas as Regiões, em página pública | Qualquer pessoa, sem login |
+| Saúde da sua conta | Eventos que afetam as suas contas e recursos | Todos os clientes, sem configuração |
+| Visão organizacional | Eventos de todas as contas da organização | Equipe de operações da rede |
+| Integração com o EventBridge | Reage automaticamente aos eventos | Avisar a equipe ou abrir um chamado |
+| AWS Health API | Consulta dos eventos por programa | Planos Business Support+, Enterprise ou Unified Operations |
 
-### Integrações
+## Números que a prova cobra
 
-**AWS Health API:** acesso programático — exige plano **Business ou superior**.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Custo do Health Dashboard | Sem custo adicional | 06/10/2026 |
+| Página de saúde dos serviços | Pública, sem login | 06/10/2026 |
+| Planos para a Health API | Business Support+, Enterprise ou Unified Operations | 06/10/2026 |
 
-**EventBridge:** automatizar respostas a eventos (ex.: notificar no Slack, mover cargas).
+## Como é cobrado
 
-**Organizational view:** eventos de todas as contas da organização.
+O Health Dashboard não tem custo adicional. O acesso à Health API vem com os planos de suporte que a incluem.
 
-## 3. Como escolher e reconhecer os limites
+## Não confundir com
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| Serviço | Diferença para o Health Dashboard | Pista no enunciado |
+|---|---|---|
+| [Amazon CloudWatch](cloudwatch.md) | Métricas e alarmes dos seus recursos | "CPU alta na minha instância" |
+| [AWS Trusted Advisor](trusted-advisor.md) | Recomendações de boas práticas da conta | "Economizar", "limites de serviço" |
+| [AWS CloudTrail](cloudtrail.md) | Quem fez cada ação na conta | "Quem alterou" |
+| [Planos de suporte](../custos/planos-de-suporte.md) | Atendimento da AWS e acesso à Health API | "Abrir um caso de suporte" |
 
-A visão pública não mostra todos os detalhes específicos de uma conta. AWS Health também não substitui métricas e logs da aplicação.
+## Fontes oficiais
 
-### ⚠️ Não confundir
+Verificadas em 06/10/2026.
 
-Health Dashboard (eventos **da AWS** que afetam você) × CloudWatch (métricas **dos seus** recursos) × Trusted Advisor (recomendações).
-
-## 4. Caso resolvido: ligando as peças
-
-A equipe consulta um evento de manutenção que afeta seu ambiente e planeja a ação indicada para os recursos envolvidos.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Consulte a visão geral ou específica da conta conforme a investigação.
-**Etapa 2:** Leia os eventos e identifique os recursos e prazos relevantes.
-**Etapa 3:** Execute as ações pertinentes e acompanhe a aplicação com suas próprias ferramentas de observação.
-
-**Resultado e responsabilidade:** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
-
-**Recursos envolvidos:** Eventos públicos e eventos específicos da conta.
-
-**Decisões que precisam ser tomadas:** Conta, região, serviço e integrações de evento.
-
-**Outra situação comentada:** Manutenção de recurso específico: Health; erro interno do app: logs/métricas da aplicação.
-
-**Por que não concluir mais do que isso:** Ausência de evento AWS não prova que o código da aplicação está saudável
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Ver eventos de manutenção da AWS que afetam minhas instâncias."
-
-**Resposta curta:** AWS Health Dashboard.
-
-**Pergunta:** "Automatizar reação a um evento de manutenção programada."
-
-**Resposta curta:** Health + EventBridge.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS Health](https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html)
+- [O que é o AWS Health](https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html)
+- [Saúde dos serviços](https://docs.aws.amazon.com/health/latest/ug/aws-health-dashboard-status.html)
+- [Visão organizacional](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html)
+- [Eventos do Health no EventBridge](https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html)
+- [AWS Health API](https://docs.aws.amazon.com/health/latest/ug/health-api.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

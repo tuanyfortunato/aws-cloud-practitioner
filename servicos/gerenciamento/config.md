@@ -1,142 +1,77 @@
+<!-- autoral -->
+
 # AWS Config
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A equipe precisa acompanhar como as configurações dos recursos mudaram e verificar se elas seguem requisitos definidos.
-
-**Como este serviço ajuda?** AWS Config registra configurações de recursos compatíveis e permite avaliá-las com regras.
-
-**Exemplo do dia a dia:** A escola define uma regra para uma configuração importante e acompanha os recursos avaliados como conformes ou não conformes.
-
-**O que ele não resolve sozinho?** Config observa e avalia configuração; não é o serviço principal para medir lentidão da aplicação. Correções automáticas dependem de remediação configurada.
-
-**Primeiras palavras para entender:**
-
-- **Configuração:** propriedades de um recurso.
-- **Regra:** critério de avaliação.
-- **Remediação:** ação para corrigir uma condição inadequada.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gerenciamento / governança e compliance · **Domínio:** 2 · **Escopo:** Regional (agregadores multi-conta/região) · **Tópico do guia:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md) · [2.6 Compliance](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
+> **Categoria:** Gerenciamento, governança e compliance · **Domínio:** 2 · **Abrangência:** Regional (agregadores reúnem contas e Regiões) · **Ficha:** núcleo
 >
-> **Em uma frase:** registra a **configuração** dos recursos e seu histórico de mudanças, e avalia continuamente se estão **conformes** com regras.
+> **Em uma frase:** registra a configuração dos recursos, as relações entre eles e o histórico de mudanças, e avalia cada recurso contra regras de configuração desejada.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md) · [2.6 Compliance e governança](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
 
-**Passo 1.** Selecione os recursos e configurações compatíveis que precisam de acompanhamento.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Registre mudanças e aplique regras de avaliação para requisitos definidos.
+---
 
-**Passo 3.** Investigue não conformidades e configure remediação quando apropriado. Avaliar uma configuração e corrigi-la são operações diferentes.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A pasta de documentos dos pais ficou pública. O CloudTrail mostrou quem mudou a política do bucket, mas a diretora quer mais: como a política estava antes, desde quando o bucket está fora da regra e se existem outros buckets na mesma situação.
 
-### Componentes
+O **Config** guarda o estado. Ele registra a configuração de cada recurso como **itens de configuração**, com as relações entre recursos e o histórico de mudanças, de modo que dá para ver a política do bucket antes e depois. Sobre esse registro, as **regras do Config** descrevem a configuração desejada, como "todo bucket deve bloquear acesso público", e marcam cada recurso como em conformidade ou não. Recursos fora da regra podem ser corrigidos com **remediação**, que executa automações do Systems Manager.
 
-**Configuration recorder**
+O limite: o Config só tem o histórico do período em que estava registrando. E ele avalia configurações, não prova sozinho que a escola cumpre uma norma; as evidências para a auditoria são organizadas pelo [Audit Manager](../seguranca/audit-manager.md).
 
-**Detalhe:** Registra *configuration items* (estado de cada recurso e relações) — todos os tipos ou selecionados; contínuo ou diário.
+## Como funciona
 
-**Delivery channel**
+1. Você liga o gravador do Config e escolhe quais tipos de recurso registrar.
+2. Cada mudança gera um item de configuração; o histórico fica disponível para consulta.
+3. Regras gerenciadas (prontas) ou personalizadas avaliam os recursos quando eles mudam ou periodicamente.
+4. Recursos fora da regra aparecem como fora de conformidade e podem ser corrigidos com remediação; um agregador reúne os dados de várias contas e Regiões.
 
-**Detalhe:** Envia histórico e snapshots para **S3** e notificações para **SNS**.
+## Opções principais
 
-**Resource timeline**
+| Recurso | O que faz | Exemplo na escola |
+|---|---|---|
+| Histórico de configuração | Estado de cada recurso ao longo do tempo | Política do bucket antes da mudança |
+| Regras gerenciadas | Regras prontas da AWS | "Buckets devem bloquear acesso público" |
+| Regras personalizadas | Regras escritas pelo cliente | Exigir uma etiqueta de setor em tudo |
+| Remediação | Corrige com automações do Systems Manager | Reaplicar o bloqueio de acesso público |
+| Pacote de conformidade | Conjunto de regras e remediações implantado de uma vez | O mesmo pacote em todas as contas |
+| Agregador | Reúne dados de várias contas e Regiões | Uma visão para a rede inteira |
 
-**Detalhe:** "Como estava este security group na terça passada e quem mudou?" (com link para o evento no CloudTrail).
+## Números que a prova cobra
 
-**Config rules**
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Unidade de registro | Item de configuração, um por estado registrado | 06/10/2026 |
+| Base das verificações do Security Hub CSPM | A maioria usa regras do Config | 06/10/2026 |
+| Controles detectivos do Control Tower | Implementados com regras do Config | 06/10/2026 |
 
-**Detalhe:** **Managed rules** (centenas prontas: `s3-bucket-public-read-prohibited`, `encrypted-volumes`, `restricted-ssh`, `root-account-mfa-enabled`…) ou **custom** (Lambda ou Guard). Avaliação por mudança ou periódica.
+## Como é cobrado
 
-**Remediation**
+Paga-se pelo número de itens de configuração registrados, de avaliações de regras ativas e de avaliações de pacotes de conformidade na conta.
 
-**Detalhe:** Ações corretivas manuais ou **automáticas** via **Systems Manager Automation**.
+## Não confundir com
 
-**Conformance packs**
+| Serviço | Diferença para o Config | Pista no enunciado |
+|---|---|---|
+| [AWS CloudTrail](cloudtrail.md) | Registra quem fez a chamada de API | "Quem alterou" |
+| [Amazon CloudWatch](cloudwatch.md) | Métricas e alarmes de funcionamento | "Desempenho", "CPU" |
+| [AWS Audit Manager](../seguranca/audit-manager.md) | Organiza evidências por controle de uma norma | "Evidências para o auditor" |
+| [AWS Trusted Advisor](trusted-advisor.md) | Recomendações de boas práticas, sem histórico | "Recomendações para economizar" |
+| [AWS Security Hub](../seguranca/security-hub.md) | Reúne achados e confere padrões de segurança | "Visão única de segurança" |
 
-**Detalhe:** Pacotes de regras + remediações (ex.: boas práticas de PCI DSS, CIS) implantáveis na organização.
+## Fontes oficiais
 
-**Aggregators**
+Verificadas em 06/10/2026.
 
-**Detalhe:** Visão consolidada de várias contas e regiões.
-
-**Advanced query**
-
-**Detalhe:** Consultas SQL sobre o inventário de configuração.
-
-### Quem depende do Config
-
-**Security Hub** (verificações de padrões), **Firewall Manager**, **Control Tower** (controles detectivos), **Audit Manager**.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Config observa e avalia configuração; não é o serviço principal para medir lentidão da aplicação. Correções automáticas dependem de remediação configurada.
-
-### ⚠️ Não confundir
-
-Config (**estado/conformidade**) × CloudTrail (**quem fez**) × CloudWatch (**métricas**).
-
-Config **detecta e pode remediar**; **SCP** previne.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por **configuration item registrado** + por **avaliação de regra** + conformance packs.
-
-## 5. Caso resolvido: ligando as peças
-
-A escola define uma regra para uma configuração importante e acompanha os recursos avaliados como conformes ou não conformes.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Selecione os recursos e configurações compatíveis que precisam de acompanhamento.
-**Etapa 2:** Registre mudanças e aplique regras de avaliação para requisitos definidos.
-**Etapa 3:** Investigue não conformidades e configure remediação quando apropriado. Avaliar uma configuração e corrigi-la são operações diferentes.
-
-**Resultado e responsabilidade:** AWS Config registra configurações de recursos compatíveis e permite avaliá-las com regras.
-
-**Recursos envolvidos:** Recorder, configuration items, rules e aggregators.
-
-**Decisões que precisam ser tomadas:** Tipos de recurso, cobertura e regras.
-
-**Outra situação comentada:** Saber se bucket atende regra e seu estado anterior: Config; quem mudou: CloudTrail.
-
-**Por que não concluir mais do que isso:** Avaliar regra não bloqueia necessariamente criação; remediação depende de integração
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Histórico de configuração de um recurso e se segue as regras."
-
-**Resposta curta:** AWS Config.
-
-**Pergunta:** "Como estava o security group semana passada?"
-
-**Resposta curta:** Config.
-
-**Pergunta:** "Verificar continuamente se todos os buckets estão criptografados e corrigir automaticamente."
-
-**Resposta curta:** Config rule + remediação (SSM Automation).
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html)
+- [O que é o AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html)
+- [Regras do AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html)
+- [Remediação](https://docs.aws.amazon.com/config/latest/developerguide/remediation.html)
+- [Pacotes de conformidade](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html)
+- [Agregadores](https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html)
+- [Preços do AWS Config](https://aws.amazon.com/config/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

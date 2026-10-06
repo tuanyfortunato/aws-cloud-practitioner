@@ -99,16 +99,16 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Amazon CloudWatch](gerenciamento/cloudwatch.md) | ✅ | núcleo | Monitoramento de **métricas, logs e alarmes** de recursos e aplicações AWS e on-premises. |
-| [AWS CloudTrail](gerenciamento/cloudtrail.md) | ✅ | núcleo | Registra as **chamadas de API** da conta — quem fez, o quê, quando, de onde e em qual recurso. |
-| [AWS Config](gerenciamento/config.md) | ✅ | núcleo | Registra a **configuração** dos recursos e seu histórico de mudanças, e avalia continuamente se estão **conformes** com regras. |
-| [AWS Systems Manager (SSM)](gerenciamento/systems-manager.md) | ✅ | núcleo | Central de operações para gerenciar **frotas** de servidores (EC2, on-premises, VMs) em escala, sem acesso manual. |
-| [AWS CloudFormation (e CDK, SAM)](gerenciamento/cloudformation.md) | ✅ | núcleo | Descreve a infraestrutura em templates JSON/YAML e cria tudo de forma **repetível, versionada e automatizada**. |
-| [AWS Organizations](gerenciamento/organizations.md) | ✅ | núcleo | Gerencia várias contas AWS de forma centralizada, com políticas e **uma fatura única**. |
-| [AWS Control Tower](gerenciamento/control-tower.md) | ✅ | núcleo | Monta e governa automaticamente um ambiente multi-conta seguro e padronizado (**landing zone**) sobre o Organizations. |
+| [Amazon CloudWatch](gerenciamento/cloudwatch.md) | ✅ | núcleo | Monitora recursos e aplicações com métricas, alarmes, painéis e logs, para ver como estão funcionando e agir quando algo passa do limite. |
+| [AWS CloudTrail](gerenciamento/cloudtrail.md) | ✅ | núcleo | Registra as ações feitas na conta como eventos, dizendo quem fez o quê, quando, de onde e em qual recurso. |
+| [AWS Config](gerenciamento/config.md) | ✅ | núcleo | Registra a configuração dos recursos, as relações entre eles e o histórico de mudanças, e avalia cada recurso contra regras de configuração desejada. |
+| [AWS Systems Manager](gerenciamento/systems-manager.md) | ✅ | núcleo | Permite ver e operar de forma central muitas máquinas, em várias contas e Regiões: aplicar patches, rodar comandos, conectar-se sem abrir portas e guardar configurações. |
+| [AWS CloudFormation (e CDK, SAM)](gerenciamento/cloudformation.md) | ✅ | núcleo | Cria e atualiza a infraestrutura a partir de um modelo escrito em YAML ou JSON, sempre do mesmo jeito, como uma pilha de recursos que se gerencia em conjunto. |
+| [AWS Organizations](gerenciamento/organizations.md) | ✅ | núcleo | Reúne várias contas da AWS numa organização, com políticas aplicadas por grupo de contas e uma fatura única. |
+| [AWS Control Tower](gerenciamento/control-tower.md) | ✅ | núcleo | Monta e governa um ambiente com várias contas segundo boas práticas, orquestrando Organizations, IAM Identity Center e outros serviços, e aplicando controles às contas. |
 | [AWS Service Catalog e AWS Resource Access Manager (RAM)](gerenciamento/service-catalog-e-ram.md) | ✅ | complementar | Service Catalog oferece um **catálogo de produtos aprovados** para autoatendimento; RAM **compartilha recursos** entre contas. |
-| [AWS Trusted Advisor](gerenciamento/trusted-advisor.md) | ✅ | núcleo | Inspeciona sua conta e recomenda melhorias com base nas boas práticas da AWS. |
-| [AWS Health Dashboard](gerenciamento/health-dashboard.md) | ✅ | núcleo | Mostra o status dos serviços AWS e, principalmente, os eventos que afetam **os seus** recursos. |
+| [AWS Trusted Advisor](gerenciamento/trusted-advisor.md) | ✅ | núcleo | Examina o ambiente da AWS e recomenda onde economizar, melhorar desempenho e disponibilidade, fechar brechas de segurança e respeitar os limites de serviço. |
+| [AWS Health Dashboard](gerenciamento/health-dashboard.md) | ✅ | núcleo | Mostra os eventos da AWS que afetam os serviços e as suas contas, como falhas em andamento e manutenções planejadas. |
 | [AWS Compute Optimizer, Service Quotas, License Manager e outros](gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) | ✅ | complementar | Ferramentas para dimensionar recursos, controlar limites e licenças, e organizar o ambiente. |
 
 ## 📊 Analytics
