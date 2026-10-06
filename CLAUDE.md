@@ -27,6 +27,9 @@
   arquivos seguem as regras abaixo. Ver [plano de implementação](pendencias/plano-de-implementacao.md).
 - O capítulo 0 (`docs/fundamentos/`) é todo autoral; o sumário do README lista as aulas que existem na pasta.
   Use `docs/fundamentos/01-servidor-e-virtualizacao.md` como modelo até o modelo de aula da Fase 3.
+- O [glossário](glossario.md) é o único lugar de consulta rápida de termos, em ordem alfabética. Nas aulas autorais, cada termo é
+  explicado em prosa no primeiro uso; o glossário serve para relembrar e aponta para a aula que ensina. Definições dizem o que
+  o termo é e para que serve, sem frases defensivas (o `test_apostila.py` confere ordem e repetição).
 - Fichas novas seguem `templates/servico.md` e precisam ser registradas em `FICHAS` **e** em `ESCOPO` (status na lista oficial da prova) no `scripts/gerar_docs.py`; o gerador falha se faltar o status.
 - A seção didática de cada tópico ("🧠 Antes de começar") e a introdução de cada domínio ficam em `scripts/didatica_docs.py` (o gerador falha se faltar um tópico); não edite essa seção direto em `docs/`.
 - As aberturas das fichas ("🧠 Comece pelo problema") ficam em `scripts/introducoes_servicos.py`; registre cada ficha também nesse módulo. As aberturas das páginas de apoio de `docs/00-guia-do-exame/` ficam em `APOIO` de `scripts/didatica_docs.py`.
