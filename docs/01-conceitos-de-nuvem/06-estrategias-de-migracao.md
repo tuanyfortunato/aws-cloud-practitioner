@@ -45,6 +45,7 @@ flowchart LR
         R6["Repurchase<br/>trocar de produto"]
         R7["Refactor<br/>nova arquitetura"]
     end
+    NAO ~~~ POUCO ~~~ MAIS
 ```
 
 *Figura 1.6 — Os 7 Rs agrupados pelo tamanho da mudança.*

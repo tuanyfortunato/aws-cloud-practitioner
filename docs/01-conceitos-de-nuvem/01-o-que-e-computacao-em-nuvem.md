@@ -52,6 +52,7 @@ flowchart LR
         direction TB
         d1["Uso, acessos e dados"] --- d2["Aplicação*"] --- d3["Sistema operacional*"] --- d4["Hardware e prédio*"]
     end
+    ON ~~~ I ~~~ P ~~~ S
 ```
 
 *Figura 1.1 — Da esquerda para a direita, o provedor assume mais camadas. As camadas marcadas com asterisco ficam com o provedor; as demais continuam com o cliente. Em todos os modelos, uso, acessos e dados continuam sendo decisões do cliente.*

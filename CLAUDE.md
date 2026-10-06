@@ -15,6 +15,9 @@
 4. Se mexeu em conteúdo de aulas ou fichas, rode `python3 scripts/metricas_apostila.py` e registre a
    tabela na descrição do PR (as métricas apontam problemas; não são metas de quantidade).
 
+5. Se mexeu no gerador da edição impressa ou na `assets/impressao.css`, rode `python3 scripts/gerar_impressa.py`
+   e confira as páginas afetadas (precisa de Pandoc, WeasyPrint e mermaid-cli; a saída fica em `build/`, fora do git).
+
 ## Convenções
 
 - Conteúdo em português (Brasil).
