@@ -31,7 +31,7 @@ ou upload pelo console. Não escolha uma resposta apenas porque contém o númer
 
 As listas de serviços são não exaustivas; ausência não equivale a exclusão formal.
 
-Veja a [auditoria](auditoria-conteudo-2026-10.md) e o [roteiro sem console](estudar-sem-console.md).
+Veja a [auditoria](auditoria-conteudo-2026-10.md) e o [roteiro de estudo](estrutura-da-apostila.md).
 
 ## Tabela de mudanças
 
