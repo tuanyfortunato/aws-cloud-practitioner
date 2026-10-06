@@ -204,20 +204,16 @@ Qual é a diferença entre Compute Savings Plans e EC2 Instance Savings Plans?	O
 Qual é a diferença entre uma RI Standard e uma RI Convertible?	A Standard dá o maior desconto, mas não pode ser trocada; a Convertible dá desconto menor e pode ser trocada por outra configuração durante o prazo.	CLF-C02 dominio-4 secao-4_2
 Quando escolher um Dedicated Host?	Quando é preciso um servidor físico inteiro, com controle de onde as instâncias rodam, para usar licenças próprias cobradas por soquete, núcleo ou máquina virtual.	CLF-C02 dominio-4 secao-4_2
 Como as RIs se comportam numa organização do AWS Organizations?	Com o faturamento consolidado, o desconto de uma RI comprada por uma conta pode ser aproveitado pelas instâncias de qualquer conta da organização.	CLF-C02 dominio-4 secao-4_2
-Qual transferência de dados é gratuita?	Entrada da internet para a AWS (e dentro da mesma AZ por IP privado).	CLF-C02 dominio-4 secao-4_3
-Qual transferência é cobrada?	Saída para a internet, entre regiões e entre AZs.	CLF-C02 dominio-4 secao-4_3
-Um volume EBS de 500 GB com 100 GB usados é cobrado por quanto?	Pelos 500 GB provisionados.	CLF-C02 dominio-4 secao-4_3
-Qual serviço não tem custo próprio?	IAM, CloudFormation, Elastic Beanstalk, Auto Scaling, Organizations.	CLF-C02 dominio-4 secao-4_3
-O que é o Free Tier?	Uso gratuito limitado para experimentar serviços (sempre gratuito, por período ou testes; contas novas usam modelo de créditos).	CLF-C02 dominio-4 secao-4_3
-Estimar o custo de uma arquitetura antes de criá-la.	Pricing Calculator.	CLF-C02 dominio-4 secao-4_4
-Visualizar gastos dos últimos meses e prever o próximo.	Cost Explorer.	CLF-C02 dominio-4 secao-4_4
-Receber alerta quando o gasto previsto passar do orçamento.	Budgets.	CLF-C02 dominio-4 secao-4_4
-Relatório mais detalhado de custo e uso, por hora e recurso.	Cost and Usage Report.	CLF-C02 dominio-4 secao-4_4
-Ser avisado de um gasto anormal.	Cost Anomaly Detection.	CLF-C02 dominio-4 secao-4_4
-Separar custos por projeto ou departamento.	Cost allocation tags (ativadas no Billing).	CLF-C02 dominio-4 secao-4_4
-Uma fatura para várias contas, com desconto por volume.	Consolidated billing no Organizations.	CLF-C02 dominio-4 secao-4_4
-Comprar software de terceiros pago na fatura AWS.	AWS Marketplace.	CLF-C02 dominio-4 secao-4_4
-Onde ver recomendações de Savings Plans?	Cost Explorer.	CLF-C02 dominio-4 secao-4_4
+Qual transferência de dados é gratuita: entrada ou saída?	A entrada, da internet para a AWS. A saída para a internet é cobrada, com 100 GB gratuitos por mês somando todos os serviços e Regiões.	CLF-C02 dominio-4 secao-4_3
+A transferência entre zonas de disponibilidade da mesma Região é cobrada?	Sim, para recursos como EC2, RDS, Redshift e ElastiCache, nos dois sentidos; dentro da mesma zona é gratuita, salvo o tráfego por IPv4 público.	CLF-C02 dominio-4 secao-4_3
+Como o Amazon EBS é cobrado?	Por GB-mês provisionado: paga-se o tamanho do volume criado, cheio ou não.	CLF-C02 dominio-4 secao-4_3
+Qual é o preço da economia nas classes mais baratas do S3?	Taxa por GB recuperado, prazo mínimo de armazenamento e, nas classes Glacier Flexible Retrieval e Deep Archive, restauração demorada antes da leitura.	CLF-C02 dominio-4 secao-4_3
+Cite serviços que não cobram nada por si.	IAM, faturamento consolidado do Organizations, Elastic Beanstalk, EC2 Auto Scaling e CloudFormation com recursos da AWS.	CLF-C02 dominio-4 secao-4_3
+Para que serve a AWS Pricing Calculator?	Para estimar o custo de usar serviços da AWS antes de criá-los; é uma ferramenta web gratuita.	CLF-C02 dominio-4 secao-4_4
+Qual é a diferença entre o Cost Explorer e o Budgets?	O Cost Explorer analisa os gastos passados e faz previsões; o Budgets define limites e avisa (ou age) quando o custo ou o uso se aproxima deles.	CLF-C02 dominio-4 secao-4_4
+Quais são os dois tipos de tags de alocação de custos?	As definidas pelo usuário (prefixo `user:`) e as geradas pela AWS (prefixo `aws:`), e as duas precisam ser ativadas no console de Billing para aparecer nos relatórios.	CLF-C02 dominio-4 secao-4_4
+O que o AWS Cost and Usage Report oferece?	O conjunto mais completo de dados de custo e uso, entregue num bucket do S3, por hora, dia ou mês, por recurso e por tag.	CLF-C02 dominio-4 secao-4_4
+O que o faturamento consolidado do Organizations traz?	Uma fatura única para várias contas e a soma do uso de todas, o que compartilha descontos por volume, de instâncias reservadas e de Savings Plans, sem custo adicional.	CLF-C02 dominio-4 secao-4_4
 Qual o plano mais barato com suporte técnico 24/7 por telefone?	Business Support+ (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
 Qual o plano mais barato com todas as verificações do Trusted Advisor?	Business Support+ (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
 Qual plano inclui TAM dedicado?	Enterprise.	CLF-C02 dominio-4 secao-4_5

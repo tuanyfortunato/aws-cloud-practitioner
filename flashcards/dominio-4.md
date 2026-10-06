@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 40 cards
+**Total:** 36 cards
 
 
 ## [4.1 Princípios de preço da AWS](../docs/04-cobranca-precos-e-suporte/01-principios-de-preco.md)
@@ -74,90 +74,66 @@ Com o faturamento consolidado, o desconto de uma RI comprada por uma conta pode 
 ## [4.3 Como outros recursos são cobrados](../docs/04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md)
 
 <details>
-<summary>Qual transferência de dados é gratuita?</summary>
+<summary>Qual transferência de dados é gratuita: entrada ou saída?</summary>
 
-Entrada da internet para a AWS (e dentro da mesma AZ por IP privado).
+A entrada, da internet para a AWS. A saída para a internet é cobrada, com 100 GB gratuitos por mês somando todos os serviços e Regiões.
 </details>
 
 <details>
-<summary>Qual transferência é cobrada?</summary>
+<summary>A transferência entre zonas de disponibilidade da mesma Região é cobrada?</summary>
 
-Saída para a internet, entre regiões e entre AZs.
+Sim, para recursos como EC2, RDS, Redshift e ElastiCache, nos dois sentidos; dentro da mesma zona é gratuita, salvo o tráfego por IPv4 público.
 </details>
 
 <details>
-<summary>Um volume EBS de 500 GB com 100 GB usados é cobrado por quanto?</summary>
+<summary>Como o Amazon EBS é cobrado?</summary>
 
-Pelos 500 GB provisionados.
+Por GB-mês provisionado: paga-se o tamanho do volume criado, cheio ou não.
 </details>
 
 <details>
-<summary>Qual serviço não tem custo próprio?</summary>
+<summary>Qual é o preço da economia nas classes mais baratas do S3?</summary>
 
-IAM, CloudFormation, Elastic Beanstalk, Auto Scaling, Organizations.
+Taxa por GB recuperado, prazo mínimo de armazenamento e, nas classes Glacier Flexible Retrieval e Deep Archive, restauração demorada antes da leitura.
 </details>
 
 <details>
-<summary>O que é o Free Tier?</summary>
+<summary>Cite serviços que não cobram nada por si.</summary>
 
-Uso gratuito limitado para experimentar serviços (sempre gratuito, por período ou testes; contas novas usam modelo de créditos).
+IAM, faturamento consolidado do Organizations, Elastic Beanstalk, EC2 Auto Scaling e CloudFormation com recursos da AWS.
 </details>
 
 
 ## [4.4 Ferramentas de custo e faturamento](../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 
 <details>
-<summary>Estimar o custo de uma arquitetura antes de criá-la.</summary>
+<summary>Para que serve a AWS Pricing Calculator?</summary>
 
-Pricing Calculator.
+Para estimar o custo de usar serviços da AWS antes de criá-los; é uma ferramenta web gratuita.
 </details>
 
 <details>
-<summary>Visualizar gastos dos últimos meses e prever o próximo.</summary>
+<summary>Qual é a diferença entre o Cost Explorer e o Budgets?</summary>
 
-Cost Explorer.
+O Cost Explorer analisa os gastos passados e faz previsões; o Budgets define limites e avisa (ou age) quando o custo ou o uso se aproxima deles.
 </details>
 
 <details>
-<summary>Receber alerta quando o gasto previsto passar do orçamento.</summary>
+<summary>Quais são os dois tipos de tags de alocação de custos?</summary>
 
-Budgets.
+As definidas pelo usuário (prefixo `user:`) e as geradas pela AWS (prefixo `aws:`), e as duas precisam ser ativadas no console de Billing para aparecer nos relatórios.
 </details>
 
 <details>
-<summary>Relatório mais detalhado de custo e uso, por hora e recurso.</summary>
+<summary>O que o AWS Cost and Usage Report oferece?</summary>
 
-Cost and Usage Report.
+O conjunto mais completo de dados de custo e uso, entregue num bucket do S3, por hora, dia ou mês, por recurso e por tag.
 </details>
 
 <details>
-<summary>Ser avisado de um gasto anormal.</summary>
+<summary>O que o faturamento consolidado do Organizations traz?</summary>
 
-Cost Anomaly Detection.
-</details>
-
-<details>
-<summary>Separar custos por projeto ou departamento.</summary>
-
-Cost allocation tags (ativadas no Billing).
-</details>
-
-<details>
-<summary>Uma fatura para várias contas, com desconto por volume.</summary>
-
-Consolidated billing no Organizations.
-</details>
-
-<details>
-<summary>Comprar software de terceiros pago na fatura AWS.</summary>
-
-AWS Marketplace.
-</details>
-
-<details>
-<summary>Onde ver recomendações de Savings Plans?</summary>
-
-Cost Explorer.
+Uma fatura única para várias contas e a soma do uso de todas, o que compartilha descontos por volume, de instâncias reservadas e de Savings Plans, sem custo adicional.
 </details>
 
 
