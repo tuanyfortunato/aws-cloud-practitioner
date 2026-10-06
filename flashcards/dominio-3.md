@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 96 cards
+**Total:** 94 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -470,78 +470,66 @@ Para conectar dispositivos IoT à AWS com segurança, nos dois sentidos, e geren
 ## [3.15 Ferramentas de desenvolvimento](../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)
 
 <details>
-<summary>Orquestrar a esteira de CI/CD na AWS.</summary>
+<summary>O que é integração contínua?</summary>
 
-CodePipeline.
+É a prática de juntar as mudanças de código num repositório central com frequência, e cada junção dispara automaticamente a compilação e os testes.
 </details>
 
 <details>
-<summary>Compilar e executar testes sem gerenciar servidores de build.</summary>
+<summary>Para que serve o AWS CodeBuild?</summary>
 
-CodeBuild.
+Para compilar o código-fonte, rodar os testes e produzir pacotes prontos para implantar, sem servidores de build para gerenciar.
 </details>
 
 <details>
-<summary>Automatizar deploy em EC2 e servidores on-premises.</summary>
+<summary>Para que serve o AWS CodePipeline?</summary>
 
-CodeDeploy.
+Para modelar, visualizar e automatizar as etapas de lançamento de software, da mudança no repositório até a implantação.
 </details>
 
 <details>
-<summary>Encontrar gargalos de latência entre microsserviços.</summary>
+<summary>O que o AWS X-Ray mostra?</summary>
 
-X-Ray.
+O caminho de cada requisição pela aplicação, incluindo as chamadas a outros serviços, microsserviços e bancos, para encontrar gargalos e erros.
+</details>
+
+<details>
+<summary>Qual é a diferença entre o CloudWatch e o X-Ray?</summary>
+
+O CloudWatch coleta métricas e logs de cada recurso; o X-Ray segue uma requisição de ponta a ponta pelas várias peças da aplicação.
 </details>
 
 
 ## [3.16 Gestão e governança](../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)
 
 <details>
-<summary>Provisionar infraestrutura a partir de templates JSON/YAML.</summary>
+<summary>O que o AWS Systems Manager permite fazer?</summary>
 
-CloudFormation.
+Operar de forma centralizada muitas máquinas na AWS e fora dela: aplicar patches em escala, rodar comandos remotamente, conectar-se sem abrir portas de entrada e guardar configurações.
 </details>
 
 <details>
-<summary>Implantar a mesma stack em várias contas e regiões.</summary>
+<summary>Quais são as duas visões do AWS Health Dashboard?</summary>
 
-CloudFormation StackSets.
+A saúde dos serviços, página pública com os eventos da AWS em todas as Regiões, e a saúde da conta, com os eventos que podem afetar as suas contas e recursos.
 </details>
 
 <details>
-<summary>Gerenciar e aplicar patches em uma frota de instâncias, inclusive on-premises.</summary>
+<summary>O que fazer quando a conta atinge o limite de um recurso?</summary>
 
-Systems Manager.
+Verificar a cota no Service Quotas e, se ela for ajustável, pedir o aumento por lá.
 </details>
 
 <details>
-<summary>Acessar a instância sem abrir a porta 22.</summary>
+<summary>Para que serve o AWS Compute Optimizer?</summary>
 
-Systems Manager Session Manager.
+Para analisar a configuração e o uso dos recursos e recomendar o tamanho certo, além de apontar recursos ociosos, reduzindo custo e melhorando desempenho.
 </details>
 
 <details>
-<summary>Ver eventos de manutenção da AWS que afetam meus recursos.</summary>
+<summary>O que o CloudFormation StackSets acrescenta ao CloudFormation?</summary>
 
-AWS Health Dashboard.
-</details>
-
-<details>
-<summary>Pedir aumento do limite de instâncias.</summary>
-
-Service Quotas.
-</details>
-
-<details>
-<summary>Controlar quantas licenças de SQL Server estão em uso.</summary>
-
-License Manager.
-</details>
-
-<details>
-<summary>Recomendar o tamanho ideal das instâncias com base no uso.</summary>
-
-Compute Optimizer.
+A possibilidade de criar, atualizar ou apagar pilhas em várias contas e Regiões numa única operação, a partir do mesmo modelo.
 </details>
 
 
