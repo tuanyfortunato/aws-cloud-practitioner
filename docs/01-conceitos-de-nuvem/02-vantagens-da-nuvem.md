@@ -1,108 +1,164 @@
+<!-- autoral -->
+
 # 1.2 As 6 vantagens da computação em nuvem
 
-## 🧠 Antes de começar
-
-**Qual é a dificuldade?** Uma loja não sabe quantas pessoas chegarão durante uma promoção. Comprar capacidade para o maior pico pode deixar equipamentos ociosos no resto do ano.
-
-**A ideia em palavras simples:** Os benefícios da nuvem incluem obter recursos mais rapidamente, ajustar capacidade e mudar a forma de investir em infraestrutura. Cada benefício responde a uma dificuldade diferente.
-
-**Exemplo do dia a dia:** A loja cria capacidade para a campanha e a reduz depois, em vez de comprar máquinas permanentes apenas para o pico.
-
-**O que não concluir?** Nuvem não garante economia em qualquer projeto. Recursos precisam ser escolhidos e acompanhados; este tópico explica benefícios, não uma promessa de redução automática da fatura.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **CapEx** | despesa de capital: comprar equipamento antes de usar (investimento antecipado). |
-| **OpEx** | despesa operacional: pagar aos poucos, conforme o uso. |
-
----
-
-> **Domínio 1 — Conceitos de Nuvem (24%)**
+> **Domínio 1 — Conceitos de Nuvem (24% da prova)** · Depende da aula [1.1](01-o-que-e-computacao-em-nuvem.md)
 
 ⬅️ [1.1 O que é computação em nuvem](01-o-que-e-computacao-em-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.3 Conceitos de arquitetura que a prova cobra](03-conceitos-de-arquitetura.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+Na reunião do conselho, a diretora precisa justificar a mudança do sistema de matrícula para a AWS. O tesoureiro pergunta por que não comprar um servidor novo, maior, que aguente janeiro inteiro. A coordenadora pedagógica quer saber se o sistema vai ficar mais rápido para os pais que moram longe. E o professor de informática lembra que, da última vez, demorou dois meses entre aprovar a compra do servidor e o sistema entrar no ar.
 
-A demanda muda, mas um equipamento comprado permanece na empresa mesmo quando não é utilizado. Obter recursos sob demanda permite aproximar capacidade e necessidade. Isso também reduz a espera para experimentar ou atender um novo projeto.
+Cada pergunta toca numa vantagem diferente da nuvem. A AWS resume essas vantagens em seis frases que a prova usa quase palavra por palavra. Esta aula explica cada uma pelo problema que resolve e pelo limite que tem, e liga as seis às ideias de agilidade, elasticidade, alcance global e alta disponibilidade, que o guia do exame também cobra.
 
-Diferencie o benefício de sua implementação. A nuvem permite ajustar capacidade, mas a equipe precisa configurar esse ajuste. Também é possível manter recursos ociosos na nuvem e pagar por eles; o benefício não acontece só por mudar o local.
+## Trocar despesa fixa por despesa variável
+
+A primeira vantagem é **trocar despesa fixa por despesa variável**. No modelo antigo, a escola investe pesado em servidores e espaço antes de saber como vai usá-los. Na nuvem, ela paga quando consome recursos de computação, e só pelo quanto consome.
+
+Na contabilidade, o investimento antecipado em equipamento costuma ser chamado de despesa de capital (CapEx) e o gasto contínuo com o uso, de despesa operacional (OpEx); por isso a vantagem também aparece como "trocar CapEx por OpEx". O limite é que despesa variável não quer dizer despesa pequena: um recurso esquecido ligado continua gerando cobrança. A [aula 1.7](07-economia-da-nuvem.md) aprofunda custos fixos e variáveis.
+
+## Beneficiar-se de economias de escala
+
+A segunda é **beneficiar-se de economias de escala massivas**. Como o uso de centenas de milhares de clientes é somado na nuvem, provedores como a AWS conseguem economias de escala maiores, que viram preços menores no pagamento por uso. A escola sozinha nunca compraria servidores, energia e rede pelo preço que a AWS consegue.
+
+## Parar de adivinhar a capacidade
+
+A terceira é **parar de adivinhar a capacidade**. Quando a decisão de capacidade é tomada antes de colocar a aplicação no ar, o resultado costuma ser um de dois problemas: recursos caros parados ou capacidade insuficiente. É o dilema do tesoureiro: um servidor que aguente janeiro fica ocioso de fevereiro a dezembro; um servidor do tamanho do resto do ano não aguenta janeiro. Na nuvem, a escola usa tanta ou tão pouca capacidade quanto precisa e aumenta ou diminui em poucos minutos.
+
+Essa vantagem anda junto com a **elasticidade**: em vez de provisionar recursos a mais para picos futuros, provisiona-se o que realmente é necessário e aumenta-se ou reduz-se a capacidade à medida que a necessidade muda. A [aula 1.3](03-conceitos-de-arquitetura.md) diferencia elasticidade de escalabilidade.
+
+## Aumentar a velocidade e a agilidade
+
+A quarta é **aumentar a velocidade e a agilidade**. Na nuvem, um recurso novo está a um clique de distância, e o tempo para entregá-lo à equipe cai de semanas para minutos. Como experimentar e desenvolver fica muito mais barato e rápido, a organização ganha **agilidade**: pode testar uma ideia nova, ver se funciona e desligar se não funcionar. É a resposta ao professor de informática: os dois meses de espera viram minutos.
+
+## Parar de gastar com datacenters
+
+A quinta é **parar de gastar dinheiro para operar e manter datacenters**. Em vez de montar racks, empilhar e ligar servidores, trabalho pesado que a AWS chama de *heavy lifting*, a escola se concentra nos projetos que a diferenciam: o ensino e o atendimento às famílias.
+
+O limite é que a escola não deixa de ter trabalho técnico: ela ainda configura e protege o que coloca na nuvem, como você viu na [aula 1.1](01-o-que-e-computacao-em-nuvem.md).
+
+## Tornar-se global em minutos
+
+A sexta é **tornar-se global em minutos**. A AWS tem infraestrutura no mundo todo, e uma aplicação pode ser implantada em várias Regiões com poucos cliques. Colocar a aplicação mais perto dos usuários reduz a **latência**, o tempo de ida e volta de um pedido pela rede, e melhora a experiência deles. É a resposta à coordenadora: se a escola abrir uma unidade em outro país, o sistema pode rodar perto dos novos alunos sem comprar um servidor lá.
+
+As Regiões e as outras partes da infraestrutura global são o assunto da [aula 3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md). O guia do exame cobra esse benefício como velocidade de implantação e alcance global.
+
+```mermaid
+flowchart TB
+    subgraph CUSTO["Custo"]
+        V1["1. Despesa fixa vira variável"]
+        V2["2. Economias de escala"]
+        V5["5. Sem gastar com datacenters"]
+    end
+    subgraph CAP["Capacidade e tempo"]
+        V3["3. Parar de adivinhar capacidade<br/>(elasticidade)"]
+        V4["4. Velocidade e agilidade"]
+        V6["6. Global em minutos<br/>(menor latência)"]
+    end
+```
+
+*Figura 1.2 — As seis vantagens agrupadas: três falam de custo e três de capacidade, tempo e alcance.*
+
+## E a alta disponibilidade?
+
+O guia do exame também pede que você entenda a vantagem da **alta disponibilidade**. **Disponibilidade** é a porcentagem do tempo em que uma aplicação está disponível para uso. Na nuvem, é mais fácil e barato montar uma aplicação que continua no ar quando uma peça falha, porque a infraestrutura da AWS oferece locais separados onde é possível rodar cópias da aplicação. Como isso é feito aparece nas aulas [1.3](03-conceitos-de-arquitetura.md) e [3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md). O limite é que a nuvem oferece os meios; uma aplicação rodando num único servidor continua caindo quando esse servidor cai.
+
+## Na prova
+
+- **A questão descreve uma situação e pede o nome oficial da vantagem.** Treine a tradução de volta: o cenário é o problema, a vantagem é a solução.
+- **"Sem investimento antecipado em hardware" = trocar despesa fixa por variável (CapEx por OpEx).**
+- **"Preços menores porque a AWS atende muitos clientes" = economias de escala.**
+- **"Servidores ociosos fora do pico" ou "falta de capacidade no pico" = parar de adivinhar capacidade.**
+- **"Recursos em minutos, experimentar barato" = velocidade e agilidade.**
+- **"Foco no negócio e nos clientes, não em montar e ligar servidores" = parar de gastar com datacenters.**
+- **"Atender clientes em outros países com baixa latência" = global em minutos.**
+
+## Caso resolvido
+
+**Situação.** O conselho da escola faz três objeções à nuvem: "vamos gastar mais, porque não teremos um servidor nosso"; "e se o número de alunos dobrar no ano que vem?"; e "abrir a unidade de Lisboa vai exigir comprar servidor lá". A diretora quer responder cada uma com a vantagem certa.
+
+**Raciocínio.** A primeira objeção se responde com a troca de despesa fixa por variável e com as economias de escala: a escola paga pelo que usa, a preços que a AWS consegue por atender muitos clientes, e deixa de pagar por um servidor parado onze meses por ano. A segunda se responde com parar de adivinhar a capacidade: se os alunos dobrarem, a capacidade cresce quando for preciso, sem comprar equipamento antes. A terceira se responde com tornar-se global em minutos: o sistema pode ser implantado numa Região perto de Lisboa sem comprar servidor, com menor latência para as famílias de lá.
+
+**Por que as alternativas tentadoras falham.** Responder à segunda objeção com "compramos agora um servidor duas vezes maior" é justamente adivinhar a capacidade, e deixa recursos parados se os alunos não dobrarem. Dizer que a nuvem é sempre mais barata também falha: a despesa variável depende do uso, e recursos esquecidos ligados continuam custando. E responder à terceira com "economias de escala" usa a vantagem errada: o ponto ali é alcance e latência.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### Quais são as seis vantagens da computação em nuvem segundo a AWS?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-é como trocar o **carro próprio por aplicativo de transporte**: você não paga o carro à vista (despesa variável), a empresa compra em volume (economia de escala), chama um carro maior quando precisa (parar de adivinhar capacidade), pede em minutos (agilidade), não cuida de oficina (sem manter datacenter) e usa o app em outras cidades (global em minutos).
+Trocar despesa fixa por variável, beneficiar-se de economias de escala, parar de adivinhar a capacidade, aumentar a velocidade e a agilidade, parar de gastar com datacenters e tornar-se global em minutos.
+
+Comentário: a prova raramente pede a lista; ela descreve uma situação e pede a vantagem que a resolve.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Uma loja tem servidores ociosos o ano todo, exceto na Black Friday. Qual vantagem resolve isso?
 
-1. **Trocar despesa de capital por despesa variável:** sem investimento antecipado em hardware (CapEx → OpEx).
+<details>
+<summary>Ver resposta</summary>
 
-2. **Beneficiar-se de economias de escala massivas:** a AWS compra em volume e repassa preços menores.
+Parar de adivinhar a capacidade: na nuvem, a loja aumenta a capacidade no pico e reduz depois, pagando só pelo que usa.
 
-3. **Parar de adivinhar capacidade:** escala conforme a demanda real, sem sobra nem falta.
+Comentário: comprar um servidor maior continua sendo adivinhar. A elasticidade é a forma de aproveitar essa vantagem.
 
-4. **Aumentar velocidade e agilidade:** recursos em minutos, experimentação barata.
+</details>
 
-5. **Parar de gastar dinheiro mantendo datacenters:** foco no negócio, não em racks e energia.
+### Por que a AWS consegue preços menores que uma empresa sozinha?
 
-6. **Tornar-se global em minutos:** implantar em várias regiões com poucos cliques.
+<details>
+<summary>Ver resposta</summary>
 
-**Cai na prova:** a questão descreve um benefício e pede o nome oficial. Ex.: "não precisa mais comprar servidores para o pico de Black Friday" = parar de adivinhar capacidade.
+Pelas economias de escala: o uso de centenas de milhares de clientes é somado, o que permite custos menores, repassados no preço por uso.
 
-## 3. Como analisar uma situação
+Comentário: não confunda com trocar despesa fixa por variável, que fala da forma de pagar, não do preço.
 
-**Primeiro, identifique o funcionamento:** Capacidade é disponibilizada conforme a demanda, em vez de ser comprada para um pico futuro. A escala da AWS permite compartilhar infraestrutura entre clientes com isolamento.
+</details>
 
-**Depois, compare as escolhas:** Identifique o problema: capital antecipado, preço por volume, previsão de capacidade, demora de implantação, manutenção de datacenter ou alcance geográfico.
+### O que quer dizer trocar CapEx por OpEx?
 
-**Por fim, verifique o limite:** A nuvem oferece meios de economizar; recursos ociosos, tráfego e configurações inadequadas ainda geram despesas. Agilidade não é sinônimo de menor preço.
+<details>
+<summary>Ver resposta</summary>
 
-## 4. Caso resolvido
+Trocar o investimento antecipado em equipamento (despesa de capital) por gastos contínuos de acordo com o uso (despesa operacional). É a vantagem de trocar despesa fixa por variável.
 
-Uma loja mantém servidores para a Black Friday que ficam ociosos o resto do ano. Qual vantagem resolve isso?
+Comentário: despesa variável não quer dizer despesa pequena; recursos ligados sem uso continuam gerando cobrança.
 
-**Raciocínio e resposta:** Deixar de adivinhar capacidade, combinado com elasticidade: aumentar no pico e reduzir depois. Comprar uma máquina maior permanentemente continua deixando capacidade ociosa.
+</details>
 
-## 5. Revisão do capítulo
+### Como a nuvem ajuda a atender usuários em outros continentes?
 
-**Objetivos de aprendizagem:**
+<details>
+<summary>Ver resposta</summary>
 
-- [ ] Citar as **6 vantagens** com o nome oficial.
-- [ ] Ligar cada cenário à vantagem certa (ex.: Black Friday sem comprar servidor → parar de adivinhar capacidade).
-- [ ] Explicar **CapEx × OpEx** em uma frase.
+Permitindo implantar a aplicação em várias Regiões do mundo com poucos cliques, mais perto dos usuários, o que reduz a latência. É a vantagem de tornar-se global em minutos.
 
-**Dica de revisão para a prova:** Procure a palavra que denuncia a vantagem: **"investimento inicial"** → despesa variável; **"não sabe quanto tráfego"** → capacidade; **"preço menor por volume"** → economia de escala; **"outro continente"** → global em minutos.
+Comentário: latência é o tempo de ida e volta de um pedido pela rede; quanto mais perto, menor.
 
-### ❓ Perguntas típicas
+</details>
 
-> Também estão nos [flashcards](../../flashcards/dominio-1.md).
-**Pergunta:** "Qual vantagem permite trocar investimento inicial em servidores por pagamento conforme o uso?"
+## Resumo
 
-**Resposta curta:** Trocar despesa de capital por despesa variável.
+- Trocar despesa fixa por variável: pagar só quando e quanto se consome.
+- Economias de escala: o uso somado de muitos clientes reduz o preço por uso.
+- Parar de adivinhar capacidade: aumentar e reduzir em minutos, sem sobra nem falta.
+- Velocidade e agilidade: recursos em minutos e experimentos baratos.
+- Parar de gastar com datacenters: foco no que diferencia o negócio.
+- Global em minutos: implantar em várias Regiões e reduzir a latência.
+- Alta disponibilidade e elasticidade são benefícios ligados a essas vantagens e voltam nas aulas 1.3 e 3.2.
 
-**Pergunta:** "Uma empresa não sabe quanto tráfego terá no lançamento. Qual vantagem ajuda?"
+## Fontes oficiais
 
-**Resposta curta:** Parar de adivinhar capacidade.
+Verificadas em 06/10/2026.
 
-**Pergunta:** "Como a AWS consegue preços menores que um datacenter próprio?"
-
-**Resposta curta:** Economias de escala massivas.
-
-**Pergunta:** "Uma startup quer abrir operação em outro continente em um dia."
-
-**Resposta curta:** Tornar-se global em minutos.
-
-**Pergunta:** "Qual vantagem libera o time para focar no produto em vez de racks e energia?"
-
-**Resposta curta:** Parar de gastar mantendo datacenters.
-
-<!-- extra:inicio -->
-<!-- extra:fim -->
+- [Six advantages of cloud computing (Overview of Amazon Web Services)](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html): as seis vantagens e a explicação de cada uma.
+- [What is cloud computing? (página da AWS)](https://aws.amazon.com/what-is-cloud-computing/): benefícios de agilidade, elasticidade, economia e implantação global em minutos com menor latência.
+- [Content Domain 1 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html): benefícios da infraestrutura global (velocidade de implantação, alcance global) e vantagens de alta disponibilidade, elasticidade e agilidade.
+- [Availability (Reliability Pillar)](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/availability.html): disponibilidade é a porcentagem do tempo em que uma carga de trabalho está disponível para uso.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
