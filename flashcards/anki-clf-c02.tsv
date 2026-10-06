@@ -144,31 +144,16 @@ Qual é a diferença entre durabilidade e disponibilidade no S3?	Durabilidade é
 Quando usar o S3 Intelligent-Tiering?	Quando o padrão de acesso aos dados é desconhecido ou muda, porque ele move cada objeto para a camada mais barata sozinho, sem taxa de recuperação.	CLF-C02 dominio-3 secao-3_8
 O que uma política de ciclo de vida do S3 faz?	Aplica regras automáticas a grupos de objetos: transição para outra classe depois de um tempo e expiração (exclusão) quando o prazo termina.	CLF-C02 dominio-3 secao-3_8
 Qual classe tem o armazenamento mais barato, e qual é o preço dessa economia?	O S3 Glacier Deep Archive; em troca, o objeto precisa ser restaurado antes da leitura, o que leva horas, e há mínimo de 180 dias de cobrança.	CLF-C02 dominio-3 secao-3_8
-Qual armazenamento em bloco persistente para EC2?	EBS.	CLF-C02 dominio-3 secao-3_9
-Um volume EBS pode ser usado em outra AZ?	Não diretamente; cria-se um snapshot e um novo volume na outra AZ.	CLF-C02 dominio-3 secao-3_9
-Onde ficam os snapshots do EBS?	No S3 (gerenciado pela AWS), de forma incremental.	CLF-C02 dominio-3 secao-3_9
-Sistema de arquivos compartilhado para várias instâncias Linux.	EFS.	CLF-C02 dominio-3 secao-3_9
-Compartilhamento de arquivos Windows integrado ao Active Directory.	FSx for Windows File Server.	CLF-C02 dominio-3 secao-3_9
-Sistema de arquivos de alto desempenho para HPC.	FSx for Lustre.	CLF-C02 dominio-3 secao-3_9
-Aplicações locais precisam usar armazenamento da AWS.	Storage Gateway.	CLF-C02 dominio-3 secao-3_9
-Substituir fitas físicas de backup.	Tape Gateway.	CLF-C02 dominio-3 secao-3_9
-Centralizar backups de vários serviços com políticas.	AWS Backup.	CLF-C02 dominio-3 secao-3_9
-Mover dezenas de terabytes sem depender da internet.	Snowball Edge.	CLF-C02 dominio-3 secao-3_9
-Processar dados num navio sem conexão.	Família Snow (computação na borda).	CLF-C02 dominio-3 secao-3_9
-Recuperar servidores em minutos após desastre.	AWS Elastic Disaster Recovery.	CLF-C02 dominio-3 secao-3_9
-O que torna uma subnet pública?	Ter rota para um Internet Gateway.	CLF-C02 dominio-3 secao-3_10
-Instâncias em subnet privada precisam baixar atualizações.	NAT Gateway.	CLF-C02 dominio-3 secao-3_10
-Conectar duas VPCs de contas diferentes.	VPC Peering.	CLF-C02 dominio-3 secao-3_10
-Conectar dezenas de VPCs e o datacenter num hub.	Transit Gateway.	CLF-C02 dominio-3 secao-3_10
-Acessar o S3 a partir da VPC sem passar pela internet.	Gateway VPC endpoint.	CLF-C02 dominio-3 secao-3_10
-Conexão privada e dedicada, sem internet, com desempenho consistente.	Direct Connect.	CLF-C02 dominio-3 secao-3_10
-Conexão criptografada com o datacenter, pronta hoje.	Site-to-Site VPN.	CLF-C02 dominio-3 secao-3_10
-Funcionários em casa precisam acessar a VPC.	Client VPN.	CLF-C02 dominio-3 secao-3_10
-Registrar domínio e gerenciar DNS.	Route 53.	CLF-C02 dominio-3 secao-3_10
-Mandar 10% dos usuários para a nova versão.	Route 53 weighted routing.	CLF-C02 dominio-3 secao-3_10
-Reduzir latência de conteúdo para usuários globais.	CloudFront.	CLF-C02 dominio-3 secao-3_10
-IPs estáticos globais e failover rápido entre regiões para TCP/UDP.	Global Accelerator.	CLF-C02 dominio-3 secao-3_10
-Criar e proteger uma API REST para funções Lambda.	API Gateway.	CLF-C02 dominio-3 secao-3_10
+Qual é a diferença entre um volume EBS e o instance store?	O volume EBS é persistente e existe independentemente da instância, numa zona de disponibilidade; o instance store é um disco físico do servidor, cujos dados se perdem quando a instância é parada ou encerrada.	CLF-C02 dominio-3 secao-3_9
+Quando usar o EFS em vez do EBS?	Quando várias instâncias Linux precisam acessar os mesmos arquivos ao mesmo tempo; o EFS é um sistema de arquivos compartilhado (NFS) que cresce e encolhe sozinho.	CLF-C02 dominio-3 secao-3_9
+O que o Amazon FSx oferece?	Sistemas de arquivos conhecidos totalmente gerenciados: Windows File Server, Lustre, NetApp ONTAP e OpenZFS.	CLF-C02 dominio-3 secao-3_9
+Para que serve o AWS Storage Gateway?	Para ligar o ambiente local do cliente ao armazenamento da AWS, guardando os dados na nuvem e mantendo um cache local para acesso rápido.	CLF-C02 dominio-3 secao-3_9
+Qual é a vantagem do AWS Backup?	Centralizar e automatizar os backups de vários serviços com planos de backup, em vez de configurar e conferir serviço por serviço.	CLF-C02 dominio-3 secao-3_9
+O que torna uma sub-rede pública?	Uma rota direta para um internet gateway na tabela de rotas da sub-rede; sem essa rota, a sub-rede é privada.	CLF-C02 dominio-3 secao-3_10
+Para que serve o NAT gateway?	Para que instâncias em sub-redes privadas iniciem conexões com serviços fora da VPC, como baixar atualizações, sem que serviços de fora possam iniciar conexões com elas.	CLF-C02 dominio-3 secao-3_10
+Quando usar o Transit Gateway em vez de VPC peering?	Quando há muitas VPCs e redes locais para interligar; o Transit Gateway é um hub central, enquanto o peering liga só duas VPCs e não é transitivo.	CLF-C02 dominio-3 secao-3_10
+Qual é a diferença entre Site-to-Site VPN e Direct Connect?	A Site-to-Site VPN é uma conexão criptografada (IPsec) que passa pela internet; o Direct Connect é uma conexão dedicada por fibra até um local do Direct Connect, sem passar pelos provedores de internet, com desempenho mais consistente.	CLF-C02 dominio-3 secao-3_10
+Quais são as três funções do Amazon Route 53?	Registrar domínios, rotear o tráfego do nome do domínio para os recursos e verificar a saúde desses recursos.	CLF-C02 dominio-3 secao-3_10
 Consultar arquivos no S3 com SQL padrão, sem infraestrutura.	Athena.	CLF-C02 dominio-3 secao-3_11
 Como o Athena é cobrado?	Por volume de dados escaneados.	CLF-C02 dominio-3 secao-3_11
 Serviço de ETL serverless e catálogo de dados.	Glue.	CLF-C02 dominio-3 secao-3_11
