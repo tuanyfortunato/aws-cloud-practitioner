@@ -1,91 +1,171 @@
+<!-- autoral -->
+
 # 4.1 Princípios de preço da AWS
 
-## 🧠 Antes de começar
+> **Domínio 4 — Cobrança, Preços e Suporte (12% da prova)** · Depende das aulas [1.7](../01-conceitos-de-nuvem/07-economia-da-nuvem.md) e [3.3](../03-tecnologia-e-servicos/03-ec2.md)
 
-**Qual é a dificuldade?** Um recurso pode estar ocioso e ainda gerar cobrança. Para planejar gastos, você precisa entender pelo que está pagando, não apenas quantas pessoas usam o sistema.
-
-**A ideia em palavras simples:** Preço pode depender de capacidade provisionada, tempo, armazenamento, chamadas ou transferência, conforme o serviço. Diferentes componentes podem ter cobranças independentes.
-
-**Exemplo do dia a dia:** Uma máquina ligada sem visitantes pode custar. Mesmo ao pará-la, discos ou outros recursos mantidos podem continuar cobrados.
-
-**O que não concluir?** Pagar pelo uso não significa pagar apenas por pessoas usando a aplicação. Este tópico ensina a identificar as unidades e condições de cobrança.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Pay-as-you-go** | pagar conforme o uso, sem contrato. |
-| **Transferência de saída** | dados que saem da AWS para a internet (é cobrada). |
-
----
-
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)**
+> 🔎 **Fichas para aprofundar:** [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md) · [Amazon EC2](../../servicos/computacao/ec2.md)
 
 🏠 [Índice do domínio](README.md) · [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+A primeira fatura da AWS chegou à rede de escolas, e a diretora financeira tem perguntas. Por que veio uma cobrança de uma instância de testes que ninguém usou no fim de semana? Por que a conta deste mês foi maior que a do anterior, se o sistema de matrícula é o mesmo? E dá para pagar menos sabendo que o sistema vai rodar o ano inteiro?
 
-O serviço mede uma unidade de consumo ou capacidade, não necessariamente pessoas usando seu sistema. Tempo de máquina, espaço de dados, chamadas e transferência são dimensões diferentes. Uma aplicação pode reunir várias cobranças ao mesmo tempo.
+Na [aula 1.7](../01-conceitos-de-nuvem/07-economia-da-nuvem.md), a escola trocou custos fixos por custos variáveis. Este domínio, que vale 12% da prova, mostra como esses custos variáveis são calculados, as formas de compra, as ferramentas de acompanhamento e os planos de suporte. O guia do exame começa pela tarefa de comparar os modelos de preço da AWS. Esta aula apresenta as ideias gerais; a [aula 4.2](02-modelos-de-compra-ec2.md) detalha as formas de compra do EC2.
 
-Antes de calcular, identifique o recurso, a unidade e a condição. Parar computação pode manter volumes; remover uma aplicação pode manter cópias; uma chamada pode consumir unidades conforme seu tamanho. O modelo de cobrança evita suposições de custo zero.
+## Pagar pelo uso
+
+Na maior parte dos serviços, a AWS cobra no modelo **pague pelo uso** (*pay-as-you-go*): você paga só pelos serviços de que precisa, pelo tempo em que usa, sem contrato de longo prazo nem licenciamento complexo. A própria AWS compara com a conta de água ou de luz: paga-se pelo que se consome, e, quando se para de usar, não há custo adicional nem multa de cancelamento.
+
+A consequência para a escola: o que gera cobrança é o recurso existir ou estar em uso, não a quantidade de pais acessando o site. Uma instância do EC2 em execução é cobrada por segundo, mesmo ociosa; parada, deixa de ser cobrada, mas os volumes EBS ligados a ela continuam cobrados ([aula 3.3](../03-tecnologia-e-servicos/03-ec2.md)). Foi isso que aconteceu com a instância de testes esquecida.
+
+## As outras formas de pagar
+
+A página de preços da AWS apresenta mais três formas de pagar, além de pagar pelo uso:
+
+- **Economize ao se comprometer** (*save when you commit*): os **Savings Plans** dão preços menores que os sob demanda em troca do compromisso de usar uma quantidade de serviço, medida em dólares por hora, por **1 ou 3 anos**. As instâncias reservadas seguem a mesma ideia. As duas estão na [aula 4.2](02-modelos-de-compra-ec2.md).
+- **Pague menos usando mais** (*pay less by using more*): alguns serviços têm **descontos por volume**. No Amazon S3 e na transferência de dados de saída do EC2, o preço é escalonado em faixas: quanto mais se usa, menor o preço por GB. A AWS informa também que a **transferência de dados de entrada** na AWS é gratuita.
+- **Preço fixo** (*flat rate*): planos que reúnem vários serviços da AWS num só preço mensal, sem cobrança por excedente; para crescer, troca-se por um plano com mais recursos.
+
+Para a escola, isso responde à terceira pergunta da diretora: como o sistema de matrícula vai rodar o ano inteiro, um compromisso de 1 ano custa menos que pagar tudo sob demanda.
+
+## O que costuma aparecer na fatura
+
+Cada serviço tem as próprias unidades de cobrança, e uma aplicação junta várias delas. As mais comuns:
+
+- **Computação:** tempo em que a capacidade fica disponível, como os segundos de uma instância do EC2 em execução.
+- **Armazenamento:** quantidade de dados guardada, em geral por GB por mês, como no S3 e no EBS.
+- **Transferência de dados:** dados que saem da AWS para a internet ou passam entre Regiões e zonas de disponibilidade. Os detalhes estão na [aula 4.3](03-cobranca-de-outros-recursos.md).
+- **Requisições e execuções:** em serviços sem servidor, como o Lambda, paga-se por chamada e pelo tempo de execução ([aula 3.5](../03-tecnologia-e-servicos/05-containers-e-serverless.md)).
+
+Para responder à segunda pergunta da diretora: a conta mudou porque o uso mudou, como mais dados guardados ou mais dados enviados aos pais, mesmo com o mesmo sistema.
+
+## AWS Free Tier: começar sem custo
+
+O **AWS Free Tier** permite experimentar serviços sem compromisso de custo. Hoje, quem cria uma conta nova escolhe entre dois planos:
+
+- **Plano gratuito** (*Free account plan*): para experimentar e montar provas de conceito sem cobrança. A conta recebe **US$ 100 em créditos** e pode ganhar até **US$ 100 a mais** completando atividades. O plano termina em **6 meses** ou quando os créditos acabam, o que vier primeiro, e não dá acesso a alguns serviços que gastariam os créditos rapidamente, como Savings Plans e instâncias reservadas. Ao terminar, a conta é fechada, a não ser que se passe para o plano pago.
+- **Plano pago** (*Paid account plan*): acesso a todos os serviços desde o início, com os mesmos créditos. O que passar dos créditos é cobrado pelo preço normal.
+
+Além dos créditos, há duas ofertas: **sempre gratuito** (*always free*), mais de 30 serviços com uma cota mensal gratuita, nos dois planos; e **testes de curto prazo** (*short-term trials*) de alguns serviços, só no plano pago, contados a partir da ativação. Contas antigas e materiais de estudo ainda citam o modelo anterior, com ofertas de 12 meses gratuitos.
+
+## Como escolher
+
+| Situação | Princípio ou oferta |
+|---|---|
+| Uso imprevisível, sem querer contrato | Pague pelo uso |
+| Uso estável por 1 ou 3 anos | Economize ao se comprometer (Savings Plans, instâncias reservadas) |
+| Muito armazenamento no S3 ou muita transferência de saída | Pague menos usando mais (faixas de volume) |
+| Vários serviços num preço mensal sem surpresa | Plano de preço fixo |
+| Experimentar a AWS sem gastar | Free Tier (plano gratuito) |
+
+```mermaid
+flowchart LR
+    U["Uso da escola"] --> PAYG["Pague pelo uso:<br/>paga o que consome"]
+    U --> COMMIT["Compromisso de 1 ou 3 anos:<br/>preço menor"]
+    U --> VOL["Mais volume:<br/>preço menor por GB"]
+    PAYG --> F["Fatura mensal"]
+    COMMIT --> F
+    VOL --> F
+    IN["Dados que entram na AWS"] -.->|"gratuito"| F
+```
+
+*Figura 4.1 — As formas de pagar se combinam na mesma fatura; a transferência de dados de entrada não é cobrada.*
+
+## Na prova
+
+- **"Sem contrato, paga só pelo que usa, para quando quiser" = pague pelo uso.**
+- **"Desconto em troca de compromisso de 1 ou 3 anos" = Savings Plans ou instâncias reservadas.**
+- **"Quanto mais usa, menor o preço por GB" = desconto por volume (S3, transferência de saída).**
+- **Transferência de dados de entrada na AWS é gratuita; a de saída para a internet é cobrada.**
+- **Instância parada não cobra o uso do EC2, mas os volumes EBS continuam cobrados.**
+
+## Caso resolvido
+
+**Situação.** A diretora financeira quer entender três linhas da fatura: a instância de testes que ficou parada desde sexta-feira, mas ainda gerou cobrança; o aumento da conta depois que a escola passou a enviar vídeos das aulas aos pais; e se existe desconto para o servidor de matrícula, que roda o ano todo. O que explicar?
+
+**Raciocínio.** A instância parada não cobra mais o uso do EC2, mas o volume EBS dela continua existindo e sendo cobrado; para zerar, é preciso apagar o volume (depois de guardar o que for necessário). O envio de vídeos aumentou a transferência de dados de saída para a internet, que é cobrada. Para o servidor que roda o ano todo, um compromisso de 1 ou 3 anos, como um Savings Plan, reduz o preço em relação ao sob demanda.
+
+**Por que as alternativas tentadoras falham.** "Instância parada não custa nada" esquece os volumes EBS. "O upload dos vídeos para a AWS encareceu a conta" confunde entrada com saída: a entrada é gratuita. "Desconto por volume resolve o servidor anual" troca o princípio: o desconto para uso estável vem do compromisso, não do volume.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### O que significa pagar pelo uso?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-é como o **plano de celular**: pré-pago (pague pelo uso), plano anual com desconto (compromisso) e franquia que fica mais barata por GB quando você compra mais (volume).
+Pagar só pelos serviços que você usa, pelo tempo em que usa, sem contrato de longo prazo e sem multa ao parar de usar.
+
+Comentário: é o modelo da maior parte dos serviços da AWS.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Como funciona o princípio "economize ao se comprometer"?
 
-**Pague conforme o uso (pay-as-you-go):** sem contrato nem investimento inicial.
+<details>
+<summary>Ver resposta</summary>
 
-**Economize ao se comprometer:** reservas e Savings Plans dão desconto em troca de compromisso de 1 ou 3 anos.
+Você se compromete a usar uma quantidade de serviço por 1 ou 3 anos e, em troca, paga preços menores que os sob demanda.
 
-**Pague menos por unidade quando usa mais:** faixas de desconto por volume (ex.: S3, transferência de dados).
+Comentário: Savings Plans e instâncias reservadas são os exemplos; a aula 4.2 detalha os dois.
 
-**Três grandes geradores de custo:** computação, armazenamento e **transferência de dados de saída**.
+</details>
 
-## 3. Como analisar uma situação
+### O que é o desconto por volume?
 
-**Primeiro, identifique o funcionamento:** A cobrança combina unidades: tempo de computação, capacidade armazenada, requisições, processamento e transferência. Recursos relacionados podem ser cobrados separadamente.
+<details>
+<summary>Ver resposta</summary>
 
-**Depois, compare as escolhas:** Pay-as-you-go dá flexibilidade; compromissos podem reduzir preço para consumo previsível; classes de armazenamento trocam custo por frequência e prazo de recuperação.
+Preço escalonado em faixas: quanto mais você usa, menor o preço por unidade, como no S3 e na transferência de dados de saída do EC2.
 
-**Por fim, verifique o limite:** Grátis para um componente não significa solução inteira gratuita. Região, plataforma, volume e modalidade alteram preços; orçamento deve incluir dependências.
+Comentário: é o princípio "pague menos usando mais".
 
-## 4. Caso resolvido
+</details>
 
-Uma função Lambda barata passa por NAT Gateway e grava logs. Só estimar a função basta?
+### A transferência de dados para dentro da AWS é cobrada?
 
-**Raciocínio e resposta:** Não. Inclua rede, logs e armazenamento conforme o uso. A cobrança acompanha os recursos utilizados, não apenas o serviço principal.
+<details>
+<summary>Ver resposta</summary>
 
-## 5. Revisão do capítulo
+Não: a AWS informa que a transferência de dados de entrada é gratuita.
 
-**Objetivos de aprendizagem:**
+Comentário: a saída para a internet é cobrada; a aula 4.3 mostra os outros casos.
 
-- [ ] Citar os **3 princípios** de preço.
-- [ ] Citar os **3 geradores de custo**: computação, armazenamento e **transferência de saída**.
+</details>
 
-**Dica de revisão para a prova:** "Desconto em troca de compromisso de 1 ou 3 anos" → **Reservas/Savings Plans**. "Mais barato por GB quanto mais usa" → **desconto por volume**.
+### Como funciona o plano gratuito do AWS Free Tier para contas novas?
 
-### ❓ Perguntas típicas
+<details>
+<summary>Ver resposta</summary>
 
-> Também estão nos [flashcards](../../flashcards/dominio-4.md).
-**Pergunta:** "Qual é um princípio de preço da AWS?"
+A conta recebe US$ 100 em créditos, pode ganhar mais US$ 100 com atividades, e o plano termina em 6 meses ou quando os créditos acabam.
 
-**Resposta curta:** Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.
+Comentário: o plano pago dá acesso a todos os serviços e cobra o que passar dos créditos.
 
-**Pergunta:** "Quais são os três principais geradores de custo?"
+</details>
 
-**Resposta curta:** Computação, armazenamento e transferência de dados de saída.
+## Resumo
 
-**Fundamento explicado no capítulo:** **Três grandes geradores de custo:** computação, armazenamento e **transferência de dados de saída**.
+- Pague pelo uso: sem contrato, paga o que consome.
+- Economize ao se comprometer: Savings Plans e instâncias reservadas, por 1 ou 3 anos.
+- Pague menos usando mais: faixas de volume no S3 e na transferência de saída.
+- Transferência de entrada é gratuita; a de saída é cobrada.
+- Free Tier para contas novas: até US$ 200 em créditos; o plano gratuito dura até 6 meses.
 
-<!-- extra:inicio -->
-<!-- extra:fim -->
+## Fontes oficiais
+
+Verificadas em 06/10/2026.
+
+- [Content Domain 4 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html): peso de 12% e tarefa 4.1 (comparar modelos de preço).
+- [AWS Pricing](https://aws.amazon.com/pricing/): pague pelo uso, preço fixo, economize ao se comprometer, pague menos usando mais e transferência de entrada gratuita.
+- [Amazon EC2 instance state changes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html): cobrança por estado da instância e volumes EBS cobrados em qualquer estado.
+- [What are Savings Plans?](https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html): compromisso por hora, por 1 ou 3 anos.
+- [Explore AWS services with AWS Free Tier](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html) e [Choosing a plan](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-plans.html): planos gratuito e pago, créditos, 6 meses, sempre gratuito e testes de curto prazo.
+- [AWS Free Tier](https://aws.amazon.com/free/): até US$ 200 em créditos para clientes novos.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
