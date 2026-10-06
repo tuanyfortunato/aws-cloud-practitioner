@@ -144,6 +144,8 @@ Cada fase é dividida em PRs pequenos, conforme o [CLAUDE.md](../CLAUDE.md): bra
 - Depois respondem, por escrito: o que não entenderam, onde precisaram pesquisar, e as perguntas de revisão.
 - Registrar o resultado neste documento e ajustar o modelo antes da Fase 4. Não marcar como validado sem a leitura ter ocorrido.
 
+**Resultado:** em 06/10/2026 a dona do repositório leu a aula-piloto 2.1 e a aprovou sem pedir ajustes. A Fase 4 começou com o modelo como está; a leitura por iniciantes com respostas por escrito continua bem-vinda e, se apontar problemas, o modelo e as aulas já escritas são ajustados.
+
 ## 7. Fase 4 — Reescrita das aulas em ondas
 
 **Objetivo:** migrar as 41 aulas para o modelo validado, cada PR com duas ou três aulas, suas figuras e suas perguntas de revisão.
@@ -255,8 +257,8 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 | 0 | Concluída | #21 (marcador autoral) · #22 (métricas) | Linha de base registrada na seção 3 |
 | 1 | Concluída | #23 (revisão circular e repetições) · PR 1.1 (vocabulário automático desligado) | Aceite atingido: zero blocos de vocabulário, zero revisões circulares; a única seção "só com texto padrão" é a tabela de labs, escrita à mão |
 | 2 | Concluída | #24 (capítulo 0 e aula 0.1) · #25 (aulas 0.2 e 0.3) · #26 (aulas 0.4 e 0.5) · #27 (glossário) · #28 (correções) · flashcards do capítulo 0 | Capítulo 0 completo; glossário com 129 termos; correções após conferir as páginas oficiais inteiras (#28); flashcards do capítulo 0 em `flashcards/capitulo-0.md` |
-| 3 | Em andamento | #31 (modelo de aula em `templates/topico.md`) · PR 3.2 (aula-piloto 2.1) | Próximos: ficha-piloto SQS e leitura da aula-piloto por iniciante (AP-14), que ainda não aconteceu |
-| 4 | Pendente | — | — |
+| 3 | Em andamento | #31 (modelo de aula em `templates/topico.md`) · #32 (aula-piloto 2.1) | Aula-piloto lida e aprovada pela dona do repositório em 06/10/2026 (AP-14). Falta a ficha-piloto SQS, que depende do modelo de ficha da Fase 5 |
+| 4 | Em andamento | Onda A: aulas 2.2 e 2.3 | Próximas: 2.4 a 2.10 |
 | 5 | Pendente | — | — |
 | 6 | Pendente | — | — |
 | 7 | Pendente | — | — |
