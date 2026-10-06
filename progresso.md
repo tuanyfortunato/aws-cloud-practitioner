@@ -2,6 +2,10 @@
 
 Marque `[x]` à medida que avança. Esta página é o único lugar de acompanhamento: as aulas não têm linha de status.
 
+## Capítulo 0 — Fundamentos de TI (opcional)
+
+- [ ] [0.1 Computador, servidor e virtualização](docs/fundamentos/01-servidor-e-virtualizacao.md)
+
 ## Domínio 1 — Conceitos de Nuvem (24%)
 
 - [ ] [1.1 O que é computação em nuvem](docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md)

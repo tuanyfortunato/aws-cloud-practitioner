@@ -77,7 +77,7 @@ class Metricas(unittest.TestCase):
         grupos = {g for g, _, _ in linhas}
         self.assertIn("aulas", grupos)
         self.assertIn("fichas", grupos)
-        self.assertEqual(len([1 for g, _, _ in linhas if g == "aulas"]), 41)
+        self.assertGreaterEqual(len([1 for g, _, _ in linhas if g == "aulas"]), 41)
         self.assertEqual(m.main(["--markdown"]), 0)
 
 

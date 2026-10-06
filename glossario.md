@@ -44,7 +44,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **Graviton** | Processadores ARM da AWS: melhor preço/desempenho e eficiência energética |
 | **HPC** | *High performance computing* |
 | **HSM** | *Hardware security module* (KMS usa HSMs compartilhados; CloudHSM é dedicado) |
-| **Hipervisor** | Camada de virtualização (Nitro) — responsabilidade da AWS |
+| **Hipervisor** | Camada que divide um servidor físico em máquinas virtuais (na AWS, Nitro) — responsabilidade da AWS ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
 | **Híbrido** | Parte on-premises, parte na nuvem, conectadas |
 | **IaaS / PaaS / SaaS** | Infraestrutura / Plataforma / Software como serviço |
 | **IaC** | Infraestrutura como código (CloudFormation, CDK, Terraform) |
@@ -52,8 +52,10 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **IGW** | *Internet Gateway* |
 | **IMDS** | *Instance Metadata Service* do EC2 (use IMDSv2) |
 | **Instance store** | Disco local efêmero de uma instância EC2 |
+| **Instância** | Servidor virtual do Amazon EC2; o tipo de instância define processador, memória, armazenamento e rede ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
 | **Least privilege** | Menor privilégio: só as permissões necessárias |
 | **Lift-and-shift** | Rehost: migrar sem mudanças |
+| **Máquina virtual (VM)** | Computador simulado por software sobre um servidor físico, com seu próprio sistema operacional ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
 | **MFA** | Autenticação multifator |
 | **Microsserviços** | Serviços pequenos e independentes que se comunicam por APIs/filas |
 | **MPP** | *Massively parallel processing* (Redshift) |
@@ -66,6 +68,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **On-premises** | Infraestrutura no datacenter próprio |
 | **OpEx** | Despesa operacional — paga conforme o uso |
 | **OU** | *Organizational Unit* do AWS Organizations |
+| **Patch** | Correção publicada para um software, como o sistema operacional; no EC2, aplicar patches no SO da instância é do cliente |
 | **Pay-as-you-go** | Pagar conforme o uso, sem compromisso |
 | **PII** | Informação pessoal identificável (Macie) |
 | **PoP** | *Point of presence* (edge location) |
@@ -80,6 +83,8 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **SCP** | *Service Control Policy*: teto de permissões de contas/OUs (não afeta a conta de gerenciamento) |
 | **Security group** | Firewall stateful da instância/ENI |
 | **Serverless** | Sem gerenciar servidores, escala automática, paga pelo uso |
+| **Servidor** | Computador que atende pedidos de outros computadores, os clientes ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
+| **Sistema operacional (SO)** | Software entre o hardware e os programas, como Linux ou Windows; numa VM, chama-se SO convidado ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
 | **SLA** | Acordo de nível de serviço (Route 53: 100%) |
 | **Snapshot** | Cópia pontual de um volume/banco |
 | **Spot** | Capacidade ociosa com até 90% de desconto, interrompível com aviso de 2 min |

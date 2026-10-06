@@ -38,7 +38,23 @@ Os percentuais no sumário indicam o peso dos domínios na prova, não a ordem d
 <!-- indice:inicio -->
 ## Sumário da apostila
 
-Leia do capítulo 1 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.
+Leia do capítulo 0 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.
+
+### Capítulo 0: Fundamentos de TI
+
+**A pergunta deste capítulo:** O que são servidor, rede, dados, API e criptografia, as peças sobre as quais a AWS oferece serviços?
+
+Para quem nunca trabalhou com TI. Se você já conhece esses termos, leia só os resumos no fim de cada aula e siga para o capítulo 1.
+
+Não corresponde a um domínio da prova. [Apresentação do capítulo](docs/fundamentos/README.md).
+
+| Aula | Assunto |
+|---|---|
+| 0.1 | [Computador, servidor e virtualização](docs/fundamentos/01-servidor-e-virtualizacao.md) |
+
+**Comece pela [aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md).**
+
+**Próxima etapa:** [capítulo 1](#capítulo-1-conceitos-de-nuvem).
 
 ### Capítulo 1: Conceitos de nuvem
 
@@ -390,7 +406,7 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 | ⚖️ [Pares que confundem](resumos/comparativos.md) | **55 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
 | 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **28 gatilhos** do enunciado que apontam a resposta | Revisão final |
 | 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |
-| 📖 [Glossário](glossario.md) | **93 termos** e siglas | Sempre que travar num termo |
+| 📖 [Glossário](glossario.md) | **98 termos** e siglas | Sempre que travar num termo |
 | ✅ [Progresso](progresso.md) | Checklist de todos os tópicos e marcos | Para acompanhar o seu avanço |
 | 🧪 [Labs](labs/README.md) | Exercícios práticos no console AWS, com cuidado de custos | Opcional, para fixar |
 <!-- conteudo:fim -->

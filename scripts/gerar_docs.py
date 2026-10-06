@@ -545,8 +545,9 @@ def extrair_cards_revisao(texto):
     """Perguntas de revisão de uma aula autoral.
 
     Formato: uma seção `## Revisão` (o título pode trazer emoji), com uma pergunta por
-    subtítulo `### ` e a resposta comentada em seguida. O primeiro parágrafo da resposta
-    vira a resposta do flashcard; o resto fica só na aula.
+    subtítulo `### ` e a resposta comentada em seguida, de preferência recolhida num
+    `<details>`. O primeiro parágrafo da resposta vira a resposta do flashcard; o resto
+    fica só na aula.
     """
     m = re.search(r"^## [^\n]*\bRevisão\b[^\n]*\n(.*?)(?=\n## |\Z)", texto, re.S | re.M)
     if not m:
@@ -554,7 +555,8 @@ def extrair_cards_revisao(texto):
     cards = []
     for bloco in re.split(r"^### ", m.group(1), flags=re.M)[1:]:
         pergunta, _, resposta = bloco.partition("\n")
-        paragrafos = [p.strip() for p in resposta.strip().split("\n\n") if p.strip()]
+        resposta = re.sub(r"(?m)^\s*(</?details>|<summary>.*</summary>)\s*$", "", resposta)
+        paragrafos = [p.strip() for p in re.split(r"\n\s*\n", resposta.strip()) if p.strip()]
         if pergunta.strip() and paragrafos:
             cards.append((pergunta.strip(), paragrafos[0]))
     return cards
@@ -855,6 +857,41 @@ def bloco_conteudo(total_cards, total_topicos):
     return "\n".join(linhas)
 
 
+PASTA_FUNDAMENTOS = os.path.join("docs", "fundamentos")
+
+
+def aulas_fundamentos():
+    """Aulas autorais do capítulo 0, na ordem dos arquivos: [(número, título, caminho)]."""
+    pasta = os.path.join(RAIZ, PASTA_FUNDAMENTOS)
+    if not os.path.isdir(pasta):
+        return []
+    aulas = []
+    for nome in sorted(os.listdir(pasta)):
+        if not nome.endswith(".md") or nome == "README.md":
+            continue
+        caminho = os.path.join(PASTA_FUNDAMENTOS, nome)
+        with open(os.path.join(RAIZ, caminho)) as f:
+            m = re.search(r"^# (0\.\d+) (.+)$", f.read(), re.M)
+        assert m, f"Aula do capítulo 0 sem título '# 0.x Título': {caminho}"
+        aulas.append((m.group(1), m.group(2).strip(), caminho.replace(os.sep, "/")))
+    return aulas
+
+
+def bloco_capitulo_zero():
+    aulas = aulas_fundamentos()
+    if not aulas:
+        return []
+    linhas = ["### Capítulo 0: Fundamentos de TI", "",
+              "**A pergunta deste capítulo:** O que são servidor, rede, dados, API e criptografia, as peças sobre as quais a AWS oferece serviços?", "",
+              "Para quem nunca trabalhou com TI. Se você já conhece esses termos, leia só os resumos no fim de cada aula e siga para o capítulo 1.", "",
+              f"Não corresponde a um domínio da prova. [Apresentação do capítulo]({PASTA_FUNDAMENTOS}/README.md).", "",
+              "| Aula | Assunto |", "|---|---|"]
+    linhas += [f"| {numero} | [{titulo}]({caminho}) |" for numero, titulo, caminho in aulas]
+    linhas += ["", f"**Comece pela [aula {aulas[0][0]}]({aulas[0][2]}).**", "",
+               "**Próxima etapa:** [capítulo 1](#capítulo-1-conceitos-de-nuvem).", ""]
+    return linhas
+
+
 def bloco_indice(secoes, ordem):
     aberturas = {
         "1": ("Conceitos de nuvem", "Por que usar recursos pela internet e como pensar em crescimento, falhas e migração?", "Comece pela ideia de nuvem. Depois estude as vantagens, a arquitetura, as boas práticas e a economia.", "Explique a diferença entre comprar infraestrutura e contratar recursos, e reconheça as vantagens e os limites de cada escolha."),
@@ -863,7 +900,8 @@ def bloco_indice(secoes, ordem):
         "4": ("Cobrança, preços e suporte", "Como entender a conta, controlar gastos e obter ajuda?", "Agora que você conhece os recursos, estude como o uso vira cobrança, quando compromissos de compra fazem sentido e quais ferramentas ajudam a acompanhar custos.", "Diferencie os modelos de compra e as ferramentas de estimativa, acompanhamento e orçamento, além das opções de suporte."),
     }
     linhas = [INDICE_INI, "## Sumário da apostila", "",
-              "Leia do capítulo 1 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.", ""]
+              "Leia do capítulo 0 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.", ""]
+    linhas += bloco_capitulo_zero()
     for dom, (pasta, nome, peso) in DOMINIOS.items():
         titulo, pergunta, percurso, objetivo = aberturas[dom]
         linhas += [f"### Capítulo {dom}: {titulo}", "", f"**A pergunta deste capítulo:** {pergunta}", "", percurso, "",
