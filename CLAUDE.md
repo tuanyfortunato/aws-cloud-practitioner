@@ -26,4 +26,9 @@
 - A estrutura de apostila fica em `scripts/apostila.py`, as sequências em `scripts/sequencias_servicos.py`, as explicações de capítulos em `scripts/licoes_topicos.py`, casos estendidos em `scripts/casos_apostila.py` e definições em `scripts/vocabulario_apostila.py`. Registre novos serviços também nas bases e sequências; a geração exige cobertura completa.
 - Depois de alterações na apostila, execute `python3 scripts/test_apostila.py`, `python3 scripts/gerar_docs.py` e `python3 scripts/verificar_links.py`. Não use definições automáticas que confundam uma sigla com uma palavra comum ou sentidos diferentes do mesmo termo.
 - Texto desatualizado vindo de `fontes/guia-completo-clf-c02.md` é corrigido pela lista `CORRECOES` do `scripts/gerar_docs.py` (a fonte não é editada); avisos no topo de tópicos ficam em `AVISOS`.
+
+## Validação das informações (obrigatório)
+
+- **Nunca suponha.** Toda informação sobre a AWS (serviços, limites, preços, nomes, regiões, níveis de suporte, conteúdo e formato da prova) deve ser validada na documentação oficial e atual da AWS antes de entrar no material, inclusive o que parece óbvio ou já está escrito no repositório.
+- A AWS muda o tempo todo: não confie em memória, em material antigo nem em fontes de terceiros. Confira a versão vigente na fonte oficial (documentação, páginas de produto e de preços, guia oficial do exame) e, quando possível, cite o link.
 - Informações novas só entram se confirmadas em fonte oficial da AWS; o que estiver sem confirmação vai para `docs/00-guia-do-exame/pendencias-de-verificacao.md`.
