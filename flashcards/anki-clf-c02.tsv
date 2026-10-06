@@ -124,17 +124,16 @@ Qual é a diferença entre escala programada, dinâmica e preditiva?	A programad
 Para que serve um balanceador de carga?	Para distribuir o tráfego entre vários destinos, em uma ou mais AZs, enviando-o só para os que estão saudáveis, com um único ponto de contato para os clientes.	CLF-C02 dominio-3 secao-3_4
 Quando usar um Application Load Balancer e quando usar um Network Load Balancer?	O ALB, que trabalha na camada 7, serve para rotear pedidos HTTP pelo caminho da URL ou pelo nome do site; o NLB, na camada 4, serve para milhões de pedidos por segundo e IP fixo por AZ.	CLF-C02 dominio-3 secao-3_4
 Por que Auto Scaling e balanceador de carga costumam ser usados juntos?	Porque o Auto Scaling cria e remove instâncias, e o balanceador distribui o tráfego entre elas; as instâncias criadas são registradas no balanceador automaticamente.	CLF-C02 dominio-3 secao-3_4
-Qual serviço executa código sem servidores, em resposta a eventos?	Lambda.	CLF-C02 dominio-3 secao-3_5
-Qual é o tempo máximo de execução do Lambda?	15 minutos.	CLF-C02 dominio-3 secao-3_5
-Como o Lambda é cobrado?	No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação.	CLF-C02 dominio-3 secao-3_5
-Rodar containers sem gerenciar instâncias.	Fargate (com ECS ou EKS).	CLF-C02 dominio-3 secao-3_5
-Empresa já usa Kubernetes on-premises e quer migrar.	EKS.	CLF-C02 dominio-3 secao-3_5
-Onde guardar imagens Docker privadas?	ECR.	CLF-C02 dominio-3 secao-3_5
-Qual serviço orquestra containers e é nativo da AWS?	ECS.	CLF-C02 dominio-3 secao-3_5
-Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento.	Elastic Beanstalk.	CLF-C02 dominio-3 secao-3_6
-Elastic Beanstalk tem custo próprio?	Não; paga-se só os recursos que ele cria.	CLF-C02 dominio-3 secao-3_6
-Site WordPress simples com preço mensal fixo.	Lightsail.	CLF-C02 dominio-3 secao-3_6
-Processar milhares de jobs em lote com a capacidade ideal.	AWS Batch.	CLF-C02 dominio-3 secao-3_6
+O que é um container e que problema ele resolve?	É um pacote com o código da aplicação e todos os arquivos e bibliotecas de que ela precisa; resolve o problema de a aplicação funcionar num ambiente e não em outro.	CLF-C02 dominio-3 secao-3_5
+Qual é a diferença entre ECS e EKS?	Os dois orquestram containers; o ECS é o orquestrador da própria AWS, e o EKS é Kubernetes gerenciado.	CLF-C02 dominio-3 secao-3_5
+O que é o AWS Fargate?	É um mecanismo de computação serverless para containers, usado com ECS ou EKS: você define CPU e memória, e não gerencia servidores.	CLF-C02 dominio-3 secao-3_5
+Como o AWS Lambda é cobrado?	Pelo número de pedidos e pela duração das execuções em GB-segundo; quando a função não roda, não há cobrança de computação.	CLF-C02 dominio-3 secao-3_5
+Uma tarefa leva duas horas para terminar. Ela serve para uma função Lambda?	Não, porque uma função Lambda roda por até 15 minutos em cada execução; a tarefa cabe melhor em containers com Fargate, no AWS Batch ou no EC2.	CLF-C02 dominio-3 secao-3_5
+O que o AWS Elastic Beanstalk faz com o código que você envia?	Cria e configura os recursos para rodá-lo: instâncias do EC2 (ou um cluster do EKS), balanceamento de carga, monitoramento de saúde e escalonamento.	CLF-C02 dominio-3 secao-3_6
+Quanto custa o AWS Elastic Beanstalk?	Não há cobrança adicional pelo serviço; você paga os recursos da AWS que a aplicação consome.	CLF-C02 dominio-3 secao-3_6
+Para quem o Amazon Lightsail foi pensado?	Para quem quer começar de forma simples, como desenvolvedores individuais, projetos pessoais e iniciantes, com planos de preço baixo e previsível.	CLF-C02 dominio-3 secao-3_6
+Que tipo de trabalho o AWS Batch executa?	Cargas de processamento em lote de qualquer escala, provisionando automaticamente a capacidade de computação para as tarefas enviadas.	CLF-C02 dominio-3 secao-3_6
+Qual é a diferença entre o Elastic Beanstalk e o Lambda?	O Elastic Beanstalk cria instâncias e outros recursos que ficam ligados e são cobrados; o Lambda é serverless e cobra só quando a função roda.	CLF-C02 dominio-3 secao-3_6
 Qual a vantagem do RDS sobre instalar o banco no EC2?	A AWS cuida de patch, backups, hardware e failover.	CLF-C02 dominio-3 secao-3_7
 Como garantir failover automático do banco para outra AZ?	RDS Multi-AZ.	CLF-C02 dominio-3 secao-3_7
 Como aliviar consultas de leitura pesadas?	Read Replicas (ou cache com ElastiCache).	CLF-C02 dominio-3 secao-3_7
