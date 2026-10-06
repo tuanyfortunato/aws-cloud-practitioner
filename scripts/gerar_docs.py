@@ -353,18 +353,18 @@ def bloco_conteudo(total_cards, total_aulas):
         CONTEUDO_INI,
         "| Material | O que é | Quando usar |",
         "|---|---|---|",
-        f"| 📖 [Tópicos da prova](#sumário-da-apostila) | **{total_aulas} tópicos** que cobrem os 4 domínios, "
-        "com conceitos explicados, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do roteiro |",
+        f"| 📖 [Aulas](#sumário-da-apostila) | **{total_aulas} aulas** que cobrem os 4 domínios, "
+        "com explicação, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do sumário |",
         f"| 🔎 [Fichas de serviços](#caderno-de-serviços) | **{total_fichas} fichas** (uma por serviço ou família), "
-        f"com funcionamento, opções, limites, segurança, custo e casos resolvidos; {fora} reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |",
+        f"com funcionamento, opções, limites, segurança, custo e o que não confundir; {fora} reúnem serviços **fora da prova** | Quando uma aula citar o serviço, ou para tirar dúvidas |",
         f"| 🃏 [Flashcards](flashcards/README.md) | **{total_cards} perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |",
-        f"| ❓ [Questões por domínio](simulados/questoes/README.md) | **{len(QUESTOES)} questões** no formato da prova, agrupadas por tópico, com explicação | Ao terminar cada domínio |",
+        f"| ❓ [Questões por domínio](simulados/questoes/README.md) | **{len(QUESTOES)} questões** no formato da prova, agrupadas por aula, com explicação | Ao terminar cada domínio |",
         f"| ⚖️ [Pares que confundem](resumos/comparativos.md) | **{contar_linhas_tabela('resumos/comparativos.md')} pares** de serviços parecidos e a diferença em uma linha | Revisão final |",
         f"| 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **{contar_linhas_tabela('resumos/palavras-chave.md')} gatilhos** do enunciado que apontam a resposta | Revisão final |",
         f"| 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |",
         f"| 📖 [Glossário](glossario.md) | **{contar_linhas_tabela('glossario.md')} termos** e siglas | Sempre que travar num termo |",
-        "| ✅ [Progresso](progresso.md) | Checklist de todos os tópicos e marcos | Para acompanhar o seu avanço |",
-        "| 🧪 [Labs](labs/README.md) | Exercícios práticos no console AWS, com cuidado de custos | Opcional, para fixar |",
+        "| ✅ [Progresso](progresso.md) | Lista de todas as aulas e marcos | Para acompanhar o seu avanço |",
+        "| 🧪 [Práticas no console](labs/README.md) | Lista de práticas sugeridas no console AWS, com cuidado de custos | Opcional, depois de ler as aulas |",
         CONTEUDO_FIM,
     ]
     return "\n".join(linhas)
