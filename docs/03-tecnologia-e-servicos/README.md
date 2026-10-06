@@ -48,8 +48,8 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 | 3.14 | [Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) | 5 |
 | 3.15 | [Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) | 5 |
 | 3.16 | [Gestão e governança](16-gestao-e-governanca.md) | 5 |
-| 3.17 | [Migração e transferência](17-migracao-e-transferencia.md) | 8 |
-| 3.18 | [Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) | 6 |
+| 3.17 | [Migração e transferência](17-migracao-e-transferencia.md) | 5 |
+| 3.18 | [Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) | 5 |
 
 > Acompanhe o seu avanço no [progresso](../../progresso.md).
 

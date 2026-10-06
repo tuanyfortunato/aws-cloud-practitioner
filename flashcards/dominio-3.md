@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 94 cards
+**Total:** 90 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -536,88 +536,64 @@ A possibilidade de criar, atualizar ou apagar pilhas em várias contas e Regiõe
 ## [3.17 Migração e transferência](../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)
 
 <details>
-<summary>Levantar servidores e dependências antes de migrar.</summary>
+<summary>Para que serve o Migration Evaluator?</summary>
 
-Application Discovery Service.
+Para montar o caso de negócio da migração, comparando o custo do ambiente atual com alternativas na AWS.
 </details>
 
 <details>
-<summary>Estimar quanto a empresa vai economizar ao migrar.</summary>
+<summary>O que o AWS Application Discovery Service coleta?</summary>
 
-Migration Evaluator.
+Dados de configuração e uso dos servidores e bancos locais, e as conexões de rede entre os servidores, que revelam as dependências.
 </details>
 
 <details>
-<summary>Acompanhar todas as migrações num painel central.</summary>
+<summary>O que faz o AWS Application Migration Service?</summary>
 
-Migration Hub.
+Automatiza o rehost (lift and shift) de servidores físicos, virtuais e de outras nuvens para a AWS, com replicação contínua e virada rápida.
 </details>
 
 <details>
-<summary>Migrar servidores físicos e VMs para EC2 com pouca indisponibilidade.</summary>
+<summary>Qual é a diferença entre o AWS DMS e a AWS SCT?</summary>
 
-Application Migration Service.
+O DMS move os dados do banco, uma vez ou com replicação contínua; a SCT converte o esquema quando o banco muda de motor.
 </details>
 
 <details>
-<summary>Migrar um banco sem desligar a aplicação.</summary>
+<summary>Qual serviço da lista do exame acompanha o andamento das migrações num só lugar?</summary>
 
-DMS.
-</details>
-
-<details>
-<summary>Converter um banco Oracle para Aurora PostgreSQL.</summary>
-
-SCT + DMS.
-</details>
-
-<details>
-<summary>Transferir arquivos online de forma automatizada para o S3.</summary>
-
-DataSync.
-</details>
-
-<details>
-<summary>Parceiros enviam arquivos via SFTP para o S3.</summary>
-
-Transfer Family.
+O AWS Migration Hub.
 </details>
 
 
 ## [3.18 Serviços menos conhecidos que podem aparecer](../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 
 <details>
-<summary>Como acompanhar a pegada de carbono do uso da AWS?</summary>
+<summary>As listas de serviços do guia do exame são completas?</summary>
 
-AWS Customer Carbon Footprint Tool.
+Não: tanto a lista no escopo quanto a lista fora do escopo avisam que não são exaustivas e podem mudar.
 </details>
 
 <details>
-<summary>Onde contratar especialistas certificados sob demanda para um projeto pequeno?</summary>
+<summary>O que fazer quando uma alternativa cita um serviço da lista fora do escopo?</summary>
 
-AWS IQ (descontinuado; hoje, AWS Marketplace Professional Services ou um parceiro da APN).
+Desconfiar dela e procurar o serviço do escopo que cumpre a função pedida, já que a prova não cobra os serviços fora do escopo.
 </details>
 
 <details>
-<summary>Qual serviço emite as credenciais temporárias usadas pelas roles?</summary>
+<summary>Qual serviço gera credenciais temporárias na AWS?</summary>
 
-AWS STS.
+O AWS Security Token Service (AWS STS).
 </details>
 
 <details>
-<summary>A aplicação usa RabbitMQ e deve migrar sem mudar o código.</summary>
+<summary>Onde ver as emissões de carbono do uso da AWS?</summary>
 
-Amazon MQ.
+No console AWS Sustainability, que amplia a antiga Customer Carbon Footprint Tool.
 </details>
 
 <details>
-<summary>Testar a resiliência injetando falhas de propósito.</summary>
+<summary>Para que serve o AWS Fault Injection Service?</summary>
 
-AWS Fault Injection Service.
-</details>
-
-<details>
-<summary>Testar um app mobile em centenas de dispositivos reais.</summary>
-
-AWS Device Farm.
+Para fazer experimentos de injeção de falhas, seguindo a engenharia do caos, e ver como a aplicação reage a interrupções.
 </details>
