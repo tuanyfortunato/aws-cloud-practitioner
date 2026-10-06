@@ -30,11 +30,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **balanceador:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-
 O atendimento tem duas decisões: quantos recursos existem e para qual deles cada pedido vai. A primeira é capacidade; a segunda, distribuição. Um balanceador trabalha com destinos existentes e não cria sozinho a capacidade de que eles precisam.
 
 Ao aumentar máquinas, verifique se a aplicação pode funcionar em várias cópias e compartilhar ou acessar seus dados adequadamente. Um banco sobrecarregado pode continuar sendo o limite mesmo com mais máquinas web. Escalar exige observar o verdadeiro gargalo.
@@ -48,65 +43,21 @@ num **supermercado**, o **Auto Scaling** é o gerente que abre ou fecha caixas c
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **Amazon EC2 / EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Amazon EC2 Auto Scaling / EC2 Auto Scaling:** O EC2 Auto Scaling aumenta ou diminui a quantidade de máquinas EC2 seguindo regras que você configura.
-
 **Amazon EC2 Auto Scaling**
 
-**Antes de ler este trecho:**
-
-- **launch template:** Modelo versionado de parâmetros para iniciar máquinas. Facilita repetir configurações; não contém por si só todas as regras da aplicação.
-- **ASG:** Grupo de Auto Scaling: conjunto cuja quantidade e saúde são administradas conforme uma configuração e suas regras.
-
   - **Auto Scaling Group (ASG):** grupo de instâncias com capacidade **mínima, desejada e máxima**, criadas a partir de um **launch template**.
-**Antes de ler este trecho:**
-
-- **CPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
-- **métrica:** Medida observada ao longo do tempo, como utilização ou número de erros. O número precisa de unidade, período e contexto para ter significado.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 
   - **Políticas de escalonamento:** *target tracking* (manter uma métrica num alvo, ex.: CPU em 50%), *step/simple* (degraus conforme alarmes), *scheduled* (horários conhecidos) e *predictive* (prevê a demanda com ML).
 
   - **Health checks:** substitui automaticamente instâncias com falha.
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 
   - Distribui instâncias entre AZs para alta disponibilidade.
 
   - O Auto Scaling em si não tem custo; você paga as instâncias.
-**Antes de ler este trecho:**
-
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 **AWS Auto Scaling:** serviço que configura escalonamento para vários recursos de uma vez (EC2, ECS, DynamoDB, Aurora).
 
-**Antes de ler este trecho:**
-
-- **Elastic Load Balancing:** O Elastic Load Balancing recebe conexões e encaminha o tráfego aos destinos configurados.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 **Elastic Load Balancing (ELB):** Distribui o tráfego entre destinos saudáveis em várias AZs.
-
-**Antes de ler este trecho:**
-
-- **WAF:** WAF aplica regras ao tráfego web em integrações compatíveis.
-- **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-- **TCP:** Protocolo de transporte orientado a conexão, com mecanismos de entrega e ordem. É usado por muitas aplicações; não acrescenta criptografia por si só.
-- **UDP:** Protocolo de transporte por datagramas, sem as mesmas garantias de entrega e ordem do TCP. A aplicação precisa lidar com os requisitos que o protocolo não fornece.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **HTTPS / TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **ALB / NLB / GWLB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
-- **IPS:** Sistema de prevenção de intrusões. Atua em condições e tráfego compatíveis; não é uma correção automática de todo software vulnerável.
-- **IDS:** Sistema de detecção de intrusões. Detectar é diferente de bloquear; o efeito depende da ferramenta e da configuração.
 
 | Tipo | Camada | Uso |
 | --- | --- | --- |
@@ -115,16 +66,7 @@ num **supermercado**, o **Auto Scaling** é o gerente que abre ou fecha caixas c
 | Gateway Load Balancer (GWLB) | 3 (rede) | Encaminha tráfego para appliances virtuais de terceiros (firewalls, IDS/IPS) |
 | Classic Load Balancer | 4 e 7 | Geração antiga, não recomendado |
 
-**Antes de ler este trecho:**
-
-- **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
-
 **Funções do ELB:** health checks, terminação SSL/TLS (com certificado do ACM), distribuição entre AZs.
-
-**Antes de ler este trecho:**
-
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
 **Cai na prova:** "rotear /api para um serviço e /imagens para outro" = ALB; "tráfego TCP com latência ultrabaixa" = NLB; "inspecionar tráfego com firewall de terceiros" = GWLB; "aumentar e diminuir instâncias conforme demanda" = Auto Scaling.
 
@@ -186,10 +128,6 @@ Na Black Friday o tráfego triplica. Um load balancer sem capacidade adicional g
 **Pergunta:** "Auto Scaling e ELB juntos garantem o quê?"
 
 **Resposta curta:** Alta disponibilidade e elasticidade (instâncias com falha são substituídas e o tráfego vai só para as saudáveis).
-
-**Antes de ler este trecho:**
-
-- **elasticidade:** Ajuste da capacidade para crescer e reduzir conforme a necessidade, dentro das regras e dos limites da solução.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

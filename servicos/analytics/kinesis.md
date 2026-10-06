@@ -38,20 +38,6 @@
 
 ### Família
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-- **Parquet:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
-- **KCL:** Biblioteca para desenvolver consumidores de Kinesis. Ela ajuda a processar registros; a aplicação continua definindo o trabalho sobre os dados.
-
 | Serviço | O que faz | Detalhes |
 |---|---|---|
 | **Kinesis Data Streams** | Ingestão e armazenamento de streams para **processamento em tempo real** por vários consumidores | **Shards** (capacidade); modos **provisioned** ou **on-demand**; retenção padrão **24 h**, até **365 dias** (8.760 h; acima de 24 h é pago); dados podem ser **relidos**; consumidores: Lambda, KCL, Managed Flink, Firehose |
@@ -67,20 +53,9 @@ Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-
 **Kinesis × SQS:** streaming em tempo real com **vários consumidores relendo** dados ordenados × fila de mensagens para desacoplar (mensagem consumida e apagada).
 
 **Data Streams × Firehose:** processamento customizado em tempo real × entrega gerenciada em destinos.
-
-**Antes de ler este trecho:**
-
-- **MSK / Kafka:** Kafka é uma plataforma de fluxo de eventos; MSK é a oferta gerenciada compatível da AWS. A aplicação ainda precisa produzir e consumir os registros.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
 **Kinesis × MSK:** serviço nativo AWS × Apache Kafka gerenciado.
 
@@ -89,10 +64,6 @@ Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
 Data Streams: por shard-hora (provisioned) ou por GB e stream-hora (on-demand). Firehose: por GB ingerido e conversões. Video: por GB ingerido/armazenado.
 
@@ -111,10 +82,6 @@ Sensores enviam leituras continuamente. Uma aplicação lê o fluxo e calcula in
 **Recursos envolvidos:** Streams, producers, consumers e oferta Firehose associada.
 
 **Decisões que precisam ser tomadas:** Capacidade, retenção e destinos conforme produto.
-
-**Antes de ler este trecho:**
-
-- **telemetria:** Medidas e informações enviadas por um equipamento ou sistema. Coletar dados é uma etapa diferente de analisá-los ou agir sobre eles.
 
 **Outra situação comentada:** Telemetria contínua: Data Streams para consumidores; Firehose para entrega suportada com buffering.
 

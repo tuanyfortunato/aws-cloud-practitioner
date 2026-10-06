@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 **Passo 1.** Prepare as máquinas para torná-las nós gerenciados, com requisitos de agente, rede e identidade atendidos.
 
 **Passo 2.** Escolha a ferramenta operacional correspondente, como sessão, comando ou atualização. Execute a ação autorizada.
@@ -43,40 +38,11 @@
 
 ### Pré-requisitos
 
-**Antes de ler este trecho:**
-
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **NAT:** Tradução de endereços de rede. Um NAT Gateway pode permitir conexões de saída de determinados recursos privados sem oferecer entrada direta iniciada pela internet.
-- **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
-- **SSM:** Sigla usada em recursos do Systems Manager. O serviço oferece ferramentas de administração; nós, acessos e conectividade precisam estar preparados.
-
 **SSM Agent** instalado (vem nas AMIs da AWS) + **IAM role** com `AmazonSSMManagedInstanceCore` + conectividade com os endpoints do SSM (internet/NAT ou VPC endpoints).
-
-**Antes de ler este trecho:**
-
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
 
 On-premises: *hybrid activations*.
 
 ### Capacidades principais
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
-- **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-- **SO:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **porta:** Número que ajuda a identificar o serviço de destino de uma comunicação. Liberar uma porta autoriza tráfego segundo a regra, mas não configura a aplicação para responder.
-- **SSH:** Protocolo para acesso remoto protegido, comum na administração de Linux. Permissão para conectar pela rede e autorização para entrar no sistema são coisas diferentes.
-- **AMI:** Imagem de máquina EC2: modelo com o software necessário para iniciar uma instância. A imagem precisa ser compatível com a configuração de execução escolhida.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-- **script:** Programa de instruções usado para automatizar tarefas. O script realiza o que foi descrito; não decide sozinho como instalar ou proteger qualquer sistema.
-- **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
-- **Parameter Store:** Recurso de armazenamento de parâmetros do Systems Manager. É necessário configurar proteção e permissão, inclusive para valores sensíveis.
 
 | Capacidade | O que faz | Exemplo de prova |
 |---|---|---|
@@ -97,18 +63,9 @@ On-premises: *hybrid activations*.
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 Não basta o recurso existir na conta: agente, identidade, rede e demais requisitos variam conforme a função. Automatizar exige permissões e procedimentos definidos.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **Systems Manager:** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
 
 Systems Manager (opera **dentro** das instâncias) × Config (avalia **configuração** dos recursos) × CloudFormation (cria a infraestrutura).
 
@@ -117,10 +74,6 @@ Systems Manager (opera **dentro** das instâncias) × Config (avalia **configura
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 
 A maioria das capacidades é **gratuita** para EC2; pagos: nós on-premises avançados, Automation acima da cota, Parameter Store Advanced, OpsCenter etc.
 

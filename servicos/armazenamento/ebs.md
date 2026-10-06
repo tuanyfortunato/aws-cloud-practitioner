@@ -28,12 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **sistema operacional:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 **Passo 1.** Escolha a capacidade e o comportamento de armazenamento e crie um volume compatível com a máquina.
 
 **Passo 2.** Conecte e prepare o disco no sistema operacional. A aplicação passa a ler e gravar arquivos nele.
@@ -44,26 +38,9 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-
 Volume raiz (boot) das instâncias; discos de bancos de dados instalados no EC2; aplicações que precisam de sistema de arquivos em bloco.
 
 ### Tipos de volume
-
-**Antes de ler este trecho:**
-
-- **IOPS:** Quantidade de operações de leitura e escrita por segundo. Ajuda a descrever o comportamento de um armazenamento, mas não mede sozinha a quantidade de bytes transferidos.
-- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **SSD:** Tipo de armazenamento sem partes mecânicas, usado para acesso rápido a dados. A escolha de um volume também envolve sua capacidade e limites de desempenho.
-- **GB / MB / TB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **data warehouse:** Ambiente de dados organizado para análise de grandes conjuntos. O modelo e as consultas são orientados a perguntas analíticas.
-- **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
-- **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
-- **HDD:** Armazenamento por disco mecânico. Seu comportamento difere de SSD; a necessidade de acesso orienta a escolha.
 
 | Tipo | Mídia | Uso | Destaques | Boot? |
 |---|---|---|---|---|
@@ -74,23 +51,6 @@ Volume raiz (boot) das instâncias; discos de bancos de dados instalados no EC2;
 | **sc1** | HDD frio | Dados raramente acessados | O mais barato | **Não** |
 
 ### Conceitos e configurações
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **AWS Backup:** AWS Backup centraliza políticas e operações de backup para recursos compatíveis.
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-- **AES-256:** Algoritmo de criptografia com chave de 256 bits. Esse nome descreve a tecnologia de proteção; autorização e administração das chaves continuam necessárias.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
 | Item | Detalhe |
 |---|---|
@@ -112,11 +72,6 @@ Disco **físico local** do host: altíssimo desempenho, **sem custo extra** (inc
 
 **Efêmero:** dados perdidos ao **parar, hibernar ou encerrar** a instância ou se o hardware falhar (sobrevivem ao reboot).
 
-**Antes de ler este trecho:**
-
-- **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-- **NoSQL:** Família de modelos de banco que não se limita à estrutura relacional tradicional. Não significa ausência de estrutura ou que todo produto NoSQL faz o mesmo trabalho.
-
 Uso: cache, buffers, dados temporários, réplicas de dados (ex.: nós de banco NoSQL replicados).
 
 ### Limites e números
@@ -129,20 +84,11 @@ Uso: cache, buffers, dados temporários, réplicas de dados (ex.: nós de banco 
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **instance store:** Armazenamento local temporário da máquina física. Não é lugar seguro para a única cópia de dados que precisam sobreviver às ações descritas no ciclo de vida.
-
 EBS não deve ser confundido com uma pasta compartilhada para muitas máquinas. Discos locais instance store podem perder seus dados com ações do ciclo de vida da máquina.
 
 ### ⚠️ Pegadinhas e não confundir
 
 Volume EBS **não** pode ser usado diretamente em outra AZ → snapshot + novo volume.
-
-**Antes de ler este trecho:**
-
-- **EFS:** O EFS oferece um sistema de arquivos compartilhado.
 
 "Muitas instâncias em várias AZs, mesmos arquivos" → **EFS**, não EBS.
 
@@ -162,15 +108,7 @@ Snapshots: GB-mês armazenado (só os blocos alterados).
 
 ### Segurança e responsabilidade compartilhada
 
-**Antes de ler este trecho:**
-
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-
 **AWS:** replicação e disponibilidade do volume dentro da AZ.
-
-**Antes de ler este trecho:**
-
-- **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
 
 **Cliente:** ativar criptografia, fazer snapshots/backup, controlar quem anexa/compartilha snapshots (⚠️ snapshot público é check do Trusted Advisor).
 
@@ -185,11 +123,6 @@ Parar a computação pode manter o disco e seu custo. Encerrar a instância exig
 **Recursos envolvidos:** Volume de bloco, anexação à EC2, tipos de volume e snapshots.
 
 **Decisões que precisam ser tomadas:** AZ, capacidade, desempenho, criptografia e DeleteOnTermination.
-
-**Antes de ler este trecho:**
-
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-- **NFS:** NFS e SMB são protocolos para acesso a arquivos compartilhados. POSIX descreve interfaces e comportamentos de sistemas. Compatibilidade importa para a aplicação usar os arquivos corretamente.
 
 **Outra situação comentada:** Disco do SO de EC2: EBS; arquivos compartilhados em AZs distintas: avalie EFS.
 

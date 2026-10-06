@@ -41,11 +41,6 @@
 
 ### AWS IoT Device Defender
 
-**Antes de ler este trecho:**
-
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 **Audita** a configuração de segurança de frotas de dispositivos IoT (certificados, políticas) e **detecta comportamento anômalo** (ex.: dispositivo enviando tráfego fora do padrão).
 
 Gera alertas e ações de mitigação (isolar o dispositivo, revogar certificado).
@@ -54,18 +49,9 @@ Gera alertas e ações de mitigação (isolar o dispositivo, revogar certificado
 
 🔄 **Fechado a novos clientes** (data de encerramento não localizada).
 
-**Antes de ler este trecho:**
-
-- **machine learning:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-
 Solução de ponta a ponta para **monitorar equipamentos industriais**: sensores de vibração e temperatura, gateway e app com machine learning que avisa sobre falhas futuras (manutenção preditiva).
 
 ### AWS Panorama
-
-**Antes de ler este trecho:**
-
-- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-- **SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
 
 Appliance e SDK para rodar **visão computacional na borda**, usando câmeras IP já existentes (ex.: contagem de pessoas, inspeção de qualidade em linha de produção).
 
@@ -79,31 +65,13 @@ Detectava **anomalias em métricas de negócio** (vendas, receita) com ML.
 
 ### AWS RoboMaker
 
-**Antes de ler este trecho:**
-
-- **ROS:** Ecossistema de software para robótica. Não é o sistema operacional de qualquer servidor AWS nem uma ferramenta geral de migração.
-
 Serviço para **desenvolver, simular e testar aplicações de robótica** (ROS) em ambientes simulados na nuvem.
-
-**Antes de ler este trecho:**
-
-- **AWS Batch / Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 🔄 **Encerrado em 10/09/2025**; a alternativa indicada é o **AWS Batch** para simulações.
 
 ### AWS Ground Station
 
-**Antes de ler este trecho:**
-
-- **minuto:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 **Estações terrestres de satélite como serviço**: controlar satélites e baixar dados deles, pagando por minuto, sem construir antenas próprias.
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 
 Os dados podem ir direto para EC2 e S3 para processamento.
 
@@ -116,10 +84,6 @@ Não trate a lista como um pacote único nem presuma que toda oferta continua di
 ### ⚠️ Como isso aparece na prova
 
 "Conectar milhões de sensores à nuvem" → **IoT Core** (no escopo).
-
-**Antes de ler este trecho:**
-
-- **GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
 
 "Detectar anomalias de segurança" → na CLF-C02, pense em **GuardDuty** (contas AWS), não Device Defender.
 

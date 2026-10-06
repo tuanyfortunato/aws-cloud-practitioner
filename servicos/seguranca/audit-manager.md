@@ -42,19 +42,7 @@
 
 ### Como funciona
 
-**Antes de ler este trecho:**
-
-- **CIS / NIST / SOC / PCI DSS / HIPAA / GDPR:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
-- **ISO:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
-
 **Frameworks** prontos (PCI DSS, HIPAA, GDPR, SOC 2, CIS, NIST, FedRAMP, ISO…) ou customizados.
-
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
 
 **Assessments** coletam evidências automaticamente de **Config**, **Security Hub**, **CloudTrail** e chamadas de API (snapshots de configuração), além de evidências manuais.
 
@@ -67,12 +55,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Organizar evidências não garante aprovação na auditoria nem elimina controles manuais. A ficha está identificada como não listada no escopo atual.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **Artifact:** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
-- **Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 Artifact (relatórios da AWS) × Audit Manager (evidências do cliente) × Config (avalia regras dos recursos).
 
@@ -99,10 +81,6 @@ Uma equipe reúne evidências de seu ambiente AWS e complementa o material com d
 **Recursos envolvidos:** Frameworks, assessments, controls e evidências.
 
 **Decisões que precisam ser tomadas:** Escopo de avaliação e responsáveis.
-
-**Antes de ler este trecho:**
-
-- **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
 
 **Outra situação comentada:** Evidência da conta do cliente difere de relatório da AWS: Audit Manager e Artifact têm papéis distintos.
 

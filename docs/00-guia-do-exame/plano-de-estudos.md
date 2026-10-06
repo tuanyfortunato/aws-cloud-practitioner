@@ -23,19 +23,6 @@ Os domínios com **mais peso** (3 e 2) ganham mais semanas de propósito.
 
 Em cada tópico, comece pela seção **🧠 Antes de começar** e termine respondendo as **Perguntas típicas**.
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-- **compliance:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 | Semana | Foco | Material | Concluído |
 |---|---|---|---|
 | 1 | Guia do exame + **Domínio 1** (24%) | [Tópicos 1.1–1.7](../01-conceitos-de-nuvem/README.md) · [flashcards D1](../../flashcards/dominio-1.md) | [ ] |
@@ -66,10 +53,6 @@ Confira [o que mudou em 2025-2026](atualizacoes-2025-2026.md) e as páginas ofic
 Revise [erros recorrentes](../../simulados/erros-recorrentes.md).
 
 ## Materiais principais
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 [AWS Skill Builder — Cloud Practitioner Essentials](https://skillbuilder.aws/) (gratuito)
 

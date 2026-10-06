@@ -30,10 +30,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 Um preço isolado não representa toda a operação. Manter tecnologia inclui pessoas, espaço, energia, licenças, capacidade e tarefas de manutenção. Compare cenários completos com hipóteses equivalentes, em vez de misturar necessidades diferentes.
 
 Depois de observar o uso, ajuste capacidade e desperdícios antes de assumir compromissos. Um desconto sobre capacidade desnecessária ainda pode ser gasto desnecessário. Licenças próprias exigem elegibilidade; uma ferramenta de inventário não concede esse direito.
@@ -47,61 +43,23 @@ Depois de observar o uso, ajuste capacidade e desperdícios antes de assumir com
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **TCO:** Custo total de propriedade: inclui infraestrutura e operação, não apenas o preço de uma máquina. A comparação depende das hipóteses adotadas.
-
 **Custos on-premises:** fixos e antecipados (servidores, storage, rede, datacenter, energia, refrigeração, pessoal). Muitos são "invisíveis" num TCO mal feito.
 
 **Custos na nuvem:** variáveis, por uso, sem compromisso (exceto quando você escolhe reservar).
 
 **TCO (Total Cost of Ownership):** comparação do custo total on-premises vs nuvem, incluindo pessoal e operação. Ferramentas: Migration Evaluator e Pricing Calculator.
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **BYOL:** Trazer licença própria elegível. É necessário verificar o direito de uso e as condições do software; a AWS não cria automaticamente essa licença.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-- **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
-
 **Licenciamento:** BYOL (trazer licenças próprias, ex.: Windows Server ou Oracle em Dedicated Hosts) vs licença incluída na instância. AWS License Manager controla o uso das licenças.
-
-**Antes de ler este trecho:**
-
-- **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-- **Cost Explorer:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-- **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 
 **Rightsizing:** ajustar tipo e tamanho dos recursos ao uso real. Ferramentas: Compute Optimizer, Cost Explorer, Trusted Advisor.
 
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
-
 **Serviços gerenciados reduzem custo operacional:** a AWS cuida de patch, backup e hardware; o time foca no produto.
 
-**Antes de ler este trecho:**
-
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-
 **Automação reduz custo e erro:** infraestrutura como código (CloudFormation) e escalonamento automático — o Terraform é um equivalente de terceiros.
-
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-- **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
 
 **Cai na prova:** "pagar só pelo que usa" e "sem contratos de longo prazo" = modelo On-Demand; "reduzir custo de licença" = BYOL e Dedicated Hosts.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 
 **Primeiro, identifique o funcionamento:** TCO inclui equipamento, energia, espaço, pessoal, licenças e operação. Rightsizing ajusta capacidade ao uso observado; automação reduz tarefas repetitivas.
 

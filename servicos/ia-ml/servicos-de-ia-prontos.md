@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
-
 **Passo 1.** Identifique a transformação desejada, como fala para texto ou extração de campos.
 
 **Passo 2.** Escolha o serviço específico e forneça uma entrada compatível com as permissões necessárias.
@@ -41,20 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Tabela de associação (📌 decorar)
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **AI:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **NLP:** Processamento de linguagem natural: tarefas de análise de texto ou fala. Não significa que um modelo sempre interpreta corretamente qualquer contexto.
-- **A2I:** Amazon Augmented AI: integração de revisão humana em tarefas compatíveis. A participação humana é parte de um processo definido, não correção automática de todo resultado.
-- **SSML:** Linguagem de marcação para controlar aspectos da síntese de fala em ferramentas compatíveis, como pronúncia e pausas.
-- **EPI:** Equipamento de proteção individual. Aparece como contexto de análise de imagens, não como nome de um recurso AWS.
 
 | Serviço | Entrada → saída | Recursos e casos de uso |
 |---|---|---|

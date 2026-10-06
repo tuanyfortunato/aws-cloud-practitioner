@@ -44,25 +44,11 @@ Examine função, compatibilidade e status. Fora do escopo do exame não signifi
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 A AWS avisa que a lista de serviços no escopo não é exaustiva, e quem já fez a prova relata questões sobre serviços pouco divulgados. Esta seção reúne os mais citados. Basta saber para que cada um serve.
 
 ### Sustentabilidade
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 **AWS Customer Carbon Footprint Tool:** ferramenta **gratuita** no console de Billing and Cost Management que mostra a **estimativa de emissões de carbono** do uso da AWS da conta, em toneladas métricas de CO₂ equivalente, com histórico e divisão por serviço e por região. Serve para acompanhar metas de sustentabilidade e se liga ao pilar **Sustentabilidade** do Well-Architected.
-
-**Antes de ler este trecho:**
-
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
-- **Graviton:** Família de processadores AWS baseada em arquitetura ARM. A aplicação e sua imagem precisam ser compatíveis com essa arquitetura.
 
 Outras práticas sustentáveis que a prova associa a esse pilar: usar processadores Graviton, serviços gerenciados e serverless, rightsizing, desligar recursos ociosos e escolher classes de armazenamento adequadas.
 
@@ -73,39 +59,6 @@ Outras práticas sustentáveis que a prova associa a esse pilar: usar processado
 **AWS Solutions Library e AWS Prescriptive Guidance:** arquiteturas de referência e soluções prontas para implantar, validadas pela AWS.
 
 ### Outros serviços citados por quem fez a prova
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **Amazon MemoryDB / MemoryDB:** MemoryDB oferece um banco em memória com mecanismos de durabilidade.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **MSK / Kafka:** Kafka é uma plataforma de fluxo de eventos; MSK é a oferta gerenciada compatível da AWS. A aplicação ainda precisa produzir e consumir os registros.
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-- **Amazon MQ:** Amazon MQ oferece brokers gerenciados compatíveis com tecnologias suportadas, como ActiveMQ e RabbitMQ.
-- **MQ / broker:** Intermediário de mensagens entre componentes. Sua interface e seus protocolos precisam ser compatíveis com as aplicações conectadas.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-- **resiliência:** Capacidade de resistir e recuperar-se de falhas. Requer escolher quais falhas serão tratadas e como a operação continuará.
-- **RTO:** Objetivo de tempo de recuperação: quanto tempo a organização aceita ficar sem o sistema após uma interrupção.
-- **RPO:** Objetivo de ponto de recuperação: quanto histórico de dados a organização aceita perder, medido como intervalo de tempo.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
-- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
-- **STS:** Serviço que fornece credenciais temporárias AWS. Essas credenciais permitem uma sessão autorizada dentro das permissões aplicáveis.
-- **data lake:** Conjunto de dados mantido para usos diversos, frequentemente em armazenamento de objetos. Organização, catálogo e permissões continuam necessários.
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-- **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
-- **Redis / Valkey:** Tecnologias de dados em memória com comportamentos e funções diferentes. A modalidade gerenciada deve ser escolhida segundo compatibilidade e necessidade, não apenas pela palavra cache.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-- **SAP:** Tecnologias e aplicações empresariais do ecossistema SAP. Podem exigir requisitos específicos de memória, licenciamento e operação.
 
 | Serviço | O que faz | Exemplo de cenário |
 | --- | --- | --- |
@@ -175,10 +128,6 @@ Você reconhece Kafka em uma alternativa, mas a questão só pede streaming gere
 **Pergunta:** "Onde contratar especialistas certificados sob demanda para um projeto pequeno?"
 
 **Resposta curta:** AWS IQ (descontinuado; hoje, AWS Marketplace Professional Services ou um parceiro da APN).
-
-**Antes de ler este trecho:**
-
-- **APN:** Rede de parceiros AWS. Parceiros oferecem serviços e soluções conforme seus próprios contratos e competências.
 
 **Pergunta:** "Qual serviço emite as credenciais temporárias usadas pelas roles?"
 

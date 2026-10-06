@@ -38,24 +38,6 @@
 
 ### Comparação
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **DocumentDB:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **KB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **Parameter Store:** Recurso de armazenamento de parâmetros do Systems Manager. É necessário configurar proteção e permissão, inclusive para valores sensíveis.
-- **AWSCURRENT / AWSPREVIOUS:** Rótulos de versões de segredos que identificam, respectivamente, a versão atual e a anterior no contexto do Secrets Manager.
-
 | | **Secrets Manager** | **Parameter Store** |
 |---|---|---|
 | Foco | Segredos (senhas de banco, chaves de API, tokens) | Configurações e segredos simples |
@@ -77,10 +59,6 @@ Guardar um segredo não autoriza qualquer programa a lê-lo. Rotação também n
 ### ⚠️ Pegadinhas
 
 "Rotação automática" → **Secrets Manager**. "Guardar configuração barata/grátis" → **Parameter Store**.
-
-**Antes de ler este trecho:**
-
-- **user data:** Dados ou instruções fornecidos à inicialização da máquina. Um script configurado pode preparar o ambiente; ele não instala qualquer sistema sem você descrever as ações.
 
 Nunca guarde access keys/senhas no código, em variáveis de ambiente em texto ou no user data.
 

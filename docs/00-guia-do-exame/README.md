@@ -30,10 +30,6 @@
 
 ## Formato
 
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 | Item | Detalhe |
 |---|---|
 | Código | CLF-C02 (o guia atual não mostra número de versão) |
@@ -50,11 +46,6 @@
 
 ## Domínios e pesos
 
-**Antes de ler este trecho:**
-
-- **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 | Domínio | Peso | Tópicos |
 |---|---|---|
 | 1. Conceitos de Nuvem | 24% | [01-conceitos-de-nuvem](../01-conceitos-de-nuvem/README.md) |
@@ -64,29 +55,11 @@
 
 ## O que a prova cobra (e o que não cobra)
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 Avalia: **explicar o valor da nuvem**, entender **custos, economia e cobrança** e **identificar serviços AWS para casos de uso comuns**.
-
-**Antes de ler este trecho:**
-
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 
 Fora do escopo: codificação, design de arquitetura, troubleshooting, implementação e testes de carga.
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
-
 Por isso, números aparecem quase sempre como **diferenciadores** ("15 min" separa Lambda de Batch/Fargate; "2 minutos" identifica Spot), não como cálculo. Veja [números-âncora](../../resumos/numeros-ancora.md).
-
-**Antes de ler este trecho:**
-
-- **MSK:** Kafka é uma plataforma de fluxo de eventos; MSK é a oferta gerenciada compatível da AWS. A aplicação ainda precisa produzir e consumir os registros.
 
 **Task statements oficiais, serviços no escopo e fora do escopo:** ver [escopo oficial](escopo-oficial.md). Vários serviços saíram da lista (ex.: AWS IQ, Wavelength, CloudShell, CodeDeploy, Transfer Family, MSK) e alternativas com eles tendem a ser distratores.
 
@@ -101,10 +74,6 @@ Por isso, números aparecem quase sempre como **diferenciadores** ("15 min" sepa
 [Pendências de verificação](pendencias-de-verificacao.md) — o que ainda não foi conferido em fonte oficial
 
 ## Dicas para o dia da prova
-
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 
 Leia a pergunta inteira antes das alternativas e procure a **palavra-chave** ("mais barato", "menor esforço operacional", "alta disponibilidade") — ver [palavras-chave](../../resumos/palavras-chave.md).
 

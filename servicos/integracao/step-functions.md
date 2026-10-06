@@ -38,23 +38,6 @@
 
 ### Conceitos
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **Glue:** Glue oferece catálogo e ferramentas de integração e transformação de dados.
-- **Bedrock:** Bedrock oferece acesso gerenciado a modelos e recursos de desenvolvimento de aplicações com IA generativa, conforme a oferta e as autorizações.
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **JSON:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
-- **retry:** Nova tentativa após uma falha. Repetir exige considerar o efeito da execução anterior para não duplicar resultados indevidamente.
-- **workflow / state machine:** Fluxo de trabalho descrito por etapas, decisões e estados. Coordenar etapas é diferente de escrever o programa que realiza cada tarefa.
-- **SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-
 | Item | Detalhe |
 |---|---|
 | **State machine** | Definida em JSON (Amazon States Language) ou desenhada no **Workflow Studio**. |
@@ -64,13 +47,6 @@
 | **Callback / aprovação humana** | Pausa o fluxo até receber um token (ex.: aprovação por e-mail). |
 
 ### Tipos de workflow
-
-**Antes de ler este trecho:**
-
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
 | | **Standard** | **Express** |
 |---|---|---|
@@ -87,17 +63,7 @@ O serviço coordena as etapas; ele não escreve automaticamente o código que co
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **Step Functions:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis.
-
 Step Functions (**orquestra** etapas com estado) × EventBridge (**roteia** eventos) × SQS (fila).
-
-**Antes de ler este trecho:**
-
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
-- **SWF:** Simple Workflow Service: serviço de coordenação de trabalhos distribuídos com modelo próprio. É referência especializada, não sinônimo de todas as ferramentas de fluxo.
 
 **SWF** (Simple Workflow Service) é o antecessor legado.
 

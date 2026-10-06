@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-
 **Passo 1.** Defina os dados S3 compatíveis que precisam de avaliação e a configuração de descoberta.
 
 **Passo 2.** O serviço examina conteúdo conforme sua cobertura e produz resultados sobre possíveis dados sensíveis.
@@ -42,14 +38,6 @@
 
 ### O que faz
 
-**Antes de ler este trecho:**
-
-- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **CPF:** Identificador pessoal brasileiro. Neste material é exemplo de dado que pode exigir proteção, não um mecanismo AWS de autenticação.
-
 | Função | Detalhe |
 |---|---|
 | **Inventário e postura dos buckets** | Buckets **públicos**, sem criptografia, compartilhados com outras contas ou replicados. |
@@ -58,31 +46,15 @@
 | **Jobs** | Varreduras completas sob demanda ou agendadas. |
 | **Integrações** | Achados no Security Hub e EventBridge. |
 
-**Antes de ler este trecho:**
-
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-
 Teste gratuito de 30 dias. Cobrança por bucket monitorado e por GB inspecionado.
 
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
 
 ### ⚠️ Pegadinha
-
-**Antes de ler este trecho:**
-
-- **Macie:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
-- **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
-- **GDPR:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
-- **LGPD:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
 
 Macie atua **só no S3**. "PII", "dados sensíveis", "LGPD/GDPR no S3" → Macie.
 
@@ -101,11 +73,6 @@ A escola avalia um bucket de documentos para identificar arquivos que podem cont
 **Recursos envolvidos:** Inventário de buckets, jobs, identificadores e findings.
 
 **Decisões que precisam ser tomadas:** Buckets, escopo, formatos e identificadores suportados.
-
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
 
 **Outra situação comentada:** Encontrar dados pessoais em documentos S3: Macie; confirme elegibilidade do formato e permissões.
 

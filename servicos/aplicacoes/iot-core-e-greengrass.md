@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 **Passo 1.** Prepare identidade e software dos dispositivos que vão comunicar-se.
 
 **Passo 2.** Configure os canais e as permissões para dados e comandos. Avalie processamento local separadamente quando necessário.
@@ -44,21 +40,9 @@
 
 **Message broker**
 
-**Antes de ler este trecho:**
-
-- **HTTPS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **WebSocket:** Comunicação que mantém uma conexão para troca de mensagens entre cliente e servidor. É diferente de uma sequência de pedidos web independentes.
-- **broker:** Intermediário de mensagens entre componentes. Sua interface e seus protocolos precisam ser compatíveis com as aplicações conectadas.
-- **MQTT:** Protocolo de mensagens comum em dispositivos conectados. Aplicação, tópicos e permissões precisam ser definidos para a comunicação desejada.
-
 **Detalhe:** **MQTT** (também MQTT sobre WebSocket, HTTPS, LoRaWAN) — publish/subscribe entre dispositivos e nuvem.
 
 **Autenticação**
-
-**Antes de ler este trecho:**
-
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
 
 **Detalhe:** Certificados **X.509** por dispositivo, políticas do IoT; TLS mútuo.
 
@@ -72,14 +56,6 @@
 
 **Rules engine**
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-
 **Detalhe:** Regras SQL que roteiam mensagens para Lambda, DynamoDB, S3, Kinesis, SNS, Timestream…
 
 **Cobrança**
@@ -90,20 +66,9 @@
 
 > ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
 
-**Antes de ler este trecho:**
-
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **inferência:** Uso de um modelo para produzir um resultado com uma nova entrada. Pode acontecer sem um novo treinamento em cada solicitação.
-- **runtime:** Ambiente que executa código de uma linguagem ou plataforma. Compatibilidade de bibliotecas e versões deve ser avaliada.
-
 Runtime de **borda**: executa **Lambda, contêineres e inferência de ML localmente** no dispositivo/gateway, com operação **offline** e sincronização com a nuvem.
 
 ### Outros (reconhecer o nome)
-
-**Antes de ler este trecho:**
-
-- **sistema operacional:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
-- **OTA:** Atualização enviada remotamente a dispositivos. É necessário preparar compatibilidade, autorização e tratamento de falhas.
 
 | Serviço | Função |
 |---|---|
@@ -137,10 +102,6 @@ Sensores de uma escola enviam leituras ao IoT Core. Uma necessidade de processam
 **Recursos envolvidos:** Dispositivos, certificados, policies, topics e regras; runtime local Greengrass.
 
 **Decisões que precisam ser tomadas:** Identidade do dispositivo, protocolo, topics e destinos.
-
-**Antes de ler este trecho:**
-
-- **telemetria:** Medidas e informações enviadas por um equipamento ou sistema. Coletar dados é uma etapa diferente de analisá-los ou agir sobre eles.
 
 **Outra situação comentada:** Sensor envia telemetria com identidade própria: IoT Core; processamento local tem necessidade distinta.
 

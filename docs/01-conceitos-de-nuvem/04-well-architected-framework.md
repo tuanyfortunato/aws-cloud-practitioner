@@ -44,15 +44,6 @@ Uma prática pode beneficiar mais de um pilar. Para escolher na prova, identifiq
 
 Seis pilares, cada um com princípios de design. A prova descreve uma prática e pergunta o pilar.
 
-**Antes de ler este trecho:**
-
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **menor privilégio:** Conceder apenas o acesso necessário ao trabalho. Evita que uma tarefa simples carregue poder desnecessário sobre outros recursos.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 | Pilar | Foco | Princípios de design que mais caem |
 | --- | --- | --- |
 | Excelência Operacional | Rodar e monitorar sistemas e melhorar processos | Operações como código; mudanças pequenas, frequentes e reversíveis; refinar procedimentos com frequência; antecipar falhas; aprender com falhas operacionais; usar serviços gerenciados; implementar observabilidade |
@@ -62,27 +53,9 @@ Seis pilares, cada um com princípios de design. A prova descreve uma prática e
 | Otimização de Custos | Entregar valor pelo menor preço | Praticar gestão financeira na nuvem; adotar modelo de consumo; medir a eficiência geral; parar de gastar com trabalho pesado indiferenciado; analisar e atribuir gastos |
 | Sustentabilidade | Reduzir impacto ambiental | Entender seu impacto; definir metas; maximizar a utilização; adotar hardware e software mais eficientes; usar serviços gerenciados; reduzir o impacto downstream |
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-
 **AWS Well-Architected Tool:** serviço gratuito no console para revisar uma carga de trabalho contra os pilares e gerar um plano de melhorias.
 
-**Antes de ler este trecho:**
-
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-- **machine learning:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-
 **Lenses:** extensões do framework para cenários específicos (serverless, SaaS, machine learning, serviços financeiros).
-
-**Antes de ler este trecho:**
-
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **Graviton:** Família de processadores AWS baseada em arquitetura ARM. A aplicação e sua imagem precisam ser compatíveis com essa arquitetura.
 
 **Cai na prova:** "usar várias AZs" = Confiabilidade; "ativar MFA e criptografia" = Segurança; "escolher o tipo de instância certo" = Eficiência de Performance; "desligar recursos ociosos" = Otimização de Custos; "usar Graviton para gastar menos energia" = Sustentabilidade; "CloudFormation e runbooks" = Excelência Operacional.
 

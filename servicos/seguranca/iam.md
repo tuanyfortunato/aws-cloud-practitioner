@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 **Passo 1.** Identifique a pessoa ou programa, a ação necessária e o recurso sobre o qual ela acontecerá.
 
 **Passo 2.** Configure a identidade e políticas adequadas, considerando limites e relações de confiança aplicáveis.
@@ -43,20 +38,6 @@
 
 ### Identidades
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **CLI / SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
-- **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
-- **STS:** Serviço que fornece credenciais temporárias AWS. Essas credenciais permitem uma sessão autorizada dentro das permissões aplicáveis.
-- **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-- **SCP:** Política de controle de serviços usada na organização para limitar permissões disponíveis em contas às quais se aplica. Ela não concede acesso ao usuário sozinha.
-
 | Identidade | Credenciais | Uso |
 |---|---|---|
 | **Usuário root** | E-mail + senha (+ MFA) | Só tarefas que exigem root. **Não** pode ser limitado por políticas IAM (só por SCP, na Organization). |
@@ -66,25 +47,11 @@
 
 #### Roles em detalhe
 
-**Antes de ler este trecho:**
-
-- **policy:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-
 **Trust policy:** quem pode **assumir** a role (principal: serviço, conta, IdP).
 
 **Permission policy:** o que a role pode fazer.
 
-**Antes de ler este trecho:**
-
-- **instance profile:** Forma de associar uma role IAM a uma máquina EC2. A aplicação obtém permissões temporárias em vez de manter chaves fixas no código.
-- **IMDS:** Serviço de metadados da instância. A versão 2 usa um mecanismo de token; metadados e credenciais devem ser usados conforme as recomendações de segurança.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 **Instance profile:** entrega a role a uma instância EC2 (credenciais via IMDS, rotacionadas automaticamente).
-
-**Antes de ler este trecho:**
-
-- **service-linked role:** Role IAM vinculada a um serviço, com relação e função próprias. Seu uso não elimina a necessidade de controlar quem pode operar o serviço.
 
 **Service-linked role:** criada e gerenciada por um serviço AWS.
 
@@ -101,14 +68,6 @@
   }]
 }
 ```
-
-**Antes de ler este trecho:**
-
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-- **RCP:** Política de controle de recursos que limita permissões aplicáveis a recursos compatíveis da organização. É um limite, não uma concessão isolada de acesso.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-- **permissions boundary:** Limite de permissões de uma identidade IAM. Ele restringe a concessão efetiva, mas não concede acesso por si só.
 
 | Tipo | Anexada a | Observação |
 |---|---|---|
@@ -128,14 +87,6 @@
 
 ### Credenciais e boas práticas
 
-**Antes de ler este trecho:**
-
-- **virtual:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
-- **menor privilégio:** Conceder apenas o acesso necessário ao trabalho. Evita que uma tarefa simples carregue poder desnecessário sobre outros recursos.
-- **chave:** Pode indicar identificação de um registro, identificação de um objeto ou elemento criptográfico. Leia o contexto: localizar um dado e protegê-lo são tarefas diferentes.
-- **ABAC:** Controle de acesso baseado em atributos, como tags, dentro das condições de políticas compatíveis. Não concede acesso sem regras aplicáveis.
-- **FIDO2 / TOTP:** Mecanismos de autenticação. FIDO2 usa padrões para credenciais com dispositivos ou autenticadores; TOTP é código temporário calculado com base em tempo.
-
 | Prática | Detalhe |
 |---|---|
 | **MFA** | Virtual (app), chave de segurança FIDO2/**passkey**, token de hardware TOTP ✔️; até 8 dispositivos por identidade. Pode ser exigido via condição. |
@@ -150,10 +101,6 @@
 ### Ferramentas de auditoria
 
 **Credential report**
-
-**Antes de ler este trecho:**
-
-- **CSV:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
 
 **O que mostra:** Todos os usuários da conta e status de senha, MFA, idade das access keys (CSV).
 
@@ -173,10 +120,6 @@
 
 Emite **credenciais temporárias** (access key + secret + session token, com expiração de minutos a horas).
 
-**Antes de ler este trecho:**
-
-- **federação:** Uso de uma identidade de um provedor em outro ambiente por uma relação de confiança. Não significa que todos os usuários passam a ser administradores.
-
 APIs: `AssumeRole` (roles e cross-account), `AssumeRoleWithSAML`, `AssumeRoleWithWebIdentity` (federação), `GetSessionToken` (MFA).
 
 É o que está por trás de toda role.
@@ -189,28 +132,15 @@ Dar acesso à AWS não cria automaticamente o cadastro dos alunos dentro do apli
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-
 IAM é **global** e **gratuito**.
 
 **User × Role:** longo prazo × temporário.
 
 **SCP não concede** permissão.
 
-**Antes de ler este trecho:**
-
-- **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
-- **SSO:** Uma entrada para vários ambientes autorizados. O usuário ainda recebe acessos definidos para cada ambiente.
-
 **Identity Center** (funcionários, SSO multi-conta) × **Cognito** (usuários finais de apps).
 
 Criar usuários IAM e ver a fatura (com permissão) **não** exigem root.
-
-**Antes de ler este trecho:**
-
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
 ✔️ 🔄 **Alterar o nome da conta**, contatos, contatos alternativos, moeda de pagamento e regiões **não exigem root**; **mudar o plano de suporte** também saiu da lista oficial de tarefas do root.
 
@@ -233,11 +163,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Cliente:** **tudo o que é configurado**: identidades, políticas, MFA, rotação de credenciais (controle **específico do cliente**).
 
 ## 5. Caso resolvido: ligando as peças
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 
 O programa da escola precisa ler materiais do S3, mas não precisa apagar arquivos nem administrar a conta. O objetivo é conceder uma ação limitada ao componente que realmente a executa.
 

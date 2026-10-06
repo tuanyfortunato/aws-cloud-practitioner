@@ -38,67 +38,25 @@
 
 ### VPC Peering
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 Conexão privada **um-para-um** entre duas VPCs (mesma conta, outra conta, outra região).
 
 ⚠️ **Não é transitivo:** A↔B e B↔C não permite A↔C.
 
 CIDRs **não podem se sobrepor**. Precisa atualizar route tables e SGs dos dois lados.
 
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 Sem custo por hora; paga transferência de dados.
 
 ### AWS Transit Gateway
 
-**Antes de ler este trecho:**
-
-- **Direct Connect:** Direct Connect permite estabelecer essa conectividade por conexões e locais compatíveis, com interfaces e rotas configuradas para o ambiente.
-- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-- **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 **Hub regional** que conecta milhares de VPCs, VPNs, Direct Connect e outros TGWs (peering entre regiões) — modelo *hub-and-spoke*.
-
-**Antes de ler este trecho:**
-
-- **TGW:** Transit Gateway: ponto central para ligações entre redes compatíveis. Rotas e associações determinam a comunicação; criar o ponto não libera tudo automaticamente.
 
 Route tables do TGW permitem segmentar (ex.: prod não fala com dev).
 
-**Antes de ler este trecho:**
-
-- **RAM:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-
 Compartilhável entre contas via **RAM**.
-
-**Antes de ler este trecho:**
-
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
 Pago por anexo-hora + GB processado.
 
 ### VPC Endpoints
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
-- **route table:** Conjunto de regras que indica para onde encaminhar tráfego destinado a determinadas faixas. A rota é parte do caminho, não uma autorização de identidade.
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
-- **load balancer:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-- **GWLB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
-- **ENI:** Interface de rede virtual. Ela associa endereços e configurações de comunicação a recursos compatíveis.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
 | Tipo | Serviços | Como funciona | Custo |
 |---|---|---|---|
@@ -110,17 +68,9 @@ Endpoint policies restringem o que pode ser acessado pelo endpoint.
 
 ### AWS PrivateLink
 
-**Antes de ler este trecho:**
-
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-
 Tecnologia dos interface endpoints. Também permite **expor um serviço seu** (atrás de um NLB) para outras VPCs/contas/clientes de forma privada, sem peering e sem expor a VPC inteira.
 
 ### Comparação rápida
-
-**Antes de ler este trecho:**
-
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
 
 | Necessidade | Solução |
 |---|---|
@@ -151,11 +101,6 @@ Duas VPCs podem usar peering. Uma empresa com muitas redes pode avaliar Transit 
 **Recursos envolvidos:** Peering entre VPCs; hub Transit Gateway; endpoints e PrivateLink.
 
 **Decisões que precisam ser tomadas:** Redes envolvidas, rotas, serviço exposto e permissões.
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **consumidor:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
 
 **Outra situação comentada:** Três redes precisam comunicação por hub: TGW; consumidor só precisa de serviço privado: PrivateLink.
 

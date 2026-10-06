@@ -44,10 +44,6 @@ Escreva primeiro o resultado desejado. Depois escolha a fonte ou serviço com es
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 **AWS re:Post:** comunidade de perguntas e respostas moderada pela AWS (substituiu os antigos fóruns).
 
 **AWS Knowledge Center:** artigos com respostas às perguntas mais frequentes dos clientes.
@@ -56,18 +52,9 @@ Escreva primeiro o resultado desejado. Depois escolha a fonte ou serviço com es
 
 **AWS Professional Services:** time de consultoria da própria AWS.
 
-**Antes de ler este trecho:**
-
-- **APN:** Rede de parceiros AWS. Parceiros oferecem serviços e soluções conforme seus próprios contratos e competências.
-
 **AWS Partner Network (APN):** parceiros certificados — de serviços/consultoria (implementam projetos) e de tecnologia/software (produtos que integram com a AWS).
 
 **AWS Marketplace:** catálogo de software de terceiros (ver [4.4](04-ferramentas-de-custo.md)).
-
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **AMS:** Managed Services: oferta de administração operacional conforme cobertura contratada. Não presuma que inclui toda tarefa de qualquer aplicação.
 
 **AWS Managed Services (AMS):** a AWS opera a infraestrutura do cliente (monitoramento, patches, backup, incidentes).
 
@@ -82,10 +69,6 @@ Escreva primeiro o resultado desejado. Depois escolha a fonte ou serviço com es
 **Cai na prova:** "precisa de uma consultoria para implementar o projeto" = AWS Professional Services ou um parceiro da APN; "quer que a AWS opere a infraestrutura" = AWS Managed Services; "dúvida técnica da comunidade" = re:Post.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
 **Primeiro, identifique o funcionamento:** Documentação explica capacidades; Knowledge Center reúne orientações; re:Post oferece comunidade; Professional Services auxilia projetos; parceiros implementam/integram; Marketplace comercializa ofertas.
 

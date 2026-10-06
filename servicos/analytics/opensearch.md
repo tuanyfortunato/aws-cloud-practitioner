@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **índice:** Estrutura adicional para apoiar consultas. Pode melhorar um padrão de acesso, mas possui condições de atualização, capacidade e custo.
-
 **Passo 1.** Prepare dados e defina como eles serão indexados para busca.
 
 **Passo 2.** Envie registros e consulte palavras, campos ou relações compatíveis com o índice.
@@ -41,17 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Destaques
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **RAG:** Recuperar informações de uma fonte e usá-las como contexto de geração. Isso não elimina erros nem autoriza acesso a todos os documentos.
-- **SIEM:** Ferramentas e processos para reunir e analisar informações de segurança. A qualidade depende das fontes, regras e investigação.
 
 | Item | Detalhe |
 |---|---|
@@ -94,10 +79,6 @@ Uma equipe envia logs da aplicação para procurar erros por palavra, horário e
 **Pergunta:** "Busca de texto completo no catálogo de produtos."
 
 **Resposta curta:** OpenSearch Service.
-
-**Antes de ler este trecho:**
-
-- **OpenSearch Service:** OpenSearch oferece busca e análise de dados indexados.
 
 **Pergunta:** "Analisar e visualizar logs em tempo quase real."
 

@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **produtor:** Componente que envia dados ou mensagens. Enviar uma mensagem não significa que o trabalho correspondente já foi realizado.
-- **consumidor:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
-
 **Passo 1.** O produtor envia uma mensagem descrevendo um trabalho, como emitir um certificado. A fila guarda a mensagem; ela ainda não executou o trabalho.
 
 **Passo 2.** O consumidor recebe a mensagem e realiza a tarefa. Durante o prazo de invisibilidade, a mensagem fica indisponível para novos recebimentos.
@@ -47,21 +42,9 @@
 
 2. O consumidor **puxa** (*poll*) as mensagens, processa e **apaga**.
 
-**Antes de ler este trecho:**
-
-- **visibility timeout:** Intervalo em que uma mensagem recebida do SQS fica temporariamente invisível a outros recebimentos. Se ela não for excluída e o prazo terminar, pode voltar a ser recebida.
-- **timeout:** Limite de espera ou duração. Ao excedê-lo, uma operação pode falhar ou exigir tratamento; não presuma que nada aconteceu antes da interrupção.
-
 3. Enquanto processa, a mensagem fica invisível (*visibility timeout*); se não for apagada a tempo, volta para a fila.
 
 ### Tipos de fila
-
-**Antes de ler este trecho:**
-
-- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
-- **FIFO:** Primeiro a entrar, primeiro a sair. No SQS, a ordenação considera grupos de mensagens; deduplicação no envio não garante ausência de repetição de efeitos no programa.
-- **deduplicação:** Identificação e tratamento de entradas repetidas conforme um critério e uma janela. É diferente de garantir toda a execução da aplicação apenas uma vez.
-- **message group:** Identificação de grupo usada nas filas FIFO do SQS para a ordenação. Não presuma uma ordem única entre grupos independentes.
 
 | | **Standard** | **FIFO** |
 |---|---|---|
@@ -74,18 +57,9 @@
 
 **Tamanho da mensagem**
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **MiB / KiB:** Unidades em escala binária: cada nível corresponde a 1.024 do anterior. MiB e MB não são a mesma unidade; preserve a unidade indicada pelo serviço.
-
 **Valor:** 🔄 até **1 MiB** (antes **256 KiB** — use o valor que estiver nas alternativas); maiores: guardar no S3 e enviar referência (*extended client*)
 
 **Retenção**
-
-**Antes de ler este trecho:**
-
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
 
 **Valor:** padrão **4 dias**, de 60 s a **14 dias**
 
@@ -99,50 +73,21 @@
 
 **Long polling**
 
-**Antes de ler este trecho:**
-
-- **long polling / short polling:** Formas de consultar mensagens: a consulta longa pode esperar por disponibilidade, reduzindo consultas vazias; a curta retorna sem essa mesma espera.
-
 **Valor:** espera até **20 s** por mensagens (menos requisições vazias, menor custo) — preferível ao *short polling*
 
 **Dead-letter queue (DLQ)**
-
-**Antes de ler este trecho:**
-
-- **DLQ / dead-letter queue:** Fila separada para mensagens que atingiram condições configuradas de falha. Ajuda a isolar e investigar o problema; não corrige a mensagem automaticamente.
-- **redrive:** Reenvio de mensagens de uma fila de falhas para processamento, conforme o recurso. Antes de reenviar, é necessário entender a causa das falhas.
 
 **Valor:** Recebe mensagens que falharam N vezes (`maxReceiveCount`); *redrive* devolve à fila original
 
 **Criptografia**
 
-**Antes de ler este trecho:**
-
-- **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **SSE-KMS:** Formas de criptografia no servidor do S3, que diferem na origem e administração das chaves e, no último caso, nas camadas. A tabela da seção distingue essas escolhas.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **SSE-SQS:** Criptografia gerenciada pelo SQS para mensagens. É diferente da modalidade que integra uma chave KMS escolhida segundo a configuração.
-
 **Valor:** SSE-SQS (padrão) ou SSE-KMS; TLS em trânsito
 
 **Access policy**
 
-**Antes de ler este trecho:**
-
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **policy / política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-- **Access policy:** Política de acesso. O serviço e o tipo de objeto determinam quem é avaliado, quais ações podem ser permitidas e quais limites se aplicam.
-
 **Valor:** Política de recurso (ex.: permitir que um tópico SNS publique)
 
 ### Integrações comuns
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **fan-out:** Publicação de uma mensagem para destinatários inscritos. Distribuir avisos a vários destinos é diferente de manter uma tarefa aguardando um consumidor.
 
 **Lambda** (event source mapping), **Auto Scaling** de workers pelo tamanho da fila (`ApproximateNumberOfMessages`), **SNS fan-out**, notificações do S3, EventBridge.
 
@@ -150,19 +95,9 @@
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-
 SQS não executa a tarefa nem garante, em toda modalidade, que ela será recebida apenas uma vez. O consumidor deve tratar falhas e as condições de entrega.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **Amazon MQ:** Amazon MQ oferece brokers gerenciados compatíveis com tecnologias suportadas, como ActiveMQ e RabbitMQ.
-- **MQ:** Intermediário de mensagens entre componentes. Sua interface e seus protocolos precisam ser compatíveis com as aplicações conectadas.
-- **pull / push:** Em pull, o consumidor busca dados. Em push, o envio é iniciado para o destinatário. A forma de entrega não executa automaticamente a regra de negócio.
 
 **SQS** (fila, pull, 1 consumidor processa) × **SNS** (pub/sub, push para vários) × **EventBridge** (roteamento de eventos com regras) × **Kinesis** (stream relido por vários consumidores) × **Amazon MQ** (brokers ActiveMQ/RabbitMQ existentes).
 
@@ -171,10 +106,6 @@ SQS não executa a tarefa nem garante, em toda modalidade, que ela será recebid
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **KB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
 Por milhão de requisições (cada 64 KB = 1 requisição 🧊) + transferência. **1 milhão de requisições grátis/mês** para todos os clientes (✔️ Always Free nos planos Free e Paid).
 

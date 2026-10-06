@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-
 **Passo 1.** Determine o nome que os usuários consultarão e o destino que deve atender.
 
 **Passo 2.** Configure os registros e a política de resposta pertinente. O resolvedor DNS consulta informações para localizar o destino.
@@ -47,36 +42,11 @@
 
 2. **DNS autoritativo** (hosted zones).
 
-**Antes de ler este trecho:**
-
-- **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
-
 3. **Health checks** e failover.
-
-**Antes de ler este trecho:**
-
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **híbrido:** Combinação de ambiente próprio e nuvem. É necessário definir quais partes ficam em cada lado e como se comunicam.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
 4. **Route 53 Resolver**: DNS híbrido (endpoints inbound/outbound entre VPC e on-premises) e **DNS Firewall**.
 
 ### Conceitos
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **IPv4 / IPv6:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-- **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-- **TTL:** Tempo de vida de uma informação. Em DNS pode orientar cache; em um banco pode indicar expiração de itens. O efeito concreto depende do serviço.
-- **ELB:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-- **CNAME / AAAA / TXT / MX / CAA / SOA:** Tipos de registro DNS. A e AAAA indicam endereços, CNAME indica outro nome, MX indica e-mail, TXT texto, CAA emissão de certificados e SOA informações da zona.
 
 | Item | Detalhe |
 |---|---|
@@ -87,17 +57,6 @@
 | **TTL** | Tempo de cache da resposta nos resolvedores. |
 
 ### Políticas de roteamento
-
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **ativo-passivo:** Um ambiente atende normalmente e outro fica preparado para assumir. O preparo da alternativa pode variar bastante.
-- **CIDR:** Notação de faixa de endereços de rede, como um endereço acompanhado de /24. A faixa define um conjunto de endereços, não uma senha ou uma permissão.
-- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-- **health check:** Teste de resposta usado para avaliar um destino. O teste e os limites precisam refletir a função observada; não equivale a uma investigação completa da aplicação.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
 | Política | Uso |
 |---|---|
@@ -111,10 +70,6 @@
 | **IP-based** | Pelo bloco CIDR de origem do usuário |
 
 ### Limites e números
-
-**Antes de ler este trecho:**
-
-- **SLA:** Acordo de nível de serviço com condições e medidas próprias. Não é garantia de que a aplicação do cliente nunca falhará.
 
 📌 **SLA de 100%** para o DNS autoritativo — único serviço AWS com SLA de 100% (API/console fora). Tecnicamente, a página do SLA dá crédito de 10% quando a disponibilidade mensal fica **abaixo de 100%** (no GovCloud, abaixo de 99,995%).
 
@@ -130,11 +85,6 @@ Route 53 decide **para onde ir** (DNS); CloudFront **entrega e faz cache** do co
 
 Geolocation (fronteiras, país) × Latency (desempenho) × Geoproximity (distância ajustável).
 
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-
 Route 53 é um dos serviços **globais** (com IAM, CloudFront, Organizations).
 
 ## 4. Operação, segurança e custo
@@ -146,10 +96,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 Por hosted zone por mês + por milhão de consultas (alias para recursos AWS grátis) + health checks + domínios registrados (anual).
 
 ## 5. Caso resolvido: ligando as peças
-
-**Antes de ler este trecho:**
-
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
 
 O aluno digita um nome de site e precisa chegar ao endereço que atende a escola. A primeira tarefa é resolver esse nome, antes de a aplicação atender a requisição.
 

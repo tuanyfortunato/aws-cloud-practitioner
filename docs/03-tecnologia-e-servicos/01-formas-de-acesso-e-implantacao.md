@@ -29,12 +29,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
-
 A tela, o comando e o programa são meios de pedir operações ao serviço. O recurso criado não muda de natureza porque a solicitação foi feita de outro modo. A mesma identidade continua limitada pelos controles aplicáveis.
 
 Automatizar é descrever ações para repetir com menos trabalho manual. É necessário tratar resultado e erro, além de fornecer credenciais adequadas. Um arquivo de infraestrutura descreve recursos; uma biblioteca ajuda um programa a chamar operações.
@@ -48,15 +42,7 @@ Automatizar é descrever ações para repetir com menos trabalho manual. É nece
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 **AWS Management Console:** interface web. Bom para tarefas pontuais e exploração.
-
-**Antes de ler este trecho:**
-
-- **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
 
 **AWS CLI:** linha de comando para automatizar via scripts.
 
@@ -64,43 +50,17 @@ Automatizar é descrever ações para repetir com menos trabalho manual. É nece
 
 **AWS CloudShell:** terminal no navegador, já autenticado e com a CLI instalada, sem custo adicional.
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-
 **APIs:** tudo na AWS é uma chamada de API; Console, CLI e SDK usam as mesmas APIs por baixo.
-
-**Antes de ler este trecho:**
-
-- **AWS CloudFormation:** CloudFormation usa um arquivo de descrição para criar e atualizar conjuntos de recursos AWS compatíveis, com suas dependências.
-- **CloudFormation / IaC:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **JSON:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
-- **YAML:** Formatos de representação de dados e configurações. Um arquivo nesses formatos descreve informações; ele não cria permissões nem recursos sem ser usado por uma ferramenta.
 
 **Infraestrutura como código (IaC):** **AWS CloudFormation** (templates JSON/YAML que criam pilhas de recursos de forma repetível) — o Terraform é um equivalente de terceiros. Ver [3.16](16-gestao-e-governanca.md).
 
 **Operações pontuais vs repetíveis:** tarefa única pode ser no Console; tarefa repetível deve ser automatizada (CLI, SDK, CloudFormation).
 
-**Antes de ler este trecho:**
-
-- **AWS VPN:** Site-to-Site VPN liga redes por um túnel criptografado.
-- **VPN:** Conexão lógica protegida que liga usuários ou redes. Um túnel VPN não concede automaticamente acesso a todos os recursos do destino.
-- **AWS Direct Connect / Direct Connect:** Direct Connect permite estabelecer essa conectividade por conexões e locais compatíveis, com interfaces e rotas configuradas para o ambiente.
-- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-
 **Conectividade com a AWS:** internet pública, AWS VPN (Site-to-Site ou Client VPN) e AWS Direct Connect. Ver [3.10](10-rede-e-entrega-de-conteudo.md).
-
-**Antes de ler este trecho:**
-
-- **provisionar:** Criar ou disponibilizar capacidade e recursos. Um recurso provisionado pode ter cobrança mesmo enquanto está esperando trabalho.
 
 **Cai na prova:** "provisionar o mesmo ambiente em várias regiões de forma repetível" = CloudFormation; "executar comandos rápidos sem instalar nada" = CloudShell.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **híbrido:** Combinação de ambiente próprio e nuvem. É necessário definir quais partes ficam em cada lado e como se comunicam.
 
 **Primeiro, identifique o funcionamento:** Console fornece interface visual; CLI executa comandos; SDK integra APIs ao código. CloudFormation descreve recursos e suas dependências em templates e stacks.
 

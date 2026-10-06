@@ -76,7 +76,7 @@ Novos arquivos previstos nesta especificação devem ser registrados nos gerador
 
 | ID | Entrega | Prioridade | Dependências | Status |
 |---|---|---|---|---|
-| [AP-01](#ap-01) | Vocabulário correto por contexto | P0 | — | Pendente |
+| [AP-01](#ap-01) | Vocabulário correto por contexto | P0 | — | Substituído: vocabulário automático desligado (PR 1.1 do [plano](plano-de-implementacao.md)) |
 | [AP-02](#ap-02) | Justificativas reais nas perguntas | P1 | AP-01 | Pendente |
 | [AP-03](#ap-03) | Revisão de regras técnicas e simplificações | P0 | — | Pendente |
 | [AP-04](#ap-04) | Fundamentos e percurso por pré-requisitos | P1 | AP-01, AP-03 | Pendente |

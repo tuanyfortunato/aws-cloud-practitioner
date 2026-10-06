@@ -43,72 +43,25 @@ Uma fonte contínua pode exigir processamento enquanto os registros chegam. Uma 
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **Amazon Athena / Athena:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL.
-- **Glue:** Glue oferece catálogo e ferramentas de integração e transformação de dados.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **JSON / CSV / Parquet:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-
 **Amazon Athena:** Pontos de prova: SQL **serverless** direto em arquivos no S3 (CSV, JSON, Parquet); cobrado por **dados escaneados**; formatos colunares e particionamento reduzem custo; usa o catálogo do Glue.
-
-**Antes de ler este trecho:**
-
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
-- **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
-- **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
 
 **AWS Glue:** **ETL serverless** (extrair, transformar e carregar dados) e **Data Catalog** (catálogo de metadados usado por Athena, Redshift e EMR). Crawlers descobrem o schema automaticamente.
 
-**Antes de ler este trecho:**
-
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-
 **Amazon Kinesis:** dados em **streaming e tempo real**.
-
-**Antes de ler este trecho:**
-
-- **telemetria:** Medidas e informações enviadas por um equipamento ou sistema. Coletar dados é uma etapa diferente de analisá-los ou agir sobre eles.
 
   - **Kinesis Data Streams:** ingestão e processamento de streams (cliques, logs, telemetria).
 
   - **Amazon Data Firehose** (antes Kinesis Data Firehose): entrega streams automaticamente em S3, Redshift, OpenSearch e outros, sem administração.
 
   - **Kinesis Video Streams:** streaming de vídeo de dispositivos.
-**Antes de ler este trecho:**
-
-- **Apache Spark / Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
 
 **Amazon EMR:** plataforma de **big data** gerenciada com Apache Spark, Hadoop, Hive e Presto.
 
-**Antes de ler este trecho:**
-
-- **Amazon QuickSight / QuickSight:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis.
-- **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
-
 **Amazon QuickSight:** **BI** serverless; dashboards e relatórios interativos, inclusive com perguntas em linguagem natural.
-
-**Antes de ler este trecho:**
-
-- **Amazon OpenSearch Service / OpenSearch Service:** OpenSearch oferece busca e análise de dados indexados.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
 **Amazon OpenSearch Service:** **busca** e **análise de logs** (sucessor do Elasticsearch gerenciado), com OpenSearch Dashboards.
 
-**Antes de ler este trecho:**
-
-- **data warehouse:** Ambiente de dados organizado para análise de grandes conjuntos. O modelo e as consultas são orientados a perguntas analíticas.
-
 **Amazon Redshift:** data warehouse (ver [3.7](07-bancos-de-dados.md)).
-
-**Antes de ler este trecho:**
-
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
 
 **Cai na prova:** "consultar logs no S3 com SQL sem servidor" = Athena; "processar cliques em tempo real" = Kinesis; "painéis para executivos" = QuickSight; "preparar e catalogar dados" = Glue; "Spark/Hadoop gerenciado" = EMR; "busca de texto em produtos" = OpenSearch.
 
@@ -146,10 +99,6 @@ Arquivos de vendas já estão no S3 e você quer uma consulta SQL eventual, sem 
 **Pergunta:** "Como o Athena é cobrado?"
 
 **Resposta curta:** Por volume de dados escaneados.
-
-**Antes de ler este trecho:**
-
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
 **Pergunta:** "Serviço de ETL serverless e catálogo de dados."
 

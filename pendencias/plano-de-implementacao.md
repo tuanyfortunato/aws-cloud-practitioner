@@ -84,6 +84,8 @@ Cada fase é dividida em PRs pequenos, conforme o [CLAUDE.md](../CLAUDE.md): bra
 
 **Resultado do PR 1.2 (06/10/2026):** revisões circulares 123 → 0; seções só com texto padrão 147 → 1 (a que resta é a tabela de labs, escrita à mão); "Fundamento explicado no capítulo" 616 → 11, só onde cita um fato do capítulo; 39 mil palavras a menos. O vocabulário automático continua (PR 1.1, depois da Fase 2).
 
+**Resultado do PR 1.1 (06/10/2026):** `VOCABULARIO_AUTOMATICO = False` em `scripts/apostila.py`; blocos "Antes de ler este trecho" 1294 → 0 (aulas 380, páginas de apoio 55, fichas 859); 91 mil palavras a menos (289 mil → 198 mil). Os termos básicos ficam no capítulo 0 e no glossário. `vocabulario_apostila.py` continua no repositório.
+
 ## 5. Fase 2 — Capítulo 0 e glossário único
 
 **Objetivo:** dar ao iniciante os pré-requisitos que hoje aparecem como definições soltas.
@@ -251,7 +253,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 | Fase | Status | PRs | Observações |
 |---|---|---|---|
 | 0 | Concluída | #21 (marcador autoral) · #22 (métricas) | Linha de base registrada na seção 3 |
-| 1 | Em andamento | PR 1.2 (revisão circular e repetições) | PR 1.1 (vocabulário) depende do glossário da Fase 2 |
+| 1 | Concluída | #23 (revisão circular e repetições) · PR 1.1 (vocabulário automático desligado) | Aceite atingido: zero blocos de vocabulário, zero revisões circulares; a única seção "só com texto padrão" é a tabela de labs, escrita à mão |
 | 2 | Concluída | #24 (capítulo 0 e aula 0.1) · #25 (aulas 0.2 e 0.3) · #26 (aulas 0.4 e 0.5) · #27 (glossário) · #28 (correções) · flashcards do capítulo 0 | Capítulo 0 completo; glossário com 129 termos; correções após conferir as páginas oficiais inteiras (#28); flashcards do capítulo 0 em `flashcards/capitulo-0.md` |
 | 3 | Pendente | — | — |
 | 4 | Pendente | — | — |

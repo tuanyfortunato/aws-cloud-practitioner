@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 **Passo 1.** Identifique onde o processamento precisa ocorrer e qual tempo de comunicação é aceitável.
 
 **Passo 2.** Compare as localizações e os serviços disponíveis em cada oferta. Não confunda equipamento no cliente com infraestrutura em outro local.
@@ -41,15 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Comparação
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
-- **VDI:** Infraestrutura de desktops virtuais e computação para usuários finais. São contextos de uso remoto, com modalidades e responsabilidades diferentes.
 
 | | **AWS Outposts** ✅ | **AWS Local Zones** ⚪ | **AWS Wavelength** ❌ *fora do escopo* |
 |---|---|---|---|
@@ -65,22 +52,7 @@
 
 ### Serviços disponíveis
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **EKS:** O EKS oferece Kubernetes gerenciado.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-- **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
-
 **Outposts:** EC2, EBS, S3 on Outposts, ECS, EKS, RDS, EMR, ElastiCache (varia por formato).
-
-**Antes de ler este trecho:**
-
-- **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 
 **Local Zones / Wavelength:** subconjunto (EC2, EBS, ECS/EKS, ALB…), conectado à região-mãe.
 
@@ -99,11 +71,6 @@ As três opções não são o mesmo produto nem oferecem todos os serviços de u
 ### ⚠️ Pegadinhas e não confundir
 
 "Serviço AWS **no datacenter da empresa**" → Outposts. "Perto de uma **cidade** sem região" → Local Zones. "Rede **5G**" → Wavelength.
-
-**Antes de ler este trecho:**
-
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **edge location:** Local de infraestrutura usado para aproximar determinadas funções dos usuários, como entrega de conteúdo. Não é uma região completa com todos os serviços.
 
 Nenhum deles é "edge location" do CloudFront.
 

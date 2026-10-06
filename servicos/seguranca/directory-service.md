@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-
 **Passo 1.** Identifique o diretório existente e o tipo de integração requerido pelas aplicações.
 
 **Passo 2.** Escolha uma modalidade que cria um diretório ou usa uma relação com o ambiente existente, conforme sua função.
@@ -43,15 +39,6 @@
 ### Opções
 
 **AWS Managed Microsoft AD**
-
-**Antes de ler este trecho:**
-
-- **FSx:** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **AD:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 
 **O que é:** AD real gerenciado (controladores em 2 AZs)
 
@@ -90,11 +77,6 @@ Uma aplicação Windows na AWS precisa reconhecer os usuários do diretório da 
 **Recursos envolvidos:** Diretórios gerenciados/conectores e integração de rede.
 
 **Decisões que precisam ser tomadas:** Tipo de diretório, DNS, rede e trusts suportados.
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
 
 **Outra situação comentada:** Aplicação Windows precisa AD: avalie modalidade correta, em vez de presumir que IAM substitui qualquer protocolo de diretório.
 

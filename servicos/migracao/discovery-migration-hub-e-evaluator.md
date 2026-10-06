@@ -38,17 +38,6 @@
 
 ### Comparação
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **workflow:** Fluxo de trabalho descrito por etapas, decisões e estados. Coordenar etapas é diferente de escrever o programa que realiza cada tarefa.
-- **TCO:** Custo total de propriedade: inclui infraestrutura e operação, não apenas o preço de uma máquina. A comparação depende das hipóteses adotadas.
-- **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
-- **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
-- **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
-
 | Serviço | Fase | O que faz | Detalhes |
 |---|---|---|---|
 | **Migration Evaluator** (antigo TSO Logic) | Avaliar | Monta o **caso de negócio (TCO)**: quanto custaria o ambiente atual na AWS | Coletor sem agente ou importação de inventário; recomendações de *rightsizing* e licenças; **gratuito** |
@@ -59,17 +48,7 @@
 
 1. **Avaliar:** Migration Evaluator (custo) + Application Discovery Service (inventário e dependências).
 
-**Antes de ler este trecho:**
-
-- **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
-- **landing zone:** Base organizada de um ambiente AWS com várias contas e controles. Ainda é necessário definir aplicações, acessos e operação dentro dela.
-
 2. **Mobilizar/planejar:** Migration Hub, escolha dos 7 Rs, landing zone (Control Tower).
-
-**Antes de ler este trecho:**
-
-- **Application Migration Service:** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
-- **SCT:** Ferramenta de conversão de estrutura de banco em migrações compatíveis. Nem toda estrutura ou regra da aplicação é convertida automaticamente.
 
 3. **Migrar:** [Application Migration Service](application-migration-service.md), [DMS/SCT](dms-e-sct.md), [DataSync/Snow](datasync-e-transfer-family.md).
 
@@ -91,10 +70,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 **Migration Evaluator** entrou explicitamente na lista de serviços no escopo.
 
-**Antes de ler este trecho:**
-
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-
 A AWS lançou o **AWS Transform**, que usa agentes de IA generativa para acelerar migrações e modernizações (VMware, mainframe, .NET, Java) — 🧊 fora da prova.
 
 ## 5. Caso resolvido: ligando as peças
@@ -112,10 +87,6 @@ Uma empresa inventaria seus servidores e avalia o uso atual para preparar uma es
 **Recursos envolvidos:** Inventário/dependências, avaliações e acompanhamento de migração.
 
 **Decisões que precisam ser tomadas:** Fontes, acesso e disponibilidade de cada produto.
-
-**Antes de ler este trecho:**
-
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 
 **Outra situação comentada:** Mapear dependências antes de mover servidores: Discovery; custo do cenário: Evaluator.
 

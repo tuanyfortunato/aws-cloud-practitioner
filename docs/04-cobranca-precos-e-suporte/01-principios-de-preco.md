@@ -27,12 +27,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 O serviço mede uma unidade de consumo ou capacidade, não necessariamente pessoas usando seu sistema. Tempo de máquina, espaço de dados, chamadas e transferência são dimensões diferentes. Uma aplicação pode reunir várias cobranças ao mesmo tempo.
 
 Antes de calcular, identifique o recurso, a unidade e a condição. Parar computação pode manter volumes; remover uma aplicação pode manter cópias; uma chamada pode consumir unidades conforme seu tamanho. O modelo de cobrança evita suposições de custo zero.
@@ -48,26 +42,13 @@ Antes de calcular, identifique o recurso, a unidade e a condição. Parar comput
 
 **Pague conforme o uso (pay-as-you-go):** sem contrato nem investimento inicial.
 
-**Antes de ler este trecho:**
-
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-
 **Economize ao se comprometer:** reservas e Savings Plans dão desconto em troca de compromisso de 1 ou 3 anos.
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
 **Pague menos por unidade quando usa mais:** faixas de desconto por volume (ex.: S3, transferência de dados).
 
 **Três grandes geradores de custo:** computação, armazenamento e **transferência de dados de saída**.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 
 **Primeiro, identifique o funcionamento:** A cobrança combina unidades: tempo de computação, capacidade armazenada, requisições, processamento e transferência. Recursos relacionados podem ser cobrados separadamente.
 

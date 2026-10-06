@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 **Passo 1.** Identifique os nomes que precisam ser cobertos pelo certificado e a integração desejada.
 
 **Passo 2.** Solicite ou disponibilize um certificado compatível e atenda à validação prevista. Associe-o ao ponto de conexão.
@@ -41,16 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Destaques
-
-**Antes de ler este trecho:**
-
-- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **ELB:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
 
 | Item | Detalhe |
 |---|---|
@@ -63,20 +49,11 @@
 
 ### AWS Private CA
 
-**Antes de ler este trecho:**
-
-- **CA:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-
 Autoridade certificadora **privada** gerenciada para emitir certificados internos (serviços, dispositivos IoT, mTLS). Paga por CA/mês + certificados.
 
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-**Antes de ler este trecho:**
-
-- **HTTPS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
 
 Pedir um certificado não configura HTTPS em todos os recursos automaticamente. Validação do domínio, instalação ou integração e condições de renovação dependem da modalidade.
 
@@ -85,12 +62,6 @@ Pedir um certificado não configura HTTPS em todos os recursos automaticamente. 
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### 🔄 Atualizações 2025-2026
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **FQDN:** Nome de domínio completo para identificar um destino. Resolver esse nome continua sendo tarefa DNS; nome não é credencial.
 
 **Certificados públicos exportáveis** (desde 17/06/2025, pagos): permitem usar certificados do ACM em servidores próprios (EC2, on-premises). Validade de 395 dias; lançados a US$ 15 (FQDN) e US$ 149 (wildcard), hoje **US$ 7 e US$ 79** na página de preços. Na prova, siga: "público, gratuito, renovação automática, ELB/CloudFront" → ACM.
 
@@ -110,14 +81,6 @@ A escola configura um certificado compatível no balanceador que recebe conexõe
 
 **Decisões que precisam ser tomadas:** Domínios, tipo de certificado e serviço/região.
 
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-- **chave:** Pode indicar identificação de um registro, identificação de um objeto ou elemento criptográfico. Leia o contexto: localizar um dado e protegê-lo são tarefas diferentes.
-
 **Outra situação comentada:** HTTPS no ALB: certificado ACM; criptografar volume EBS: chave KMS.
 
 **Por que não concluir mais do que isso:** Renovação/uso depende da modalidade; certificado não autoriza leitura de dados
@@ -133,10 +96,6 @@ A escola configura um certificado compatível no balanceador que recebe conexõe
 **Pergunta:** "Certificados para serviços internos, não públicos."
 
 **Resposta curta:** AWS Private CA.
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 ## 7. Fontes e próximos passos
 

@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 **Passo 1.** Identifique o sistema de arquivos que a aplicação espera e escolha a modalidade correspondente.
 
 **Passo 2.** Prepare identidade, conexão e armazenamento. Os clientes compatíveis acessam os arquivos por sua interface prevista.
@@ -42,27 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Os quatro sabores
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **FSx:** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes.
-- **IOPS:** Quantidade de operações de leitura e escrita por segundo. Ajuda a descrever o comportamento de um armazenamento, mas não mede sozinha a quantidade de bytes transferidos.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **HPC:** Computação de alto desempenho: execução de cálculos intensivos, como simulações. O requisito concreto pode envolver processamento, comunicação ou outro recurso.
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-- **NFS / SMB / POSIX:** NFS e SMB são protocolos para acesso a arquivos compartilhados. POSIX descreve interfaces e comportamentos de sistemas. Compatibilidade importa para a aplicação usar os arquivos corretamente.
-- **iSCSI:** Protocolo para apresentar armazenamento em blocos pela rede. É diferente de acessar objetos por uma API ou arquivos por um compartilhamento.
-- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-- **deduplicação:** Identificação e tratamento de entradas repetidas conforme um critério e uma janela. É diferente de garantir toda a execução da aplicação apenas uma vez.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-- **ONTAP:** Tecnologia de armazenamento e gerenciamento de arquivos associada a uma modalidade FSx. A aplicação precisa da compatibilidade e dos recursos daquela modalidade.
-- **NAS:** Armazenamento acessível pela rede como arquivos. É diferente de apresentar um disco em blocos ou objetos por API.
-- **NTFS / ZFS:** Tecnologias de sistemas de arquivos com capacidades próprias. A modalidade FSx ou outro ambiente precisa da compatibilidade exigida pela aplicação.
-- **DFS:** Tecnologia de organização de arquivos distribuídos em cenários compatíveis. O contexto define como nomes e destinos são apresentados aos clientes.
 
 | Sabor | Protocolos | Destaques | Uso típico |
 |---|---|---|---|
@@ -79,20 +53,11 @@ FSx é uma família; uma modalidade não oferece automaticamente as funções de
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **EFS:** O EFS oferece um sistema de arquivos compartilhado.
-
 "Windows + SMB + Active Directory" → **FSx for Windows** (não EFS).
 
 "HPC/ML com dados no S3" → **FSx for Lustre**.
 
 "Já usa NetApp" → **FSx for ONTAP**.
-
-**Antes de ler este trecho:**
-
-- **Storage Gateway:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
 
 Acesso local de baixa latência ao FSx for Windows a partir do datacenter → **FSx File Gateway** ([Storage Gateway](storage-gateway.md)).
 
@@ -102,26 +67,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### Cobrança
 
-**Antes de ler este trecho:**
-
-- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
-- **SSD:** Tipo de armazenamento sem partes mecânicas, usado para acesso rápido a dados. A escolha de um volume também envolve sua capacidade e limites de desempenho.
-
 Por capacidade de armazenamento provisionada, throughput (e SSD IOPS em alguns sabores) e backups.
 
 ### Segurança e responsabilidade compartilhada
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
-
 **AWS:** hardware, software do sistema de arquivos, patches, failover (Multi-AZ).
-
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 
 **Cliente:** acesso (AD, SGs, permissões), criptografia, backup e dados.
 

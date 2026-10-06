@@ -28,13 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
-
 **Passo 1.** Escolha como cadastrar e autenticar usuários do aplicativo.
 
 **Passo 2.** Integre o aplicativo com o recurso de identidade adequado e valide as informações de autenticação.
@@ -47,34 +40,13 @@
 
 **User pools**
 
-**Antes de ler este trecho:**
-
-- **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
-- **SAML / OIDC:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
-- **JWT:** Formato de token com informações verificáveis. Receber um token não dispensa validar sua origem, condições e permissões na aplicação.
-
 **O que faz:** Diretório de usuários: **cadastro e login**, verificação de e-mail/telefone, recuperação de senha, **MFA**, **login social** (Google, Facebook, Apple, Amazon), SAML/OIDC, UI hospedada (*managed login*), tokens JWT.
 
 **Identity pools**
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
-- **STS:** Serviço que fornece credenciais temporárias AWS. Essas credenciais permitem uma sessão autorizada dentro das permissões aplicáveis.
-
 **O que faz:** Trocam uma identidade (user pool, social, SAML ou visitante) por **credenciais AWS temporárias** (via STS) para acessar S3, DynamoDB etc. direto do app.
 
 ### Configurações
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 
 Políticas de senha, MFA adaptativo e proteção contra credenciais comprometidas (*threat protection*), gatilhos Lambda (personalizar fluxos), integração com ALB e API Gateway para autenticação.
 
@@ -91,10 +63,6 @@ Login válido não significa autorização para qualquer operação. A aplicaç�
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **MAU:** Usuários ativos mensais, uma unidade usada em determinadas cobranças de identidade. A definição de atividade depende da oferta.
 
 Por **usuário ativo mensal (MAU)**, conforme o plano; identity pools sem custo próprio.
 
@@ -125,10 +93,6 @@ Alunos fazem login no aplicativo da escola por um cadastro Cognito. Depois, a ap
 **Pergunta:** "Permitir login com Google num app mobile."
 
 **Resposta curta:** Cognito.
-
-**Antes de ler este trecho:**
-
-- **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
 
 **Pergunta:** "App mobile precisa enviar fotos direto ao S3 com credenciais temporárias."
 

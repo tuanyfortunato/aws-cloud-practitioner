@@ -29,12 +29,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-- **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
-
 Veja a aplicação como um conjunto de recursos cobrados separadamente. A máquina executa, o volume conserva dados, a cópia protege recuperação e a rede move informações. Parar uma parte não necessariamente encerra as outras.
 
 Procure o que permanece provisionado ou conservado. Isso explica por que limpar um ambiente exige revisar recursos associados, e não apenas desligar o programa. Confira as condições de cada serviço, sem aplicar uma regra universal de transferência ou armazenamento.
@@ -50,64 +44,21 @@ Procure o que permanece provisionado ou conservado. Isso explica por que limpar 
 
 **Transferência de dados:**
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
   - **Entrada** da internet para a AWS: **grátis**.
 
   - **Saída** da AWS para a internet: **cobrada**, com faixas por volume.
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 
   - Entre **regiões**: cobrada. Entre **AZs** na mesma região: cobrada.
-**Antes de ler este trecho:**
-
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
 
   - Dentro da mesma AZ por IP privado: grátis. Da origem AWS para o CloudFront: grátis.
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **EFS:** O EFS oferece um sistema de arquivos compartilhado.
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
 
 **Armazenamento:** S3 por GB-mês, por requisição e por recuperação (nas classes IA e Glacier); EBS pelo **volume provisionado**, mesmo que não esteja cheio; EFS pelo que é usado.
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **Athena:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-
 **Serverless:** Lambda por requisição e duração; DynamoDB sob demanda por leitura e escrita; Athena por dado escaneado.
-
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 
 **IPv4 público:** todo endereço IPv4 público é cobrado por hora.
 
-**Antes de ler este trecho:**
-
-- **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-
 **Serviços sem custo próprio** (paga só os recursos que criam): CloudFormation, Elastic Beanstalk, Auto Scaling, IAM, Organizations, consolidated billing.
-
-**Antes de ler este trecho:**
-
-- **GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
 **AWS Free Tier:** tradicionalmente cobrado na prova em três tipos: **sempre gratuito** (ex.: cota mensal de requisições do Lambda), **12 meses gratuitos** para contas novas (ex.: horas de instância micro) e **testes gratuitos** de curto prazo (ex.: GuardDuty). Desde meados de 2025, contas novas recebem um modelo baseado em **créditos** com plano gratuito por tempo limitado; confira a página oficial do Free Tier.
 
@@ -152,10 +103,6 @@ Uma equipe apaga EC2, mas mantém snapshots e objetos S3. Esses dados deixam de 
 **Pergunta:** "Um volume EBS de 500 GB com 100 GB usados é cobrado por quanto?"
 
 **Resposta curta:** Pelos 500 GB provisionados.
-
-**Antes de ler este trecho:**
-
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
 **Pergunta:** "Qual serviço não tem custo próprio?"
 

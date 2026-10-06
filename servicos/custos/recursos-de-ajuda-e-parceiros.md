@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 **Passo 1.** Descreva se precisa aprender, esclarecer uma dúvida, comprar software ou contratar execução de um trabalho.
 
 **Passo 2.** Escolha o canal ou a oferta que tem esse papel e examine suas condições.
@@ -42,15 +38,7 @@
 
 ### 🎯 Escopo da prova
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 A task 4.3 cita: **AWS Trust and Safety, AWS Partner Network, AWS Marketplace, AWS Professional Services, AWS Prescriptive Guidance, AWS Knowledge Center e AWS re:Post** — priorize esses.
-
-**Antes de ler este trecho:**
-
-- **AMS:** Managed Services: oferta de administração operacional conforme cobertura contratada. Não presuma que inclui toda tarefa de qualquer aplicação.
 
 **AWS IQ**, **AWS Activate** e **AWS Managed Services (AMS)** estão declarados **fora do escopo**.
 
@@ -65,10 +53,6 @@ Inclui o **Knowledge Center**, artigos da comunidade e o **re:Post Private** (ve
 Disponível para **todos**, inclusive no plano Basic.
 
 #### AWS Professional Services × AWS Partner Network × AWS Managed Services
-
-**Antes de ler este trecho:**
-
-- **APN:** Rede de parceiros AWS. Parceiros oferecem serviços e soluções conforme seus próprios contratos e competências.
 
 | | Professional Services | APN (parceiros) | Managed Services (AMS) |
 |---|---|---|---|
@@ -88,31 +72,13 @@ Era um marketplace para contratar **especialistas freelancers certificados** e e
 
 #### AWS Marketplace
 
-**Antes de ler este trecho:**
-
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-
 Catálogo digital com milhares de produtos de terceiros: **AMIs**, **SaaS**, **contêineres**, **modelos de ML**, **dados** e **serviços profissionais**.
 
-**Antes de ler este trecho:**
-
-- **BYOL:** Trazer licença própria elegível. É necessário verificar o direito de uso e as condições do software; a AWS não cria automaticamente essa licença.
-
 Licenciamento por uso (horário/anual) ou **BYOL**; cobrança consolidada na fatura AWS; **Private Offers** com preços negociados.
-
-**Antes de ler este trecho:**
-
-- **Cost Explorer:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-- **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
 
 **Custos, governança e entitlement** (task 4.3): o que é comprado no Marketplace aparece na fatura AWS e no Cost Explorer; o **AWS Marketplace Private Marketplace** restringe quais produtos os times podem assinar; o **License Manager** e os *entitlements* do Marketplace controlam quem tem direito a usar cada licença.
 
 #### AWS Trust & Safety
-
-**Antes de ler este trecho:**
-
-- **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
 
 Recebe denúncias de **uso abusivo** de recursos AWS: spam, phishing, malware, ataques (port scanning, DDoS) originados de IPs da AWS, violação de direitos autorais.
 
@@ -122,18 +88,9 @@ Recebe denúncias de **uso abusivo** de recursos AWS: spam, phishing, malware, a
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 Um fórum não é um contrato de operação, e uma oferta de software não garante adequação ao projeto. Verifique função, condições e escopo de cada recurso.
 
 ### Tabela de decisão (📌 decorar)
-
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **TAM:** Gerente técnico de conta em ofertas de suporte que incluem esse papel. Atua no acompanhamento e orientação previstos; não substitui toda a equipe do cliente.
 
 | Necessidade | Recurso | Custo |
 |---|---|---|
@@ -158,10 +115,6 @@ Um fórum não é um contrato de operação, e uma oferta de software não garan
 **Professional Services** (consultoria da AWS) × **Managed Services** (a AWS opera) × **APN** (parceiros) × **AWS IQ** (freelancers sob demanda).
 
 **re:Post** (comunidade) × **Knowledge Center** (artigos prontos) × **Support Center** (abrir caso no plano de suporte).
-
-**Antes de ler este trecho:**
-
-- **Health Dashboard:** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
 
 Todo cliente, mesmo no plano **Basic**, tem acesso a documentação, whitepapers, re:Post, Knowledge Center, Health Dashboard e atendimento de conta/faturamento.
 

@@ -41,23 +41,7 @@
 
 ### AWS Elemental Media Services
 
-**Antes de ler este trecho:**
-
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-
 Família de serviços de vídeo profissional (broadcast e streaming).
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-- **HLS / DASH:** Formatos e tecnologias de distribuição adaptativa de vídeo. Permitem alternativas de qualidade e entrega conforme o ecossistema compatível.
-- **VOD / DVR:** Vídeo sob demanda e funções de gravação ou acesso temporal de transmissão. São experiências diferentes de simples armazenamento de arquivos.
-- **DRM / SSAI:** Proteção de direitos de mídia e inserção de publicidade no servidor. São funções especializadas da distribuição de conteúdo, não controles IAM genéricos.
 
 | Serviço | O que faz | Exemplo |
 |---|---|---|
@@ -71,19 +55,11 @@ Família de serviços de vídeo profissional (broadcast e streaming).
 
 ### Amazon Interactive Video Service (IVS)
 
-**Antes de ler este trecho:**
-
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-
 Streaming ao vivo **gerenciado e de baixa latência**, com a mesma tecnologia da Twitch; inclui chat e recursos interativos.
 
 Uso: lives em aplicativos, aulas ao vivo, leilões e e-commerce ao vivo.
 
 ### Amazon Elastic Transcoder
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 
 Serviço de transcodificação de arquivos de mídia armazenados no S3.
 
@@ -95,10 +71,6 @@ Hospedagem gerenciada de **servidores dedicados para jogos multiplayer**: escalo
 
 ### Amazon Lumberyard
 
-**Antes de ler este trecho:**
-
-- **O3DE:** Motor de desenvolvimento 3D. Desenvolver o conteúdo e operar os recursos necessários são trabalhos diferentes.
-
 Antigo **motor de jogos** gratuito da AWS. 🔄 **Não é mais oferecido**; foi descontinuado e deu origem ao projeto open source **Open 3D Engine (O3DE)**.
 
 ## 3. Como escolher e reconhecer os limites
@@ -109,25 +81,11 @@ Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha
 
 ### ⚠️ Como isso aparece na prova
 
-**Antes de ler este trecho:**
-
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-
 "Distribuir vídeos com baixa latência para usuários globais" → a resposta da CLF-C02 é **CloudFront** (no escopo), não Elemental.
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 
 "Armazenar vídeos" → **S3**; "processar vídeo quando chega ao bucket" → **Lambda/S3 events** no escopo da prova.
 
 "Analisar rostos e objetos em vídeo" → **Rekognition** (no escopo).
-
-**Antes de ler este trecho:**
-
-- **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
 
 "Jogo multiplayer com IPs fixos globais" → **Global Accelerator** (no escopo), não GameLift.
 
@@ -146,10 +104,6 @@ Compare preparar um vídeo em vários formatos, transmitir uma sessão ao vivo e
 **Recursos envolvidos:** Serviços de mídia/transmissão e infraestrutura especializada de jogos.
 
 **Decisões que precisam ser tomadas:** Tipo de mídia ou servidor de jogo e disponibilidade atual.
-
-**Antes de ler este trecho:**
-
-- **site estático:** Conteúdo entregue como arquivos, sem executar ali toda uma aplicação de processamento de negócio. Pode integrar-se a outros serviços para funções adicionais.
 
 **Outra situação comentada:** Vídeo ao vivo não é sinônimo de site estático; conheça a diferença, mas estude primeiro serviços incluídos.
 

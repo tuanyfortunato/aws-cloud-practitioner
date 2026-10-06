@@ -40,12 +40,6 @@
 
 **Gráficos e filtros**
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 **Detalhe:** Por serviço, conta, região, tipo de instância, **tag**, cost category, tipo de cobrança; granularidade mensal, diária (e horária, paga).
 
 **Previsão (forecast)**
@@ -62,27 +56,13 @@
 
 **Recomendações**
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-- **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
-
 **Detalhe:** **Rightsizing** de EC2, **compra de RIs e Savings Plans** (com estimativa de economia).
 
 **Relatórios de RI/SP**
 
-**Antes de ler este trecho:**
-
-- **RI:** Benefício e condições de reserva para configurações compatíveis. Não confunda desconto com qualquer garantia universal de capacidade.
-
 **Detalhe:** **Utilização** (quanto do compromisso foi usado) e **cobertura** (quanto do uso está coberto).
 
 **API**
-
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 
 **Detalhe:** ✔️ Interface gráfica gratuita; a **API** custa **US$ 0,01 por requisição paginada**.
 
@@ -97,12 +77,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Ele analisa gastos; não bloqueia automaticamente a criação de recursos. Os dados não devem ser tratados como medição instantânea nem a previsão como garantia.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **Cost Explorer:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-- **Budgets:** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
-- **CUR:** Relatório de custos e uso. Ele ajuda a analisar consumo registrado; é diferente de uma estimativa antes de criar recursos.
 
 **Cost Explorer** (analisa o passado e prevê) × **Budgets** (alerta e age) × **Pricing Calculator** (estima **antes** de usar) × **CUR** (dados brutos mais detalhados).
 

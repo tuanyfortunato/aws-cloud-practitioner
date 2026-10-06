@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 **Passo 1.** Verifique a identidade de envio e prepare as condições de acesso e volume aplicáveis.
 
 **Passo 2.** Faça a aplicação solicitar o envio de uma mensagem com conteúdo e destinatário pertinentes.
@@ -42,17 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Configurações importantes
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **virtual:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-- **DKIM / SPF / DMARC:** Mecanismos de autenticação e política para e-mail que ajudam a validar origem e tratar mensagens. Não garantem chegada de toda mensagem à caixa principal.
-- **SMTP:** Protocolo para envio e transferência de e-mail. Usar o protocolo não dispensa identidade verificada, permissões e regras do serviço de envio.
 
 | Item | Detalhe |
 |---|---|
@@ -70,10 +54,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificação de identidade, limites, reputação e tratamento de devoluções importam. Também não é uma caixa postal pessoal completa.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **SES:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
 
 **SES** (e-mails ricos/formatados em volume) × **SNS** (notificações simples para vários canais) × **WorkMail** (caixa de e-mail corporativa).
 

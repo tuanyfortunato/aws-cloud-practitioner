@@ -29,10 +29,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
-
 Escolher computação também envolve o trabalho operacional desejado. Uma oferta simples reduz opções iniciais; uma plataforma facilita implantação; um agendador organiza trabalhos que podem esperar e executar por lote. Essas diferenças importam mais que uma palavra comum no nome.
 
 Para um site pequeno, examine hospedagem e manutenção. Para uma aplicação pronta, examine a plataforma compatível. Para conversões de muitos arquivos, examine a organização de trabalhos. Localização próxima exige outra comparação, incluindo disponibilidade da oferta.
@@ -46,44 +42,17 @@ o **Elastic Beanstalk** é um **buffet** (você leva a receita e eles montam tud
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **AWS Elastic Beanstalk / Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **PaaS:** Plataforma como serviço: parte da infraestrutura e do ambiente de execução é administrada para você entregar a aplicação. O código e suas regras continuam sendo do cliente.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **load balancer:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-- **PHP:** Linguagem de programação usada em aplicações. A plataforma de hospedagem precisa de ambiente compatível para executar seu código.
-
 **AWS Elastic Beanstalk:** PaaS. Você envia o código (Java, .NET, Node.js, Python, PHP, Ruby, Go, Docker) e ele provisiona e gerencia capacidade, load balancer, Auto Scaling e monitoramento. Você mantém acesso aos recursos. Não tem custo adicional; paga só os recursos criados.
 
-**Antes de ler este trecho:**
-
-- **Amazon Lightsail / Lightsail:** O Lightsail reúne recursos como servidores virtuais, armazenamento e rede em ofertas simplificadas.
-
 **Amazon Lightsail:** servidores virtuais simples com **preço mensal fixo e previsível** (inclui computação, armazenamento e transferência). Bom para sites WordPress, apps pequenos e quem está começando.
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **AWS Batch / Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
 
 **AWS Batch:** executa grandes volumes de **jobs em lote**, provisionando a computação ideal automaticamente (EC2, Spot ou Fargate).
 
 **AWS Outposts:** ver [3.2](02-infraestrutura-global.md).
 
-**Antes de ler este trecho:**
-
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-
 **Cai na prova:** "desenvolvedor quer subir aplicação web sem pensar em infraestrutura" = Elastic Beanstalk; "pequena empresa quer servidor com preço fixo" = Lightsail; "milhares de jobs de processamento" = Batch.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 
 **Primeiro, identifique o funcionamento:** Beanstalk implanta uma aplicação e gerencia recursos do ambiente; Lightsail simplifica infraestrutura em pacotes; Batch organiza trabalhos em filas; Outposts leva infraestrutura AWS ao local do cliente.
 

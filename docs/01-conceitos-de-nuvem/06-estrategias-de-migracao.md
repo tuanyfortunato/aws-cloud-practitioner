@@ -29,10 +29,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 Primeiro conheça a aplicação e suas dependências. Depois decida o que preservar e o que mudar. Mover o mesmo programa, mudar a plataforma de banco e reescrever partes importantes são decisões diferentes, mesmo que o destino seja AWS nos três casos.
 
 A estratégia descreve o tipo de mudança; a ferramenta executa parte do trabalho. Uma ferramenta não decide sozinha se vale manter ou substituir o sistema. Testes e transição dos dados continuam necessários em cada caminho.
@@ -46,23 +42,6 @@ A estratégia descreve o tipo de mudança; a ferramenta executa parte do trabalh
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **Amazon RDS / RDS:** O RDS oferece bancos relacionais gerenciados.
-- **Application Migration Service:** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **rehost / lift-and-shift:** Mover um sistema com poucas mudanças iniciais. A infraestrutura muda, mas isso não moderniza automaticamente o software.
-- **replatform:** Mudar parte da plataforma mantendo boa parte da aplicação. Por exemplo, trocar a operação do banco sem reescrever todas as regras do programa.
-- **refactor:** Redesenhar partes da aplicação para atender novos objetivos. Pode trazer vantagens, mas demanda mudanças, testes e esforço.
-- **hipervisor:** Camada que permite executar máquinas virtuais sobre equipamentos físicos. No EC2, ela não é administrada pelo cliente como o sistema dentro de sua máquina.
-- **repurchase / retain / retire / relocate:** Estratégias de migração: trocar por outra oferta, manter onde está, desativar ou mover a plataforma, respectivamente. A decisão vem do objetivo da aplicação e do negócio.
-- **CRM:** CRM trata relacionamento com clientes; CAD, projeto assistido por computador; EDI, troca eletrônica estruturada de dados. São necessidades de aplicação distintas.
-
 | Estratégia | O que é | Exemplo |
 | --- | --- | --- |
 | Retire | Desligar o que não é mais usado | Aplicação legada sem usuários |
@@ -72,10 +51,6 @@ A estratégia descreve o tipo de mudança; a ferramenta executa parte do trabalh
 | Replatform | Lift-tinker-and-shift: pequenas otimizações | Banco em servidor próprio para Amazon RDS |
 | Repurchase | Trocar por outro produto, normalmente SaaS | CRM próprio para Salesforce |
 | Refactor / Re-architect | Reescrever para cloud-native | Monolito para microsserviços com Lambda e ECS |
-
-**Antes de ler este trecho:**
-
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
 **Cai na prova:** Rehost (sem mudar nada) vs Replatform (pequena mudança para serviço gerenciado). Refactor é o que tem mais custo e mais benefício de longo prazo.
 

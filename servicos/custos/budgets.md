@@ -38,13 +38,6 @@
 
 ### Tipos de orçamento
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-
 | Tipo | Monitora |
 |---|---|
 | **Cost budget** | Valor gasto (US$) |
@@ -53,18 +46,6 @@
 | **Reservation budget** | Utilização ou cobertura das RIs |
 
 ### Configurações
-
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **Budgets:** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-- **SCP:** Política de controle de serviços usada na organização para limitar permissões disponíveis em contas às quais se aplica. Ela não concede acesso ao usuário sozinha.
-- **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
 
 | Item | Detalhe |
 |---|---|
@@ -83,12 +64,6 @@ Um orçamento não é, por padrão, um teto rígido que interrompe todo consumo.
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **Cost Explorer:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-- **alarme:** Condição acompanhada sobre dados de monitoramento. Uma mudança de estado pode gerar ações configuradas; o alarme não diagnostica todo problema sozinho.
-
 **Budgets** (alerta/ação) × **Cost Explorer** (análise) × **Cost Anomaly Detection** (gasto **fora do padrão**, sem limite definido) × **CloudWatch billing alarm** (alarme simples sobre a cobrança estimada).
 
 ## 4. Operação, segurança e custo
@@ -101,10 +76,6 @@ Orçamentos de monitoramento são gratuitos; os **dois primeiros** orçamentos c
 
 ## 5. Caso resolvido: ligando as peças
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 A escola quer acompanhar sua meta mensal de custo. O objetivo é receber sinal de desvio e agir a tempo, não presumir que a AWS nunca cobrará acima de um valor informado.
 
 A equipe define o orçamento, condições de notificação e destinatários. Quando recebe um aviso, investiga a parte do consumo que aumentou e decide quais mudanças atendem à aplicação. Ações compatíveis podem ser configuradas conforme requisitos e permissões.
@@ -114,11 +85,6 @@ O orçamento, por padrão, não funciona como um corte universal e instantâneo 
 **Recursos envolvidos:** Orçamento, thresholds, notificações e actions opcionais.
 
 **Decisões que precisam ser tomadas:** Valor/meta, período, destinatários e permissões de ação.
-
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
 **Outra situação comentada:** Alertar em 80% do orçamento: Budgets; desligar qualquer recurso não é comportamento automático universal.
 

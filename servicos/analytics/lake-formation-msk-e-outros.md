@@ -39,10 +39,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **Kafka:** Kafka é uma plataforma de fluxo de eventos; MSK é a oferta gerenciada compatível da AWS. A aplicação ainda precisa produzir e consumir os registros.
-
 **Passo 1.** Separe a necessidade de governar dados da necessidade de fluxos Kafka ou integrações especializadas.
 
 **Passo 2.** Avalie o produto específico e prepare suas fontes, identidades e destinos compatíveis.
@@ -71,11 +67,6 @@ Uma equipe controla acesso a tabelas no seu ambiente de dados. Outra precisa rec
 
 **Decisões que precisam ser tomadas:** Requisito e status individual no escopo.
 
-**Antes de ler este trecho:**
-
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-
 **Outra situação comentada:** Kafka gerenciado é MSK; streaming no foco CLF-C02 inclui Kinesis. Compatibilidade Kafka é requisito diferente.
 
 **Por que não concluir mais do que isso:** Vários nomes estão fora do escopo; não generalize capacidades/autorizações entre produtos
@@ -96,10 +87,6 @@ Uma equipe controla acesso a tabelas no seu ambiente de dados. Outra precisa rec
 **Pergunta:** "Assinar conjuntos de dados de terceiros."
 
 **Resposta curta:** AWS Data Exchange.
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 **Pergunta:** "Levar dados do Salesforce para o S3 sem código."
 

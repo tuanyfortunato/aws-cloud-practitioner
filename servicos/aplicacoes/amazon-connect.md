@@ -38,28 +38,13 @@
 
 ### Destaques
 
-**Antes de ler este trecho:**
-
-- **SMS:** Mensagem de texto para dispositivos móveis. Integrações e condições de envio são diferentes de e-mail e de entrega a uma fila.
-- **URA:** Resposta de atendimento por menus ou etapas automatizadas. O fluxo determina como uma pessoa é encaminhada; não substitui todo o atendimento.
-
 Canais: **voz** (números de telefone, URA), **chat**, **SMS**, **tarefas**, e-mail.
 
 **Fluxos de contato** visuais (drag-and-drop), roteamento por habilidade.
 
-**Antes de ler este trecho:**
-
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-
 IA integrada: **Lex** (bots/URA conversacional), **Amazon Q in Connect** (assistência ao agente), **Contact Lens** (análise de sentimento e transcrição de chamadas), previsão e escala de agentes.
 
 Perfis de clientes, casos, campanhas de saída.
-
-**Antes de ler este trecho:**
-
-- **minuto:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 
 Cobrança **por minuto de uso**/mensagem, sem licenças por agente nem compromisso.
 
@@ -84,10 +69,6 @@ A escola organiza chamadas para sua secretaria, encaminhando as pessoas às fila
 **Recursos envolvidos:** Instância, contact flows, queues, routing profiles e agentes.
 
 **Decisões que precisam ser tomadas:** Canais, atendimento, gravação e integrações.
-
-**Antes de ler este trecho:**
-
-- **SES:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
 
 **Outra situação comentada:** Criar central de atendimento: Connect; envio transacional de e-mail: SES.
 
