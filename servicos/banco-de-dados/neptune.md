@@ -1,95 +1,41 @@
+<!-- autoral -->
+
 # Amazon Neptune
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Algumas perguntas dependem das relações entre pessoas, contas ou produtos, e não apenas dos campos de um registro isolado.
-
-**Como este serviço ajuda?** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
-
-**Exemplo do dia a dia:** Uma investigação de fraude procura contas ligadas ao mesmo dispositivo e a outras contas suspeitas. Um grafo permite explorar esses caminhos.
-
-**O que ele não resolve sozinho?** Ele não é a escolha padrão para qualquer dado nem decide sozinho se há fraude. Você modela as relações e as consultas necessárias.
-
-**Primeiras palavras para entender:**
-
-- **Grafo:** dados organizados por relações.
-- **Nó:** entidade, como uma conta.
-- **Aresta:** conexão entre entidades.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Banco de grafos · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
+> **Categoria:** Banco de grafos · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** banco de grafos gerenciado para dados altamente conectados (relacionamentos).
+> **Em uma frase:** banco de grafos totalmente gerenciado, que guarda itens e as ligações entre eles, para recomendações, detecção de fraude e grafos de conhecimento.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 
-**Passo 1.** Identifique quais entidades e relações precisam ser representadas.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Grave nós e conexões e escreva consultas que percorram essas relações.
+---
 
-**Passo 3.** Avalie se as respostas atendem ao problema. O banco permite explorar relações; o julgamento de fraude ou outra regra ainda precisa ser definido.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+A biblioteca quer recomendar livros pelo que os colegas de turma leram. A pergunta é sobre **ligações**: aluno estuda com aluno, aluno leu livro. O **Amazon Neptune** é um banco de **grafos**, feito para guardar bilhões dessas relações e percorrê-las em milissegundos.
 
-### Destaques
+1. Cria-se um cluster do Neptune, com réplicas de leitura e replicação entre Zonas de Disponibilidade.
+2. Carregam-se os itens e as ligações entre eles.
+3. A aplicação consulta o grafo com as linguagens Gremlin, openCypher ou SPARQL.
+4. A AWS cuida do hardware, das atualizações e dos backups contínuos no S3.
 
-Modelos **Property Graph** (Gremlin, openCypher) e **RDF** (SPARQL).
+## Não confundir com
 
-Até 15 réplicas de leitura, 6 cópias em 3 AZs, Neptune Serverless, Neptune Analytics, Global Database.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon DocumentDB](documentdb.md) | Banco de documentos para aplicações MongoDB | "MongoDB" |
+| [Amazon DynamoDB](dynamodb.md) | NoSQL chave-valor sem servidor | "Chave-valor", "sem servidor" |
+| [Amazon Redshift](redshift.md) | Data warehouse para análise | "Relatórios analíticos" |
 
-Uso: **redes sociais** ("amigos de amigos"), **motores de recomendação**, **detecção de fraude**, grafos de conhecimento, segurança de rede.
+## Fontes oficiais
 
-## 3. Como escolher e reconhecer os limites
+Verificadas em 06/10/2026.
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Ele não é a escolha padrão para qualquer dado nem decide sozinho se há fraude. Você modela as relações e as consultas necessárias.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma investigação de fraude procura contas ligadas ao mesmo dispositivo e a outras contas suspeitas. Um grafo permite explorar esses caminhos.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique quais entidades e relações precisam ser representadas.
-**Etapa 2:** Grave nós e conexões e escreva consultas que percorram essas relações.
-**Etapa 3:** Avalie se as respostas atendem ao problema. O banco permite explorar relações; o julgamento de fraude ou outra regra ainda precisa ser definido.
-
-**Resultado e responsabilidade:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
-
-**Recursos envolvidos:** Banco de grafos, vértices/arestas ou triplas e endpoints.
-
-**Decisões que precisam ser tomadas:** Modelo e linguagem de consulta compatíveis, capacidade e acesso.
-
-**Outra situação comentada:** Descobrir relações entre pessoas e contas para fraude: grafo com Neptune.
-
-**Por que não concluir mais do que isso:** Não é sinônimo de dashboard nem banco relacional tradicional
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Recomendações baseadas em relacionamentos complexos."
-
-**Resposta curta:** Neptune.
-
-**Pergunta:** "Detectar anéis de fraude analisando conexões."
-
-**Resposta curta:** Neptune.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Neptune](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html)
-
+- [O que é o Amazon Neptune](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

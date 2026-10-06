@@ -26,11 +26,11 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon ECS (Elastic Container Service)](computacao/ecs.md) | ✅ | núcleo | Orquestrador de containers totalmente gerenciado da própria AWS, que decide onde e quantos containers rodam. |
 | [Amazon EKS (Elastic Kubernetes Service)](computacao/eks.md) | ✅ | núcleo | Kubernetes gerenciado: a AWS opera o plano de controle do cluster, e você roda suas aplicações em containers. |
 | [AWS Fargate](computacao/fargate.md) | ✅ | núcleo | Mecanismo de computação serverless que roda containers do ECS ou do EKS sem que você provisione ou gerencie servidores. |
-| [Amazon ECR (Elastic Container Registry)](computacao/ecr.md) | ✅ | complementar | Registro gerenciado para guardar, versionar e distribuir imagens de contêiner (Docker/OCI). |
+| [Amazon ECR (Elastic Container Registry)](computacao/ecr.md) | ✅ | complementar | Registro gerenciado da AWS para guardar e distribuir imagens de container, com repositórios privados controlados pelo IAM e também repositórios públicos. |
 | [AWS Elastic Beanstalk](computacao/elastic-beanstalk.md) | ✅ | núcleo | Você envia o código, e o Elastic Beanstalk cria e gerencia instâncias, balanceamento, escalonamento e monitoramento para rodá-lo. |
-| [Amazon Lightsail](computacao/lightsail.md) | ✅ | complementar | Servidores virtuais e serviços prontos com **preço mensal fixo e previsível**, para quem está começando. |
-| [AWS Batch](computacao/batch.md) | ✅ | complementar | Executa grandes volumes de jobs em lote, escolhendo e provisionando automaticamente a computação ideal. |
-| [AWS Outposts, Local Zones e Wavelength](computacao/outposts-local-zones-wavelength.md) | 🔀 | complementar | Três formas de levar a infraestrutura AWS para mais perto de onde a latência ou a localização dos dados importam. |
+| [Amazon Lightsail](computacao/lightsail.md) | ✅ | complementar | O jeito mais simples de começar na AWS para criar sites e aplicações web, com servidores, bancos e rede reunidos em planos de preço mensal previsível. |
+| [AWS Batch](computacao/batch.md) | ✅ | complementar | Serviço totalmente gerenciado para cargas em lote de qualquer escala: recebe as tarefas, provisiona a capacidade e a libera quando o trabalho acaba. |
+| [AWS Outposts, Local Zones e Wavelength](computacao/outposts-local-zones-wavelength.md) | 🔀 | complementar | Formas de levar a infraestrutura da AWS para mais perto: o Outposts no local do cliente, as Local Zones perto de grandes cidades e o Wavelength na rede das operadoras. |
 
 ## 🗄️ Armazenamento
 
@@ -40,10 +40,10 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Classes de armazenamento do S3 (incluindo S3 Glacier)](armazenamento/s3-classes-de-armazenamento.md) | ✅ | núcleo | Cada classe troca preço de armazenamento por custo e tempo de recuperação; escolha pelo quanto o dado é acessado. |
 | [Amazon EBS (Elastic Block Store) e instance store](armazenamento/ebs.md) | ✅ | núcleo | Volumes de disco persistentes, ligados pela rede a instâncias do EC2, que continuam existindo quando a instância para. |
 | [Amazon EFS (Elastic File System)](armazenamento/efs.md) | ✅ | núcleo | Sistema de arquivos NFS serverless e elástico, montado ao mesmo tempo por várias instâncias, containers e funções Linux. |
-| [Amazon FSx](armazenamento/fsx.md) | 🔀 | complementar | Sistemas de arquivos populares de terceiros (Windows, Lustre, NetApp ONTAP, OpenZFS) totalmente gerenciados. |
+| [Amazon FSx](armazenamento/fsx.md) | 🔀 | complementar | Sistemas de arquivos conhecidos, totalmente gerenciados: Windows File Server, Lustre, NetApp ONTAP e OpenZFS. |
 | [AWS Storage Gateway](armazenamento/storage-gateway.md) | ✅ | núcleo | Liga servidores e pessoas no datacenter local ao armazenamento da AWS por NFS, SMB, iSCSI ou fitas virtuais, com cache local. |
 | [AWS Backup](armazenamento/aws-backup.md) | ✅ | núcleo | Centraliza e automatiza os backups de vários serviços da AWS com planos aplicados aos recursos, num só lugar. |
-| [AWS Elastic Disaster Recovery (AWS DRS)](armazenamento/elastic-disaster-recovery.md) | ✅ | complementar | Replica servidores continuamente (on-premises, outra nuvem ou outra região AWS) para a AWS e permite recuperá-los em minutos. |
+| [AWS Elastic Disaster Recovery (AWS DRS)](armazenamento/elastic-disaster-recovery.md) | ✅ | complementar | Replica continuamente servidores locais ou na nuvem para uma área de preparação barata na AWS e, num desastre, lança instâncias de recuperação em minutos. |
 
 ## 🛢️ Banco de dados
 
@@ -55,8 +55,8 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon ElastiCache](banco-de-dados/elasticache.md) | ✅ | núcleo | Cache em memória gerenciado, com Valkey, Memcached ou Redis OSS, que responde em microssegundos e alivia o banco. |
 | [Amazon MemoryDB](banco-de-dados/memorydb.md) | ❌ | referência | Banco de dados **primário** em memória, compatível com Valkey/Redis, com durabilidade multi-AZ. |
 | [Amazon Redshift](banco-de-dados/redshift.md) | ✅ | núcleo | Data warehouse gerenciado na escala de petabytes, consultado com SQL e ferramentas de relatório (BI). |
-| [Amazon DocumentDB (compatível com MongoDB)](banco-de-dados/documentdb.md) | ✅ | complementar | Banco de documentos JSON gerenciado, compatível com as APIs e drivers do MongoDB. |
-| [Amazon Neptune](banco-de-dados/neptune.md) | ✅ | complementar | Banco de grafos gerenciado para dados altamente conectados (relacionamentos). |
+| [Amazon DocumentDB](banco-de-dados/documentdb.md) | ✅ | complementar | Banco de documentos totalmente gerenciado para aplicações feitas para o MongoDB, que roda o mesmo código, drivers e ferramentas. |
+| [Amazon Neptune](banco-de-dados/neptune.md) | ✅ | complementar | Banco de grafos totalmente gerenciado, que guarda itens e as ligações entre eles, para recomendações, detecção de fraude e grafos de conhecimento. |
 | [Amazon Keyspaces, Timestream e outros bancos especializados](banco-de-dados/keyspaces-timestream-e-outros.md) | 🔀 | referência | A AWS tem um banco "sob medida" para cada modelo de dados — saiba associar o modelo ao serviço. |
 
 ## 🌐 Redes e entrega de conteúdo
