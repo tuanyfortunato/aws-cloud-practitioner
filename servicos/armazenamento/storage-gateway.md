@@ -1,125 +1,72 @@
+<!-- autoral -->
+
 # AWS Storage Gateway
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa ainda usa aplicações locais, mas quer aproveitar armazenamento AWS sem mudar de uma vez a forma como essas aplicações acessam os dados.
-
-**Como este serviço ajuda?** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
-
-**Exemplo do dia a dia:** Um sistema local pode acessar um compartilhamento de arquivos fornecido por um gateway, enquanto o armazenamento em nuvem fica associado ao serviço.
-
-**O que ele não resolve sozinho?** Ele não move toda a aplicação para a AWS nem elimina os requisitos de rede e configuração. Cada modalidade apresenta uma interface e um comportamento diferentes.
-
-**Primeiras palavras para entender:**
-
-- **Gateway:** ponte entre ambientes.
-- **Local:** no ambiente da empresa.
-- **Cache:** cópia próxima para facilitar acesso a determinados dados.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Armazenamento híbrido · **Domínio:** 3 · **Escopo:** gateway on-premises ligado a uma região · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
+> **Categoria:** Armazenamento híbrido · **Domínio:** 3 · **Abrangência:** Gateway no local do cliente ligado a uma Região · **Ficha:** núcleo
 >
-> **Em uma frase:** liga aplicações on-premises ao armazenamento da AWS usando protocolos padrão (NFS, SMB, iSCSI), com cache local.
+> **Em uma frase:** liga servidores e pessoas no datacenter local ao armazenamento da AWS por NFS, SMB, iSCSI ou fitas virtuais, com cache local.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 
-**Passo 1.** Descubra se a aplicação local precisa de arquivos, volumes ou interface de fitas.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare um gateway compatível, seu armazenamento local e sua conexão com a AWS. A aplicação usa a interface apresentada.
+---
 
-**Passo 3.** Acompanhe envio, cache e conservação conforme a modalidade. O gateway conecta armazenamento; não migra sozinho o programa.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A unidade de Lisboa tem um servidor de arquivos local que enche todo ano e um software de backup que grava em fitas guardadas numa sala. As pessoas querem continuar usando a pasta de rede de sempre, sem lentidão.
 
-### Para que serve
+O Storage Gateway instala no local do cliente uma máquina virtual (ou um aparelho físico) que conversa com o armazenamento da AWS. Os dados ficam na nuvem, e o gateway mantém um **cache local** com o que é acessado com frequência, para o acesso continuar rápido. Por isso o guia do exame o chama de sistema de arquivos com cache.
 
-Arquitetura **híbrida**: aplicações locais usando armazenamento em nuvem quase ilimitado.
+O limite: o gateway faz a ponte entre o local e a AWS; ele não é um serviço de arquivos dentro da AWS (isso é o [EFS](efs.md) ou o [FSx](fsx.md)) nem uma ferramenta de migração única de grandes volumes, papel do [DataSync](../migracao/datasync-e-transfer-family.md).
 
-Substituir backup em **fita física**; *tiering* de arquivos para a nuvem; DR.
+## Como funciona
 
-### Tipos de gateway
+1. Você instala o gateway como máquina virtual (VMware ESXi, Hyper-V, KVM ou Nutanix AHV), como aparelho físico ou como instância do EC2.
+2. Ativa o gateway na Região escolhida e escolhe o tipo.
+3. Servidores e pessoas usam o gateway por protocolos de sempre: pasta de rede, disco iSCSI ou biblioteca de fitas.
+4. O gateway grava os dados na AWS e guarda localmente o que é mais usado.
 
-| Tipo | Protocolo | Onde os dados ficam | Uso |
-|---|---|---|---|
-| **S3 File Gateway** | NFS / SMB | Como **objetos no S3** (um arquivo = um objeto) | Arquivos locais com cópia na nuvem, data lake, backups de bancos |
-| **FSx File Gateway** | SMB | **FSx for Windows** | Acesso local de baixa latência a compartilhamentos Windows na AWS. 🔄 **Descontinuado para novos clientes** ✔️ |
-| **Volume Gateway** | iSCSI | Volumes na AWS com snapshots EBS | *Cached volumes* (dados na AWS, cache local) ou *stored volumes* (dados locais, backup assíncrono na AWS) |
-| **Tape Gateway** | iSCSI VTL | Fitas virtuais no S3, arquivadas no **S3 Glacier / Deep Archive** | **Substituir fitas físicas** sem mudar o software de backup. (A versão do Tape Gateway em hardware **Snowball Edge** foi descontinuada para novos clientes ✔️) |
+## Opções principais
 
-### Implantação
+| Tipo | O que apresenta no local | Onde os dados ficam |
+|---|---|---|
+| S3 File Gateway | Pasta de rede (NFS ou SMB) | Objetos no S3, com classes e ciclo de vida |
+| Volume Gateway | Volumes de disco (iSCSI): em cache (dados no S3, cópia local do mais usado) ou armazenados (tudo local, com snapshots na AWS) | Na AWS, com snapshots do EBS |
+| Tape Gateway | Fitas virtuais para o software de backup | Arquivamento no S3 Glacier Flexible Retrieval ou Deep Archive |
 
-Como **VM** (VMware, Hyper-V, KVM), em instância EC2 ou appliance de hardware.
+O FSx File Gateway não está mais disponível para novos clientes.
 
-Cache local para dados acessados recentemente; transferência otimizada e criptografada (TLS) para a AWS.
+## Números que a prova cobra
 
-## 3. Como escolher e reconhecer os limites
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Tipos de gateway para novos clientes | 3 (S3 File, Volume e Tape) | 06/10/2026 |
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Como é cobrado
 
-Ele não move toda a aplicação para a AWS nem elimina os requisitos de rede e configuração. Cada modalidade apresenta uma interface e um comportamento diferentes.
+Você paga o armazenamento onde os dados ficam (objetos do S3, volumes e snapshots, fitas virtuais e seu arquivamento no Glacier), uma taxa por GB gravado na AWS pelo gateway, as recuperações de fitas arquivadas e a transferência de dados para fora da AWS.
 
-### ⚠️ Pegadinhas e não confundir
+## Não confundir com
 
-**Storage Gateway × DataSync:** acesso **contínuo** híbrido × **transferência/migração** de dados.
+| Serviço | Diferença para o Storage Gateway | Pista no enunciado |
+|---|---|---|
+| [AWS DataSync](../migracao/datasync-e-transfer-family.md) | Move e sincroniza dados entre o local e a AWS; não serve de pasta de uso diário | "Migrar", "copiar grandes volumes" |
+| [Amazon EFS](efs.md) | Pasta compartilhada dentro da AWS para instâncias Linux | "Instâncias na AWS" |
+| [AWS Backup](aws-backup.md) | Centraliza backups de serviços da AWS; não oferece interface de fita | "Painel único de backups" |
+| [AWS Snow Family](../migracao/snow-family.md) | Aparelhos físicos para levar dados offline | "Sem rede suficiente", "enviar dados por transporte" |
 
-"Substituir backup em fita" → **Tape Gateway**.
+## Fontes oficiais
 
-## 4. Operação, segurança e custo
+Verificadas em 06/10/2026.
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Armazenamento usado na AWS + requisições + transferência de saída; Tape Gateway por fita virtual armazenada/recuperada.
-
-## 5. Caso resolvido: ligando as peças
-
-Um sistema local pode acessar um compartilhamento de arquivos fornecido por um gateway, enquanto o armazenamento em nuvem fica associado ao serviço.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Descubra se a aplicação local precisa de arquivos, volumes ou interface de fitas.
-**Etapa 2:** Prepare um gateway compatível, seu armazenamento local e sua conexão com a AWS. A aplicação usa a interface apresentada.
-**Etapa 3:** Acompanhe envio, cache e conservação conforme a modalidade. O gateway conecta armazenamento; não migra sozinho o programa.
-
-**Resultado e responsabilidade:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
-
-**Recursos envolvidos:** Gateway no ambiente do cliente, cache local e armazenamento AWS.
-
-**Decisões que precisam ser tomadas:** Modalidade de arquivos, volumes ou fitas e capacidade local.
-
-**Outra situação comentada:** Sistema de backup usa interface de fita: Tape Gateway, em vez de reescrever o sistema para API S3.
-
-**Por que não concluir mais do que isso:** Não é migração instantânea de toda aplicação; precisa host, cache e conectividade conforme modalidade
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Aplicações locais precisam usar armazenamento da AWS."
-
-**Resposta curta:** Storage Gateway.
-
-**Pergunta:** "Substituir fitas físicas de backup."
-
-**Resposta curta:** Tape Gateway.
-
-**Pergunta:** "Arquivos via NFS/SMB gravados como objetos no S3."
-
-**Resposta curta:** S3 File Gateway.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Storage Gateway](https://docs.aws.amazon.com/storagegateway/)
+- [O que é o S3 File Gateway](https://docs.aws.amazon.com/filegateway/latest/files3/what-is-file-s3.html)
+- [O que é o Volume Gateway](https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html)
+- [O que é o Tape Gateway](https://docs.aws.amazon.com/storagegateway/latest/tgw/WhatIsStorageGateway.html)
+- [O que é o FSx File Gateway](https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html)
+- [Preços do AWS Storage Gateway](https://aws.amazon.com/storagegateway/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

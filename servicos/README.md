@@ -36,13 +36,13 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Amazon S3 (Simple Storage Service)](armazenamento/s3.md) | ✅ | núcleo | Armazenamento de objetos ilimitado, com 11 noves de durabilidade, acessado via API/HTTP. |
-| [Classes de armazenamento do S3 (incluindo S3 Glacier)](armazenamento/s3-classes-de-armazenamento.md) | ✅ | núcleo | Cada classe troca custo de armazenamento por custo/tempo de acesso — escolha pelo padrão de acesso. |
-| [Amazon EBS (Elastic Block Store) e Instance Store](armazenamento/ebs.md) | ✅ | núcleo | Discos virtuais persistentes, em rede, para instâncias EC2 — como um HD/SSD que sobrevive ao desligamento. |
-| [Amazon EFS (Elastic File System)](armazenamento/efs.md) | ✅ | núcleo | Sistema de arquivos NFS gerenciado e elástico, compartilhado por milhares de instâncias Linux em várias AZs. |
+| [Amazon S3 (Simple Storage Service)](armazenamento/s3.md) | ✅ | núcleo | Guarda arquivos como objetos em buckets, sem limite de quantidade, com durabilidade de 11 noves, acessados pela rede. |
+| [Classes de armazenamento do S3 (incluindo S3 Glacier)](armazenamento/s3-classes-de-armazenamento.md) | ✅ | núcleo | Cada classe troca preço de armazenamento por custo e tempo de recuperação; escolha pelo quanto o dado é acessado. |
+| [Amazon EBS (Elastic Block Store) e instance store](armazenamento/ebs.md) | ✅ | núcleo | Volumes de disco persistentes, ligados pela rede a instâncias do EC2, que continuam existindo quando a instância para. |
+| [Amazon EFS (Elastic File System)](armazenamento/efs.md) | ✅ | núcleo | Sistema de arquivos NFS serverless e elástico, montado ao mesmo tempo por várias instâncias, containers e funções Linux. |
 | [Amazon FSx](armazenamento/fsx.md) | 🔀 | complementar | Sistemas de arquivos populares de terceiros (Windows, Lustre, NetApp ONTAP, OpenZFS) totalmente gerenciados. |
-| [AWS Storage Gateway](armazenamento/storage-gateway.md) | ✅ | núcleo | Liga aplicações on-premises ao armazenamento da AWS usando protocolos padrão (NFS, SMB, iSCSI), com cache local. |
-| [AWS Backup](armazenamento/aws-backup.md) | ✅ | núcleo | Centraliza e automatiza backups de vários serviços AWS com políticas, num só lugar. |
+| [AWS Storage Gateway](armazenamento/storage-gateway.md) | ✅ | núcleo | Liga servidores e pessoas no datacenter local ao armazenamento da AWS por NFS, SMB, iSCSI ou fitas virtuais, com cache local. |
+| [AWS Backup](armazenamento/aws-backup.md) | ✅ | núcleo | Centraliza e automatiza os backups de vários serviços da AWS com planos aplicados aos recursos, num só lugar. |
 | [AWS Elastic Disaster Recovery (AWS DRS)](armazenamento/elastic-disaster-recovery.md) | ✅ | complementar | Replica servidores continuamente (on-premises, outra nuvem ou outra região AWS) para a AWS e permite recuperá-los em minutos. |
 
 ## 🛢️ Banco de dados
