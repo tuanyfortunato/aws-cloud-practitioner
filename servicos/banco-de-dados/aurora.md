@@ -1,163 +1,74 @@
+<!-- autoral -->
+
 # Amazon Aurora
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma aplicação usa banco relacional e quer uma opção AWS compatível com MySQL ou PostgreSQL, com arquitetura própria para armazenamento e disponibilidade.
-
-**Como este serviço ajuda?** Aurora é um banco relacional da AWS dentro da família RDS. Ele combina compatibilidade com esses mecanismos e uma arquitetura gerenciada com recursos próprios.
-
-**Exemplo do dia a dia:** Uma loja que usa PostgreSQL avalia Aurora PostgreSQL para seu banco de pedidos, verificando a compatibilidade da aplicação e as necessidades de capacidade.
-
-**O que ele não resolve sozinho?** Aurora não é compatível com todos os mecanismos disponíveis no RDS. Compatibilidade também não significa que toda extensão e configuração funcionará sem avaliação.
-
-**Primeiras palavras para entender:**
-
-- **Relacional:** dados em tabelas relacionadas.
-- **Compatibilidade:** capacidade de usar interfaces e comportamentos esperados.
-- **Réplica de leitura:** cópia usada para consultas.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Banco relacional nativo da AWS · **Domínio:** 3 · **Escopo:** Regional (cluster multi-AZ); Global Database multi-região · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
+> **Categoria:** Banco de dados relacional da AWS · **Domínio:** 3 · **Abrangência:** Regional (armazenamento em três zonas); Global Database em várias Regiões · **Ficha:** núcleo
 >
-> **Em uma frase:** banco relacional compatível com MySQL e PostgreSQL, com desempenho e disponibilidade de nível comercial a custo de open source.
+> **Em uma frase:** motor relacional da AWS que funciona com MySQL e PostgreSQL, com armazenamento que cresce sozinho e cópias em três zonas.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 
-**Passo 1.** Escolha a compatibilidade MySQL ou PostgreSQL e a modalidade que atende à aplicação.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Defina as instâncias ou opções de capacidade, os acessos e os pontos de conexão do conjunto.
+---
 
-**Passo 3.** Distribua leitura e escrita de forma compatível e planeje recuperação. Compatibilidade e arquitetura precisam ser avaliadas antes de migrar.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+O sistema de matrícula usa MySQL e cresce todo ano. A escola quer mais desempenho e disponibilidade sem reescrever a aplicação nem dimensionar disco para o pior caso.
 
-### Para que serve
+O Aurora é um motor relacional da própria AWS, totalmente gerenciado e parte do Amazon RDS. Ele fala a mesma língua do MySQL e do PostgreSQL: o código e as ferramentas usados com esses bancos funcionam com ele. O armazenamento é um volume próprio, que cresce sozinho e guarda cópias dos dados em três zonas de disponibilidade. A AWS informa até 6 vezes a vazão do MySQL e do PostgreSQL padrão em hardware semelhante.
 
-OLTP que exige alto desempenho e alta disponibilidade gerenciada.
+O limite: o Aurora só atende aplicações MySQL e PostgreSQL. Um banco Oracle ou SQL Server vai para o [RDS](rds.md) com o mesmo motor, ou passa por conversão de esquema antes ([DMS e SCT](../migracao/dms-e-sct.md)).
 
-Migrações de Oracle/SQL Server para um motor open source compatível (com DMS + SCT).
+## Como funciona
 
-### Arquitetura
+1. Você cria um **cluster**: uma instância principal, que lê e grava, e um volume de armazenamento compartilhado.
+2. O volume replica os dados em três zonas e cresce sozinho com o banco.
+3. Você adiciona **réplicas do Aurora**, que atendem leituras e assumem se a principal falhar.
+4. Para várias Regiões, o **Aurora Global Database** replica o cluster com atraso normalmente menor que um segundo.
 
-| Item | Detalhe |
-|---|---|
-| **Compatibilidade** | **MySQL** e **PostgreSQL** (a AWS cita até 5x e 3x o desempenho do padrão). |
-| **Armazenamento distribuído** | **6 cópias em 3 AZs**, cresce automaticamente (o volume é dividido em segmentos de 10 GiB); tolera perder 2 cópias para escrita e 3 para leitura; *self-healing*. |
-| **Cluster** | 1 instância **writer** + até **15 Aurora Replicas** (leitura e failover, normalmente < 30 s). |
-| **Endpoints** | *Cluster (writer) endpoint*, *reader endpoint* (balanceia leituras), endpoints customizados. |
+## Opções principais
 
-### Configurações e opções importantes
+| Opção | O que faz | Quando lembrar |
+|---|---|---|
+| Réplicas do Aurora | Até 15 cópias de leitura no cluster, distribuídas entre as zonas | "Escalar leituras", "failover" |
+| Aurora Serverless | Ajusta a capacidade sozinho com a demanda e cobra só o que usa | "Carga imprevisível", "ambiente de testes" |
+| Aurora Global Database | Uma Região principal que grava e até 10 Regiões secundárias de leitura | "Usuários no mundo todo", "recuperar de falha de uma Região" |
+| Aurora Standard ou I/O-Optimized | Standard cobra cada operação de E/S; I/O-Optimized não cobra E/S | "Muita leitura e gravação, custo previsível" |
 
-**Aurora Serverless v2**
+## Números que a prova cobra
 
-**Detalhe:** Capacidade em ACUs ajustada automaticamente em segundos, em incrementos de 0,5 ACU; ✔️ com *auto-pause* pode escalar até **0 ACU**.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Vazão informada pela AWS | Até 6 vezes a do MySQL e do PostgreSQL padrão | 06/10/2026 |
+| Zonas com cópias dos dados | 3 | 06/10/2026 |
+| Réplicas do Aurora por cluster | Até 15 | 06/10/2026 |
+| Regiões secundárias no Global Database | Até 10 | 06/10/2026 |
 
-**Aurora Global Database**
+## Como é cobrado
 
-**Detalhe:** Replicação entre regiões com lag tipicamente < 1 s; região secundária pode ser promovida (DR) e servir leituras locais.
+Você paga pelas instâncias (a principal e as réplicas) ou pela capacidade consumida no Aurora Serverless, pelo armazenamento usado e, no Aurora Standard, por requisição de E/S. No I/O-Optimized não há cobrança de E/S; a AWS indica economia de até 40% quando a E/S passa de 25% do gasto com o Aurora.
 
-**Backtrack (MySQL)**
+## Não confundir com
 
-**Detalhe:** "Voltar no tempo" o cluster sem restaurar backup.
+| Serviço | Diferença para o Aurora | Pista no enunciado |
+|---|---|---|
+| [Amazon RDS](rds.md) | Motores tradicionais (incluindo Oracle e SQL Server) com armazenamento de instância | "Oracle", "SQL Server", "motor que a equipe já usa" |
+| [Amazon DynamoDB](dynamodb.md) | NoSQL serverless; também tem tabelas globais | "Chave-valor", "sem JOIN" |
+| [Amazon Redshift](redshift.md) | Data warehouse para análise, não para o sistema transacional | "Relatórios sobre petabytes" |
 
-**Cloning**
+## Fontes oficiais
 
-**Detalhe:** Cópia rápida *copy-on-write* para testes.
+Verificadas em 06/10/2026.
 
-**Configuração de storage**
-
-**Detalhe:** *Standard* (paga por I/O) ou *I/O-Optimized* (sem cobrança por I/O, para cargas intensivas).
-
-**Zero-ETL com Redshift**
-
-**Detalhe:** Replicação quase em tempo real para análise.
-
-**Aurora DSQL**
-
-**Detalhe:** 🔄 Banco SQL distribuído, serverless, ativo-ativo multi-região (2025) — 🧊 fora da prova.
-
-### Limites e números
-
-📌 **6 cópias / 3 AZs**, **15 réplicas**.
-
-🧊 Tamanho máximo do volume, limites de ACU.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Aurora não é compatível com todos os mecanismos disponíveis no RDS. Compatibilidade também não significa que toda extensão e configuração funcionará sem avaliação.
-
-### ⚠️ Pegadinhas e não confundir
-
-Aurora × RDS: Aurora é motor próprio da AWS (MySQL/PostgreSQL), mais rápido e resiliente; RDS oferece vários motores comerciais e open source.
-
-"Relacional + máxima disponibilidade gerenciada + compatível com MySQL" → **Aurora**.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Instâncias (ou ACU-hora no Serverless), armazenamento GB-mês, I/O (configuração Standard), backup extra, transferência; replicação do Global Database.
-
-### Segurança e responsabilidade compartilhada
-
-Igual ao [RDS](rds.md): AWS cuida de infra, SO, patch, replicação de armazenamento; cliente de usuários, acesso de rede, criptografia, dados.
-
-## 5. Caso resolvido: ligando as peças
-
-Uma loja que usa PostgreSQL avalia Aurora PostgreSQL para seu banco de pedidos, verificando a compatibilidade da aplicação e as necessidades de capacidade.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Escolha a compatibilidade MySQL ou PostgreSQL e a modalidade que atende à aplicação.
-**Etapa 2:** Defina as instâncias ou opções de capacidade, os acessos e os pontos de conexão do conjunto.
-**Etapa 3:** Distribua leitura e escrita de forma compatível e planeje recuperação. Compatibilidade e arquitetura precisam ser avaliadas antes de migrar.
-
-**Resultado e responsabilidade:** Aurora é um banco relacional da AWS dentro da família RDS. Ele combina compatibilidade com esses mecanismos e uma arquitetura gerenciada com recursos próprios.
-
-**Recursos envolvidos:** Cluster, writer, readers, endpoints e armazenamento compartilhado.
-
-**Decisões que precisam ser tomadas:** Compatibilidade MySQL/PostgreSQL, capacidade e disponibilidade.
-
-**Outra situação comentada:** Relacional compatível MySQL com leitores: Aurora; não confunda reader com writer.
-
-**Por que não concluir mais do que isso:** Não é engine compatível com qualquer banco SQL; endpoints e opções dependem da configuração
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Banco relacional compatível com MySQL/PostgreSQL de maior desempenho."
-
-**Resposta curta:** Aurora.
-
-**Pergunta:** "Quantas cópias dos dados o Aurora mantém?"
-
-**Resposta curta:** 6 cópias em 3 AZs.
-
-**Pergunta:** "Banco relacional com leituras de baixa latência em várias regiões e DR."
-
-**Resposta curta:** Aurora Global Database.
-
-**Pergunta:** "Carga intermitente sem gerenciar capacidade."
-
-**Resposta curta:** Aurora Serverless.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+- [O que é o Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+- [Armazenamento do Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html)
+- [Replicação no Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html)
+- [Aurora Global Database](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html)
+- [Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html)
+- [Preços do Amazon Aurora](https://aws.amazon.com/rds/aurora/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

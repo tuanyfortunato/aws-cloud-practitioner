@@ -49,12 +49,12 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Amazon RDS (Relational Database Service)](banco-de-dados/rds.md) | ✅ | núcleo | Banco relacional gerenciado — a AWS cuida de hardware, SO, patches do motor, backups e failover. |
-| [Amazon Aurora](banco-de-dados/aurora.md) | ✅ | núcleo | Banco relacional compatível com MySQL e PostgreSQL, com desempenho e disponibilidade de nível comercial a custo de open source. |
-| [Amazon DynamoDB](banco-de-dados/dynamodb.md) | ✅ | núcleo | Banco chave-valor e de documentos, serverless, com latência de milissegundos de um dígito em qualquer escala. |
-| [Amazon ElastiCache](banco-de-dados/elasticache.md) | ✅ | núcleo | Cache em memória gerenciado (Valkey, Redis OSS, Memcached) com latência de microssegundos. |
+| [Amazon RDS (Relational Database Service)](banco-de-dados/rds.md) | ✅ | núcleo | Banco relacional gerenciado: a AWS cuida de hardware, sistema operacional, patches do banco, backups e failover. |
+| [Amazon Aurora](banco-de-dados/aurora.md) | ✅ | núcleo | Motor relacional da AWS que funciona com MySQL e PostgreSQL, com armazenamento que cresce sozinho e cópias em três zonas. |
+| [Amazon DynamoDB](banco-de-dados/dynamodb.md) | ✅ | núcleo | Banco NoSQL serverless, de chave-valor e documento, com respostas em milissegundos de um dígito em qualquer escala. |
+| [Amazon ElastiCache](banco-de-dados/elasticache.md) | ✅ | núcleo | Cache em memória gerenciado, com Valkey, Memcached ou Redis OSS, que responde em microssegundos e alivia o banco. |
 | [Amazon MemoryDB](banco-de-dados/memorydb.md) | ❌ | referência | Banco de dados **primário** em memória, compatível com Valkey/Redis, com durabilidade multi-AZ. |
-| [Amazon Redshift](banco-de-dados/redshift.md) | ✅ | núcleo | Data warehouse colunar e massivamente paralelo (MPP) para análises SQL (OLAP) sobre terabytes a petabytes. |
+| [Amazon Redshift](banco-de-dados/redshift.md) | ✅ | núcleo | Data warehouse gerenciado na escala de petabytes, consultado com SQL e ferramentas de relatório (BI). |
 | [Amazon DocumentDB (compatível com MongoDB)](banco-de-dados/documentdb.md) | ✅ | complementar | Banco de documentos JSON gerenciado, compatível com as APIs e drivers do MongoDB. |
 | [Amazon Neptune](banco-de-dados/neptune.md) | ✅ | complementar | Banco de grafos gerenciado para dados altamente conectados (relacionamentos). |
 | [Amazon Keyspaces, Timestream e outros bancos especializados](banco-de-dados/keyspaces-timestream-e-outros.md) | 🔀 | referência | A AWS tem um banco "sob medida" para cada modelo de dados — saiba associar o modelo ao serviço. |
