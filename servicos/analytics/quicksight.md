@@ -1,105 +1,72 @@
+<!-- autoral -->
+
 # Amazon QuickSight (Amazon Quick Sight)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Há resultados e tabelas, mas as pessoas do negócio precisam enxergar indicadores em gráficos e painéis, sem ler dados brutos.
-
-**Como este serviço ajuda?** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis. Você prepara as conexões, os conjuntos de dados e as visualizações.
-
-**Exemplo do dia a dia:** A escola cria um painel com matrículas por curso e período para a equipe administrativa acompanhar a demanda.
-
-**O que ele não resolve sozinho?** O painel não coleta nem corrige automaticamente qualquer dado. Permissões, qualidade e atualização dos dados precisam ser planejadas.
-
-**Primeiras palavras para entender:**
-
-- **BI:** análise de dados para apoiar decisões.
-- **Dashboard:** painel de indicadores.
-- **Visualização:** gráfico ou outra representação dos dados.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Analytics / BI · **Domínio:** 3 · **Escopo:** Regional (conta) · **Tópico do guia:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
+> **Categoria:** Analytics e inteligência de negócios (BI) · **Domínio:** 3 · **Abrangência:** Regional (conta) · **Ficha:** núcleo
 >
-> **Em uma frase:** BI **serverless** para criar dashboards e relatórios interativos, inclusive com perguntas em linguagem natural.
+> **Em uma frase:** serviço de visualização de dados e BI que se conecta às fontes, cria painéis interativos e permite incorporar análises em aplicações; hoje faz parte do Amazon Quick.
 >
-> **Escopo oficial:** ✅ No escopo (como Amazon Quick Sight) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
 
-**Passo 1.** Conecte uma fonte compatível e prepare um conjunto de dados com significado definido.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Crie visualizações que respondam às perguntas desejadas e controle quem pode vê-las.
+---
 
-**Passo 3.** Confira atualização e interpretação dos indicadores. Uma visualização bonita não garante um resultado correto.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A direção da rede quer acompanhar as matrículas por unidade, as faltas por turma e os acessos ao site. Hoje, alguém da TI roda consultas, cola os números numa planilha e envia por e-mail toda segunda-feira, e cada diretor recebe uma versão diferente.
 
-### Destaques
+O **Quick Sight** transforma esses números em **painéis** (*dashboards*) interativos. Ele se conecta às fontes, como Athena, Redshift, RDS e arquivos no S3, e os **autores** montam gráficos e relatórios que os **leitores** acessam e filtram pelo navegador. Os dados podem ser importados para o **SPICE**, o motor em memória do Quick Sight, que responde rápido a muitos usuários. O Quick Sight também responde a perguntas em linguagem natural sobre os dados e permite incorporar painéis em aplicações, como o portal da escola. Ele faz parte do **Amazon Quick**, um serviço com IA que também automatiza tarefas.
 
-| Item | Detalhe |
-|---|---|
-| **Fontes** | S3 (via Athena), Redshift, RDS/Aurora, OpenSearch, Snowflake, Salesforce, arquivos, entre outras. |
-| **SPICE** | Motor **em memória** que acelera as análises e reduz consultas à fonte. |
-| **Dashboards e análises** | Visualizações interativas, filtros, drill-down, relatórios paginados, alertas. |
-| **IA generativa (Amazon Q in QuickSight)** | Perguntas em linguagem natural, histórias de dados, criação assistida de visuais. |
-| **Embedding** | Dashboards dentro de aplicações. |
-| **Segurança** | Integração com IAM Identity Center, segurança em nível de linha/coluna. |
+O limite: o Quick Sight mostra os dados, mas não os prepara nem os guarda em grande escala. A limpeza é do [Glue](glue.md), e as consultas pesadas são do [Athena](athena.md) ou do [Redshift](../banco-de-dados/redshift.md).
 
-## 3. Como escolher e reconhecer os limites
+## Como funciona
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+1. Um autor conecta o Quick Sight às fontes de dados.
+2. Opcionalmente, os dados são importados para o SPICE.
+3. O autor monta análises e publica painéis.
+4. Os leitores acessam os painéis no navegador, ou incorporados numa aplicação, e filtram ou perguntam em linguagem natural.
 
-O painel não coleta nem corrige automaticamente qualquer dado. Permissões, qualidade e atualização dos dados precisam ser planejadas.
+## Opções principais
 
-## 4. Operação, segurança e custo
+| Peça | O que faz | Exemplo na escola |
+|---|---|---|
+| Autor | Conecta dados, cria painéis e relatórios | Equipe de TI monta o painel de matrículas |
+| Leitor | Vê e filtra os painéis | Diretores de cada unidade |
+| SPICE | Motor em memória para respostas rápidas | Painel aberto por muitos ao mesmo tempo |
+| Perguntas em linguagem natural | Responde perguntas sobre os dados | "Quantas matrículas em janeiro?" |
+| Painéis incorporados | Análises dentro de outra aplicação | Painel no portal da escola |
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+## Números que a prova cobra
 
-### Cobrança
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Autor | US$ 24 por usuário por mês | 06/10/2026 |
+| Leitor | A partir de US$ 3 por mês | 06/10/2026 |
+| SPICE incluído | 10 GB por autor | 06/10/2026 |
 
-Por usuário (autores, leitores) — leitores podem ser **por sessão**; capacidade SPICE adicional.
+## Como é cobrado
 
-### 🔄 Atualizações 2025-2026
+Há dois modelos: por usuário, com autores e leitores cobrados por mês, e por capacidade, comprando sessões de leitura em bloco sem cadastrar cada leitor. Cada autor inclui 10 GB de SPICE; o espaço extra é cobrado por GB por mês.
 
-Nomes: Amazon QuickSight → **Amazon Quick Suite** → hoje **"Amazon Quick"**. A parte de BI continua como **Amazon Quick Sight**, nome usado no exam guide e na lista de serviços. Na prova pode aparecer também "QuickSight".
+## Não confundir com
 
-## 5. Caso resolvido: ligando as peças
+| Serviço | Diferença para o Quick Sight | Pista no enunciado |
+|---|---|---|
+| [Amazon Athena](athena.md) | Consulta os dados com SQL | "SQL no S3" |
+| [Amazon Redshift](../banco-de-dados/redshift.md) | Data warehouse que guarda e consulta os dados | "Data warehouse" |
+| [Amazon CloudWatch](../gerenciamento/cloudwatch.md) | Painéis de métricas de funcionamento | "CPU", "alarme" |
+| [Amazon OpenSearch Service](opensearch.md) | Busca e análise de logs | "Busca de texto", "logs" |
 
-A escola cria um painel com matrículas por curso e período para a equipe administrativa acompanhar a demanda.
+## Fontes oficiais
 
-**Aplicando a sequência à situação:**
+Verificadas em 06/10/2026.
 
-**Etapa 1:** Conecte uma fonte compatível e prepare um conjunto de dados com significado definido.
-**Etapa 2:** Crie visualizações que respondam às perguntas desejadas e controle quem pode vê-las.
-**Etapa 3:** Confira atualização e interpretação dos indicadores. Uma visualização bonita não garante um resultado correto.
-
-**Resultado e responsabilidade:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis. Você prepara as conexões, os conjuntos de dados e as visualizações.
-
-**Recursos envolvidos:** Data sources, datasets, analyses e dashboards.
-
-**Decisões que precisam ser tomadas:** Conexão, atualização, permissões e compartilhamento.
-
-**Outra situação comentada:** Gerentes precisam gráficos de vendas: Quick Sight sobre uma fonte preparada.
-
-**Por que não concluir mais do que isso:** Não é ferramenta principal de ETL nem acesso irrestrito de qualquer usuário
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Criar dashboards interativos de BI para executivos."
-
-**Resposta curta:** QuickSight.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html)
+- [O que é o Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/what-is.html)
+- [Fontes de dados aceitas](https://docs.aws.amazon.com/quick/latest/userguide/supported-data-sources.html)
+- [Preços do Amazon Quick Sight](https://aws.amazon.com/quicksight/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
