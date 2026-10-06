@@ -203,7 +203,7 @@ Uma startup quer o plano de AWS Support pago de MENOR custo, que começa em US$ 
 
 **Resposta: D**
 
-O **Business Support+** é o plano pago de entrada do modelo comercial atual (não confundir com os exemplos clássicos ainda citados na task 4.3 consultada): a partir de US$ 29/mês por conta, com resposta de 30 minutos para casos críticos. O Basic é gratuito e não tem suporte técnico; o Enterprise começa em US$ 5.000/mês (15 min); o Unified Operations, em US$ 50.000/mês (5 min).
+O **Business Support+** é o plano pago de entrada entre os planos atuais, os mesmos que a task 4.3 do guia do exame cita: a partir de US$ 29/mês por conta, com resposta de 30 minutos para casos críticos. O Basic é gratuito e não tem suporte técnico; o Enterprise começa em US$ 5.000/mês (15 min); o Unified Operations, em US$ 50.000/mês (5 min).
 
 </details>
 
