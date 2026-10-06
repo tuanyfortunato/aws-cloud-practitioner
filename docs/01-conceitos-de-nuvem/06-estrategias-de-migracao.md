@@ -1,116 +1,163 @@
+<!-- autoral -->
+
 # 1.6 Estratégias de migração (os 7 Rs)
 
-## 🧠 Antes de começar
+> **Domínio 1 — Conceitos de Nuvem (24% da prova)** · Depende das aulas [1.1](01-o-que-e-computacao-em-nuvem.md) e [1.5](05-cloud-adoption-framework.md)
 
-**Qual é a dificuldade?** Uma empresa quer levar um sistema para a AWS, mas não sabe se deve copiá-lo, adaptá-lo, reescrevê-lo ou até encerrá-lo.
-
-**A ideia em palavras simples:** Estratégias de migração descrevem essas escolhas. O esforço e o resultado mudam conforme a decisão sobre cada aplicação.
-
-**Exemplo do dia a dia:** Um sistema antigo pode ser movido com poucas mudanças; outro pode ser substituído por um software pronto. Não é necessário escolher a mesma estratégia para tudo.
-
-**O que não concluir?** Migrar não significa modernizar automaticamente. Antes de escolher, considere dependências, riscos e a necessidade de manter ou mudar o sistema.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Lift-and-shift** | "levantar e mover": migrar sem alterar nada (Rehost). |
-| **Cloud-native** | feito para aproveitar a nuvem (serverless, microsserviços). |
-
----
-
-> **Domínio 1 — Conceitos de Nuvem (24%)**
-
-> 🔎 **Fichas detalhadas:** [AWS Application Migration Service (AWS MGN)](../../servicos/migracao/application-migration-service.md) · [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](../../servicos/migracao/dms-e-sct.md)
+> 🔎 **Fichas para aprofundar:** [AWS Transform MGN (antigo Application Migration Service)](../../servicos/migracao/application-migration-service.md) · [AWS DMS e SCT](../../servicos/migracao/dms-e-sct.md) · [Migration Evaluator, Discovery e Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md)
 
 ⬅️ [1.5 AWS Cloud Adoption Framework (CAF)](05-cloud-adoption-framework.md) · 🏠 [Índice do domínio](README.md) · [1.7 Economia da nuvem](07-economia-da-nuvem.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+A rede de escolas fez o inventário do que roda no datacenter e encontrou de tudo: o sistema de matrícula; um banco de dados SQL Server instalado num servidor próprio; um sistema de RH feito por um ex-funcionário, que ninguém sabe manter; um site antigo de eventos que ninguém acessa há meses; e o controle das catracas, ligado a equipamentos físicos na portaria.
 
-Primeiro conheça a aplicação e suas dependências. Depois decida o que preservar e o que mudar. Mover o mesmo programa, mudar a plataforma de banco e reescrever partes importantes são decisões diferentes, mesmo que o destino seja AWS nos três casos.
+Seria um erro tratar tudo igual. Algumas aplicações podem ir para a nuvem como estão, outras merecem mudanças, outras devem ser trocadas ou simplesmente desligadas. A AWS chama a abordagem usada para levar uma carga de trabalho para a nuvem de **estratégia de migração**, e organiza as possibilidades em sete, conhecidas como **os 7 Rs**. O guia do exame pede que você identifique a estratégia adequada a cada situação.
 
-A estratégia descreve o tipo de mudança; a ferramenta executa parte do trabalho. Uma ferramenta não decide sozinha se vale manter ou substituir o sistema. Testes e transição dos dados continuam necessários em cada caminho.
+## As sete estratégias
+
+**Retire** (aposentar) é desativar ou arquivar a aplicação e desligar seus servidores. Serve para o que não tem mais valor para o negócio, para eliminar o custo de manter algo inútil ou para se livrar de um sistema com versões sem suporte. A AWS sugere olhar o uso: uma aplicação sem nenhuma conexão de entrada há 90 dias é candidata. É o caso do site de eventos.
+
+**Retain** (manter) é deixar a aplicação no ambiente de origem, por enquanto. Os motivos típicos são exigências de residência de dados, risco alto que pede uma avaliação mais detalhada, dependência de outra aplicação que precisa migrar antes, um investimento recente no sistema atual ou dependência de hardware sem equivalente na nuvem. É o caso das catracas, presas a equipamentos físicos.
+
+**Rehost** (re-hospedar), também chamado de *lift and shift*, é mover a aplicação para a AWS **sem alterá-la**. Permite migrar muitos servidores (físicos, virtuais ou de outra nuvem) rapidamente, mas não aplica nenhuma otimização da nuvem; a vantagem é que, já na nuvem, fica mais fácil otimizar depois. O serviço da AWS para automatizar o rehost é o **AWS Transform MGN**, que se chamava AWS Application Migration Service. É o caminho natural para o sistema de matrícula, se a meta for sair rápido do datacenter.
+
+**Relocate** (realocar) é transferir de uma vez um grande número de servidores de uma plataforma local para a versão de nuvem da mesma plataforma, ou mover recursos para outra VPC, outra Região ou outra conta da AWS. Não exige comprar hardware, reescrever aplicações nem mudar a operação, e a AWS o descreve como a forma mais rápida de migrar, porque não altera a arquitetura da aplicação.
+
+**Repurchase** (recomprar), também chamado de *drop and shop*, é trocar a aplicação por outra versão ou outro produto, muitas vezes um software como serviço (SaaS). Costuma reduzir custos de manutenção, infraestrutura e licenças, mas exige migrar os dados e treinar os usuários no sistema novo. É uma boa saída para o RH feito sob medida: em vez de reescrever, contratar um sistema de RH pronto.
+
+**Replatform** (trocar a plataforma), também chamado de *lift, tinker and shift*, é mover a aplicação e introduzir **algum nível de otimização** para operá-la melhor, reduzir custos ou aproveitar recursos da nuvem. Dependendo dos objetivos, as mudanças podem ser poucas ou muitas, mas a aplicação não é redesenhada para a nuvem, como no refactor. O exemplo da própria AWS é levar um banco Microsoft SQL Server para o Amazon RDS for SQL Server, um serviço gerenciado que cuida de tarefas como backups e atualizações. É o caso do banco da escola.
+
+**Refactor** ou **re-architect** (refatorar ou rearquitetar) é mudar a arquitetura da aplicação para aproveitar ao máximo os recursos nativos da nuvem e ganhar agilidade, desempenho e escala. É motivado por forte demanda de negócio, como um monolito que impede lançar novidades rápido. É a estratégia mais complexa e cara, porque moderniza a aplicação durante a migração; em migrações grandes, a AWS recomenda migrar primeiro (rehost, relocate ou replatform) e modernizar depois.
+
+```mermaid
+flowchart LR
+    subgraph NAO["Não migrar agora"]
+        R1["Retire<br/>desligar"]
+        R2["Retain<br/>manter"]
+    end
+    subgraph POUCO["Migrar mudando pouco"]
+        R3["Rehost<br/>sem mudanças"]
+        R4["Relocate<br/>mesma plataforma"]
+    end
+    subgraph MAIS["Migrar mudando mais"]
+        R5["Replatform<br/>algumas otimizações"]
+        R6["Repurchase<br/>trocar de produto"]
+        R7["Refactor<br/>nova arquitetura"]
+    end
+```
+
+*Figura 1.6 — Os 7 Rs agrupados pelo tamanho da mudança.*
+
+## Escolhendo a estratégia
+
+A pergunta que separa as estratégias é **quanto a aplicação muda**. Nada: rehost (ou relocate, se a plataforma inteira vai junto). Um pouco, para aproveitar um serviço gerenciado: replatform. A arquitetura toda: refactor. Troca por outro produto: repurchase. E as duas que não movem a aplicação: retire (desligar) e retain (manter).
+
+O limite é que a estratégia não sai pronta de uma ferramenta: ela depende do valor de negócio, do risco e das dependências de cada aplicação, avaliados antes. E a mesma organização usa várias estratégias ao mesmo tempo, como a escola.
+
+## Recursos para a jornada de migração
+
+O guia do exame também cobra os recursos que apoiam a migração, com o exemplo da replicação de bancos de dados. Os principais aparecem na [aula 3.17](../03-tecnologia-e-servicos/17-migracao-e-transferencia.md); aqui vale conhecer três:
+
+- O **AWS Database Migration Service** (AWS DMS) migra bancos de dados relacionais, data warehouses, bancos NoSQL e outros armazenamentos de dados. Pode fazer uma migração única ou **replicar continuamente as mudanças** para manter origem e destino sincronizados, o que reduz o tempo fora do ar na virada. Para trocar de mecanismo de banco, a conversão do esquema é feita pelo DMS Schema Conversion ou pela AWS Schema Conversion Tool (AWS SCT).
+- O **AWS Transform MGN** automatiza o rehost de servidores físicos, virtuais e de outras nuvens para o Amazon EC2, com replicação contínua e janelas de virada que costumam ser de minutos.
+- O **Migration Evaluator** monta o caso de negócio da migração, comparando o custo do ambiente atual com cenários na AWS; ele volta na [aula 1.7](07-economia-da-nuvem.md).
+
+## Na prova
+
+- **"Mover sem mudar nada", "lift and shift" = Rehost.**
+- **"Mover com pequenas otimizações, como banco para o RDS" = Replatform.**
+- **"Trocar por um SaaS" = Repurchase.**
+- **"Reescrever para microsserviços ou serverless" = Refactor**, a estratégia mais complexa e cara.
+- **"Desligar o que não é usado" = Retire; "manter por enquanto" = Retain.**
+- **"Levar a plataforma inteira de uma vez" ou "mover para outra VPC, Região ou conta" = Relocate.**
+- **"Replicar o banco continuamente durante a migração" = AWS DMS.**
+
+## Caso resolvido
+
+**Situação.** A rede de escolas precisa sair do datacenter em seis meses, quando o contrato acaba. Ela quer, além disso, parar de administrar backups e atualizações do banco SQL Server, mas sem reescrever o sistema de matrícula, que depende dele. Que estratégias aplicar ao sistema de matrícula e ao banco?
+
+**Raciocínio.** O prazo curto e a ordem de não reescrever o sistema de matrícula apontam para rehost: levá-lo para o EC2 como está, com o AWS Transform MGN. Para o banco, a meta de não administrar backups e atualizações pede um serviço gerenciado: replatform para o Amazon RDS for SQL Server. Como o banco não para de receber matrículas, o AWS DMS pode replicar as mudanças continuamente até a virada.
+
+**Por que as alternativas tentadoras falham.** Refactor traria mais benefícios no longo prazo, mas é a estratégia mais complexa e cara e contraria a ordem de não reescrever. Rehost também para o banco (instalá-lo num EC2 igual ao servidor atual) cumpre o prazo, mas mantém a escola administrando backups e atualizações. E repurchase não se aplica: não há um produto pronto que substitua o sistema de matrícula próprio.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### Quais são os 7 Rs de migração?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-é como **mudar de casa** e decidir o destino de cada móvel: jogar fora (Retire), deixar na casa antiga (Retain), levar como está (Rehost), levar o cômodo inteiro de uma vez (Relocate), levar e trocar o estofado (Replatform), comprar um novo (Repurchase) ou mandar fazer um sob medida (Refactor).
+Retire, Retain, Rehost, Relocate, Repurchase, Replatform e Refactor (ou re-architect).
+
+Comentário: a pergunta que separa as estratégias é quanto a aplicação muda.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Qual é a diferença entre rehost e replatform?
 
-| Estratégia | O que é | Exemplo |
-| --- | --- | --- |
-| Retire | Desligar o que não é mais usado | Aplicação legada sem usuários |
-| Retain | Manter on-premises por enquanto | Sistema que ainda não pode migrar por regulação ou dependências |
-| Rehost | Lift-and-shift, sem mudanças | Mover VMs para EC2 com Application Migration Service |
-| Relocate | Mover em bloco no nível do hipervisor | VMware Cloud on AWS |
-| Replatform | Lift-tinker-and-shift: pequenas otimizações | Banco em servidor próprio para Amazon RDS |
-| Repurchase | Trocar por outro produto, normalmente SaaS | CRM próprio para Salesforce |
-| Refactor / Re-architect | Reescrever para cloud-native | Monolito para microsserviços com Lambda e ECS |
+<details>
+<summary>Ver resposta</summary>
 
-**Cai na prova:** Rehost (sem mudar nada) vs Replatform (pequena mudança para serviço gerenciado). Refactor é o que tem mais custo e mais benefício de longo prazo.
+Rehost move a aplicação sem alterá-la; replatform move e faz algumas otimizações, como levar o banco para um serviço gerenciado como o Amazon RDS.
 
-## 3. Como analisar uma situação
+Comentário: refactor é a estratégia que muda a arquitetura para aproveitar os recursos nativos da nuvem.
 
-**Primeiro, identifique o funcionamento:** Avalie cada aplicação e suas dependências antes de escolher um dos 7 Rs. A estratégia orienta ferramentas, esforço e testes; aplicações da mesma empresa podem ter destinos distintos.
+</details>
 
-**Depois, compare as escolhas:** Sem mudar aplicação: Rehost. Pequeno ajuste: Replatform. Redesenho: Refactor. Troca por SaaS: Repurchase. Desligar: Retire. Manter: Retain. Mover a plataforma: Relocate.
+### Uma empresa troca seu CRM próprio por um produto SaaS. Qual estratégia?
 
-**Por fim, verifique o limite:** Rehost não moderniza automaticamente a aplicação. Refactor demanda mudanças e não é sempre a opção mais rápida. Uma ferramenta de migração não decide a estratégia de negócio.
+<details>
+<summary>Ver resposta</summary>
 
-## 4. Caso resolvido
+Repurchase, também chamada de drop and shop: substituir a aplicação por outro produto ou versão.
 
-Um banco instalado em servidor próprio vai para RDS, mantendo a aplicação com poucos ajustes. Qual estratégia?
+Comentário: depois da compra ainda é preciso migrar os dados, integrar a autenticação e treinar os usuários.
 
-**Raciocínio e resposta:** Replatform: há mudança da plataforma operacional. Levar o mesmo servidor e banco para EC2 sem ajustes seria Rehost.
+</details>
 
-## 5. Revisão do capítulo
+### Por que a AWS não recomenda refactor em migrações grandes?
 
-**Objetivos de aprendizagem:**
+<details>
+<summary>Ver resposta</summary>
 
-- [ ] Citar os **7 Rs** e um exemplo de cada.
-- [ ] Diferenciar **Rehost** (sem mudanças) de **Replatform** (pequena mudança, ex.: banco para RDS).
-- [ ] Saber que **Rehost** é o mais rápido e **Refactor** traz mais benefício de longo prazo.
+Porque é a estratégia mais complexa e cara, já que moderniza a aplicação durante a migração; a recomendação é migrar primeiro e modernizar depois.
 
-**Dica de revisão para a prova:** Procure o **quanto muda**: nada → Rehost; um pouco → Replatform; tudo → Refactor; troca por SaaS → Repurchase; "ninguém usa" → Retire; "ainda não pode sair" → Retain.
+Comentário: refactor se justifica quando há forte demanda de negócio por agilidade e escala.
 
-### ❓ Perguntas típicas
+</details>
 
-> Também estão nos [flashcards](../../flashcards/dominio-1.md).
-**Pergunta:** "Migrar servidores para EC2 sem mudar nada."
+### Qual serviço replica continuamente um banco de dados durante a migração?
 
-**Resposta curta:** Rehost.
+<details>
+<summary>Ver resposta</summary>
 
-**Pergunta:** "Migrar o banco para RDS para reduzir administração, sem mudar a aplicação."
+O AWS Database Migration Service (AWS DMS), que faz migrações únicas ou replica as mudanças para manter origem e destino sincronizados.
 
-**Resposta curta:** Replatform.
+Comentário: para trocar de mecanismo de banco, o esquema é convertido com o DMS Schema Conversion ou a AWS SCT.
 
-**Pergunta:** "Trocar o sistema próprio por um produto SaaS."
+</details>
 
-**Resposta curta:** Repurchase.
+## Resumo
 
-**Pergunta:** "Reescrever a aplicação para usar Lambda e microsserviços."
+- Estratégia de migração é a abordagem para levar uma carga de trabalho à nuvem; são sete (os 7 Rs).
+- Retire desliga; Retain mantém por enquanto.
+- Rehost move sem mudanças; Relocate leva a plataforma inteira e é a forma mais rápida.
+- Replatform faz algumas otimizações; Repurchase troca de produto; Refactor muda a arquitetura e é o mais complexo e caro.
+- AWS DMS replica bancos; AWS Transform MGN automatiza o rehost; Migration Evaluator monta o caso de negócio.
 
-**Resposta curta:** Refactor.
+## Fontes oficiais
 
-**Pergunta:** "Desligar aplicações que ninguém usa."
+Verificadas em 06/10/2026.
 
-**Resposta curta:** Retire.
-
-**Pergunta:** "Manter a aplicação no datacenter por exigência regulatória."
-
-**Resposta curta:** Retain.
-
-**Pergunta:** "Qual estratégia é a mais rápida?"
-
-**Resposta curta:** Rehost. "Qual traz mais benefícios de nuvem a longo prazo?" → Refactor.
-
-<!-- extra:inicio -->
-<!-- extra:fim -->
+- [About the migration strategies (AWS Prescriptive Guidance)](https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html): definição de estratégia de migração, os 7 Rs, casos de uso, relocate como a forma mais rápida e refactor como a mais complexa e cara.
+- [What is AWS Transform MGN?](https://docs.aws.amazon.com/mgn/latest/ug/what-is-mgn.html) e [página do serviço](https://aws.amazon.com/application-migration-service/): automação do rehost e nome anterior (AWS Application Migration Service).
+- [What is AWS Database Migration Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html): tipos de bancos, migração única ou replicação contínua, conversão de esquema.
+- [What is Amazon RDS?](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html): o RDS gerencia backups, patches de software, detecção de falhas e recuperação.
+- [Migration Evaluator](https://aws.amazon.com/migration-evaluator/): caso de negócio para a migração.
+- [Content Domain 1 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html): estratégias de migração e recursos de apoio (tarefa 1.3).
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
