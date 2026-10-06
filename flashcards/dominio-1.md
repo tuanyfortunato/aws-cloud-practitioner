@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 48 cards
+**Total:** 42 cards
 
 
 ## [1.1 O que é computação em nuvem](../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md)
@@ -74,102 +74,66 @@ Permitindo implantar a aplicação em várias Regiões do mundo com poucos cliqu
 ## [1.3 Conceitos de arquitetura que a prova cobra](../docs/01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md)
 
 <details>
-<summary>A aplicação adiciona instâncias no pico e remove de madrugada, sozinha.</summary>
+<summary>Qual é a diferença entre escala vertical e horizontal?</summary>
 
-Elasticidade.
+Escala vertical é usar uma instância maior; escala horizontal é adicionar mais instâncias e dividir o trabalho entre elas.
 </details>
 
 <details>
-<summary>Como garantir que a falha de um datacenter não derrube a aplicação?</summary>
+<summary>O que a elasticidade tem a mais que a escalabilidade?</summary>
 
-Implantar em várias AZs (alta disponibilidade).
+A elasticidade ajusta a capacidade para cima e para baixo acompanhando a demanda, de preferência automaticamente; a escalabilidade é só a capacidade de crescer.
 </details>
 
 <details>
-<summary>Qual estratégia de DR tem menor custo?</summary>
+<summary>Uma aplicação roda em uma única instância EC2. Ela tem alta disponibilidade?</summary>
 
-Backup and Restore.
+Não. Alta disponibilidade exige componentes redundantes em locais que não falham juntos, como instâncias em mais de uma Zona de Disponibilidade.
 </details>
 
 <details>
-<summary>E menor tempo de recuperação?</summary>
+<summary>O que significam RTO e RPO?</summary>
 
-Multi-site active/active.
+RTO é o tempo máximo aceitável entre a interrupção e a restauração do serviço; RPO é o tempo máximo aceitável desde o último ponto de recuperação dos dados, ou seja, quantos dados se aceita perder.
 </details>
 
 <details>
-<summary>Como evitar que a falha de um componente afete os outros?</summary>
+<summary>Qual é a diferença entre pilot light e warm standby?</summary>
 
-Acoplamento fraco com SQS, SNS ou EventBridge.
-</details>
-
-<details>
-<summary>O que significa RPO de 1 hora?</summary>
-
-Aceita-se perder no máximo 1 hora de dados.
-</details>
-
-<details>
-<summary>Aumentar o tamanho da instância é escala...</summary>
-
-Vertical.
-</details>
-
-<details>
-<summary>Adicionar instâncias é...</summary>
-
-Horizontal.
+No pilot light, só os dados e o núcleo da infraestrutura ficam ligados, e a aplicação precisa ser ativada antes de atender; no warm standby, uma cópia reduzida e funcional já atende tráfego.
 </details>
 
 
 ## [1.4 AWS Well-Architected Framework](../docs/01-conceitos-de-nuvem/04-well-architected-framework.md)
 
 <details>
-<summary>Quantos e quais são os pilares?</summary>
+<summary>Quais são os seis pilares do Well-Architected Framework?</summary>
 
-Seis: Excelência Operacional, Segurança, Confiabilidade, Eficiência de Performance, Otimização de Custos e Sustentabilidade.
+Excelência operacional, segurança, confiabilidade, eficiência de performance, otimização de custos e sustentabilidade.
 </details>
 
 <details>
-<summary>Qual pilar inclui recuperar automaticamente de falhas e escalar horizontalmente?</summary>
+<summary>"Escalar horizontalmente para reduzir o impacto de uma única falha" é princípio de qual pilar?</summary>
 
-Confiabilidade.
+Confiabilidade, que também inclui recuperar-se automaticamente de falhas, testar a recuperação, parar de adivinhar capacidade e gerenciar mudanças com automação.
 </details>
 
 <details>
-<summary>Qual pilar inclui rastreabilidade e menor privilégio?</summary>
+<summary>"Fazer mudanças frequentes, pequenas e reversíveis" pertence a qual pilar?</summary>
 
-Segurança.
+Excelência operacional, o pilar de operar e evoluir a carga de trabalho, junto com observabilidade, automação e aprendizado com os eventos.
 </details>
 
 <details>
-<summary>Qual pilar inclui fazer mudanças pequenas, frequentes e reversíveis?</summary>
+<summary>O que o pilar de sustentabilidade recomenda sobre utilização dos recursos?</summary>
 
-Excelência Operacional.
+Maximizar a utilização: dimensionar corretamente e evitar recursos ociosos, porque poucos servidores bem usados gastam menos energia que muitos subutilizados.
 </details>
 
 <details>
-<summary>Qual pilar inclui usar serverless e experimentar com frequência?</summary>
+<summary>Para que serve a AWS Well-Architected Tool?</summary>
 
-Eficiência de Performance.
-</details>
-
-<details>
-<summary>Qual pilar inclui adotar o modelo de consumo e analisar gastos?</summary>
-
-Otimização de Custos.
-</details>
-
-<details>
-<summary>Qual pilar foi o último adicionado e trata de impacto ambiental?</summary>
-
-Sustentabilidade.
-</details>
-
-<details>
-<summary>Qual ferramenta revisa uma carga de trabalho contra os pilares?</summary>
-
-AWS Well-Architected Tool.
+Para revisar e medir uma carga de trabalho com base no framework, documentar decisões, receber recomendações e acompanhar melhorias, sem cobrança adicional.
 </details>
 
 
