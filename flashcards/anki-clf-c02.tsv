@@ -134,28 +134,16 @@ Quanto custa o AWS Elastic Beanstalk?	Não há cobrança adicional pelo serviço
 Para quem o Amazon Lightsail foi pensado?	Para quem quer começar de forma simples, como desenvolvedores individuais, projetos pessoais e iniciantes, com planos de preço baixo e previsível.	CLF-C02 dominio-3 secao-3_6
 Que tipo de trabalho o AWS Batch executa?	Cargas de processamento em lote de qualquer escala, provisionando automaticamente a capacidade de computação para as tarefas enviadas.	CLF-C02 dominio-3 secao-3_6
 Qual é a diferença entre o Elastic Beanstalk e o Lambda?	O Elastic Beanstalk cria instâncias e outros recursos que ficam ligados e são cobrados; o Lambda é serverless e cobra só quando a função roda.	CLF-C02 dominio-3 secao-3_6
-Qual a vantagem do RDS sobre instalar o banco no EC2?	A AWS cuida de patch, backups, hardware e failover.	CLF-C02 dominio-3 secao-3_7
-Como garantir failover automático do banco para outra AZ?	RDS Multi-AZ.	CLF-C02 dominio-3 secao-3_7
-Como aliviar consultas de leitura pesadas?	Read Replicas (ou cache com ElastiCache).	CLF-C02 dominio-3 secao-3_7
-Qual banco relacional compatível com MySQL e PostgreSQL oferece mais performance?	Aurora.	CLF-C02 dominio-3 secao-3_7
-Qual banco NoSQL serverless com latência de milissegundos?	DynamoDB.	CLF-C02 dominio-3 secao-3_7
-Replicação multi-região ativa-ativa no DynamoDB.	Global Tables.	CLF-C02 dominio-3 secao-3_7
-Cache de microssegundos para DynamoDB.	DAX.	CLF-C02 dominio-3 secao-3_7
-Banco para relacionamentos complexos (redes sociais, fraude).	Neptune.	CLF-C02 dominio-3 secao-3_7
-Migrar banco MongoDB para serviço gerenciado.	DocumentDB.	CLF-C02 dominio-3 secao-3_7
-Data warehouse para relatórios de BI sobre petabytes.	Redshift.	CLF-C02 dominio-3 secao-3_7
-Quais motores o RDS suporta?	MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora.	CLF-C02 dominio-3 secao-3_7
-Qual é a durabilidade do S3?	11 noves (99,999999999%).	CLF-C02 dominio-3 secao-3_8
-Como proteger contra exclusão acidental?	Versionamento (e MFA Delete).	CLF-C02 dominio-3 secao-3_8
-Como mover dados para classes mais baratas automaticamente após 30 dias?	Lifecycle policy.	CLF-C02 dominio-3 secao-3_8
-Como dar acesso temporário a um arquivo privado?	Presigned URL.	CLF-C02 dominio-3 secao-3_8
-Como hospedar um site estático barato?	S3 (com CloudFront na frente).	CLF-C02 dominio-3 secao-3_8
-Como copiar objetos automaticamente para outra região?	Cross-Region Replication.	CLF-C02 dominio-3 secao-3_8
-Como acelerar uploads de outros continentes?	S3 Transfer Acceleration.	CLF-C02 dominio-3 secao-3_8
-Qual classe para dados com acesso imprevisível?	Intelligent-Tiering.	CLF-C02 dominio-3 secao-3_8
-Qual a classe mais barata para arquivamento de longo prazo?	Glacier Deep Archive.	CLF-C02 dominio-3 secao-3_8
-Qual classe guarda dados em uma única AZ?	One Zone-IA (ou Express One Zone).	CLF-C02 dominio-3 secao-3_8
-Como garantir que logs não sejam alterados por 7 anos (WORM)?	S3 Object Lock.	CLF-C02 dominio-3 secao-3_8
+Quais tarefas a AWS assume quando o banco sai do EC2 e vai para o RDS?	Instalação e patches do sistema operacional e do software do banco, backups, alta disponibilidade e escalonamento; o cliente continua cuidando da aplicação e das consultas.	CLF-C02 dominio-3 secao-3_7
+Qual é a diferença entre Multi-AZ e réplica de leitura no RDS?	Multi-AZ mantém uma cópia síncrona em outra zona de disponibilidade para disponibilidade; a réplica de leitura é uma cópia assíncrona, só de leitura, para melhorar o desempenho de leitura.	CLF-C02 dominio-3 secao-3_7
+Quando escolher o DynamoDB em vez do RDS?	Quando os dados são chave-valor ou documento e precisam de escala enorme com milissegundos de resposta, sem servidor para gerenciar.	CLF-C02 dominio-3 secao-3_7
+Para que serve o Amazon ElastiCache?	Para guardar em memória os dados mais pedidos e responder sem consultar o banco, o que acelera a aplicação e alivia o banco principal.	CLF-C02 dominio-3 secao-3_7
+Uma empresa vai migrar um banco Oracle para o Aurora PostgreSQL. Que ferramentas usar?	O AWS SCT (ou o DMS Schema Conversion) para converter o esquema, e o AWS DMS para migrar os dados.	CLF-C02 dominio-3 secao-3_7
+O que identifica um objeto no S3?	O bucket onde ele está e a sua chave, o nome único do objeto dentro do bucket (e a versão, quando o versionamento está ligado).	CLF-C02 dominio-3 secao-3_8
+Qual é a diferença entre durabilidade e disponibilidade no S3?	Durabilidade é a chance de o dado não se perder (11 noves em todas as classes da tabela desta aula); disponibilidade é a chance de ele estar acessível quando pedido, e varia por classe.	CLF-C02 dominio-3 secao-3_8
+Quando usar o S3 Intelligent-Tiering?	Quando o padrão de acesso aos dados é desconhecido ou muda, porque ele move cada objeto para a camada mais barata sozinho, sem taxa de recuperação.	CLF-C02 dominio-3 secao-3_8
+O que uma política de ciclo de vida do S3 faz?	Aplica regras automáticas a grupos de objetos: transição para outra classe depois de um tempo e expiração (exclusão) quando o prazo termina.	CLF-C02 dominio-3 secao-3_8
+Qual classe tem o armazenamento mais barato, e qual é o preço dessa economia?	O S3 Glacier Deep Archive; em troca, o objeto precisa ser restaurado antes da leitura, o que leva horas, e há mínimo de 180 dias de cobrança.	CLF-C02 dominio-3 secao-3_8
 Qual armazenamento em bloco persistente para EC2?	EBS.	CLF-C02 dominio-3 secao-3_9
 Um volume EBS pode ser usado em outra AZ?	Não diretamente; cria-se um snapshot e um novo volume na outra AZ.	CLF-C02 dominio-3 secao-3_9
 Onde ficam os snapshots do EBS?	No S3 (gerenciado pela AWS), de forma incremental.	CLF-C02 dominio-3 secao-3_9
