@@ -670,7 +670,12 @@ def gerar_flashcards(secoes, ordem):
 
 
 def gerar_resumos(extras):
-    escrever("resumos/comparativos.md", f"""# ⚖️ Pares que confundem
+    # Resumos marcados como autorais são escritos à mão e não são reescritos.
+    def escrever_resumo(caminho, texto):
+        if not eh_autoral(caminho):
+            escrever(caminho, texto)
+
+    escrever_resumo("resumos/comparativos.md", f"""# ⚖️ Pares que confundem
 
 {extras.get('pares_intro', '').strip()}
 
@@ -678,7 +683,7 @@ def gerar_resumos(extras):
 
 > Veja também: [palavras-chave → serviço](palavras-chave.md) · [números-âncora](numeros-ancora.md)
 """)
-    escrever("resumos/palavras-chave.md", f"""# 🔑 Palavras-chave que apontam para a resposta
+    escrever_resumo("resumos/palavras-chave.md", f"""# 🔑 Palavras-chave que apontam para a resposta
 
 As questões oficiais podem vir em português ou inglês; os termos abaixo aparecem nas duas versões.
 
@@ -897,8 +902,11 @@ def nome_curto(titulo):
 
 def contar_linhas_tabela(caminho):
     with open(os.path.join(RAIZ, caminho)) as f:
-        linhas = [l for l in f if l.startswith("| ") and not l.startswith("| ---")]
-    return max(len(linhas) - 1, 0)  # desconta o cabeçalho
+        linhas = [l for l in f if l.startswith("|")]
+    separador = re.compile(r"^\|\s*:?-{3}")
+    # Conta as linhas de dados: descarta separadores e o cabeçalho de cada tabela.
+    cabecalhos = sum(1 for i, l in enumerate(linhas[1:], 1) if separador.match(l) and not separador.match(linhas[i - 1]))
+    return len([l for l in linhas if not separador.match(l)]) - cabecalhos
 
 
 def substituir_bloco(texto, ini, fim, bloco):
