@@ -21,7 +21,7 @@ SEMENTE = 2026
 LETRAS = "ABCDE"
 
 # Task statements do guia oficial do exame (conferidas em 06/10/2026 nas páginas Content Domain 1 a 4)
-# e as aulas que as ensinam. Mantenha alinhado com a tabela de escopo-oficial.md (scripts/conteudo_apoio.json).
+# e as aulas que as ensinam. Mantenha alinhado com a tabela de docs/00-guia-do-exame/escopo-oficial.md.
 GUIA_EXAME = "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain{d}.html"
 TAREFAS = [
     ("1.1", "Define the benefits of the AWS Cloud", ["1.1", "1.2", "3.2"]),

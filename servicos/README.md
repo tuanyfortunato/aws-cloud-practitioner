@@ -1,16 +1,10 @@
 # 🔎 Fichas de serviços AWS
 
-## 🧭 Por onde começar
+Cada ficha aprofunda um serviço que aparece nas aulas. Leia a aula primeiro: ela explica o problema e o mecanismo, e a ficha acrescenta as opções, os limites, o custo e com o que o serviço costuma ser confundido. As aulas indicam no topo as fichas de cada assunto.
 
-Se você ainda não conhece um serviço, abra sua ficha e leia a abertura: **Comece pelo problema** ou, nas fichas já no modelo novo, **Que problema resolve**. A abertura explica a dificuldade, a solução, um exemplo, os limites e as primeiras palavras técnicas. Só depois avance para componentes, configurações e questões da prova.
-
-Uma ficha por serviço (ou família de serviços), com o que cai na prova e o que vai além: componentes, configurações, limites, cobrança, responsabilidade compartilhada, atualizações 2025-2026, pegadinhas e perguntas típicas.
-
-> Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
+> Coluna *Escopo* ([lista oficial](../docs/00-guia-do-exame/escopo-oficial.md)): ✅ no escopo · 🔀 parte no escopo, parte fora · ⚪ não aparece na lista · ❌ fora do escopo.
 >
-> Coluna *Escopo* ([lista oficial](../docs/00-guia-do-exame/escopo-oficial.md)): ✅ no escopo · 🔀 parcial · ⚪ não listado · ❌ fora do escopo.
->
-> Coluna *Grupo*: **núcleo** é ficha completa de serviço central de alguma aula e entra no caderno de consulta impresso; **complementar** é versão curta de serviço periférico no escopo; **referência** é serviço fora da lista oficial, mantido só no digital para reconhecer distratores.
+> Coluna *Grupo*: **núcleo** é a ficha completa de um serviço central de alguma aula, que também entra no caderno de consulta impresso; **complementar** é a versão curta de um serviço periférico no escopo; **referência** é a versão curta de um serviço fora da lista oficial, para reconhecer alternativas erradas.
 >
 > Modelo para novas fichas: [`templates/servico.md`](../templates/servico.md).
 
@@ -130,7 +124,7 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon SageMaker AI](ia-ml/sagemaker-ai.md) | ✅ | núcleo | Serviço de machine learning totalmente gerenciado para criar, treinar e implantar modelos próprios, sem montar nem gerenciar os servidores. |
 | [Amazon Bedrock](ia-ml/bedrock.md) | ⚪ | referência | Serviço totalmente gerenciado que dá acesso a modelos de fundação de várias empresas de IA para criar aplicações de IA generativa; não está na lista do exame. |
 | [Amazon Q](ia-ml/amazon-q.md) | ✅ | núcleo | Família de assistentes de IA generativa da AWS; o Amazon Q Developer responde perguntas sobre a AWS e os recursos da conta e ajuda a escrever e melhorar código. |
-| [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate e Textract)](ia-ml/servicos-de-ia-prontos.md) | 🔀 | núcleo | Serviços que a AWS já treinou para tarefas comuns (conversar, falar, transcrever, traduzir, entender textos, analisar imagens e ler documentos), usados por chamadas de API, sem conhecimento de machine learning. |
+| [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate e Textract)](ia-ml/servicos-de-ia-prontos.md) | ✅ | núcleo | Serviços que a AWS já treinou para tarefas comuns (conversar, falar, transcrever, traduzir, entender textos, analisar imagens e ler documentos), usados por chamadas de API, sem conhecimento de machine learning. |
 
 ## 🔗 Integração de aplicações
 

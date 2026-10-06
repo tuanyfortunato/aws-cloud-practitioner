@@ -8,13 +8,12 @@
 
 ## Antes de abrir um PR
 
-1. Se mexeu em `fontes/`, em `servicos/` ou em `scripts/gerar_docs.py`, rode `python3 scripts/gerar_docs.py`
-   (regenera tópicos, flashcards, resumos, índice de fichas e o índice do README).
+1. Se mexeu em aulas, fichas, resumos, glossário ou `scripts/gerar_docs.py`, rode `python3 scripts/gerar_docs.py`
+   (regenera os índices dos domínios e das fichas, os flashcards e os blocos do README) e `python3 scripts/test_apostila.py`.
 2. Se mexeu em `scripts/banco_questoes.py`, rode `python3 scripts/gerar_simulado.py`.
 3. Rode `python3 scripts/verificar_links.py` — precisa terminar com 0 links quebrados.
 4. Se mexeu em conteúdo de aulas ou fichas, rode `python3 scripts/metricas_apostila.py` e registre a
    tabela na descrição do PR (as métricas apontam problemas; não são metas de quantidade).
-
 5. Se mexeu no gerador da edição impressa ou na `assets/impressao.css`, rode `python3 scripts/gerar_impressa.py`
    e confira as páginas afetadas (precisa de Pandoc, WeasyPrint e mermaid-cli; a saída fica em `build/`, fora do git).
 
@@ -22,25 +21,21 @@
 
 - Conteúdo em português (Brasil).
 - `fontes/` guarda os documentos originais: não editar sem pedido explícito.
-- Em cada tópico de `docs/`, só os blocos `<!-- extra:... -->` e `<!-- notas:... -->` são preservados ao regenerar.
-- Aulas de `docs/` e fichas de `servicos/` que começam com `<!-- autoral -->` são **escritas à mão**: o
-  `gerar_docs.py` não reescreve o corpo delas, e os flashcards da aula vêm da seção `## Revisão` do próprio
-  arquivo (uma pergunta por subtítulo `###`, com a resposta recolhida num `<details>`; o primeiro parágrafo
-  da resposta vira o flashcard). Os demais
-  arquivos seguem as regras abaixo. Ver [plano de implementação](pendencias/plano-de-implementacao.md).
-- O capítulo 0 (`docs/fundamentos/`) é todo autoral; o sumário do README lista as aulas que existem na pasta.
-  Aulas autorais novas partem de `templates/topico.md` (modelo da Fase 3).
-- O [glossário](glossario.md) é o único lugar de consulta rápida de termos, em ordem alfabética. Nas aulas autorais, cada termo é
+- Aulas (`docs/`), fichas (`servicos/`), páginas do guia do exame, resumos e glossário começam com `<!-- autoral -->`
+  e são **escritos à mão**, no próprio Markdown. O `gerar_docs.py` não reescreve nenhum deles e falha se algum
+  perder o marcador. Ele só gera os índices dos domínios e das fichas, os flashcards e os blocos do README.
+  Ver [plano de implementação](pendencias/plano-de-implementacao.md).
+- Os flashcards de cada aula vêm da seção `## Revisão` do próprio arquivo: uma pergunta por subtítulo `###`, com a
+  resposta recolhida num `<details>`; o primeiro parágrafo da resposta vira o flashcard.
+- Aulas novas partem de `templates/topico.md`; fichas novas, de `templates/servico.md`, e são registradas em
+  `FICHAS` no `scripts/gerar_docs.py`. O índice das fichas lê do cabeçalho de cada ficha o título, o grupo
+  (`**Ficha:**`), a frase-resumo e o status do escopo.
+- O [glossário](glossario.md) é o único lugar de consulta rápida de termos, em ordem alfabética. Nas aulas, cada termo é
   explicado em prosa no primeiro uso; o glossário serve para relembrar e aponta para a aula que ensina. Definições dizem o que
   o termo é e para que serve, sem frases defensivas (o `test_apostila.py` confere ordem e repetição).
-- Fichas novas seguem `templates/servico.md` e precisam ser registradas em `FICHAS` **e** em `ESCOPO` (status na lista oficial da prova) no `scripts/gerar_docs.py`; o gerador falha se faltar o status.
-- A seção didática de cada tópico ("🧠 Antes de começar") e a introdução de cada domínio ficam em `scripts/didatica_docs.py` (o gerador falha se faltar um tópico); não edite essa seção direto em `docs/`.
-- As aberturas das fichas ("🧠 Comece pelo problema") ficam em `scripts/introducoes_servicos.py`; registre cada ficha também nesse módulo. As aberturas das páginas de apoio de `docs/00-guia-do-exame/` ficam em `APOIO` de `scripts/didatica_docs.py`.
-- Ao mudar qualquer conteúdo didático desses módulos, rode `python3 scripts/gerar_docs.py`. Explique primeiro problema, solução, exemplo e limite, e depois os termos e pontos da prova.
-- O corpo das fichas não autorais é gerado de `scripts/conteudo_servicos/<categoria>.json`; edite essa fonte editorial, não o Markdown gerado. Fichas autorais (modelo da Fase 5 em `templates/servico.md`, piloto em `servicos/integracao/sqs.md`) são editadas no próprio Markdown; as entradas delas nas bases editoriais ficam só para a cobertura que o gerador exige. Preserve anotações no bloco `notas`. Páginas de apoio vêm de `scripts/conteudo_apoio.json`.
-- A estrutura de apostila fica em `scripts/apostila.py`, as sequências em `scripts/sequencias_servicos.py`, as explicações de capítulos em `scripts/licoes_topicos.py`, casos estendidos em `scripts/casos_apostila.py` e definições em `scripts/vocabulario_apostila.py` (os blocos automáticos de vocabulário estão desligados por `VOCABULARIO_AUTOMATICO` em `apostila.py`; explique termos em prosa e no glossário). Registre novos serviços também nas bases e sequências; a geração exige cobertura completa.
-- Depois de alterações na apostila, execute `python3 scripts/test_apostila.py`, `python3 scripts/gerar_docs.py` e `python3 scripts/verificar_links.py`. Não use definições automáticas que confundam uma sigla com uma palavra comum ou sentidos diferentes do mesmo termo.
-- Texto desatualizado vindo de `fontes/guia-completo-clf-c02.md` é corrigido pela lista `CORRECOES` do `scripts/gerar_docs.py` (a fonte não é editada); avisos no topo de tópicos ficam em `AVISOS`.
+- Explique primeiro o problema, a solução, um exemplo e o limite, e depois os termos e os pontos da prova.
+- `fontes/` é registro histórico e não participa da geração.
+- A edição impressa (`scripts/gerar_impressa.py`) lê os mesmos Markdown; não duplique conteúdo para o papel.
 
 ## Validação das informações (obrigatório)
 

@@ -1,6 +1,6 @@
 # 🃏 Flashcards — Domínio 1 — Conceitos de Nuvem
 
-Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
+Clique na pergunta para ver a resposta. Gerado a partir da seção *Revisão* de cada aula (`python3 scripts/gerar_docs.py`).
 
 **Total:** 35 cards
 

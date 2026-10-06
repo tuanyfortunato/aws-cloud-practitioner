@@ -138,7 +138,7 @@ def coletar():
     encontrados = []
     for pasta, _, arquivos in os.walk(RAIZ):
         rel_pasta = os.path.relpath(pasta, RAIZ)
-        if "/.git" in pasta or rel_pasta.startswith((".git", "templates", "fontes", "pendencias", "scripts")):
+        if "/.git" in pasta or rel_pasta.startswith((".git", "templates", "fontes", "pendencias", "scripts", "build", "node_modules")):
             continue
         for nome in sorted(arquivos):
             if nome.endswith(".md"):

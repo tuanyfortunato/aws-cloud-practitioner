@@ -16,8 +16,8 @@ def main():
     quebrados = []
     total = 0
     for pasta, _, arquivos in os.walk(RAIZ):
-        # templates/ usa caminhos relativos ao local para onde o modelo será copiado.
-        if "/.git" in pasta or os.path.relpath(pasta, RAIZ).startswith("templates"):
+        # templates/ usa caminhos relativos ao local para onde o modelo será copiado; build/ é saída da edição impressa.
+        if "/.git" in pasta or os.path.relpath(pasta, RAIZ).startswith(("templates", "build")):
             continue
         for nome in arquivos:
             if not nome.endswith(".md"):

@@ -3,7 +3,7 @@
 <!--
 Modelo de aula autoral (Fase 3 do plano de implementação).
 
-- O marcador autoral na primeira linha faz o gerar_docs.py preservar o corpo da aula. Os flashcards da
+- O marcador autoral na primeira linha é obrigatório: o gerar_docs.py falha se ele faltar. Os flashcards da
   aula saem da seção "Revisão": uma pergunta por subtítulo ###, e o primeiro parágrafo da resposta vira o card.
 - Escreva em prosa. Use listas só para enumerações reais e tabelas só para comparar itens lado a lado.
 - Cada termo novo é explicado em prosa no primeiro uso; o glossário serve para relembrar.

@@ -106,7 +106,7 @@ Corresponde ao domínio 2 — segurança e conformidade — **30% da prova**. [A
 | 2.6 | [Compliance e governança](docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md) |
 | 2.7 | [Logs, monitoramento e auditoria](docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md) |
 | 2.8 | [Proteção de rede e aplicações](docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md) |
-| 2.9 | [Detecção de ameaças e postura de segurança](docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md) |
+| 2.9 | [Detecção de ameaças](docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md) |
 | 2.10 | [Outros pontos de segurança](docs/02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.md) |
 
 **Comece pela [aula 2.1](docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md).**
@@ -136,7 +136,7 @@ Corresponde ao domínio 3 — tecnologia e serviços de nuvem — **34% da prova
 | 3.7 | [Bancos de dados](docs/03-tecnologia-e-servicos/07-bancos-de-dados.md) |
 | 3.8 | [Amazon S3 — armazenamento de objetos](docs/03-tecnologia-e-servicos/08-s3.md) |
 | 3.9 | [Outros serviços de armazenamento](docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md) |
-| 3.10 | [Rede e entrega de conteúdo](docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) |
+| 3.10 | [Redes e entrega de conteúdo](docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) |
 | 3.11 | [Analytics](docs/03-tecnologia-e-servicos/11-analytics.md) |
 | 3.12 | [IA e machine learning](docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md) |
 | 3.13 | [Integração de aplicações](docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md) |
@@ -419,20 +419,9 @@ Para entender a organização dos textos, leia [como estudar com esta apostila](
 
 ## Fontes e atualizações
 
-O conteúdo vem de um guia de estudo e de uma pesquisa próprios, conferidos depois em várias rodadas nas páginas
-oficiais da AWS. Quando a verificação encontrou algo diferente, o repositório foi corrigido e a mudança aparece
-marcada com 🔄 ou ✔️.
+As aulas, as fichas e as questões foram escritas à mão e conferidas nas páginas oficiais da AWS. Cada aula e cada ficha termina com a seção **Fontes oficiais**, que lista as páginas consultadas e a data da verificação. O que não pôde ser confirmado fica nas [pendências de verificação](docs/00-guia-do-exame/pendencias-de-verificacao.md), e as mudanças recentes da AWS estão em [o que mudou em 2025 e 2026](docs/00-guia-do-exame/atualizacoes-2025-2026.md).
 
-| Documento | O que é |
-|---|---|
-| [Índice das fontes](fontes/README.md) | Como cada fonte foi usada |
-| [Guia completo CLF-C02](fontes/guia-completo-clf-c02.md) | Guia de estudo original, base dos tópicos e flashcards |
-| [Pesquisa 2025-2026](fontes/pesquisa-atualizacoes-2025-2026.md) | Pesquisa sobre números que caem e mudanças recentes |
-| [Verificação oficial (10/2026)](fontes/verificacao-fontes-oficiais-2026-10.md) | Exam guide, escopo, mudanças e números |
-| [Verificação — rodadas 3 e 4](fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md) | Termos de cada task, planos de suporte, status de serviços |
-| [Verificação das pendências (PDF)](fontes/verificacao-pendencias-2026-10.pdf) | Primeira rodada das pendências |
-| [Verificação das pendências — rodada 2](fontes/verificacao-pendencias-2026-10-rodada-2.md) | Rodada final, com trecho literal de cada página oficial |
-| [Pendências de verificação](docs/00-guia-do-exame/pendencias-de-verificacao.md) | O que ainda falta conferir (hoje: nada) |
+A pasta [fontes](fontes/README.md) guarda os documentos que deram origem à primeira versão do material e os relatórios das rodadas de verificação. Ela é só um registro histórico: nenhum arquivo da apostila é gerado a partir dela.
 
 > Preços, limites e nomes de planos mudam. Na semana da prova, confira o
 > [exam guide oficial](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
@@ -445,19 +434,18 @@ marcada com 🔄 ou ✔️.
 <details>
 <summary>Orientações para quem contribui com a apostila</summary>
 
-Siga as [regras do repositório](CLAUDE.md): as mudanças chegam por Pull Request. Os capítulos e índices gerados devem ser alterados nas suas fontes editoriais; consulte os caminhos e convenções nesse documento.
+Siga as [regras do repositório](CLAUDE.md): as mudanças chegam por Pull Request. Aulas, fichas, páginas do guia do exame, resumos e glossário são escritos à mão e editados no próprio Markdown. O gerador só monta os índices, os flashcards e os blocos do sumário deste README.
 
 As melhorias planejadas e seus critérios de conclusão estão na [pasta de pendências](pendencias/README.md), começando pela [especificação da apostila digital e impressa](pendencias/apostila-digital-e-impressa.md).
 
 | Arquivo | Uso |
 |---|---|
-| [Gerador](scripts/gerar_docs.py) | Regenera aulas, fichas, flashcards, resumos e os blocos do sumário deste README. |
-| [Estrutura da apostila](scripts/apostila.py) | Organiza o corpo das aulas e fichas. |
-| [Fontes editoriais das fichas](scripts/conteudo_servicos/) | Conteúdo de cada categoria, antes da geração do Markdown. |
+| [Gerador](scripts/gerar_docs.py) | Regenera os índices dos domínios e das fichas, os flashcards e os blocos do sumário deste README. |
+| [Edição impressa](scripts/gerar_impressa.py) | Monta os PDFs do livro-texto e dos cadernos de consulta e de exercícios. |
 | [Banco de questões](scripts/banco_questoes.py) | Enunciados, alternativas e explicações. |
 | [Gerador das questões](scripts/gerar_simulado.py) | Atualiza as questões por domínio. |
 | [Verificador de links](scripts/verificar_links.py) | Confere os destinos dos links internos. |
-| [Modelo de ficha](templates/servico.md) | Orienta a criação de fichas de serviços. |
+| [Modelo de aula](templates/topico.md) e [modelo de ficha](templates/servico.md) | Orientam a escrita de aulas e fichas novas. |
 
 Execute a partir da raiz:
 

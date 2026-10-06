@@ -1,30 +1,14 @@
 # Domínio 4 — Cobrança, Preços e Suporte
 
-## 🧠 Antes de começar
+**Peso na prova:** 12% das questões pontuadas.
 
-**Qual é a dificuldade?** Depois de escolher recursos, a equipe precisa prever gastos, acompanhar consumo e saber como pedir ajuda.
+**A pergunta deste capítulo:** Como entender a conta, controlar gastos e obter ajuda?
 
-**A ideia em palavras simples:** Este domínio trata de **dinheiro**: como a AWS cobra, como economizar, quais ferramentas mostram e controlam os gastos e quais planos de suporte existem.
+Agora que você conhece os recursos, estude como o uso vira cobrança, quando compromissos de compra fazem sentido e quais ferramentas ajudam a acompanhar custos.
 
-**Exemplo do dia a dia:** A escola estima o custo antes de publicar seu sistema, analisa a fatura depois e configura avisos de orçamento.
+## Aulas
 
-Comece pelas aberturas dos tópicos para entender a situação e a solução. Depois use o vocabulário,
-os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço; o índice não substitui essa leitura.
-
-**Peso na prova:** 12% das questões pontuadas
-
-Peso menor, mas as questões são diretas: decorar as tabelas desta seção garante a maior parte desses pontos.
-
-## 🧭 Como estudar este domínio
-
-- 🗺️ **Ordem sugerida:** Comece pelos **princípios de preço** (4.1), passe pelos **modelos de compra do EC2** (4.2), que mais caem, e termine com ferramentas de custo (4.4) e planos de suporte (4.5).
-- 🎯 **Dica:** Diferencie estimar, analisar gasto e acompanhar orçamento. Em suporte, leia o requisito e confira as condições no contexto do material.
-- 🧠 Cada tópico começa com a seção **Antes de começar**: problema, explicação, exemplo e limite.
-  Depois vêm palavras novas explicadas, objetivos de leitura e revisão para a prova.
-
-## Tópicos
-
-| # | Tópico | Perguntas típicas |
+| Aula | Assunto | Perguntas de revisão |
 |---|---|---|
 | 4.1 | [Princípios de preço da AWS](01-principios-de-preco.md) | 5 |
 | 4.2 | [Modelos de compra do EC2](02-modelos-de-compra-ec2.md) | 5 |
@@ -33,11 +17,11 @@ Peso menor, mas as questões são diretas: decorar as tabelas desta seção gara
 | 4.5 | [Planos de AWS Support](05-planos-de-suporte.md) | 5 |
 | 4.6 | [Outros recursos de ajuda](06-outros-recursos-de-ajuda.md) | 5 |
 
-> Acompanhe o seu avanço no [progresso](../../progresso.md).
+**Antes de avançar:** Diferencie os modelos de compra e as ferramentas de estimativa, acompanhamento e orçamento, além das opções de suporte.
 
-## Revisão rápida do domínio
+## Para revisar
 
-- 🃏 [Flashcards do domínio](../../flashcards/dominio-4.md)
-- ⚖️ [Pares que confundem](../../resumos/comparativos.md)
-- 🔑 [Palavras-chave → serviço](../../resumos/palavras-chave.md)
-- 📌 [Números-âncora](../../resumos/numeros-ancora.md)
+- [Questões do domínio](../../simulados/questoes/dominio-4.md)
+- [Flashcards do domínio](../../flashcards/dominio-4.md)
+- [Pares que confundem](../../resumos/comparativos.md), [palavras-chave](../../resumos/palavras-chave.md) e [números que decidem questões](../../resumos/numeros-ancora.md)
+- [Controle de progresso](../../progresso.md)
