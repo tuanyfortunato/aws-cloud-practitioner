@@ -19,7 +19,7 @@
 
 ---
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)**
 
 🏠 [Índice do domínio](README.md) · [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) ➡️
 
@@ -32,7 +32,6 @@
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 
 O serviço mede uma unidade de consumo ou capacidade, não necessariamente pessoas usando seu sistema. Tempo de máquina, espaço de dados, chamadas e transferência são dimensões diferentes. Uma aplicação pode reunir várias cobranças ao mesmo tempo.
 
@@ -53,7 +52,6 @@ Antes de calcular, identifique o recurso, a unidade e a condição. Parar comput
 
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
 
-
 **Economize ao se comprometer:** reservas e Savings Plans dão desconto em troca de compromisso de 1 ou 3 anos.
 
 **Antes de ler este trecho:**
@@ -61,9 +59,7 @@ Antes de calcular, identifique o recurso, a unidade e a condição. Parar comput
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
-
 **Pague menos por unidade quando usa mais:** faixas de desconto por volume (ex.: S3, transferência de dados).
-
 
 **Três grandes geradores de custo:** computação, armazenamento e **transferência de dados de saída**.
 
@@ -72,7 +68,6 @@ Antes de calcular, identifique o recurso, a unidade e a condição. Parar comput
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 
 **Primeiro, identifique o funcionamento:** A cobrança combina unidades: tempo de computação, capacidade armazenada, requisições, processamento e transferência. Recursos relacionados podem ser cobrados separadamente.
 
@@ -86,25 +81,7 @@ Uma função Lambda barata passa por NAT Gateway e grava logs. Só estimar a fun
 
 **Raciocínio e resposta:** Não. Inclua rede, logs e armazenamento conforme o uso. A cobrança acompanha os recursos utilizados, não apenas o serviço principal.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um recurso pode estar ocioso e ainda gerar cobrança. Para planejar gastos, você precisa entender pelo que está pagando, não apenas quantas pessoas usam o sistema.
-
-**2. O que a solução fornece?**
-
-Preço pode depender de capacidade provisionada, tempo, armazenamento, chamadas ou transferência, conforme o serviço. Diferentes componentes podem ter cobranças independentes.
-
-**3. Que conclusão seria incorreta?**
-
-Pagar pelo uso não significa pagar apenas por pessoas usando a aplicação. Este tópico ensina a identificar as unidades e condições de cobrança.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -120,19 +97,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
-
-**Fundamento explicado no capítulo:** "Qual é um princípio de preço da AWS?" → Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.
-
 **Pergunta:** "Quais são os três principais geradores de custo?"
 
 **Resposta curta:** Computação, armazenamento e transferência de dados de saída.
 
-
-**Fundamento explicado no capítulo:** "Quais são os três principais geradores de custo?" → Computação, armazenamento e transferência de dados de saída.
+**Fundamento explicado no capítulo:** **Três grandes geradores de custo:** computação, armazenamento e **transferência de dados de saída**.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

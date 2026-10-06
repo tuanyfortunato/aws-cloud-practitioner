@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Descreva etapas, decisões e tratamento de falhas do processo.
 
@@ -60,9 +55,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **workflow / state machine:** Fluxo de trabalho descrito por etapas, decisões e estados. Coordenar etapas é diferente de escrever o programa que realiza cada tarefa.
 - **SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **State machine** | Definida em JSON (Amazon States Language) ou desenhada no **Workflow Studio**. |
@@ -79,9 +71,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
 - **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | **Standard** | **Express** |
 |---|---|---|
@@ -103,7 +92,6 @@ O serviço coordena as etapas; ele não escreve automaticamente o código que co
 - **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
 - **Step Functions:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis.
 
-
 Step Functions (**orquestra** etapas com estado) × EventBridge (**roteia** eventos) × SQS (fila).
 
 **Antes de ler este trecho:**
@@ -111,17 +99,11 @@ Step Functions (**orquestra** etapas com estado) × EventBridge (**roteia** even
 - **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
 - **SWF:** Simple Workflow Service: serviço de coordenação de trabalhos distribuídos com modelo próprio. É referência especializada, não sinônimo de todas as ferramentas de fluxo.
 
-
 **SWF** (Simple Workflow Service) é o antecessor legado.
-
 
 Solução para "processo maior que 15 min com várias Lambdas" → Step Functions encadeando etapas.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Uma matrícula passa por verificação, cobrança e confirmação. O fluxo coordena essas tarefas e registra o estado de cada execução.
 
@@ -137,28 +119,11 @@ Uma matrícula passa por verificação, cobrança e confirmação. O fluxo coord
 
 **Decisões que precisam ser tomadas:** Sequência, branches, retries, catches e modalidade.
 
-
 **Outra situação comentada:** Pedido exige validar, cobrar e confirmar: fluxo coordena etapas; cada tarefa mantém seus próprios limites.
 
 **Por que não concluir mais do que isso:** Não transforma todo código longo numa única função convencional sem limite
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um processo tem várias etapas, algumas decisões e possibilidade de falha. Controlar toda essa sequência dentro de um único programa pode dificultar o acompanhamento.
-
-**2. O que a solução fornece?**
-
-Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis. Você define a sequência, as decisões e o comportamento diante de falhas.
-
-**3. Que conclusão seria incorreta?**
-
-O serviço coordena as etapas; ele não escreve automaticamente o código que cobra ou verifica os dados. As etapas precisam existir e ter acessos configurados.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -166,18 +131,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Step Functions.
 
-
-**Fundamento explicado no capítulo:** "Orquestrar um processo com várias etapas e tratamento de erro." → Step Functions.
-
 **Pergunta:** "Fluxo de pedido com aprovação humana no meio."
 
 **Resposta curta:** Step Functions (callback).
 
-
-**Fundamento explicado no capítulo:** "Fluxo de pedido com aprovação humana no meio." → Step Functions (callback).
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

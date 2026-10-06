@@ -28,10 +28,6 @@
 
 > ❌ **Fora do escopo da CLF-C02** — documentado só para referência. Na prova, "cache em memória" → **ElastiCache** (no escopo).
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -39,7 +35,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
 - **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
 - **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
-
 
 **Passo 1.** Avalie a compatibilidade da aplicação e a necessidade de manter dados em memória com durabilidade.
 
@@ -55,16 +50,13 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
 
-
 Grava as alterações num **log transacional distribuído em várias AZs** → não perde dados se um nó falhar (ao contrário de um cache).
-
 
 Leituras em microssegundos, escritas em milissegundos de um dígito.
 
 **Antes de ler este trecho:**
 
 - **Redis:** Tecnologias de dados em memória com comportamentos e funções diferentes. A modalidade gerenciada deve ser escolhida segundo compatibilidade e necessidade, não apenas pela palavra cache.
-
 
 Uso: microsserviços que usam estruturas Redis como banco principal, sessões críticas, placares, feeds, busca vetorial.
 
@@ -80,7 +72,6 @@ Não confunda banco em memória durável com qualquer cache. O serviço está fo
 
 - **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
 - **MemoryDB:** MemoryDB oferece um banco em memória com mecanismos de durabilidade.
-
 
 ElastiCache = **cache** (pode ser reconstruído). MemoryDB = **banco durável**.
 
@@ -112,38 +103,17 @@ Um sistema que trabalha intensamente com estruturas compatíveis pode avaliar Me
 
 - **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
-
 **Outra situação comentada:** Necessidade de banco durável de baixa latência difere de cache descartável; preserve essa diferença sem priorizar na CLF-C02.
 
 **Por que não concluir mais do que isso:** Está fora do escopo consultado; cache e banco durável não têm o mesmo objetivo
 
 ## 6. Revisão e perguntas
 
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma aplicação precisa trabalhar com dados em memória e também preservar esses dados de forma durável, em vez de manter apenas cópias temporárias.
-
-**2. O que a solução fornece?**
-
-MemoryDB oferece um banco em memória com mecanismos de durabilidade. Ele atende aplicações compatíveis com sua interface de acesso.
-
-**3. Que conclusão seria incorreta?**
-
-Não confunda banco em memória durável com qualquer cache. O serviço está fora do escopo indicado nesta ficha; o exemplo explica sua função, não recomenda priorizá-lo para a prova.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
-
 ### ❓ Perguntas típicas
 
 **Pergunta:** "Banco principal com latência de microssegundos e durabilidade, compatível com Redis."
 
 **Resposta curta:** MemoryDB.
-
-
-**Fundamento explicado no capítulo:** "Banco principal com latência de microssegundos e durabilidade, compatível com Redis." → MemoryDB.
-
 
 ## 7. Fontes e próximos passos
 

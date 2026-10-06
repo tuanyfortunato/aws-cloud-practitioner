@@ -20,7 +20,7 @@
 
 ---
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)**
 
 > 🔎 **Fichas detalhadas:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
 
@@ -35,7 +35,6 @@
 **Antes de ler este trecho:**
 
 - **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 
 Suporte é uma relação de assistência com cobertura definida. A organização informa o problema, seu impacto e o contexto; o atendimento responde e acompanha conforme a oferta. A equipe continua operando as partes que não foram contratadas para administração externa.
 
@@ -58,9 +57,6 @@ Separe resposta inicial de resolução. Uma primeira resposta rápida pode inici
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 - **TAM:** Gerente técnico de conta em ofertas de suporte que incluem esse papel. Atua no acompanhamento e orientação previstos; não substitui toda a equipe do cliente.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Plano (modelo clássico; preços históricos, não cotação atual) | Preço mínimo histórico | Canais de suporte técnico | Tempo de primeira resposta | Recursos principais |
 | --- | --- | --- | --- | --- |
 | Basic | Gratuito | Atendimento ao cliente 24/7 só para conta e faturamento | Sem suporte técnico | Documentação, whitepapers, re:Post, Health Dashboard, verificações principais do Trusted Advisor |
@@ -69,10 +65,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Enterprise On-Ramp | A partir de US$ 5.500/mês | Telefone, chat e e-mail 24/7 | **Sistema crítico de negócio fora do ar: menos de 30 min** | **Pool de TAMs**; Concierge Support Team (faturamento e conta); revisões consultivas |
 | Enterprise | A partir de US$ 15.000/mês | Telefone, chat e e-mail 24/7 | **Sistema crítico de negócio fora do ar: menos de 15 min** | **TAM dedicado**; Concierge; Infrastructure Event Management; revisões Well-Architected e de operações; treinamentos |
 
-
-
 **TAM (Technical Account Manager):** consultor técnico que acompanha a conta de forma proativa. Dedicado só no Enterprise; compartilhado (pool) no Enterprise On-Ramp.
-
 
 **Concierge Support Team:** especialistas em faturamento e gestão de conta (Enterprise On-Ramp e Enterprise).
 
@@ -81,9 +74,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **IEM:** Nome histórico de uma oferta de acompanhamento de eventos de infraestrutura. Leia o contexto e a oferta atual indicados na ficha.
 
-
 **Infrastructure Event Management (IEM):** apoio da AWS para planejar eventos de grande escala (lançamentos, Black Friday).
-
 
 **Cai na prova:** 🔄 *oferta comercial atual (sem confirmação de substituição no banco da prova):* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business; "TAM dedicado" = Enterprise; "resposta em 15 minutos" = Enterprise; "só precisa de ajuda com a fatura" = Basic (atendimento ao cliente é grátis). Preços e tempos mudam com frequência: confira a página oficial de planos antes da prova.
 
@@ -92,7 +83,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 **Antes de ler este trecho:**
 
 - **SLA:** Acordo de nível de serviço com condições e medidas próprias. Não é garantia de que a aplicação do cliente nunca falhará.
-
 
 **Primeiro, identifique o funcionamento:** Support Center organiza casos de suporte; planos determinam canais, recursos e objetivos de resposta. TAM oferece orientação técnica proativa; cobrança/conta é uma necessidade distinta de incidente técnico.
 
@@ -106,25 +96,7 @@ Um plano promete primeira resposta para incidente crítico em quinze minutos. Is
 
 **Raciocínio e resposta:** Não. O objetivo se refere ao contato inicial do suporte, sujeito aos termos; restaurar depende do diagnóstico, contexto e ações necessárias.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Quando o sistema tem um problema, a empresa precisa saber como pedir ajuda e quais recursos de atendimento estão incluídos em sua oferta.
-
-**2. O que a solução fornece?**
-
-Planos de suporte definem canais e condições de auxílio. A escolha deve considerar a necessidade de orientação e o impacto dos incidentes.
-
-**3. Que conclusão seria incorreta?**
-
-Tempo de primeira resposta não é prazo garantido de correção. Os nomes comerciais e os exemplos do guia podem diferir; leia os avisos e o contexto.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -141,68 +113,37 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Business Support+ (no modelo clássico, Business).
 
-
-**Fundamento explicado no capítulo:** "Qual o plano mais barato com suporte técnico 24/7 por telefone?" → Business Support+ (no modelo clássico, Business).
-
 **Pergunta:** "Qual o plano mais barato com todas as verificações do Trusted Advisor?"
 
 **Resposta curta:** Business Support+ (no modelo clássico, Business).
-
-
-**Fundamento explicado no capítulo:** "Qual o plano mais barato com todas as verificações do Trusted Advisor?" → Business Support+ (no modelo clássico, Business).
 
 **Pergunta:** "Qual plano inclui TAM dedicado?"
 
 **Resposta curta:** Enterprise.
 
-
-**Fundamento explicado no capítulo:** "Qual plano inclui TAM dedicado?" → Enterprise.
-
 **Pergunta:** "Qual plano dá acesso a um pool de TAMs?"
 
 **Resposta curta:** Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).
-
-
-**Fundamento explicado no capítulo:** "Qual plano dá acesso a um pool de TAMs?" → Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).
 
 **Pergunta:** "Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?"
 
 **Resposta curta:** Enterprise.
 
-
-**Fundamento explicado no capítulo:** "Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?" → Enterprise.
-
 **Pergunta:** "Qual plano responde em menos de 1 hora a produção fora do ar?"
 
 **Resposta curta:** Business Support+ ou superior (no modelo clássico, Business).
-
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
-
-**Fundamento explicado no capítulo:** "Qual plano responde em menos de 1 hora a produção fora do ar?" → Business Support+ ou superior (no modelo clássico, Business).
 
 **Pergunta:** "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail."
 
 **Resposta curta:** Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).
 
-
-**Fundamento explicado no capítulo:** "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail." → Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).
-
 **Pergunta:** "O plano Basic oferece suporte técnico?"
 
 **Resposta curta:** Não; só atendimento de conta e faturamento, documentação e re:Post.
 
-
-**Fundamento explicado no capítulo:** "O plano Basic oferece suporte técnico?" → Não; só atendimento de conta e faturamento, documentação e re:Post.
-
 **Pergunta:** "Quem ajuda com dúvidas de faturamento em planos Enterprise?"
 
 **Resposta curta:** Concierge Support Team.
-
-
-**Fundamento explicado no capítulo:** "Quem ajuda com dúvidas de faturamento em planos Enterprise?" → Concierge Support Team.
 
 **Pergunta:** "Quem pode mudar o plano de suporte?"
 
@@ -213,9 +154,6 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
 - **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-
-
-**Fundamento explicado no capítulo:** "Quem pode mudar o plano de suporte?" → 🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.
 
 <!-- extra:inicio -->
 ## 🔄 Planos comerciais novos (distinguir dos exemplos do guia)

@@ -19,7 +19,7 @@
 
 ---
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
 
 > 🔎 **Fichas detalhadas:** [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](../../servicos/analytics/lake-formation-msk-e-outros.md) · [Amazon MQ](../../servicos/integracao/amazon-mq.md) · [AWS Firewall Manager e AWS Network Firewall](../../servicos/seguranca/firewall-manager-e-network-firewall.md) · [Amazon Keyspaces, Timestream e outros bancos especializados](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)](../../servicos/ia-ml/servicos-de-ia-prontos.md) · [Serviços de mídia e jogos (Elemental, IVS, Elastic Transcoder, GameLift, Lumberyard)](../../servicos/fora-do-escopo/midia-e-jogos.md) · [IoT, robótica, satélite e visão computacional na borda (Device Defender, Monitron, Panorama, RoboMaker, Ground Station)](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) · [Desenvolvimento e aplicações (AppConfig, Infrastructure Composer, CodeGuru, Copilot, Refactor Spaces, AppFabric, SWF, WorkDocs)](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) · [Rede e diretório (Cloud Map, VPC Lattice, Network Access Analyzer, Cloud Directory)](../../servicos/fora-do-escopo/rede-e-diretorio.md) · [Gerenciamento e custos (Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler, DevPay)](../../servicos/fora-do-escopo/gerenciamento-e-custos.md)
 
@@ -30,7 +30,6 @@
 ---
 
 ## 1. Entenda as peças e a relação entre elas
-
 
 Um nome pouco conhecido precisa ser lido pelo trabalho que realiza. A categoria reúne funções distintas e também referências históricas. Aprender a classificar o problema ajuda mais que decorar todos os nomes sem contexto.
 
@@ -49,7 +48,6 @@ Examine função, compatibilidade e status. Fora do escopo do exame não signifi
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 A AWS avisa que a lista de serviços no escopo não é exaustiva, e quem já fez a prova relata questões sobre serviços pouco divulgados. Esta seção reúne os mais citados. Basta saber para que cada um serve.
 
 ### Sustentabilidade
@@ -57,7 +55,6 @@ A AWS avisa que a lista de serviços no escopo não é exaustiva, e quem já fez
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 
 **AWS Customer Carbon Footprint Tool:** ferramenta **gratuita** no console de Billing and Cost Management que mostra a **estimativa de emissões de carbono** do uso da AWS da conta, em toneladas métricas de CO₂ equivalente, com histórico e divisão por serviço e por região. Serve para acompanhar metas de sustentabilidade e se liga ao pilar **Sustentabilidade** do Well-Architected.
 
@@ -67,13 +64,11 @@ A AWS avisa que a lista de serviços no escopo não é exaustiva, e quem já fez
 - **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 - **Graviton:** Família de processadores AWS baseada em arquitetura ARM. A aplicação e sua imagem precisam ser compatíveis com essa arquitetura.
 
-
 Outras práticas sustentáveis que a prova associa a esse pilar: usar processadores Graviton, serviços gerenciados e serverless, rightsizing, desligar recursos ociosos e escolher classes de armazenamento adequadas.
 
 ### Ajuda, parceiros e soluções prontas
 
 **AWS IQ:** 🔄 hoje está declarado **fora do escopo** da prova (verificação de 10/2026). Era um marketplace para contratar **especialistas freelancers certificados em AWS** para projetos sob demanda, pagos na própria fatura AWS. A AWS **encerrou o serviço em 28/05/2026** (a alternativa indicada é o AWS Marketplace Professional Services), mas ele ainda pode aparecer em questões.
-
 
 **AWS Solutions Library e AWS Prescriptive Guidance:** arquiteturas de referência e soluções prontas para implantar, validadas pela AWS.
 
@@ -112,9 +107,6 @@ Outras práticas sustentáveis que a prova associa a esse pilar: usar processado
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 - **SAP:** Tecnologias e aplicações empresariais do ecossistema SAP. Podem exigir requisitos específicos de memória, licenciamento e operação.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | O que faz | Exemplo de cenário |
 | --- | --- | --- |
 | AWS Security Token Service (STS) | Emite **credenciais temporárias**; é o que está por trás das IAM roles | "Qual serviço gera credenciais temporárias?" |
@@ -139,23 +131,17 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 O exam guide lista categorias que **não caem** na prova. Se uma alternativa citar um serviço delas, provavelmente é distrator:
 
-
 **Game Tech** (ex.: Amazon GameLift).
-
 
 **Serviços de mídia** (ex.: AWS Elemental).
 
-
 **Robótica** (ex.: AWS RoboMaker).
 
-
 **Satélite** (ex.: AWS Ground Station).
-
 
 **Blockchain** (ex.: Amazon Managed Blockchain).
 
 ## 3. Como analisar uma situação
-
 
 **Primeiro, identifique o funcionamento:** Serviços especializados resolvem necessidades específicas, como grafo, Kafka ou compartilhamento de dados. A lista oficial separa os explicitamente incluídos, excluídos e não citados.
 
@@ -169,25 +155,7 @@ Você reconhece Kafka em uma alternativa, mas a questão só pede streaming gere
 
 **Raciocínio e resposta:** Não. Compare requisito e opções, e priorize o serviço adequado ao escopo, como Kinesis. Fora do escopo reduz prioridade de estudo; não é uma regra universal de eliminação por nome.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Alguns nomes AWS aparecem em listas antigas ou em problemas muito específicos. Tentar decorar todos sem entender a função dificulta o estudo.
-
-**2. O que a solução fornece?**
-
-Esta seção organiza serviços adicionais por finalidade e identifica seu status no escopo. O objetivo é reconhecer o tipo de problema e saber quando aprofundar.
-
-**3. Que conclusão seria incorreta?**
-
-Estar nesta seção não significa que o serviço continua disponível ou que é prioritário para o exame. Use as marcações de escopo e as observações de cada ficha.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -204,9 +172,6 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** AWS Customer Carbon Footprint Tool.
 
-
-**Fundamento explicado no capítulo:** "Como acompanhar a pegada de carbono do uso da AWS?" → AWS Customer Carbon Footprint Tool.
-
 **Pergunta:** "Onde contratar especialistas certificados sob demanda para um projeto pequeno?"
 
 **Resposta curta:** AWS IQ (descontinuado; hoje, AWS Marketplace Professional Services ou um parceiro da APN).
@@ -215,36 +180,21 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **APN:** Rede de parceiros AWS. Parceiros oferecem serviços e soluções conforme seus próprios contratos e competências.
 
-
-**Fundamento explicado no capítulo:** "Onde contratar especialistas certificados sob demanda para um projeto pequeno?" → AWS IQ (descontinuado; hoje, AWS Marketplace Professional Services ou um parceiro da APN).
-
 **Pergunta:** "Qual serviço emite as credenciais temporárias usadas pelas roles?"
 
 **Resposta curta:** AWS STS.
-
-
-**Fundamento explicado no capítulo:** "Qual serviço emite as credenciais temporárias usadas pelas roles?" → AWS STS.
 
 **Pergunta:** "A aplicação usa RabbitMQ e deve migrar sem mudar o código."
 
 **Resposta curta:** Amazon MQ.
 
-
-**Fundamento explicado no capítulo:** "A aplicação usa RabbitMQ e deve migrar sem mudar o código." → Amazon MQ.
-
 **Pergunta:** "Testar a resiliência injetando falhas de propósito."
 
 **Resposta curta:** AWS Fault Injection Service.
 
-
-**Fundamento explicado no capítulo:** "Testar a resiliência injetando falhas de propósito." → AWS Fault Injection Service.
-
 **Pergunta:** "Testar um app mobile em centenas de dispositivos reais."
 
 **Resposta curta:** AWS Device Farm.
-
-
-**Fundamento explicado no capítulo:** "Testar um app mobile em centenas de dispositivos reais." → AWS Device Farm.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

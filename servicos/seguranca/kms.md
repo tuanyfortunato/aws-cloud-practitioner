@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 - **chave:** Pode indicar identificação de um registro, identificação de um objeto ou elemento criptográfico. Leia o contexto: localizar um dado e protegê-lo são tarefas diferentes.
-
 
 **Passo 1.** Escolha ou crie uma chave compatível e defina quem pode administrá-la e utilizá-la.
 
@@ -52,21 +47,16 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Tipo | Quem cria/gerencia | Visível na conta | Rotação | Custo mensal |
 |---|---|---|---|---|
 | **AWS owned keys** | AWS (compartilhadas entre contas) | Não | AWS | Grátis |
 | **AWS managed keys** (`aws/s3`, `aws/ebs`…) | AWS, para um serviço, na sua conta | Sim (só leitura) | Automática **todo ano**, obrigatória (era a cada 3 anos até 2022) | Grátis (paga uso) |
 | **Customer managed keys** | **Você** | Sim | Opcional automática (período configurável) ou manual | Por chave/mês + uso |
 
-
 **Antes de ler este trecho:**
 
 - **AES-256:** Algoritmo de criptografia com chave de 256 bits. Esse nome descreve a tecnologia de proteção; autorização e administração das chaves continuam necessárias.
 - **HMAC / RSA / ECC:** Tecnologias criptográficas para finalidades próprias. HMAC verifica autenticidade/integridade com chave; RSA e ECC são famílias de criptografia assimétrica. Não são certificados ou políticas de acesso.
-
 
 Chaves **simétricas** (AES-256, padrão), **assimétricas** (RSA/ECC para assinar/criptografar fora da AWS) e **HMAC**.
 
@@ -86,9 +76,6 @@ Chaves **simétricas** (AES-256, padrão), **assimétricas** (RSA/ECC para assin
 - **HSM:** Equipamento especializado em proteger chaves e executar operações criptográficas. A forma de administração depende da solução escolhida.
 - **FIPS:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
 - **BYOK / XKS:** Trazer chaves próprias e usar armazenamento externo de chaves são opções diferentes de controle criptográfico. Avalie o produto e as condições específicas.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -113,14 +100,12 @@ Ter uma chave não criptografa automaticamente todos os dados da conta. É preci
 
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
-
 **KMS** (multi-tenant, gerenciado, integrado) × **CloudHSM** (single-tenant, você controla com exclusividade).
 
 **Antes de ler este trecho:**
 
 - **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
 - **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
-
 
 KMS (chaves) × **Secrets Manager** (segredos como senhas, que ele criptografa com KMS) × **ACM** (certificados TLS).
 
@@ -134,7 +119,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 
-
 Customer managed key: taxa mensal por chave + por solicitações de API. AWS managed/owned: sem taxa mensal.
 
 ### Segurança e responsabilidade compartilhada
@@ -143,13 +127,11 @@ Customer managed key: taxa mensal por chave + por solicitações de API. AWS man
 
 - **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
 
-
 **AWS:** HSMs, durabilidade e disponibilidade das chaves.
 
 **Antes de ler este trecho:**
 
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 
 **Cliente:** **ativar a criptografia** nos serviços, key policies, rotação, quem pode usar/excluir.
 
@@ -176,28 +158,11 @@ A escola usa uma chave KMS com armazenamento compatível e permite que apenas id
 - **SSE-KMS:** Formas de criptografia no servidor do S3, que diferem na origem e administração das chaves e, no último caso, nas camadas. A tabela da seção distingue essas escolhas.
 - **objeto:** Unidade de dados guardada no armazenamento de objetos: conteúdo, identificação e informações associadas. Não é uma máquina nem um programa em execução.
 
-
 **Outra situação comentada:** SSE-KMS: permissão S3 sem autorização na chave pode falhar ao ler objeto.
 
 **Por que não concluir mais do que isso:** Rotacionar chave não recriptografa automaticamente todos os dados; remover acesso pode impedir leitura
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Dados protegidos por criptografia dependem de chaves. A empresa precisa controlar quem pode usar essas chaves e para quais operações.
-
-**2. O que a solução fornece?**
-
-KMS administra chaves criptográficas e oferece operações de criptografia integradas a serviços AWS. Você define políticas e autorizações de uso.
-
-**3. Que conclusão seria incorreta?**
-
-Ter uma chave não criptografa automaticamente todos os dados da conta. É preciso configurar os serviços e controlar tanto o acesso aos dados quanto o uso da chave.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -205,28 +170,15 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** KMS.
 
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-
-
-**Fundamento explicado no capítulo:** "Criar e controlar chaves integradas a S3, EBS e RDS." → KMS.
-
 **Pergunta:** "Auditar quem usou uma chave."
 
 **Resposta curta:** CloudTrail.
 
-
-**Fundamento explicado no capítulo:** "Auditar quem usou uma chave." → CloudTrail.
+**Fundamento explicado no capítulo:** **Auditoria**; Todo uso da chave fica no **CloudTrail**.
 
 **Pergunta:** "Quem é responsável por ativar a criptografia?"
 
 **Resposta curta:** O cliente.
-
-
-**Fundamento explicado no capítulo:** "Quem é responsável por ativar a criptografia?" → O cliente.
-
 
 ## 7. Fontes e próximos passos
 

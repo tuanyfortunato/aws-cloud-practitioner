@@ -20,7 +20,7 @@
 
 ---
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 2 — Segurança e Conformidade (30%)**
 
 > 🔎 **Fichas detalhadas:** [AWS Artifact](../../servicos/seguranca/artifact.md) · [AWS Audit Manager](../../servicos/seguranca/audit-manager.md) · [AWS Config](../../servicos/gerenciamento/config.md)
 
@@ -33,7 +33,6 @@
 **Antes de ler este trecho:**
 
 - **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-
 
 Conformidade exige um requisito definido e evidências de atendimento. O provedor demonstra sua parte; o cliente precisa demonstrar decisões e operação que continuam sob sua responsabilidade. Um documento só vale dentro do escopo que descreve.
 
@@ -56,13 +55,11 @@ o **Artifact** é a **pasta de certificados da AWS** que você entrega ao audito
 - **BAA:** Acordos com funções diferentes: confidencialidade e relacionamento associado a requisitos específicos de saúde. Aceitar um documento não torna toda operação conforme.
 - **ISO:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
 
-
 **AWS Artifact:** portal de autoatendimento para baixar **relatórios de compliance da AWS** (SOC 1/2/3, PCI DSS, ISO 27001 etc.) e aceitar **acordos** (ex.: BAA para HIPAA). Gratuito.
 
 **Antes de ler este trecho:**
 
 - **AWS Audit Manager / Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
-
 
 **AWS Audit Manager:** coleta evidências **da sua conta** continuamente e mapeia para frameworks (PCI DSS, GDPR, HIPAA), para preparar as suas auditorias.
 
@@ -71,12 +68,9 @@ o **Artifact** é a **pasta de certificados da AWS** que você entrega ao audito
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 - **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 
-
 **Programas de compliance:** a AWS mantém certificações e atestados, mas compliance da carga de trabalho é responsabilidade compartilhada. Nem todo serviço é elegível para todo programa e a disponibilidade varia por região.
 
-
 **Residência de dados:** os dados ficam na região escolhida; a AWS não os move sem ação do cliente.
-
 
 **AWS GovCloud (US):** regiões isoladas para cargas reguladas do governo americano.
 
@@ -85,9 +79,7 @@ o **Artifact** é a **pasta de certificados da AWS** que você entrega ao audito
 - **AWS Config:** AWS Config registra configurações de recursos compatíveis e permite avaliá-las com regras.
 - **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
 
-
 **AWS Config** com **conformance packs:** conjuntos de regras para avaliar conformidade (ver [2.7](07-logs-monitoramento-e-auditoria.md)).
-
 
 **Cai na prova:** "auditor pede o relatório SOC 2 da AWS" = Artifact; "automatizar a coleta de evidências para auditoria da empresa" = Audit Manager.
 
@@ -96,7 +88,6 @@ o **Artifact** é a **pasta de certificados da AWS** que você entrega ao audito
 **Antes de ler este trecho:**
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 
 **Primeiro, identifique o funcionamento:** Artifact disponibiliza documentos de conformidade da AWS. Config registra configuração e avalia regras. Evidências do ambiente do cliente ajudam uma auditoria, mas exigem interpretação.
 
@@ -110,25 +101,7 @@ Um auditor pede o relatório de conformidade da AWS, não o histórico do banco 
 
 **Raciocínio e resposta:** AWS Artifact. CloudTrail registra atividades da conta; Config registra configurações. Eles não substituem o documento solicitado.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um auditor pede que a empresa demonstre suas práticas de segurança e os controles do provedor. A equipe precisa saber onde obter evidências e como avaliar seu ambiente.
-
-**2. O que a solução fornece?**
-
-Conformidade envolve atender requisitos e demonstrar isso. Relatórios da AWS, avaliações de configuração e evidências do cliente atendem partes diferentes desse processo.
-
-**3. Que conclusão seria incorreta?**
-
-A conformidade da AWS não torna toda aplicação do cliente automaticamente conforme. Documentos, configuração e operação precisam ser avaliados no contexto do requisito.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -145,36 +118,21 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** AWS Artifact.
 
-
-**Fundamento explicado no capítulo:** "Onde baixar o relatório SOC 2 ou o atestado PCI da AWS?" → AWS Artifact.
-
 **Pergunta:** "Onde aceitar um acordo como o BAA (HIPAA)?"
 
 **Resposta curta:** AWS Artifact (Agreements).
-
-
-**Fundamento explicado no capítulo:** "Onde aceitar um acordo como o BAA (HIPAA)?" → AWS Artifact (Agreements).
 
 **Pergunta:** "Como coletar evidências continuamente para a auditoria da empresa?"
 
 **Resposta curta:** AWS Audit Manager.
 
-
-**Fundamento explicado no capítulo:** "Como coletar evidências continuamente para a auditoria da empresa?" → AWS Audit Manager.
-
 **Pergunta:** "Os dados podem sair da região sem ação do cliente?"
 
 **Resposta curta:** Não; o cliente escolhe a região e controla onde os dados ficam.
 
-
-**Fundamento explicado no capítulo:** "Os dados podem sair da região sem ação do cliente?" → Não; o cliente escolhe a região e controla onde os dados ficam.
-
 **Pergunta:** "Usar um serviço certificado garante que a aplicação está em conformidade?"
 
 **Resposta curta:** Não; o cliente também precisa configurar e operar de forma conforme (responsabilidade compartilhada).
-
-
-**Fundamento explicado no capítulo:** "Usar um serviço certificado garante que a aplicação está em conformidade?" → Não; o cliente também precisa configurar e operar de forma conforme (responsabilidade compartilhada).
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

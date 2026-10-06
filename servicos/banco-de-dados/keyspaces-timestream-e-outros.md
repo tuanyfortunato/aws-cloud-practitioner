@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** 🔀 Keyspaces e MemoryDB ❌ fora do escopo · Timestream ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 
 **Passo 1.** Identifique se os dados são registros Cassandra, valores com horários ou outro modelo especializado.
 
@@ -43,9 +38,7 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 **Passo 3.** Modele e consulte os dados conforme a interface escolhida. Confira as observações sobre serviços restritos ou encerrados.
 
-## 2. Recursos e opções, com significado
-
-## 3. Como escolher e reconhecer os limites
+## 2. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
@@ -65,9 +58,6 @@ Não existe um único banco desta ficha que resolva todos esses casos. Algumas o
 - **Redis:** Tecnologias de dados em memória com comportamentos e funções diferentes. A modalidade gerenciada deve ser escolhida segundo compatibilidade e necessidade, não apenas pela palavra cache.
 - **CQL:** Linguagem de consulta associada a Cassandra. Não equivale automaticamente ao conjunto de recursos de SQL de qualquer banco relacional.
 - **QLDB:** Quantum Ledger Database: oferta histórica de registro verificável descrita na ficha de bancos especializados. Confira seu encerramento antes de tratar o exemplo como uma opção atual.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Serviço | Modelo | Uso | Observação |
 |---|---|---|---|
@@ -93,9 +83,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **DAX:** Cache compatível com DynamoDB para determinados acessos. É uma camada de aceleração, não uma cópia independente de qualquer banco.
 - **data warehouse:** Ambiente de dados organizado para análise de grandes conjuntos. O modelo e as consultas são orientados a perguntas analíticas.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Necessidade | Serviço |
 |---|---|
 | Relacional OLTP | [RDS](rds.md) / [Aurora](aurora.md) |
@@ -107,11 +94,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Séries temporais | Timestream |
 | Cassandra | Keyspaces |
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 3. Caso resolvido: ligando as peças
 
 Para entender a diferença, compare guardar a temperatura de uma máquina a cada minuto com migrar registros de uma aplicação Cassandra. São problemas distintos.
 
@@ -127,28 +110,11 @@ Para entender a diferença, compare guardar a temperatura de uma máquina a cada
 
 **Decisões que precisam ser tomadas:** Tipo de dado, API compatível e oferta disponível.
 
-
 **Outra situação comentada:** Dados de sensores com tempo como dimensão pedem modelo temporal; popularidade não substitui requisito.
 
 **Por que não concluir mais do que isso:** Keyspaces está fora do escopo; Timestream não citado não deve ser tratado como exclusão formal
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Nem todos os dados têm a mesma estrutura: leituras de sensores ao longo do tempo e registros de uma aplicação Cassandra pedem soluções diferentes.
-
-**2. O que a solução fornece?**
-
-A ficha compara bancos especializados. Keyspaces atende aplicações compatíveis com Cassandra; a família Timestream é voltada a séries temporais, isto é, valores associados a momentos.
-
-**3. Que conclusão seria incorreta?**
-
-Não existe um único banco desta ficha que resolva todos esses casos. Algumas ofertas têm restrições comerciais ou estão encerradas; confira as observações e o escopo antes de escolher.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 4. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -156,18 +122,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Timestream.
 
-
-**Fundamento explicado no capítulo:** "Guardar leituras de sensores IoT ao longo do tempo." → Timestream.
-
 **Pergunta:** "Migrar Cassandra sem gerenciar servidores."
 
 **Resposta curta:** Keyspaces.
 
-
-**Fundamento explicado no capítulo:** "Migrar Cassandra sem gerenciar servidores." → Keyspaces.
-
-
-## 7. Fontes e próximos passos
+## 5. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

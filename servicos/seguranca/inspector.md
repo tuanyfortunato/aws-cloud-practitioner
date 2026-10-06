@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 
 **Passo 1.** Prepare e habilite a avaliação dos tipos de recurso compatíveis.
 
@@ -58,7 +53,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **CIS:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
 - **SSM:** Sigla usada em recursos do Systems Manager. O serviço oferece ferramentas de administração; nós, acessos e conectividade precisam estar preparados.
 
-
 **Como:** Agente do **SSM** ou *agentless* (snapshots EBS)
 
 **O que encontra:** CVEs de pacotes do SO e de aplicações; **alcance de rede** (portas expostas); CIS benchmarks
@@ -70,7 +64,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **ECR:** O ECR é um repositório de imagens de containers.
 - **push:** Em pull, o consumidor busca dados. Em push, o envio é iniciado para o destinatário. A forma de entrega não executa automaticamente a regra de negócio.
 
-
 **Como:** Ao fazer push e continuamente
 
 **O que encontra:** CVEs no SO e em pacotes de linguagem
@@ -80,7 +73,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 **Antes de ler este trecho:**
 
 - **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-
 
 **Como:** Código e dependências
 
@@ -92,7 +84,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **deploy:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
 
-
 **Como:** Integração com pipelines
 
 **O que encontra:** Vulnerabilidades antes do deploy
@@ -103,7 +94,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **CVE:** Identificador público de uma vulnerabilidade conhecida. Um achado precisa ser avaliado pelo impacto no recurso e pelas correções disponíveis.
 
-
 **Contínuo e automático:** reavalia quando surge um novo CVE ou o recurso muda.
 
 **Antes de ler este trecho:**
@@ -111,13 +101,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Inspector:** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
 - **CVSS:** Sistema de classificação de gravidade de vulnerabilidades. A prioridade no ambiente também depende de exposição e impacto do recurso.
 
-
 **Inspector risk score** contextualizado (CVSS + exposição de rede + exploit conhecido).
 
 **Antes de ler este trecho:**
 
 - **SBOM:** Lista de componentes de software de um pacote ou aplicação. Ajuda a identificar dependências; não corrige automaticamente uma vulnerabilidade.
-
 
 Exporta **SBOM** (lista de componentes de software).
 
@@ -125,7 +113,6 @@ Exporta **SBOM** (lista de componentes de software).
 
 - **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
 - **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-
 
 Integra com Security Hub e EventBridge; **teste gratuito de 15 dias**.
 
@@ -144,7 +131,6 @@ Encontrar uma vulnerabilidade não instala automaticamente a correção. Compati
 - **Macie:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
 - **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
 
-
 **Inspector** (vulnerabilidades/CVE) × **GuardDuty** (ameaças ativas) × **Macie** (PII no S3).
 
 ## 4. Operação, segurança e custo
@@ -157,7 +143,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 
 Por instância EC2 escaneada/mês, por imagem do ECR, por função Lambda.
 
@@ -181,28 +166,11 @@ A equipe avalia o software de um recurso compatível e recebe achados que ajudam
 
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
-
 **Outra situação comentada:** Dependência vulnerável numa imagem: Inspector integrado à varredura adequada; equipe corrige e republica.
 
 **Por que não concluir mais do que isso:** Não substitui patch nem cobre automaticamente qualquer recurso da conta
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Aplicações e sistemas podem usar software com vulnerabilidades conhecidas. A equipe precisa identificar esses pontos antes de uma exploração.
-
-**2. O que a solução fornece?**
-
-Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
-
-**3. Que conclusão seria incorreta?**
-
-Encontrar uma vulnerabilidade não instala automaticamente a correção. Compatibilidade, cobertura e habilitação dos recursos de avaliação precisam ser verificadas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -210,16 +178,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Inspector.
 
-
-**Fundamento explicado no capítulo:** "Varrer EC2 e imagens de contêiner em busca de vulnerabilidades." → Inspector.
-
 **Pergunta:** "Descobrir instâncias com portas acessíveis da internet sem necessidade."
 
 **Resposta curta:** Inspector (alcance de rede).
-
-
-**Fundamento explicado no capítulo:** "Descobrir instâncias com portas acessíveis da internet sem necessidade." → Inspector (alcance de rede).
-
 
 ## 7. Fontes e próximos passos
 

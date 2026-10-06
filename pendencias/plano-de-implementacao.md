@@ -82,6 +82,8 @@ Cada fase é dividida em PRs pequenos, conforme o [CLAUDE.md](../CLAUDE.md): bra
 
 **Aceite da fase:** `metricas_apostila.py` mostra zero blocos de vocabulário, zero revisões circulares e zero seções só com texto padrão; testes e links passando.
 
+**Resultado do PR 1.2 (06/10/2026):** revisões circulares 123 → 0; seções só com texto padrão 147 → 1 (a que resta é a tabela de labs, escrita à mão); "Fundamento explicado no capítulo" 616 → 11, só onde cita um fato do capítulo; 39 mil palavras a menos. O vocabulário automático continua (PR 1.1, depois da Fase 2).
+
 ## 5. Fase 2 — Capítulo 0 e glossário único
 
 **Objetivo:** dar ao iniciante os pré-requisitos que hoje aparecem como definições soltas.
@@ -248,8 +250,8 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 
 | Fase | Status | PRs | Observações |
 |---|---|---|---|
-| 0 | Em andamento | PR 0.1 (marcador autoral, #21, mergeado) · PR 0.2 (métricas) | Linha de base registrada na seção 3 |
-| 1 | Pendente | — | — |
+| 0 | Concluída | #21 (marcador autoral) · #22 (métricas) | Linha de base registrada na seção 3 |
+| 1 | Em andamento | PR 1.2 (revisão circular e repetições) | PR 1.1 (vocabulário) depende do glossário da Fase 2 |
 | 2 | Pendente | — | — |
 | 3 | Pendente | — | — |
 | 4 | Pendente | — | — |

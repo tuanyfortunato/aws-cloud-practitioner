@@ -449,7 +449,7 @@ def gerar_topicos(secoes):
 
 ---
 
-> **{nome_dom} ({peso})** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **{nome_dom} ({peso})**
 {bloco_fichas}{aviso}
 {" · ".join(nav)}
 
@@ -478,7 +478,7 @@ def gerar_readmes_dominio(secoes, intros, ordem):
                 continue
             titulo, corpo = secoes[sec]
             n = len(cards_do_topico(sec, corpo))
-            linhas.append(f"| {sec} | [{titulo}]({ARQUIVOS[sec]}.md) | {n} | 🔴 |")
+            linhas.append(f"| {sec} | [{titulo}]({ARQUIVOS[sec]}.md) | {n} |")
         blocos = intros.get(dom, [])
         if len(blocos) > 1:
             intro = "**Como o conteúdo está dividido:**\n\n" + "\n".join(
@@ -511,11 +511,11 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 
 ## Tópicos
 
-| # | Tópico | Perguntas típicas | Status |
-|---|---|---|---|
+| # | Tópico | Perguntas típicas |
+|---|---|---|
 {chr(10).join(linhas)}
 
-> Legenda: 🔴 Não iniciado · 🟡 Em andamento · 🟢 Revisado
+> Acompanhe o seu avanço no [progresso](../../progresso.md).
 
 ## Revisão rápida do domínio
 

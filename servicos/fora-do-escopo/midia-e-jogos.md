@@ -29,12 +29,7 @@
 > ❌ **Fora do escopo da CLF-C02.** Todos os serviços desta ficha estão declarados fora do escopo na lista oficial.
 > Se aparecerem como alternativa, quase sempre são **distratores**. Documentados aqui apenas para referência.
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Separe preparação de mídia, transmissão ao vivo e hospedagem de partidas.
 
@@ -50,7 +45,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
 
-
 Família de serviços de vídeo profissional (broadcast e streaming).
 
 **Antes de ler este trecho:**
@@ -64,9 +58,6 @@ Família de serviços de vídeo profissional (broadcast e streaming).
 - **HLS / DASH:** Formatos e tecnologias de distribuição adaptativa de vídeo. Permitem alternativas de qualidade e entrega conforme o ecossistema compatível.
 - **VOD / DVR:** Vídeo sob demanda e funções de gravação ou acesso temporal de transmissão. São experiências diferentes de simples armazenamento de arquivos.
 - **DRM / SSAI:** Proteção de direitos de mídia e inserção de publicidade no servidor. São funções especializadas da distribuição de conteúdo, não controles IAM genéricos.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Serviço | O que faz | Exemplo |
 |---|---|---|
@@ -84,9 +75,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
-
 Streaming ao vivo **gerenciado e de baixa latência**, com a mesma tecnologia da Twitch; inclui chat e recursos interativos.
-
 
 Uso: lives em aplicativos, aulas ao vivo, leilões e e-commerce ao vivo.
 
@@ -96,9 +85,7 @@ Uso: lives em aplicativos, aulas ao vivo, leilões e e-commerce ao vivo.
 
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 
-
 Serviço de transcodificação de arquivos de mídia armazenados no S3.
-
 
 🔄 **Encerrado em 13/11/2025**; a alternativa indicada é o **MediaConvert**.
 
@@ -111,7 +98,6 @@ Hospedagem gerenciada de **servidores dedicados para jogos multiplayer**: escalo
 **Antes de ler este trecho:**
 
 - **O3DE:** Motor de desenvolvimento 3D. Desenvolver o conteúdo e operar os recursos necessários são trabalhos diferentes.
-
 
 Antigo **motor de jogos** gratuito da AWS. 🔄 **Não é mais oferecido**; foi descontinuado e deu origem ao projeto open source **Open 3D Engine (O3DE)**.
 
@@ -127,7 +113,6 @@ Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha
 
 - **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
 
-
 "Distribuir vídeos com baixa latência para usuários globais" → a resposta da CLF-C02 é **CloudFront** (no escopo), não Elemental.
 
 **Antes de ler este trecho:**
@@ -135,9 +120,7 @@ Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha
 - **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 
-
 "Armazenar vídeos" → **S3**; "processar vídeo quando chega ao bucket" → **Lambda/S3 events** no escopo da prova.
-
 
 "Analisar rostos e objetos em vídeo" → **Rekognition** (no escopo).
 
@@ -146,14 +129,9 @@ Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha
 - **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
 - **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
 
-
 "Jogo multiplayer com IPs fixos globais" → **Global Accelerator** (no escopo), não GameLift.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Compare preparar um vídeo em vários formatos, transmitir uma sessão ao vivo e hospedar partidas. São problemas diferentes, mesmo que todos envolvam conteúdo digital.
 
@@ -173,30 +151,11 @@ Compare preparar um vídeo em vários formatos, transmitir uma sessão ao vivo e
 
 - **site estático:** Conteúdo entregue como arquivos, sem executar ali toda uma aplicação de processamento de negócio. Pode integrar-se a outros serviços para funções adicionais.
 
-
 **Outra situação comentada:** Vídeo ao vivo não é sinônimo de site estático; conheça a diferença, mas estude primeiro serviços incluídos.
 
 **Por que não concluir mais do que isso:** Estão fora do escopo; não memorize configurações como prioridade da CLF-C02
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Vídeo ao vivo, processamento de mídia e sessões de jogos exigem funções específicas, além de simplesmente guardar um arquivo ou executar uma página.
-
-**2. O que a solução fornece?**
-
-Esta ficha compara produtos para preparar e distribuir mídia e para operar jogos. Cada produto cobre uma parte do processo, conforme sua oferta.
-
-**3. Que conclusão seria incorreta?**
-
-Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha serve para referência fora do escopo indicado, e não para decorar alternativas como respostas universais.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
-
-## 7. Fontes e próximos passos
+## 5. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

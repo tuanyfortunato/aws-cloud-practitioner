@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ Cobrado junto com o EC2 (não aparece como item separado na lista) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -37,7 +33,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **balanceador:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 
 **Passo 1.** Defina os recursos que podem atender pedidos e como verificar sua saúde.
 
@@ -54,13 +49,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 - **health check:** Teste de resposta usado para avaliar um destino. O teste e os limites precisam refletir a função observada; não equivale a uma investigação completa da aplicação.
 
-
 Alta disponibilidade e tolerância a falhas: só envia tráfego a destinos que passam no health check.
 
 **Antes de ler este trecho:**
 
 - **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-
 
 Ponto único de entrada (DNS) para uma frota que escala.
 
@@ -68,7 +61,6 @@ Ponto único de entrada (DNS) para uma frota que escala.
 
 - **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
 - **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
-
 
 Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate-manager.md).
 
@@ -82,7 +74,6 @@ Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate
 - **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
 - **listener:** Configuração que recebe conexões em uma porta e protocolo. No balanceador, ela participa da decisão de encaminhamento para destinos.
 
-
 **O que é:** Porta/protocolo que o LB escuta (ex.: HTTPS:443).
 
 **Rules (ALB)**
@@ -93,7 +84,6 @@ Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate
 - **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
 - **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 
-
 **O que é:** Condições (caminho, host, cabeçalho, query string, IP de origem) → ação (encaminhar, redirecionar, resposta fixa, autenticar).
 
 **Target group**
@@ -103,26 +93,21 @@ Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate
 - **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
 - **target group:** Grupo de destinos do balanceamento, com configurações como verificações de saúde. Destino saudável não significa que toda regra de negócio está correta.
 
-
 **O que é:** Conjunto de destinos (instâncias, IPs, Lambda, ALB) com seu health check.
 
 **Health check**
-
 
 **O que é:** Requisição periódica a um caminho/porta; define saudável/não saudável.
 
 **Cross-zone load balancing**
 
-
 **O que é:** Distribui igualmente entre todos os destinos de todas as AZs. Ativado por padrão no ALB.
 
 **Sticky sessions**
 
-
 **O que é:** Mantém o mesmo cliente no mesmo destino (cookie).
 
 **Connection draining / deregistration delay**
-
 
 **O que é:** Termina requisições em andamento antes de remover um destino.
 
@@ -146,9 +131,6 @@ Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate
 - **IDS:** Sistema de detecção de intrusões. Detectar é diferente de bloquear; o efeito depende da ferramenta e da configuração.
 - **GENEVE:** Protocolo de encapsulamento de rede usado em integrações compatíveis, como equipamentos com Gateway Load Balancer. Não é uma aplicação de proteção por si só.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Tipo | Camada | Protocolos | Destaques | Uso |
 |---|---|---|---|---|
 | **Application LB (ALB)** | 7 | HTTP, HTTPS, gRPC, WebSocket | Roteamento por caminho/host/cabeçalho; destino Lambda; autenticação com Cognito/OIDC; integra com **WAF** | Microsserviços, contêineres, web |
@@ -162,16 +144,13 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
 
-
 **Internet-facing** (IP público) × **internal** (só dentro da VPC).
 
 **Antes de ler este trecho:**
 
 - **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
-
 **SSL/TLS offloading:** o LB descriptografa e alivia as instâncias; certificado do ACM; política de segurança TLS.
-
 
 **Redirect HTTP → HTTPS** com regra no ALB.
 
@@ -179,7 +158,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 - **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-
 
 **Access logs** no S3; métricas no CloudWatch.
 
@@ -197,9 +175,7 @@ Ele distribui tráfego; não cria mais máquinas por conta própria nem corrige 
 - **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 
-
 ⚠️ **WAF não se associa a NLB** (só ALB, CloudFront, API Gateway, AppSync, Cognito…).
-
 
 "Rotear `/api` e `/imagens` para serviços diferentes" → **ALB**.
 
@@ -209,9 +185,7 @@ Ele distribui tráfego; não cria mais máquinas por conta própria nem corrige 
 - **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
 - **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
-
 "IP fixo para clientes liberarem no firewall" → **NLB** (ou Global Accelerator para IP global).
-
 
 ELB distribui tráfego; **Auto Scaling** ajusta a quantidade. São complementares.
 
@@ -226,7 +200,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 - **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 - **LCU / NLCU / GLCU:** Unidades de capacidade usadas por modalidades de balanceadores. A unidade representa dimensões de consumo definidas pela oferta, não uma contagem direta de usuários.
 
-
 Por **hora** de LB + **LCU/NLCU/GLCU** (unidades de capacidade consumidas: conexões novas, ativas, bytes, avaliações de regras).
 
 ### Segurança e responsabilidade compartilhada
@@ -238,9 +211,7 @@ Por **hora** de LB + **LCU/NLCU/GLCU** (unidades de capacidade consumidas: conex
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
-
 **AWS:** disponibilidade, escala e patch do LB (serviço gerenciado). Inclui **Shield Standard**.
-
 
 **Cliente:** listeners, certificados, security groups do LB, regras do WAF, health checks.
 
@@ -260,28 +231,11 @@ A loja coloca um balanceador na entrada do site. Os pedidos dos visitantes são 
 
 **Decisões que precisam ser tomadas:** Tipo, protocolo, portas, certificados e destinos.
 
-
 **Outra situação comentada:** Dois caminhos de uma aplicação web vão para serviços diferentes: regras por caminho no ALB.
 
 **Por que não concluir mais do que isso:** Não executa aplicação nem aumenta capacidade sozinho
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Várias máquinas podem atender o mesmo site. Se todos os visitantes chegarem a uma só, ela pode ficar sobrecarregada enquanto as outras estão ociosas.
-
-**2. O que a solução fornece?**
-
-O Elastic Load Balancing recebe conexões e encaminha o tráfego aos destinos configurados. Verificações de saúde ajudam a evitar destinos considerados indisponíveis.
-
-**3. Que conclusão seria incorreta?**
-
-Ele distribui tráfego; não cria mais máquinas por conta própria nem corrige erros do programa. Os tipos de balanceador atendem protocolos e necessidades diferentes.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -289,41 +243,21 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** ALB.
 
-**Antes de ler este trecho:**
-
-- **URL:** Endereço usado para acessar um recurso. Uma URL pode incluir domínio, caminho e parâmetros; possuir o endereço não significa ter autorização.
-
-
-**Fundamento explicado no capítulo:** "Qual LB roteia por caminho de URL?" → ALB.
-
 **Pergunta:** "Qual LB para milhões de conexões TCP com IP estático?"
 
 **Resposta curta:** NLB.
-
-
-**Fundamento explicado no capítulo:** "Qual LB para milhões de conexões TCP com IP estático?" → NLB.
 
 **Pergunta:** "Qual LB para appliances de firewall de terceiros?"
 
 **Resposta curta:** GWLB.
 
-
-**Fundamento explicado no capítulo:** "Qual LB para appliances de firewall de terceiros?" → GWLB.
-
 **Pergunta:** "Como fazer HTTPS no LB com certificado gratuito?"
 
 **Resposta curta:** ACM no listener do ALB/NLB.
 
-
-**Fundamento explicado no capítulo:** "Como fazer HTTPS no LB com certificado gratuito?" → ACM no listener do ALB/NLB.
-
 **Pergunta:** "Como garantir que o tráfego só vá para instâncias saudáveis?"
 
 **Resposta curta:** Health checks do ELB.
-
-
-**Fundamento explicado no capítulo:** "Como garantir que o tráfego só vá para instâncias saudáveis?" → Health checks do ELB.
-
 
 ## 7. Fontes e próximos passos
 

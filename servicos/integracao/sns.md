@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Defina um tópico e os destinos que devem receber notificações compatíveis.
 
@@ -65,9 +60,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **A2P:** Mensagem de aplicação para pessoa, como envio automatizado de texto. Condições de entrega e cobrança dependem do canal e do serviço.
 - **FCM:** Firebase Cloud Messaging: canal/ecossistema de mensagens a aplicações compatíveis. Integrações exigem configuração e credenciais próprias.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Tópico** | Canal lógico; **Standard** ou **FIFO** (ordem e deduplicação, só para assinantes SQS/Lambda…). |
@@ -85,7 +77,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
 
-
 Alarmes do CloudWatch → e-mail/SMS do time; eventos de pedidos para vários sistemas; notificações push em apps.
 
 ## 3. Como escolher e reconhecer os limites
@@ -96,7 +87,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **consumidor:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
 
-
 Publicar para vários assinantes é diferente de guardar trabalhos numa fila para um consumidor. Entrega, conteúdo e destinatários precisam de configuração apropriada.
 
 ### ⚠️ Não confundir
@@ -105,14 +95,12 @@ Publicar para vários assinantes é diferente de guardar trabalhos numa fila par
 
 - **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
 
-
 **SNS × SQS:** push para vários × fila puxada.
 
 **Antes de ler este trecho:**
 
 - **SES:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 
 **SNS × SES:** notificações simples (inclusive e-mail texto) × e-mails formatados em volume (marketing/transacionais).
 
@@ -121,7 +109,6 @@ Publicar para vários assinantes é diferente de guardar trabalhos numa fila par
 - **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-
 
 **SNS × EventBridge:** notificações em alta escala × roteamento por regras com eventos de AWS/SaaS.
 
@@ -149,28 +136,11 @@ Quando um pedido é confirmado, um tópico avisa sistemas de faturamento e acomp
 
 **Decisões que precisam ser tomadas:** Destinos, acesso, filtros e tratamento de falha.
 
-
 **Outra situação comentada:** Pedido notifica estoque e cobrança: topic com filas independentes permite cada equipe consumir no próprio ritmo.
 
 **Por que não concluir mais do que isso:** Não é fila persistente individual de cada consumidor; use SQS quando necessário
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um acontecimento precisa avisar vários interessados, e o sistema não quer enviar manualmente uma mensagem diferente para cada um.
-
-**2. O que a solução fornece?**
-
-SNS publica mensagens em tópicos e as distribui a assinantes compatíveis. Cada assinante recebe a notificação pelo mecanismo configurado.
-
-**3. Que conclusão seria incorreta?**
-
-Publicar para vários assinantes é diferente de guardar trabalhos numa fila para um consumidor. Entrega, conteúdo e destinatários precisam de configuração apropriada.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -178,31 +148,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** SNS.
 
-
-**Fundamento explicado no capítulo:** "Enviar a mesma mensagem para vários sistemas e para e-mail." → SNS.
-
 **Pergunta:** "Um evento processado por várias filas em paralelo."
 
 **Resposta curta:** Fan-out SNS + SQS.
 
-**Antes de ler este trecho:**
-
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-
-
-**Fundamento explicado no capítulo:** "Um evento processado por várias filas em paralelo." → Fan-out SNS + SQS.
-
 **Pergunta:** "Notificar o time por SMS quando um alarme disparar."
 
 **Resposta curta:** CloudWatch alarm → SNS.
-
-**Antes de ler este trecho:**
-
-- **alarme:** Condição acompanhada sobre dados de monitoramento. Uma mudança de estado pode gerar ações configuradas; o alarme não diagnostica todo problema sozinho.
-
-
-**Fundamento explicado no capítulo:** "Notificar o time por SMS quando um alarme disparar." → CloudWatch alarm → SNS.
-
 
 ## 7. Fontes e próximos passos
 

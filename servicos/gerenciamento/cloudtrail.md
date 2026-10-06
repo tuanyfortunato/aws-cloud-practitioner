@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -37,7 +33,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
 - **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-
 
 **Passo 1.** Determine quais atividades e tipos de evento precisam ser registrados e conservados.
 
@@ -57,9 +52,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
 - **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Tipo | Exemplo | Registrado por padrão? |
 |---|---|---|
@@ -84,9 +76,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Event history** | 📌 **90 dias** de management events, **grátis**, sem configurar nada (por região). |
@@ -108,14 +97,12 @@ Ele não é o registro de todo erro dentro do seu programa. Diferentes tipos de 
 
 - **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
 
-
 CloudTrail (**ações**: quem fez) × Config (**estado**: como estava) × CloudWatch (**desempenho**).
 
 **Antes de ler este trecho:**
 
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 
 CloudTrail registra **chamadas de API**, não o tráfego de rede (isso é VPC Flow Logs).
 
@@ -147,28 +134,11 @@ A equipe investiga quem solicitou uma alteração num recurso e consulta o event
 
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 
-
 **Outra situação comentada:** Descobrir quem alterou IAM: CloudTrail; gravar trilha e retenção conforme auditoria.
 
 **Por que não concluir mais do que isso:** Eventos de dados têm configuração própria; não é histórico infinito gratuito de todo acesso
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um recurso foi alterado e a equipe precisa descobrir qual identidade realizou a ação, quando e por qual chamada AWS.
-
-**2. O que a solução fornece?**
-
-CloudTrail registra atividades e chamadas compatíveis realizadas na conta. Ele ajuda a auditar ações, conforme a cobertura configurada.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não é o registro de todo erro dentro do seu programa. Diferentes tipos de evento e retenção têm condições próprias; não presuma que todo acesso foi registrado do mesmo modo.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -176,41 +146,21 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** CloudTrail.
 
-**Antes de ler este trecho:**
-
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
-
-**Fundamento explicado no capítulo:** "Quem encerrou a instância e quando?" → CloudTrail.
-
 **Pergunta:** "Por quanto tempo o CloudTrail guarda eventos sem configurar nada?"
 
 **Resposta curta:** 90 dias.
-
-
-**Fundamento explicado no capítulo:** "Por quanto tempo o CloudTrail guarda eventos sem configurar nada?" → 90 dias.
 
 **Pergunta:** "Guardar logs de API por anos."
 
 **Resposta curta:** Trail → S3.
 
-
-**Fundamento explicado no capítulo:** "Guardar logs de API por anos." → Trail → S3.
-
 **Pergunta:** "Provar que os logs não foram adulterados."
 
 **Resposta curta:** Log file integrity validation.
 
-
-**Fundamento explicado no capítulo:** "Provar que os logs não foram adulterados." → Log file integrity validation.
-
 **Pergunta:** "Auditar leituras de objetos do S3."
 
 **Resposta curta:** Data events.
-
-
-**Fundamento explicado no capítulo:** "Auditar leituras de objetos do S3." → Data events.
-
 
 ## 7. Fontes e próximos passos
 

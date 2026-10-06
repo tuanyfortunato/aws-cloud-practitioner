@@ -15,8 +15,6 @@
 
 ## Como interpretar mudanças
 
-
-
 A oferta comercial e o conteúdo publicado da prova podem apresentar exemplos diferentes.
 
 A consulta desta revisão encontrou **Developer, Business, Enterprise On-Ramp e Enterprise** na
@@ -36,7 +34,6 @@ Estude ambos com seus nomes e condições. Um lançamento não comprova a data d
 - **PUT:** Nomes comuns de operações: enviar ou gravar, obter e excluir. O significado preciso e as permissões dependem da API usada.
 - **objeto:** Unidade de dados guardada no armazenamento de objetos: conteúdo, identificação e informações associadas. Não é uma máquina nem um programa em execução.
 
-
 Números como S3 50 TB e SQS 1 MiB precisam do contexto: tamanho de objeto não é limite de um PUT simples
 
 ou upload pelo console. Não escolha uma resposta apenas porque contém o número mais recente.
@@ -46,7 +43,6 @@ As listas de serviços são não exaustivas; ausência não equivale a exclusão
 Veja a [auditoria](auditoria-conteudo-2026-10.md) e o [roteiro sem console](estudar-sem-console.md).
 
 ## Tabela de mudanças
-
 
 **Antes de ler este trecho:**
 
@@ -102,9 +98,6 @@ Veja a [auditoria](auditoria-conteudo-2026-10.md) e o [roteiro sem console](estu
 - **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
 - **PITR:** Recuperação para um ponto no tempo conforme o serviço e a janela configurada. É diferente de manter continuamente uma aplicação alternativa atendendo.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Tema | Valor antigo | Valor atual (oficial) | Desde | Onde estudar |
 |---|---|---|---|---|
 | **Planos de suporte** | Basic, Developer, Business, Enterprise On-Ramp, Enterprise | **Basic, Business Support+ (US$ 29/mês por conta, crítico 30 min), Enterprise (US$ 5.000/mês, 15 min), Unified Operations (US$ 50.000/mês, 5 min, compromisso de 90 dias)**. Legados encerram em 01/01/2027 | 02/12/2025 | [Planos de suporte](../../servicos/custos/planos-de-suporte.md) |
@@ -138,14 +131,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | ACM | Certificados públicos só em serviços integrados | + certificados públicos **exportáveis** (pagos, validade de 395 dias) | 17/06/2025 | [ACM](../../servicos/seguranca/certificate-manager.md) |
 | CloudFront | Pagamento por uso | + **planos de preço fixo** (Free, Pro US$ 15, Business US$ 200, Premium US$ 1.000) com CDN, WAF e DDoS | 18/11/2025 | [CloudFront](../../servicos/redes/cloudfront.md) |
 
-
 ## Serviços em manutenção ou encerrados (não estudar a fundo)
-
 
 **Antes de ler este trecho:**
 
 - **Systems Manager:** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
-
 
 **Fechados a novos clientes desde 07/11/2025:** Amazon Glacier (serviço original de *vaults*, diferente das classes S3 Glacier), S3 Object Lambda, Systems Manager Change Manager e Incident Manager, CodeCatalyst, CodeGuru Reviewer, Cloud Directory, Snowball Edge, Fraud Detector, Migration Hub, Application Discovery Service.
 
@@ -154,13 +144,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **AWS Audit Manager / Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
 - **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
 
-
 **Desde 30/04/2026:** AWS Audit Manager, AWS App Runner, IoT FleetWise.
 
 **Antes de ler este trecho:**
 
 - **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
-
 
 **Desde 31/05/2026:** CloudTrail Lake (anúncio de 31/03/2026; trails e Event history continuam).
 
@@ -169,7 +157,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
 - **Directory Service:** Directory Service oferece opções para diretórios e integração com Active Directory, conforme a modalidade.
 - **AD:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-
 
 **Desde 30/07/2026:** Amazon Kendra, Amazon Q Business, Directory Service Simple AD, Service Catalog AppRegistry, Cognito Sync. Bedrock Agents passou a se chamar "Bedrock Agents Classic".
 
@@ -180,9 +167,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 - **QLDB:** Quantum Ledger Database: oferta histórica de registro verificável descrita na ficha de bancos especializados. Confira seu encerramento antes de tratar o exemplo como uma opção atual.
 
-
 **Encerrados:** Application Cost Profiler (30/09/2024), QLDB (31/07/2025), RoboMaker (10/09/2025), Elastic Transcoder e Elemental MediaStore (13/11/2025), Panorama (31/05/2026), Copilot CLI (fim de suporte em 12/06/2026), Lookout for Metrics (12/09/2025), Lookout for Vision (31/10/2025), IoT Analytics (15/12/2025), IoT Events (20/05/2026), AWS IQ (28/05/2026). Anunciados em maio/2025: Inspector Classic, Pinpoint, Panorama, Connect Voice ID, DMS Fleet Advisor.
-
 
 **WorkSpaces:** PCoIP e Pools em *sunset* (o serviço continua no escopo).
 
@@ -190,12 +175,9 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **AMS:** Managed Services: oferta de administração operacional conforme cobertura contratada. Não presuma que inclui toda tarefa de qualquer aplicação.
 
-
 **Próximos encerramentos (tabela oficial de *sunset*):** App Mesh (30/09/2026), IoT Greengrass V1 (01/10/2026), Proton, FinSpace e Lookout for Equipment (07/10/2026), Pinpoint (30/10/2026), AMS Advanced (30/06/2027). Monitron fechado a novos clientes.
 
-
 **Encerrado em 29/09/2026:** Amazon Mechanical Turk (a lista oficial de tarefas do root ainda cita o vínculo com o MTurk).
-
 
 **Encerrados antes:** Snowmobile (14/03/2024) e WorkDocs (25/04/2025), confirmados na página "Services in Full Shutdown".
 
@@ -203,23 +185,16 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **O3DE:** Motor de desenvolvimento 3D. Desenvolver o conteúdo e operar os recursos necessários são trabalhos diferentes.
 
-
 **Renomeações:** AWS Chatbot → Amazon Q Developer in chat applications (19/02/2025); Lumberyard não é mais oferecido (sucessor: O3DE).
-
 
 Tabela oficial: [AWS services sunset](https://docs.aws.amazon.com/general/latest/gr/sunset_services.html).
 
-
 ## Divergências antigas resolvidas pela verificação
-
 
 **Antes de ler este trecho:**
 
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 - **IEM:** Nome histórico de uma oferta de acompanhamento de eventos de infraestrutura. Leia o contexto e a oferta atual indicados na ficha.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Antes | Resultado oficial |
 |---|---|

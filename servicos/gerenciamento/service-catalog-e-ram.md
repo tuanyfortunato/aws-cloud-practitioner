@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -37,7 +33,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 - **RAM:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
 - **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 
 **Passo 1.** Identifique se quer oferecer uma configuração aprovada ou compartilhar um recurso já existente.
 
@@ -58,9 +53,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 - **servidor web:** Programa ou computador que atende pedidos web. Guardar uma página estática e executar regras de um sistema completo são necessidades distintas.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Produto** | Template CloudFormation (ou Terraform) aprovado (ex.: "servidor web padrão", "bucket criptografado"). |
@@ -78,9 +70,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
 - **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **O que compartilha** | **Subnets** (VPC compartilhada), **Transit Gateways**, regras do Route 53 Resolver, License Manager, Aurora clusters, prefix lists, Network Firewall policies, entre outros. |
@@ -93,11 +82,7 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 Aprovar um produto é diferente de compartilhar um recurso já existente. RAM não permite compartilhar qualquer coisa sem restrições nem concede todo acesso aos dados.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa compartilha um recurso compatível com outra conta pelo RAM.
 
@@ -117,37 +102,17 @@ Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa c
 
 - **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
 
-
 **Outra situação comentada:** Catálogo de stacks aprovadas: Service Catalog; compartilhar subnet compatível: RAM.
 
 **Por que não concluir mais do que isso:** Compartilhar não transfere propriedade nem permite qualquer tipo de recurso
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa quer padronizar o que suas equipes podem provisionar e, em outro caso, compartilhar recursos compatíveis entre contas sem duplicá-los.
-
-**2. O que a solução fornece?**
-
-Service Catalog organiza produtos de infraestrutura aprovados. RAM compartilha recursos compatíveis com outros destinatários autorizados. São duas funções diferentes.
-
-**3. Que conclusão seria incorreta?**
-
-Aprovar um produto é diferente de compartilhar um recurso já existente. RAM não permite compartilhar qualquer coisa sem restrições nem concede todo acesso aos dados.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
 **Pergunta:** "Deixar times criarem só recursos aprovados pela empresa."
 
 **Resposta curta:** Service Catalog.
-
-
-**Fundamento explicado no capítulo:** "Deixar times criarem só recursos aprovados pela empresa." → Service Catalog.
 
 **Pergunta:** "Compartilhar uma subnet com outra conta."
 
@@ -157,11 +122,7 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
-**Fundamento explicado no capítulo:** "Compartilhar uma subnet com outra conta." → AWS RAM.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 
 **Passo 1.** Planeje o local e a conexão física compatível com o ambiente da empresa.
 
@@ -51,12 +46,9 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
-
 Banda alta e **desempenho consistente** (latência previsível).
 
-
 **Reduzir custo de transferência** de grandes volumes (tarifa de saída menor que a da internet).
-
 
 Requisitos de conectividade privada (sem internet pública).
 
@@ -81,9 +73,6 @@ Requisitos de conectividade privada (sem internet pública).
 - **LAG:** Agrupamento de conexões de rede compatíveis para administração e capacidade. Não elimina a necessidade de planejar resiliência do caminho.
 - **VGW:** Virtual Private Gateway: componente de conectividade associado a uma VPC em cenários compatíveis de ligação com outras redes.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Local Direct Connect** | Datacenter de colocation onde você (ou o parceiro) se conecta à AWS. |
@@ -105,13 +94,11 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **redundância:** Existência de componentes alternativos. Duas cópias só ajudam se forem utilizáveis na falha que você pretende enfrentar.
 
-
 Dedicada não significa automaticamente criptografada nem sem possibilidade de falha. A proteção dos dados e a redundância precisam ser planejadas.
 
 ### ⚠️ Pegadinhas e não confundir
 
 Direct Connect × VPN: dedicado/estável/semanas × internet/criptografado/minutos.
-
 
 "Precisa de conexão já" → VPN (pode usar enquanto o DX é instalado).
 
@@ -139,28 +126,11 @@ Uma empresa com tráfego frequente entre seu datacenter e a AWS planeja uma cone
 
 **Decisões que precisam ser tomadas:** Localidade, banda, conexão e redundância.
 
-
 **Outra situação comentada:** Conexão dedicada de datacenter: Direct Connect; criptografia adicional pode usar VPN conforme requisito.
 
 **Por que não concluir mais do que isso:** Criptografia não é automática em toda modalidade; resiliência exige planejamento
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa quer uma conexão de rede dedicada entre seu ambiente e a AWS, em vez de depender apenas de um caminho pela internet pública.
-
-**2. O que a solução fornece?**
-
-Direct Connect permite estabelecer essa conectividade por conexões e locais compatíveis, com interfaces e rotas configuradas para o ambiente.
-
-**3. Que conclusão seria incorreta?**
-
-Dedicada não significa automaticamente criptografada nem sem possibilidade de falha. A proteção dos dados e a redundância precisam ser planejadas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -168,23 +138,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Direct Connect.
 
-
-**Fundamento explicado no capítulo:** "Conexão privada, dedicada, sem internet, desempenho consistente." → Direct Connect.
-
 **Pergunta:** "O Direct Connect é criptografado por padrão?"
 
 **Resposta curta:** Não (use MACsec ou VPN sobre DX).
 
-
-**Fundamento explicado no capítulo:** "O Direct Connect é criptografado por padrão?" → Não (use MACsec ou VPN sobre DX).
-
 **Pergunta:** "Reduzir custo de transferir grandes volumes todo mês para a AWS."
 
 **Resposta curta:** Direct Connect.
-
-
-**Fundamento explicado no capítulo:** "Reduzir custo de transferir grandes volumes todo mês para a AWS." → Direct Connect.
-
 
 ## 7. Fontes e próximos passos
 

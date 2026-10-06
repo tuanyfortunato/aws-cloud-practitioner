@@ -16,8 +16,6 @@ A data identifica a consulta; não assegura que páginas e ofertas permanecerão
 
 ## Resultado
 
-
-
 O repositório tem **cobertura temática ampla dos quatro domínios e das 19 tasks oficiais**, distribuída em
 
 41 tópicos e 105 fichas de serviços/famílias. Não foi identificado um domínio ou categoria inteira ausente.
@@ -25,11 +23,9 @@ O repositório tem **cobertura temática ampla dos quatro domínios e das 19 tas
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 Isso não prova que cada possibilidade de questão esteja coberta: a própria AWS declara que o guia e as listas
 
 não são exaustivos. Não é correto prometer “100% do que cairá”.
-
 
 O material original já tinha analogias, configurações, comparações e questões. A profundidade era desigual:
 
@@ -38,7 +34,6 @@ algumas fichas explicavam detalhadamente componentes, e outras se concentravam e
 Faltava um caminho uniforme para explicar a sequência de uso, pré-requisitos e o sentido de “pode/não pode”.
 
 ## Cobertura por domínio
-
 
 **Antes de ler este trecho:**
 
@@ -53,9 +48,6 @@ Faltava um caminho uniforme para explicar a sequência de uso, pré-requisitos e
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 - **CAF:** Cloud Adoption Framework: orientação para preparar capacidades da organização na adoção de nuvem. Não é uma ferramenta que transfere servidores.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Domínio oficial | Tasks | Tópicos locais | Cobertura encontrada e aprofundamento |
 |---|---|---|---|
 | 1 — Conceitos de nuvem | 1.1–1.4 | 7 | Benefícios, arquitetura, seis pilares, CAF, migração e economia; decisões e exemplos sobre limites de cada conceito |
@@ -63,14 +55,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | 3 — Tecnologia e serviços | 3.1–3.8 | 18 | Acesso, infraestrutura, compute, banco, rede, armazenamento, analytics/IA e outras categorias; recursos e fluxo de uso sem depender da tela |
 | 4 — Cobrança, preços e suporte | 4.1–4.3 | 6 | Compras, custos, relatórios, suporte e recursos de ajuda; custo residual, compromissos, alertas e primeira resposta |
 
-
-
 A ligação de **cada task** aos arquivos está em [Escopo oficial](escopo-oficial.md).
 
 A numeração local é editorial: tópico local 3.7 (bancos) não é task oficial 3.7 (IA/analytics).
 
 ## Categorias da lista oficial e onde estão
-
 
 **Antes de ler este trecho:**
 
@@ -135,9 +124,6 @@ A numeração local é editorial: tópico local 3.7 (bancos) não é task oficia
 - **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Categoria oficial | Local de estudo e observação |
 |---|---|
 | Analytics | [Fichas](../../servicos/README.md): Athena, EMR, Glue, Kinesis, OpenSearch, Quick Sight; Redshift está na pasta de bancos |
@@ -160,14 +146,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Serverless | Fargate e Lambda em computação |
 | Storage | Backup, EBS, EFS, DRS, FSx, S3/Glacier e Storage Gateway em armazenamento |
 
-
-
 “Coberto numa ficha conjunta” não significa uma ficha independente para cada nome.
 
 As 105 fichas incluem extras e cinco arquivos de famílias fora do escopo. Não são 105 serviços obrigatórios da prova.
 
 ## Correções e limites identificados
-
 
 **Antes de ler este trecho:**
 
@@ -179,9 +162,6 @@ As 105 fichas incluem extras e cinco arquivos de famílias fora do escopo. Não 
 - **PUT:** Nomes comuns de operações: enviar ou gravar, obter e excluir. O significado preciso e as permissões dependem da API usada.
 - **DB:** Abreviação de database, ou banco de dados. Cada mecanismo oferece formas e garantias próprias de armazenamento e consulta.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Encontrado | Tratamento nesta revisão | Evidência oficial |
 |---|---|---|
 | “O guia atual cobra os planos novos” | Removida a certeza. Guia consultado cita Developer, Business, Enterprise On-Ramp e Enterprise; página comercial apresenta Business Support+, Enterprise e Unified Operations. Estudar os dois com contexto | [Task 4.3](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html), [planos comerciais](https://aws.amazon.com/premiumsupport/plans/) |
@@ -192,8 +172,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Risco de generalizar RDS Multi-AZ | Diferenciado standby de DB instance de modalidades de cluster que podem ter leitores | [Multi-AZ DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html) |
 | “Detectar”, “permitir” e “corrigir” misturados | Fichas separam achado, autorização, configuração e ação operacional | [GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html), [Inspector](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html), [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) |
 
-
-
 Os relatórios antigos em `fontes/` permanecem como registros históricos, sem edição.
 
 Quando houver divergência, esta revisão informa a leitura mais recente e suas fontes; um lançamento comercial
@@ -202,10 +180,7 @@ não permite deduzir a data em que uma questão de certificação será alterada
 
 ## O que foi acrescentado
 
-
-
 **41 aprofundamentos**, cada um com funcionamento, decisão, limite e exercício com resposta comentada.
-
 
 **105 fichas práticas**, cada uma com recursos, escolhas, sequência, capacidade condicional, limite e caso comentado.
 
@@ -213,17 +188,13 @@ não permite deduzir a data em que uma questão de certificação será alterada
 
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 
-
 Um [roteiro sem console](estudar-sem-console.md) com modelo de raciocínio e exemplo integrado.
 
-
 Cobertura obrigatória no gerador: falha se houver tópico/ficha sem aprofundamento ou registro extra sem destino.
-
 
 **Antes de ler este trecho:**
 
 - **SLA:** Acordo de nível de serviço com condições e medidas próprias. Não é garantia de que a aplicação do cliente nunca falhará.
-
 
 Os exemplos não acrescentam preços voláteis nem novas promessas de SLA.
 
@@ -235,13 +206,9 @@ todas as datas, quotas, preços e anúncios históricos presentes nas fontes.
 
 ## Lacunas que ainda exigem estudo externo
 
-
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Limite | Consequência prática |
 |---|---|
@@ -251,20 +218,15 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Listas não exaustivas e páginas sujeitas a mudança | Consulte o guia antes da prova; não há garantia de cobertura de todas as questões |
 | Preços, disponibilidade e limites variam | Para implantar, verifique a documentação específica da região/modalidade e a página atual de preço |
 
-
 ## Verificação das alterações
-
 
 **Antes de ler este trecho:**
 
 - **índice:** Estrutura adicional para apoiar consultas. Pode melhorar um padrão de acesso, mas possui condições de atualização, capacidade e custo.
 
-
 Geração de 41 tópicos, 302 flashcards e índice de 105 fichas concluída.
 
-
 Geração do simulado de 65 questões concluída.
-
 
 Cada um dos 41 tópicos e das 105 fichas contém exatamente um bloco de aprofundamento.
 
@@ -272,43 +234,28 @@ Cada um dos 41 tópicos e das 105 fichas contém exatamente um bloco de aprofund
 
 - **idempotência:** Repetir uma operação sem duplicar seu efeito de negócio. Por exemplo, receber novamente o mesmo pedido não deve gerar uma segunda cobrança indevida.
 
-
 Repetir o gerador não altera o conteúdo produzido (idempotência verificada por hash).
-
 
 Anotações e complementos foram preservados em um teste de regeneração, com restauração do arquivo ao final.
 
-
 Verificador de links relativos terminou sem destinos quebrados; ele não valida conteúdo de URLs externas nem âncoras.
-
 
 Diff conferido sem erros de whitespace.
 
-
 ## Fontes do escopo
-
-
 
 [Guia CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
 
-
 [Domínio 1](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html)
-
 
 [Domínio 2](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html)
 
-
 [Domínio 3](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html)
-
 
 [Domínio 4](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html)
 
-
 [Serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html)
 
-
 [Serviços fora do escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
-
-
 
 [Voltar ao índice](../../README.md)

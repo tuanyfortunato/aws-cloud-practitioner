@@ -21,7 +21,7 @@
 
 ---
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon VPC (Virtual Private Cloud)](../../servicos/redes/vpc.md) · [VPC Peering, Transit Gateway, VPC Endpoints e PrivateLink](../../servicos/redes/vpc-peering-transit-gateway-e-endpoints.md) · [AWS VPN (Site-to-Site VPN e Client VPN)](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) · [AWS Direct Connect](../../servicos/redes/direct-connect.md) · [Amazon Route 53](../../servicos/redes/route-53.md) · [Amazon CloudFront](../../servicos/redes/cloudfront.md) · [AWS Global Accelerator](../../servicos/redes/global-accelerator.md) · [Amazon API Gateway](../../servicos/redes/api-gateway.md)
 
@@ -41,7 +41,6 @@
 - **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
-
 Para uma conexão funcionar, o nome deve indicar um destino, o caminho deve existir e os controles devem permitir o tráfego. A identidade da aplicação pode ainda precisar de autorização para os dados. É possível cumprir um desses requisitos e falhar em outro.
 
 Separe rede virtual, ligação entre redes, acesso remoto, resolução de nomes e distribuição de conteúdo. Uma CDN mantém e entrega conteúdo conforme regras; aceleração de rede encaminha tráfego; DNS informa destinos. As três funções não são a mesma etapa.
@@ -59,14 +58,12 @@ a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas 
 
 - **Amazon VPC / VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
 
-
 **Amazon VPC**
 
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 - **CIDR:** Notação de faixa de endereços de rede, como um endereço acompanhado de /24. A faixa define um conjunto de endereços, não uma senha ou uma permissão.
-
 
 **VPC:** rede virtual isolada logicamente, dentro de uma **região**, com um bloco de IPs (CIDR) definido por você. Cada região tem uma **VPC padrão** pronta.
 
@@ -75,13 +72,11 @@ a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas 
 - **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
 - **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
 
-
 **Subnet:** fatia da VPC dentro de **uma AZ**.
 
 **Antes de ler este trecho:**
 
 - **Internet Gateway:** Componente que permite conectividade da VPC com a internet conforme as rotas, endereços e controles usados. Não torna todo recurso público automaticamente.
-
 
   - **Pública:** tem rota para um Internet Gateway.
 
@@ -95,15 +90,11 @@ a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas 
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 - **NAT:** Tradução de endereços de rede. Um NAT Gateway pode permitir conexões de saída de determinados recursos privados sem oferecer entrada direta iniciada pela internet.
 
-
 **NAT Gateway:** fica na subnet pública e permite que recursos em **subnets privadas saiam para a internet** (ex.: baixar atualizações) **sem receber conexões de fora**. Gerenciado e pago por hora e por dado.
-
 
 **Route tables:** definem para onde vai o tráfego de cada subnet.
 
-
 **Security groups e NACLs:** ver [2.8](../02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md).
-
 
 **VPC Peering:** liga duas VPCs (mesma conta, outra conta ou outra região) como se fossem uma rede. **Não é transitivo:** se A fala com B e B com C, A não fala com C.
 
@@ -113,9 +104,7 @@ a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas 
 - **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 
-
 **AWS Transit Gateway:** **hub central** que conecta muitas VPCs e redes on-premises num modelo hub-and-spoke, simplificando dezenas de peerings.
-
 
 **VPC endpoints:** acessar serviços AWS **sem passar pela internet**.
 
@@ -125,17 +114,13 @@ a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas 
 - **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
 - **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 
-
   - **Gateway endpoint:** só para **S3 e DynamoDB**, gratuito.
 
   - **Interface endpoint (AWS PrivateLink):** cria uma interface de rede privada na sua subnet para a maioria dos serviços; pago.
 
 **AWS PrivateLink:** também permite expor um serviço seu para outras VPCs ou clientes de forma privada.
 
-
 **VPC Flow Logs:** registram o tráfego de rede (ver [2.7](../02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)).
-
-
 
 **Conectividade híbrida**
 
@@ -148,16 +133,11 @@ a **VPC** é um **condomínio fechado**: as **subnets** são as ruas (públicas 
 - **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 - **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | Como funciona | Quando usar |
 | --- | --- | --- |
 | AWS Site-to-Site VPN | Túnel IPsec **criptografado pela internet** entre o datacenter (Customer Gateway) e a AWS (Virtual Private Gateway ou Transit Gateway) | Rápido de configurar (minutos), barato; aceita a variação da internet; também serve de backup do Direct Connect |
 | AWS Client VPN | VPN gerenciada para **usuários remotos** (notebooks) acessarem a VPC | Trabalho remoto |
 | AWS Direct Connect | **Conexão física dedicada e privada**, que não passa pela internet, a partir de um local Direct Connect | Banda alta e estável, latência consistente, menor custo de transferência para grandes volumes; leva semanas para instalar; não é criptografado por padrão (pode rodar VPN por cima) |
-
-
 
 **DNS, CDN e aceleração**
 
@@ -165,14 +145,12 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **Amazon Route 53 / Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
 
-
 **Amazon Route 53:** DNS gerenciado, altamente disponível. Registra domínios, roteia usuários para recursos e faz **health checks**.
 
 **Antes de ler este trecho:**
 
 - **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
 - **ativo-passivo:** Um ambiente atende normalmente e outro fica preparado para assumir. O preparo da alternativa pode variar bastante.
-
 
   - **Políticas de roteamento:** simple, **weighted** (divide tráfego por percentual, ex.: testes A/B), **latency-based** (região com menor latência), **failover** (ativo-passivo), **geolocation** (por país/continente do usuário), **geoproximity** (por distância, com ajuste), **multivalue answer** e IP-based.
 **Antes de ler este trecho:**
@@ -182,7 +160,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 - **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
 - **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-
 
 **Amazon CloudFront:** **CDN** global. Faz **cache** de conteúdo estático e dinâmico nas edge locations, reduzindo latência e carga na origem.
 
@@ -195,13 +172,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
 - **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 
-
   - Origens: S3, ALB, EC2, API Gateway ou qualquer servidor HTTP.
 **Antes de ler este trecho:**
 
 - **OAC:** Controle de acesso à origem em integrações CloudFront compatíveis. Ajuda a restringir acesso direto à origem conforme a configuração.
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-
 
   - **Origin Access Control (OAC):** deixa o bucket S3 privado, acessível só pelo CloudFront.
 **Antes de ler este trecho:**
@@ -211,12 +186,10 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **HTTPS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
 - **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
 
-
   - HTTPS com certificado do ACM; restrição geográfica; inclui **Shield Standard** e integra com **WAF**.
 **Antes de ler este trecho:**
 
 - **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-
 
   - Lambda@Edge e CloudFront Functions rodam código nas edge locations.
 **Antes de ler este trecho:**
@@ -225,7 +198,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
 - **TCP:** Protocolo de transporte orientado a conexão, com mecanismos de entrega e ordem. É usado por muitas aplicações; não acrescenta criptografia por si só.
 - **UDP:** Protocolo de transporte por datagramas, sem as mesmas garantias de entrega e ordem do TCP. A aplicação precisa lidar com os requisitos que o protocolo não fornece.
-
 
 **AWS Global Accelerator:** fornece **IPs estáticos anycast** e leva o tráfego pela **rede global da AWS** até o endpoint regional mais saudável e próximo. Melhora performance de aplicações TCP/UDP e faz failover rápido entre regiões. **Não faz cache.**
 
@@ -238,9 +210,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **REST:** Estilo de API que usa recursos e operações, frequentemente por HTTP. O código integrado continua sendo responsável pelo comportamento da aplicação.
 - **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
 
-
 **Amazon API Gateway:** Pontos de prova: cria APIs REST, HTTP e WebSocket em qualquer escala; faz controle de tráfego (throttling), autenticação (IAM, Cognito, Lambda authorizer) e cache; integração clássica com Lambda para back-ends serverless; cobrado por chamada.
-
 
 **Cai na prova:** "subnet privada precisa baixar patches da internet" = NAT Gateway; "conectar 50 VPCs e o datacenter" = Transit Gateway; "acessar o S3 sem sair para a internet" = gateway endpoint; "link privado com banda dedicada" = Direct Connect; "conexão rápida e criptografada com o datacenter" = Site-to-Site VPN; "site com usuários no mundo todo, conteúdo estático" = CloudFront; "jogo multiplayer UDP com IPs fixos globais" = Global Accelerator; "mandar usuários para a região mais rápida" = Route 53 latency-based.
 
@@ -248,14 +218,12 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 **CloudFront signed URLs e signed cookies:** restringem o acesso a conteúdo privado distribuído pelo CloudFront (ex.: cursos pagos).
 
-
 **Route 53 health checks + failover:** se o endpoint principal cair, o DNS passa a responder com o secundário.
 
 **Antes de ler este trecho:**
 
 - **porta:** Número que ajuda a identificar o serviço de destino de uma comunicação. Liberar uma porta autoriza tráfego segundo a regra, mas não configura a aplicação para responder.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 
 **Bastion host**: instância na subnet pública usada para acessar recursos privados; o Session Manager é a alternativa sem porta aberta.
 
@@ -266,7 +234,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **SG:** Regras de tráfego associadas a interfaces ou recursos compatíveis. É um controle de rede, não uma permissão IAM para ler um arquivo ou chamar uma API.
 - **NACL:** ACL significa lista de controle de acesso. A NACL da VPC controla tráfego no segmento de rede; ACL de armazenamento tem outro contexto. Não trate as duas como a mesma função.
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 
 **Primeiro, identifique o funcionamento:** VPC fornece rede lógica; subnets e tabelas de rota definem caminhos; gateways e endpoints conectam destinos; SG/NACL controlam tráfego. DNS encontra endereços, CDN entrega conteúdo.
 
@@ -280,25 +247,7 @@ Uma instância privada precisa iniciar downloads na internet sem aceitar conexõ
 
 **Raciocínio e resposta:** NAT Gateway para saída IPv4 com rotas adequadas. Internet Gateway sem endereço público e sem configurar o restante não resolve sozinho.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Usuários precisam chegar ao site, a aplicação precisa chegar ao banco e a empresa pode precisar conectar sua rede à AWS. Cada comunicação tem um caminho e controles.
-
-**2. O que a solução fornece?**
-
-Rede define conexões e rotas. VPC organiza recursos em uma rede virtual; DNS relaciona nomes a endereços; distribuição de conteúdo e aceleração atuam na entrega aos usuários.
-
-**3. Que conclusão seria incorreta?**
-
-Nenhum serviço desta lista configura toda a comunicação sozinho. Organizar rede, permitir acesso, resolver nomes e distribuir conteúdo são funções distintas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -316,92 +265,53 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Ter rota para um Internet Gateway.
 
-
-**Fundamento explicado no capítulo:** "O que torna uma subnet pública?" → Ter rota para um Internet Gateway.
-
 **Pergunta:** "Instâncias em subnet privada precisam baixar atualizações."
 
 **Resposta curta:** NAT Gateway.
-
-
-**Fundamento explicado no capítulo:** "Instâncias em subnet privada precisam baixar atualizações." → NAT Gateway.
 
 **Pergunta:** "Conectar duas VPCs de contas diferentes."
 
 **Resposta curta:** VPC Peering.
 
-
-**Fundamento explicado no capítulo:** "Conectar duas VPCs de contas diferentes." → VPC Peering.
-
 **Pergunta:** "Conectar dezenas de VPCs e o datacenter num hub."
 
 **Resposta curta:** Transit Gateway.
-
-
-**Fundamento explicado no capítulo:** "Conectar dezenas de VPCs e o datacenter num hub." → Transit Gateway.
 
 **Pergunta:** "Acessar o S3 a partir da VPC sem passar pela internet."
 
 **Resposta curta:** Gateway VPC endpoint.
 
-
-**Fundamento explicado no capítulo:** "Acessar o S3 a partir da VPC sem passar pela internet." → Gateway VPC endpoint.
-
 **Pergunta:** "Conexão privada e dedicada, sem internet, com desempenho consistente."
 
 **Resposta curta:** Direct Connect.
-
-
-**Fundamento explicado no capítulo:** "Conexão privada e dedicada, sem internet, com desempenho consistente." → Direct Connect.
 
 **Pergunta:** "Conexão criptografada com o datacenter, pronta hoje."
 
 **Resposta curta:** Site-to-Site VPN.
 
-
-**Fundamento explicado no capítulo:** "Conexão criptografada com o datacenter, pronta hoje." → Site-to-Site VPN.
-
 **Pergunta:** "Funcionários em casa precisam acessar a VPC."
 
 **Resposta curta:** Client VPN.
-
-
-**Fundamento explicado no capítulo:** "Funcionários em casa precisam acessar a VPC." → Client VPN.
 
 **Pergunta:** "Registrar domínio e gerenciar DNS."
 
 **Resposta curta:** Route 53.
 
-
-**Fundamento explicado no capítulo:** "Registrar domínio e gerenciar DNS." → Route 53.
-
 **Pergunta:** "Mandar 10% dos usuários para a nova versão."
 
 **Resposta curta:** Route 53 weighted routing.
-
-
-**Fundamento explicado no capítulo:** "Mandar 10% dos usuários para a nova versão." → Route 53 weighted routing.
 
 **Pergunta:** "Reduzir latência de conteúdo para usuários globais."
 
 **Resposta curta:** CloudFront.
 
-
-**Fundamento explicado no capítulo:** "Reduzir latência de conteúdo para usuários globais." → CloudFront.
-
 **Pergunta:** "IPs estáticos globais e failover rápido entre regiões para TCP/UDP."
 
 **Resposta curta:** Global Accelerator.
 
-
-**Fundamento explicado no capítulo:** "IPs estáticos globais e failover rápido entre regiões para TCP/UDP." → Global Accelerator.
-
 **Pergunta:** "Criar e proteger uma API REST para funções Lambda."
 
 **Resposta curta:** API Gateway.
-
-
-**Fundamento explicado no capítulo:** "Criar e proteger uma API REST para funções Lambda." → API Gateway.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

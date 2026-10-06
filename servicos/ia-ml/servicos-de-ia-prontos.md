@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** 🔀 Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate ✅ · Kendra ⚪ não listado · Personalize e Fraud Detector ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
-
 
 **Passo 1.** Identifique a transformação desejada, como fala para texto ou extração de campos.
 
@@ -61,9 +56,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **SSML:** Linguagem de marcação para controlar aspectos da síntese de fala em ferramentas compatíveis, como pronúncia e pausas.
 - **EPI:** Equipamento de proteção individual. Aparece como contexto de análise de imagens, não como nome de um recurso AWS.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | Entrada → saída | Recursos e casos de uso |
 |---|---|---|
 | **Amazon Rekognition** | **Imagem/vídeo** → rótulos | Rostos (detecção, comparação, busca), objetos, cenas, celebridades, texto em imagens, **moderação de conteúdo**, EPI, rastreamento de pessoas em vídeo |
@@ -82,12 +74,9 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 **Textract × Rekognition:** documentos/formulários × imagens/rostos/objetos.
 
-
 **Polly × Transcribe:** texto→fala × fala→texto.
 
-
 **Comprehend × Kendra:** analisar texto × buscar respostas em documentos.
-
 
 **Lex × Connect:** chatbot × central de atendimento (que pode usar o Lex).
 
@@ -104,7 +93,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 ### 🔄 Atualizações 2025-2026
 
 **Forecast:** fechado a novos clientes. **Lookout for Vision:** encerrado em 31/10/2025. **Lookout for Metrics:** encerrado em 12/09/2025. **Fraud Detector:** sem novos clientes desde 07/11/2025. **Kendra:** sem novos clientes desde 30/07/2026. Não estudar a fundo.
-
 
 **Personalize** e **Fraud Detector** estão declarados **fora do escopo** da prova.
 
@@ -124,28 +112,11 @@ A escola usa uma função de transcrição para produzir texto de uma gravação
 
 **Decisões que precisam ser tomadas:** Serviço, idioma/formato, processamento e acesso.
 
-
 **Outra situação comentada:** Áudio para texto: Transcribe; texto para áudio: Polly. Inverter a direção muda a resposta.
 
 **Por que não concluir mais do que isso:** Nenhum cobre todo tipo de IA nem garante acerto; serviços extras na ficha têm escopo próprio
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A aplicação precisa de uma capacidade específica, como transcrever áudio ou extrair texto, e a equipe não quer desenvolver um modelo próprio para isso.
-
-**2. O que a solução fornece?**
-
-Serviços de IA prontos oferecem funções delimitadas: Transcribe transforma fala em texto, Textract extrai conteúdo de documentos, Polly gera fala e outros atendem tradução, imagem ou linguagem.
-
-**3. Que conclusão seria incorreta?**
-
-Cada serviço trata um tipo de tarefa. Nenhum garante precisão perfeita nem deve ser escolhido só porque a pergunta menciona IA. Compatibilidade e escopo variam por produto.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -153,58 +124,33 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Rekognition.
 
-
-**Fundamento explicado no capítulo:** "Identificar rostos e objetos em fotos." → Rekognition.
-
 **Pergunta:** "Analisar o sentimento de avaliações."
 
 **Resposta curta:** Comprehend.
-
-
-**Fundamento explicado no capítulo:** "Analisar o sentimento de avaliações." → Comprehend.
 
 **Pergunta:** "Criar um chatbot de atendimento."
 
 **Resposta curta:** Lex.
 
-
-**Fundamento explicado no capítulo:** "Criar um chatbot de atendimento." → Lex.
-
 **Pergunta:** "Converter texto em voz."
 
 **Resposta curta:** Polly. "Áudio em texto?" → Transcribe.
-
-
-**Fundamento explicado no capítulo:** "Converter texto em voz." → Polly. "Áudio em texto?" → Transcribe.
 
 **Pergunta:** "Traduzir o site."
 
 **Resposta curta:** Translate.
 
-
-**Fundamento explicado no capítulo:** "Traduzir o site." → Translate.
-
 **Pergunta:** "Extrair dados de formulários escaneados."
 
 **Resposta curta:** Textract.
-
-
-**Fundamento explicado no capítulo:** "Extrair dados de formulários escaneados." → Textract.
 
 **Pergunta:** "Busca inteligente nos documentos internos."
 
 **Resposta curta:** Kendra.
 
-
-**Fundamento explicado no capítulo:** "Busca inteligente nos documentos internos." → Kendra.
-
 **Pergunta:** "Recomendar produtos aos clientes."
 
 **Resposta curta:** Personalize.
-
-
-**Fundamento explicado no capítulo:** "Recomendar produtos aos clientes." → Personalize.
-
 
 ## 7. Fontes e próximos passos
 

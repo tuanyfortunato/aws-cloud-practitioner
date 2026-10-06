@@ -1,6 +1,6 @@
 # 📈 Progresso
 
-Marque `[x]` conforme avança. Legenda de status nos arquivos: 🔴 Não iniciado · 🟡 Em andamento · 🟢 Revisado.
+Marque `[x]` à medida que avança. Esta página é o único lugar de acompanhamento: as aulas não têm linha de status.
 
 ## Domínio 1 — Conceitos de Nuvem (24%)
 

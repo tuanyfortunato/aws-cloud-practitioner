@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ⚪ Não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 
 **Passo 1.** Escolha um modelo disponível e descreva a tarefa e o contexto que pretende enviar.
 
@@ -58,9 +53,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
 - **RAG:** Recuperar informações de uma fonte e usá-las como contexto de geração. Isso não elimina erros nem autoriza acesso a todos os documentos.
 - **AI21:** Nome de um fornecedor de modelos de IA. O acesso e a compatibilidade dependem da oferta indicada, não apenas do nome do fornecedor.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -87,7 +79,6 @@ Respostas podem conter erros; o serviço não garante verdade nem conhece automa
 - **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
-
 **Bedrock** (usar/customizar modelos prontos, serverless) × **SageMaker AI** (construir/treinar seus modelos, controle total) × **Amazon Q** (assistente pronto para usuários finais).
 
 ## 4. Operação, segurança e custo
@@ -102,7 +93,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
 - **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
-
 
 **On-demand** por tokens de entrada/saída (ou por imagem), **batch** (mais barato), **provisioned throughput** (capacidade reservada), customização e armazenamento de modelos.
 
@@ -122,28 +112,11 @@ Uma aplicação pede a um modelo um resumo de um texto fornecido. A equipe avali
 
 **Decisões que precisam ser tomadas:** Modelo, acesso, dados e integração suportada.
 
-
 **Outra situação comentada:** Usar modelo fundacional difere de treinar modelo próprio; explique o objetivo antes de escolher.
 
 **Por que não concluir mais do que isso:** Não citado na lista não significa exclusão formal; resposta exige avaliação e controle de dados
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A aplicação quer usar modelos de IA generativa existentes, sem treinar do zero um grande modelo nem administrar sua infraestrutura de execução.
-
-**2. O que a solução fornece?**
-
-Bedrock oferece acesso gerenciado a modelos e recursos de desenvolvimento de aplicações com IA generativa, conforme a oferta e as autorizações.
-
-**3. Que conclusão seria incorreta?**
-
-Respostas podem conter erros; o serviço não garante verdade nem conhece automaticamente os documentos da empresa. O acesso aos dados e os mecanismos de avaliação precisam ser definidos.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -151,27 +124,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Bedrock.
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-
-
-**Fundamento explicado no capítulo:** "Criar uma aplicação de IA generativa usando modelos de fundação via API, sem gerenciar infraestrutura." → Bedrock.
-
 **Pergunta:** "Chatbot que responde com base nos documentos internos (RAG)."
 
 **Resposta curta:** Bedrock Knowledge Bases.
 
-
-**Fundamento explicado no capítulo:** "Chatbot que responde com base nos documentos internos (RAG)." → Bedrock Knowledge Bases.
-
 **Pergunta:** "Impedir que a aplicação de IA gere conteúdo impróprio ou exponha PII."
 
 **Resposta curta:** Bedrock Guardrails.
-
-
-**Fundamento explicado no capítulo:** "Impedir que a aplicação de IA gere conteúdo impróprio ou exponha PII." → Bedrock Guardrails.
-
 
 ## 7. Fontes e próximos passos
 

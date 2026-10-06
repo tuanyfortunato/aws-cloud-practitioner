@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 
 **Passo 1.** Verifique a identidade de envio e prepare as condições de acesso e volume aplicáveis.
 
@@ -59,9 +54,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **DKIM / SPF / DMARC:** Mecanismos de autenticação e política para e-mail que ajudam a validar origem e tratar mensagens. Não garantem chegada de toda mensagem à caixa principal.
 - **SMTP:** Protocolo para envio e transferência de e-mail. Usar o protocolo não dispensa identidade verificada, permissões e regras do serviço de envio.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Sandbox** | Contas novas só enviam para endereços verificados, com limites baixos — pedir saída do sandbox para produção. |
@@ -83,14 +75,9 @@ Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificaç�
 
 - **SES:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
 
-
 **SES** (e-mails ricos/formatados em volume) × **SNS** (notificações simples para vários canais) × **WorkMail** (caixa de e-mail corporativa).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 O sistema da escola envia uma confirmação de matrícula usando uma identidade autorizada no SES.
 
@@ -106,28 +93,11 @@ O sistema da escola envia uma confirmação de matrícula usando uma identidade 
 
 **Decisões que precisam ser tomadas:** Domínio/remetente, acesso, limites e saída do sandbox.
 
-
 **Outra situação comentada:** Confirmação de compra por e-mail: SES; caixa de entrada pessoal não é o objetivo principal.
 
 **Por que não concluir mais do que isso:** Sandbox restringe envio; verificar domínio não garante entrega na caixa principal
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma aplicação precisa enviar mensagens por e-mail, como confirmações e avisos, sem construir sua própria infraestrutura de envio.
-
-**2. O que a solução fornece?**
-
-SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificação de identidade, limites, reputação e tratamento de devoluções importam. Também não é uma caixa postal pessoal completa.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -135,11 +105,7 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** SES.
 
-
-**Fundamento explicado no capítulo:** "Enviar e-mails de confirmação e marketing em massa." → SES.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

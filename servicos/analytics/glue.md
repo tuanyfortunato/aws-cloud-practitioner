@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Defina fontes, estruturas e a transformação necessária para preparar os dados.
 
@@ -52,7 +47,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
 - **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
 
-
 **Detalhe:** Repositório central de metadados (bancos, tabelas, schemas) usado por **Athena, Redshift Spectrum, EMR e Lake Formation**.
 
 **Crawlers**
@@ -63,7 +57,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
 - **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
 - **JDBC:** Interface Java para acesso a bancos compatíveis. Um driver faz a integração; conexão e autorização ainda precisam estar corretas.
-
 
 **Detalhe:** Percorrem S3, JDBC, DynamoDB e **inferem o schema** automaticamente, criando/atualizando tabelas.
 
@@ -76,7 +69,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
 - **job:** Trabalho submetido a uma execução. Uma fila ou agendador organiza quando ele roda; seu programa realiza a tarefa.
 
-
 **Detalhe:** Spark (PySpark/Scala), Python shell ou Ray; serverless; *job bookmarks* processam só dados novos.
 
 **Glue Studio**
@@ -85,21 +77,17 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **Glue:** Glue oferece catálogo e ferramentas de integração e transformação de dados.
 
-
 **Detalhe:** Interface visual para criar jobs.
 
 **Glue DataBrew**
-
 
 **Detalhe:** Preparação visual de dados **sem código** (250+ transformações).
 
 **Data Quality**
 
-
 **Detalhe:** Regras de qualidade de dados.
 
 **Triggers / Workflows**
-
 
 **Detalhe:** Agendam e encadeiam crawlers e jobs.
 
@@ -108,7 +96,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 **Antes de ler este trecho:**
 
 - **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-
 
 **Detalhe:** Integrações com fontes SaaS e bancos.
 
@@ -124,7 +111,6 @@ Catalogar um dado não o torna correto nem concede acesso irrestrito. As transfo
 
 - **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
 
-
 Glue (ETL **serverless** + catálogo) × **EMR** (clusters Spark/Hadoop sob seu controle) × **Data Firehose** (entrega de streaming com transformações simples).
 
 ## 4. Operação, segurança e custo
@@ -136,7 +122,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 
 Jobs e crawlers por **DPU-hora** (por segundo); Data Catalog por objetos armazenados e requisições (camada gratuita).
 
@@ -156,28 +141,11 @@ A escola reúne arquivos de matrículas, padroniza campos e organiza informaçõ
 
 **Decisões que precisam ser tomadas:** Fonte, schema, script, role e capacidade.
 
-
 **Outra situação comentada:** Padronizar arquivos antes da análise: Glue job; consultar dados: Athena.
 
 **Por que não concluir mais do que isso:** Catálogo não contém necessariamente os arquivos; crawler não faz sozinho a transformação de negócio
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Os dados vêm de lugares diferentes, com formatos que não combinam. A equipe precisa conhecê-los e prepará-los antes de analisar.
-
-**2. O que a solução fornece?**
-
-Glue oferece catálogo e ferramentas de integração e transformação de dados. Ele ajuda a descobrir estruturas e a executar processos de preparação.
-
-**3. Que conclusão seria incorreta?**
-
-Catalogar um dado não o torna correto nem concede acesso irrestrito. As transformações e permissões precisam ser definidas para cada processo.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -185,23 +153,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Glue.
 
-
-**Fundamento explicado no capítulo:** "Serviço de ETL serverless e catálogo de dados." → Glue.
-
 **Pergunta:** "Descobrir automaticamente o schema de arquivos no S3."
 
 **Resposta curta:** Glue crawler.
 
-
-**Fundamento explicado no capítulo:** "Descobrir automaticamente o schema de arquivos no S3." → Glue crawler.
-
 **Pergunta:** "Preparar dados visualmente sem código."
 
 **Resposta curta:** Glue DataBrew.
-
-
-**Fundamento explicado no capítulo:** "Preparar dados visualmente sem código." → Glue DataBrew.
-
 
 ## 7. Fontes e próximos passos
 

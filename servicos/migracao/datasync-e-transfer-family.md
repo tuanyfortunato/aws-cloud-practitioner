@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** 🔀 DataSync ⚪ não listado · Transfer Family ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
 - **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
-
 
 **Passo 1.** Separe sincronização entre locais de recebimento por protocolo de arquivo.
 
@@ -66,9 +61,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **HDFS:** Sistema de arquivos distribuído do ecossistema Hadoop. Divide armazenamento entre nós; não é o mesmo modelo de objetos S3.
 - **KVM:** Tecnologia de virtualização associada a Linux. É uma camada de execução de máquinas, não o programa de negócio instalado nelas.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Origens** | NFS, SMB, HDFS, armazenamento de objetos, outras nuvens (Azure Blob, Google Cloud Storage), e serviços AWS. |
@@ -93,9 +85,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **AD:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
 - **B2B:** Relação entre empresas. Em integração, identifica o contexto dos participantes, não um protocolo único.
 - **EDI:** CRM trata relacionamento com clientes; CAD, projeto assistido por computador; EDI, troca eletrônica estruturada de dados. São necessidades de aplicação distintas.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -122,14 +111,9 @@ Sincronizar arquivos não migra sozinho toda a aplicação. Cada ferramenta tem 
 - **Storage Gateway:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
 - **híbrido:** Combinação de ambiente próprio e nuvem. É necessário definir quais partes ficam em cada lado e como se comunicam.
 
-
 **DataSync** (transferência/migração online) × **Storage Gateway** (acesso híbrido contínuo) × **Snow** (offline, dispositivo físico) × **Transfer Family** (protocolos FTP para terceiros).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Uma equipe sincroniza arquivos com DataSync. Em outro caso, um parceiro envia arquivos por SFTP a um endpoint Transfer Family preparado para isso.
 
@@ -149,28 +133,11 @@ Uma equipe sincroniza arquivos com DataSync. Em outro caso, um parceiro envia ar
 
 - **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 
-
 **Outra situação comentada:** Copiar arquivos periodicamente difere de dar endpoint SFTP a parceiros.
 
 **Por que não concluir mais do que isso:** DataSync não aparece na lista; Transfer Family está fora do escopo; nenhum migra toda lógica da aplicação
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa precisa levar arquivos entre ambientes ou receber arquivos de parceiros usando protocolos conhecidos. São dois problemas relacionados, mas diferentes.
-
-**2. O que a solução fornece?**
-
-DataSync automatiza transferências de dados entre locais compatíveis. Transfer Family oferece acesso por protocolos de transferência compatíveis integrado a armazenamento AWS.
-
-**3. Que conclusão seria incorreta?**
-
-Sincronizar arquivos não migra sozinho toda a aplicação. Cada ferramenta tem fontes, destinos e escopo próprios; a prova não lista todos os serviços desta ficha.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -178,22 +145,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** DataSync.
 
-**Antes de ler este trecho:**
-
-- **NAS:** Armazenamento acessível pela rede como arquivos. É diferente de apresentar um disco em blocos ou objetos por API.
-
-
-**Fundamento explicado no capítulo:** "Transferir arquivos online de forma automatizada do NAS para o S3." → DataSync.
-
 **Pergunta:** "Parceiros enviam arquivos via SFTP e queremos guardar no S3."
 
 **Resposta curta:** Transfer Family.
 
-
-**Fundamento explicado no capítulo:** "Parceiros enviam arquivos via SFTP e queremos guardar no S3." → Transfer Family.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

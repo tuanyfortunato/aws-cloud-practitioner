@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** 🔀 Firewall Manager ✅ · Network Firewall ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -37,7 +33,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 - **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 
 **Passo 1.** Separe a necessidade de administrar políticas da necessidade de inspecionar tráfego.
 
@@ -61,9 +56,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 - **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
 - **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -92,9 +84,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **IPS:** Sistema de prevenção de intrusões. Atua em condições e tráfego compatíveis; não é uma correção automática de todo software vulnerável.
 - **FQDN:** Nome de domínio completo para identificar um destino. Resolver esse nome continua sendo tarefa DNS; nome não é credencial.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Função** | Firewall de rede **stateful**, gerenciado e escalável, para filtrar todo o tráfego que entra, sai ou atravessa a VPC. |
@@ -113,7 +102,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **ENI:** Interface de rede virtual. Ela associa endereços e configurações de comunicação a recursos compatíveis.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
-
 **Camada:** 3/4
 
 **Onde:** Instância/ENI (stateful)
@@ -124,13 +112,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **ACL / Network ACL:** ACL significa lista de controle de acesso. A NACL da VPC controla tráfego no segmento de rede; ACL de armazenamento tem outro contexto. Não trate as duas como a mesma função.
 
-
 **Camada:** 3/4
 
 **Onde:** Subnet (stateless)
 
 **Network Firewall**
-
 
 **Camada:** 3–7
 
@@ -145,7 +131,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 
-
 **Camada:** 7
 
 **Onde:** CloudFront, ALB, API Gateway…
@@ -156,13 +141,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
 
-
 **Camada:** 3/4 (+7 Advanced)
 
 **Onde:** DDoS
 
 **Firewall Manager**
-
 
 **Onde:** Governança central de todos acima
 
@@ -172,11 +155,7 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 Administrar políticas é diferente de inspecionar cada conexão. São serviços distintos e têm escopos de prova diferentes, indicados abaixo.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A equipe central define uma política comum de proteção. Para uma necessidade de inspeção de rede, avalia separadamente Network Firewall.
 
@@ -192,28 +171,11 @@ A equipe central define uma política comum de proteção. Para uma necessidade 
 
 **Decisões que precisam ser tomadas:** Escopo de contas/recursos e regras.
 
-
 **Outra situação comentada:** Mesma política WAF em várias contas: Firewall Manager, com Organizations e configuração necessária.
 
 **Por que não concluir mais do que isso:** Não são o mesmo produto; Network Firewall está fora do escopo consultado
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa precisa padronizar proteções em várias contas e também pode precisar inspecionar tráfego que passa pela rede.
-
-**2. O que a solução fornece?**
-
-Firewall Manager coordena políticas de proteção em recursos compatíveis de uma organização. Network Firewall inspeciona tráfego de rede conforme regras e caminhos configurados.
-
-**3. Que conclusão seria incorreta?**
-
-Administrar políticas é diferente de inspecionar cada conexão. São serviços distintos e têm escopos de prova diferentes, indicados abaixo.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -221,18 +183,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Firewall Manager.
 
-
-**Fundamento explicado no capítulo:** "Aplicar as mesmas regras de WAF em todas as contas." → Firewall Manager.
-
 **Pergunta:** "Inspecionar e filtrar todo o tráfego que entra na VPC (IPS)."
 
 **Resposta curta:** Network Firewall.
 
-
-**Fundamento explicado no capítulo:** "Inspecionar e filtrar todo o tráfego que entra na VPC (IPS)." → Network Firewall.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

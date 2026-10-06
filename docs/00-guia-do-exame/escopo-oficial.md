@@ -19,15 +19,10 @@
 
 ## 🧭 Em resumo
 
-
 > 💡 **Em palavras simples:** a AWS publica **o que pode cair** na prova (as *task statements* e a lista de serviços) e
 > **o que não cai** (a lista de fora do escopo). Esta página traduz essas listas e liga cada item ao tópico deste repositório.
 
-
 **Como ler os símbolos desta página (e das fichas):**
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Símbolo | Significado | O que fazer |
 |---|---|---|
@@ -36,10 +31,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | ⚪ | Não aparece em **nenhuma** das duas listas | Baixa prioridade: saiba para que serve |
 | 🔀 | Ficha com serviços de status diferentes | Veja o status de cada serviço na linha *Escopo oficial* da ficha |
 
-
 ## Task statements oficiais → tópicos deste repositório
-
-
 
 Os tópicos de `docs/` seguem a numeração do guia de estudo (1.1 a 4.6), que é **diferente** da numeração
 
@@ -67,9 +59,6 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 - **APN:** Rede de parceiros AWS. Parceiros oferecem serviços e soluções conforme seus próprios contratos e competências.
 - **CAF:** Cloud Adoption Framework: orientação para preparar capacidades da organização na adoção de nuvem. Não é uma ferramenta que transfere servidores.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Task oficial | Texto oficial | Tópicos do repositório |
 |---|---|---|
 | **1.1** | Define the benefits of the AWS Cloud | [1.1](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) · [1.2](../01-conceitos-de-nuvem/02-vantagens-da-nuvem.md) · [3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md) |
@@ -92,9 +81,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | **4.2** | Understand resources for billing, budget, and cost management | [4.4](../04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md) |
 | **4.3** | Identify AWS technical resources and AWS Support options (**Developer, Business, Enterprise On-Ramp, Enterprise** nos exemplos consultados; comparar com os planos comerciais novos; Trusted Advisor, Health Dashboard e Health API; Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post) | [4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) · [4.6](../04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md) |
 
-
 ## 🔍 O que cada task cita (termos do exam guide)
-
 
 > Resumo fiel das listas "Knowledge of / Skills in", com todos os termos citados ([verificação, seção A](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
 > Texto literal no [exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html).
@@ -168,9 +155,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 - **ESG:** Conjunto de aspectos ambientais, sociais e de governança. É uma perspectiva de avaliação organizacional, não uma função de configuração de um recurso.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Task | Termos e serviços citados |
 |---|---|
 | 1.1 | Proposta de valor da nuvem; infraestrutura global (velocidade de implantação, alcance global); alta disponibilidade, elasticidade, agilidade |
@@ -193,8 +177,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | 4.2 | Billing; Organizations e faturamento consolidado; cost allocation tags; Budgets, Cost Explorer, Pricing Calculator; Cost and Usage Report |
 | 4.3 | Documentação, whitepapers, blogs; Prescriptive Guidance, Knowledge Center, re:Post; customer service e comunidades; Developer, Business, Enterprise On-Ramp, Enterprise nos exemplos consultados; Trusted Advisor, Health Dashboard, Health API; Trust and Safety; APN (ISVs, integradores) e benefícios de ser parceiro; Marketplace (custos, governança, entitlement); Professional Services; solutions architects; Support Center |
 
-
-
 **Destaques da revisão:**
 
 **3.8 (outras categorias):** end-user computing = AppStream 2.0, WorkSpaces e WorkSpaces Secure Browser; frontend = **só Amplify**; IoT = **só IoT Core**; developer tools = **CodeBuild, CodePipeline e X-Ray** (e a CLI).
@@ -203,12 +185,9 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
-
 **4.3:** o guia consultado cita exemplos clássicos, e a página comercial oferece planos novos; não se presume substituição de questões. Veja [planos de suporte](../../servicos/custos/planos-de-suporte.md).
 
-
 ## ✅ Serviços no escopo (lista oficial)
-
 
 **Antes de ler este trecho:**
 
@@ -241,9 +220,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
 - **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Categoria | Serviços → ficha |
 |---|---|
 | Analytics | [Athena](../../servicos/analytics/athena.md) · [EMR](../../servicos/analytics/emr.md) · [Glue](../../servicos/analytics/glue.md) · [Kinesis](../../servicos/analytics/kinesis.md) · [OpenSearch Service](../../servicos/analytics/opensearch.md) · [Quick Sight](../../servicos/analytics/quicksight.md) · [Redshift](../../servicos/banco-de-dados/redshift.md) |
@@ -266,10 +242,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Serverless | [Fargate](../../servicos/computacao/fargate.md) · [Lambda](../../servicos/computacao/lambda.md) |
 | Storage | [AWS Backup](../../servicos/armazenamento/aws-backup.md) · [EBS](../../servicos/armazenamento/ebs.md) · [EFS](../../servicos/armazenamento/efs.md) · [Elastic Disaster Recovery](../../servicos/armazenamento/elastic-disaster-recovery.md) · [FSx](../../servicos/armazenamento/fsx.md) · [S3 e S3 Glacier](../../servicos/armazenamento/s3-classes-de-armazenamento.md) · [Storage Gateway](../../servicos/armazenamento/storage-gateway.md) |
 
-
 ## ❌ Fora do escopo (lista oficial, não exaustiva)
-
-
 
 Estes serviços não são prioridade do conteúdo oficial consultado. Leia o requisito e as alternativas; o nome sozinho não constitui uma regra universal de eliminação. **Todos estão documentados** no repositório, com
 
@@ -284,9 +257,6 @@ aviso de que não caem na prova — use para reconhecer os distratores e para o 
 - **SWF:** Simple Workflow Service: serviço de coordenação de trabalhos distribuídos com modelo próprio. É referência especializada, não sinônimo de todas as ferramentas de fluxo.
 - **AMS:** Managed Services: oferta de administração operacional conforme cobertura contratada. Não presuma que inclui toda tarefa de qualquer aplicação.
 - **IVS:** Interactive Video Service: serviço associado à transmissão de vídeo. Seus canais e condições precisam ser escolhidos conforme a experiência desejada.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Categoria | Serviços → onde estão documentados |
 |---|---|
@@ -309,13 +279,10 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Robotics | [RoboMaker](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) |
 | Storage | [FSx for Lustre](../../servicos/armazenamento/fsx.md) |
 
-
 > Nas fichas, os serviços fora do escopo aparecem com ❌ *fora do escopo* ao lado do nome. A categoria
 > [❌ Fora do escopo da prova](../../servicos/README.md) reúne os que não pertencem a nenhuma outra ficha.
 
 ## ⚪ Nem dentro nem fora: não aparecem em nenhuma das listas
-
-
 
 Continuam úteis como contexto, mas têm baixa chance de cair: **Local Zones**, **família Snow** (Snowball Edge),
 **Antes de ler este trecho:**
@@ -325,19 +292,15 @@ Continuam úteis como contexto, mas têm baixa chance de cair: **Local Zones**, 
 - **Amazon MQ:** Amazon MQ oferece brokers gerenciados compatíveis com tecnologias suportadas, como ActiveMQ e RabbitMQ.
 - **MQ:** Intermediário de mensagens entre componentes. Sua interface e seus protocolos precisam ser compatíveis com as aplicações conectadas.
 
-
 **DataSync**, **Bedrock**, **Kendra**, **Audit Manager**, **AppSync**, **Amazon MQ**, **Cloud9**, **CodeCommit**,
 **Antes de ler este trecho:**
 
 - **STS:** Serviço que fornece credenciais temporárias AWS. Essas credenciais permitem uma sessão autorizada dentro das permissões aplicáveis.
-
 
 **CodeStar**, **Timestream**, **Lake Formation**, **STS**.
 
 > Versões traduzidas antigas da lista ainda citam Audit Manager, AppSync e Kendra; a lista atual em inglês não.
 
 ## ⏸️ No escopo, mas fechados a novos clientes
-
-
 
 **AWS Migration Hub** e **AWS Application Discovery Service** (desde 07/11/2025). Ainda podem cair na prova.

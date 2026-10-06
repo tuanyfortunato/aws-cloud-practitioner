@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 
 **Passo 1.** Escolha a ferramenta de processamento e prepare o código e os dados de entrada.
 
@@ -55,7 +50,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 - **HDFS:** Sistema de arquivos distribuído do ecossistema Hadoop. Divide armazenamento entre nós; não é o mesmo modelo de objetos S3.
 
-
 **Detalhe:** Clusters com nó **primário** (master), nós **core** (processam e guardam HDFS) e nós **task** (só processam — ideais para **Spot**).
 
 **EMR on EKS**
@@ -67,7 +61,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
 - **Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
 
-
 **Detalhe:** Jobs Spark no seu cluster Kubernetes.
 
 **EMR Serverless**
@@ -78,7 +71,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
-
 **Detalhe:** Sem gerenciar clusters; paga por vCPU/memória usados.
 
 ### Destaques
@@ -88,13 +80,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 - **EMRFS:** Integração de arquivos de ambientes EMR com S3. O armazenamento de objetos continua tendo interface e comportamento próprios.
 
-
 Dados normalmente no **S3** (EMRFS) — cluster pode ser desligado sem perder dados.
 
 **Antes de ler este trecho:**
 
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-
 
 Escalonamento gerenciado, **instâncias Spot** para reduzir custo, EMR Studio (notebooks).
 
@@ -114,7 +104,6 @@ EMR não escreve o processo de análise nem elimina decisões sobre dados, capac
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 - **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
 
-
 EMR (Spark/Hadoop sob seu controle) × **Glue** (ETL serverless) × **Athena** (SQL serverless) × **Batch** (jobs genéricos em contêiner).
 
 ## 4. Operação, segurança e custo
@@ -128,7 +117,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 - **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
 - **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 
 Taxa do EMR por instância/segundo + EC2/EBS (ou vCPU/memória no Serverless).
 
@@ -152,28 +140,11 @@ Uma equipe executa um processo Spark para preparar um grande histórico antes de
 
 - **job:** Trabalho submetido a uma execução. Uma fila ou agendador organiza quando ele roda; seu programa realiza a tarefa.
 
-
 **Outra situação comentada:** Equipe já usa Spark para transformar grandes dados: EMR; SQL eventual no S3: Athena.
 
 **Por que não concluir mais do que isso:** Não é ferramenta de dashboard e ainda exige configuração do job
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A equipe precisa processar grandes conjuntos de dados usando ferramentas como Apache Spark, sem montar sozinha toda a infraestrutura necessária.
-
-**2. O que a solução fornece?**
-
-EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
-
-**3. Que conclusão seria incorreta?**
-
-EMR não escreve o processo de análise nem elimina decisões sobre dados, capacidade e execução. As responsabilidades variam pela modalidade escolhida.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -181,16 +152,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** EMR.
 
-
-**Fundamento explicado no capítulo:** "Rodar Spark e Hadoop gerenciados." → EMR.
-
 **Pergunta:** "Reduzir custo de clusters de big data."
 
 **Resposta curta:** Nós task em Spot.
-
-
-**Fundamento explicado no capítulo:** "Reduzir custo de clusters de big data." → Nós task em Spot.
-
 
 ## 7. Fontes e próximos passos
 

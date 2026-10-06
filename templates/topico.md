@@ -1,6 +1,6 @@
 # x.y Título do tópico
 
-> **Domínio N — Nome (peso%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio N — Nome (peso%)**
 
 > 🔎 **Fichas detalhadas:** [Serviço](../../servicos/categoria/servico.md)
 

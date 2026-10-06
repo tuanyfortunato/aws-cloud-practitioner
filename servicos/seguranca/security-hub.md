@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Defina os ambientes, controles e fontes compatíveis que participarão da visão de segurança.
 
@@ -62,9 +57,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **FSBP:** Práticas fundamentais de segurança AWS usadas em avaliações de controles. Um controle aprovado não certifica toda a aplicação.
 - **ASFF / OCSF:** Formatos ou esquemas para representar informações de segurança. Padronizar o registro facilita integração, mas não confirma sozinho a natureza do incidente.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Função | Detalhe |
 |---|---|
 | **Agregação de achados** | GuardDuty, Inspector, Macie, IAM Access Analyzer, Firewall Manager, Config, Health e **parceiros**, num formato padrão (ASFF/OCSF). |
@@ -81,7 +73,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
 
-
 Centralizar achados não corrige todos os recursos automaticamente nem garante conformidade com qualquer norma. Integrações, controles e ações de resposta exigem configuração.
 
 ### ⚠️ Não confundir
@@ -90,13 +81,11 @@ Centralizar achados não corrige todos os recursos automaticamente nem garante c
 
 - **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
 
-
 Security Hub (achados de **segurança** centralizados) × **Trusted Advisor** (boas práticas de custo, desempenho, segurança, cotas).
 
 **Antes de ler este trecho:**
 
 - **data lake:** Conjunto de dados mantido para usos diversos, frequentemente em armazenamento de objetos. Organização, catálogo e permissões continuam necessários.
-
 
 Security Hub (painel) × **Security Lake** (data lake de logs de segurança no formato OCSF).
 
@@ -129,28 +118,11 @@ A equipe consulta uma visão central de achados e controles para acompanhar prob
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 - **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
 
-
 **Outra situação comentada:** Ver achados de vários serviços num lugar: Security Hub; identificar PII em S3: Macie produz o achado.
 
 **Por que não concluir mais do que isso:** Agregação não significa correção automática de cada finding nem certificação de conformidade
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa recebe achados de segurança de várias ferramentas e precisa de uma visão organizada para acompanhar prioridades e postura de segurança.
-
-**2. O que a solução fornece?**
-
-Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
-
-**3. Que conclusão seria incorreta?**
-
-Centralizar achados não corrige todos os recursos automaticamente nem garante conformidade com qualquer norma. Integrações, controles e ações de resposta exigem configuração.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -158,16 +130,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Security Hub.
 
-
-**Fundamento explicado no capítulo:** "Reunir achados de segurança de vários serviços num só painel." → Security Hub.
-
 **Pergunta:** "Verificar a conta contra o CIS Benchmark."
 
 **Resposta curta:** Security Hub.
-
-
-**Fundamento explicado no capítulo:** "Verificar a conta contra o CIS Benchmark." → Security Hub.
-
 
 ## 7. Fontes e próximos passos
 

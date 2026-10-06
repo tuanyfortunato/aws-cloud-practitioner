@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -38,7 +34,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 
 **Passo 1.** Escolha um mecanismo de banco compatível com a aplicação e suas necessidades de capacidade e disponibilidade.
 
@@ -56,14 +51,12 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **CRM:** CRM trata relacionamento com clientes; CAD, projeto assistido por computador; EDI, troca eletrônica estruturada de dados. São necessidades de aplicação distintas.
 - **ERP:** Tipos de aplicação: gestão de conteúdo, relacionamento com clientes e gestão empresarial. São funções de software, não nomes de um modelo de armazenamento.
 
-
 Aplicações transacionais (**OLTP**): e-commerce, ERP, CRM, sistemas web.
 
 **Antes de ler este trecho:**
 
 - **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
 - **replatform:** Mudar parte da plataforma mantendo boa parte da aplicação. Por exemplo, trocar a operação do banco sem reescrever todas as regras do programa.
-
 
 **Replatform** de bancos on-premises para reduzir administração.
 
@@ -73,7 +66,6 @@ Aplicações transacionais (**OLTP**): e-commerce, ERP, CRM, sistemas web.
 
 - **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-
 
 **MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2** (e **Aurora**, ver [ficha própria](aurora.md)).
 
@@ -107,9 +99,6 @@ Aplicações transacionais (**OLTP**): e-commerce, ERP, CRM, sistemas web.
 - **DB:** Abreviação de database, ou banco de dados. Cada mecanismo oferece formas e garantias próprias de armazenamento e consulta.
 - **DB cluster:** Conjunto coordenado de componentes de banco. A função de cada membro e seu comportamento de leitura, escrita ou recuperação dependem do serviço.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Instância de banco** | Classe (db.t, db.m, db.r…) e armazenamento (gp2/gp3, io1/io2). **Storage auto scaling** aumenta o disco sozinho. |
@@ -134,9 +123,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
 
-
 📌 Backup automático até **35 dias**. Read replicas: até **15** (MySQL/MariaDB/PostgreSQL).
-
 
 🧊 Limites de armazenamento por motor e versões.
 
@@ -152,13 +139,11 @@ RDS não cria as regras de negócio nem as consultas da aplicação. Você conti
 
 - **read replica:** Cópia de banco que pode atender consultas em cenários suportados. Ela não deve ser confundida com toda modalidade de standby para recuperação.
 
-
 ⚠️ **Multi-AZ = disponibilidade**; **Read Replica = desempenho de leitura**.
 
 **Antes de ler este trecho:**
 
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-
 
 Sem acesso ao SO (exceto RDS Custom). Precisa de acesso total ao SO → banco no **EC2**.
 
@@ -168,7 +153,6 @@ Sem acesso ao SO (exceto RDS Custom). Precisa de acesso total ao SO → banco no
 - **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
 - **NoSQL:** Família de modelos de banco que não se limita à estrutura relacional tradicional. Não significa ausência de estrutura ou que todo produto NoSQL faz o mesmo trabalho.
 - **OLAP:** Análise de conjuntos de dados, como comparar vendas de vários meses. Prioriza perguntas e agregações, não apenas registrar uma operação individual.
-
 
 RDS (OLTP) × Redshift (OLAP) × DynamoDB (NoSQL).
 
@@ -188,7 +172,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 - **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
 - **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
 
-
 Horas de instância (On-Demand ou **Reserved Instances** / 🔄 **Database Savings Plans**: até 20% em instâncias provisionadas, 1 ano, sem pagamento adiantado), armazenamento provisionado, IOPS provisionados, backup além do tamanho do banco, transferência de dados, Multi-AZ (≈ dobra a instância), licença (Oracle/SQL Server *license included* ou BYOL).
 
 ### Segurança e responsabilidade compartilhada
@@ -197,18 +180,15 @@ Horas de instância (On-Demand ou **Reserved Instances** / 🔄 **Database Savin
 
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
-
 **AWS:** hardware, **SO**, **patch do motor**, backups automáticos, failover Multi-AZ.
 
 **Antes de ler este trecho:**
 
 - **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
 
-
 **Cliente:** usuários e permissões do banco, security groups, **ativar criptografia**, configurar backups/retenção, schema, consultas e dados.
 
 ## 5. Caso resolvido: ligando as peças
-
 
 A escola guarda alunos, cursos e matrículas relacionados e seu programa usa consultas SQL de um mecanismo compatível. O objetivo é ter um banco com menos administração de infraestrutura que uma instalação própria na EC2.
 
@@ -225,28 +205,11 @@ Uma opção Multi-AZ ajuda no objetivo de disponibilidade conforme sua modalidad
 - **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 - **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
 
-
 **Outra situação comentada:** Alta disponibilidade: Multi-AZ; aliviar consultas: read replicas compatíveis, distinguindo modalidades de cluster.
 
 **Por que não concluir mais do que isso:** RDS convencional não entrega acesso root irrestrito ao host; Multi-AZ DB instance standby não atende leituras
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma aplicação precisa guardar registros relacionados, como alunos, cursos e matrículas. Instalar e manter o software do banco numa máquina própria exige trabalho.
-
-**2. O que a solução fornece?**
-
-O RDS oferece bancos relacionais gerenciados. Você escolhe um mecanismo compatível, define a estrutura dos dados e usa o banco; a AWS assume tarefas de infraestrutura e administração previstas pelo serviço.
-
-**3. Que conclusão seria incorreta?**
-
-RDS não cria as regras de negócio nem as consultas da aplicação. Você continua responsável por dados, acessos e configurações; as opções de disponibilidade e recuperação precisam ser escolhidas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -254,15 +217,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** A AWS cuida de patch, backup, hardware e failover.
 
-
-**Fundamento explicado no capítulo:** "Vantagem do RDS sobre banco no EC2?" → A AWS cuida de patch, backup, hardware e failover.
-
 **Pergunta:** "Failover automático para outra AZ."
 
 **Resposta curta:** RDS Multi-AZ.
-
-
-**Fundamento explicado no capítulo:** "Failover automático para outra AZ." → RDS Multi-AZ.
 
 **Pergunta:** "Aliviar consultas de leitura pesadas."
 
@@ -272,30 +229,17 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
 
-
-**Fundamento explicado no capítulo:** "Aliviar consultas de leitura pesadas." → Read Replicas (ou ElastiCache).
-
 **Pergunta:** "Restaurar o banco para 10:32 de ontem."
 
 **Resposta curta:** Point-in-time recovery (backups automáticos).
-
-
-**Fundamento explicado no capítulo:** "Restaurar o banco para 10:32 de ontem." → Point-in-time recovery (backups automáticos).
 
 **Pergunta:** "Muitas conexões curtas de Lambda sobrecarregam o banco."
 
 **Resposta curta:** RDS Proxy.
 
-
-**Fundamento explicado no capítulo:** "Muitas conexões curtas de Lambda sobrecarregam o banco." → RDS Proxy.
-
 **Pergunta:** "Quem aplica patch no motor do RDS?"
 
 **Resposta curta:** AWS.
-
-
-**Fundamento explicado no capítulo:** "Quem aplica patch no motor do RDS?" → AWS.
-
 
 ## 7. Fontes e próximos passos
 

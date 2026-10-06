@@ -21,7 +21,7 @@
 
 ---
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon RDS (Relational Database Service)](../../servicos/banco-de-dados/rds.md) · [Amazon Aurora](../../servicos/banco-de-dados/aurora.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md) · [Amazon ElastiCache](../../servicos/banco-de-dados/elasticache.md) · [Amazon MemoryDB](../../servicos/banco-de-dados/memorydb.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [Amazon DocumentDB (compatível com MongoDB)](../../servicos/banco-de-dados/documentdb.md) · [Amazon Neptune](../../servicos/banco-de-dados/neptune.md) · [Amazon Keyspaces, Timestream e outros bancos especializados](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md)
 
@@ -35,7 +35,6 @@
 
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 
 Comece pelas perguntas que a aplicação fará aos dados. Relacionar alunos e matrículas pede um modelo; buscar um perfil pelo identificador pede outro; explorar vínculos entre contas pede relações; comparar meses de vendas pede análise.
 
@@ -60,13 +59,11 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
-
 **Banco no EC2 vs gerenciado:** no EC2 você cuida de SO, instalação, patch, backup e alta disponibilidade. Nos serviços gerenciados, a AWS cuida disso e você foca no schema, nas consultas e no acesso.
 
 **Antes de ler este trecho:**
 
 - **Amazon RDS / RDS:** O RDS oferece bancos relacionais gerenciados.
-
 
 **Amazon RDS:** Banco relacional gerenciado.
 
@@ -75,7 +72,6 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 
-
   - Motores: **MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora**.
 **Antes de ler este trecho:**
 
@@ -83,29 +79,24 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
 - **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
 
-
   - **Multi-AZ:** réplica de espera síncrona em outra AZ, com **failover automático**. Objetivo: **disponibilidade**, não performance.
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 
   - **Read Replicas:** cópias assíncronas só de leitura (inclusive em outra região) para **escalar leitura**.
 **Antes de ler este trecho:**
 
 - **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
 
-
   - **Backups automáticos** com restauração para um ponto no tempo (retenção de até 35 dias) e **snapshots** manuais.
 **Antes de ler este trecho:**
 
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
-
   - Sem acesso ao SO da instância de banco (a AWS gerencia).
 
 **Amazon Aurora:** Relacional da AWS compatível com **MySQL e PostgreSQL**.
-
 
   - Mais performático que o MySQL e PostgreSQL padrão (a AWS cita até 5x e 3x, respectivamente).
 
@@ -117,7 +108,6 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
 
-
   - **Aurora Serverless:** capacidade ajustada automaticamente. **Aurora Global Database:** replicação entre regiões.
 **Antes de ler este trecho:**
 
@@ -125,13 +115,11 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 - **NoSQL:** Família de modelos de banco que não se limita à estrutura relacional tradicional. Não significa ausência de estrutura ou que todo produto NoSQL faz o mesmo trabalho.
 
-
 **Amazon DynamoDB:** NoSQL **chave-valor e documentos**, serverless, latência de milissegundos de um dígito em qualquer escala.
 
 **Antes de ler este trecho:**
 
 - **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
-
 
   - Modos de capacidade: **sob demanda** (paga por requisição) ou **provisionado** (com Auto Scaling).
 
@@ -142,12 +130,10 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
 - **DAX:** Cache compatível com DynamoDB para determinados acessos. É uma camada de aceleração, não uma cópia independente de qualquer banco.
 
-
   - **DAX:** cache em memória para leituras em microssegundos.
 **Antes de ler este trecho:**
 
 - **TTL:** Tempo de vida de uma informação. Em DNS pode orientar cache; em um banco pode indicar expiração de itens. O efeito concreto depende do serviço.
-
 
   - Streams, TTL (expiração automática de itens) e backup point-in-time.
 **Antes de ler este trecho:**
@@ -156,9 +142,7 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 - **Redis / Redis OSS / Valkey / Memcached:** Tecnologias de dados em memória com comportamentos e funções diferentes. A modalidade gerenciada deve ser escolhida segundo compatibilidade e necessidade, não apenas pela palavra cache.
 
-
 **Amazon ElastiCache:** Cache em memória gerenciado, compatível com **Redis OSS/Valkey e Memcached**. Latência em microssegundos; reduz a carga do banco e guarda sessões.
-
 
 **Amazon Keyspaces:** Cassandra gerenciado e serverless. Não aparece na lista oficial de serviços da prova, então dificilmente cai.
 
@@ -166,13 +150,11 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 
 - **Amazon Neptune / Neptune:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
 
-
 **Amazon Neptune:** banco de **grafos**. Para redes sociais, motores de recomendação, detecção de fraude e grafos de conhecimento.
 
 **Antes de ler este trecho:**
 
 - **Amazon DocumentDB / DocumentDB:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos.
-
 
 **Amazon DocumentDB:** banco de **documentos** compatível com **MongoDB**.
 
@@ -185,7 +167,6 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
 - **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
 
-
 **Amazon Redshift:** **data warehouse** em colunas, para análise (OLAP) de grandes volumes com SQL e BI. Redshift Serverless dispensa gerenciar cluster; Redshift Spectrum consulta dados direto no S3.
 
 **Antes de ler este trecho:**
@@ -193,17 +174,12 @@ o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fic
 - **SCT:** Ferramenta de conversão de estrutura de banco em migrações compatíveis. Nem toda estrutura ou regra da aplicação é convertida automaticamente.
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 
-
 **Migração de bancos:** DMS e SCT (ver [3.17](17-migracao-e-transferencia.md)).
-
 
 **Antes de ler este trecho:**
 
 - **JSON:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
 - **OLTP:** Processamento de operações individuais do negócio, como registrar uma compra. É diferente de analisar grandes conjuntos históricos de registros.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Tipo de dado ou necessidade | Serviço |
 | --- | --- |
@@ -215,12 +191,10 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Documentos JSON compatíveis com MongoDB | DocumentDB |
 | Análise de grandes volumes, BI, data warehouse (OLAP) | Redshift |
 
-
 **Antes de ler este trecho:**
 
 - **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 - **read replica:** Cópia de banco que pode atender consultas em cenários suportados. Ela não deve ser confundida com toda modalidade de standby para recuperação.
-
 
 **Cai na prova:** Multi-AZ = disponibilidade; Read Replica = performance de leitura. "Banco para carrinho de compras com milhões de acessos por segundo" = DynamoDB. "Recomendações tipo amigos de amigos" = Neptune.
 
@@ -229,7 +203,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 **Antes de ler este trecho:**
 
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 
 **Primeiro, identifique o funcionamento:** Relacionais organizam tabelas e relações; NoSQL atende modelos como chave-valor/documentos; cache guarda dados de acesso rápido; warehouse prioriza análises agregadas.
 
@@ -243,25 +216,7 @@ Um sistema transacional usa SQL e quer tolerar falha de AZ; outro faz relatório
 
 **Raciocínio e resposta:** Não. RDS/Aurora atendem o transacional; Redshift atende o warehouse. O padrão de uso pesa mais que a presença de SQL.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma aplicação precisa guardar dados, mas um cadastro, uma rede de relações e um relatório sobre milhões de vendas têm formas de consulta diferentes.
-
-**2. O que a solução fornece?**
-
-Bancos de dados organizam registros para armazenar e consultar. A AWS oferece modelos relacionais, chave-valor, documentos, grafos e análise, entre outros.
-
-**3. Que conclusão seria incorreta?**
-
-Não há um banco melhor para qualquer dado. Primeiro identifique a estrutura e as perguntas que a aplicação precisa fazer; depois avalie o serviço.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -279,78 +234,45 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** A AWS cuida de patch, backups, hardware e failover.
 
-
-**Fundamento explicado no capítulo:** "Qual a vantagem do RDS sobre instalar o banco no EC2?" → A AWS cuida de patch, backups, hardware e failover.
-
 **Pergunta:** "Como garantir failover automático do banco para outra AZ?"
 
 **Resposta curta:** RDS Multi-AZ.
-
-
-**Fundamento explicado no capítulo:** "Como garantir failover automático do banco para outra AZ?" → RDS Multi-AZ.
 
 **Pergunta:** "Como aliviar consultas de leitura pesadas?"
 
 **Resposta curta:** Read Replicas (ou cache com ElastiCache).
 
-
-**Fundamento explicado no capítulo:** "Como aliviar consultas de leitura pesadas?" → Read Replicas (ou cache com ElastiCache).
-
 **Pergunta:** "Qual banco relacional compatível com MySQL e PostgreSQL oferece mais performance?"
 
 **Resposta curta:** Aurora.
-
-
-**Fundamento explicado no capítulo:** "Qual banco relacional compatível com MySQL e PostgreSQL oferece mais performance?" → Aurora.
 
 **Pergunta:** "Qual banco NoSQL serverless com latência de milissegundos?"
 
 **Resposta curta:** DynamoDB.
 
-
-**Fundamento explicado no capítulo:** "Qual banco NoSQL serverless com latência de milissegundos?" → DynamoDB.
-
 **Pergunta:** "Replicação multi-região ativa-ativa no DynamoDB."
 
 **Resposta curta:** Global Tables.
-
-
-**Fundamento explicado no capítulo:** "Replicação multi-região ativa-ativa no DynamoDB." → Global Tables.
 
 **Pergunta:** "Cache de microssegundos para DynamoDB."
 
 **Resposta curta:** DAX.
 
-
-**Fundamento explicado no capítulo:** "Cache de microssegundos para DynamoDB." → DAX.
-
 **Pergunta:** "Banco para relacionamentos complexos (redes sociais, fraude)."
 
 **Resposta curta:** Neptune.
-
-
-**Fundamento explicado no capítulo:** "Banco para relacionamentos complexos (redes sociais, fraude)." → Neptune.
 
 **Pergunta:** "Migrar banco MongoDB para serviço gerenciado."
 
 **Resposta curta:** DocumentDB.
 
-
-**Fundamento explicado no capítulo:** "Migrar banco MongoDB para serviço gerenciado." → DocumentDB.
-
 **Pergunta:** "Data warehouse para relatórios de BI sobre petabytes."
 
 **Resposta curta:** Redshift.
 
-
-**Fundamento explicado no capítulo:** "Data warehouse para relatórios de BI sobre petabytes." → Redshift.
-
 **Pergunta:** "Quais motores o RDS suporta?"
 
 **Resposta curta:** MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora.
-
-
-**Fundamento explicado no capítulo:** "Quais motores o RDS suporta?" → MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

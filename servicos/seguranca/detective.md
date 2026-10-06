@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Prepare as fontes e o ambiente de investigação compatível.
 
@@ -51,13 +46,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
 - **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 
-
 Coleta automaticamente CloudTrail, **VPC Flow Logs**, achados do **GuardDuty**, audit logs do EKS e achados do Security Hub.
 
 **Antes de ler este trecho:**
 
 - **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-
 
 Constrói um **behavior graph** (ML + estatística) mostrando relações entre usuários, roles, IPs, instâncias, ao longo de até 1 ano.
 
@@ -66,13 +59,11 @@ Constrói um **behavior graph** (ML + estatística) mostrando relações entre u
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
 
-
 Visualizações prontas: "o que este IP fez?", "esse usuário costuma chamar essa API?", *finding groups* que agrupam achados relacionados.
 
 **Antes de ler este trecho:**
 
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 
 Teste gratuito de 30 dias; cobrado por volume de dados ingeridos.
 
@@ -88,14 +79,9 @@ Ele apoia a investigação; não decide sozinho a causa de todo incidente nem su
 
 - **Detective:** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
 
-
 **GuardDuty detecta → Detective investiga → Security Hub centraliza.**
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Após um alerta, a equipe explora atividades associadas à identidade e ao recurso envolvidos, procurando contexto para a investigação.
 
@@ -115,28 +101,11 @@ Após um alerta, a equipe explora atividades associadas à identidade e ao recur
 
 - **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
-
 **Outra situação comentada:** Após finding GuardDuty, investigar contexto: Detective; bloquear requer ação apropriada.
 
 **Por que não concluir mais do que isso:** Não é firewall ou substituto automático da detecção/remediação
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Depois de um alerta de segurança, a equipe precisa reunir relações entre atividades, identidades e recursos para entender o que aconteceu.
-
-**2. O que a solução fornece?**
-
-Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
-
-**3. Que conclusão seria incorreta?**
-
-Ele apoia a investigação; não decide sozinho a causa de todo incidente nem substitui a equipe responsável pela resposta.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -144,11 +113,7 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Detective.
 
-
-**Fundamento explicado no capítulo:** "Investigar a causa raiz de um achado de segurança." → Detective.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

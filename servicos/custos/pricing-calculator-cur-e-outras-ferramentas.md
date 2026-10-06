@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo (Billing Conductor ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 
 **Passo 1.** Antes do uso, estime a capacidade e as condições previstas na calculadora.
 
@@ -55,7 +50,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **CSV:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
 - **PDF:** Formato de documento. Um serviço de extração analisa conteúdo compatível; guardar um PDF num bucket não executa automaticamente essa análise.
 
-
 **Para que serve:** **Estimar** custos **antes** de criar recursos
 
 **Detalhes:** Web, **gratuita**, sem conta; estimativas compartilháveis por link e exportáveis (CSV/PDF); versão no console de Billing considera seus descontos
@@ -66,7 +60,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 - **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-
 
 **Para que serve:** Fatura do mês, pagamentos, créditos, perfis de pagamento
 
@@ -86,7 +79,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
 - **FOCUS:** Especificação de organização de dados de custos e uso. Padronizar dados ajuda a analisá-los, mas não reduz o gasto automaticamente.
 
-
 **Para que serve:** Dados **mais granulares** possíveis (hora a hora, por recurso, com tags)
 
 **Detalhes:** ✔️ Configurado pelo **AWS Data Exports**: CUR 2.0 (recomendado) e **FOCUS 1.2/1.0**; o CUR legado continua disponível. Entregue no **S3**; analisados com **Athena**, QuickSight, Redshift
@@ -98,7 +90,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
 
-
 **Para que serve:** Detecta **gastos anormais** com ML
 
 **Detalhes:** Monitores por serviço/conta/tag; alertas com causa raiz provável; ✔️ **gratuito**
@@ -109,13 +100,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 
-
 **Para que serve:** Consolida recomendações de economia (rightsizing, RIs/SPs, ociosos) num lugar
 
 **Detalhes:** Prioriza por economia estimada
 
 **Cost allocation tags**
-
 
 **Para que serve:** **Ratear custos** por projeto, time, centro de custo
 
@@ -128,7 +117,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Cost Explorer:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
 - **Budgets:** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
 
-
 **Para que serve:** Regras que agrupam custos (ex.: "Marketing" = contas X e Y + tag Z)
 
 **Detalhes:** Usadas em Cost Explorer, Budgets, CUR
@@ -140,13 +128,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
-
 **Para que serve:** Fatura única, descontos por volume, compartilhamento de RIs/SPs
 
 **Detalhes:** Sem custo extra
 
 **AWS Billing Conductor ❌ fora do escopo**
-
 
 **Para que serve:** Faturamento **personalizado** (pro forma)
 
@@ -158,20 +144,17 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
 
-
 **Para que serve:** Comprar, acompanhar utilização e cobertura
 
 **Detalhes:** Recomendações no Cost Explorer
 
 **Free Tier usage alerts**
 
-
 **Para que serve:** Avisa quando o uso se aproxima dos limites gratuitos
 
 **Detalhes:** Ativado por padrão
 
 **AWS Customer Carbon Footprint Tool**
-
 
 **Para que serve:** Estimativa de **emissões de carbono** do seu uso
 
@@ -183,7 +166,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 
-
 **Para que serve:** Preços via API
 
 **Detalhes:** Automação
@@ -193,7 +175,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 **Antes de ler este trecho:**
 
 - **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-
 
 **Para que serve:** Comprar software de terceiros cobrado na fatura AWS
 
@@ -205,11 +186,7 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 Estimativa não é uma proposta de preço garantido nem a fatura futura. Relatório de gasto real também não escolhe sozinho a arquitetura mais econômica.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A escola descreve a capacidade planejada para estimar um sistema. Depois de usá-lo, consulta dados de cobrança para comparar a estimativa com o consumo real.
 
@@ -225,28 +202,11 @@ A escola descreve a capacidade planejada para estimar um sistema. Depois de usá
 
 **Decisões que precisam ser tomadas:** Premissas, dados exportados, destino e acesso.
 
-
 **Outra situação comentada:** Planejar nova aplicação: Calculator; auditoria detalhada do gasto real: exportação de custos.
 
 **Por que não concluir mais do que isso:** Estimativa não é fatura garantida; tag precisa ativação como tag de custo quando aplicável
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A equipe precisa estimar um projeto antes de criar recursos e, depois, pode precisar entender a cobrança em mais detalhe.
-
-**2. O que a solução fornece?**
-
-Pricing Calculator estima custos com entradas fornecidas por você. Relatórios de custos e uso ajudam a analisar consumo ocorrido; outras ferramentas atendem organização e administração da cobrança.
-
-**3. Que conclusão seria incorreta?**
-
-Estimativa não é uma proposta de preço garantido nem a fatura futura. Relatório de gasto real também não escolhe sozinho a arquitetura mais econômica.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -254,39 +214,23 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Pricing Calculator.
 
-
-**Fundamento explicado no capítulo:** "Estimar o custo de uma arquitetura antes de criá-la." → Pricing Calculator.
-
 **Pergunta:** "Relatório mais detalhado de custo e uso, por hora e recurso."
 
 **Resposta curta:** Cost and Usage Report.
-
-
-**Fundamento explicado no capítulo:** "Relatório mais detalhado de custo e uso, por hora e recurso." → Cost and Usage Report.
 
 **Pergunta:** "Ser avisado de um gasto anormal."
 
 **Resposta curta:** Cost Anomaly Detection.
 
-
-**Fundamento explicado no capítulo:** "Ser avisado de um gasto anormal." → Cost Anomaly Detection.
-
 **Pergunta:** "Separar custos por projeto ou departamento."
 
 **Resposta curta:** Cost allocation tags (ativadas no Billing).
-
-
-**Fundamento explicado no capítulo:** "Separar custos por projeto ou departamento." → Cost allocation tags (ativadas no Billing).
 
 **Pergunta:** "Acompanhar a pegada de carbono do uso da AWS."
 
 **Resposta curta:** Customer Carbon Footprint Tool.
 
-
-**Fundamento explicado no capítulo:** "Acompanhar a pegada de carbono do uso da AWS." → Customer Carbon Footprint Tool.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

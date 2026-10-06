@@ -19,7 +19,7 @@
 
 ---
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 2 — Segurança e Conformidade (30%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon GuardDuty](../../servicos/seguranca/guardduty.md) · [AWS Security Hub](../../servicos/seguranca/security-hub.md) · [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](../../servicos/custos/recursos-de-ajuda-e-parceiros.md)
 
@@ -35,7 +35,6 @@
 - **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
 - **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
 - **menor privilégio:** Conceder apenas o acesso necessário ao trabalho. Evita que uma tarefa simples carregue poder desnecessário sobre outros recursos.
-
 
 Segurança precisa de processos além de ferramentas. Definir quem recebe um aviso, como credenciais são protegidas e quem pode alterar dados evita que uma capacidade técnica fique sem uso adequado.
 
@@ -57,23 +56,19 @@ o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a
 - **RDS:** O RDS oferece bancos relacionais gerenciados.
 - **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
 
-
 **Testes de intrusão (pentest):** permitidos sem aprovação prévia para uma lista de serviços (ex.: EC2, RDS, Lambda); ataques DDoS simulados e alguns testes são proibidos ou exigem aprovação.
 
 **Antes de ler este trecho:**
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 **AWS Trust & Safety:** time para reportar abuso de recursos AWS (spam, phishing, ataques vindos de IPs da AWS).
-
 
 **Onde buscar informação de segurança:** AWS Security Center, AWS Security Blog, Security Bulletins, Knowledge Center, AWS re:Post e documentação. Ferramentas de segurança de terceiros: AWS Marketplace.
 
 **Antes de ler este trecho:**
 
 - **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-
 
 **Cai na prova:** "recebi phishing vindo de um IP da AWS" = AWS Trust & Safety.
 
@@ -84,7 +79,6 @@ o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a
 - **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 - **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 - **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 
 **Primeiro, identifique o funcionamento:** Documentação, Security Blog e Knowledge Center explicam práticas e problemas; Marketplace oferece soluções de terceiros; Trust and Safety recebe denúncias de abuso.
 
@@ -98,25 +92,7 @@ Uma empresa recebe tráfego abusivo de um recurso AWS de outra conta. Deve tenta
 
 **Raciocínio e resposta:** Não. Pode denunciar ao Trust and Safety com evidências. Suas permissões IAM administram recursos autorizados, não os de terceiros.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Segurança também depende de decisões cotidianas: proteger credenciais, limitar permissões e saber como comunicar uso abusivo ou um incidente.
-
-**2. O que a solução fornece?**
-
-Este tópico reúne práticas e canais que complementam os serviços de segurança. O objetivo é relacionar cada ação ao risco que ela reduz.
-
-**3. Que conclusão seria incorreta?**
-
-Uma boa prática isolada não garante um ambiente seguro. Entenda a finalidade de cada ação e o canal adequado, em vez de escolher uma ferramenta genérica para qualquer problema.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -133,37 +109,19 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.
 
-**Antes de ler este trecho:**
-
-- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
-
-
-**Fundamento explicado no capítulo:** "É preciso pedir autorização para fazer pentest no EC2?" → Não, para os serviços da lista permitida; simulação de DDoS e alguns testes são proibidos.
-
 **Pergunta:** "Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?"
 
 **Resposta curta:** AWS Trust & Safety.
-
-**Antes de ler este trecho:**
-
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
-
-**Fundamento explicado no capítulo:** "Uma instância da AWS está enviando spam para a sua empresa. Quem contatar?" → AWS Trust & Safety.
 
 **Pergunta:** "Onde encontrar boletins e boas práticas de segurança?"
 
 **Resposta curta:** AWS Security Center, Security Blog e Knowledge Center.
 
-
-**Fundamento explicado no capítulo:** "Onde encontrar boletins e boas práticas de segurança?" → AWS Security Center, Security Blog e Knowledge Center.
-
 **Pergunta:** "Onde comprar ferramentas de segurança de terceiros?"
 
 **Resposta curta:** AWS Marketplace.
 
-
-**Fundamento explicado no capítulo:** "Onde comprar ferramentas de segurança de terceiros?" → AWS Marketplace.
+**Fundamento explicado no capítulo:** **Onde buscar informação de segurança:** AWS Security Center, AWS Security Blog, Security Bulletins, Knowledge Center, AWS re:Post e documentação. Ferramentas de segurança de terceiros: AWS Marketplace.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

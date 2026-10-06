@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-
 
 **Passo 1.** Avalie os requisitos de controle criptográfico e prepare os módulos compatíveis.
 
@@ -59,9 +54,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **PKCS / JCE / CNG / KSP:** Padrões e interfaces de integração criptográfica. Cada aplicação precisa de suporte ao mecanismo usado; o nome não concede permissão à chave.
 - **TDE:** Criptografia transparente de dados em bancos compatíveis. Proteção do armazenamento não substitui autorização e segurança das consultas.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Single-tenant** | Hardware dedicado a você; validação **FIPS 140 nível 3**. |
@@ -76,14 +68,12 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **HSM:** Equipamento especializado em proteger chaves e executar operações criptográficas. A forma de administração depende da solução escolhida.
 
-
 **AWS:** hardware, disponibilidade do HSM, patches de firmware.
 
 **Antes de ler este trecho:**
 
 - **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
 - **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-
 
 **Cliente:** usuários, chaves, backup das credenciais, montar cluster multi-AZ, aplicação.
 
@@ -94,7 +84,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 **Antes de ler este trecho:**
 
 - **CloudHSM:** CloudHSM fornece módulos de segurança de hardware para operações e armazenamento criptográfico.
-
 
 HSM dedicado não significa menos trabalho de administração. CloudHSM e KMS dividem responsabilidades de formas diferentes; a aplicação também precisa integrar-se corretamente.
 
@@ -111,7 +100,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 
 Por **HSM por hora** (custo bem maior que o KMS).
 
@@ -135,38 +123,17 @@ Uma organização com exigências específicas de controle criptográfico avalia
 
 - **chave:** Pode indicar identificação de um registro, identificação de um objeto ou elemento criptográfico. Leia o contexto: localizar um dado e protegê-lo são tarefas diferentes.
 
-
 **Outra situação comentada:** Requisito de HSM dedicado com controle de chaves: CloudHSM; integração simples de chave gerenciada: KMS.
 
 **Por que não concluir mais do que isso:** Cliente mantém responsabilidades de usuários/chaves; não é simples cofre de senha
 
 ## 6. Revisão e perguntas
 
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Algumas organizações precisam de controle sobre um equipamento criptográfico dedicado, com requisitos diferentes dos atendidos por um serviço de chaves mais abstrato.
-
-**2. O que a solução fornece?**
-
-CloudHSM fornece módulos de segurança de hardware para operações e armazenamento criptográfico. Você administra aspectos como usuários e chaves dentro dessa solução.
-
-**3. Que conclusão seria incorreta?**
-
-HSM dedicado não significa menos trabalho de administração. CloudHSM e KMS dividem responsabilidades de formas diferentes; a aplicação também precisa integrar-se corretamente.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
-
 ### ❓ Perguntas típicas
 
 **Pergunta:** "Exigência regulatória de HSM dedicado com chaves sob controle exclusivo."
 
 **Resposta curta:** CloudHSM.
-
-
-**Fundamento explicado no capítulo:** "Exigência regulatória de HSM dedicado com chaves sob controle exclusivo." → CloudHSM.
-
 
 ## 7. Fontes e próximos passos
 

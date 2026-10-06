@@ -20,7 +20,7 @@
 
 ---
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) · [Amazon Bedrock](../../servicos/ia-ml/bedrock.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)](../../servicos/ia-ml/servicos-de-ia-prontos.md)
 
@@ -36,7 +36,6 @@
 
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 - **treinamento:** Ajuste de um modelo com dados. É uma etapa diferente de utilizar o modelo já treinado para responder a uma nova entrada.
-
 
 Diferencie usar uma função pronta, construir um modelo próprio e usar um modelo generativo existente. Na função pronta, você solicita uma transformação específica. No modelo próprio, precisa preparar treinamento e avaliação. Na geração, fornece instrução e contexto para uma resposta.
 
@@ -62,9 +61,6 @@ Revise a função de cada serviço, porque a prova pede o serviço pelo caso de 
 - **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
 - **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | Função |
 | --- | --- |
 | Amazon SageMaker AI | Criar, treinar e implantar modelos de ML próprios |
@@ -86,7 +82,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 - **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
 
-
 **Primeiro, identifique o funcionamento:** Serviços prontos transformam entradas em resultados por API; SageMaker AI oferece recursos para preparar, treinar e servir modelos; Amazon Q entrega assistência conforme a variante.
 
 **Depois, compare as escolhas:** Texto para voz: Polly. Voz para texto: Transcribe. Texto e sentimento: Comprehend. Documento e campos: Textract. Imagens: Rekognition. Conversação: Lex. Modelo próprio: SageMaker AI.
@@ -99,25 +94,7 @@ Um formulário escaneado tem tabelas e campos que precisam ser extraídos. Basta
 
 **Raciocínio e resposta:** Textract atende a extração documental; Comprehend pode analisar o texto depois. Escolha pelo tipo de entrada e pelo resultado esperado.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma aplicação quer transcrever áudio, fazer previsões ou gerar texto. Embora todas envolvam IA, o trabalho necessário e a solução são diferentes.
-
-**2. O que a solução fornece?**
-
-Serviços de IA podem oferecer funções prontas, ferramentas para desenvolver modelos próprios ou acesso a modelos generativos existentes. A escolha depende da tarefa.
-
-**3. Que conclusão seria incorreta?**
-
-IA não garante precisão e não conhece automaticamente os dados da empresa. Compatibilidade, acesso, avaliação e escopo da prova precisam ser considerados.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -133,64 +110,37 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** SageMaker AI.
 
-
-**Fundamento explicado no capítulo:** "Construir, treinar e implantar modelos de ML próprios." → SageMaker AI.
-
 **Pergunta:** "Identificar rostos e objetos em fotos."
 
 **Resposta curta:** Rekognition.
-
-
-**Fundamento explicado no capítulo:** "Identificar rostos e objetos em fotos." → Rekognition.
 
 **Pergunta:** "Analisar o sentimento de avaliações de clientes."
 
 **Resposta curta:** Comprehend.
 
-
-**Fundamento explicado no capítulo:** "Analisar o sentimento de avaliações de clientes." → Comprehend.
-
 **Pergunta:** "Criar um chatbot de atendimento."
 
 **Resposta curta:** Lex.
-
-
-**Fundamento explicado no capítulo:** "Criar um chatbot de atendimento." → Lex.
 
 **Pergunta:** "Converter texto em voz."
 
 **Resposta curta:** Polly. "Converter áudio em texto." → Transcribe.
 
-
-**Fundamento explicado no capítulo:** "Converter texto em voz." → Polly. "Converter áudio em texto." → Transcribe.
-
 **Pergunta:** "Traduzir conteúdo do site."
 
 **Resposta curta:** Translate.
-
-
-**Fundamento explicado no capítulo:** "Traduzir conteúdo do site." → Translate.
 
 **Pergunta:** "Extrair dados de formulários escaneados."
 
 **Resposta curta:** Textract.
 
-
-**Fundamento explicado no capítulo:** "Extrair dados de formulários escaneados." → Textract.
-
 **Pergunta:** "Busca inteligente nos documentos internos da empresa."
 
 **Resposta curta:** Kendra.
 
-
-**Fundamento explicado no capítulo:** "Busca inteligente nos documentos internos da empresa." → Kendra.
-
 **Pergunta:** "Assistente de IA generativa para funcionários e desenvolvedores."
 
 **Resposta curta:** Amazon Q.
-
-
-**Fundamento explicado no capítulo:** "Assistente de IA generativa para funcionários e desenvolvedores." → Amazon Q.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

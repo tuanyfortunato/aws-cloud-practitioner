@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 
 **Passo 1.** Identifique a fonte compatível e descreva a estrutura dos dados.
 
@@ -55,14 +50,12 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 - **data lake:** Conjunto de dados mantido para usos diversos, frequentemente em armazenamento de objetos. Organização, catálogo e permissões continuam necessários.
 
-
 Analisar logs (CloudTrail, ALB, VPC Flow Logs, CloudFront) e dados do data lake sem carregar em banco.
 
 **Antes de ler este trecho:**
 
 - **QuickSight:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis.
 - **CUR:** Relatório de custos e uso. Ele ajuda a analisar consumo registrado; é diferente de uma estimativa antes de criar recursos.
-
 
 Consultas ad hoc, exploração de dados, relatórios com QuickSight, análise do CUR.
 
@@ -87,9 +80,6 @@ Consultas ad hoc, exploração de dados, relatórios com QuickSight, análise do
 - **Apache Spark / Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
 - **DPU:** Unidade de processamento de determinadas ferramentas de dados, como Glue. Consumo e cobrança dependem do trabalho e da modalidade.
 - **ORC:** Formato colunar de dados para ferramentas analíticas compatíveis. A organização física do arquivo é diferente do significado de seus campos.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -116,7 +106,6 @@ Athena não corrige sozinho dados desorganizados nem é o banco transacional do 
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 - **data warehouse:** Ambiente de dados organizado para análise de grandes conjuntos. O modelo e as consultas são orientados a perguntas analíticas.
 
-
 Athena (SQL sob demanda no S3) × **Redshift** (data warehouse carregado e sempre disponível) × **Redshift Spectrum** (Redshift lendo o S3) × **EMR** (clusters Spark/Hadoop).
 
 ## 4. Operação, segurança e custo
@@ -128,7 +117,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **TB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-
 
 Por **TB de dados escaneados** (🧊 valor), com mínimo por consulta; DDL e consultas com falha não cobram.
 
@@ -152,28 +140,11 @@ A escola guarda registros de acesso em arquivos e consulta quantos acessos ocorr
 
 - **OLTP:** Processamento de operações individuais do negócio, como registrar uma compra. É diferente de analisar grandes conjuntos históricos de registros.
 
-
 **Outra situação comentada:** Consultar logs S3 eventualmente: Athena com catálogo/resultado autorizados.
 
 **Por que não concluir mais do que isso:** Não é banco OLTP nem deixa leitura de todo arquivo gratuita; otimizar leitura pode reduzir custo
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Há arquivos com dados no S3 e a equipe quer fazer perguntas sobre esse conteúdo sem administrar um servidor de consultas.
-
-**2. O que a solução fornece?**
-
-Athena permite consultar dados em formatos e fontes compatíveis usando SQL. Você precisa descrever ou disponibilizar a estrutura dos dados para que a consulta faça sentido.
-
-**3. Que conclusão seria incorreta?**
-
-Athena não corrige sozinho dados desorganizados nem é o banco transacional do aplicativo. Formato, organização e quantidade de dados consultados influenciam o resultado e o custo.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -181,23 +152,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Athena.
 
-
-**Fundamento explicado no capítulo:** "Consultar arquivos no S3 com SQL padrão, sem infraestrutura." → Athena.
-
 **Pergunta:** "Como o Athena é cobrado?"
 
 **Resposta curta:** Por volume de dados escaneados.
 
-
-**Fundamento explicado no capítulo:** "Como o Athena é cobrado?" → Por volume de dados escaneados.
-
 **Pergunta:** "Reduzir custo de consultas no Athena."
 
 **Resposta curta:** Parquet/ORC, compressão e particionamento.
-
-
-**Fundamento explicado no capítulo:** "Reduzir custo de consultas no Athena." → Parquet/ORC, compressão e particionamento.
-
 
 ## 7. Fontes e próximos passos
 

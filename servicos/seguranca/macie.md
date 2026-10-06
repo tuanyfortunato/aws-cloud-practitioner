@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-
 
 **Passo 1.** Defina os dados S3 compatíveis que precisam de avaliação e a configuração de descoberta.
 
@@ -55,9 +50,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 - **CPF:** Identificador pessoal brasileiro. Neste material é exemplo de dado que pode exigir proteção, não um mecanismo AWS de autenticação.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Função | Detalhe |
 |---|---|
 | **Inventário e postura dos buckets** | Buckets **públicos**, sem criptografia, compartilhados com outras contas ou replicados. |
@@ -66,12 +58,10 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | **Jobs** | Varreduras completas sob demanda ou agendadas. |
 | **Integrações** | Achados no Security Hub e EventBridge. |
 
-
 **Antes de ler este trecho:**
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-
 
 Teste gratuito de 30 dias. Cobrança por bucket monitorado e por GB inspecionado.
 
@@ -82,7 +72,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 **Antes de ler este trecho:**
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 
 Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
 
@@ -95,14 +84,9 @@ Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e ser
 - **GDPR:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
 - **LGPD:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
 
-
 Macie atua **só no S3**. "PII", "dados sensíveis", "LGPD/GDPR no S3" → Macie.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A escola avalia um bucket de documentos para identificar arquivos que podem conter informações pessoais dos alunos.
 
@@ -123,28 +107,11 @@ A escola avalia um bucket de documentos para identificar arquivos que podem cont
 - **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
 - **RDS:** O RDS oferece bancos relacionais gerenciados.
 
-
 **Outra situação comentada:** Encontrar dados pessoais em documentos S3: Macie; confirme elegibilidade do formato e permissões.
 
 **Por que não concluir mais do que isso:** Não varre genericamente RDS/EBS e não apaga conteúdo sensível sozinho
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa guarda muitos arquivos no S3 e precisa localizar possíveis dados sensíveis, como informações pessoais, sem abrir cada arquivo manualmente.
-
-**2. O que a solução fornece?**
-
-Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -152,11 +119,7 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Macie.
 
-
-**Fundamento explicado no capítulo:** "Encontrar dados pessoais em buckets S3." → Macie.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

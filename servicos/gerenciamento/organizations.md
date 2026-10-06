@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 
 **Passo 1.** Organize contas e unidades conforme a separação de trabalho da empresa.
 
@@ -53,7 +48,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **OU:** Unidade organizacional: agrupamento de contas na organização. Agrupar contas permite aplicar regras de governança segundo a estrutura escolhida.
 - **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
 
-
 ```
 Root
 ├── Management account (paga a fatura; não é afetada por SCPs)
@@ -61,7 +55,6 @@ Root
 ├── OU: Produção   → contas prod-app1, prod-app2
 └── OU: Desenvolvimento → contas dev-*
 ```
-
 
 **Antes de ler este trecho:**
 
@@ -72,9 +65,6 @@ Root
 - **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -97,9 +87,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **RCP:** Política de controle de recursos que limita permissões aplicáveis a recursos compatíveis da organização. É um limite, não uma concessão isolada de acesso.
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Política | O que faz |
 |---|---|
 | **SCP (Service Control Policy)** | **Teto** de permissões das identidades das contas (inclusive o root da conta-membro). **Não concede** nada. Padrão `FullAWSAccess`. Estratégias *deny list* ou *allow list*. |
@@ -109,11 +96,9 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | **Backup policies** | Planos do AWS Backup em todas as contas. |
 | **AI services opt-out** | Impede uso de dados para melhorar serviços de IA da AWS. |
 
-
 **Antes de ler este trecho:**
 
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-
 
 **Permissão efetiva** = interseção de SCP (e RCP) **e** política IAM.
 
@@ -124,9 +109,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
-
 **Uma fatura** para todas as contas; **soma o uso** para descontos por volume (ex.: faixas do S3); **compartilha RIs e Savings Plans**; sem custo extra.
-
 
 **Compartilhamento de RIs e Savings Plans (task 4.1):** ✔️ ativado por padrão; a conta de gerenciamento pode **desativar** para qualquer conta (inclusive ela mesma); as duas contas precisam ter o compartilhamento ativo; o desconto vale **primeiro na conta que comprou** e a sobra vai para as demais.
 
@@ -135,7 +118,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
 - **CLI / SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-
 
 🔄 ✔️ Organizações criadas **pelo console** após **10/07/2026** recebem automaticamente na raiz uma SCP que **nega às contas-membro** `organizations:LeaveOrganization` (sair da organização) e `account:CloseAccount` (fechar a conta). Não vale para organizações anteriores nem criadas por API, CLI, SDK ou CloudFormation.
 
@@ -155,7 +137,6 @@ SCP **não** afeta a management account e **não** concede permissões.
 - **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
 - **landing zone:** Base organizada de um ambiente AWS com várias contas e controles. Ainda é necessário definir aplicações, acessos e operação dentro dela.
 
-
 Organizations (contas, SCPs, fatura) × **Control Tower** (landing zone pronta sobre o Organizations).
 
 ## 4. Operação, segurança e custo
@@ -167,7 +148,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
-
 
 **Gerenciamento centralizado de acesso root:** remover credenciais root de contas-membro e executar ações privilegiadas a partir da conta de gerenciamento.
 
@@ -187,28 +167,11 @@ A escola separa testes e produção em contas diferentes e usa a organização p
 
 **Decisões que precisam ser tomadas:** Estrutura, controles e compartilhamento de benefícios de cobrança.
 
-
 **Outra situação comentada:** Limitar serviços nas contas membro: SCP junto com permissões IAM necessárias.
 
 **Por que não concluir mais do que isso:** SCP não concede permissão; dados e redes das contas não se fundem
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma empresa tem várias contas AWS e quer organizá-las, consolidar cobrança e aplicar limites de governança de forma central.
-
-**2. O que a solução fornece?**
-
-Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-
-**3. Que conclusão seria incorreta?**
-
-Uma política de controle não concede permissão a um usuário por si só. Permissões nas contas continuam necessárias, e a cobertura das políticas tem condições específicas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -216,34 +179,17 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** SCP.
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
-
-**Fundamento explicado no capítulo:** "Impedir que contas de desenvolvimento usem uma região." → SCP.
-
 **Pergunta:** "SCP permite S3, mas o usuário não tem política IAM. Acessa?"
 
 **Resposta curta:** Não.
-
-
-**Fundamento explicado no capítulo:** "SCP permite S3, mas o usuário não tem política IAM. Acessa?" → Não.
 
 **Pergunta:** "Desconto por volume somando várias contas."
 
 **Resposta curta:** Consolidated billing.
 
-
-**Fundamento explicado no capítulo:** "Desconto por volume somando várias contas." → Consolidated billing.
-
 **Pergunta:** "Fatura única para 20 contas."
 
 **Resposta curta:** Organizations.
-
-
-**Fundamento explicado no capítulo:** "Fatura única para 20 contas." → Organizations.
-
 
 ## 7. Fontes e próximos passos
 

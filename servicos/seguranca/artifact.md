@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Identifique o relatório ou acordo que atende à avaliação pretendida.
 
@@ -51,20 +46,15 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **NDA / BAA:** Acordos com funções diferentes: confidencialidade e relacionamento associado a requisitos específicos de saúde. Aceitar um documento não torna toda operação conforme.
 - **ISO:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Seção | Exemplos |
 |---|---|
 | **Artifact Reports** | **SOC 1, SOC 2, SOC 3**, **PCI DSS** (Attestation of Compliance), certificações **ISO 27001/27017/27018/9001**, C5, relatórios de terceiros (ISVs do Marketplace). |
 | **Artifact Agreements** | **BAA** (Business Associate Addendum — **HIPAA**), NDA, acordos de GDPR; aceitar por conta ou para toda a organização. |
 | **Notificações** | Avisos de novos relatórios. |
 
-
 **Antes de ler este trecho:**
 
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-
 
 Acesso controlado por IAM; alguns relatórios exigem aceitar termos de confidencialidade.
 
@@ -76,7 +66,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 Um relatório da AWS não certifica automaticamente a aplicação do cliente. A empresa precisa demonstrar também seus próprios controles e responsabilidades.
 
 ### ⚠️ Não confundir
@@ -85,14 +74,9 @@ Um relatório da AWS não certifica automaticamente a aplicação do cliente. A 
 
 - **Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
 
-
 **Artifact** = evidências **da AWS** (o que a AWS certifica). **Audit Manager** = evidências **da sua conta** para a **sua** auditoria.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A escola consulta um relatório oficial da AWS para apoiar uma avaliação dos serviços usados por sua aplicação.
 
@@ -113,28 +97,11 @@ A escola consulta um relatório oficial da AWS para apoiar uma avaliação dos s
 - **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 
-
 **Outra situação comentada:** Auditor pede relatório AWS: Artifact; quem apagou recurso: CloudTrail.
 
 **Por que não concluir mais do que isso:** Não registra atividade de usuários da sua conta nem certifica sua aplicação
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um auditor pede relatórios sobre os controles e a conformidade da infraestrutura AWS. A empresa precisa localizar esses documentos oficiais.
-
-**2. O que a solução fornece?**
-
-Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
-
-**3. Que conclusão seria incorreta?**
-
-Um relatório da AWS não certifica automaticamente a aplicação do cliente. A empresa precisa demonstrar também seus próprios controles e responsabilidades.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -142,18 +109,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Artifact.
 
-
-**Fundamento explicado no capítulo:** "Auditor pede o relatório SOC 2 da AWS." → Artifact.
-
 **Pergunta:** "Aceitar o BAA para HIPAA."
 
 **Resposta curta:** Artifact Agreements.
 
-
-**Fundamento explicado no capítulo:** "Aceitar o BAA para HIPAA." → Artifact Agreements.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

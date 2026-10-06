@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 
 **Passo 1.** Consulte verificações compatíveis com seu ambiente e seu nível de acesso.
 
@@ -51,13 +46,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
 
-
 1. **Cost optimization** — instâncias ociosas, volumes EBS sem uso, Elastic IPs não associados, RIs/SPs subutilizados.
 
 **Antes de ler este trecho:**
 
 - **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-
 
 2. **Performance** — instâncias sobrecarregadas, configuração do CloudFront.
 
@@ -68,7 +61,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
 - **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
 
-
 3. **Security** — buckets S3 abertos, SGs com portas irrestritas, **MFA no root**, uso do IAM, snapshots públicos, access keys expostas.
 
 **Antes de ler este trecho:**
@@ -78,16 +70,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
 - **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
 
-
 4. **Fault tolerance** — EBS sem snapshot, instâncias numa só AZ, RDS sem Multi-AZ, backups.
-
 
 5. **Service limits (quotas)** — uso acima de 80% da cota.
 
-
 6. 🔄 **Operational excellence** — práticas operacionais (logs, monitoramento). *(confirmado na documentação oficial; materiais antigos listam só as 5 primeiras)*
-
-
 
 Status das verificações: 🟢 sem problema · 🟡 investigação recomendada · 🔴 ação recomendada.
 
@@ -100,9 +87,6 @@ Status das verificações: 🟢 sem problema · 🟡 investigação recomendada 
 - **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Plano | Verificações | Extras |
 |---|---|---|
@@ -125,14 +109,9 @@ Uma recomendação não conhece sozinha todas as necessidades do negócio. Cober
 - **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 - **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 
-
 Trusted Advisor (boas práticas amplas: custo, desempenho, segurança, cotas) × **Security Hub** (achados de segurança) × **Compute Optimizer** (rightsizing com ML) × **Well-Architected Tool** (revisão de uma carga contra os pilares).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A equipe consulta uma recomendação sobre recursos pouco usados e decide se pode ajustá-los ou removê-los sem prejudicar a aplicação.
 
@@ -148,37 +127,17 @@ A equipe consulta uma recomendação sobre recursos pouco usados e decide se pod
 
 **Decisões que precisam ser tomadas:** Conta, plano e acesso aos checks.
 
-
 **Outra situação comentada:** Recomendação geral de boas práticas: Trusted Advisor; tamanho por uso observado: Compute Optimizer.
 
 **Por que não concluir mais do que isso:** Não é garantia de aplicação perfeita nem alteração automática de toda recomendação
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa precisa identificar oportunidades de melhoria no uso da AWS, como recursos ociosos ou configurações que merecem atenção.
-
-**2. O que a solução fornece?**
-
-Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-
-**3. Que conclusão seria incorreta?**
-
-Uma recomendação não conhece sozinha todas as necessidades do negócio. Cobertura e acesso dependem das condições aplicáveis; a equipe deve avaliar antes de agir.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
 **Pergunta:** "Recomendar melhorias de custo, segurança, desempenho e limites."
 
 **Resposta curta:** Trusted Advisor.
-
-
-**Fundamento explicado no capítulo:** "Recomendar melhorias de custo, segurança, desempenho e limites." → Trusted Advisor.
 
 **Pergunta:** "Menor plano com todas as verificações do Trusted Advisor."
 
@@ -188,25 +147,15 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 
-
-**Fundamento explicado no capítulo:** "Menor plano com todas as verificações do Trusted Advisor." → Business Support+ (no modelo clássico, Business).
-
 **Pergunta:** "Menor plano com Trusted Advisor Priority."
 
 **Resposta curta:** Enterprise.
-
-
-**Fundamento explicado no capítulo:** "Menor plano com Trusted Advisor Priority." → Enterprise.
 
 **Pergunta:** "Verificações disponíveis no Basic."
 
 **Resposta curta:** Core checks (segurança essenciais + service limits).
 
-
-**Fundamento explicado no capítulo:** "Verificações disponíveis no Basic." → Core checks (segurança essenciais + service limits).
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

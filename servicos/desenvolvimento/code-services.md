@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** 🔀 CodeBuild e CodePipeline ✅ · CodeDeploy e CodeArtifact ❌ fora do escopo · CodeCommit e CodeStar ⚪ não listados · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Defina as etapas e os arquivos necessários para construir e verificar uma versão.
 
@@ -48,13 +43,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
 - **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
 
-
 ```
 CodeCommit / GitHub ──▶ CodeBuild ──▶ (testes) ──▶ CodeDeploy / ECS / CloudFormation
           └─────────────── orquestrado pelo CodePipeline ───────────────┘
                      pacotes de dependências: CodeArtifact
 ```
-
 
 **Antes de ler este trecho:**
 
@@ -76,9 +69,6 @@ CodeCommit / GitHub ──▶ CodeBuild ──▶ (testes) ──▶ CodeDeploy 
 - **deploy:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
 - **rollback:** Retorno a uma configuração ou versão anterior, quando suportado e planejado. Nem toda alteração de dados pode ser desfeita automaticamente.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | Função | Detalhes |
 |---|---|---|
 | **AWS CodeCommit** | Repositórios **Git privados** gerenciados | Criptografados, integrados ao IAM. 🔄 Fechado a novos clientes em 2024 e **de volta a GA em 24/11/2025**. |
@@ -97,7 +87,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
 - **X-Ray:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
 
-
 No escopo: **CodeBuild** e **CodePipeline** (além de X-Ray e CLI). **CodeDeploy**, **CodeArtifact** e **CodeGuru** estão **fora do escopo**; CodeCommit e CodeStar não aparecem. CodeCatalyst e CodeGuru Reviewer estão fechados a novos clientes desde 07/11/2025.
 
 ## 3. Como escolher e reconhecer os limites
@@ -114,7 +103,6 @@ CodeBuild (build/teste) × CodeDeploy (implantar) × CodePipeline (orquestrar tu
 
 - **pipeline:** Sequência de etapas de um processo. No desenvolvimento, pode conectar construção, testes e entrega; cada etapa tem ações e permissões próprias.
 
-
 Equivalentes de terceiros: GitHub (repositório), GitHub Actions/Jenkins (pipeline).
 
 ## 4. Operação, segurança e custo
@@ -126,7 +114,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-
 
 CodeCommit por usuário ativo; CodeBuild por minuto; CodeDeploy grátis para EC2/Lambda (pago on-premises); CodePipeline por pipeline ativo ou minuto de execução (V2); CodeArtifact por GB e requisições.
 
@@ -146,28 +133,11 @@ Ao enviar uma mudança, o processo constrói a aplicação, executa testes confi
 
 **Decisões que precisam ser tomadas:** Código fonte, comandos, artefatos, role e integrações.
 
-
 **Outra situação comentada:** Compilar e rodar testes: CodeBuild; coordenar fluxo completo: CodePipeline.
 
 **Por que não concluir mais do que isso:** Build não escreve testes; Pipeline não é repositório nem executa todo estágio sozinho
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma equipe precisa transformar código em uma versão executável, verificar o resultado e disponibilizá-lo com um processo repetível.
-
-**2. O que a solução fornece?**
-
-A ficha compara ferramentas de desenvolvimento e entrega. CodeBuild executa tarefas de construção e testes; CodePipeline coordena etapas de uma entrega automatizada.
-
-**3. Que conclusão seria incorreta?**
-
-Automatizar uma sequência não cria os testes nem garante que a aplicação esteja correta. As ferramentas da família têm papéis e condições comerciais diferentes.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -175,30 +145,17 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** CodePipeline.
 
-
-**Fundamento explicado no capítulo:** "Orquestrar a esteira de CI/CD na AWS." → CodePipeline.
-
 **Pergunta:** "Compilar e executar testes sem gerenciar servidores de build."
 
 **Resposta curta:** CodeBuild.
-
-
-**Fundamento explicado no capítulo:** "Compilar e executar testes sem gerenciar servidores de build." → CodeBuild.
 
 **Pergunta:** "Automatizar deploy em EC2 e servidores on-premises."
 
 **Resposta curta:** CodeDeploy.
 
-
-**Fundamento explicado no capítulo:** "Automatizar deploy em EC2 e servidores on-premises." → CodeDeploy.
-
 **Pergunta:** "Repositório privado de pacotes npm."
 
 **Resposta curta:** CodeArtifact.
-
-
-**Fundamento explicado no capítulo:** "Repositório privado de pacotes npm." → CodeArtifact.
-
 
 ## 7. Fontes e próximos passos
 

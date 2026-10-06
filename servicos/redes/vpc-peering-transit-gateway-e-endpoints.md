@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo (Transit Gateway e PrivateLink listados) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Descreva quem precisa comunicar-se com quem: duas redes, muitas redes ou um serviço específico.
 
@@ -47,19 +42,15 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 
-
 Conexão privada **um-para-um** entre duas VPCs (mesma conta, outra conta, outra região).
 
-
 ⚠️ **Não é transitivo:** A↔B e B↔C não permite A↔C.
-
 
 CIDRs **não podem se sobrepor**. Precisa atualizar route tables e SGs dos dois lados.
 
 **Antes de ler este trecho:**
 
 - **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 
 Sem custo por hora; paga transferência de dados.
 
@@ -72,13 +63,11 @@ Sem custo por hora; paga transferência de dados.
 - **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 
-
 **Hub regional** que conecta milhares de VPCs, VPNs, Direct Connect e outros TGWs (peering entre regiões) — modelo *hub-and-spoke*.
 
 **Antes de ler este trecho:**
 
 - **TGW:** Transit Gateway: ponto central para ligações entre redes compatíveis. Rotas e associações determinam a comunicação; criar o ponto não libera tudo automaticamente.
-
 
 Route tables do TGW permitem segmentar (ex.: prod não fala com dev).
 
@@ -86,13 +75,11 @@ Route tables do TGW permitem segmentar (ex.: prod não fala com dev).
 
 - **RAM:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
 
-
 Compartilhável entre contas via **RAM**.
 
 **Antes de ler este trecho:**
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-
 
 Pago por anexo-hora + GB processado.
 
@@ -113,16 +100,11 @@ Pago por anexo-hora + GB processado.
 - **ENI:** Interface de rede virtual. Ela associa endereços e configurações de comunicação a recursos compatíveis.
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Tipo | Serviços | Como funciona | Custo |
 |---|---|---|---|
 | **Gateway endpoint** | **Só S3 e DynamoDB** | Entrada na route table | **Gratuito** |
 | **Interface endpoint** (PrivateLink) | Maioria dos serviços AWS e serviços de parceiros | ENI com IP privado na sua subnet + DNS privado | Por hora + GB |
 | **Gateway Load Balancer endpoint** | Appliances de segurança | Encaminha tráfego para o GWLB | Por hora + GB |
-
-
 
 Endpoint policies restringem o que pode ser acessado pelo endpoint.
 
@@ -132,7 +114,6 @@ Endpoint policies restringem o que pode ser acessado pelo endpoint.
 
 - **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
 
-
 Tecnologia dos interface endpoints. Também permite **expor um serviço seu** (atrás de um NLB) para outras VPCs/contas/clientes de forma privada, sem peering e sem expor a VPC inteira.
 
 ### Comparação rápida
@@ -140,9 +121,6 @@ Tecnologia dos interface endpoints. Também permite **expor um serviço seu** (a
 **Antes de ler este trecho:**
 
 - **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Necessidade | Solução |
 |---|---|
@@ -158,11 +136,7 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 Criar uma conexão não concede todas as permissões nem configura todas as rotas. Endpoints não equivalem a uma conexão geral entre todas as redes.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Duas VPCs podem usar peering. Uma empresa com muitas redes pode avaliar Transit Gateway. Uma aplicação pode usar um endpoint compatível para acessar um serviço AWS.
 
@@ -183,28 +157,11 @@ Duas VPCs podem usar peering. Uma empresa com muitas redes pode avaliar Transit 
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 - **consumidor:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
 
-
 **Outra situação comentada:** Três redes precisam comunicação por hub: TGW; consumidor só precisa de serviço privado: PrivateLink.
 
 **Por que não concluir mais do que isso:** Peering não é transitivo; endpoint não substitui IAM
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Duas redes privadas precisam conversar, ou uma aplicação precisa acessar um serviço AWS por conectividade privada. São necessidades diferentes.
-
-**2. O que a solução fornece?**
-
-Peering conecta VPCs; Transit Gateway centraliza conexões entre redes; endpoints fornecem acesso a serviços compatíveis por caminhos privados. Esta ficha compara essas funções.
-
-**3. Que conclusão seria incorreta?**
-
-Criar uma conexão não concede todas as permissões nem configura todas as rotas. Endpoints não equivalem a uma conexão geral entre todas as redes.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -212,36 +169,19 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** VPC Peering.
 
-
-**Fundamento explicado no capítulo:** "Conectar duas VPCs de contas diferentes." → VPC Peering.
-
 **Pergunta:** "A falou com B e B com C; A fala com C via peering?"
 
 **Resposta curta:** Não, peering não é transitivo.
-
-
-**Fundamento explicado no capítulo:** "A falou com B e B com C; A fala com C via peering?" → Não, peering não é transitivo.
 
 **Pergunta:** "Conectar 50 VPCs e o datacenter num hub."
 
 **Resposta curta:** Transit Gateway.
 
-**Antes de ler este trecho:**
-
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-
-
-**Fundamento explicado no capítulo:** "Conectar 50 VPCs e o datacenter num hub." → Transit Gateway.
-
 **Pergunta:** "Acessar o S3 a partir da VPC sem passar pela internet."
 
 **Resposta curta:** Gateway VPC endpoint.
 
-
-**Fundamento explicado no capítulo:** "Acessar o S3 a partir da VPC sem passar pela internet." → Gateway VPC endpoint.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
-
 
 **Passo 1.** Identifique os recursos e o tipo de exposição que precisam de proteção contra sobrecarga.
 
@@ -63,9 +58,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **SRT:** Protocolo de transporte de mídia. Compatibilidade de transmissão depende do produto e da configuração; não é uma classe de armazenamento.
 - **SYN:** Sinalização do início de conexão TCP. Ataques que exploram esse fluxo são diferentes de uma consulta de aplicação autorizada.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | | **Shield Standard** | **Shield Advanced** |
 |---|---|---|
 | Custo | **Gratuito**, automático para todos | 📌 **US$ 3.000/mês por organização**, compromisso de **1 ano** + data transfer out dos recursos protegidos |
@@ -76,8 +68,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Visibilidade | Básica | Métricas, relatórios e diagnóstico de ataques em tempo quase real |
 | WAF | Pago à parte | **Sem custo adicional** nos recursos protegidos |
 | Outros | — | Detecção e mitigação automática na camada 7, health-based detection, proteção de grupos, integração com Firewall Manager |
-
-
 
 A assinatura do Advanced cobre **todas as contas** da Organization.
 
@@ -90,7 +80,6 @@ A assinatura do Advanced cobre **todas as contas** da Organization.
 - **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
 - **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
-
 ✔️ Para acionar o SRT é preciso plano **Business Support+, Enterprise ou Unified Operations** (a fonte cita "Business Support") (documentação do AWS CloudFormation, 10/2026) e uma IAM role que autorize o SRT (política gerenciada `AWSShieldDRTAccessPolicy`).
 
 ## 3. Como escolher e reconhecer os limites
@@ -100,7 +89,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 **Antes de ler este trecho:**
 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 
 Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
 
@@ -112,20 +100,13 @@ Shield não elimina todos os riscos de segurança nem substitui regras de acesso
 - **SQL injection:** Tentativa de manipular comandos de banco por entradas indevidas. Proteger a entrada não dispensa corrigir como a aplicação constrói e executa consultas.
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 
-
 "DDoS volumétrico" → Shield. "SQL injection/XSS" → WAF.
-
 
 "Reembolso do custo de escalonamento + especialistas 24/7" → **Shield Advanced**.
 
-
 "Proteção DDoS que todo cliente tem sem custo" → **Shield Standard**.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Um site público usa os recursos de proteção aplicáveis à sua arquitetura para reduzir o impacto de tentativas de sobrecarga.
 
@@ -145,28 +126,11 @@ Um site público usa os recursos de proteção aplicáveis à sua arquitetura pa
 
 - **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
 
-
 **Outra situação comentada:** Ataque volumétrico: Shield; requisição HTTP maliciosa: WAF pode complementar.
 
 **Por que não concluir mais do que isso:** Não equivale a filtro de SQL injection nem corrige vulnerabilidades no código
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Muitos pedidos maliciosos podem tentar sobrecarregar um serviço e impedir que pessoas legítimas o utilizem.
-
-**2. O que a solução fornece?**
-
-Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
-
-**3. Que conclusão seria incorreta?**
-
-Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -174,18 +138,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Shield Standard.
 
-
-**Fundamento explicado no capítulo:** "Qual proteção DDoS todo cliente tem sem custo?" → Shield Standard.
-
 **Pergunta:** "Acesso a especialistas 24/7 e proteção de custo durante ataques."
 
 **Resposta curta:** Shield Advanced.
 
-
-**Fundamento explicado no capítulo:** "Acesso a especialistas 24/7 e proteção de custo durante ataques." → Shield Advanced.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

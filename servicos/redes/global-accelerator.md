@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -37,7 +33,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 
 **Passo 1.** Defina destinos compatíveis e o comportamento de atendimento entre eles.
 
@@ -53,7 +48,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **edge location:** Local de infraestrutura usado para aproximar determinadas funções dos usuários, como entrega de conteúdo. Não é uma região completa com todos os serviços.
 
-
 1. O usuário se conecta a um dos **2 IPs estáticos** anycast, que entram na rede AWS pela edge location mais próxima.
 
 **Antes de ler este trecho:**
@@ -61,9 +55,7 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 - **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 
-
 2. O tráfego segue pela **backbone da AWS** (não pela internet pública) até o **endpoint group** da região.
-
 
 3. Health checks redirecionam em segundos para outra região se houver falha.
 
@@ -76,9 +68,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **TCP:** Protocolo de transporte orientado a conexão, com mecanismos de entrega e ordem. É usado por muitas aplicações; não acrescenta criptografia por si só.
 - **UDP:** Protocolo de transporte por datagramas, sem as mesmas garantias de entrega e ordem do TCP. A aplicação precisa lidar com os requisitos que o protocolo não fornece.
 - **ALB / NLB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -97,7 +86,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **CDN:** Rede de distribuição de conteúdo. Ela aproxima entrega de conteúdo dos usuários e pode manter cópias em cache conforme as regras.
 
-
 Ele encaminha tráfego; não guarda cópias de imagens ou páginas como uma CDN. Também não corrige lentidão causada pelo código ou pelo banco.
 
 ### ⚠️ Pegadinhas e não confundir
@@ -106,7 +94,6 @@ Ele encaminha tráfego; não guarda cópias de imagens ou páginas como uma CDN.
 
 - **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
 - **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-
 
 ⚠️ **Não faz cache.** Para cache → CloudFront.
 
@@ -117,7 +104,6 @@ Ele encaminha tráfego; não guarda cópias de imagens ou páginas como uma CDN.
 - **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
 - **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
 
-
 IP fixo **global** → Global Accelerator; IP fixo **regional** → NLB com Elastic IP.
 
 **Antes de ler este trecho:**
@@ -126,7 +112,6 @@ IP fixo **global** → Global Accelerator; IP fixo **regional** → NLB com Elas
 - **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
 - **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
 - **TTL:** Tempo de vida de uma informação. Em DNS pode orientar cache; em um banco pode indicar expiração de itens. O efeito concreto depende do serviço.
-
 
 Failover regional rápido sem depender de TTL de DNS → Global Accelerator (o Route 53 depende do cache DNS dos clientes).
 
@@ -139,7 +124,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-
 
 Taxa fixa por acelerador-hora + **DT-Premium** por GB transferido.
 
@@ -159,28 +143,11 @@ Uma aplicação distribuída usa endereços de entrada fixos e encaminha conexõ
 
 **Decisões que precisam ser tomadas:** Protocolo, regiões, saúde e pesos.
 
-
 **Outra situação comentada:** Usuários globais precisam IPs fixos e tráfego TCP/UDP: Global Accelerator, em vez de escolher CloudFront por palavra global.
 
 **Por que não concluir mais do que isso:** Não é cache/CDN de objetos e não substitui a aplicação
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Usuários de lugares diferentes precisam chegar a aplicações por caminhos de rede mais consistentes, com pontos de entrada fixos.
-
-**2. O que a solução fornece?**
-
-Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
-
-**3. Que conclusão seria incorreta?**
-
-Ele encaminha tráfego; não guarda cópias de imagens ou páginas como uma CDN. Também não corrige lentidão causada pelo código ou pelo banco.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -188,16 +155,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Global Accelerator.
 
-
-**Fundamento explicado no capítulo:** "IPs estáticos globais e failover rápido entre regiões para TCP/UDP." → Global Accelerator.
-
 **Pergunta:** "Jogo multiplayer UDP com usuários no mundo todo."
 
 **Resposta curta:** Global Accelerator.
-
-
-**Fundamento explicado no capítulo:** "Jogo multiplayer UDP com usuários no mundo todo." → Global Accelerator.
-
 
 ## 7. Fontes e próximos passos
 

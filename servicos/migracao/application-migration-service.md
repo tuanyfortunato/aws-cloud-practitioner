@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -37,7 +33,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
 - **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-
 
 **Passo 1.** Prepare servidores compatíveis e o destino de replicação.
 
@@ -53,16 +48,13 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
 
-
 1. Instala o **agente de replicação** no servidor de origem (Windows/Linux).
 
 **Antes de ler este trecho:**
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 2. Replicação **contínua em nível de bloco** para uma *staging area* na AWS.
-
 
 3. **Instâncias de teste** sem afetar a origem.
 
@@ -70,9 +62,7 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **cutover:** Momento planejado de trocar o ambiente em uso pelo destino da migração. Requer validar dependências e planejar a transição dos dados.
 
-
 4. **Cutover**: lança as instâncias finais em minutos; a origem pode ser desligada.
-
 
 5. Ações pós-lançamento automatizam ajustes (instalar agentes, converter licenças, modernizar).
 
@@ -83,7 +73,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **AWS Application Migration Service / Application Migration Service:** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
 - **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
 
-
 O serviço hoje se chama **AWS Transform MGN**. O exam guide e a lista de serviços ainda usam **AWS Application Migration Service** — é esse o nome que aparece na prova.
 
 ### Destaques
@@ -92,16 +81,13 @@ O serviço hoje se chama **AWS Transform MGN**. O exam guide e a lista de servi�
 
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 
-
 Suporta qualquer aplicação/banco que rode no servidor; converte automaticamente para rodar em EC2.
-
 
 **Gratuito por 2.160 horas (90 dias de uso contínuo) por servidor de origem** (paga só os recursos de staging e as instâncias).
 
 **Antes de ler este trecho:**
 
 - **SMS:** Mensagem de texto para dispositivos móveis. Integrações e condições de envio são diferentes de e-mail e de entrega a uma fila.
-
 
 Substitui o antigo CloudEndure Migration e o Server Migration Service (SMS).
 
@@ -113,7 +99,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
 
-
 Replicar não moderniza automaticamente o programa nem garante que bancos, DNS e integrações externas estejam prontos. A migração precisa ser testada.
 
 ### ⚠️ Não confundir
@@ -124,14 +109,9 @@ Replicar não moderniza automaticamente o programa nem garante que bancos, DNS e
 - **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 
-
 **MGN** (servidores inteiros) × **DMS** (bancos de dados) × **Elastic Disaster Recovery** (mesma tecnologia, objetivo de DR contínuo).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A equipe replica um servidor do sistema interno, testa sua execução na AWS e planeja o momento de trocar o ambiente em uso.
 
@@ -147,28 +127,11 @@ A equipe replica um servidor do sistema interno, testa sua execução na AWS e p
 
 **Decisões que precisam ser tomadas:** Rede, agente, destino, teste e cutover.
 
-
 **Outra situação comentada:** Mover servidor como está: Application Migration Service; copiar banco e converter esquema: outras ferramentas.
 
 **Por que não concluir mais do que isso:** Não refatora aplicação nem elimina teste; nomes comerciais podem mudar
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa quer mover servidores existentes para a AWS mantendo inicialmente boa parte de sua aplicação e configuração, sem reescrever tudo antes da mudança.
-
-**2. O que a solução fornece?**
-
-Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
-
-**3. Que conclusão seria incorreta?**
-
-Replicar não moderniza automaticamente o programa nem garante que bancos, DNS e integrações externas estejam prontos. A migração precisa ser testada.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -176,22 +139,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Application Migration Service.
 
-
-**Fundamento explicado no capítulo:** "Migrar servidores físicos e VMs para EC2 sem mudar nada, com pouca indisponibilidade." → Application Migration Service.
-
 **Pergunta:** "Ferramenta da estratégia Rehost."
 
 **Resposta curta:** Application Migration Service.
 
-**Antes de ler este trecho:**
-
-- **rehost:** Mover um sistema com poucas mudanças iniciais. A infraestrutura muda, mas isso não moderniza automaticamente o software.
-
-
-**Fundamento explicado no capítulo:** "Ferramenta da estratégia Rehost." → Application Migration Service.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -38,7 +34,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
 - **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
 - **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
-
 
 **Passo 1.** Escolha como cadastrar e autenticar usuários do aplicativo.
 
@@ -58,7 +53,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **SAML / OIDC:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
 - **JWT:** Formato de token com informações verificáveis. Receber um token não dispensa validar sua origem, condições e permissões na aplicação.
 
-
 **O que faz:** Diretório de usuários: **cadastro e login**, verificação de e-mail/telefone, recuperação de senha, **MFA**, **login social** (Google, Facebook, Apple, Amazon), SAML/OIDC, UI hospedada (*managed login*), tokens JWT.
 
 **Identity pools**
@@ -71,7 +65,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
 - **STS:** Serviço que fornece credenciais temporárias AWS. Essas credenciais permitem uma sessão autorizada dentro das permissões aplicáveis.
 
-
 **O que faz:** Trocam uma identidade (user pool, social, SAML ou visitante) por **credenciais AWS temporárias** (via STS) para acessar S3, DynamoDB etc. direto do app.
 
 ### Configurações
@@ -83,9 +76,7 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 
-
 Políticas de senha, MFA adaptativo e proteção contra credenciais comprometidas (*threat protection*), gatilhos Lambda (personalizar fluxos), integração com ALB e API Gateway para autenticação.
-
 
 Planos de recursos: Lite, Essentials e Plus.
 
@@ -105,7 +96,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **MAU:** Usuários ativos mensais, uma unidade usada em determinadas cobranças de identidade. A definição de atividade depende da oferta.
 
-
 Por **usuário ativo mensal (MAU)**, conforme o plano; identity pools sem custo próprio.
 
 ## 5. Caso resolvido: ligando as peças
@@ -124,28 +114,11 @@ Alunos fazem login no aplicativo da escola por um cadastro Cognito. Depois, a ap
 
 **Decisões que precisam ser tomadas:** Métodos de login, federação, MFA e roles.
 
-
 **Outra situação comentada:** App precisa login social e acesso limitado a recurso: combine capacidades conforme requisito.
 
 **Por que não concluir mais do que isso:** User pool e identity pool não são o mesmo recurso; login não concede toda ação AWS
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Seu aplicativo precisa que clientes criem contas, façam login e provem sua identidade sem você construir do zero todo esse mecanismo.
-
-**2. O que a solução fornece?**
-
-Cognito oferece recursos de identidade para usuários de aplicações. User pools cuidam de cadastro e autenticação; identity pools podem fornecer credenciais AWS temporárias conforme a configuração.
-
-**3. Que conclusão seria incorreta?**
-
-Login válido não significa autorização para qualquer operação. A aplicação ainda precisa decidir quais dados e ações cada usuário pode acessar.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -157,23 +130,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
 
-
-**Fundamento explicado no capítulo:** "Permitir login com Google num app mobile." → Cognito.
-
 **Pergunta:** "App mobile precisa enviar fotos direto ao S3 com credenciais temporárias."
 
 **Resposta curta:** Cognito identity pool.
 
-
-**Fundamento explicado no capítulo:** "App mobile precisa enviar fotos direto ao S3 com credenciais temporárias." → Cognito identity pool.
-
 **Pergunta:** "Cognito ou Identity Center para funcionários acessarem o console?"
 
 **Resposta curta:** Identity Center.
-
-
-**Fundamento explicado no capítulo:** "Cognito ou Identity Center para funcionários acessarem o console?" → Identity Center.
-
 
 ## 7. Fontes e próximos passos
 
