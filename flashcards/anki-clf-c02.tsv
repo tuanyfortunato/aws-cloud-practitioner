@@ -114,23 +114,16 @@ Por que distribuir uma aplicação em várias AZs aumenta a disponibilidade?	Por
 Quando usar várias Regiões?	Para recuperação de desastres, continuidade de negócios, baixa latência para usuários em outros lugares do mundo e soberania de dados.	CLF-C02 dominio-3 secao-3_2
 Quais fatores pesam na escolha de uma Região?	Conformidade com leis e regras sobre os dados, latência para os usuários, custo e disponibilidade dos serviços e recursos necessários.	CLF-C02 dominio-3 secao-3_2
 Para que servem os locais de borda?	Para rodar serviços perto dos usuários, como o CloudFront (entrega de conteúdo), o Route 53 (DNS) e o Global Accelerator, reduzindo a latência.	CLF-C02 dominio-3 secao-3_2
-Qual família de instância para aplicação com uso intenso de CPU?	Otimizada para computação (C).	CLF-C02 dominio-3 secao-3_3
-Para banco de dados em memória?	Otimizada para memória (R, X).	CLF-C02 dominio-3 secao-3_3
-Para machine learning com GPU?	Computação acelerada (P, G).	CLF-C02 dominio-3 secao-3_3
-Para servidor web com carga equilibrada?	Uso geral (T, M).	CLF-C02 dominio-3 secao-3_3
-Como instalar pacotes automaticamente ao lançar a instância?	User data.	CLF-C02 dominio-3 secao-3_3
-O que acontece com o instance store ao parar a instância?	Os dados são perdidos.	CLF-C02 dominio-3 secao-3_3
-Como manter um IP público fixo ao trocar de instância?	Elastic IP.	CLF-C02 dominio-3 secao-3_3
-Qual processador oferece melhor preço/desempenho e eficiência energética?	AWS Graviton.	CLF-C02 dominio-3 secao-3_3
-O que é uma AMI?	Modelo com SO e software usado para lançar instâncias.	CLF-C02 dominio-3 secao-3_3
-Como ajustar automaticamente o número de instâncias à demanda?	EC2 Auto Scaling.	CLF-C02 dominio-3 secao-3_4
-A loja tem pico toda sexta às 18h.	Scheduled scaling.	CLF-C02 dominio-3 secao-3_4
-Manter a CPU média do grupo em 50%.	Target tracking.	CLF-C02 dominio-3 secao-3_4
-Como distribuir tráfego entre instâncias em várias AZs?	Elastic Load Balancing.	CLF-C02 dominio-3 secao-3_4
-Qual load balancer roteia por caminho de URL?	ALB.	CLF-C02 dominio-3 secao-3_4
-Qual load balancer para milhões de conexões TCP com IP fixo?	NLB.	CLF-C02 dominio-3 secao-3_4
-Qual load balancer para appliances de firewall de terceiros?	Gateway Load Balancer.	CLF-C02 dominio-3 secao-3_4
-Auto Scaling e ELB juntos garantem o quê?	Alta disponibilidade e elasticidade (instâncias com falha são substituídas e o tráfego vai só para as saudáveis).	CLF-C02 dominio-3 secao-3_4
+Qual tipo de instância usar para uma aplicação limitada pelo processador?	Uma instância otimizada para computação, indicada para processamento em lote, transcodificação de mídia e servidores de jogos.	CLF-C02 dominio-3 secao-3_3
+O que é uma AMI?	É a imagem com o software necessário para iniciar uma instância, como o sistema operacional; pode vir da AWS, do Marketplace, de outra conta ou ser criada por você.	CLF-C02 dominio-3 secao-3_3
+Qual é a diferença entre EBS e instance store?	O EBS é um disco durável que existe independentemente da instância; o instance store é um disco temporário do computador hospedeiro, cujos dados se perdem quando a instância é parada ou encerrada.	CLF-C02 dominio-3 secao-3_3
+O que é cobrado quando uma instância está parada?	O uso da instância não é cobrado, mas os volumes EBS e os endereços IPv4 públicos, como Elastic IPs, continuam sendo cobrados.	CLF-C02 dominio-3 secao-3_3
+Quem atualiza o sistema operacional de uma instância do EC2?	O cliente, porque o EC2 é IaaS: a AWS cuida do hardware e da virtualização, e o cliente controla o sistema operacional e o que roda nele.	CLF-C02 dominio-3 secao-3_3
+O que o Amazon EC2 Auto Scaling faz?	Ajusta o número de instâncias de um grupo à demanda, entre a capacidade mínima e a máxima, e substitui instâncias com defeito para manter a capacidade desejada.	CLF-C02 dominio-3 secao-3_4
+Qual é a diferença entre escala programada, dinâmica e preditiva?	A programada muda a capacidade em horários definidos; a dinâmica reage à carga atual, como manter 50% de CPU; a preditiva usa o histórico para aumentar a capacidade antes da carga prevista.	CLF-C02 dominio-3 secao-3_4
+Para que serve um balanceador de carga?	Para distribuir o tráfego entre vários destinos, em uma ou mais AZs, enviando-o só para os que estão saudáveis, com um único ponto de contato para os clientes.	CLF-C02 dominio-3 secao-3_4
+Quando usar um Application Load Balancer e quando usar um Network Load Balancer?	O ALB, que trabalha na camada 7, serve para rotear pedidos HTTP pelo caminho da URL ou pelo nome do site; o NLB, na camada 4, serve para milhões de pedidos por segundo e IP fixo por AZ.	CLF-C02 dominio-3 secao-3_4
+Por que Auto Scaling e balanceador de carga costumam ser usados juntos?	Porque o Auto Scaling cria e remove instâncias, e o balanceador distribui o tráfego entre elas; as instâncias criadas são registradas no balanceador automaticamente.	CLF-C02 dominio-3 secao-3_4
 Qual serviço executa código sem servidores, em resposta a eventos?	Lambda.	CLF-C02 dominio-3 secao-3_5
 Qual é o tempo máximo de execução do Lambda?	15 minutos.	CLF-C02 dominio-3 secao-3_5
 Como o Lambda é cobrado?	No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação.	CLF-C02 dominio-3 secao-3_5

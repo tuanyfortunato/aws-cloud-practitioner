@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 143 cards
+**Total:** 136 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -74,108 +74,66 @@ Para rodar serviços perto dos usuários, como o CloudFront (entrega de conteúd
 ## [3.3 Amazon EC2](../docs/03-tecnologia-e-servicos/03-ec2.md)
 
 <details>
-<summary>Qual família de instância para aplicação com uso intenso de CPU?</summary>
+<summary>Qual tipo de instância usar para uma aplicação limitada pelo processador?</summary>
 
-Otimizada para computação (C).
-</details>
-
-<details>
-<summary>Para banco de dados em memória?</summary>
-
-Otimizada para memória (R, X).
-</details>
-
-<details>
-<summary>Para machine learning com GPU?</summary>
-
-Computação acelerada (P, G).
-</details>
-
-<details>
-<summary>Para servidor web com carga equilibrada?</summary>
-
-Uso geral (T, M).
-</details>
-
-<details>
-<summary>Como instalar pacotes automaticamente ao lançar a instância?</summary>
-
-User data.
-</details>
-
-<details>
-<summary>O que acontece com o instance store ao parar a instância?</summary>
-
-Os dados são perdidos.
-</details>
-
-<details>
-<summary>Como manter um IP público fixo ao trocar de instância?</summary>
-
-Elastic IP.
-</details>
-
-<details>
-<summary>Qual processador oferece melhor preço/desempenho e eficiência energética?</summary>
-
-AWS Graviton.
+Uma instância otimizada para computação, indicada para processamento em lote, transcodificação de mídia e servidores de jogos.
 </details>
 
 <details>
 <summary>O que é uma AMI?</summary>
 
-Modelo com SO e software usado para lançar instâncias.
+É a imagem com o software necessário para iniciar uma instância, como o sistema operacional; pode vir da AWS, do Marketplace, de outra conta ou ser criada por você.
+</details>
+
+<details>
+<summary>Qual é a diferença entre EBS e instance store?</summary>
+
+O EBS é um disco durável que existe independentemente da instância; o instance store é um disco temporário do computador hospedeiro, cujos dados se perdem quando a instância é parada ou encerrada.
+</details>
+
+<details>
+<summary>O que é cobrado quando uma instância está parada?</summary>
+
+O uso da instância não é cobrado, mas os volumes EBS e os endereços IPv4 públicos, como Elastic IPs, continuam sendo cobrados.
+</details>
+
+<details>
+<summary>Quem atualiza o sistema operacional de uma instância do EC2?</summary>
+
+O cliente, porque o EC2 é IaaS: a AWS cuida do hardware e da virtualização, e o cliente controla o sistema operacional e o que roda nele.
 </details>
 
 
 ## [3.4 Escalabilidade e balanceamento de carga](../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md)
 
 <details>
-<summary>Como ajustar automaticamente o número de instâncias à demanda?</summary>
+<summary>O que o Amazon EC2 Auto Scaling faz?</summary>
 
-EC2 Auto Scaling.
+Ajusta o número de instâncias de um grupo à demanda, entre a capacidade mínima e a máxima, e substitui instâncias com defeito para manter a capacidade desejada.
 </details>
 
 <details>
-<summary>A loja tem pico toda sexta às 18h.</summary>
+<summary>Qual é a diferença entre escala programada, dinâmica e preditiva?</summary>
 
-Scheduled scaling.
+A programada muda a capacidade em horários definidos; a dinâmica reage à carga atual, como manter 50% de CPU; a preditiva usa o histórico para aumentar a capacidade antes da carga prevista.
 </details>
 
 <details>
-<summary>Manter a CPU média do grupo em 50%.</summary>
+<summary>Para que serve um balanceador de carga?</summary>
 
-Target tracking.
+Para distribuir o tráfego entre vários destinos, em uma ou mais AZs, enviando-o só para os que estão saudáveis, com um único ponto de contato para os clientes.
 </details>
 
 <details>
-<summary>Como distribuir tráfego entre instâncias em várias AZs?</summary>
+<summary>Quando usar um Application Load Balancer e quando usar um Network Load Balancer?</summary>
 
-Elastic Load Balancing.
+O ALB, que trabalha na camada 7, serve para rotear pedidos HTTP pelo caminho da URL ou pelo nome do site; o NLB, na camada 4, serve para milhões de pedidos por segundo e IP fixo por AZ.
 </details>
 
 <details>
-<summary>Qual load balancer roteia por caminho de URL?</summary>
+<summary>Por que Auto Scaling e balanceador de carga costumam ser usados juntos?</summary>
 
-ALB.
-</details>
-
-<details>
-<summary>Qual load balancer para milhões de conexões TCP com IP fixo?</summary>
-
-NLB.
-</details>
-
-<details>
-<summary>Qual load balancer para appliances de firewall de terceiros?</summary>
-
-Gateway Load Balancer.
-</details>
-
-<details>
-<summary>Auto Scaling e ELB juntos garantem o quê?</summary>
-
-Alta disponibilidade e elasticidade (instâncias com falha são substituídas e o tráfego vai só para as saudáveis).
+Porque o Auto Scaling cria e remove instâncias, e o balanceador distribui o tráfego entre elas; as instâncias criadas são registradas no balanceador automaticamente.
 </details>
 
 
