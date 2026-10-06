@@ -29,22 +29,16 @@ Uma loja tem servidores ociosos o ano todo, exceto na Black Friday. Qual vantage
 Por que a AWS consegue preços menores que uma empresa sozinha?	Pelas economias de escala: o uso de centenas de milhares de clientes é somado, o que permite custos menores, repassados no preço por uso.	CLF-C02 dominio-1 secao-1_2
 O que quer dizer trocar CapEx por OpEx?	Trocar o investimento antecipado em equipamento (despesa de capital) por gastos contínuos de acordo com o uso (despesa operacional). É a vantagem de trocar despesa fixa por variável.	CLF-C02 dominio-1 secao-1_2
 Como a nuvem ajuda a atender usuários em outros continentes?	Permitindo implantar a aplicação em várias Regiões do mundo com poucos cliques, mais perto dos usuários, o que reduz a latência. É a vantagem de tornar-se global em minutos.	CLF-C02 dominio-1 secao-1_2
-A aplicação adiciona instâncias no pico e remove de madrugada, sozinha.	Elasticidade.	CLF-C02 dominio-1 secao-1_3
-Como garantir que a falha de um datacenter não derrube a aplicação?	Implantar em várias AZs (alta disponibilidade).	CLF-C02 dominio-1 secao-1_3
-Qual estratégia de DR tem menor custo?	Backup and Restore.	CLF-C02 dominio-1 secao-1_3
-E menor tempo de recuperação?	Multi-site active/active.	CLF-C02 dominio-1 secao-1_3
-Como evitar que a falha de um componente afete os outros?	Acoplamento fraco com SQS, SNS ou EventBridge.	CLF-C02 dominio-1 secao-1_3
-O que significa RPO de 1 hora?	Aceita-se perder no máximo 1 hora de dados.	CLF-C02 dominio-1 secao-1_3
-Aumentar o tamanho da instância é escala...	Vertical.	CLF-C02 dominio-1 secao-1_3
-Adicionar instâncias é...	Horizontal.	CLF-C02 dominio-1 secao-1_3
-Quantos e quais são os pilares?	Seis: Excelência Operacional, Segurança, Confiabilidade, Eficiência de Performance, Otimização de Custos e Sustentabilidade.	CLF-C02 dominio-1 secao-1_4
-Qual pilar inclui recuperar automaticamente de falhas e escalar horizontalmente?	Confiabilidade.	CLF-C02 dominio-1 secao-1_4
-Qual pilar inclui rastreabilidade e menor privilégio?	Segurança.	CLF-C02 dominio-1 secao-1_4
-Qual pilar inclui fazer mudanças pequenas, frequentes e reversíveis?	Excelência Operacional.	CLF-C02 dominio-1 secao-1_4
-Qual pilar inclui usar serverless e experimentar com frequência?	Eficiência de Performance.	CLF-C02 dominio-1 secao-1_4
-Qual pilar inclui adotar o modelo de consumo e analisar gastos?	Otimização de Custos.	CLF-C02 dominio-1 secao-1_4
-Qual pilar foi o último adicionado e trata de impacto ambiental?	Sustentabilidade.	CLF-C02 dominio-1 secao-1_4
-Qual ferramenta revisa uma carga de trabalho contra os pilares?	AWS Well-Architected Tool.	CLF-C02 dominio-1 secao-1_4
+Qual é a diferença entre escala vertical e horizontal?	Escala vertical é usar uma instância maior; escala horizontal é adicionar mais instâncias e dividir o trabalho entre elas.	CLF-C02 dominio-1 secao-1_3
+O que a elasticidade tem a mais que a escalabilidade?	A elasticidade ajusta a capacidade para cima e para baixo acompanhando a demanda, de preferência automaticamente; a escalabilidade é só a capacidade de crescer.	CLF-C02 dominio-1 secao-1_3
+Uma aplicação roda em uma única instância EC2. Ela tem alta disponibilidade?	Não. Alta disponibilidade exige componentes redundantes em locais que não falham juntos, como instâncias em mais de uma Zona de Disponibilidade.	CLF-C02 dominio-1 secao-1_3
+O que significam RTO e RPO?	RTO é o tempo máximo aceitável entre a interrupção e a restauração do serviço; RPO é o tempo máximo aceitável desde o último ponto de recuperação dos dados, ou seja, quantos dados se aceita perder.	CLF-C02 dominio-1 secao-1_3
+Qual é a diferença entre pilot light e warm standby?	No pilot light, só os dados e o núcleo da infraestrutura ficam ligados, e a aplicação precisa ser ativada antes de atender; no warm standby, uma cópia reduzida e funcional já atende tráfego.	CLF-C02 dominio-1 secao-1_3
+Quais são os seis pilares do Well-Architected Framework?	Excelência operacional, segurança, confiabilidade, eficiência de performance, otimização de custos e sustentabilidade.	CLF-C02 dominio-1 secao-1_4
+"""Escalar horizontalmente para reduzir o impacto de uma única falha"" é princípio de qual pilar?"	Confiabilidade, que também inclui recuperar-se automaticamente de falhas, testar a recuperação, parar de adivinhar capacidade e gerenciar mudanças com automação.	CLF-C02 dominio-1 secao-1_4
+"""Fazer mudanças frequentes, pequenas e reversíveis"" pertence a qual pilar?"	Excelência operacional, o pilar de operar e evoluir a carga de trabalho, junto com observabilidade, automação e aprendizado com os eventos.	CLF-C02 dominio-1 secao-1_4
+O que o pilar de sustentabilidade recomenda sobre utilização dos recursos?	Maximizar a utilização: dimensionar corretamente e evitar recursos ociosos, porque poucos servidores bem usados gastam menos energia que muitos subutilizados.	CLF-C02 dominio-1 secao-1_4
+Para que serve a AWS Well-Architected Tool?	Para revisar e medir uma carga de trabalho com base no framework, documentar decisões, receber recomendações e acompanhar melhorias, sem cobrança adicional.	CLF-C02 dominio-1 secao-1_4
 Qual perspectiva do CAF trata de treinamento, cultura e mudança organizacional?	People.	CLF-C02 dominio-1 secao-1_5
 Qual perspectiva garante que a estratégia de nuvem gere valor de negócio?	Business.	CLF-C02 dominio-1 secao-1_5
 Qual perspectiva cuida de risco, orçamento e gestão do programa?	Governance.	CLF-C02 dominio-1 secao-1_5
