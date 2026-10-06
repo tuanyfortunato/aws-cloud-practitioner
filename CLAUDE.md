@@ -4,7 +4,7 @@
 
 - **Nunca** faça commit ou push direto na `main`.
 - Toda mudança vai numa branch nova (`claude/<descricao-curta>`) e chega à `main` por **Pull Request**.
-- Abra o PR e espere a aprovação da dona do repositório; não faça merge por conta própria.
+- Abra o PR e, quando o gerador, os testes e o verificador de links passarem (ver abaixo), faça você mesmo o merge na `main`. A dona do repositório decidiu assim em 06/10/2026; ela pode revisar e reverter depois.
 
 ## Antes de abrir um PR
 

@@ -13,7 +13,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética. O glossário serve 
 | **AMI** | *Amazon Machine Image*: modelo para lançar instâncias EC2 |
 | **API** | Conjunto de operações que um programa oferece a outros; os serviços da AWS são usados por API ([aula 0.4](docs/fundamentos/04-api-e-filas.md)) |
 | **Armazenamento de arquivos** | Pastas compartilhadas pela rede entre várias máquinas; na AWS, EFS ([aula 0.3](docs/fundamentos/03-dados.md)) |
-| **Armazenamento de objetos** | Cada arquivo vira um objeto com conteúdo, chave e metadados, gravado e lido inteiro por API; na AWS, S3 ([aula 0.3](docs/fundamentos/03-dados.md)) |
+| **Armazenamento de objetos** | Cada arquivo vira um objeto com conteúdo, chave e metadados, gravado inteiro e lido por API; na AWS, S3 ([aula 0.3](docs/fundamentos/03-dados.md)) |
 | **Armazenamento em bloco** | Disco dividido em blocos e formatado pelo sistema operacional; na AWS, EBS ([aula 0.3](docs/fundamentos/03-dados.md)) |
 | **ARN** | *Amazon Resource Name*: identificador único de um recurso (`arn:aws:s3:::bucket`) |
 | **ASG** | *Auto Scaling Group*: grupo de instâncias EC2 que o EC2 Auto Scaling mantém na quantidade desejada, trocando as que falham e somando ou retirando instâncias entre o mínimo e o máximo |
@@ -59,7 +59,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética. O glossário serve 
 | **GPU** | Processador especializado em fazer muitos cálculos em paralelo, usado em gráficos e em aprendizado de máquina |
 | **Graviton** | Processadores ARM da AWS: melhor preço/desempenho e eficiência energética |
 | **Híbrido** | Parte on-premises, parte na nuvem, conectadas |
-| **Hipervisor** | Camada que divide um servidor físico em máquinas virtuais (na AWS, Nitro) — responsabilidade da AWS ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
+| **Hipervisor** | Camada que divide um servidor físico em máquinas virtuais (na AWS, o Nitro nas instâncias atuais; algumas antigas, como a T2, usam Xen) — responsabilidade da AWS ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
 | **HPC** | *High performance computing*: cálculos intensivos, como simulações, divididos entre muitos processadores trabalhando juntos |
 | **HSM** | *Hardware security module* (KMS usa HSMs compartilhados; CloudHSM é dedicado) |
 | **HTTP** | Protocolo de pedidos e respostas usado pela web e pela maioria das APIs; o HTTPS é a versão cifrada ([aula 0.2](docs/fundamentos/02-rede.md)) |
@@ -97,7 +97,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética. O glossário serve 
 | **Porta** | Número que indica qual programa da máquina recebe os dados: 443 (HTTPS), 80 (HTTP), 22 (SSH) ([aula 0.2](docs/fundamentos/02-rede.md)) |
 | **Presigned URL** | URL temporária para acessar um objeto privado do S3 |
 | **Publicação e inscrição (pub/sub)** | Uma mensagem publicada num tópico chega a todos os inscritos; na AWS, SNS ([aula 0.4](docs/fundamentos/04-api-e-filas.md)) |
-| **Quota** | Limite de uso de um serviço numa conta, em geral por região; algumas podem ser aumentadas por pedido no Service Quotas, outras não |
+| **Quota** | Limite de uso de um serviço, que vale por conta (como funções do IAM) ou por região (como VPCs); algumas podem ser aumentadas por pedido no Service Quotas, outras não |
 | **RAG** | *Retrieval-augmented generation*: IA generativa usando seus documentos (Bedrock Knowledge Bases) |
 | **RCU / WCU** | Unidades de capacidade de leitura/escrita do DynamoDB |
 | **Recurso** | Algo que você cria e administra num serviço, como uma instância, um bucket ou uma tabela |
@@ -127,7 +127,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética. O glossário serve 
 | **Throughput** | Quantidade de dados transferida por unidade de tempo, em geral em bytes por segundo |
 | **Tolerância a falhas** | Continuar funcionando sem interrupção percebida quando um componente falha |
 | **TTL** | *Time to live*: por quanto tempo um dado continua válido antes de expirar, como um registro DNS em cache ou um item do DynamoDB |
-| **vCPU** | Processador virtual de uma instância; na maioria das instâncias x86 do EC2, cada vCPU é uma thread de um núcleo do processador |
+| **vCPU** | Processador virtual de uma instância; nas instâncias com multithreading, cada vCPU é uma thread de um núcleo (um m5.xlarge tem 2 núcleos e 4 vCPUs) |
 | **VPC** | *Virtual Private Cloud*: rede privada isolada numa região |
 | **Well-Architected** | Framework com 6 pilares de boas práticas |
 | **Workload** | Conjunto de recursos e código que entrega um resultado de negócio, como uma aplicação inteira |

@@ -59,7 +59,7 @@ sequenceDiagram
 
 ## Onde isso aparece na AWS
 
-Na AWS, a rede privada do cliente é a **VPC** (Virtual Private Cloud): uma rede virtual dedicada à sua conta e isolada logicamente das outras redes da AWS. Dentro dela você cria **sub-redes**, que são faixas de endereços IP onde ficam recursos como as instâncias EC2. Uma sub-rede é **pública** quando sua tabela de rotas tem uma rota para um **internet gateway**, a ponte entre a VPC e a internet; sem essa rota, ela é privada. É a mesma ideia de rota desta aula.
+Na AWS, a rede privada do cliente é a **VPC** (Virtual Private Cloud): uma rede virtual dedicada à sua conta e isolada logicamente das outras redes virtuais da nuvem AWS. Dentro dela você cria **sub-redes**, que são faixas de endereços IP onde ficam recursos como as instâncias EC2. Uma sub-rede é **pública** quando sua tabela de rotas tem uma rota para um **internet gateway**, a ponte entre a VPC e a internet; sem essa rota, ela é privada. É a mesma ideia de rota desta aula.
 
 As regras de porta ficam nos **security groups**, que funcionam como um firewall virtual da instância: cada regra diz qual protocolo, qual porta e qual origem podem entrar ou qual destino pode sair. O DNS da AWS é o **Amazon Route 53**, que traduz nomes de domínio em endereços IP. E o certificado do HTTPS pode ficar num balanceador de carga, escolhido no **AWS Certificate Manager**. Tudo isso volta com detalhe nas aulas [2.8](../02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md) e [3.10](../03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md).
 
@@ -150,7 +150,7 @@ Sem essa rota, a sub-rede é privada, e os recursos nela não são alcançáveis
 
 Verificadas em 06/10/2026.
 
-- [How Amazon VPC works](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html): VPC é uma rede virtual dedicada à conta e isolada logicamente; sub-rede é uma faixa de endereços IP da VPC; uma sub-rede com rota para um internet gateway é pública.
+- [How Amazon VPC works](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html): VPC é uma rede virtual dedicada à conta e isolada logicamente das outras redes virtuais da nuvem AWS; sub-rede é uma faixa de endereços IP da VPC; uma sub-rede com rota para um internet gateway é pública.
 - [Enable internet access for a VPC using an internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html): o internet gateway liga os recursos das sub-redes públicas à internet.
 - [Control traffic to your AWS resources using security groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html): security groups funcionam como firewall virtual e cada regra define protocolo, porta e origem ou destino.
 - [How internet traffic is routed to your website or web application](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html): Route 53 traduz nomes de domínio em endereços IP.

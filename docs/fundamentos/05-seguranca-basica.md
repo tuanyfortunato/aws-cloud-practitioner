@@ -53,7 +53,7 @@ flowchart LR
 
 Na AWS, identidades e permissões ficam no **AWS IAM** (Identity and Access Management). Com ele, quem administra a conta controla quem pode ser autenticado, isto é, entrar, e quem é autorizado, isto é, tem permissão para usar cada recurso. As permissões são escritas em **políticas**, e a própria AWS recomenda conceder só as permissões necessárias para cada tarefa (menor privilégio) e exigir MFA. O IAM é o assunto da aula [2.3](../02-seguranca-e-conformidade/03-iam.md).
 
-Para criptografia, o **AWS KMS** (Key Management Service) cria e controla as chaves usadas para cifrar os dados. A maioria dos serviços da AWS consegue cifrar os dados em repouso com chaves do KMS, e o cliente decide quem pode usar cada chave. A aula [2.5](../02-seguranca-e-conformidade/05-criptografia.md) detalha as opções. Pelo modelo de responsabilidade compartilhada, configurar identidades, permissões e criptografia dos próprios dados é tarefa do cliente.
+Para criptografia, o **AWS KMS** (Key Management Service) cria e controla as chaves usadas para cifrar os dados. O KMS é integrado à maioria dos serviços da AWS que cifram dados, e, nas chaves que cria, o cliente decide quem pode usá-las. A aula [2.5](../02-seguranca-e-conformidade/05-criptografia.md) detalha as opções. Pelo modelo de responsabilidade compartilhada, configurar identidades, permissões e criptografia dos próprios dados é tarefa do cliente.
 
 ## Na prova
 
@@ -131,10 +131,12 @@ Uma não substitui a outra. Nas duas, a segurança depende de controlar quem pod
 
 Verificadas em 06/10/2026.
 
-- [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html): o IAM controla quem pode ser autenticado e autorizado a usar os recursos; a AWS recomenda conceder só as permissões necessárias (menor privilégio) e exigir MFA.
+- [What is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html): o IAM controla quem é autenticado (entra) e autorizado (tem permissão) a usar os recursos.
+- [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html): a AWS recomenda aplicar permissões de menor privilégio e exigir MFA.
 - [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html): o KMS cria e controla as chaves criptográficas que protegem os dados.
 - [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/): a segurança na nuvem é do cliente, incluindo os dados, as opções de criptografia e as permissões configuradas no IAM.
-- [Data protection in AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/data-protection.html): a maioria dos serviços da AWS cifra dados em repouso com chaves do KMS, e o cliente controla quando essas chaves podem ser usadas.
+- [AWS KMS FAQs](https://aws.amazon.com/kms/faqs/): o KMS é integrado à maioria dos outros serviços da AWS para cifrar os dados guardados neles.
+- [Data protection in AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/data-protection.html): nas chaves gerenciadas pelo cliente, a conta dona tem controle total e exclusivo das políticas que autorizam o uso da chave.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
