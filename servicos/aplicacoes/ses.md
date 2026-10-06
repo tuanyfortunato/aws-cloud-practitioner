@@ -1,98 +1,40 @@
+<!-- autoral -->
+
 # Amazon SES (Simple Email Service)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma aplicação precisa enviar mensagens por e-mail, como confirmações e avisos, sem construir sua própria infraestrutura de envio.
-
-**Como este serviço ajuda?** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
-
-**Exemplo do dia a dia:** O sistema da escola envia uma confirmação de matrícula usando uma identidade autorizada no SES.
-
-**O que ele não resolve sozinho?** Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificação de identidade, limites, reputação e tratamento de devoluções importam. Também não é uma caixa postal pessoal completa.
-
-**Primeiras palavras para entender:**
-
-- **Identidade:** endereço ou domínio autorizado.
-- **Bounce:** mensagem devolvida.
-- **Reputação:** avaliação do comportamento de envio.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Aplicações de negócio / e-mail · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
+> **Categoria:** Aplicações de negócio / e-mail · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** envio (e recebimento) de **e-mails** transacionais e de marketing em grande volume.
+> **Em uma frase:** plataforma de e-mail para enviar e receber mensagens com os endereços e domínios da própria empresa: transacionais, de marketing e boletins.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 
-**Passo 1.** Verifique a identidade de envio e prepare as condições de acesso e volume aplicáveis.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Faça a aplicação solicitar o envio de uma mensagem com conteúdo e destinatário pertinentes.
+---
 
-**Passo 3.** Acompanhe devoluções, reclamações e reputação. Aceitar uma solicitação de envio não garante chegada à caixa principal do destinatário.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+Os e-mails de confirmação de matrícula às vezes caem no spam, e manter um servidor de e-mail exige cuidar da rede e da reputação dos endereços IP. O **Amazon SES** é a plataforma de e-mail da AWS: a escola envia com o próprio domínio, sem montar essa infraestrutura.
 
-### Configurações importantes
+1. A escola configura e verifica o domínio ou o endereço que vai enviar.
+2. A aplicação envia os e-mails pelo SDK, pela interface SMTP ou pela API do SES.
+3. Seguem e-mails transacionais (confirmação de matrícula), de marketing (convite para um evento) e boletins.
+4. Para e-mails recebidos, o SES pode acionar software, como respostas automáticas ou abertura de chamados.
 
-| Item | Detalhe |
-|---|---|
-| **Sandbox** | Contas novas só enviam para endereços verificados, com limites baixos — pedir saída do sandbox para produção. |
-| **Identidades** | Verificar domínio/e-mail; autenticação **SPF, DKIM, DMARC**. |
-| **Envio** | API, SMTP, templates; **IPs dedicados** opcionais. |
-| **Reputação** | Painel de bounces e reclamações; *Virtual Deliverability Manager*. |
-| **Recebimento** | Regras para gravar no S3, acionar Lambda/SNS. |
-| **Mail Manager** | Roteamento e arquivamento de e-mail corporativo. |
+## Não confundir com
 
-## 3. Como escolher e reconhecer os limites
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon SNS](../integracao/sns.md) | Notificação simples por e-mail a quem assinou um tópico | "Avisar assinantes", "tópico" |
+| [Amazon Connect](amazon-connect.md) | Central de atendimento por voz e chat | "Call center" |
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Fontes oficiais
 
-Ele não garante que qualquer mensagem chegará à caixa de entrada. Verificação de identidade, limites, reputação e tratamento de devoluções importam. Também não é uma caixa postal pessoal completa.
+Verificadas em 06/10/2026.
 
-### ⚠️ Não confundir
-
-**SES** (e-mails ricos/formatados em volume) × **SNS** (notificações simples para vários canais) × **WorkMail** (caixa de e-mail corporativa).
-
-## 4. Caso resolvido: ligando as peças
-
-O sistema da escola envia uma confirmação de matrícula usando uma identidade autorizada no SES.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Verifique a identidade de envio e prepare as condições de acesso e volume aplicáveis.
-**Etapa 2:** Faça a aplicação solicitar o envio de uma mensagem com conteúdo e destinatário pertinentes.
-**Etapa 3:** Acompanhe devoluções, reclamações e reputação. Aceitar uma solicitação de envio não garante chegada à caixa principal do destinatário.
-
-**Resultado e responsabilidade:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
-
-**Recursos envolvidos:** Identidades verificadas, envio SMTP/API e eventos.
-
-**Decisões que precisam ser tomadas:** Domínio/remetente, acesso, limites e saída do sandbox.
-
-**Outra situação comentada:** Confirmação de compra por e-mail: SES; caixa de entrada pessoal não é o objetivo principal.
-
-**Por que não concluir mais do que isso:** Sandbox restringe envio; verificar domínio não garante entrega na caixa principal
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Enviar e-mails de confirmação e marketing em massa."
-
-**Resposta curta:** SES.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/Welcome.html)
-
+- [O que é o Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/Welcome.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

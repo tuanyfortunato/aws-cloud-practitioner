@@ -118,9 +118,9 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon Athena](analytics/athena.md) | ✅ | núcleo | Consulta com SQL padrão os dados guardados no Amazon S3, sem servidor e sem mover os dados, cobrando pelos dados lidos em cada consulta. |
 | [AWS Glue](analytics/glue.md) | ✅ | núcleo | Serviço serverless de integração de dados que descobre fontes, mantém um catálogo central e roda pipelines de ETL para preparar os dados para análise. |
 | [Amazon Kinesis e Amazon Data Firehose](analytics/kinesis.md) | ✅ | núcleo | O Kinesis Data Streams coleta e guarda por um tempo fluxos de dados para aplicações processarem em tempo real; o Data Firehose entrega fluxos a destinos como S3 e Redshift sem aplicação para escrever. |
-| [Amazon EMR](analytics/emr.md) | ✅ | complementar | Plataforma gerenciada de **big data** para rodar Apache Spark, Hadoop, Hive, Presto/Trino, HBase e Flink. |
+| [Amazon EMR](analytics/emr.md) | ✅ | complementar | Plataforma gerenciada de clusters para rodar ferramentas de big data de código aberto, como Apache Hadoop e Apache Spark, e processar volumes muito grandes de dados. |
 | [Amazon QuickSight (Amazon Quick Sight)](analytics/quicksight.md) | ✅ | núcleo | Serviço de visualização de dados e BI que se conecta às fontes, cria painéis interativos e permite incorporar análises em aplicações; hoje faz parte do Amazon Quick. |
-| [Amazon OpenSearch Service](analytics/opensearch.md) | ✅ | complementar | Busca de texto, análise de logs e observabilidade com OpenSearch (sucessor do Elasticsearch gerenciado). |
+| [Amazon OpenSearch Service](analytics/opensearch.md) | ✅ | complementar | Serviço gerenciado para implantar, operar e escalar clusters do OpenSearch, para busca, análise de registros e monitoramento de aplicações em tempo real. |
 | [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](analytics/lake-formation-msk-e-outros.md) | 🔀 | referência | Serviços de dados que aparecem como "qual serviço faz X" — saiba a função de cada um. |
 
 ## 🤖 IA e machine learning
@@ -147,24 +147,24 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
 | [Formas de acesso: Console, CLI, SDKs e CloudShell](desenvolvimento/cli-sdk-e-cloudshell.md) | 🔀 | núcleo | As formas de usar a AWS: cliques no console, comandos na CLI, código com os SDKs e um terminal no navegador com o CloudShell, todas chegando às mesmas APIs. |
-| [Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact](desenvolvimento/code-services.md) | 🔀 | complementar | Serviços gerenciados que cobrem a esteira **código → build → teste → deploy**. |
-| [AWS X-Ray](desenvolvimento/x-ray.md) | ✅ | complementar | **rastreamento distribuído** — acompanha cada requisição através dos microsserviços para achar gargalos e erros. |
+| [Ferramentas de CI/CD: CodeBuild e CodePipeline](desenvolvimento/code-services.md) | 🔀 | complementar | O CodeBuild compila e testa o código sem servidores de build; o CodePipeline automatiza a esteira que leva cada mudança do repositório à produção. |
+| [AWS X-Ray](desenvolvimento/x-ray.md) | ✅ | complementar | Coleta dados sobre as requisições que a aplicação atende e mostra o caminho de cada uma pelos serviços, bancos e APIs, para achar lentidão e erros. |
 
 ## 💼 Aplicações de negócio, usuário final e IoT
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Amazon Connect](aplicacoes/amazon-connect.md) | ✅ | complementar | **central de atendimento (contact center) omnicanal na nuvem**, pronta em minutos e paga por uso. |
-| [Amazon SES (Simple Email Service)](aplicacoes/ses.md) | ✅ | complementar | Envio (e recebimento) de **e-mails** transacionais e de marketing em grande volume. |
-| [Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser](aplicacoes/workspaces-e-appstream.md) | ✅ | complementar | Entregam desktops, aplicações ou um navegador seguro hospedados na AWS para qualquer dispositivo. |
-| [AWS Amplify, AWS AppSync e AWS Device Farm](aplicacoes/amplify-e-appsync.md) | 🔀 | complementar | Ferramentas para criar, hospedar, conectar e testar aplicações web e mobile rapidamente. |
-| [AWS IoT Core, IoT Greengrass e outros serviços de IoT](aplicacoes/iot-core-e-greengrass.md) | 🔀 | complementar | Conectar, gerenciar e processar dados de bilhões de dispositivos com segurança — na nuvem e na borda. |
+| [Amazon Connect](aplicacoes/amazon-connect.md) | ✅ | complementar | Central de atendimento (contact center) na nuvem, com voz, chat e SMS, filas, roteamento e IA, cobrada pelo uso. |
+| [Amazon SES (Simple Email Service)](aplicacoes/ses.md) | ✅ | complementar | Plataforma de e-mail para enviar e receber mensagens com os endereços e domínios da própria empresa: transacionais, de marketing e boletins. |
+| [Amazon WorkSpaces, WorkSpaces Applications (AppStream 2.0) e WorkSpaces Secure Browser](aplicacoes/workspaces-e-appstream.md) | ✅ | complementar | Serviços em que o programa roda na AWS e o dispositivo só mostra a tela: desktops virtuais, streaming de aplicações e navegador seguro. |
+| [AWS Amplify](aplicacoes/amplify-e-appsync.md) | 🔀 | complementar | Acelera o desenvolvimento de aplicações web e mobile full-stack: hospeda o front-end a partir do Git e adiciona login, armazenamento e dados sem exigir conhecimento de nuvem. |
+| [AWS IoT Core e IoT Greengrass](aplicacoes/iot-core-e-greengrass.md) | 🔀 | complementar | O IoT Core permite a comunicação segura, nos dois sentidos, entre dispositivos conectados e os serviços da AWS. |
 
 ## 🚚 Migração e transferência
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Migration Evaluator, Application Discovery Service e Migration Hub](migracao/discovery-migration-hub-e-evaluator.md) | ✅ | complementar | As ferramentas das fases **avaliar → planejar → acompanhar** de uma migração. |
+| [Migration Evaluator, Application Discovery Service e Migration Hub](migracao/discovery-migration-hub-e-evaluator.md) | ✅ | complementar | Ferramentas para antes e durante a migração: o Migration Evaluator monta o caso de negócio, o Discovery Service levanta servidores e dependências e o Migration Hub acompanha o andamento. |
 | [AWS Application Migration Service (AWS MGN)](migracao/application-migration-service.md) | ✅ | núcleo | Automatiza o rehost (*lift and shift*) de servidores físicos, virtuais e de outras nuvens para a AWS, com replicação contínua e virada em minutos; hoje se chama AWS Transform MGN. |
 | [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](migracao/dms-e-sct.md) | ✅ | núcleo | O DMS move os dados de um banco para a AWS, uma vez ou com replicação contínua; a SCT converte o esquema quando o banco muda de motor. |
 | [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](migracao/snow-family.md) | ⚪ | referência | Dispositivos físicos robustos para **mover grandes volumes de dados** quando a rede é lenta, cara ou inexistente, e para **computação na borda** desconectada. |

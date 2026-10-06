@@ -10,8 +10,8 @@
 **Exemplo:** Se encontrar um prazo sem confirmação, use as referências verificadas do tópico para estudar e mantenha esse prazo como pendente até haver evidência adequada.
 <!-- didatico:fim -->
 
-> ✅ **Nenhuma pendência aberta** desde a [segunda verificação das pendências](../../fontes/verificacao-pendencias-2026-10-rodada-2.md)
-> (04/10/2026), feita com URL oficial e trecho literal para cada item.
+> ⚠️ **Uma pendência aberta** (06/10/2026). A [segunda verificação das pendências](../../fontes/verificacao-pendencias-2026-10-rodada-2.md)
+> (04/10/2026) resolveu as anteriores, com URL oficial e trecho literal para cada item.
 >
 > Se surgir uma nova dúvida, acrescente aqui: afirmação, onde está no repositório e a task do exam guide.
 > Verificações anteriores: [verificação](../../fontes/verificacao-fontes-oficiais-2026-10.md),
@@ -27,7 +27,7 @@
 
 | # | Afirmação | Onde está | Task |
 |---|---|---|---|
-| — | — | — | — |
+| 31 | A AWS oferece o Migration Evaluator sem custo (não reconfirmado na página do produto nem nas perguntas frequentes em 06/10/2026) | [3.17](../03-tecnologia-e-servicos/17-migracao-e-transferencia.md) | 1.3 |
 
 ## ⚠️ Correções importantes desta rodada
 

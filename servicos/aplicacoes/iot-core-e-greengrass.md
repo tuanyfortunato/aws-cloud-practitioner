@@ -1,132 +1,44 @@
-# AWS IoT Core, IoT Greengrass e outros serviços de IoT
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# AWS IoT Core e IoT Greengrass
 
-**Qual é a dificuldade?** Dispositivos físicos precisam enviar dados e receber comandos. Alguns também precisam executar tarefas perto do equipamento, mesmo com conectividade limitada.
-
-**Como este serviço ajuda?** IoT Core conecta dispositivos à nuvem por mecanismos compatíveis. Greengrass leva funções de software para dispositivos de borda preparados para isso.
-
-**Exemplo do dia a dia:** Sensores de uma escola enviam leituras ao IoT Core. Uma necessidade de processamento local pode levar a uma avaliação separada do Greengrass.
-
-**O que ele não resolve sozinho?** Conectar um dispositivo não cria toda a análise dos dados nem autoriza qualquer equipamento. Identidade, políticas e software são necessários; os produtos têm escopos distintos.
-
-**Primeiras palavras para entender:**
-
-- **IoT:** dispositivos conectados.
-- **Telemetria:** dados enviados por equipamentos.
-- **Borda:** processamento próximo dos dispositivos.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Internet das Coisas · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
+> **Categoria:** Internet das coisas · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** conectar, gerenciar e processar dados de bilhões de dispositivos com segurança — na nuvem e na borda.
+> **Em uma frase:** o IoT Core permite a comunicação segura, nos dois sentidos, entre dispositivos conectados e os serviços da AWS.
 >
 > **Escopo oficial:** 🔀 IoT Core ✅ · IoT Greengrass ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.14 Aplicações de negócio, usuário final, front-end e IoT](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 
-**Passo 1.** Prepare identidade e software dos dispositivos que vão comunicar-se.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure os canais e as permissões para dados e comandos. Avalie processamento local separadamente quando necessário.
+---
 
-**Passo 3.** Acompanhe conexão e resultado. Equipamento conectado não implica que qualquer análise ou atualização já esteja implementada.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+**Internet das coisas** (IoT) é o nome para dispositivos conectados que não são computadores, como sensores e medidores. As salas novas da escola têm sensores de temperatura que precisam mandar leituras para algum lugar. O **AWS IoT Core** conecta, gerencia e escala frotas de dispositivos sem que a escola provisione servidores, com autenticação mútua e criptografia.
 
-### AWS IoT Core
+1. Cada sensor é registrado e recebe credenciais.
+2. O sensor publica as leituras com protocolos como **MQTT** (leve, de publicar e assinar), MQTT sobre WebSockets ou HTTPS.
+3. O IoT Core recebe as mensagens e, com regras, as encaminha a outros serviços da AWS para guardar e analisar.
+4. No sentido contrário, o IoT Core envia comandos aos dispositivos.
 
-**Message broker**
+O AWS IoT Greengrass está fora do escopo da prova.
 
-**Detalhe:** **MQTT** (também MQTT sobre WebSocket, HTTPS, LoRaWAN) — publish/subscribe entre dispositivos e nuvem.
+## Não confundir com
 
-**Autenticação**
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon Kinesis](../analytics/kinesis.md) | Fluxos de dados em tempo real de qualquer origem | "Streaming" |
+| [Amazon SNS](../integracao/sns.md) | Notificações para assinantes | "Avisar por SMS ou e-mail" |
+| [Amazon SQS](../integracao/sqs.md) | Fila entre partes de uma aplicação | "Desacoplar" |
 
-**Detalhe:** Certificados **X.509** por dispositivo, políticas do IoT; TLS mútuo.
+## Fontes oficiais
 
-**Device registry**
+Verificadas em 06/10/2026.
 
-**Detalhe:** Inventário de "things".
-
-**Device Shadow**
-
-**Detalhe:** Estado desejado/reportado do dispositivo, mesmo quando offline.
-
-**Rules engine**
-
-**Detalhe:** Regras SQL que roteiam mensagens para Lambda, DynamoDB, S3, Kinesis, SNS, Timestream…
-
-**Cobrança**
-
-**Detalhe:** Por milhão de mensagens, minutos de conexão, operações do shadow e regras.
-
-### AWS IoT Greengrass ❌
-
-> ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
-
-Runtime de **borda**: executa **Lambda, contêineres e inferência de ML localmente** no dispositivo/gateway, com operação **offline** e sincronização com a nuvem.
-
-### Outros (reconhecer o nome)
-
-| Serviço | Função |
-|---|---|
-| **IoT Device Management** | Organizar, monitorar e atualizar (OTA) frotas |
-| **IoT Device Defender** | Auditar e detectar comportamento anômalo de dispositivos |
-| **IoT SiteWise** | Dados de equipamentos industriais |
-| **FreeRTOS** | Sistema operacional para microcontroladores |
-
-🔄 **IoT Analytics** encerrado em 15/12/2025; **IoT Events** encerrado em 20/05/2026; **IoT FleetWise** fechado a novos clientes desde 30/04/2026 — não estudar.
-
-🎯 Na prova, IoT = **só IoT Core**. **IoT Greengrass** e **IoT Device Defender** estão **fora do escopo**.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Conectar um dispositivo não cria toda a análise dos dados nem autoriza qualquer equipamento. Identidade, políticas e software são necessários; os produtos têm escopos distintos.
-
-## 4. Caso resolvido: ligando as peças
-
-Sensores de uma escola enviam leituras ao IoT Core. Uma necessidade de processamento local pode levar a uma avaliação separada do Greengrass.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Prepare identidade e software dos dispositivos que vão comunicar-se.
-**Etapa 2:** Configure os canais e as permissões para dados e comandos. Avalie processamento local separadamente quando necessário.
-**Etapa 3:** Acompanhe conexão e resultado. Equipamento conectado não implica que qualquer análise ou atualização já esteja implementada.
-
-**Resultado e responsabilidade:** IoT Core conecta dispositivos à nuvem por mecanismos compatíveis. Greengrass leva funções de software para dispositivos de borda preparados para isso.
-
-**Recursos envolvidos:** Dispositivos, certificados, policies, topics e regras; runtime local Greengrass.
-
-**Decisões que precisam ser tomadas:** Identidade do dispositivo, protocolo, topics e destinos.
-
-**Outra situação comentada:** Sensor envia telemetria com identidade própria: IoT Core; processamento local tem necessidade distinta.
-
-**Por que não concluir mais do que isso:** Não fornece conectividade física; Greengrass está fora do escopo consultado
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Conectar milhões de sensores à nuvem com segurança."
-
-**Resposta curta:** IoT Core.
-
-**Pergunta:** "Rodar inferência de ML no dispositivo sem conexão."
-
-**Resposta curta:** IoT Greengrass.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html) · [Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html)
-
+- [O que é o AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html)
+- [Serviços fora do escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 
