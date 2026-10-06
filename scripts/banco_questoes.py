@@ -506,7 +506,7 @@ QUESTOES = [
          enunciado="Uma startup quer o plano de AWS Support pago de MENOR custo, que começa em US$ 29 por mês por conta e oferece resposta em até 30 minutos para casos críticos. Qual plano atende a esse requisito?",
          corretas=["AWS Business Support+"],
          erradas=["Basic", "AWS Enterprise Support", "AWS Unified Operations"],
-         explicacao="O **Business Support+** é o plano pago de entrada do modelo comercial atual (não confundir com os exemplos clássicos ainda citados na task 4.3 consultada): a partir de US$ 29/mês por conta, com resposta de 30 minutos para casos críticos. O Basic é gratuito e não tem suporte técnico; o Enterprise começa em US$ 5.000/mês (15 min); o Unified Operations, em US$ 50.000/mês (5 min)."),
+         explicacao="O **Business Support+** é o plano pago de entrada entre os planos atuais, os mesmos que a task 4.3 do guia do exame cita: a partir de US$ 29/mês por conta, com resposta de 30 minutos para casos críticos. O Basic é gratuito e não tem suporte técnico; o Enterprise começa em US$ 5.000/mês (15 min); o Unified Operations, em US$ 50.000/mês (5 min)."),
     dict(dominio="4", secao="4.5",
          enunciado="Uma grande empresa precisa de um Technical Account Manager (TAM) designado e de resposta em até 15 minutos quando um sistema crítico estiver fora do ar, pelo MENOR custo. Qual plano de suporte atende a esses requisitos?",
          corretas=["AWS Enterprise Support"],

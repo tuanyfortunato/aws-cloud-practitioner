@@ -81,7 +81,7 @@ Elimine as alternativas claramente erradas primeiro; desconfie de serviços fora
 
 Use **marcar para revisão** e volte depois.
 
-Planos de suporte: a task 4.3 consultada ainda cita modelos clássicos, e a página comercial mostra planos novos. Distinga o contexto e leia o requisito; não escolha apenas por um nome ou número atual ([detalhes](atualizacoes-2025-2026.md)).
+Planos de suporte: a task 4.3 cita os planos atuais (Basic Support, Business Support+, Enterprise Support e Unified Operations), conferidos em 06/10/2026. Materiais antigos ainda falam em Developer, Business e Enterprise On-Ramp, que deixam de existir em 01/01/2027 ([detalhes](atualizacoes-2025-2026.md)).
 
 Ao final, revise as marcadas com o tempo restante.
 

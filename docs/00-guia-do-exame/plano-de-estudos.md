@@ -30,7 +30,7 @@ Em cada tópico, comece pela seção **🧠 Antes de começar** e termine respon
 | 3 | **Domínio 2** — compliance, logs, proteção, detecção + **Domínio 3**: acesso, infraestrutura, EC2 | [Tópicos 2.6–2.10](../02-seguranca-e-conformidade/README.md) · [3.1–3.4](../03-tecnologia-e-servicos/README.md) | [ ] |
 | 4 | **Domínio 3** (34%) — containers, bancos, S3, armazenamento, rede | [Tópicos 3.5–3.10](../03-tecnologia-e-servicos/README.md) + fichas | [ ] |
 | 5 | **Domínio 3** — analytics, IA, integração, apps, dev, gestão, migração + **Domínio 4** (12%) + 1º simulado | [Tópicos 3.11–3.18](../03-tecnologia-e-servicos/README.md) · [4.1–4.6](../04-cobranca-precos-e-suporte/README.md) | [ ] |
-| 6 | Revisão dos erros + simulados finais (meta ≥ 80%) | [Resumos](../../resumos/README.md) · [simulados](../../simulados/README.md) · [atualizações](atualizacoes-2025-2026.md) | [ ] |
+| 6 | Revisão dos erros + simulados finais (meta ≥ 80%) | [pares que confundem](../../resumos/comparativos.md) · [simulados](../../simulados/README.md) · [atualizações](atualizacoes-2025-2026.md) | [ ] |
 
 ## Rotina diária sugerida
 
@@ -57,5 +57,3 @@ Revise [erros recorrentes](../../simulados/erros-recorrentes.md).
 [AWS Skill Builder — Cloud Practitioner Essentials](https://skillbuilder.aws/) (gratuito)
 
 [Exam guide e questões de exemplo oficiais](https://aws.amazon.com/certification/certified-cloud-practitioner/)
-
-Mais em [`recursos/links-uteis.md`](../../recursos/links-uteis.md)
