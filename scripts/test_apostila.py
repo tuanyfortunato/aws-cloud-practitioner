@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Regressões de significado, preservação de dados e cobertura da apresentação."""
+import os
 import re
+import shutil
+import tempfile
 import unittest
+import gerar_docs
 from apostila import BASE, EXTRAS, Leitura, capitulo_servico, capitulo_topico
-from gerar_docs import CATEGORIA, ARQUIVOS, parse_guia
+from gerar_docs import (AUTORAL, CATEGORIA, ARQUIVOS, caminho_ficha, caminho_topico,
+                        eh_autoral, extrair_cards_revisao, parse_guia)
 from vocabulario_apostila import termos_locais, simples
 
 
@@ -38,6 +43,8 @@ class Apostila(unittest.TestCase):
     def test_cobertura_e_conservacao_das_referencias(self):
         self.assertEqual(set(BASE), set(CATEGORIA))
         for nome, fonte in BASE.items():
+            if eh_autoral(caminho_ficha(nome)):
+                continue  # ficha escrita à mão: não passa pelo gerador
             with self.subTest(ficha=nome):
                 result=capitulo_servico(nome)
                 for n in range(1, 8):
@@ -53,6 +60,8 @@ class Apostila(unittest.TestCase):
         secoes, _, _=parse_guia()
         self.assertEqual(set(secoes),set(ARQUIVOS))
         for sec,(_,corpo) in secoes.items():
+            if eh_autoral(caminho_topico(sec)):
+                continue  # aula escrita à mão: não passa pelo gerador
             result=capitulo_topico(sec,corpo)
             for n in range(1,6):
                 self.assertTrue(re.search(rf'^## {n}\. ',result,re.M),sec)
@@ -67,6 +76,70 @@ class Apostila(unittest.TestCase):
         self.assertIn('consumidor',s)
         self.assertIn('exclui',s)
         self.assertNotIn('"Garantir ordem e processamento exatamente uma vez."',s)
+
+
+class Autoral(unittest.TestCase):
+    """Aulas e fichas com <!-- autoral --> são a fonte da verdade e não são reescritas."""
+
+    AULA = """<!-- autoral -->
+
+# 2.1 Aula escrita à mão
+
+Texto autoral que o gerador não deve tocar.
+
+## Revisão
+
+### Quem protege o hipervisor?
+
+A AWS. Ela opera o hardware e a camada de virtualização.
+
+Parágrafo extra que fica só na aula.
+
+### Quem aplica patches no sistema operacional do EC2?
+
+O cliente, porque a instância é dele.
+"""
+
+    def test_marcador_vale_so_no_topo(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            topo = os.path.join(tmp, 'topo.md')
+            fundo = os.path.join(tmp, 'fundo.md')
+            with open(topo, 'w') as f:
+                f.write(self.AULA)
+            with open(fundo, 'w') as f:
+                f.write('# Aula gerada\n' + '\nlinha\n' * 20 + AUTORAL + '\n')
+            self.assertTrue(eh_autoral(topo))
+            self.assertFalse(eh_autoral(fundo))
+            self.assertFalse(eh_autoral(os.path.join(tmp, 'inexistente.md')))
+
+    def test_gerador_nao_reescreve_aula_autoral(self):
+        secoes, _, _ = parse_guia()
+        raiz_real = gerar_docs.RAIZ
+        with tempfile.TemporaryDirectory() as tmp:
+            caminho = os.path.join(tmp, caminho_topico('2.1'))
+            os.makedirs(os.path.dirname(caminho), exist_ok=True)
+            with open(caminho, 'w') as f:
+                f.write(self.AULA)
+            shutil.copy(os.path.join(raiz_real, 'README.md'), os.path.join(tmp, 'README.md'))
+            gerar_docs.RAIZ = tmp
+            try:
+                ordem = gerar_docs.gerar_topicos(secoes)
+            finally:
+                gerar_docs.RAIZ = raiz_real
+            with open(caminho) as f:
+                self.assertEqual(f.read(), self.AULA)
+            # As demais aulas continuam sendo geradas.
+            self.assertIn('2.1', ordem)
+            outra = os.path.join(tmp, caminho_topico('2.2'))
+            self.assertTrue(os.path.exists(outra))
+
+    def test_flashcards_da_aula_autoral_vem_da_revisao(self):
+        cards = extrair_cards_revisao(self.AULA)
+        self.assertEqual(len(cards), 2)
+        self.assertEqual(cards[0][0], 'Quem protege o hipervisor?')
+        self.assertEqual(cards[0][1], 'A AWS. Ela opera o hardware e a camada de virtualização.')
+        self.assertNotIn('Parágrafo extra', cards[0][1])
+        self.assertEqual(extrair_cards_revisao('# Aula sem revisão\n\nTexto.\n'), [])
 
 
 if __name__=='__main__':

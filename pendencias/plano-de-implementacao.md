@@ -1,6 +1,6 @@
 # Plano de implementação: da apostila gerada à apostila escrita
 
-**Status geral:** Pendente — plano registrado; nenhuma fase iniciada.
+**Status geral:** Em andamento — Fase 0 iniciada.
 
 **Data:** 05/10/2026.
 
@@ -247,7 +247,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 
 | Fase | Status | PRs | Observações |
 |---|---|---|---|
-| 0 | Pendente | — | — |
+| 0 | Em andamento | PR 0.1 (marcador autoral) | PR 0.2 (métricas) pendente |
 | 1 | Pendente | — | — |
 | 2 | Pendente | — | — |
 | 3 | Pendente | — | — |
