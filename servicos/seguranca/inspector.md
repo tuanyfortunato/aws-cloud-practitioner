@@ -1,134 +1,71 @@
+<!-- autoral -->
+
 # Amazon Inspector
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Aplicações e sistemas podem usar software com vulnerabilidades conhecidas. A equipe precisa identificar esses pontos antes de uma exploração.
-
-**Como este serviço ajuda?** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
-
-**Exemplo do dia a dia:** A equipe avalia o software de um recurso compatível e recebe achados que ajudam a priorizar atualizações e correções.
-
-**O que ele não resolve sozinho?** Encontrar uma vulnerabilidade não instala automaticamente a correção. Compatibilidade, cobertura e habilitação dos recursos de avaliação precisam ser verificadas.
-
-**Primeiras palavras para entender:**
-
-- **Vulnerabilidade:** falha que pode ser explorada.
-- **Avaliação:** exame de um recurso.
-- **Correção:** mudança para resolver a falha.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / gestão de vulnerabilidades · **Domínio:** 2 · **Escopo:** Regional (multi-conta) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
+> **Categoria:** Segurança e gerenciamento de vulnerabilidades · **Domínio:** 2 · **Abrangência:** Regional (várias contas pelo Organizations) · **Ficha:** núcleo
 >
-> **Em uma frase:** varre continuamente cargas de trabalho em busca de **vulnerabilidades de software (CVEs)** e exposição de rede não intencional.
+> **Em uma frase:** descobre instâncias EC2, imagens de contêiner e funções Lambda e as examina continuamente em busca de vulnerabilidades conhecidas de software e de exposição de rede não intencional.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 
-**Passo 1.** Prepare e habilite a avaliação dos tipos de recurso compatíveis.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** O serviço identifica vulnerabilidades e riscos cobertos pela avaliação.
+---
 
-**Passo 3.** Priorize correções e verifique o resultado. Encontrar uma vulnerabilidade não instala a atualização necessária.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+O servidor do portal de notas roda há meses com a mesma versão de uma biblioteca. Na semana passada, publicaram uma falha grave nela, catalogada como **CVE** (*Common Vulnerabilities and Exposures*, o catálogo público de falhas conhecidas). Ninguém da escola ficou sabendo, e a porta de administração ainda está aberta para a internet.
 
-### O que varre
+O **Inspector** encontra esse tipo de problema sem agendamento. Depois de ativado, ele descobre sozinho os recursos elegíveis e os examina: pacotes do sistema operacional e das linguagens de programação, caminhos de rede abertos sem querer e, nas funções Lambda, também o código. A varredura acompanha a vida do recurso: o Inspector volta a examinar quando um pacote é instalado, quando um patch é aplicado e quando sai uma nova CVE que afeta o recurso.
 
-**EC2**
+O limite: o Inspector aponta a falha e recomenda a correção, mas aplicar o patch continua com o cliente, como manda a [responsabilidade compartilhada](../../docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md). E ele não detecta um ataque em andamento; isso é o [GuardDuty](guardduty.md).
 
-**Como:** Agente do **SSM** ou *agentless* (snapshots EBS)
+## Como funciona
 
-**O que encontra:** CVEs de pacotes do SO e de aplicações; **alcance de rede** (portas expostas); CIS benchmarks
+1. Você ativa o Inspector numa conta ou, com um clique, para toda a organização.
+2. Ele descobre as instâncias EC2, as imagens enviadas ao Amazon ECR e as funções Lambda e começa a examiná-las.
+3. Cada vulnerabilidade ou caminho de rede aberto vira um achado com a falha, o recurso, uma pontuação de risco ajustada ao ambiente e a correção recomendada.
+4. Quando a correção é aplicada, o Inspector percebe e fecha o achado; os achados seguem para o EventBridge e para o Security Hub.
 
-**Imagens no ECR**
+## Opções principais
 
-**Como:** Ao fazer push e continuamente
+| Varredura | O que examina | Observação |
+|---|---|---|
+| Instâncias EC2 | CVEs em pacotes, exposição e alcance de rede | Pelo agente do SSM ou por snapshots do EBS, sem agente |
+| Imagens no Amazon ECR | Pacotes dentro da imagem de contêiner | Ao enviar a imagem e enquanto ela continua ativa |
+| Funções Lambda | Pacotes das funções e, opcionalmente, o código | A varredura de código é uma camada opcional |
+| Imagens de máquina (AMIs) | Pacotes das AMIs da conta | Ativada à parte |
 
-**O que encontra:** CVEs no SO e em pacotes de linguagem
+## Números que a prova cobra
 
-**Funções Lambda**
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Teste gratuito | 15 dias para contas novas no Inspector | 06/10/2026 |
+| Recursos examinados | EC2, imagens no ECR e funções Lambda | 06/10/2026 |
+| Agendamento das varreduras | Nenhum: são automáticas e contínuas | 06/10/2026 |
 
-**Como:** Código e dependências
+## Como é cobrado
 
-**O que encontra:** CVEs e falhas no código (*code scanning*)
+Sem taxa mínima nem compromisso: o valor mensal depende da média de instâncias EC2 examinadas, do número de imagens examinadas no ECR (no envio e nas novas varreduras) e das funções Lambda examinadas. Contas novas têm 15 dias de teste gratuito para estimar o custo.
 
-**Repositórios de código / CI-CD**
+## Não confundir com
 
-**Como:** Integração com pipelines
+| Serviço | Diferença para o Inspector | Pista no enunciado |
+|---|---|---|
+| [Amazon GuardDuty](guardduty.md) | Detecta atividade suspeita nos registros | "Ameaça em andamento", "mineração de criptomoeda" |
+| [AWS Systems Manager](../gerenciamento/systems-manager.md) | Aplica os patches nas instâncias | "Aplicar atualizações em massa" |
+| [AWS Security Hub](security-hub.md) | Reúne os achados do Inspector com os de outros serviços | "Visão única dos achados" |
+| [AWS Trusted Advisor](../gerenciamento/trusted-advisor.md) | Recomendações de boas práticas da conta | "Porta liberada no security group", "custo" |
 
-**O que encontra:** Vulnerabilidades antes do deploy
+## Fontes oficiais
 
-### Destaques
+Verificadas em 06/10/2026.
 
-**Contínuo e automático:** reavalia quando surge um novo CVE ou o recurso muda.
-
-**Inspector risk score** contextualizado (CVSS + exposição de rede + exploit conhecido).
-
-Exporta **SBOM** (lista de componentes de software).
-
-Integra com Security Hub e EventBridge; **teste gratuito de 15 dias**.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Encontrar uma vulnerabilidade não instala automaticamente a correção. Compatibilidade, cobertura e habilitação dos recursos de avaliação precisam ser verificadas.
-
-### ⚠️ Não confundir
-
-**Inspector** (vulnerabilidades/CVE) × **GuardDuty** (ameaças ativas) × **Macie** (PII no S3).
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por instância EC2 escaneada/mês, por imagem do ECR, por função Lambda.
-
-## 5. Caso resolvido: ligando as peças
-
-A equipe avalia o software de um recurso compatível e recebe achados que ajudam a priorizar atualizações e correções.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Prepare e habilite a avaliação dos tipos de recurso compatíveis.
-**Etapa 2:** O serviço identifica vulnerabilidades e riscos cobertos pela avaliação.
-**Etapa 3:** Priorize correções e verifique o resultado. Encontrar uma vulnerabilidade não instala a atualização necessária.
-
-**Resultado e responsabilidade:** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
-
-**Recursos envolvidos:** Recursos elegíveis, cobertura de varredura e findings.
-
-**Decisões que precisam ser tomadas:** Cobertura, acesso e pré-requisitos conforme recurso.
-
-**Outra situação comentada:** Dependência vulnerável numa imagem: Inspector integrado à varredura adequada; equipe corrige e republica.
-
-**Por que não concluir mais do que isso:** Não substitui patch nem cobre automaticamente qualquer recurso da conta
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Varrer EC2 e imagens de contêiner em busca de vulnerabilidades."
-
-**Resposta curta:** Inspector.
-
-**Pergunta:** "Descobrir instâncias com portas acessíveis da internet sem necessidade."
-
-**Resposta curta:** Inspector (alcance de rede).
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html)
+- [O que é o Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html)
+- [Tipos de varredura](https://docs.aws.amazon.com/inspector/latest/user/scanning-resources.html)
+- [Preços do Amazon Inspector](https://aws.amazon.com/inspector/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

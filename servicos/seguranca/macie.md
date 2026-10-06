@@ -1,98 +1,73 @@
+<!-- autoral -->
+
 # Amazon Macie
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa guarda muitos arquivos no S3 e precisa localizar possíveis dados sensíveis, como informações pessoais, sem abrir cada arquivo manualmente.
-
-**Como este serviço ajuda?** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
-
-**Exemplo do dia a dia:** A escola avalia um bucket de documentos para identificar arquivos que podem conter informações pessoais dos alunos.
-
-**O que ele não resolve sozinho?** Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
-
-**Primeiras palavras para entender:**
-
-- **Dado sensível:** informação que exige proteção especial.
-- **Classificação:** identificação do tipo de conteúdo.
-- **Bucket:** recipiente de objetos no S3.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / proteção de dados · **Domínio:** 2 · **Escopo:** Regional (multi-conta) · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
+> **Categoria:** Segurança e proteção de dados · **Domínio:** 2 · **Abrangência:** Regional (várias contas pelo Organizations) · **Ficha:** núcleo
 >
-> **Em uma frase:** usa machine learning e padrões para **descobrir e proteger dados sensíveis (PII) no Amazon S3**.
+> **Em uma frase:** descobre dados sensíveis no Amazon S3 com aprendizado de máquina e reconhecimento de padrões e avalia a segurança e o controle de acesso dos buckets.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 
-**Passo 1.** Defina os dados S3 compatíveis que precisam de avaliação e a configuração de descoberta.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** O serviço examina conteúdo conforme sua cobertura e produz resultados sobre possíveis dados sensíveis.
+---
 
-**Passo 3.** Revise achados e corrija exposição quando necessário. A descoberta não anonimiza os arquivos automaticamente.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A secretaria exportou uma planilha com CPF, endereço e dados de saúde dos alunos e guardou num bucket usado para arquivos públicos do site. A escola tem centenas de buckets e milhões de objetos; ninguém sabe onde mais há dados pessoais esquecidos.
 
-### O que faz
+O **Macie** procura. Ao ser ativado, ele monta um inventário dos buckets S3 e avalia continuamente a segurança e o controle de acesso de cada um, gerando um achado se, por exemplo, um bucket se torna público. Ele também examina o conteúdo dos objetos com **identificadores gerenciados** (critérios prontos para dados pessoais, financeiros, credenciais e outros) e **identificadores personalizados** (expressões regulares definidas pela escola, como o formato da matrícula). Cada dado sensível encontrado vira um achado com o local e o tipo do dado.
 
-| Função | Detalhe |
-|---|---|
-| **Inventário e postura dos buckets** | Buckets **públicos**, sem criptografia, compartilhados com outras contas ou replicados. |
-| **Descoberta de dados sensíveis** | *Managed data identifiers* (CPF, cartão de crédito, passaporte, credenciais, dados de saúde, nomes, endereços) e **custom data identifiers** (regex + palavras-chave). |
-| **Automated sensitive data discovery** | Amostragem contínua e econômica de todos os buckets. |
-| **Jobs** | Varreduras completas sob demanda ou agendadas. |
-| **Integrações** | Achados no Security Hub e EventBridge. |
+O limite é o escopo: o Macie olha o S3, não bancos de dados nem discos de instâncias. E ele não apaga nem move a planilha; a correção fica com o cliente.
 
-Teste gratuito de 30 dias. Cobrança por bucket monitorado e por GB inspecionado.
+## Como funciona
 
-## 3. Como escolher e reconhecer os limites
+1. Você ativa o Macie na conta ou para a organização inteira.
+2. Ele reúne os detalhes dos buckets (criptografia, acesso público, compartilhamento) e passa a avaliá-los.
+3. A descoberta automática escolhe amostras representativas dos objetos e procura dados sensíveis; para uma análise mais funda, você cria um trabalho de descoberta em buckets escolhidos.
+4. Os achados vão para o console, para o EventBridge e para o Security Hub.
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Opções principais
 
-Ele não anonimiza automaticamente os arquivos nem examina todos os bancos e serviços AWS. Resultados precisam ser avaliados e ações de proteção planejadas.
+| Recurso | O que faz | Quando usar |
+|---|---|---|
+| Inventário e monitoramento de buckets | Avalia acesso público, criptografia e compartilhamento | Sempre ligado ao ativar |
+| Descoberta automática de dados sensíveis | Amostragem contínua dos objetos de todos os buckets | Visão ampla de onde há dados sensíveis |
+| Trabalhos de descoberta | Análise direcionada, uma vez ou periódica | Auditar um bucket específico a fundo |
+| Identificadores gerenciados | Critérios prontos para muitos tipos de dado e países | Dados pessoais, financeiros, credenciais |
+| Identificadores personalizados | Expressão regular definida pelo cliente | Formato próprio, como o número de matrícula |
 
-### ⚠️ Pegadinha
+## Números que a prova cobra
 
-Macie atua **só no S3**. "PII", "dados sensíveis", "LGPD/GDPR no S3" → Macie.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Onde procura | Amazon S3 | 06/10/2026 |
+| Teste gratuito | 30 dias | 06/10/2026 |
+| Avaliação contínua de buckets | Até 10.000 buckets | 06/10/2026 |
 
-## 4. Caso resolvido: ligando as peças
+## Como é cobrado
 
-A escola avalia um bucket de documentos para identificar arquivos que podem conter informações pessoais dos alunos.
+Três dimensões, depois do teste de 30 dias: o número de buckets avaliados no inventário, o número de objetos monitorados pela descoberta automática e a quantidade de dados examinados nas descobertas automática e direcionada. As cobranças são proporcionais por dia.
 
-**Aplicando a sequência à situação:**
+## Não confundir com
 
-**Etapa 1:** Defina os dados S3 compatíveis que precisam de avaliação e a configuração de descoberta.
-**Etapa 2:** O serviço examina conteúdo conforme sua cobertura e produz resultados sobre possíveis dados sensíveis.
-**Etapa 3:** Revise achados e corrija exposição quando necessário. A descoberta não anonimiza os arquivos automaticamente.
+| Serviço | Diferença para o Macie | Pista no enunciado |
+|---|---|---|
+| [Amazon GuardDuty](guardduty.md) | Detecta ameaças, inclusive no S3 com o S3 Protection | "Atividade suspeita", "exfiltração" |
+| [Amazon Inspector](inspector.md) | Procura vulnerabilidades no software | "CVE", "pacote desatualizado" |
+| [AWS KMS](kms.md) | Cifra os dados, sem procurar onde estão | "Criptografia", "chave" |
+| [Amazon S3](../armazenamento/s3.md) | Guarda os objetos; o Bloqueio de Acesso Público impede que fiquem públicos | "Bloquear acesso público" |
 
-**Resultado e responsabilidade:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
+## Fontes oficiais
 
-**Recursos envolvidos:** Inventário de buckets, jobs, identificadores e findings.
+Verificadas em 06/10/2026.
 
-**Decisões que precisam ser tomadas:** Buckets, escopo, formatos e identificadores suportados.
-
-**Outra situação comentada:** Encontrar dados pessoais em documentos S3: Macie; confirme elegibilidade do formato e permissões.
-
-**Por que não concluir mais do que isso:** Não varre genericamente RDS/EBS e não apaga conteúdo sensível sozinho
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Encontrar dados pessoais em buckets S3."
-
-**Resposta curta:** Macie.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Amazon Macie](https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html)
+- [O que é o Amazon Macie](https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html)
+- [Descoberta automática de dados sensíveis](https://docs.aws.amazon.com/macie/latest/user/discovery-asdd.html)
+- [Identificadores gerenciados](https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html)
+- [Preços do Amazon Macie](https://aws.amazon.com/macie/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

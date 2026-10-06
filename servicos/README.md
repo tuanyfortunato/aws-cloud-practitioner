@@ -84,15 +84,15 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [AWS CloudHSM](seguranca/cloudhsm.md) | ✅ | complementar | HSM (hardware security module) **dedicado e exclusivo** na nuvem, em que só você controla as chaves. |
 | [AWS Certificate Manager (ACM) e AWS Private CA](seguranca/certificate-manager.md) | ✅ | complementar | Emite e gerencia certificados SSL/TLS, com renovação para certificados elegíveis; públicos não exportáveis em serviços integrados são gratuitos. |
 | [AWS Secrets Manager e Systems Manager Parameter Store](seguranca/secrets-manager-e-parameter-store.md) | ✅ | núcleo | Guardam segredos e configurações fora do código; o Secrets Manager também faz a rotação automática dos segredos. |
-| [AWS Shield](seguranca/shield.md) | ✅ | núcleo | Proteção gerenciada contra ataques de negação de serviço distribuída (DDoS). |
-| [AWS WAF (Web Application Firewall)](seguranca/waf.md) | ✅ | núcleo | Firewall de **camada 7** que filtra requisições HTTP(S) maliciosas antes que cheguem à aplicação. |
+| [AWS Shield](seguranca/shield.md) | ✅ | núcleo | Protege as aplicações contra ataques de negação de serviço distribuído (DDoS), de graça no nível Standard e com equipe de resposta e proteção de custo no Advanced. |
+| [AWS WAF (Web Application Firewall)](seguranca/waf.md) | ✅ | núcleo | Firewall de aplicações web que examina cada pedido HTTP ou HTTPS e, pelas regras do cliente, deixa passar, bloqueia ou devolve uma resposta personalizada. |
 | [AWS Firewall Manager e AWS Network Firewall](seguranca/firewall-manager-e-network-firewall.md) | 🔀 | complementar | O Firewall Manager **governa** regras de firewall em todas as contas; o Network Firewall **é** um firewall gerenciado para a VPC. |
-| [Amazon GuardDuty](seguranca/guardduty.md) | ✅ | núcleo | Detecção inteligente e contínua de **ameaças ativas** usando machine learning, detecção de anomalias e inteligência de ameaças. |
-| [Amazon Inspector](seguranca/inspector.md) | ✅ | núcleo | Varre continuamente cargas de trabalho em busca de **vulnerabilidades de software (CVEs)** e exposição de rede não intencional. |
-| [Amazon Macie](seguranca/macie.md) | ✅ | núcleo | Usa machine learning e padrões para **descobrir e proteger dados sensíveis (PII) no Amazon S3**. |
+| [Amazon GuardDuty](seguranca/guardduty.md) | ✅ | núcleo | Analisa continuamente os registros da conta com inteligência de ameaças e aprendizado de máquina e gera achados quando vê atividade suspeita. |
+| [Amazon Inspector](seguranca/inspector.md) | ✅ | núcleo | Descobre instâncias EC2, imagens de contêiner e funções Lambda e as examina continuamente em busca de vulnerabilidades conhecidas de software e de exposição de rede não intencional. |
+| [Amazon Macie](seguranca/macie.md) | ✅ | núcleo | Descobre dados sensíveis no Amazon S3 com aprendizado de máquina e reconhecimento de padrões e avalia a segurança e o controle de acesso dos buckets. |
 | [Amazon Detective](seguranca/detective.md) | ✅ | complementar | Facilita **investigar a causa raiz** de achados de segurança, montando um grafo de comportamento a partir dos logs. |
-| [AWS Security Hub](seguranca/security-hub.md) | ✅ | núcleo | **painel central** de segurança que agrega achados de vários serviços e verifica a conta contra padrões de boas práticas. |
-| [AWS Artifact](seguranca/artifact.md) | ✅ | núcleo | Portal de autoatendimento para baixar **relatórios de conformidade da AWS** e aceitar **acordos** legais. |
+| [AWS Security Hub](seguranca/security-hub.md) | ✅ | núcleo | Reúne, correlaciona e prioriza os sinais de segurança do GuardDuty, do Inspector, do Macie e das verificações de postura, e confere as contas contra padrões de boas práticas. |
+| [AWS Artifact](seguranca/artifact.md) | ✅ | núcleo | Portal de autoatendimento, gratuito, para baixar os relatórios de segurança e compliance da AWS e aceitar acordos com ela. |
 | [AWS Audit Manager](seguranca/audit-manager.md) | ⚪ | referência | Coleta **evidências da sua conta** continuamente e as mapeia para frameworks, para preparar as suas auditorias. |
 
 ## ⚙️ Gerenciamento e governança

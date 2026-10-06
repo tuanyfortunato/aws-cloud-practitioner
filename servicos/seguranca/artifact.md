@@ -1,100 +1,73 @@
+<!-- autoral -->
+
 # AWS Artifact
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Um auditor pede relatórios sobre os controles e a conformidade da infraestrutura AWS. A empresa precisa localizar esses documentos oficiais.
-
-**Como este serviço ajuda?** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
-
-**Exemplo do dia a dia:** A escola consulta um relatório oficial da AWS para apoiar uma avaliação dos serviços usados por sua aplicação.
-
-**O que ele não resolve sozinho?** Um relatório da AWS não certifica automaticamente a aplicação do cliente. A empresa precisa demonstrar também seus próprios controles e responsabilidades.
-
-**Primeiras palavras para entender:**
-
-- **Conformidade:** atendimento a requisitos.
-- **Relatório:** documento com informações ou evidências.
-- **Acordo:** condições aceitas pelas partes.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Compliance · **Domínio:** 2 · **Escopo:** Global (portal) · **Gratuito** · **Tópico do guia:** [2.6 Compliance e governança](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
+> **Categoria:** Compliance · **Domínio:** 2 · **Abrangência:** Portal no console · **Ficha:** núcleo
 >
-> **Em uma frase:** portal de autoatendimento para baixar **relatórios de conformidade da AWS** e aceitar **acordos** legais.
+> **Em uma frase:** portal de autoatendimento, gratuito, para baixar os relatórios de segurança e compliance da AWS e aceitar acordos com ela.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.6 Compliance e governança](../../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
 
-**Passo 1.** Identifique o relatório ou acordo que atende à avaliação pretendida.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Acesse o documento disponível sob as condições aplicáveis e examine seu escopo.
+---
 
-**Passo 3.** Use o documento junto às evidências do cliente. Um relatório do provedor não demonstra sozinho os controles da aplicação.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A auditora contratada pela escola pede duas coisas: um relatório independente que mostre que os data centers da AWS são bem controlados e a prova de que a escola configurou bem os próprios recursos. A primeira parte é da AWS, e a escola não tem como auditar um data center dela.
 
-### O que oferece
+O **Artifact** entrega essa parte. Nele a escola baixa, sob demanda, relatórios SOC, relatórios de conformidade com o PCI DSS e com normas ISO e certificações de órgãos de acreditação, e os entrega à auditora como evidência. O Artifact também guarda **acordos** com a AWS, como o BAA (*Business Associate Addendum*), exigido de quem trata informações de saúde protegidas pela lei americana HIPAA, e documentos de compliance de vendedores do AWS Marketplace.
 
-| Seção | Exemplos |
-|---|---|
-| **Artifact Reports** | **SOC 1, SOC 2, SOC 3**, **PCI DSS** (Attestation of Compliance), certificações **ISO 27001/27017/27018/9001**, C5, relatórios de terceiros (ISVs do Marketplace). |
-| **Artifact Agreements** | **BAA** (Business Associate Addendum — **HIPAA**), NDA, acordos de GDPR; aceitar por conta ou para toda a organização. |
-| **Notificações** | Avisos de novos relatórios. |
+O limite: o Artifact só fala da AWS. Nenhum relatório dele prova que a escola configurou bem os seus recursos; essa segunda parte é do cliente, com ferramentas como o [Audit Manager](audit-manager.md) e o [Config](../gerenciamento/config.md).
 
-Acesso controlado por IAM; alguns relatórios exigem aceitar termos de confidencialidade.
+## Como funciona
 
-## 3. Como escolher e reconhecer os limites
+1. Você abre o Artifact no console, com permissão do IAM para ver e baixar relatórios.
+2. Escolhe o relatório, aceita os termos de uso dele quando houver e faz o download.
+3. Em **Acordos**, revisa e aceita acordos para a conta ou, pela conta de gerenciamento, para todas as contas da organização.
+4. Entrega os documentos à auditoria e usa-os como referência para avaliar os próprios controles.
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Opções principais
 
-Um relatório da AWS não certifica automaticamente a aplicação do cliente. A empresa precisa demonstrar também seus próprios controles e responsabilidades.
+| Recurso | O que oferece | Exemplo na escola |
+|---|---|---|
+| Relatórios da AWS | SOC, PCI DSS, ISO e certificações | Relatório SOC 2 para a auditora |
+| Acordos | Revisar, aceitar e acompanhar acordos | BAA para tratar dados de saúde |
+| Acordos da organização | Aceite pela conta de gerenciamento para todas as contas | Contas novas já cobertas pelo acordo |
+| Relatórios de terceiros | Documentos de vendedores do AWS Marketplace | Avaliar um software comprado no Marketplace |
+| Assurance Assistant | Respostas geradas por IA para perguntas de compliance | Rascunho de resposta a um questionário |
 
-### ⚠️ Não confundir
+## Números que a prova cobra
 
-**Artifact** = evidências **da AWS** (o que a AWS certifica). **Audit Manager** = evidências **da sua conta** para a **sua** auditoria.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Preço dos documentos e acordos | Gratuitos | 06/10/2026 |
+| Acordo clássico da prova | BAA, para HIPAA | 06/10/2026 |
+| Cópia de cada relatório | Gerada para quem baixa, com marca d’água única | 06/10/2026 |
 
-## 4. Caso resolvido: ligando as peças
+## Como é cobrado
 
-A escola consulta um relatório oficial da AWS para apoiar uma avaliação dos serviços usados por sua aplicação.
+Os documentos e acordos do Artifact não têm custo.
 
-**Aplicando a sequência à situação:**
+## Não confundir com
 
-**Etapa 1:** Identifique o relatório ou acordo que atende à avaliação pretendida.
-**Etapa 2:** Acesse o documento disponível sob as condições aplicáveis e examine seu escopo.
-**Etapa 3:** Use o documento junto às evidências do cliente. Um relatório do provedor não demonstra sozinho os controles da aplicação.
+| Serviço | Diferença para o Artifact | Pista no enunciado |
+|---|---|---|
+| [AWS Audit Manager](audit-manager.md) | Coleta evidências da sua conta para a sua auditoria | "Evidências dos meus controles" |
+| [AWS Config](../gerenciamento/config.md) | Avalia a configuração dos seus recursos | "Recurso fora do padrão" |
+| [AWS Security Hub](security-hub.md) | Confere as contas contra padrões como PCI DSS | "Verificar a conta contra o CIS" |
+| [AWS Trusted Advisor](../gerenciamento/trusted-advisor.md) | Recomendações de boas práticas | "Recomendações para a conta" |
 
-**Resultado e responsabilidade:** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
+## Fontes oficiais
 
-**Recursos envolvidos:** Relatórios e agreements.
+Verificadas em 06/10/2026.
 
-**Decisões que precisam ser tomadas:** Documento solicitado e autorização para consulta.
-
-**Outra situação comentada:** Auditor pede relatório AWS: Artifact; quem apagou recurso: CloudTrail.
-
-**Por que não concluir mais do que isso:** Não registra atividade de usuários da sua conta nem certifica sua aplicação
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Auditor pede o relatório SOC 2 da AWS."
-
-**Resposta curta:** Artifact.
-
-**Pergunta:** "Aceitar o BAA para HIPAA."
-
-**Resposta curta:** Artifact Agreements.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html)
+- [O que é o AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html)
+- [Baixar relatórios](https://docs.aws.amazon.com/artifact/latest/ug/downloading-documents.html)
+- [Acordos no AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/managing-agreements.html)
+- [Programas de compliance da AWS](https://aws.amazon.com/compliance/programs/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

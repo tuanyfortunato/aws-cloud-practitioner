@@ -1,111 +1,77 @@
+<!-- autoral -->
+
 # AWS Shield
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Muitos pedidos maliciosos podem tentar sobrecarregar um serviço e impedir que pessoas legítimas o utilizem.
-
-**Como este serviço ajuda?** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
-
-**Exemplo do dia a dia:** Um site público usa os recursos de proteção aplicáveis à sua arquitetura para reduzir o impacto de tentativas de sobrecarga.
-
-**O que ele não resolve sozinho?** Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
-
-**Primeiras palavras para entender:**
-
-- **DDoS:** ataque distribuído para sobrecarregar um serviço.
-- **Disponibilidade:** conseguir usar o sistema quando necessário.
-- **Mitigação:** reduzir o impacto de um ataque.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / proteção DDoS · **Domínio:** 2 · **Escopo:** Global (borda) e regional · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
+> **Categoria:** Segurança e proteção contra DDoS · **Domínio:** 2 · **Abrangência:** Recursos de borda e regionais · **Ficha:** núcleo
 >
-> **Em uma frase:** proteção gerenciada contra ataques de negação de serviço distribuída (DDoS).
+> **Em uma frase:** protege as aplicações contra ataques de negação de serviço distribuído (DDoS), de graça no nível Standard e com equipe de resposta e proteção de custo no Advanced.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 
-**Passo 1.** Identifique os recursos e o tipo de exposição que precisam de proteção contra sobrecarga.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Avalie a modalidade e sua cobertura para a arquitetura. Os mecanismos de proteção atuam conforme suas condições.
+---
 
-**Passo 3.** Observe eventos e prepare resposta. Proteção contra DDoS não corrige vulnerabilidades do código nem substitui todos os controles de aplicação.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+No primeiro dia de matrícula, o portal da escola recebe uma enxurrada de pedidos vindos de milhares de máquinas ao mesmo tempo. Não é procura de verdade: é um **ataque de negação de serviço distribuído** (DDoS), feito para esgotar a capacidade do site e tirá-lo do ar para os alunos.
 
-### Standard × Advanced
+O **Shield Standard** já protege todos os clientes da AWS, sem custo adicional e sem ativar nada, contra os ataques mais comuns nas camadas de rede e de transporte. Quem precisa de mais contrata o **Shield Advanced**: proteção contra ataques maiores e na camada de aplicação, visibilidade dos ataques quase em tempo real, a equipe de resposta a DDoS da AWS e créditos pelo aumento de cobrança causado pelo ataque.
 
-| | **Shield Standard** | **Shield Advanced** |
+O limite: o Shield cuida do volume, não do conteúdo dos pedidos. Um texto malicioso digitado no formulário de busca (injeção de SQL) é trabalho do [WAF](waf.md). E o Advanced só protege os recursos que você indicar.
+
+## Como funciona
+
+1. O Shield Standard atua automaticamente quando você usa serviços como CloudFront, Route 53 e Elastic Load Balancing.
+2. Para o Advanced, você assina o serviço (compromisso de um ano) e escolhe os recursos protegidos, como distribuições CloudFront, zonas do Route 53, aceleradores do Global Accelerator, Elastic IPs e load balancers.
+3. Durante um ataque, o Advanced mostra métricas e diagnóstico; com um plano de suporte Business ou Enterprise, você aciona o **Shield Response Team** (SRT).
+4. Depois do ataque, você pede créditos pelo aumento de uso que ele causou nos recursos protegidos.
+
+## Opções principais
+
+| | Shield Standard | Shield Advanced |
 |---|---|---|
-| Custo | **Gratuito**, automático para todos | 📌 **US$ 3.000/mês por organização**, compromisso de **1 ano** + data transfer out dos recursos protegidos |
-| Camadas | 3 e 4 (SYN flood, UDP reflection…) | 3, 4 e **7** (com WAF) |
-| Recursos | Todos (melhor em CloudFront e Route 53) | EC2 (Elastic IP), ELB, CloudFront, Route 53, Global Accelerator |
-| Time de resposta | — | **Shield Response Team (SRT) 24/7** |
-| **Proteção de custo** | — | **Créditos** pelo aumento de uso (escalonamento) causado por DDoS |
-| Visibilidade | Básica | Métricas, relatórios e diagnóstico de ataques em tempo quase real |
-| WAF | Pago à parte | **Sem custo adicional** nos recursos protegidos |
-| Outros | — | Detecção e mitigação automática na camada 7, health-based detection, proteção de grupos, integração com Firewall Manager |
+| Custo | Sem custo adicional | Taxa mensal por organização, compromisso de 1 ano, mais transferência de dados dos recursos protegidos |
+| Ativação | Automática | Assinatura e escolha dos recursos |
+| Ataques | Rede e transporte, os mais comuns | Também maiores, mais sofisticados e na camada de aplicação (com o WAF) |
+| Equipe de resposta | Não | SRT 24 horas, com plano Business ou Enterprise |
+| Proteção de custo | Não | Créditos pelo aumento de cobrança causado por DDoS |
+| WAF | Pago à parte | Taxas padrão do WAF incluídas nos recursos protegidos |
 
-A assinatura do Advanced cobre **todas as contas** da Organization.
+## Números que a prova cobra
 
-✔️ Para acionar o SRT é preciso plano **Business Support+, Enterprise ou Unified Operations** (a fonte cita "Business Support") (documentação do AWS CloudFormation, 10/2026) e uma IAM role que autorize o SRT (política gerenciada `AWSShieldDRTAccessPolicy`).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Shield Standard | Sem custo adicional | 06/10/2026 |
+| Shield Advanced | US$ 3.000 por mês por organização, mais transferência de dados | 06/10/2026 |
+| Compromisso do Advanced | 1 ano | 06/10/2026 |
+| Plano para acionar o SRT | Business ou Enterprise | 06/10/2026 |
 
-## 3. Como escolher e reconhecer os limites
+## Como é cobrado
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+O Standard não tem custo adicional. O Advanced cobra a taxa mensal por organização, que cobre todas as contas dela, mais uma taxa de uso pela transferência de dados que sai de CloudFront, ELB, EC2 e Global Accelerator protegidos. Os benefícios, inclusive a proteção de custo, dependem de cumprir o compromisso de um ano.
 
-Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
+## Não confundir com
 
-### ⚠️ Pegadinhas
+| Serviço | Diferença para o Shield | Pista no enunciado |
+|---|---|---|
+| [AWS WAF](waf.md) | Filtra o conteúdo dos pedidos HTTP | "Injeção de SQL", "XSS", "bloquear país" |
+| [AWS Firewall Manager](firewall-manager-e-network-firewall.md) | Aplica WAF, Shield Advanced e outras regras em todas as contas | "Mesmas regras em toda a organização" |
+| [Amazon GuardDuty](guardduty.md) | Detecta ameaças nos registros da conta | "Atividade suspeita", "credencial comprometida" |
+| Security groups ([VPC](../redes/vpc.md)) | Firewall de portas e endereços do recurso | "Liberar a porta 443" |
 
-"DDoS volumétrico" → Shield. "SQL injection/XSS" → WAF.
+## Fontes oficiais
 
-"Reembolso do custo de escalonamento + especialistas 24/7" → **Shield Advanced**.
+Verificadas em 06/10/2026.
 
-"Proteção DDoS que todo cliente tem sem custo" → **Shield Standard**.
-
-## 4. Caso resolvido: ligando as peças
-
-Um site público usa os recursos de proteção aplicáveis à sua arquitetura para reduzir o impacto de tentativas de sobrecarga.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique os recursos e o tipo de exposição que precisam de proteção contra sobrecarga.
-**Etapa 2:** Avalie a modalidade e sua cobertura para a arquitetura. Os mecanismos de proteção atuam conforme suas condições.
-**Etapa 3:** Observe eventos e prepare resposta. Proteção contra DDoS não corrige vulnerabilidades do código nem substitui todos os controles de aplicação.
-
-**Resultado e responsabilidade:** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
-
-**Recursos envolvidos:** Proteção Standard e assinatura Advanced para recursos elegíveis.
-
-**Decisões que precisam ser tomadas:** Recursos protegidos e recursos extras contratados.
-
-**Outra situação comentada:** Ataque volumétrico: Shield; requisição HTTP maliciosa: WAF pode complementar.
-
-**Por que não concluir mais do que isso:** Não equivale a filtro de SQL injection nem corrige vulnerabilidades no código
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Qual proteção DDoS todo cliente tem sem custo?"
-
-**Resposta curta:** Shield Standard.
-
-**Pergunta:** "Acesso a especialistas 24/7 e proteção de custo durante ataques."
-
-**Resposta curta:** Shield Advanced.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS Shield](https://docs.aws.amazon.com/waf/latest/developerguide/shield-chapter.html)
+- [AWS Shield Standard](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-standard-summary.html)
+- [AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-summary.html)
+- [Recursos que o Shield Advanced protege](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-summary-protected-resources.html)
+- [Shield Response Team](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-srt-support.html)
+- [Preços do AWS Shield](https://aws.amazon.com/shield/pricing/)
+- [Perguntas frequentes do AWS Shield](https://aws.amazon.com/shield/faqs/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
