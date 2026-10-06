@@ -25,7 +25,7 @@ Por exemplo: ao chegar à [aula de EC2](docs/03-tecnologia-e-servicos/03-ec2.md)
 
 Em cada sessão, leia uma aula, acompanhe o caso resolvido e tente responder à revisão antes de consultar a resposta. Se conseguir explicar **o problema, a solução e uma limitação**, avance. Se ainda confundir dois conceitos, retome a explicação e registre a dúvida em suas anotações. O [plano de estudos](docs/00-guia-do-exame/plano-de-estudos.md) distribui a leitura em semanas; adapte o ritmo à sua disponibilidade.
 
-**Navegação rápida:** [Sumário](#sumário-da-apostila) · [Capítulo 1](#capítulo-1-conceitos-de-nuvem) · [Capítulo 2](#capítulo-2-segurança-e-conformidade) · [Capítulo 3](#capítulo-3-tecnologia-e-serviços) · [Capítulo 4](#capítulo-4-cobrança-preços-e-suporte) · [Fichas](#caderno-de-serviços) · [Revisão](#pratique-e-revise) · [Materiais](#materiais-e-acompanhamento)
+**Navegação rápida:** [Sumário](#sumário-da-apostila) · [Capítulo 1](#capítulo-1-conceitos-de-nuvem) · [Capítulo 2](#capítulo-2-segurança-e-conformidade) · [Capítulo 3](#capítulo-3-tecnologia-e-serviços) · [Capítulo 4](#capítulo-4-cobrança-preços-e-suporte) · [Fichas](#caderno-de-serviços) · [Revisão](#pratique-e-revise) · [Materiais](#materiais-e-acompanhamento) · [Edição impressa](#edição-impressa)
 
 ## Antes dos capítulos: conheça a prova
 
@@ -403,19 +403,25 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 <!-- conteudo:inicio -->
 | Material | O que é | Quando usar |
 |---|---|---|
-| 📖 [Tópicos da prova](#sumário-da-apostila) | **41 tópicos** que cobrem os 4 domínios, com conceitos explicados, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do roteiro |
-| 🔎 [Fichas de serviços](#caderno-de-serviços) | **105 fichas** (uma por serviço ou família), com funcionamento, opções, limites, segurança, custo e casos resolvidos; 5 reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |
+| 📖 [Aulas](#sumário-da-apostila) | **41 aulas** que cobrem os 4 domínios, com explicação, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do sumário |
+| 🔎 [Fichas de serviços](#caderno-de-serviços) | **105 fichas** (uma por serviço ou família), com funcionamento, opções, limites, segurança, custo e o que não confundir; 5 reúnem serviços **fora da prova** | Quando uma aula citar o serviço, ou para tirar dúvidas |
 | 🃏 [Flashcards](flashcards/README.md) | **226 perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |
-| ❓ [Questões por domínio](simulados/questoes/README.md) | **94 questões** no formato da prova, agrupadas por tópico, com explicação | Ao terminar cada domínio |
+| ❓ [Questões por domínio](simulados/questoes/README.md) | **94 questões** no formato da prova, agrupadas por aula, com explicação | Ao terminar cada domínio |
 | ⚖️ [Pares que confundem](resumos/comparativos.md) | **57 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
 | 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **35 gatilhos** do enunciado que apontam a resposta | Revisão final |
 | 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |
 | 📖 [Glossário](glossario.md) | **129 termos** e siglas | Sempre que travar num termo |
-| ✅ [Progresso](progresso.md) | Checklist de todos os tópicos e marcos | Para acompanhar o seu avanço |
-| 🧪 [Labs](labs/README.md) | Exercícios práticos no console AWS, com cuidado de custos | Opcional, para fixar |
+| ✅ [Progresso](progresso.md) | Lista de todas as aulas e marcos | Para acompanhar o seu avanço |
+| 🧪 [Práticas no console](labs/README.md) | Lista de práticas sugeridas no console AWS, com cuidado de custos | Opcional, depois de ler as aulas |
 <!-- conteudo:fim -->
 
 Para entender a organização dos textos, leia [como estudar com esta apostila](docs/00-guia-do-exame/estrutura-da-apostila.md). As [práticas no console](labs/README.md) são opcionais e devem ser feitas depois de ler as instruções de custos e limpeza de recursos.
+
+## Edição impressa
+
+A apostila também sai em PDF, em três volumes pensados para imprimir: o **livro-texto** (aulas, na ordem do sumário, com o glossário), o **caderno de consulta** (fichas dos serviços principais e resumos) e o **caderno de exercícios** (questões por domínio, com o gabarito no fim). Os PDFs são montados a partir destes mesmos arquivos, então o papel e o GitHub têm o mesmo conteúdo.
+
+Quando uma versão for publicada, os três PDFs ficarão na página de [Releases](https://github.com/tuanyfortunato/aws-cloud-practitioner/releases). Para gerar uma cópia por conta própria, veja o [gerador da edição impressa](scripts/gerar_impressa.py).
 
 ## Fontes e atualizações
 
