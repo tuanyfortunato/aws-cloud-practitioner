@@ -1,114 +1,68 @@
+<!-- autoral -->
+
 # Amazon Cognito
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Seu aplicativo precisa que clientes criem contas, façam login e provem sua identidade sem você construir do zero todo esse mecanismo.
-
-**Como este serviço ajuda?** Cognito oferece recursos de identidade para usuários de aplicações. User pools cuidam de cadastro e autenticação; identity pools podem fornecer credenciais AWS temporárias conforme a configuração.
-
-**Exemplo do dia a dia:** Alunos fazem login no aplicativo da escola por um cadastro Cognito. Depois, a aplicação usa essa identidade para aplicar suas regras de acesso.
-
-**O que ele não resolve sozinho?** Login válido não significa autorização para qualquer operação. A aplicação ainda precisa decidir quais dados e ações cada usuário pode acessar.
-
-**Primeiras palavras para entender:**
-
-- **Autenticação:** confirmar quem a pessoa é.
-- **Autorização:** decidir o que ela pode fazer.
-- **User pool:** diretório de usuários da aplicação.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / identidade de clientes (CIAM) · **Domínio:** 2 · **Escopo:** Regional · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
+> **Categoria:** Segurança e identidade de clientes · **Domínio:** 2 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** cadastro, login e controle de acesso para **usuários finais** de aplicações web e mobile.
+> **Em uma frase:** cadastro, login e controle de acesso para os usuários de aplicativos web e móveis.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
 
-**Passo 1.** Escolha como cadastrar e autenticar usuários do aplicativo.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Integre o aplicativo com o recurso de identidade adequado e valide as informações de autenticação.
+---
 
-**Passo 3.** Aplique as regras de autorização no uso da aplicação. Saber quem entrou não permite mostrar os dados de qualquer outra pessoa.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Os pais precisam se cadastrar no site da matrícula, entrar com e-mail e senha (ou com a conta do Google) e enviar documentos. Criar um usuário do IAM para cada pai misturaria clientes com as pessoas que administram a conta, e escrever o sistema de login do zero dá trabalho e abre brechas.
 
-### Componentes
+O Cognito cuida dessa parte. Um **pool de usuários** (*user pool*) é o diretório do aplicativo: cadastro, login, MFA e entrada com contas sociais como Google e Apple ou provedores SAML e OIDC. Um **pool de identidades** (*identity pool*) troca esse login por credenciais temporárias e limitadas da AWS, para o aplicativo acessar serviços como o S3 em nome do usuário.
 
-**User pools**
+O limite: o Cognito é para clientes do aplicativo. Funcionários acessando contas da AWS usam o [IAM Identity Center](iam-identity-center.md).
 
-**O que faz:** Diretório de usuários: **cadastro e login**, verificação de e-mail/telefone, recuperação de senha, **MFA**, **login social** (Google, Facebook, Apple, Amazon), SAML/OIDC, UI hospedada (*managed login*), tokens JWT.
+## Como funciona
 
-**Identity pools**
+1. Você cria um pool de usuários e escolhe as formas de login.
+2. O aplicativo usa o login gerenciado do Cognito ou telas próprias; o usuário se cadastra e entra.
+3. O pool de usuários devolve tokens (JWT) que o aplicativo ou a API conferem.
+4. Se o aplicativo precisa acessar a AWS diretamente, um pool de identidades troca o token por credenciais temporárias.
 
-**O que faz:** Trocam uma identidade (user pool, social, SAML ou visitante) por **credenciais AWS temporárias** (via STS) para acessar S3, DynamoDB etc. direto do app.
+## Opções principais
 
-### Configurações
+| Opção | O que faz | Pista no enunciado |
+|---|---|---|
+| Pool de usuários | Diretório com cadastro e login, inclusive social | "Login no aplicativo", "entrar com Google" |
+| Pool de identidades | Credenciais temporárias da AWS para o usuário do aplicativo | "Aplicativo grava direto no S3" |
+| Planos Lite, Essentials e Plus | Recursos crescentes; o Plus acrescenta proteção contra login suspeito e senhas vazadas | "Detectar login de local incomum" |
 
-Políticas de senha, MFA adaptativo e proteção contra credenciais comprometidas (*threat protection*), gatilhos Lambda (personalizar fluxos), integração com ALB e API Gateway para autenticação.
+## Números que a prova cobra
 
-Planos de recursos: Lite, Essentials e Plus.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Nível gratuito (planos Lite e Essentials) | 10.000 usuários ativos por mês | 06/10/2026 |
+| Plano padrão de pools novos | Essentials | 06/10/2026 |
 
-## 3. Como escolher e reconhecer os limites
+## Como é cobrado
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+O pool de usuários cobra por **usuário ativo por mês** (MAU), com preço que depende do plano. Os planos Lite e Essentials têm nível gratuito de 10.000 usuários ativos por mês para login direto ou social; o Plus não tem nível gratuito. Usuários federados por SAML ou OIDC têm nível gratuito de 50 por mês.
 
-Login válido não significa autorização para qualquer operação. A aplicação ainda precisa decidir quais dados e ações cada usuário pode acessar.
+## Não confundir com
 
-## 4. Operação, segurança e custo
+| Serviço | Diferença para o Cognito | Pista no enunciado |
+|---|---|---|
+| [AWS IAM Identity Center](iam-identity-center.md) | Login único de funcionários nas contas da AWS | "Funcionários", "várias contas" |
+| [AWS IAM](iam.md) | Identidades de quem administra e dos programas da conta | "Permissão para a instância" |
+| [Amazon API Gateway](../redes/api-gateway.md) | Recebe os pedidos da API; pode exigir o token do Cognito | "Proteger a API com login do usuário" |
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+## Fontes oficiais
 
-### Cobrança
+Verificadas em 06/10/2026.
 
-Por **usuário ativo mensal (MAU)**, conforme o plano; identity pools sem custo próprio.
-
-## 5. Caso resolvido: ligando as peças
-
-Alunos fazem login no aplicativo da escola por um cadastro Cognito. Depois, a aplicação usa essa identidade para aplicar suas regras de acesso.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Escolha como cadastrar e autenticar usuários do aplicativo.
-**Etapa 2:** Integre o aplicativo com o recurso de identidade adequado e valide as informações de autenticação.
-**Etapa 3:** Aplique as regras de autorização no uso da aplicação. Saber quem entrou não permite mostrar os dados de qualquer outra pessoa.
-
-**Resultado e responsabilidade:** Cognito oferece recursos de identidade para usuários de aplicações. User pools cuidam de cadastro e autenticação; identity pools podem fornecer credenciais AWS temporárias conforme a configuração.
-
-**Recursos envolvidos:** User pools, app clients e identity pools.
-
-**Decisões que precisam ser tomadas:** Métodos de login, federação, MFA e roles.
-
-**Outra situação comentada:** App precisa login social e acesso limitado a recurso: combine capacidades conforme requisito.
-
-**Por que não concluir mais do que isso:** User pool e identity pool não são o mesmo recurso; login não concede toda ação AWS
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Permitir login com Google num app mobile."
-
-**Resposta curta:** Cognito.
-
-**Pergunta:** "App mobile precisa enviar fotos direto ao S3 com credenciais temporárias."
-
-**Resposta curta:** Cognito identity pool.
-
-**Pergunta:** "Cognito ou Identity Center para funcionários acessarem o console?"
-
-**Resposta curta:** Identity Center.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)
+- [O que é o Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)
+- [Planos de recursos dos pools de usuários](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html)
+- [Preços do Amazon Cognito](https://aws.amazon.com/cognito/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

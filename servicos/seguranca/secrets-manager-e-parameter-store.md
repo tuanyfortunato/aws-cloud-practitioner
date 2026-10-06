@@ -1,106 +1,71 @@
+<!-- autoral -->
+
 # AWS Secrets Manager e Systems Manager Parameter Store
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A aplicação precisa de senhas e configurações. Colocar esses valores no código dificulta protegê-los e alterá-los sem publicar uma nova versão.
-
-**Como este serviço ajuda?** Secrets Manager guarda segredos com recursos como rotação compatível. Parameter Store organiza parâmetros de configuração, inclusive valores protegidos conforme a modalidade.
-
-**Exemplo do dia a dia:** O sistema lê a senha do banco por um acesso autorizado ao serviço, em vez de manter essa senha escrita no código enviado ao repositório.
-
-**O que ele não resolve sozinho?** Guardar um segredo não autoriza qualquer programa a lê-lo. Rotação também não funciona para todo sistema sem configuração e integração.
-
-**Primeiras palavras para entender:**
-
-- **Segredo:** valor sensível, como uma senha.
-- **Parâmetro:** valor de configuração.
-- **Rotação:** troca periódica de um segredo.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / gestão de segredos · **Domínio:** 2 · **Escopo:** Regional · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
+> **Categoria:** Segurança e gestão de segredos · **Domínio:** 2 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** guardam segredos e configurações fora do código, criptografados com KMS — o Secrets Manager também os **rotaciona automaticamente**.
+> **Em uma frase:** guardam segredos e configurações fora do código; o Secrets Manager também faz a rotação automática dos segredos.
 >
 > **Escopo oficial:** ✅ No escopo (Parameter Store como parte do Systems Manager) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
 
-**Passo 1.** Separe valores sensíveis e parâmetros comuns de configuração.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Guarde os valores na ferramenta compatível e autorize apenas quem precisa obtê-los. A aplicação lê o valor ao executar.
+---
 
-**Passo 3.** Planeje atualização e rotação conforme a integração. Guardar uma senha não muda sozinho a senha do sistema externo.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+O sistema de matrícula precisa da senha do banco de dados. Deixá-la no código ou num arquivo de configuração faz a senha vazar junto com o código, e ninguém a troca porque teria de mexer em todos os lugares.
 
-### Comparação
+O **Secrets Manager** guarda, recupera e faz a **rotação** de segredos como credenciais de banco, chaves de API e tokens. A rotação pode ser automática, num calendário, e o programa sempre busca o valor atual. O **Parameter Store**, parte do Systems Manager, guarda parâmetros de configuração em texto simples ou cifrados (`SecureString`).
 
-| | **Secrets Manager** | **Parameter Store** |
+O limite: a AWS recomenda o Parameter Store para configurações e o Secrets Manager para segredos, porque só ele traz rotação automática. Os dois dependem das permissões do [IAM](iam.md): quem lê o segredo precisa de permissão para isso.
+
+## Como funciona
+
+1. Você grava o segredo no Secrets Manager (ou o parâmetro no Parameter Store), cifrado com o [KMS](kms.md).
+2. Dá à função do IAM do programa permissão para ler aquele segredo.
+3. O programa busca o valor na hora de usar, em vez de guardar uma cópia.
+4. No Secrets Manager, a rotação troca a senha no segredo e no banco, gerenciada pelo serviço ou por uma função Lambda.
+
+## Opções principais
+
+| Opção | O que faz | Pista no enunciado |
 |---|---|---|
-| Foco | Segredos (senhas de banco, chaves de API, tokens) | Configurações e segredos simples |
-| **Rotação automática** | ✅ **Nativa** (RDS, Aurora, Redshift, DocumentDB) ou via Lambda; *managed rotation* | ❌ (só com automação própria) |
-| Criptografia | Sempre (KMS) | Opcional (`SecureString` com KMS) |
-| Replicação entre regiões | ✅ | ❌ |
-| Versionamento | Estágios `AWSCURRENT` / `AWSPREVIOUS` | Histórico de versões |
-| Tamanho | Até 64 KB (65.536 bytes) 🧊 | Standard 4 KB (até 10.000 parâmetros, grátis) / Advanced 8 KB (até 100.000, pago) 🧊 |
-| Hierarquia | — | Sim (`/app/prod/db-url`) |
-| Custo | **Pago** por segredo/mês + chamadas de API | **Standard grátis**; Advanced pago |
-| Integração | RDS gera e guarda a senha mestre no Secrets Manager | CloudFormation, ECS, Lambda, EC2 |
+| Secrets Manager | Segredos com rotação automática | "Trocar a senha do banco periodicamente" |
+| Parameter Store padrão | Até 10.000 parâmetros de até 4 KB, sem cobrança adicional | "Configurações da aplicação sem custo" |
+| Parameter Store avançado | Até 100.000 parâmetros de até 8 KB, com políticas; cobrado | "Parâmetros maiores ou com expiração" |
+| `SecureString` | Parâmetro cifrado com o KMS | "Guardar um valor sensível no Parameter Store" |
 
-## 3. Como escolher e reconhecer os limites
+## Números que a prova cobra
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Tamanho do parâmetro padrão e avançado | 4 KB e 8 KB | 06/10/2026 |
+| Parâmetros por conta e Região (padrão e avançado) | 10.000 e 100.000 | 06/10/2026 |
 
-Guardar um segredo não autoriza qualquer programa a lê-lo. Rotação também não funciona para todo sistema sem configuração e integração.
+## Como é cobrado
 
-### ⚠️ Pegadinhas
+O Secrets Manager cobra por segredo por mês (cada réplica conta como um segredo) e por 10.000 chamadas de API. No Parameter Store, os parâmetros padrão não têm cobrança adicional, e os avançados são cobrados.
 
-"Rotação automática" → **Secrets Manager**. "Guardar configuração barata/grátis" → **Parameter Store**.
+## Não confundir com
 
-Nunca guarde access keys/senhas no código, em variáveis de ambiente em texto ou no user data.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS KMS](kms.md) | Guarda as chaves que cifram os segredos, não os segredos | "Chave de criptografia" |
+| [AWS Systems Manager](../gerenciamento/systems-manager.md) | O serviço de operação do qual o Parameter Store faz parte | "Aplicar patches", "rodar comandos" |
+| [AWS IAM](iam.md) | Credenciais temporárias por funções, sem guardar senha | "Instância acessando o S3" |
 
-## 4. Caso resolvido: ligando as peças
+## Fontes oficiais
 
-O sistema lê a senha do banco por um acesso autorizado ao serviço, em vez de manter essa senha escrita no código enviado ao repositório.
+Verificadas em 06/10/2026.
 
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Separe valores sensíveis e parâmetros comuns de configuração.
-**Etapa 2:** Guarde os valores na ferramenta compatível e autorize apenas quem precisa obtê-los. A aplicação lê o valor ao executar.
-**Etapa 3:** Planeje atualização e rotação conforme a integração. Guardar uma senha não muda sozinho a senha do sistema externo.
-
-**Resultado e responsabilidade:** Secrets Manager guarda segredos com recursos como rotação compatível. Parameter Store organiza parâmetros de configuração, inclusive valores protegidos conforme a modalidade.
-
-**Recursos envolvidos:** Secrets e parâmetros; versões e chaves de criptografia quando aplicável.
-
-**Decisões que precisam ser tomadas:** Acesso, valor, rotação e integração.
-
-**Outra situação comentada:** Senha de banco com rotação: Secrets Manager; parâmetros comuns: avalie Parameter Store.
-
-**Por que não concluir mais do que isso:** Não basta criar segredo: aplicação precisa usá-lo; rotação não muda magicamente sistemas sem integração
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Onde guardar a senha do banco com rotação automática?"
-
-**Resposta curta:** Secrets Manager.
-
-**Pergunta:** "Guardar URLs e flags de configuração por ambiente sem custo."
-
-**Resposta curta:** Parameter Store.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) · [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
+- [O que é o AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+- [Rotação de segredos](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html)
+- [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
+- [Parâmetros padrão e avançados](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html)
+- [Preços do AWS Secrets Manager](https://aws.amazon.com/secrets-manager/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
