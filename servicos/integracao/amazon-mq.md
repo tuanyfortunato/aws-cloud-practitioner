@@ -1,93 +1,42 @@
+<!-- autoral -->
+
 # Amazon MQ
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma aplicação existente já usa um intermediário de mensagens específico, e trocar seu protocolo ou reescrever sua integração seria trabalhoso.
-
-**Como este serviço ajuda?** Amazon MQ oferece brokers gerenciados compatíveis com tecnologias suportadas, como ActiveMQ e RabbitMQ.
-
-**Exemplo do dia a dia:** Uma empresa avalia mover seu broker compatível para Amazon MQ preservando a interface usada por suas aplicações.
-
-**O que ele não resolve sozinho?** Ele não é intercambiável com SQS ou SNS em todas as interfaces. Migração e compatibilidade precisam ser avaliadas; o nome não consta da lista de escopo indicada nesta ficha.
-
-**Primeiras palavras para entender:**
-
-- **Broker:** intermediário de mensagens.
-- **Protocolo:** regras da comunicação.
-- **Compatibilidade:** suporte às interfaces usadas pela aplicação.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Integração de aplicações / message broker · **Domínio:** 3 · **Escopo:** Regional (Multi-AZ opcional) · **Tópico do guia:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
+> **Categoria:** Integração de aplicações / message broker · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** referência
 >
-> **Em uma frase:** brokers de mensagens gerenciados **Apache ActiveMQ** e **RabbitMQ**, compatíveis com protocolos padrão.
+> **Em uma frase:** serviço gerenciado de message broker para Apache ActiveMQ Classic e RabbitMQ, para migrar sistemas que já usam esses brokers sem reescrever o código de mensagens.
 >
 > **Escopo oficial:** ⚪ Não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md) · [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 
-**Passo 1.** Avalie a tecnologia e os protocolos de mensagens usados pela aplicação existente.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare um broker compatível e conecte produtores e consumidores autorizados.
+---
 
-**Passo 3.** Teste comportamento, falhas e disponibilidade. Preservar interface não dispensa validar a migração do sistema.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+O sistema financeiro antigo da rede troca mensagens por um **message broker** (o intermediário que recebe e entrega mensagens entre programas) RabbitMQ, com protocolos padrão do mercado. Trocar tudo por SQS exigiria reescrever o código. O **Amazon MQ** gerencia brokers ActiveMQ Classic e RabbitMQ na AWS. Ele não aparece na lista do exame.
 
-### Quando usar
+1. Cria-se um broker do Amazon MQ, com ActiveMQ Classic ou RabbitMQ.
+2. As aplicações se conectam com os protocolos padrão que já usam.
+3. O Amazon MQ cuida da configuração, da manutenção e das atualizações de versão na janela de manutenção escolhida.
+4. O CloudWatch monitora o broker.
 
-**Migrar aplicações existentes** que já usam ActiveMQ/RabbitMQ e protocolos padrão (**JMS, AMQP, MQTT, STOMP, OpenWire, WebSocket**) **sem reescrever o código**.
+## Não confundir com
 
-Para aplicações novas na nuvem, a AWS recomenda SQS/SNS (mais escaláveis e simples).
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon SQS](sqs.md) | Fila gerenciada da própria AWS, no escopo | "Desacoplar", "fila" |
+| [Amazon SNS](sns.md) | Publicar e assinar notificações, no escopo | "Avisar vários assinantes" |
+| [Amazon MSK](../analytics/lake-formation-msk-e-outros.md) | Apache Kafka gerenciado, fora do escopo | "Kafka" |
 
-### Destaques
+## Fontes oficiais
 
-Instância única ou ativo/standby Multi-AZ (ActiveMQ) / cluster (RabbitMQ); a AWS cuida de patch e manutenção.
+Verificadas em 06/10/2026.
 
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Ele não é intercambiável com SQS ou SNS em todas as interfaces. Migração e compatibilidade precisam ser avaliadas; o nome não consta da lista de escopo indicada nesta ficha.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma empresa avalia mover seu broker compatível para Amazon MQ preservando a interface usada por suas aplicações.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Avalie a tecnologia e os protocolos de mensagens usados pela aplicação existente.
-**Etapa 2:** Prepare um broker compatível e conecte produtores e consumidores autorizados.
-**Etapa 3:** Teste comportamento, falhas e disponibilidade. Preservar interface não dispensa validar a migração do sistema.
-
-**Resultado e responsabilidade:** Amazon MQ oferece brokers gerenciados compatíveis com tecnologias suportadas, como ActiveMQ e RabbitMQ.
-
-**Recursos envolvidos:** Broker, filas/tópicos e engines/protocolos compatíveis.
-
-**Decisões que precisam ser tomadas:** ActiveMQ/RabbitMQ, capacidade, rede e acesso.
-
-**Outra situação comentada:** Aplicação exige protocolo de broker existente: avalie MQ; nova fila AWS simples: SQS.
-
-**Por que não concluir mais do que isso:** Não listado não é exclusão formal; escolha por compatibilidade, sem igualar a API SQS
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Aplicação usa RabbitMQ e deve migrar sem mudar o código."
-
-**Resposta curta:** Amazon MQ (SQS exigiria reescrever).
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Amazon MQ](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html)
-
+- [O que é o Amazon MQ](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html)
+- [Serviços no escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

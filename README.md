@@ -232,7 +232,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 - [Amazon Redshift](servicos/banco-de-dados/redshift.md)
 - [Amazon DocumentDB](servicos/banco-de-dados/documentdb.md)
 - [Amazon Neptune](servicos/banco-de-dados/neptune.md)
-- [Amazon Keyspaces, Timestream e outros bancos especializados](servicos/banco-de-dados/keyspaces-timestream-e-outros.md)
+- [Amazon Keyspaces e Amazon Timestream](servicos/banco-de-dados/keyspaces-timestream-e-outros.md)
 
 </details>
 
@@ -300,7 +300,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 - [Amazon EMR](servicos/analytics/emr.md)
 - [Amazon QuickSight](servicos/analytics/quicksight.md)
 - [Amazon OpenSearch Service](servicos/analytics/opensearch.md)
-- [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](servicos/analytics/lake-formation-msk-e-outros.md)
+- [Lake Formation, MSK, Data Exchange, AppFlow e Clean Rooms](servicos/analytics/lake-formation-msk-e-outros.md)
 
 </details>
 
