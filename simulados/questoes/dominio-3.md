@@ -1,6 +1,6 @@
 # ❓ Questões — Domínio 3 — Tecnologia e Serviços de Nuvem (34%)
 
-37 questões no formato da prova, em ordem de tópico. Responda antes de abrir "Ver resposta".
+40 questões no formato da prova, em ordem de tópico. Responda antes de abrir "Ver resposta".
 
 ⬅️ [Todas as questões por domínio](README.md)
 
@@ -744,5 +744,65 @@ Uma empresa quer migrar um banco Oracle on-premises para o Amazon Aurora Postgre
 **Resposta: A**
 
 Migração **heterogênea**: o **SCT** converte o schema e o código do Oracle para PostgreSQL, e o **DMS** move os dados com replicação contínua (CDC). O Application Migration Service migra servidores inteiros; DataSync, Transfer Family e Snowball transferem arquivos.
+
+</details>
+
+### Questão 38
+
+<sub>Domínio 3 · tópico [3.18](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)</sub>
+
+Uma aplicação precisa de credenciais da AWS que valham por pouco tempo e expirem sozinhas, em vez de chaves de acesso permanentes. Qual serviço gera essas credenciais temporárias?
+
+- **A)** AWS Key Management Service (AWS KMS)
+- **B)** AWS Security Token Service (AWS STS)
+- **C)** AWS Certificate Manager (ACM)
+- **D)** AWS Secrets Manager
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: B**
+
+O **AWS STS** cria credenciais de segurança **temporárias**, que duram de minutos a horas e deixam de valer quando expiram; ele é a base das funções do IAM e da federação. O Secrets Manager guarda e alterna segredos; o KMS gerencia chaves de criptografia; o ACM emite certificados TLS.
+
+</details>
+
+### Questão 39
+
+<sub>Domínio 3 · tópico [3.18](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)</sub>
+
+Uma equipe quer provocar falhas de propósito, de forma controlada, para observar como a aplicação reage e melhorar a sua resiliência (engenharia do caos). Qual serviço da AWS foi feito para esses experimentos?
+
+- **A)** AWS Fault Injection Service (AWS FIS)
+- **B)** AWS Config
+- **C)** Amazon Inspector
+- **D)** AWS Trusted Advisor
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: A**
+
+O **AWS FIS** executa experimentos de **injeção de falhas**, baseados nos princípios da engenharia do caos, ligados ao pilar Confiabilidade. O Trusted Advisor recomenda boas práticas; o Inspector procura vulnerabilidades de software; o Config registra e avalia configurações.
+
+</details>
+
+### Questão 40
+
+<sub>Domínio 3 · tópico [3.18](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)</sub>
+
+A diretoria quer acompanhar as emissões de carbono geradas pelo uso da AWS, separadas por Região e por serviço, como parte das metas do pilar Sustentabilidade. Qual recurso fornece esses dados?
+
+- **A)** AWS Sustainability (Customer Carbon Footprint Tool)
+- **B)** AWS Budgets
+- **C)** AWS Cost Explorer
+- **D)** AWS Compute Optimizer
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: A**
+
+O **AWS Sustainability**, ligado à **Customer Carbon Footprint Tool**, mostra as emissões de carbono do uso da AWS ao longo do tempo, por Região e por serviço, com os dados publicados no mês seguinte ao uso. O Cost Explorer analisa gastos; o Compute Optimizer recomenda tamanhos; o Budgets alerta sobre custos.
 
 </details>
