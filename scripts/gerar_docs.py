@@ -105,6 +105,51 @@ FICHAS = {
 }
 CATEGORIA = {nome: cat for cat, nomes in FICHAS.items() for nome in nomes}
 
+# Grupos da Fase 5 (plano de implementação, seção 8). Núcleo: serviço central de alguma aula, com ficha
+# completa no modelo de templates/servico.md e lugar no caderno de consulta impresso. Complementar: no escopo,
+# mas periférico; versão curta do modelo. Referência: a lista oficial não traz o serviço principal da ficha
+# (fora do escopo ou não listado); a ficha fica só no digital, para reconhecer distratores.
+GRUPOS_FICHAS = {
+    "núcleo": [
+        "ec2", "ec2-auto-scaling", "elastic-load-balancing", "lambda", "ecs", "eks", "fargate",
+        "elastic-beanstalk",
+        "s3", "s3-classes-de-armazenamento", "ebs", "efs", "storage-gateway", "aws-backup",
+        "rds", "aurora", "dynamodb", "elasticache", "redshift",
+        "vpc", "vpc-peering-transit-gateway-e-endpoints", "site-to-site-vpn-e-client-vpn", "direct-connect",
+        "route-53", "cloudfront", "global-accelerator", "api-gateway",
+        "iam", "iam-identity-center", "cognito", "kms", "secrets-manager-e-parameter-store", "shield", "waf",
+        "guardduty", "inspector", "macie", "security-hub", "artifact",
+        "cloudwatch", "cloudtrail", "config", "systems-manager", "cloudformation", "organizations",
+        "control-tower", "trusted-advisor", "health-dashboard",
+        "athena", "glue", "kinesis", "quicksight",
+        "sagemaker-ai", "amazon-q", "servicos-de-ia-prontos",
+        "sqs", "sns", "eventbridge", "step-functions",
+        "cli-sdk-e-cloudshell",
+        "application-migration-service", "dms-e-sct",
+        "cost-explorer", "budgets", "pricing-calculator-cur-e-outras-ferramentas", "planos-de-suporte",
+        "recursos-de-ajuda-e-parceiros",
+    ],
+    "complementar": [
+        "ecr", "lightsail", "batch", "outposts-local-zones-wavelength",
+        "fsx", "elastic-disaster-recovery",
+        "documentdb", "neptune",
+        "directory-service", "cloudhsm", "certificate-manager", "firewall-manager-e-network-firewall",
+        "detective",
+        "service-catalog-e-ram", "compute-optimizer-service-quotas-e-license-manager",
+        "emr", "opensearch",
+        "code-services", "x-ray",
+        "amazon-connect", "ses", "workspaces-e-appstream", "amplify-e-appsync", "iot-core-e-greengrass",
+        "discovery-migration-hub-e-evaluator",
+    ],
+    "referência": [
+        "memorydb", "keyspaces-timestream-e-outros", "audit-manager", "lake-formation-msk-e-outros",
+        "bedrock", "amazon-mq", "snow-family", "datasync-e-transfer-family",
+        "midia-e-jogos", "iot-robotica-e-satelite", "desenvolvimento-e-aplicacoes", "rede-e-diretorio",
+        "gerenciamento-e-custos",
+    ],
+}
+GRUPO_FICHA = {nome: grupo for grupo, nomes in GRUPOS_FICHAS.items() for nome in nomes}
+
 FICHAS_POR_TOPICO = {
     "1.4": ["trusted-advisor"],
     "1.6": ["application-migration-service", "dms-e-sct"],
@@ -807,7 +852,8 @@ NOMES_CATEGORIA = {
 def gerar_indice_servicos():
     partes = ["# 🔎 Fichas de serviços AWS\n",
               "## 🧭 Por onde começar\n\n"
-              "Se você ainda não conhece um serviço, abra sua ficha e leia **Comece pelo problema**. "
+              "Se você ainda não conhece um serviço, abra sua ficha e leia a abertura: **Comece pelo problema** "
+              "ou, nas fichas já no modelo novo, **Que problema resolve**. "
               "A abertura explica a dificuldade, a solução, um exemplo, os limites e as primeiras palavras técnicas. "
               "Só depois avance para componentes, configurações e questões da prova.\n",
               "Uma ficha por serviço (ou família de serviços), com o que cai na prova e o que vai além: "
@@ -815,18 +861,23 @@ def gerar_indice_servicos():
               "atualizações 2025-2026, pegadinhas e perguntas típicas.\n",
               "> Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.\n>\n"
               "> Coluna *Escopo* ([lista oficial](../docs/00-guia-do-exame/escopo-oficial.md)): ✅ no escopo · "
-              "🔀 parcial · ⚪ não listado · ❌ fora do escopo.\n>\n> "
+              "🔀 parcial · ⚪ não listado · ❌ fora do escopo.\n>\n"
+              "> Coluna *Grupo*: **núcleo** é ficha completa de serviço central de alguma aula e entra no caderno "
+              "de consulta impresso; **complementar** é versão curta de serviço periférico no escopo; "
+              "**referência** é serviço fora da lista oficial, mantido só no digital para reconhecer distratores.\n>\n> "
               "Modelo para novas fichas: [`templates/servico.md`](../templates/servico.md).\n"]
+    soma = sum(len(n) for n in GRUPOS_FICHAS.values())
+    assert soma == len(GRUPO_FICHA) and set(GRUPO_FICHA) == set(CATEGORIA), "Fichas sem grupo ou repetidas"
     total = 0
     for cat, nomes in FICHAS.items():
-        partes.append(f"\n## {NOMES_CATEGORIA[cat]}\n\n| Ficha | Escopo | Em uma frase |\n|---|---|---|")
+        partes.append(f"\n## {NOMES_CATEGORIA[cat]}\n\n| Ficha | Escopo | Grupo | Em uma frase |\n|---|---|---|---|")
         for nome in nomes:
             caminho = os.path.join(RAIZ, "servicos", cat, nome + ".md")
             with open(caminho) as f:
                 texto = f.read()
             frase = re.search(r"\*\*Em uma frase:\*\* (.+)", texto)
             frase = frase.group(1).strip() if frase else ""
-            partes.append(f"| [{titulo_ficha(nome)}]({cat}/{nome}.md) | {ESCOPO[nome].split()[0]} | {frase[:1].upper() + frase[1:]} |")
+            partes.append(f"| [{titulo_ficha(nome)}]({cat}/{nome}.md) | {ESCOPO[nome].split()[0]} | {GRUPO_FICHA[nome]} | {frase[:1].upper() + frase[1:]} |")
             total += 1
     escrever("servicos/README.md", "\n".join(partes))
     return total

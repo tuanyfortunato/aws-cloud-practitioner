@@ -190,7 +190,9 @@ Cada fase é dividida em PRs pequenos, conforme o [CLAUDE.md](../CLAUDE.md): bra
 |---|---|---|
 | Núcleo | Serviço central de alguma aula | Reescrita completa; entra no caderno de consulta impresso |
 | Complementar | No escopo, mas periférico | Versão curta (itens 1, 3, 7 e 8) |
-| Fora do escopo | Fichas em `servicos/fora-do-escopo/` | Permanecem no digital; não entram no impresso |
+| Referência | Fichas em `servicos/fora-do-escopo/` e fichas cujo serviço principal está fora da lista oficial ou não aparece nela | Permanecem no digital; não entram no impresso |
+
+A classificação de cada ficha fica em `GRUPOS_FICHAS` do `scripts/gerar_docs.py` (67 núcleo, 25 complementares e 13 de referência) e aparece na coluna *Grupo* do [índice das fichas](../servicos/README.md).
 
 **Sobreposição com a aula:** quando aula e ficha explicam o mesmo mecanismo (ex.: S3), a explicação fica na aula e a ficha remete a ela.
 
@@ -259,7 +261,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 | 2 | Concluída | #24 (capítulo 0 e aula 0.1) · #25 (aulas 0.2 e 0.3) · #26 (aulas 0.4 e 0.5) · #27 (glossário) · #28 (correções) · flashcards do capítulo 0 | Capítulo 0 completo; glossário com 129 termos; correções após conferir as páginas oficiais inteiras (#28); flashcards do capítulo 0 em `flashcards/capitulo-0.md` |
 | 3 | Concluída | #31 (modelo de aula em `templates/topico.md`) · #32 (aula-piloto 2.1) · #52 (ficha-piloto SQS) | Aula-piloto lida e aprovada pela dona do repositório em 06/10/2026 (AP-14). A ficha-piloto do SQS usa o modelo da Fase 5 |
 | 4 | Concluída | Onda A concluída: #33 (aulas 2.2 e 2.3) · #34 (2.4 e 2.5) · #35 (2.6 e 2.7) · #36 (2.8 a 2.10). Onda B concluída: #37 (aulas 1.1 e 1.2) · #38 (1.3 e 1.4) · #39 (1.5 a 1.7). Onda C concluída: #40 (aulas 3.1 e 3.2) · #41 (3.3 e 3.4) · #42 (3.5 e 3.6) · #43 (3.7 e 3.8) · #44 (3.9 e 3.10). Onda D concluída: #45 (aulas 3.11 e 3.12) · #46 (3.13 e 3.14) · #47 (3.15 e 3.16) · #48 (3.17 e 3.18). Onda E concluída: #49 (aulas 4.1 e 4.2) · #50 (4.3 e 4.4) · #51 (4.5 e 4.6) | As 46 aulas são autorais. Próxima: fase 5 (fichas) |
-| 5 | Em andamento | #52 (modelo de ficha em `templates/servico.md` e ficha-piloto SQS) | Próximo: classificar as 105 fichas em núcleo, complementar e fora do escopo e reescrever as núcleo |
+| 5 | Em andamento | #52 (modelo de ficha em `templates/servico.md` e ficha-piloto SQS) · #53 (classificação das fichas) | Fichas classificadas (#53). Próximo: reescrever as fichas núcleo, uma categoria por PR |
 | 6 | Pendente | — | — |
 | 7 | Pendente | — | — |
 | 8 | Pendente | — | — |
