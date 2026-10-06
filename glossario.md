@@ -1,3 +1,5 @@
+<!-- autoral -->
+
 # 📖 Glossário
 
 Termos e siglas que aparecem na prova, em ordem alfabética. O glossário serve para **relembrar** um termo; para aprender o conceito, siga o link da aula indicada. As aulas explicam cada termo no primeiro uso, dentro do raciocínio.

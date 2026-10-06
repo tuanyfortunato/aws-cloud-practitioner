@@ -407,8 +407,8 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 | 🔎 [Fichas de serviços](#caderno-de-serviços) | **105 fichas** (uma por serviço ou família), com funcionamento, opções, limites, segurança, custo e casos resolvidos; 5 reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |
 | 🃏 [Flashcards](flashcards/README.md) | **226 perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |
 | ❓ [Questões por domínio](simulados/questoes/README.md) | **94 questões** no formato da prova, agrupadas por tópico, com explicação | Ao terminar cada domínio |
-| ⚖️ [Pares que confundem](resumos/comparativos.md) | **55 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
-| 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **28 gatilhos** do enunciado que apontam a resposta | Revisão final |
+| ⚖️ [Pares que confundem](resumos/comparativos.md) | **57 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
+| 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **35 gatilhos** do enunciado que apontam a resposta | Revisão final |
 | 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |
 | 📖 [Glossário](glossario.md) | **129 termos** e siglas | Sempre que travar num termo |
 | ✅ [Progresso](progresso.md) | Checklist de todos os tópicos e marcos | Para acompanhar o seu avanço |
