@@ -57,6 +57,7 @@ Cada fase é dividida em PRs pequenos, conforme o [CLAUDE.md](../CLAUDE.md): bra
 **PR 0.2 — Script de métricas**
 
 - Criar `scripts/metricas_apostila.py`, que conta por arquivo: blocos "Antes de ler este trecho", ocorrências de "compatíve" e "conforme", revisões cuja resposta repete a abertura, seções só com texto padrão, aulas autorais e geradas.
+- Linha de base medida em 06/10/2026 (`main`): 1.349 blocos de vocabulário automático, 1.555 ocorrências de "compatíve"/"conforme", 123 revisões circulares (3 por aula), 147 seções só com texto padrão (105 "Roteiro de leitura" e 39 "Operação, segurança e custo") e 0 arquivos autorais, em 316 mil palavras.
 - A saída registra a evolução no PR de cada fase e alimenta os critérios de aceite. As métricas apontam problemas; não são metas de quantidade.
 
 **Aceite da fase:** gerador, `test_apostila.py` e `verificar_links.py` passando; nenhuma mudança visível no material.
@@ -247,7 +248,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 
 | Fase | Status | PRs | Observações |
 |---|---|---|---|
-| 0 | Em andamento | PR 0.1 (marcador autoral) | PR 0.2 (métricas) pendente |
+| 0 | Em andamento | PR 0.1 (marcador autoral, #21, mergeado) · PR 0.2 (métricas) | Linha de base registrada na seção 3 |
 | 1 | Pendente | — | — |
 | 2 | Pendente | — | — |
 | 3 | Pendente | — | — |

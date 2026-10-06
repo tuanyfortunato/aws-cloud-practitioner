@@ -12,6 +12,8 @@
    (regenera tópicos, flashcards, resumos, índice de fichas e o índice do README).
 2. Se mexeu em `scripts/banco_questoes.py`, rode `python3 scripts/gerar_simulado.py`.
 3. Rode `python3 scripts/verificar_links.py` — precisa terminar com 0 links quebrados.
+4. Se mexeu em conteúdo de aulas ou fichas, rode `python3 scripts/metricas_apostila.py` e registre a
+   tabela na descrição do PR (as métricas apontam problemas; não são metas de quantidade).
 
 ## Convenções
 
