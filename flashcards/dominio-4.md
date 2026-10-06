@@ -2,78 +2,72 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 41 cards
+**Total:** 40 cards
 
 
 ## [4.1 Princípios de preço da AWS](../docs/04-cobranca-precos-e-suporte/01-principios-de-preco.md)
 
 <details>
-<summary>Qual é um princípio de preço da AWS?</summary>
+<summary>O que significa pagar pelo uso?</summary>
 
-Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.
+Pagar só pelos serviços que você usa, pelo tempo em que usa, sem contrato de longo prazo e sem multa ao parar de usar.
 </details>
 
 <details>
-<summary>Quais são os três principais geradores de custo?</summary>
+<summary>Como funciona o princípio "economize ao se comprometer"?</summary>
 
-Computação, armazenamento e transferência de dados de saída.
+Você se compromete a usar uma quantidade de serviço por 1 ou 3 anos e, em troca, paga preços menores que os sob demanda.
+</details>
+
+<details>
+<summary>O que é o desconto por volume?</summary>
+
+Preço escalonado em faixas: quanto mais você usa, menor o preço por unidade, como no S3 e na transferência de dados de saída do EC2.
+</details>
+
+<details>
+<summary>A transferência de dados para dentro da AWS é cobrada?</summary>
+
+Não: a AWS informa que a transferência de dados de entrada é gratuita.
+</details>
+
+<details>
+<summary>Como funciona o plano gratuito do AWS Free Tier para contas novas?</summary>
+
+A conta recebe US$ 100 em créditos, pode ganhar mais US$ 100 com atividades, e o plano termina em 6 meses ou quando os créditos acabam.
 </details>
 
 
 ## [4.2 Modelos de compra do EC2](../docs/04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md)
 
 <details>
-<summary>Aplicação nova, sem histórico de uso, que não pode ser interrompida.</summary>
+<summary>Quando usar instâncias Spot?</summary>
 
-On-Demand.
+Quando a carga tolera interrupção e tem horário flexível, como processamento em lote e análise de dados; o desconto chega a 90%.
 </details>
 
 <details>
-<summary>Servidor de banco que roda 24/7 pelos próximos 3 anos.</summary>
+<summary>Qual é a diferença entre Compute Savings Plans e EC2 Instance Savings Plans?</summary>
 
-Reserved Instances ou Savings Plans (3 anos, All Upfront dá o maior desconto).
+O Compute Savings Plans vale para qualquer família, Região e sistema, e também para Fargate e Lambda (até 66%); o EC2 Instance Savings Plans exige uma família numa Região e dá até 72%.
 </details>
 
 <details>
-<summary>Desconto com flexibilidade entre EC2, Fargate e Lambda.</summary>
+<summary>Qual é a diferença entre uma RI Standard e uma RI Convertible?</summary>
 
-Compute Savings Plans.
+A Standard dá o maior desconto, mas não pode ser trocada; a Convertible dá desconto menor e pode ser trocada por outra configuração durante o prazo.
 </details>
 
 <details>
-<summary>Processamento em lote que pode ser interrompido e reiniciado.</summary>
+<summary>Quando escolher um Dedicated Host?</summary>
 
-Spot.
+Quando é preciso um servidor físico inteiro, com controle de onde as instâncias rodam, para usar licenças próprias cobradas por soquete, núcleo ou máquina virtual.
 </details>
 
 <details>
-<summary>Qual o aviso antes de uma Spot ser interrompida?</summary>
+<summary>Como as RIs se comportam numa organização do AWS Organizations?</summary>
 
-2 minutos.
-</details>
-
-<details>
-<summary>Licença de software por núcleo físico.</summary>
-
-Dedicated Host.
-</details>
-
-<details>
-<summary>Garantir capacidade numa AZ para um evento, sem contrato longo.</summary>
-
-On-Demand Capacity Reservation.
-</details>
-
-<details>
-<summary>Qual opção de pagamento dá o maior desconto?</summary>
-
-All Upfront.
-</details>
-
-<details>
-<summary>Reservas compradas podem ser revendidas?</summary>
-
-Sim, RIs Standard no Reserved Instance Marketplace.
+Com o faturamento consolidado, o desconto de uma RI comprada por uma conta pode ser aproveitado pelas instâncias de qualquer conta da organização.
 </details>
 
 

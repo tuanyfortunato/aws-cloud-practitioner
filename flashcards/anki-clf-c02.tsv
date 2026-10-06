@@ -194,17 +194,16 @@ O que fazer quando uma alternativa cita um serviço da lista fora do escopo?	Des
 Qual serviço gera credenciais temporárias na AWS?	O AWS Security Token Service (AWS STS).	CLF-C02 dominio-3 secao-3_18
 Onde ver as emissões de carbono do uso da AWS?	No console AWS Sustainability, que amplia a antiga Customer Carbon Footprint Tool.	CLF-C02 dominio-3 secao-3_18
 Para que serve o AWS Fault Injection Service?	Para fazer experimentos de injeção de falhas, seguindo a engenharia do caos, e ver como a aplicação reage a interrupções.	CLF-C02 dominio-3 secao-3_18
-Qual é um princípio de preço da AWS?	Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.	CLF-C02 dominio-4 secao-4_1
-Quais são os três principais geradores de custo?	Computação, armazenamento e transferência de dados de saída.	CLF-C02 dominio-4 secao-4_1
-Aplicação nova, sem histórico de uso, que não pode ser interrompida.	On-Demand.	CLF-C02 dominio-4 secao-4_2
-Servidor de banco que roda 24/7 pelos próximos 3 anos.	Reserved Instances ou Savings Plans (3 anos, All Upfront dá o maior desconto).	CLF-C02 dominio-4 secao-4_2
-Desconto com flexibilidade entre EC2, Fargate e Lambda.	Compute Savings Plans.	CLF-C02 dominio-4 secao-4_2
-Processamento em lote que pode ser interrompido e reiniciado.	Spot.	CLF-C02 dominio-4 secao-4_2
-Qual o aviso antes de uma Spot ser interrompida?	2 minutos.	CLF-C02 dominio-4 secao-4_2
-Licença de software por núcleo físico.	Dedicated Host.	CLF-C02 dominio-4 secao-4_2
-Garantir capacidade numa AZ para um evento, sem contrato longo.	On-Demand Capacity Reservation.	CLF-C02 dominio-4 secao-4_2
-Qual opção de pagamento dá o maior desconto?	All Upfront.	CLF-C02 dominio-4 secao-4_2
-Reservas compradas podem ser revendidas?	Sim, RIs Standard no Reserved Instance Marketplace.	CLF-C02 dominio-4 secao-4_2
+O que significa pagar pelo uso?	Pagar só pelos serviços que você usa, pelo tempo em que usa, sem contrato de longo prazo e sem multa ao parar de usar.	CLF-C02 dominio-4 secao-4_1
+"Como funciona o princípio ""economize ao se comprometer""?"	Você se compromete a usar uma quantidade de serviço por 1 ou 3 anos e, em troca, paga preços menores que os sob demanda.	CLF-C02 dominio-4 secao-4_1
+O que é o desconto por volume?	Preço escalonado em faixas: quanto mais você usa, menor o preço por unidade, como no S3 e na transferência de dados de saída do EC2.	CLF-C02 dominio-4 secao-4_1
+A transferência de dados para dentro da AWS é cobrada?	Não: a AWS informa que a transferência de dados de entrada é gratuita.	CLF-C02 dominio-4 secao-4_1
+Como funciona o plano gratuito do AWS Free Tier para contas novas?	A conta recebe US$ 100 em créditos, pode ganhar mais US$ 100 com atividades, e o plano termina em 6 meses ou quando os créditos acabam.	CLF-C02 dominio-4 secao-4_1
+Quando usar instâncias Spot?	Quando a carga tolera interrupção e tem horário flexível, como processamento em lote e análise de dados; o desconto chega a 90%.	CLF-C02 dominio-4 secao-4_2
+Qual é a diferença entre Compute Savings Plans e EC2 Instance Savings Plans?	O Compute Savings Plans vale para qualquer família, Região e sistema, e também para Fargate e Lambda (até 66%); o EC2 Instance Savings Plans exige uma família numa Região e dá até 72%.	CLF-C02 dominio-4 secao-4_2
+Qual é a diferença entre uma RI Standard e uma RI Convertible?	A Standard dá o maior desconto, mas não pode ser trocada; a Convertible dá desconto menor e pode ser trocada por outra configuração durante o prazo.	CLF-C02 dominio-4 secao-4_2
+Quando escolher um Dedicated Host?	Quando é preciso um servidor físico inteiro, com controle de onde as instâncias rodam, para usar licenças próprias cobradas por soquete, núcleo ou máquina virtual.	CLF-C02 dominio-4 secao-4_2
+Como as RIs se comportam numa organização do AWS Organizations?	Com o faturamento consolidado, o desconto de uma RI comprada por uma conta pode ser aproveitado pelas instâncias de qualquer conta da organização.	CLF-C02 dominio-4 secao-4_2
 Qual transferência de dados é gratuita?	Entrada da internet para a AWS (e dentro da mesma AZ por IP privado).	CLF-C02 dominio-4 secao-4_3
 Qual transferência é cobrada?	Saída para a internet, entre regiões e entre AZs.	CLF-C02 dominio-4 secao-4_3
 Um volume EBS de 500 GB com 100 GB usados é cobrado por quanto?	Pelos 500 GB provisionados.	CLF-C02 dominio-4 secao-4_3
