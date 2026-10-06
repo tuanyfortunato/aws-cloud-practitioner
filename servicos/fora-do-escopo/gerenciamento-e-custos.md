@@ -1,113 +1,47 @@
-# Gerenciamento e custos (Data Lifecycle Manager, Chatbot, Launch Wizard, Application Cost Profiler, DevPay)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Gerenciamento e custos (Data Lifecycle Manager, Chatbot, Launch Wizard e DevPay)
 
-**Qual é a dificuldade?** Além dos serviços principais, a operação pode precisar administrar cópias de discos, enviar avisos a chats ou apoiar uma implantação específica.
-
-**Como este serviço ajuda?** A ficha reúne ferramentas auxiliares com finalidades diferentes, incluindo opções históricas. Cada seção identifica o trabalho de uma ferramenta.
-
-**Exemplo do dia a dia:** Uma equipe pode querer automatizar o ciclo de cópias de volumes; outra, receber um aviso operacional num chat. São necessidades de operação distintas.
-
-**O que ele não resolve sozinho?** Não escolha uma dessas ferramentas apenas porque a pergunta fala em custo ou gerenciamento. Verifique finalidade, status comercial e escopo; a ficha é de referência.
-
-**Primeiras palavras para entender:**
-
-- **Ciclo de vida:** etapas e regras ao longo do tempo.
-- **Notificação:** aviso enviado a um destinatário.
-- **Implantação:** colocar recursos ou aplicações em funcionamento.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gerenciamento e gestão de custos · **Domínio:** — (fora da prova) · **Escopo:** Regional / conta · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
+> **Categoria:** Gerenciamento e gestão de custos · **Domínio:** — (fora da prova) · **Abrangência:** Regional e por conta · **Ficha:** referência
 >
-> **Em uma frase:** ferramentas auxiliares de operação e de cobrança que existem na AWS, mas não caem na prova.
+> **Em uma frase:** ferramentas de gerenciamento e cobrança da lista fora do escopo: snapshots automáticos, alertas em chat, implantação guiada e cobrança de aplicações.
 >
 > **Escopo oficial:** ❌ Fora do escopo — documentado só para referência · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-> ❌ **Fora do escopo da CLF-C02.** Documentados aqui apenas para referência. Veja também
-> [Billing Conductor](../custos/pricing-calculator-cur-e-outras-ferramentas.md) e
-> [AWS IQ, Activate e AMS](../custos/recursos-de-ajuda-e-parceiros.md), que também estão fora do escopo.
+> 📖 **Aula que ensina:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 
-## 1. A sequência de funcionamento
+🏠 [Índice das fichas](../README.md)
 
-**Passo 1.** Diferencie conservação de cópias, comunicação operacional e assistência de implantação.
+---
 
-**Passo 2.** Use a ferramenta pertinente ao recurso e à tarefa, considerando sua oferta atual.
+## Como funciona
 
-**Passo 3.** Confira o resultado no ambiente. Um complemento de operação não substitui todas as ferramentas centrais de custo e governança.
+As ferramentas de gerenciamento e custo da prova são vistas nas aulas 3.16 e 4.4. Estas estão na lista fora do escopo.
 
-## 2. Recursos e opções, com significado
+1. **Amazon Data Lifecycle Manager:** automatiza a criação, a retenção e a exclusão de snapshots do EBS e de AMIs.
+2. **AWS Chatbot:** agora se chama Amazon Q Developer em aplicativos de chat; leva notificações da AWS aos canais de chat e aceita comandos da CLI.
+3. **AWS Launch Wizard:** guia o dimensionamento, a configuração e a implantação de recursos para aplicações de terceiros, como Microsoft SQL Server e SAP.
+4. **Amazon DevPay:** serviço de cobrança e gestão de contas para vender aplicações que rodam na AWS.
 
-### Amazon Data Lifecycle Manager (DLM)
+O AWS Application Cost Profiler também está na lista fora do escopo.
 
-**Automatiza** a criação, retenção, cópia entre regiões e exclusão de **snapshots do EBS** e de **AMIs**, com políticas baseadas em tags.
+## Não confundir com
 
-Na prova, a resposta para "centralizar backups com políticas" é o **AWS Backup** (no escopo).
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS Backup](../armazenamento/aws-backup.md) | Centraliza backups de vários serviços; no escopo | "Plano de backup" |
+| [Amazon Q](../ia-ml/amazon-q.md) | Assistente de IA para a AWS; no escopo | "Perguntar sobre a AWS" |
+| [AWS Marketplace](../custos/recursos-de-ajuda-e-parceiros.md) | Vende software de terceiros na fatura da AWS; no escopo | "Comprar software pronto" |
 
-### AWS Chatbot (Amazon Q Developer em aplicativos de chat)
+## Fontes oficiais
 
-Recebe **notificações** da AWS (alarmes do CloudWatch, eventos do Health, alertas do Budgets) no **Slack, Microsoft Teams ou Amazon Chime** e permite executar comandos de leitura e operação a partir do chat.
+Verificadas em 06/10/2026.
 
-🔄 Renomeado para **Amazon Q Developer** em 19/02/2025 (no console: "in chat applications").
-
-### AWS Launch Wizard
-
-Assistente que dimensiona e implanta, com boas práticas, aplicações de terceiros como **SAP, Microsoft SQL Server, Active Directory e Exchange**.
-
-### AWS Application Cost Profiler
-
-Separava o custo de recursos **compartilhados** por **cliente (tenant)** em aplicações multi-tenant, para cobrar ou analisar o custo por cliente.
-
-🔄 **Encerrado em 30/09/2024**.
-
-### Amazon DevPay
-
-Serviço **legado** de cobrança para vender AMIs e produtos baseados em S3. Hoje, vender software na AWS é feito pelo **AWS Marketplace** (no escopo).
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Não escolha uma dessas ferramentas apenas porque a pergunta fala em custo ou gerenciamento. Verifique finalidade, status comercial e escopo; a ficha é de referência.
-
-### ⚠️ Como isso aparece na prova
-
-"Centralizar backups" → **AWS Backup**. "Alertas de custo" → **AWS Budgets**. "Notificar o time" → **SNS**.
-
-"Separar custos por cliente ou projeto" → **cost allocation tags** (no escopo).
-
-"Vender software para clientes da AWS" → **AWS Marketplace**.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma equipe pode querer automatizar o ciclo de cópias de volumes; outra, receber um aviso operacional num chat. São necessidades de operação distintas.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Diferencie conservação de cópias, comunicação operacional e assistência de implantação.
-**Etapa 2:** Use a ferramenta pertinente ao recurso e à tarefa, considerando sua oferta atual.
-**Etapa 3:** Confira o resultado no ambiente. Um complemento de operação não substitui todas as ferramentas centrais de custo e governança.
-
-**Resultado e responsabilidade:** A ficha reúne ferramentas auxiliares com finalidades diferentes, incluindo opções históricas. Cada seção identifica o trabalho de uma ferramenta.
-
-**Recursos envolvidos:** Ferramentas extras de lifecycle, chat, implantação e custos.
-
-**Decisões que precisam ser tomadas:** Recurso suportado e disponibilidade do produto.
-
-**Outra situação comentada:** Para orçamento de conta, estude Budgets; ferramenta extra de custo não substitui a escolha pelo requisito.
-
-**Por que não concluir mais do que isso:** Fora do escopo; nomes antigos/renomeados não indicam capacidades novas automaticamente
-
-## 5. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Data Lifecycle Manager](https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-lifecycle.html) · [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html) · [Launch Wizard](https://aws.amazon.com/launchwizard/)
-
+- [Amazon Data Lifecycle Manager](https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-lifecycle.html)
+- [Amazon Q Developer em aplicativos de chat](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html)
+- [AWS Launch Wizard](https://aws.amazon.com/launchwizard/)
+- [Amazon DevPay](https://aws.amazon.com/devpay/)
+- [Serviços fora do escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

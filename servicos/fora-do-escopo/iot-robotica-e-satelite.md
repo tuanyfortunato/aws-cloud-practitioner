@@ -1,122 +1,48 @@
-# IoT, robótica, satélite e visão computacional na borda (Device Defender, Monitron, Panorama, RoboMaker, Ground Station)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# IoT, satélite e visão na borda (Device Defender, Ground Station, Monitron e Panorama)
 
-**Qual é a dificuldade?** Monitorar dispositivos, operar robôs ou comunicar-se com satélites são tarefas especializadas que não se resumem a hospedar uma aplicação web.
-
-**Como este serviço ajuda?** A ficha reúne serviços associados a essas áreas e explica o papel de cada um, com observações sobre suas ofertas.
-
-**Exemplo do dia a dia:** Uma equipe pode precisar avaliar a segurança de dispositivos; outra pode precisar de comunicação com satélite. A escolha depende da tarefa específica.
-
-**O que ele não resolve sozinho?** Não trate a lista como um pacote único nem presuma que toda oferta continua disponível. O conteúdo é de referência fora do escopo e deve ser lido com seu status.
-
-**Primeiras palavras para entender:**
-
-- **Dispositivo:** equipamento conectado ou monitorado.
-- **Borda:** local próximo da origem dos dados.
-- **Telemetria:** informações enviadas por equipamentos.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** IoT, robótica e satélite · **Domínio:** — (fora da prova) · **Escopo:** Regional · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
+> **Categoria:** IoT, robótica e satélite · **Domínio:** — (fora da prova) · **Abrangência:** Regional · **Ficha:** referência
 >
-> **Em uma frase:** serviços especializados para dispositivos, robôs, satélites e câmeras inteligentes — fora da prova, que só cobra o IoT Core.
+> **Em uma frase:** serviços de segurança de dispositivos IoT, comunicação com satélites e monitoramento de equipamentos, todos na lista fora do escopo.
 >
 > **Escopo oficial:** ❌ Fora do escopo — documentado só para referência · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-> ❌ **Fora do escopo da CLF-C02.** Na prova, a única resposta de IoT é o **AWS IoT Core**.
-> Documentados aqui apenas para referência. Veja também [IoT Core e Greengrass](../aplicacoes/iot-core-e-greengrass.md).
+> 📖 **Aula que ensina:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 
-## 1. A sequência de funcionamento
+🏠 [Índice das fichas](../README.md)
 
-**Passo 1.** Separe conexão de dispositivos, monitoramento físico, robótica e comunicação com satélites.
+---
 
-**Passo 2.** Leia o papel do produto específico e seus requisitos físicos e comerciais.
+## Como funciona
 
-**Passo 3.** Confira a disponibilidade e o resultado esperado. A categoria não representa um único serviço intercambiável.
+O IoT Core, no escopo, conecta os dispositivos. Estes serviços resolvem problemas vizinhos e estão fora da prova.
 
-## 2. Recursos e opções, com significado
+1. **AWS IoT Device Defender:** audita a configuração e monitora uma frota de dispositivos IoT, para reduzir riscos de segurança.
+2. **AWS Ground Station:** comunicação com satélites gerenciada, sem construir estações terrestres próprias.
+3. **Amazon Monitron:** monitora equipamentos com sensores e machine learning para prever falhas; não aceita novos clientes.
+4. **AWS Panorama:** levava visão computacional às câmeras locais; foi encerrado por completo em maio de 2026.
 
-### AWS IoT Device Defender
+O AWS RoboMaker, de robótica, foi encerrado por completo em 10/09/2025.
 
-**Audita** a configuração de segurança de frotas de dispositivos IoT (certificados, políticas) e **detecta comportamento anômalo** (ex.: dispositivo enviando tráfego fora do padrão).
+## Não confundir com
 
-Gera alertas e ações de mitigação (isolar o dispositivo, revogar certificado).
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS IoT Core](../aplicacoes/iot-core-e-greengrass.md) | Conecta dispositivos aos serviços da AWS; no escopo | "Sensores enviam leituras" |
+| [Serviços de IA prontos](../ia-ml/servicos-de-ia-prontos.md) | O Rekognition analisa imagens e vídeos; no escopo | "Reconhecer objetos" |
+| [Amazon GuardDuty](../seguranca/guardduty.md) | Detecta ameaças na conta; no escopo | "Atividade suspeita" |
 
-### Amazon Monitron
+## Fontes oficiais
 
-🔄 **Fechado a novos clientes** (data de encerramento não localizada).
+Verificadas em 06/10/2026.
 
-Solução de ponta a ponta para **monitorar equipamentos industriais**: sensores de vibração e temperatura, gateway e app com machine learning que avisa sobre falhas futuras (manutenção preditiva).
-
-### AWS Panorama
-
-Appliance e SDK para rodar **visão computacional na borda**, usando câmeras IP já existentes (ex.: contagem de pessoas, inspeção de qualidade em linha de produção).
-
-🔄 **Encerrado em 31/05/2026** (aplicações e dispositivos pararam de funcionar).
-
-### Amazon Lookout for Metrics
-
-Detectava **anomalias em métricas de negócio** (vendas, receita) com ML.
-
-🔄 Encerrado em 12/09/2025.
-
-### AWS RoboMaker
-
-Serviço para **desenvolver, simular e testar aplicações de robótica** (ROS) em ambientes simulados na nuvem.
-
-🔄 **Encerrado em 10/09/2025**; a alternativa indicada é o **AWS Batch** para simulações.
-
-### AWS Ground Station
-
-**Estações terrestres de satélite como serviço**: controlar satélites e baixar dados deles, pagando por minuto, sem construir antenas próprias.
-
-Os dados podem ir direto para EC2 e S3 para processamento.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Não trate a lista como um pacote único nem presuma que toda oferta continua disponível. O conteúdo é de referência fora do escopo e deve ser lido com seu status.
-
-### ⚠️ Como isso aparece na prova
-
-"Conectar milhões de sensores à nuvem" → **IoT Core** (no escopo).
-
-"Detectar anomalias de segurança" → na CLF-C02, pense em **GuardDuty** (contas AWS), não Device Defender.
-
-"Reconhecer objetos em imagens" → **Rekognition** (no escopo), não Panorama.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma equipe pode precisar avaliar a segurança de dispositivos; outra pode precisar de comunicação com satélite. A escolha depende da tarefa específica.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Separe conexão de dispositivos, monitoramento físico, robótica e comunicação com satélites.
-**Etapa 2:** Leia o papel do produto específico e seus requisitos físicos e comerciais.
-**Etapa 3:** Confira a disponibilidade e o resultado esperado. A categoria não representa um único serviço intercambiável.
-
-**Resultado e responsabilidade:** A ficha reúne serviços associados a essas áreas e explica o papel de cada um, com observações sobre suas ofertas.
-
-**Recursos envolvidos:** Ferramentas especializadas de dispositivos, sensores, robótica e satélite.
-
-**Decisões que precisam ser tomadas:** Produto, requisitos físicos e situação de disponibilidade.
-
-**Outra situação comentada:** IoT Core conecta dispositivos no escopo; serviços desta família são contexto adicional.
-
-**Por que não concluir mais do que isso:** Estão fora do escopo; alguns serviços têm restrições/encerramento indicados na ficha
-
-## 5. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [IoT Device Defender](https://aws.amazon.com/iot-device-defender/) · [Monitron](https://aws.amazon.com/monitron/) · [RoboMaker](https://aws.amazon.com/robomaker/) · [Ground Station](https://aws.amazon.com/ground-station/)
-
+- [O que é o AWS IoT Device Defender](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/what-is-device-defender.html)
+- [O que é o AWS Ground Station](https://docs.aws.amazon.com/ground-station/latest/ug/what-is.html)
+- [O que é o Amazon Monitron](https://docs.aws.amazon.com/Monitron/latest/user-guide/what-is-monitron.html)
+- [O que é o AWS Panorama](https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html)
+- [Serviços encerrados](https://docs.aws.amazon.com/general/latest/gr/full_shutdown_services.html)
+- [Serviços fora do escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 
