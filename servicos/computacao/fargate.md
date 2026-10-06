@@ -1,133 +1,67 @@
+<!-- autoral -->
+
 # AWS Fargate
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Você quer executar containers, mas não quer escolher, atualizar e manter as máquinas que ficam por baixo deles.
-
-**Como este serviço ajuda?** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução. Você define, entre outras coisas, os recursos necessários ao container.
-
-**Exemplo do dia a dia:** A equipe informa que seu serviço de pedidos precisa de determinada capacidade e o executa pelo ECS com Fargate, sem criar um grupo próprio de máquinas EC2.
-
-**O que ele não resolve sozinho?** Fargate não substitui a aplicação nem o coordenador ECS/EKS. Configuração, permissões, rede e custo continuam exigindo decisões.
-
-**Primeiras palavras para entender:**
-
-- **Container:** pacote em execução com a aplicação.
-- **Capacidade:** recursos como processamento e memória.
-- **Gerenciado:** parte do trabalho operacional fica com a AWS.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação serverless para contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
+> **Categoria:** Computação serverless (containers) · **Domínio:** 1 (serverless) e 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** motor serverless que executa contêineres do ECS ou EKS sem você provisionar ou gerenciar servidores.
+> **Em uma frase:** mecanismo de computação serverless que roda containers do ECS ou do EKS sem que você provisione ou gerencie servidores.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 
-**Passo 1.** Descreva os containers pelo ECS ou EKS e selecione uma modalidade de execução compatível com Fargate.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Defina capacidade, comunicação e permissões. Fargate fornece a infraestrutura de execução sem você administrar diretamente as máquinas.
+---
 
-**Passo 3.** Observe os containers e seus resultados. A AWS administrar servidores não elimina a responsabilidade pelo código e pelos acessos.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+O orquestrador decide quais containers rodam, mas eles precisam de máquinas para rodar. Em instâncias do EC2, a empresa escolhe o tipo, decide quantas instâncias manter, aplica patches e paga por capacidade sobrando quando a carga cai.
 
-### Para que serve
+O Fargate tira esse trabalho: você empacota a aplicação, diz quanto de processador e memória ela precisa, configura rede e permissões, e o Fargate roda o container. Não há servidores para escolher, escalar ou atualizar. Ele funciona com o [ECS](ecs.md) e com o [EKS](eks.md).
 
-Rodar contêineres sem cuidar de instâncias, patch de SO ou escalonamento do cluster.
+O limite: o Fargate não é orquestrador; quem decide o que rodar é o ECS ou o EKS. E ele roda containers, não funções: para código curto disparado por eventos, o [Lambda](lambda.md) é mais direto. O Fargate também serve para tarefas longas, como a conversão de vídeos de duas horas da [aula 3.5](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md), que passa dos 15 minutos do Lambda.
 
-Jobs longos que **excedem os 15 min do Lambda** (sem limite de duração).
+## Como funciona
 
-Cargas variáveis em que o *bin packing* de instâncias não compensa.
+1. A imagem do container fica num registro, como o Amazon ECR.
+2. Na definição da tarefa do ECS (ou do pod do EKS), você pede processador, memória e armazenamento e escolhe o Fargate como capacidade.
+3. O Fargate baixa a imagem e roda o container numa capacidade que a AWS gerencia.
+4. A cobrança corre do início do download da imagem até a tarefa terminar.
 
-### Conceitos e configurações
+## Opções principais
 
-| Item | Detalhe |
-|---|---|
-| **Tamanho da task/pod** | Você escolhe vCPU e memória (combinações predefinidas, de 0,25 vCPU até **32 vCPU / 244 GB** 🧊). |
-| **Isolamento** | Cada task roda em seu próprio ambiente isolado (micro-VM). |
-| **Armazenamento** | Efêmero (20 GB padrão, ampliável) + volumes **EFS** e **EBS** persistentes. |
-| **Arquitetura** | x86_64 ou ARM (Graviton). |
-| **Fargate Spot** | Até ~70% mais barato, pode ser interrompido (aviso de 2 min) — só no ECS. |
-| **Rede** | Modo `awsvpc`: cada task recebe sua ENI e security group. |
+| Opção | O que faz | Quando lembrar |
+|---|---|---|
+| Fargate | Capacidade serverless pelo preço normal | Aplicações que precisam ficar no ar |
+| Fargate Spot (ECS) | Roda tarefas em capacidade sobrando, com até 70% de desconto, e pode interrompê-las com aviso de dois minutos | Tarefas que toleram interrupção |
 
-## 3. Como escolher e reconhecer os limites
+## Números que a prova cobra
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Arredondamento da cobrança | Por segundo, com mínimo de 1 minuto | 06/10/2026 |
+| Desconto do Fargate Spot | Até 70% | 06/10/2026 |
 
-Fargate não substitui a aplicação nem o coordenador ECS/EKS. Configuração, permissões, rede e custo continuam exigindo decisões.
+## Como é cobrado
 
-### ⚠️ Pegadinhas e não confundir
+Você paga pelo processador (vCPU), pela memória e pelo armazenamento que a tarefa ou o pod **pede**, do início do download da imagem até o fim da execução, arredondado para o segundo, com mínimo de um minuto. Não há custo antecipado. O Compute Savings Plans dá desconto no Fargate ([aula 4.2](../../docs/04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md)).
 
-Fargate **não é orquestrador**: é usado **com** ECS ou EKS.
+## Não confundir com
 
-Fargate × Lambda: contêiner sem limite de tempo × função Lambda convencional até 15 min por invocação; workflows e outras modalidades têm modelos próprios.
+| Serviço | Diferença para o Fargate | Pista no enunciado |
+|---|---|---|
+| [Amazon ECS](ecs.md) e [Amazon EKS](eks.md) | Orquestram os containers; o Fargate é onde eles rodam | "Orquestrar containers" |
+| [Amazon EC2](ec2.md) | Instâncias que você escolhe e administra | "Controle das instâncias" |
+| [AWS Lambda](lambda.md) | Roda funções disparadas por eventos, por até 15 minutos por execução | "Código curto quando algo acontece" |
 
-Fargate × EC2 launch type: menos controle (sem GPU, sem acesso ao host) e menos operação.
+## Fontes oficiais
 
-## 4. Operação, segurança e custo
+Verificadas em 06/10/2026.
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por **vCPU e memória alocadas**, por segundo (mínimo de 1 minuto), + armazenamento efêmero extra.
-
-Coberto pelo **Compute Savings Plans**.
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** hosts, SO, runtime de contêiner, isolamento, patch da infraestrutura.
-
-**Cliente:** imagem do contêiner e suas dependências, task role, rede, dados.
-
-## 5. Caso resolvido: ligando as peças
-
-A equipe informa que seu serviço de pedidos precisa de determinada capacidade e o executa pelo ECS com Fargate, sem criar um grupo próprio de máquinas EC2.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Descreva os containers pelo ECS ou EKS e selecione uma modalidade de execução compatível com Fargate.
-**Etapa 2:** Defina capacidade, comunicação e permissões. Fargate fornece a infraestrutura de execução sem você administrar diretamente as máquinas.
-**Etapa 3:** Observe os containers e seus resultados. A AWS administrar servidores não elimina a responsabilidade pelo código e pelos acessos.
-
-**Resultado e responsabilidade:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução. Você define, entre outras coisas, os recursos necessários ao container.
-
-**Recursos envolvidos:** Tasks ECS ou workloads EKS compatíveis e interfaces de rede.
-
-**Decisões que precisam ser tomadas:** Recursos de CPU/memória suportados, imagem, roles e rede.
-
-**Outra situação comentada:** Container de worker: ECR guarda imagem, ECS organiza, Fargate executa.
-
-**Por que não concluir mais do que isso:** Não armazena imagens nem substitui ECS/EKS; aplicações ainda exigem segurança e dados persistentes adequados
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Rodar contêineres sem gerenciar instâncias."
-
-**Resposta curta:** Fargate (com ECS ou EKS).
-
-**Pergunta:** "Processar arquivo por 2 horas sem gerenciar servidores."
-
-**Resposta curta:** Fargate (ou AWS Batch).
-
-**Pergunta:** "Como o Fargate é cobrado?"
-
-**Resposta curta:** Por vCPU e memória alocadas, por segundo.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Fargate no ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html)
+- [AWS Fargate para o Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html)
+- [Preços do AWS Fargate](https://aws.amazon.com/fargate/pricing/)
+- [Preços do Amazon ECS](https://aws.amazon.com/ecs/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

@@ -1,168 +1,69 @@
+<!-- autoral -->
+
 # Amazon ECS (Elastic Container Service)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma aplicação empacotada precisa funcionar em várias máquinas, reiniciar quando falha e manter a quantidade desejada de cópias. Fazer isso manualmente é trabalhoso.
-
-**Como este serviço ajuda?** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências. Você descreve como rodar o pacote e escolhe a infraestrutura que vai executá-lo.
-
-**Exemplo do dia a dia:** Uma loja empacota seu serviço de pedidos e pede ao ECS que mantenha várias cópias funcionando. Elas podem executar em máquinas EC2 ou com Fargate, conforme a configuração.
-
-**O que ele não resolve sozinho?** ECS coordena containers; ele não escreve a aplicação. Usar ECS com EC2 ainda exige administrar as máquinas. Fargate muda essa parte da responsabilidade.
-
-**Primeiras palavras para entender:**
-
-- **Container:** ambiente de execução baseado num pacote de software.
-- **Imagem:** pacote usado para criar o container.
-- **Tarefa:** unidade de execução no ECS.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação / Contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
+> **Categoria:** Computação (containers) · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** orquestrador de contêineres próprio da AWS, totalmente gerenciado e integrado aos demais serviços.
+> **Em uma frase:** orquestrador de containers totalmente gerenciado da própria AWS, que decide onde e quantos containers rodam.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 
-**Passo 1.** Guarde a imagem da aplicação num repositório acessível e descreva como executar seus containers.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha a capacidade de execução e configure o serviço quando precisar manter uma quantidade de tarefas funcionando.
+---
 
-**Passo 3.** ECS acompanha o estado desejado. A aplicação, a conexão e as permissões ainda precisam estar corretas.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A empresa que mantém o sistema de matrícula empacotou a aplicação em **containers**, para que ela rode igual no computador do desenvolvedor e no servidor. Agora alguém precisa decidir em que máquinas cada container roda, quantas cópias manter, reiniciar as que falham e distribuir tudo entre as máquinas.
 
-### Para que serve
+Esse trabalho é do **orquestrador**, e o ECS é o orquestrador da própria AWS, com as boas práticas da AWS embutidas e integração com o Amazon ECR (onde ficam as imagens) e com ferramentas como o Docker. A empresa descreve a aplicação, e o ECS mantém os containers rodando.
 
-Rodar microsserviços, APIs, workers e jobs em contêineres Docker.
+O limite: o ECS decide o que rodar, mas os containers precisam de capacidade para rodar, em instâncias do EC2 que você gerencia ou no Fargate, sem servidores. E se a empresa já usa Kubernetes, a resposta é o [EKS](eks.md).
 
-Modernizar aplicações (Refactor/Replatform) sem adotar Kubernetes.
+## Como funciona
 
-### Conceitos e componentes
+1. A imagem do container fica num registro, como o [Amazon ECR](ecr.md).
+2. Uma **definição de tarefa** (*task definition*) descreve a aplicação: imagem, processador, memória, rede e permissões.
+3. O ECS roda **tarefas** (trabalhos que terminam, como um lote) ou **serviços** (aplicações que ficam no ar, com um número de cópias mantido).
+4. As tarefas rodam num **cluster**, na capacidade escolhida: Fargate, instâncias do EC2 ou servidores do próprio cliente.
+5. O ECS reinicia tarefas que falham e mantém a quantidade pedida.
 
-**Cluster**
+## Opções principais
 
-**O que é:** Agrupamento lógico de capacidade.
+| Capacidade | O que é | Quando usar |
+|---|---|---|
+| AWS Fargate | Serverless: sem servidores para escolher, escalar ou atualizar | Rodar containers sem cuidar de instâncias |
+| Instâncias do EC2 | Você escolhe o tipo e o número de instâncias e gerencia a capacidade | Controle das instâncias, como tipos específicos |
+| ECS Managed Instances | Instâncias do EC2 cujo gerenciamento fica com a AWS | Precisar de recursos específicos, como GPU, sem administrar as instâncias |
+| ECS Anywhere | Registra servidores ou máquinas virtuais do próprio cliente no cluster | Containers no datacenter da empresa |
 
-**Task definition**
+## Números que a prova cobra
 
-**O que é:** "Receita" JSON: imagem, CPU, memória, portas, variáveis, IAM role, logs.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Cobrança pela orquestração do ECS | Nenhuma (paga-se a capacidade) | 06/10/2026 |
 
-**Task**
+## Como é cobrado
 
-**O que é:** Instância em execução de uma task definition (um ou mais contêineres).
+A orquestração do ECS não tem cobrança adicional: você paga a capacidade em que os containers rodam. No Fargate, paga pelo processador, pela memória e pelo armazenamento que as tarefas pedem; no EC2, pelas instâncias. O ECS Managed Instances acrescenta uma taxa de gerenciamento por instância.
 
-**Service**
+## Não confundir com
 
-**O que é:** Mantém N tasks rodando, substitui as que falham, integra com ELB e Auto Scaling.
+| Serviço | Diferença para o ECS | Pista no enunciado |
+|---|---|---|
+| [Amazon EKS](eks.md) | Kubernetes gerenciado, um orquestrador de código aberto | "Já usa Kubernetes", "mesmas ferramentas em vários ambientes" |
+| [AWS Fargate](fargate.md) | Não orquestra: é a capacidade serverless onde o ECS ou o EKS rodam os containers | "Sem gerenciar servidores" |
+| [Amazon ECR](ecr.md) | Guarda as imagens; não põe nada no ar | "Registro de imagens" |
+| [AWS Lambda](lambda.md) | Roda funções curtas disparadas por eventos, sem containers para orquestrar | "Código que roda quando algo acontece" |
 
-**Capacity provider / launch type**
+## Fontes oficiais
 
-**O que é:** **Fargate** (serverless), **EC2** (você gerencia as instâncias) ou **ECS Anywhere** (on-premises).
+Verificadas em 06/10/2026.
 
-**Task role × execution role**
-
-**O que é:** Task role = permissões da aplicação; execution role = permissões do agente (puxar imagem do ECR, enviar logs).
-
-### Configurações e opções importantes
-
-**Fargate**
-
-**Detalhe:** Sem servidores; paga vCPU e memória da task por segundo. Suporta Fargate Spot.
-
-**EC2 launch type**
-
-**Detalhe:** Mais controle (GPU, tipos específicos, instâncias reservadas/Spot); você faz patch e escala o cluster.
-
-**Service Auto Scaling**
-
-**Detalhe:** Escala o número de tasks por métrica (CPU, memória, requisições do ALB).
-
-**Deploy**
-
-**Detalhe:** Rolling update (padrão) ou blue/green (com CodeDeploy ou nativo).
-
-**Service Connect / Cloud Map**
-
-**Detalhe:** Descoberta de serviços entre tasks.
-
-**ECS Express Mode**
-
-**Detalhe:** Forma simplificada de publicar uma aplicação web em contêiner — 🧊 fora da prova.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-ECS coordena containers; ele não escreve a aplicação. Usar ECS com EC2 ainda exige administrar as máquinas. Fargate muda essa parte da responsabilidade.
-
-### ⚠️ Pegadinhas e não confundir
-
-**ECS × EKS:** orquestrador nativo da AWS × Kubernetes gerenciado. "Já usa Kubernetes" → EKS.
-
-**ECS × Fargate:** ECS é o orquestrador; Fargate é o *modo de execução* serverless (também usado pelo EKS).
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-**Sem custo pelo ECS em si:** paga-se Fargate (vCPU/memória por segundo) ou as instâncias EC2, além de ELB, logs etc.
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** plano de controle do ECS; com Fargate, também a infraestrutura e o SO do host.
-
-**Cliente:** imagens (vulnerabilidades — use ECR scan/Inspector), task roles, segredos, rede (SGs), dados; com EC2, também patch das instâncias.
-
-## 5. Caso resolvido: ligando as peças
-
-O serviço de pedidos da escola foi empacotado em uma imagem de container. A equipe precisa executar várias cópias e manter a quantidade desejada, sem iniciar cada cópia manualmente.
-
-A imagem fica num repositório acessível. Uma definição de tarefa descreve a execução e seus recursos. Um serviço ECS mantém tarefas conforme a configuração. Com EC2, a equipe também administra as máquinas; com uma modalidade Fargate compatível, muda a responsabilidade pela capacidade subjacente.
-
-ECR guarda a imagem, mas não mantém sozinho as cópias em execução. Fargate fornece capacidade, mas não substitui a definição de serviço ou a aplicação. Se visitantes precisam de distribuição de tráfego, isso é outra integração a preparar, não consequência automática de guardar a imagem.
-
-**Recursos envolvidos:** Cluster, task definition, task, service e capacidade.
-
-**Decisões que precisam ser tomadas:** Imagem, CPU/memória, role, rede, número de tasks e capacidade EC2/Fargate.
-
-**Outra situação comentada:** Web containerizada sem administrar hosts: ECS com Fargate, com rede e exposição configuradas.
-
-**Por que não concluir mais do que isso:** ECS não é registro de imagens; criar cluster não publica uma API automaticamente
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Orquestrar contêineres de forma nativa na AWS."
-
-**Resposta curta:** ECS.
-
-**Pergunta:** "Rodar contêineres sem gerenciar servidores."
-
-**Resposta curta:** ECS com Fargate.
-
-**Pergunta:** "Contêineres que precisam de GPU específica."
-
-**Resposta curta:** ECS com launch type EC2.
-
-**Pergunta:** "Rodar contêineres no datacenter com o mesmo painel."
-
-**Resposta curta:** ECS Anywhere.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+- [O que é o Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+- [Preços do Amazon ECS](https://aws.amazon.com/ecs/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

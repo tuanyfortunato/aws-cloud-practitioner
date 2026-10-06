@@ -1,134 +1,68 @@
+<!-- autoral -->
+
 # Amazon EKS (Elastic Kubernetes Service)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma empresa já usa Kubernetes para coordenar seus containers e quer continuar usando essa ferramenta na AWS, sem manter sozinha sua camada central de controle.
-
-**Como este serviço ajuda?** O EKS oferece Kubernetes gerenciado. Kubernetes é o sistema que organiza onde os containers executam e mantém o estado desejado da aplicação.
-
-**Exemplo do dia a dia:** Uma equipe leva uma aplicação que já usa Kubernetes para um ambiente EKS. Ela mantém suas definições de aplicação e escolhe como fornecer a capacidade de execução.
-
-**O que ele não resolve sozinho?** A AWS gerenciar a camada de controle não significa que toda a aplicação, as permissões e todas as máquinas estão administradas para você. Isso depende das opções usadas.
-
-**Primeiras palavras para entender:**
-
-- **Kubernetes:** ferramenta para coordenar containers.
-- **Cluster:** conjunto de recursos que trabalham juntos.
-- **Camada de controle:** parte que coordena esse conjunto.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação / Contêineres · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
+> **Categoria:** Computação (containers) · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** Kubernetes gerenciado — a AWS opera o plano de controle e você roda seus pods.
+> **Em uma frase:** Kubernetes gerenciado: a AWS opera o plano de controle do cluster, e você roda suas aplicações em containers.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 
-**Passo 1.** Defina um ambiente Kubernetes e a forma de fornecer capacidade para os containers.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Publique as descrições da aplicação e suas necessidades. Kubernetes coordena o posicionamento e a quantidade de unidades de execução.
+---
 
-**Passo 3.** Acompanhe aplicação e recursos. A divisão do trabalho de administração depende da modalidade escolhida.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Uma empresa que já roda seus containers com **Kubernetes**, um orquestrador de código aberto, quer levá-los para a AWS sem trocar de ferramenta. Operar o Kubernetes por conta própria dá trabalho: a parte central do cluster, que agenda os containers e guarda o estado, precisa ficar sempre no ar e atualizada.
 
-### Para que serve
+O EKS entrega o Kubernetes gerenciado. A AWS opera o **plano de controle** (a parte central do Kubernetes), e a empresa continua usando as mesmas ferramentas e configurações. O EKS roda na nuvem da AWS e também em datacenters do cliente.
 
-Empresas que **já usam Kubernetes** (on-premises ou outra nuvem) e querem migrar sem reescrever manifestos.
+O limite: o EKS faz sentido quando há um motivo para Kubernetes. Para orquestrar containers sem esse requisito, o [ECS](ecs.md) é mais simples. A regra da prova: "já usa Kubernetes" aponta para o EKS.
 
-Portabilidade entre ambientes; ecossistema open source (Helm, operadores).
+## Como funciona
 
-### Conceitos e componentes
+1. Você cria um **cluster** do EKS; a AWS cria e mantém o plano de controle do Kubernetes.
+2. Os containers rodam em **nós**: instâncias do EC2, o Fargate ou servidores do próprio cliente.
+3. Você publica as aplicações com as ferramentas de sempre do Kubernetes.
+4. No **EKS Auto Mode**, a AWS também gerencia os nós: cria a infraestrutura, escolhe as instâncias e escala.
 
-**Control plane**
+## Opções principais
 
-**O que é:** API server e etcd gerenciados, multi-AZ, pela AWS.
+| Opção | O que faz | Quando lembrar |
+|---|---|---|
+| EKS padrão | A AWS gerencia o plano de controle; você gerencia os nós | Controle dos nós |
+| EKS Auto Mode | A AWS gerencia também os nós | Menos trabalho de operação |
+| Fargate | Roda os pods sem servidores para gerenciar | Containers serverless com Kubernetes |
+| EKS Anywhere e Hybrid Nodes | Kubernetes do EKS em datacenters do cliente | Ambiente híbrido |
 
-**Nós (data plane)**
+## Números que a prova cobra
 
-**O que é:** **Managed node groups** (EC2 gerenciadas), **self-managed nodes**, **Fargate** (pods serverless) ou **EKS Auto Mode** (AWS gerencia os nós).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Suporte padrão de uma versão do Kubernetes no EKS | 14 meses após o lançamento no EKS | 06/10/2026 |
+| Suporte estendido, com custo adicional | Mais 12 meses | 06/10/2026 |
 
-**Add-ons**
+## Como é cobrado
 
-**O que é:** VPC CNI, CoreDNS, kube-proxy, EBS CSI driver…
+Todo cluster do EKS paga uma taxa **por hora**, que depende da versão do Kubernetes: a taxa é maior quando a versão já saiu do suporte padrão e está no suporte estendido. Além disso, você paga a capacidade onde os containers rodam, como as instâncias do EC2 ou o Fargate. Diferente do ECS, que não cobra pela orquestração, o EKS cobra pelo cluster.
 
-**IAM ↔ Kubernetes**
+## Não confundir com
 
-**O que é:** *EKS Pod Identity* / IRSA dão IAM roles a pods; *access entries* mapeiam usuários IAM para RBAC.
+| Serviço | Diferença para o EKS | Pista no enunciado |
+|---|---|---|
+| [Amazon ECS](ecs.md) | Orquestrador próprio da AWS, sem Kubernetes e sem taxa pela orquestração | "Orquestrar containers" sem citar Kubernetes |
+| [AWS Fargate](fargate.md) | Capacidade serverless onde o EKS pode rodar os pods | "Sem gerenciar servidores" |
+| [AWS Elastic Beanstalk](elastic-beanstalk.md) | Recebe o código e monta o ambiente; no modo Cluster, usa o EKS por baixo | "Só enviar o código" |
 
-**EKS Anywhere / EKS Hybrid Nodes**
+## Fontes oficiais
 
-**O que é:** Rodar ou anexar nós fora da AWS (on-premises).
+Verificadas em 06/10/2026.
 
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-A AWS gerenciar a camada de controle não significa que toda a aplicação, as permissões e todas as máquinas estão administradas para você. Isso depende das opções usadas.
-
-### ⚠️ Pegadinhas e não confundir
-
-"Já usa Kubernetes" / "padrão open source portátil" → **EKS**. "Mais simples, nativo AWS" → **ECS**.
-
-EKS tem custo do plano de controle; ECS não.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-**Taxa por cluster por hora** (plano de controle) + nós (EC2/Fargate). Versões do Kubernetes em *extended support* custam mais.
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** plano de controle (disponibilidade, patch, escalonamento).
-
-**Cliente:** nós (patch de AMIs, salvo Auto Mode/Fargate), pods, imagens, RBAC, network policies, atualização de versão do cluster.
-
-## 5. Caso resolvido: ligando as peças
-
-Uma equipe leva uma aplicação que já usa Kubernetes para um ambiente EKS. Ela mantém suas definições de aplicação e escolhe como fornecer a capacidade de execução.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina um ambiente Kubernetes e a forma de fornecer capacidade para os containers.
-**Etapa 2:** Publique as descrições da aplicação e suas necessidades. Kubernetes coordena o posicionamento e a quantidade de unidades de execução.
-**Etapa 3:** Acompanhe aplicação e recursos. A divisão do trabalho de administração depende da modalidade escolhida.
-
-**Resultado e responsabilidade:** O EKS oferece Kubernetes gerenciado. Kubernetes é o sistema que organiza onde os containers executam e mantém o estado desejado da aplicação.
-
-**Recursos envolvidos:** Cluster Kubernetes, control plane, pods, services e capacidade.
-
-**Decisões que precisam ser tomadas:** Versão, acesso, rede e modalidade de execução dos workloads.
-
-**Outra situação comentada:** Equipe exige APIs Kubernetes: EKS, em vez de escolher ECS apenas porque ambos executam containers.
-
-**Por que não concluir mais do que isso:** Gerenciar control plane não elimina configuração dos workloads e responsabilidades da modalidade escolhida
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "A empresa usa Kubernetes on-premises e quer um serviço gerenciado na AWS."
-
-**Resposta curta:** EKS.
-
-**Pergunta:** "Rodar pods sem gerenciar nós."
-
-**Resposta curta:** EKS com Fargate (ou Auto Mode).
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html)
+- [O que é o Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html)
+- [Preços do Amazon EKS](https://aws.amazon.com/eks/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

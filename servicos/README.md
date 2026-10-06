@@ -23,11 +23,11 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [Amazon EC2 Auto Scaling](computacao/ec2-auto-scaling.md) | ✅ | núcleo | Aumenta e reduz automaticamente o número de instâncias EC2 para acompanhar a demanda e substitui as que falham. |
 | [Elastic Load Balancing (ELB)](computacao/elastic-load-balancing.md) | ✅ | núcleo | Distribui automaticamente o tráfego que chega entre destinos saudáveis, como instâncias EC2, containers e endereços IP, em uma ou mais zonas de disponibilidade. |
 | [AWS Lambda](computacao/lambda.md) | ✅ | núcleo | Roda código em resposta a eventos sem que você provisione ou gerencie servidores, cobrando pelos pedidos e pela duração. |
-| [Amazon ECS (Elastic Container Service)](computacao/ecs.md) | ✅ | núcleo | Orquestrador de contêineres próprio da AWS, totalmente gerenciado e integrado aos demais serviços. |
-| [Amazon EKS (Elastic Kubernetes Service)](computacao/eks.md) | ✅ | núcleo | Kubernetes gerenciado — a AWS opera o plano de controle e você roda seus pods. |
-| [AWS Fargate](computacao/fargate.md) | ✅ | núcleo | Motor serverless que executa contêineres do ECS ou EKS sem você provisionar ou gerenciar servidores. |
+| [Amazon ECS (Elastic Container Service)](computacao/ecs.md) | ✅ | núcleo | Orquestrador de containers totalmente gerenciado da própria AWS, que decide onde e quantos containers rodam. |
+| [Amazon EKS (Elastic Kubernetes Service)](computacao/eks.md) | ✅ | núcleo | Kubernetes gerenciado: a AWS opera o plano de controle do cluster, e você roda suas aplicações em containers. |
+| [AWS Fargate](computacao/fargate.md) | ✅ | núcleo | Mecanismo de computação serverless que roda containers do ECS ou do EKS sem que você provisione ou gerencie servidores. |
 | [Amazon ECR (Elastic Container Registry)](computacao/ecr.md) | ✅ | complementar | Registro gerenciado para guardar, versionar e distribuir imagens de contêiner (Docker/OCI). |
-| [AWS Elastic Beanstalk](computacao/elastic-beanstalk.md) | ✅ | núcleo | Você envia o código e o Beanstalk provisiona e gerencia capacidade, balanceamento, escalonamento e monitoramento. |
+| [AWS Elastic Beanstalk](computacao/elastic-beanstalk.md) | ✅ | núcleo | Você envia o código, e o Elastic Beanstalk cria e gerencia instâncias, balanceamento, escalonamento e monitoramento para rodá-lo. |
 | [Amazon Lightsail](computacao/lightsail.md) | ✅ | complementar | Servidores virtuais e serviços prontos com **preço mensal fixo e previsível**, para quem está começando. |
 | [AWS Batch](computacao/batch.md) | ✅ | complementar | Executa grandes volumes de jobs em lote, escolhendo e provisionando automaticamente a computação ideal. |
 | [AWS Outposts, Local Zones e Wavelength](computacao/outposts-local-zones-wavelength.md) | 🔀 | complementar | Três formas de levar a infraestrutura AWS para mais perto de onde a latência ou a localização dos dados importam. |
