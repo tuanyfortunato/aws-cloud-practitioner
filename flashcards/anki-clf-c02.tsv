@@ -104,19 +104,16 @@ Um teste de intrusão pode incluir uma simulação de DDoS livremente?	Não. DoS
 A quem denunciar spam ou ataques vindos de um endereço IP da AWS?	À equipe AWS Trust & Safety, pelo formulário de abuso da AWS.	CLF-C02 dominio-2 secao-2_10
 Onde a AWS publica avisos sobre vulnerabilidades que afetam seus serviços?	Nos Security Bulletins, a página de boletins de segurança da AWS. Outras fontes oficiais de informação de segurança são a página de segurança da AWS, o AWS Security Blog e o AWS Knowledge Center.	CLF-C02 dominio-2 secao-2_10
 Onde encontrar produtos de segurança de outros fabricantes para usar na AWS?	No AWS Marketplace, catálogo curado de software, dados e serviços de terceiros, com categoria própria de segurança.	CLF-C02 dominio-2 secao-2_10
-Quais são as formas de interagir com a AWS?	Console, CLI, SDKs e APIs (e CloudShell).	CLF-C02 dominio-3 secao-3_1
-Um desenvolvedor quer chamar a AWS de dentro do código Python.	SDK (boto3).	CLF-C02 dominio-3 secao-3_1
-Como criar ambientes idênticos de forma repetível e versionada?	CloudFormation (infraestrutura como código).	CLF-C02 dominio-3 secao-3_1
-Qual a vantagem de IaC?	Repetibilidade, menos erro manual, versionamento e velocidade.	CLF-C02 dominio-3 secao-3_1
-Qual opção de conectividade passa pela internet pública com criptografia?	Site-to-Site VPN.	CLF-C02 dominio-3 secao-3_1
-Quais fatores considerar ao escolher uma região?	Compliance/residência de dados, latência para os clientes, serviços disponíveis e preço.	CLF-C02 dominio-3 secao-3_2
-O que é uma AZ?	Um ou mais datacenters isolados dentro de uma região, com energia e rede redundantes.	CLF-C02 dominio-3 secao-3_2
-Para que servem as edge locations?	Cache do CloudFront, DNS do Route 53 e entrada do Global Accelerator, perto do usuário.	CLF-C02 dominio-3 secao-3_2
-Qual serviço é global?	IAM, Route 53, CloudFront ou Organizations.	CLF-C02 dominio-3 secao-3_2
-A empresa precisa rodar serviços AWS no próprio datacenter.	AWS Outposts.	CLF-C02 dominio-3 secao-3_2
-Latência de um dígito de milissegundo para usuários de uma cidade sem região AWS.	Local Zones.	CLF-C02 dominio-3 secao-3_2
-Aplicação móvel em rede 5G com ultrabaixa latência.	Wavelength.	CLF-C02 dominio-3 secao-3_2
-Como sobreviver à falha de uma região inteira?	Arquitetura multi-região.	CLF-C02 dominio-3 secao-3_2
+Quais são as formas de acessar e operar os serviços da AWS?	O AWS Management Console (navegador), a AWS CLI (comandos), os AWS SDKs (código da aplicação) e a infraestrutura como código, com o AWS CloudFormation.	CLF-C02 dominio-3 secao-3_1
+Quando usar o console e quando automatizar?	O console serve para explorar e para tarefas pontuais; tarefas que se repetem devem ser automatizadas com CLI, SDK ou infraestrutura como código.	CLF-C02 dominio-3 secao-3_1
+O que é infraestrutura como código?	É descrever em um arquivo os recursos de um ambiente e deixar que uma ferramenta os crie; na AWS, o CloudFormation cria os recursos de um modelo como uma pilha.	CLF-C02 dominio-3 secao-3_1
+Qual é a diferença entre a AWS CLI e um AWS SDK?	A CLI executa comandos no terminal e em scripts; o SDK é uma biblioteca para chamar as APIs da AWS de dentro do código de uma aplicação.	CLF-C02 dominio-3 secao-3_1
+Como a rede de uma empresa pode se conectar à AWS num modelo híbrido?	Pela internet pública, por uma Site-to-Site VPN (conexão criptografada que passa pela internet) ou pelo Direct Connect (conexão dedicada, sem passar pelos provedores de internet).	CLF-C02 dominio-3 secao-3_1
+Qual é a relação entre Região, Zona de Disponibilidade e local de borda?	Uma Região é uma área geográfica com três ou mais AZs; cada AZ é um ou mais datacenters independentes; os locais de borda são pontos de presença espalhados pelo mundo, perto dos usuários, ligados às Regiões pela rede da AWS.	CLF-C02 dominio-3 secao-3_2
+Por que distribuir uma aplicação em várias AZs aumenta a disponibilidade?	Porque as AZs não compartilham pontos únicos de falha: têm energia e rede independentes e ficam distantes o bastante para um mesmo evento não atingir duas.	CLF-C02 dominio-3 secao-3_2
+Quando usar várias Regiões?	Para recuperação de desastres, continuidade de negócios, baixa latência para usuários em outros lugares do mundo e soberania de dados.	CLF-C02 dominio-3 secao-3_2
+Quais fatores pesam na escolha de uma Região?	Conformidade com leis e regras sobre os dados, latência para os usuários, custo e disponibilidade dos serviços e recursos necessários.	CLF-C02 dominio-3 secao-3_2
+Para que servem os locais de borda?	Para rodar serviços perto dos usuários, como o CloudFront (entrega de conteúdo), o Route 53 (DNS) e o Global Accelerator, reduzindo a latência.	CLF-C02 dominio-3 secao-3_2
 Qual família de instância para aplicação com uso intenso de CPU?	Otimizada para computação (C).	CLF-C02 dominio-3 secao-3_3
 Para banco de dados em memória?	Otimizada para memória (R, X).	CLF-C02 dominio-3 secao-3_3
 Para machine learning com GPU?	Computação acelerada (P, G).	CLF-C02 dominio-3 secao-3_3
