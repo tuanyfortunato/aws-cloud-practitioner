@@ -1,156 +1,73 @@
+<!-- autoral -->
+
 # Amazon SageMaker AI
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A equipe quer criar um modelo de aprendizado de máquina com seus dados e precisa de ferramentas para preparar, treinar, avaliar e disponibilizar esse modelo.
-
-**Como este serviço ajuda?** SageMaker AI oferece recursos para etapas do desenvolvimento e operação de modelos. A equipe escolhe o processo, fornece dados e avalia a qualidade do resultado.
-
-**Exemplo do dia a dia:** A escola usa um histórico autorizado para experimentar um modelo de previsão de demanda e verifica seu desempenho antes de usar previsões no planejamento.
-
-**O que ele não resolve sozinho?** O serviço não garante previsões corretas nem dispensa dados adequados, avaliação e controle de acesso. Criar seu modelo é diferente de usar uma função de IA pronta.
-
-**Primeiras palavras para entender:**
-
-- **Modelo:** sistema que aprende padrões.
-- **Treinamento:** ajuste com dados.
-- **Inferência:** uso do modelo para produzir uma resposta.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** IA / machine learning · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
+> **Categoria:** IA e machine learning · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** plataforma completa para **construir, treinar e implantar modelos de ML próprios**.
+> **Em uma frase:** serviço de machine learning totalmente gerenciado para criar, treinar e implantar modelos próprios, sem montar nem gerenciar os servidores.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 
-**Passo 1.** Defina a tarefa, prepare dados adequados e escolha o processo de desenvolvimento do modelo.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Treine e avalie o modelo com critérios pertinentes. Separe dados e etapas de forma adequada ao método escolhido.
+---
 
-**Passo 3.** Disponibilize inferência compatível e acompanhe qualidade. Um resultado de treinamento não garante bom desempenho para toda entrada futura.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A rede quer prever quais alunos correm risco de abandonar a escola. Nenhum serviço pronto faz isso: a resposta depende das notas, das faltas e do histórico dos alunos da própria rede. É preciso **treinar um modelo próprio**, e montar servidores com GPU, ferramentas e ambiente de produção para isso seria um projeto à parte.
 
-### Ciclo de ML e recursos
+O **SageMaker AI** entrega essa estrutura gerenciada. Cientistas de dados e desenvolvedores preparam os dados, treinam o modelo com algoritmos gerenciados ou com os frameworks que já usam e o **implantam** num ambiente hospedado pronto para produção, onde ele recebe dados novos e devolve previsões. Quem não programa pode usar o **SageMaker Canvas**, que cria modelos sem código.
 
-**Rotular dados**
+O limite é de responsabilidade: a AWS cuida da infraestrutura, mas a escola escolhe os dados, treina, avalia o resultado e responde pelo uso do modelo. E, para tarefas comuns como ler documentos ou traduzir, um [serviço de IA pronto](servicos-de-ia-prontos.md) resolve sem treinamento.
 
-**Recurso:** **Ground Truth** (rotulagem humana + automática)
+## Como funciona
 
-**Preparar dados**
+1. A equipe reúne e prepara os dados históricos, por exemplo no SageMaker Studio.
+2. Treina o modelo com um algoritmo gerenciado ou o seu próprio, na capacidade que escolher.
+3. Avalia o modelo e, se necessário, verifica vieses com o SageMaker Clarify.
+4. Implanta o modelo num endpoint, que devolve previsões; o Model Monitor acompanha a qualidade em produção.
 
-**Recurso:** **Data Wrangler** (no Canvas), **Feature Store**
+## Opções principais
 
-**Construir**
+| Recurso | O que faz | Exemplo na escola |
+|---|---|---|
+| SageMaker Studio | Ambiente web com ferramentas de desenvolvimento para ML | Equipe de dados trabalha nos notebooks |
+| SageMaker Canvas | Cria modelos e previsões sem programar | Coordenação testa uma previsão de matrículas |
+| JumpStart | Modelos pré-treinados e soluções prontas para implantar ou ajustar | Partir de um modelo pronto |
+| Ground Truth | Cria conjuntos de dados rotulados para treino | Rotular redações por nível |
+| Clarify | Detecta vieses e explica as previsões | Conferir se o modelo trata turmas de forma justa |
+| Model Monitor | Acompanha o modelo em produção | Perceber quando os dados mudam |
 
-**Recurso:** **SageMaker Studio** (IDE, notebooks JupyterLab), algoritmos embutidos, frameworks (PyTorch, TensorFlow)
+## Números que a prova cobra
 
-**Sem código**
+| O quê | Valor | Verificado em |
+|---|---|---|
+| O que faz | Criar, treinar e implantar modelos | 06/10/2026 |
+| Nome atual | SageMaker AI (antes Amazon SageMaker, renomeado em 03/12/2024) | 06/10/2026 |
+| Formas de pagamento | Sob demanda, sem mínimo, ou Savings Plans do SageMaker | 06/10/2026 |
 
-**Recurso:** **SageMaker Canvas** (analistas de negócio criam modelos visualmente)
+## Como é cobrado
 
-**AutoML**
+Paga-se pelo que usa: instâncias de notebook, treinamento e endpoints, armazenamento e recursos usados. Há duas formas: sob demanda, sem taxa mínima nem compromisso, e os Savings Plans do SageMaker, com desconto em troca de um compromisso de uso. O SageMaker AI tem nível gratuito para começar.
 
-**Recurso:** **Autopilot** (dentro do Canvas)
+## Não confundir com
 
-**Modelos prontos**
+| Serviço | Diferença para o SageMaker AI | Pista no enunciado |
+|---|---|---|
+| [Serviços de IA prontos](servicos-de-ia-prontos.md) | Modelos já treinados pela AWS, por API | "Sem conhecimento de ML", "traduzir", "ler documentos" |
+| [Amazon Q](amazon-q.md) | Assistente de IA generativa | "Assistente", "perguntas sobre a AWS" |
+| [Amazon Bedrock](bedrock.md) | Acesso a modelos de fundação para IA generativa | "Modelos de fundação" |
+| [Amazon EMR](../analytics/emr.md) | Processamento de big data com Spark e Hadoop | "Spark", "Hadoop" |
 
-**Recurso:** **JumpStart** (modelos de fundação e soluções prontas)
+## Fontes oficiais
 
-**Treinar**
+Verificadas em 06/10/2026.
 
-**Recurso:** Treinamento gerenciado, distribuído, com **Spot** (*managed spot training*), HyperPod para modelos grandes
-
-**Ajustar**
-
-**Recurso:** **Automatic Model Tuning** (hiperparâmetros)
-
-**Explicar/viés**
-
-**Recurso:** **Clarify** (detecção de viés e explicabilidade)
-
-**Implantar**
-
-**Recurso:** Endpoints **real-time**, **serverless**, **asynchronous** e **batch transform**
-
-**Monitorar**
-
-**Recurso:** **Model Monitor** (drift de dados/qualidade)
-
-**MLOps**
-
-**Recurso:** **Pipelines**, Model Registry
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-O serviço não garante previsões corretas nem dispensa dados adequados, avaliação e controle de acesso. Criar seu modelo é diferente de usar uma função de IA pronta.
-
-### ⚠️ Não confundir
-
-**SageMaker AI** (treinar **seus** modelos) × **Bedrock** (usar modelos de fundação prontos via API) × serviços de IA prontos (Rekognition, Comprehend…).
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por instância/hora de notebook, treinamento e inferência + armazenamento; **SageMaker AI Savings Plans** (até 64%).
-
-### 🔄 Atualizações 2025-2026
-
-O serviço passou a se chamar **Amazon SageMaker AI**; o nome "Amazon SageMaker" virou a plataforma unificada de dados e IA (Unified Studio). Na prova pode aparecer "SageMaker".
-
-## 5. Caso resolvido: ligando as peças
-
-A escola usa um histórico autorizado para experimentar um modelo de previsão de demanda e verifica seu desempenho antes de usar previsões no planejamento.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina a tarefa, prepare dados adequados e escolha o processo de desenvolvimento do modelo.
-**Etapa 2:** Treine e avalie o modelo com critérios pertinentes. Separe dados e etapas de forma adequada ao método escolhido.
-**Etapa 3:** Disponibilize inferência compatível e acompanhe qualidade. Um resultado de treinamento não garante bom desempenho para toda entrada futura.
-
-**Resultado e responsabilidade:** SageMaker AI oferece recursos para etapas do desenvolvimento e operação de modelos. A equipe escolhe o processo, fornece dados e avalia a qualidade do resultado.
-
-**Recursos envolvidos:** Preparação, treinamento, modelos, endpoints e jobs.
-
-**Decisões que precisam ser tomadas:** Dados, algoritmo, infraestrutura, acesso e modalidade de inferência.
-
-**Outra situação comentada:** Treinar modelo da empresa: SageMaker AI; converter texto em voz sem treino próprio: Polly.
-
-**Por que não concluir mais do que isso:** Não substitui dados de qualidade e validação; endpoint ativo pode gerar custo mesmo ocioso
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Construir, treinar e implantar modelos de ML próprios."
-
-**Resposta curta:** SageMaker AI.
-
-**Pergunta:** "Analista de negócio sem código quer criar previsões."
-
-**Resposta curta:** SageMaker Canvas.
-
-**Pergunta:** "Detectar viés no modelo."
-
-**Resposta curta:** SageMaker Clarify.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+- [O que é o Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+- [Recursos do SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis-features.html)
+- [Preços do Amazon SageMaker AI](https://aws.amazon.com/sagemaker-ai/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

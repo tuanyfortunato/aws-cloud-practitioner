@@ -1,146 +1,83 @@
-# Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate e Textract)
 
-**Qual é a dificuldade?** A aplicação precisa de uma capacidade específica, como transcrever áudio ou extrair texto, e a equipe não quer desenvolver um modelo próprio para isso.
-
-**Como este serviço ajuda?** Serviços de IA prontos oferecem funções delimitadas: Transcribe transforma fala em texto, Textract extrai conteúdo de documentos, Polly gera fala e outros atendem tradução, imagem ou linguagem.
-
-**Exemplo do dia a dia:** A escola usa uma função de transcrição para produzir texto de uma gravação e revisa o resultado antes de disponibilizá-lo.
-
-**O que ele não resolve sozinho?** Cada serviço trata um tipo de tarefa. Nenhum garante precisão perfeita nem deve ser escolhido só porque a pergunta menciona IA. Compatibilidade e escopo variam por produto.
-
-**Primeiras palavras para entender:**
-
-- **Transcrição:** fala convertida em texto.
-- **Extração:** identificação de conteúdo.
-- **API:** interface pela qual a aplicação pede a função.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** IA / serviços de alto nível · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
+> **Categoria:** IA e serviços prontos · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** APIs de IA já treinadas pela AWS — você não precisa de experiência em ML, só chama a API.
+> **Em uma frase:** serviços que a AWS já treinou para tarefas comuns (conversar, falar, transcrever, traduzir, entender textos, analisar imagens e ler documentos), usados por chamadas de API, sem conhecimento de machine learning.
 >
-> **Escopo oficial:** 🔀 Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate ✅ · Kendra ⚪ não listado · Personalize e Fraud Detector ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 
-**Passo 1.** Identifique a transformação desejada, como fala para texto ou extração de campos.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha o serviço específico e forneça uma entrada compatível com as permissões necessárias.
+---
 
-**Passo 3.** Avalie o resultado e trate erros. Produtos de tradução, voz, texto e imagem não são substitutos universais uns dos outros.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A secretaria tem uma lista de desejos: um chat que tire dúvidas da matrícula a qualquer hora, ler sozinha as certidões digitalizadas, transcrever as reuniões de pais, traduzir os comunicados para as famílias que não falam português e saber se os comentários da pesquisa de satisfação são positivos ou negativos. Ninguém na equipe sabe treinar modelos.
 
-### Tabela de associação (📌 decorar)
+Cada desejo tem um serviço pronto. A AWS já treinou os modelos; a aplicação da escola só envia o pedido pela API e recebe o resultado. O **Lex** cria o chatbot, o **Textract** lê as certidões, o **Transcribe** transcreve as reuniões, o **Translate** traduz, o **Comprehend** identifica o sentimento dos comentários, o **Polly** lê os comunicados em voz alta e o **Rekognition** confere se a foto enviada mostra um rosto. Os serviços também se combinam: um áudio em inglês passa pelo Transcribe, pelo Translate e pelo Polly e vira voz em português.
 
-| Serviço | Entrada → saída | Recursos e casos de uso |
+O limite: cada serviço faz uma tarefa definida. Uma previsão que depende dos dados da própria escola, como o risco de abandono, exige um modelo próprio no [SageMaker AI](sagemaker-ai.md). E a escola continua responsável por como usa os resultados.
+
+## Como funciona
+
+1. A aplicação envia o conteúdo (texto, áudio, imagem ou documento) para a API do serviço.
+2. O modelo pré-treinado da AWS processa o pedido.
+3. O serviço devolve o resultado: texto, áudio, rótulos, campos ou o sentimento.
+4. Paga-se pelo uso: caracteres, segundos de áudio, imagens, páginas ou pedidos.
+
+## Opções principais
+
+| Serviço | O que faz | Na escola |
 |---|---|---|
-| **Amazon Rekognition** | **Imagem/vídeo** → rótulos | Rostos (detecção, comparação, busca), objetos, cenas, celebridades, texto em imagens, **moderação de conteúdo**, EPI, rastreamento de pessoas em vídeo |
-| **Amazon Textract** | **Documento digitalizado** → texto estruturado | Extrai texto, **formulários (chave-valor)**, **tabelas**, assinaturas; APIs para notas fiscais e documentos de identidade |
-| **Amazon Comprehend** | **Texto** → insights (NLP) | **Sentimento**, entidades, frases-chave, idioma, tópicos, PII; *Comprehend Medical* para textos clínicos |
-| **Amazon Translate** | Texto → texto em outro idioma | Tradução neural em tempo real e em lote, terminologia customizada |
-| **Amazon Polly** | **Texto → fala** | Vozes neurais, SSML, *lexicons* (pronúncia) |
-| **Amazon Transcribe** | **Fala → texto** | Legendas, transcrição de chamadas, identificação de falantes, redação de PII; *Transcribe Medical*; *Call Analytics* |
-| **Amazon Lex** | Conversa (voz/texto) → intenção | **Chatbots** e URAs (mesma tecnologia da Alexa); integra com Lambda e Connect |
-| **Amazon Kendra** | Pergunta → resposta em documentos | **Busca inteligente corporativa** em linguagem natural (SharePoint, S3, Confluence). 🔄 Fechado a novos clientes desde 30/07/2026 e fora da lista atual |
-| **Amazon Personalize** ❌ *fora do escopo* | Interações → recomendações | **Recomendações personalizadas** (como na Amazon.com), ranking |
-| **Amazon Fraud Detector** ❌ *fora do escopo* | Eventos → risco de fraude | Fraude em pagamentos/cadastros (🔄 em manutenção, sem novos clientes desde 07/11/2025; ❌ fora do escopo) |
-| **Amazon Augmented AI (A2I)** | Previsões → revisão humana | Fluxos de revisão humana de previsões de ML |
+| Amazon Lex | Chatbots por voz e texto | Chat que tira dúvidas da matrícula |
+| Amazon Polly | Texto em fala | Ler os comunicados em voz alta |
+| Amazon Transcribe | Fala em texto, separando quem falou | Transcrever as reuniões de pais |
+| Amazon Translate | Tradução de textos | Comunicados em inglês |
+| Amazon Comprehend | Linguagem natural: entidades, frases-chave, idioma e sentimento | Comentários positivos ou negativos |
+| Amazon Rekognition | Imagens e vídeos: objetos, textos, conteúdo impróprio e rostos | Conferir se a foto mostra um rosto |
+| Amazon Textract | Texto, formulários e tabelas de documentos, inclusive à mão | Ler as certidões digitalizadas |
 
-### Pares que confundem
+## Números que a prova cobra
 
-**Textract × Rekognition:** documentos/formulários × imagens/rostos/objetos.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Polly | Cobrado por caractere convertido em fala | 06/10/2026 |
+| Transcribe | Cobrado por segundo de áudio, sem mínimo | 06/10/2026 |
+| Translate | Por caractere; nível gratuito de 2 milhões de caracteres por mês por 12 meses | 06/10/2026 |
+| Comprehend | Unidades de 100 caracteres, mínimo de 300 por pedido | 06/10/2026 |
+| Rekognition | Por imagem analisada | 06/10/2026 |
+| Textract | Por página; nível gratuito de 3 meses para clientes novos | 06/10/2026 |
+| Lex | Por pedido ou por conversa contínua, sem compromisso | 06/10/2026 |
 
-**Polly × Transcribe:** texto→fala × fala→texto.
+## Como é cobrado
 
-**Comprehend × Kendra:** analisar texto × buscar respostas em documentos.
+Todos são cobrados pelo uso, sem compromisso inicial, cada um na sua unidade: caracteres (Polly, Translate, Comprehend), segundos de áudio (Transcribe), imagens (Rekognition), páginas (Textract) e pedidos ou conversas (Lex).
 
-**Lex × Connect:** chatbot × central de atendimento (que pode usar o Lex).
+## Não confundir com
 
-## 3. Como escolher e reconhecer os limites
+| Par | A diferença | Pista no enunciado |
+|---|---|---|
+| Polly × Transcribe | Polly: texto em fala. Transcribe: fala em texto | "Ler em voz alta" × "transcrever" |
+| Textract × Rekognition | Textract: conteúdo de documentos. Rekognition: o que aparece em fotos e vídeos | "Formulário", "tabela" × "rosto", "objeto" |
+| Comprehend × Translate | Comprehend: sentido do texto. Translate: troca o idioma | "Sentimento" × "traduzir" |
+| Lex × [Amazon Q](amazon-q.md) | Lex: chatbot da empresa. Q: assistente para trabalhar com a AWS | "Chatbot para clientes" × "assistente da AWS" |
+| Serviços prontos × [SageMaker AI](sagemaker-ai.md) | Prontos: modelo da AWS. SageMaker AI: modelo próprio | "Sem conhecimento de ML" × "treinar um modelo" |
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Fontes oficiais
 
-Cada serviço trata um tipo de tarefa. Nenhum garante precisão perfeita nem deve ser escolhido só porque a pergunta menciona IA. Compatibilidade e escopo variam por produto.
+Verificadas em 06/10/2026.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### 🔄 Atualizações 2025-2026
-
-**Forecast:** fechado a novos clientes. **Lookout for Vision:** encerrado em 31/10/2025. **Lookout for Metrics:** encerrado em 12/09/2025. **Fraud Detector:** sem novos clientes desde 07/11/2025. **Kendra:** sem novos clientes desde 30/07/2026. Não estudar a fundo.
-
-**Personalize** e **Fraud Detector** estão declarados **fora do escopo** da prova.
-
-## 5. Caso resolvido: ligando as peças
-
-A escola usa uma função de transcrição para produzir texto de uma gravação e revisa o resultado antes de disponibilizá-lo.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique a transformação desejada, como fala para texto ou extração de campos.
-**Etapa 2:** Escolha o serviço específico e forneça uma entrada compatível com as permissões necessárias.
-**Etapa 3:** Avalie o resultado e trate erros. Produtos de tradução, voz, texto e imagem não são substitutos universais uns dos outros.
-
-**Resultado e responsabilidade:** Serviços de IA prontos oferecem funções delimitadas: Transcribe transforma fala em texto, Textract extrai conteúdo de documentos, Polly gera fala e outros atendem tradução, imagem ou linguagem.
-
-**Recursos envolvidos:** APIs especializadas com entradas como texto, áudio, imagem e documento.
-
-**Decisões que precisam ser tomadas:** Serviço, idioma/formato, processamento e acesso.
-
-**Outra situação comentada:** Áudio para texto: Transcribe; texto para áudio: Polly. Inverter a direção muda a resposta.
-
-**Por que não concluir mais do que isso:** Nenhum cobre todo tipo de IA nem garante acerto; serviços extras na ficha têm escopo próprio
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Identificar rostos e objetos em fotos."
-
-**Resposta curta:** Rekognition.
-
-**Pergunta:** "Analisar o sentimento de avaliações."
-
-**Resposta curta:** Comprehend.
-
-**Pergunta:** "Criar um chatbot de atendimento."
-
-**Resposta curta:** Lex.
-
-**Pergunta:** "Converter texto em voz."
-
-**Resposta curta:** Polly. "Áudio em texto?" → Transcribe.
-
-**Pergunta:** "Traduzir o site."
-
-**Resposta curta:** Translate.
-
-**Pergunta:** "Extrair dados de formulários escaneados."
-
-**Resposta curta:** Textract.
-
-**Pergunta:** "Busca inteligente nos documentos internos."
-
-**Resposta curta:** Kendra.
-
-**Pergunta:** "Recomendar produtos aos clientes."
-
-**Resposta curta:** Personalize.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Serviços de IA da AWS](https://aws.amazon.com/ai/services/)
+- [Amazon Lex](https://docs.aws.amazon.com/lexv2/latest/dg/what-is.html) e [preços](https://aws.amazon.com/lex/pricing/)
+- [Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/what-is.html) e [preços](https://aws.amazon.com/polly/pricing/)
+- [Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) e [preços](https://aws.amazon.com/transcribe/pricing/)
+- [Amazon Translate](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) e [preços](https://aws.amazon.com/translate/pricing/)
+- [Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html) e [preços](https://aws.amazon.com/comprehend/pricing/)
+- [Amazon Rekognition](https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html) e [preços](https://aws.amazon.com/rekognition/pricing/)
+- [Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/what-is.html) e [preços](https://aws.amazon.com/textract/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

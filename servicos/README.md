@@ -127,10 +127,10 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Amazon SageMaker AI](ia-ml/sagemaker-ai.md) | ✅ | núcleo | Plataforma completa para **construir, treinar e implantar modelos de ML próprios**. |
+| [Amazon SageMaker AI](ia-ml/sagemaker-ai.md) | ✅ | núcleo | Serviço de machine learning totalmente gerenciado para criar, treinar e implantar modelos próprios, sem montar nem gerenciar os servidores. |
 | [Amazon Bedrock](ia-ml/bedrock.md) | ⚪ | referência | Acesso **serverless via API** a modelos de fundação (foundation models) de vários provedores para criar aplicações de IA generativa. |
-| [Amazon Q](ia-ml/amazon-q.md) | ✅ | núcleo | Família de **assistentes de IA generativa** prontos para desenvolvedores e para dados corporativos. |
-| [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)](ia-ml/servicos-de-ia-prontos.md) | 🔀 | núcleo | APIs de IA já treinadas pela AWS — você não precisa de experiência em ML, só chama a API. |
+| [Amazon Q](ia-ml/amazon-q.md) | ✅ | núcleo | Família de assistentes de IA generativa da AWS; o Amazon Q Developer responde perguntas sobre a AWS e os recursos da conta e ajuda a escrever e melhorar código. |
+| [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate e Textract)](ia-ml/servicos-de-ia-prontos.md) | 🔀 | núcleo | Serviços que a AWS já treinou para tarefas comuns (conversar, falar, transcrever, traduzir, entender textos, analisar imagens e ler documentos), usados por chamadas de API, sem conhecimento de machine learning. |
 
 ## 🔗 Integração de aplicações
 
