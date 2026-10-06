@@ -184,20 +184,16 @@ Quais são as duas visões do AWS Health Dashboard?	A saúde dos serviços, pág
 O que fazer quando a conta atinge o limite de um recurso?	Verificar a cota no Service Quotas e, se ela for ajustável, pedir o aumento por lá.	CLF-C02 dominio-3 secao-3_16
 Para que serve o AWS Compute Optimizer?	Para analisar a configuração e o uso dos recursos e recomendar o tamanho certo, além de apontar recursos ociosos, reduzindo custo e melhorando desempenho.	CLF-C02 dominio-3 secao-3_16
 O que o CloudFormation StackSets acrescenta ao CloudFormation?	A possibilidade de criar, atualizar ou apagar pilhas em várias contas e Regiões numa única operação, a partir do mesmo modelo.	CLF-C02 dominio-3 secao-3_16
-Levantar servidores e dependências antes de migrar.	Application Discovery Service.	CLF-C02 dominio-3 secao-3_17
-Estimar quanto a empresa vai economizar ao migrar.	Migration Evaluator.	CLF-C02 dominio-3 secao-3_17
-Acompanhar todas as migrações num painel central.	Migration Hub.	CLF-C02 dominio-3 secao-3_17
-Migrar servidores físicos e VMs para EC2 com pouca indisponibilidade.	Application Migration Service.	CLF-C02 dominio-3 secao-3_17
-Migrar um banco sem desligar a aplicação.	DMS.	CLF-C02 dominio-3 secao-3_17
-Converter um banco Oracle para Aurora PostgreSQL.	SCT + DMS.	CLF-C02 dominio-3 secao-3_17
-Transferir arquivos online de forma automatizada para o S3.	DataSync.	CLF-C02 dominio-3 secao-3_17
-Parceiros enviam arquivos via SFTP para o S3.	Transfer Family.	CLF-C02 dominio-3 secao-3_17
-Como acompanhar a pegada de carbono do uso da AWS?	AWS Customer Carbon Footprint Tool.	CLF-C02 dominio-3 secao-3_18
-Onde contratar especialistas certificados sob demanda para um projeto pequeno?	AWS IQ (descontinuado; hoje, AWS Marketplace Professional Services ou um parceiro da APN).	CLF-C02 dominio-3 secao-3_18
-Qual serviço emite as credenciais temporárias usadas pelas roles?	AWS STS.	CLF-C02 dominio-3 secao-3_18
-A aplicação usa RabbitMQ e deve migrar sem mudar o código.	Amazon MQ.	CLF-C02 dominio-3 secao-3_18
-Testar a resiliência injetando falhas de propósito.	AWS Fault Injection Service.	CLF-C02 dominio-3 secao-3_18
-Testar um app mobile em centenas de dispositivos reais.	AWS Device Farm.	CLF-C02 dominio-3 secao-3_18
+Para que serve o Migration Evaluator?	Para montar o caso de negócio da migração, comparando o custo do ambiente atual com alternativas na AWS.	CLF-C02 dominio-3 secao-3_17
+O que o AWS Application Discovery Service coleta?	Dados de configuração e uso dos servidores e bancos locais, e as conexões de rede entre os servidores, que revelam as dependências.	CLF-C02 dominio-3 secao-3_17
+O que faz o AWS Application Migration Service?	Automatiza o rehost (lift and shift) de servidores físicos, virtuais e de outras nuvens para a AWS, com replicação contínua e virada rápida.	CLF-C02 dominio-3 secao-3_17
+Qual é a diferença entre o AWS DMS e a AWS SCT?	O DMS move os dados do banco, uma vez ou com replicação contínua; a SCT converte o esquema quando o banco muda de motor.	CLF-C02 dominio-3 secao-3_17
+Qual serviço da lista do exame acompanha o andamento das migrações num só lugar?	O AWS Migration Hub.	CLF-C02 dominio-3 secao-3_17
+As listas de serviços do guia do exame são completas?	Não: tanto a lista no escopo quanto a lista fora do escopo avisam que não são exaustivas e podem mudar.	CLF-C02 dominio-3 secao-3_18
+O que fazer quando uma alternativa cita um serviço da lista fora do escopo?	Desconfiar dela e procurar o serviço do escopo que cumpre a função pedida, já que a prova não cobra os serviços fora do escopo.	CLF-C02 dominio-3 secao-3_18
+Qual serviço gera credenciais temporárias na AWS?	O AWS Security Token Service (AWS STS).	CLF-C02 dominio-3 secao-3_18
+Onde ver as emissões de carbono do uso da AWS?	No console AWS Sustainability, que amplia a antiga Customer Carbon Footprint Tool.	CLF-C02 dominio-3 secao-3_18
+Para que serve o AWS Fault Injection Service?	Para fazer experimentos de injeção de falhas, seguindo a engenharia do caos, e ver como a aplicação reage a interrupções.	CLF-C02 dominio-3 secao-3_18
 Qual é um princípio de preço da AWS?	Pagar conforme o uso, economizar ao se comprometer, pagar menos por unidade ao usar mais.	CLF-C02 dominio-4 secao-4_1
 Quais são os três principais geradores de custo?	Computação, armazenamento e transferência de dados de saída.	CLF-C02 dominio-4 secao-4_1
 Aplicação nova, sem histórico de uso, que não pode ser interrompida.	On-Demand.	CLF-C02 dominio-4 secao-4_2
