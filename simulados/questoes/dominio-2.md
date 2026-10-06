@@ -1,6 +1,6 @@
 # ❓ Questões — Domínio 2 — Segurança e Conformidade (30%)
 
-20 questões no formato da prova, em ordem de tópico. Responda antes de abrir "Ver resposta".
+23 questões no formato da prova, em ordem de tópico. Responda antes de abrir "Ver resposta".
 
 ⬅️ [Todas as questões por domínio](README.md)
 
@@ -405,5 +405,65 @@ Uma empresa quer varrer continuamente suas instâncias EC2 e as imagens de cont�
 **Resposta: D**
 
 O **Inspector** avalia vulnerabilidades de software e exposição de rede em EC2, ECR e Lambda. O GuardDuty detecta ameaças em andamento; o Trusted Advisor dá recomendações de boas práticas; o Config avalia configurações, não CVEs.
+
+</details>
+
+### Questão 21
+
+<sub>Domínio 2 · tópico [2.10](../../docs/02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.md)</sub>
+
+Uma empresa contratou uma consultoria para fazer um teste de intrusão na sua aplicação web, que roda em instâncias Amazon EC2 atrás de um Application Load Balancer. O que ela precisa saber sobre a política da AWS para esse teste?
+
+- **A)** O teste pode incluir os servidores físicos da AWS que hospedam as instâncias
+- **B)** Pode ser feito sem aprovação prévia, respeitando as atividades proibidas
+- **C)** Uma simulação de DDoS pode entrar no teste, porque os serviços estão na lista permitida
+- **D)** É preciso pedir autorização ao AWS Support antes de qualquer teste
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: B**
+
+EC2 e Elastic Load Balancing estão na lista de serviços que o cliente pode testar **sem aprovação prévia**. Pedir autorização não é necessário (só testes com comando e controle, C2, exigem aprovação). DoS e DDoS, reais ou **simulados**, são atividades **proibidas** pela política de pentest e seguem uma política própria de simulação de DDoS. E o cliente testa só os próprios recursos, nunca a infraestrutura da AWS.
+
+</details>
+
+### Questão 22
+
+<sub>Domínio 2 · tópico [2.10](../../docs/02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.md)</sub>
+
+O servidor de e-mail de uma escola registrou uma campanha de phishing enviada de um endereço IP que pertence à AWS. Qual é o caminho correto para denunciar esse abuso?
+
+- **A)** Abrir um caso técnico no AWS Support
+- **B)** Enviar uma denúncia pelo formulário de abuso da AWS, para a equipe AWS Trust & Safety
+- **C)** Solicitar um relatório de conformidade no AWS Artifact
+- **D)** Registrar o incidente no AWS Health Dashboard
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: B**
+
+Abuso vindo de recursos da AWS (spam, phishing, varreduras, DDoS, conteúdo impróprio) é tratado pela equipe **AWS Trust & Safety**, que recebe denúncias pelo formulário de abuso. O AWS Support **não** atende denúncias de abuso; o Health Dashboard informa eventos que afetam os serviços e a conta; o Artifact entrega relatórios de conformidade.
+
+</details>
+
+### Questão 23
+
+<sub>Domínio 2 · tópico [2.10](../../docs/02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.md)</sub>
+
+A equipe de segurança quer usar na AWS o firewall de um fabricante que ela já conhece, comprado e cobrado na própria fatura da AWS. Onde ela encontra esse produto?
+
+- **A)** AWS Trusted Advisor
+- **B)** AWS Marketplace
+- **C)** AWS Security Hub
+- **D)** AWS Artifact
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: B**
+
+O **AWS Marketplace** é o catálogo curado de software, dados e serviços de terceiros, com categoria de segurança e cobrança na fatura da AWS. O Artifact entrega relatórios de conformidade; o Trusted Advisor recomenda boas práticas para a conta; o Security Hub reúne achados de segurança. O produto comprado roda na conta do cliente, que continua responsável por configurá-lo.
 
 </details>
