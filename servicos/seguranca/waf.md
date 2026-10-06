@@ -1,123 +1,74 @@
+<!-- autoral -->
+
 # AWS WAF (Web Application Firewall)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Um site precisa analisar pedidos web e bloquear padrões indesejados, como tentativas de explorar campos de entrada ou volumes excessivos de chamadas.
-
-**Como este serviço ajuda?** WAF aplica regras ao tráfego web em integrações compatíveis. Você define critérios de inspeção e ações como permitir ou bloquear.
-
-**Exemplo do dia a dia:** A escola configura regras para inspecionar pedidos ao seu site e limitar padrões de requisições suspeitos.
-
-**O que ele não resolve sozinho?** WAF não corrige o código vulnerável nem protege automaticamente todo protocolo e recurso AWS. A regra deve estar associada ao ponto de entrada compatível.
-
-**Primeiras palavras para entender:**
-
-- **Requisição:** pedido feito ao site.
-- **Regra:** condição e ação de inspeção.
-- **Web ACL:** conjunto de regras aplicado pelo WAF.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / proteção de aplicações · **Domínio:** 2 · **Escopo:** Global (CloudFront) ou Regional · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
+> **Categoria:** Segurança e proteção de aplicações · **Domínio:** 2 · **Abrangência:** Global (CloudFront) ou Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** firewall de **camada 7** que filtra requisições HTTP(S) maliciosas antes que cheguem à aplicação.
+> **Em uma frase:** firewall de aplicações web que examina cada pedido HTTP ou HTTPS e, pelas regras do cliente, deixa passar, bloqueia ou devolve uma resposta personalizada.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 
-**Passo 1.** Identifique o ponto web compatível e o padrão de pedidos que deseja permitir, observar ou bloquear.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Crie regras e associe o conjunto ao recurso. Os pedidos são inspecionados conforme a configuração.
+---
 
-**Passo 3.** Acompanhe resultados e ajuste regras. Um bloqueio incorreto pode afetar usuários legítimos; a correção do programa também precisa ser planejada.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Alguém digita código SQL no campo de busca do portal da escola, tentando listar as notas de todos os alunos. O pedido chega pela porta 443, que precisa estar aberta para todo mundo, então security groups e ACLs de rede deixam passar: eles olham endereços e portas, não o que vai dentro do pedido.
 
-### Onde se associa
+O **AWS WAF** (*web application firewall*) olha o conteúdo. Ele fica na frente do CloudFront, do Application Load Balancer, de uma API do API Gateway e de outros recursos web, e avalia cada pedido contra as regras de um **web ACL** (no console novo, *protection pack*): injeção de SQL, cross-site scripting, endereço IP, país de origem, excesso de pedidos de uma mesma origem. O pedido aprovado segue; o reprovado recebe o código 403 ou uma resposta personalizada.
 
-**CloudFront, ALB, API Gateway (REST), AppSync, Cognito user pools**, App Runner, Verified Access, Amplify. ⚠️ **Não** em NLB nem diretamente em EC2.
+O limite: o WAF só entende pedidos web e só protege o que você associar a ele. Uma enxurrada de tráfego nas camadas de rede é assunto do [Shield](shield.md), e o WAF não corrige a falha no código, só barra os pedidos que se encaixam nas regras.
 
-### Conceitos e configurações
+## Como funciona
 
-| Item | Detalhe |
-|---|---|
-| **Web ACL** | Conjunto de regras com ação padrão (allow/block). |
-| **Rules** | Condições: IP sets, países (**geo match**), strings/regex, tamanho, cabeçalhos, **SQL injection**, **XSS**. Ações: allow, block, count, CAPTCHA, challenge. |
-| **Rate-based rules** | Limitam requisições por IP (ou chave) em uma janela → mitigam *HTTP floods*, *brute force*. |
-| **Managed rule groups** | Prontos da AWS (Core rule set, SQLi, IP reputation, bots conhecidos, OWASP) e do **Marketplace**. |
-| **Bot Control** | Identifica e controla bots (pago). |
-| **Fraud Control** | Proteção contra tomada de conta (ATP) e criação fraudulenta de contas (ACFP). |
-| **Logs** | Para CloudWatch Logs, S3 ou Firehose. |
-| **Capacidade (WCU)** | Cada regra consome unidades 🧊. |
+1. Você cria um web ACL e escolhe uma ação padrão: permitir ou bloquear o que nenhuma regra pegar.
+2. Adiciona regras próprias e grupos de regras gerenciadas, como o conjunto básico da AWS, o de bancos SQL e a lista de endereços com má reputação.
+3. Associa o web ACL aos recursos: para o CloudFront, ele é criado no escopo global (na Região Norte da Virgínia); para os demais, na mesma Região do recurso.
+4. Cada pedido passa pelas regras em ordem de prioridade; a primeira que permitir ou bloquear decide, e o que nenhuma regra decidir recebe a ação padrão.
 
-## 3. Como escolher e reconhecer os limites
+## Opções principais
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| Tipo de regra | O que verifica | Exemplo na escola |
+|---|---|---|
+| Injeção de SQL | Código SQL no pedido | Busca que tenta listar todas as notas |
+| Cross-site scripting (XSS) | Script inserido para rodar no navegador de outros | Comentário com código no mural |
+| IP e país de origem | Endereço ou localização de quem pede | Bloquear uma faixa de IPs abusiva |
+| Limite de taxa (*rate-based*) | Pedidos demais de uma origem num intervalo | Robô tentando senhas no login |
+| Grupos gerenciados | Conjuntos prontos mantidos pela AWS ou por vendedores | Proteções comuns sem escrever regras |
 
-WAF não corrige o código vulnerável nem protege automaticamente todo protocolo e recurso AWS. A regra deve estar associada ao ponto de entrada compatível.
+## Números que a prova cobra
 
-### ⚠️ Pegadinhas
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Resposta a um pedido bloqueado | HTTP 403 ou resposta personalizada | 06/10/2026 |
+| Web ACL para o CloudFront | Criado na Região Norte da Virgínia (escopo global) | 06/10/2026 |
+| Compromisso | Nenhum; paga-se o uso | 06/10/2026 |
 
-WAF (aplicação, camada 7) × Shield (DDoS, camadas 3/4) × Network Firewall (VPC, camadas 3–7) × Security group/NACL.
+## Como é cobrado
 
-"Bloquear países" → WAF geo match ou geo restriction do CloudFront.
+Sem compromisso: cobra por web ACL por mês, por regra por mês e por milhão de pedidos avaliados, além de taxas próprias de recursos extras como o controle de robôs e de fraude. O valor soma-se ao do recurso protegido. Quem assina o Shield Advanced tem as taxas padrão do WAF incluídas nos recursos protegidos.
 
-"Mesmas regras em todas as contas" → **Firewall Manager**.
+## Não confundir com
 
-## 4. Operação, segurança e custo
+| Serviço | Diferença para o WAF | Pista no enunciado |
+|---|---|---|
+| [AWS Shield](shield.md) | Protege contra DDoS, pelo volume | "Negação de serviço", "enxurrada de tráfego" |
+| Security groups ([VPC](../redes/vpc.md)) | Filtram portas e endereços, sem ler o pedido | "Liberar a porta", "firewall da instância" |
+| [AWS Network Firewall](firewall-manager-e-network-firewall.md) | Firewall gerenciado na borda da VPC | "Inspecionar o tráfego da VPC" |
+| [AWS Firewall Manager](firewall-manager-e-network-firewall.md) | Aplica o mesmo web ACL em todas as contas | "Regras de WAF em toda a organização" |
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+## Fontes oficiais
 
-### Cobrança
-
-Por Web ACL/mês + por regra/mês + por milhão de requisições; extras para Bot/Fraud Control (🧊 valores). Sem custo extra nos recursos protegidos pelo Shield Advanced.
-
-## 5. Caso resolvido: ligando as peças
-
-A escola configura regras para inspecionar pedidos ao seu site e limitar padrões de requisições suspeitos.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique o ponto web compatível e o padrão de pedidos que deseja permitir, observar ou bloquear.
-**Etapa 2:** Crie regras e associe o conjunto ao recurso. Os pedidos são inspecionados conforme a configuração.
-**Etapa 3:** Acompanhe resultados e ajuste regras. Um bloqueio incorreto pode afetar usuários legítimos; a correção do programa também precisa ser planejada.
-
-**Resultado e responsabilidade:** WAF aplica regras ao tráfego web em integrações compatíveis. Você define critérios de inspeção e ações como permitir ou bloquear.
-
-**Recursos envolvidos:** Web ACL, rules, rule groups e associação a recursos.
-
-**Decisões que precisam ser tomadas:** Critérios HTTP, rate-based rules, ação e logging.
-
-**Outra situação comentada:** SQL injection em aplicação web suportada: WAF; modo Count ajuda a avaliar regra antes de bloquear.
-
-**Por que não concluir mais do que isso:** Não é firewall universal de toda EC2 nem corrige a causa no código
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Bloquear SQL injection e XSS."
-
-**Resposta curta:** WAF.
-
-**Pergunta:** "Limitar requisições por IP."
-
-**Resposta curta:** Rate-based rule do WAF.
-
-**Pergunta:** "Em quais serviços o WAF pode ser usado?"
-
-**Resposta curta:** CloudFront, ALB, API Gateway, AppSync, Cognito.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
+Verificadas em 06/10/2026.
 
 - [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html)
+- [Recursos globais e regionais](https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works-resources.html)
+- [Regras de injeção de SQL](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-sqli-match.html) e [regras baseadas em taxa](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html)
+- [Grupos de regras gerenciadas da AWS](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html)
+- [Preços do AWS WAF](https://aws.amazon.com/waf/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
