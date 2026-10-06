@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 108 cards
+**Total:** 100 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -338,114 +338,66 @@ Registrar domínios, rotear o tráfego do nome do domínio para os recursos e ve
 ## [3.11 Analytics](../docs/03-tecnologia-e-servicos/11-analytics.md)
 
 <details>
-<summary>Consultar arquivos no S3 com SQL padrão, sem infraestrutura.</summary>
+<summary>Qual é a diferença entre data lake e data warehouse?</summary>
 
-Athena.
+O data lake guarda dados estruturados e não estruturados como chegaram, em qualquer escala; o data warehouse guarda dados relacionais organizados antes, otimizados para consultas analíticas.
 </details>
 
 <details>
-<summary>Como o Athena é cobrado?</summary>
+<summary>Como o Amazon Athena é cobrado, e como reduzir esse custo?</summary>
 
-Por volume de dados escaneados.
+Pela quantidade de dados lidos em cada consulta; comprimir, particionar e usar formatos colunares reduz o que o Athena lê.
 </details>
 
 <details>
-<summary>Serviço de ETL serverless e catálogo de dados.</summary>
+<summary>O que o AWS Glue faz?</summary>
 
-Glue.
+Descobre, prepara e integra dados de muitas fontes, roda pipelines de ETL sem servidor e mantém um catálogo central de dados.
 </details>
 
 <details>
-<summary>Ingerir e processar dados de cliques em tempo real.</summary>
+<summary>Quando usar o Amazon Kinesis?</summary>
 
-Kinesis Data Streams.
+Quando os dados chegam em fluxo contínuo e precisam ser coletados e processados em tempo real, como cliques ou leituras de sensores.
 </details>
 
 <details>
-<summary>Entregar dados de streaming no S3 sem administração.</summary>
+<summary>Que serviço cria painéis de BI na AWS?</summary>
 
-Amazon Data Firehose.
-</details>
-
-<details>
-<summary>Rodar Spark e Hadoop gerenciados.</summary>
-
-EMR.
-</details>
-
-<details>
-<summary>Criar dashboards interativos de BI.</summary>
-
-QuickSight.
-</details>
-
-<details>
-<summary>Busca de texto e análise de logs.</summary>
-
-OpenSearch Service.
+O Amazon Quick Sight, que se conecta às fontes de dados e cria painéis interativos.
 </details>
 
 
 ## [3.12 IA e machine learning](../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 
 <details>
-<summary>Construir, treinar e implantar modelos de ML próprios.</summary>
+<summary>Qual é a relação entre IA, machine learning e IA generativa?</summary>
 
-SageMaker AI.
+IA é o termo amplo; machine learning é um tipo de IA que aprende padrões a partir de dados; IA generativa é um tipo de IA que cria conteúdo novo usando modelos de fundação.
 </details>
 
 <details>
-<summary>Identificar rostos e objetos em fotos.</summary>
+<summary>Quando usar o SageMaker AI em vez de um serviço de IA pronto?</summary>
 
-Rekognition.
+Quando o problema exige um modelo próprio, treinado com os dados da empresa, que nenhum serviço pronto resolve.
 </details>
 
 <details>
-<summary>Analisar o sentimento de avaliações de clientes.</summary>
+<summary>Qual é a diferença entre Amazon Polly e Amazon Transcribe?</summary>
 
-Comprehend.
+O Polly converte texto em fala; o Transcribe converte fala em texto.
 </details>
 
 <details>
-<summary>Criar um chatbot de atendimento.</summary>
+<summary>Qual é a diferença entre Amazon Textract e Amazon Rekognition?</summary>
 
-Lex.
+O Textract extrai texto, formulários e tabelas de documentos; o Rekognition analisa imagens e vídeos para detectar rostos, objetos e conteúdo impróprio.
 </details>
 
 <details>
-<summary>Converter texto em voz.</summary>
+<summary>Para que serve o Amazon Lex?</summary>
 
-Polly.
-</details>
-
-<details>
-<summary>Converter áudio em texto.</summary>
-
-Transcribe.
-</details>
-
-<details>
-<summary>Traduzir conteúdo do site.</summary>
-
-Translate.
-</details>
-
-<details>
-<summary>Extrair dados de formulários escaneados.</summary>
-
-Textract.
-</details>
-
-<details>
-<summary>Busca inteligente nos documentos internos da empresa.</summary>
-
-Kendra.
-</details>
-
-<details>
-<summary>Assistente de IA generativa para funcionários e desenvolvedores.</summary>
-
-Amazon Q.
+Para criar interfaces conversacionais, como chatbots, por voz e texto, com reconhecimento de fala e compreensão de linguagem natural.
 </details>
 
 

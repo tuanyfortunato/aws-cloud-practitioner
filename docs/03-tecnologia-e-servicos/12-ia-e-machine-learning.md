@@ -1,137 +1,187 @@
+<!-- autoral -->
+
 # 3.12 IA e machine learning
 
-## 🧠 Antes de começar
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34% da prova)** · Depende das aulas [1.1](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) e [3.11](11-analytics.md)
 
-**Qual é a dificuldade?** Uma aplicação quer transcrever áudio, fazer previsões ou gerar texto. Embora todas envolvam IA, o trabalho necessário e a solução são diferentes.
-
-**A ideia em palavras simples:** Serviços de IA podem oferecer funções prontas, ferramentas para desenvolver modelos próprios ou acesso a modelos generativos existentes. A escolha depende da tarefa.
-
-**Exemplo do dia a dia:** Para transcrever uma aula, a escola avalia Transcribe. Para criar um modelo com seus dados, avalia SageMaker AI. Para gerar conteúdo com modelos existentes, há ofertas específicas.
-
-**O que não concluir?** IA não garante precisão e não conhece automaticamente os dados da empresa. Compatibilidade, acesso, avaliação e escopo da prova precisam ser considerados.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Modelo de ML** | programa treinado com dados para prever ou classificar. |
-| **IA generativa** | IA que cria conteúdo novo (texto, imagem, código). |
-| **Modelo de fundação** | modelo grande, pré-treinado, usado como base para várias tarefas. |
-
----
-
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
-
-> 🔎 **Fichas detalhadas:** [Amazon SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) · [Amazon Bedrock](../../servicos/ia-ml/bedrock.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract, Kendra, Personalize…)](../../servicos/ia-ml/servicos-de-ia-prontos.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo: SageMaker AI, Amazon Q, Comprehend, Lex, Polly, Rekognition, Textract, Transcribe e Translate. **Bedrock** e **Kendra** não aparecem na lista atual; **Personalize** e **Fraud Detector** estão **fora do escopo**. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+> 🔎 **Fichas para aprofundar:** [Amazon SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract e outros)](../../servicos/ia-ml/servicos-de-ia-prontos.md) · [Amazon Bedrock](../../servicos/ia-ml/bedrock.md)
 
 ⬅️ [3.11 Analytics](11-analytics.md) · 🏠 [Índice do domínio](README.md) · [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+A rede de escolas tem uma lista de desejos. Atender os pais 24 horas por dia num chat que tire dúvidas sobre a matrícula. Ler automaticamente os documentos digitalizados que os pais enviam (certidões, comprovantes de endereço). Transformar as gravações das reuniões em texto. Oferecer os comunicados em inglês para as famílias de Lisboa que não falam português. E, num projeto mais ambicioso, prever quais alunos correm risco de abandonar a escola.
 
-Diferencie usar uma função pronta, construir um modelo próprio e usar um modelo generativo existente. Na função pronta, você solicita uma transformação específica. No modelo próprio, precisa preparar treinamento e avaliação. Na geração, fornece instrução e contexto para uma resposta.
+Tudo isso é **inteligência artificial**. A boa notícia é que a maior parte não exige uma equipe de cientistas de dados: a AWS oferece serviços prontos, chamados por API, para cada tarefa comum. O guia do exame cobra entender os serviços de IA e machine learning e as tarefas que eles fazem, citando o Amazon SageMaker AI e o Amazon Lex.
 
-Em todos os casos, dados e resultados exigem cuidado. Precisão não é garantida; acesso aos documentos deve ser autorizado; produzir uma resposta não a transforma em evidência. O requisito da tarefa e o escopo da prova orientam qual produto estudar.
+## IA, machine learning e IA generativa
+
+Três termos se encaixam um dentro do outro:
+
+- **Inteligência artificial** (IA) é o termo mais amplo: estratégias e técnicas para que máquinas façam tarefas que parecem humanas, como entender uma frase ou reconhecer um rosto.
+- **Machine learning** (aprendizado de máquina, ML) é um tipo de IA que analisa dados sem instruções explícitas: processa grandes quantidades de dados históricos, encontra padrões e faz previsões sobre dados novos. O resultado do treinamento é um **modelo**, que recebe dados novos e devolve uma previsão.
+- **IA generativa** é um tipo de IA que **cria conteúdo novo**: conversas, textos, imagens, vídeos, música. Ela usa **modelos de fundação** (foundation models), modelos de ML treinados com uma enorme variedade de dados gerais e capazes de realizar muitas tarefas diferentes.
+
+Para a prova, a pergunta prática é: o problema é uma tarefa comum, que um serviço pronto resolve, ou exige um modelo próprio, treinado com os dados da empresa?
+
+## Serviços de IA prontos
+
+Cada um destes serviços resolve uma tarefa específica, já vem treinado pela AWS e é usado por chamadas de API, sem conhecimento de machine learning:
+
+| Serviço | O que faz | Na escola |
+|---|---|---|
+| Amazon Lex | Cria **interfaces conversacionais** (chatbots) por voz e texto, com reconhecimento de fala e compreensão de linguagem natural | Chat que tira dúvidas da matrícula |
+| Amazon Polly | Converte **texto em fala** com vozes realistas | Ler os comunicados em voz alta no aplicativo |
+| Amazon Transcribe | Converte **fala em texto** (reconhecimento automático de fala), separando quem falou | Transcrever as reuniões de pais |
+| Amazon Translate | **Traduz textos** entre idiomas | Comunicados em inglês para Lisboa |
+| Amazon Comprehend | **Processamento de linguagem natural**: identifica entidades, frases-chave, idioma e **sentimento** de um texto | Saber se os comentários da pesquisa de satisfação são positivos ou negativos |
+| Amazon Rekognition | **Análise de imagens e vídeos**: detecta objetos, textos e conteúdo impróprio, e compara rostos | Conferir se a foto enviada mostra um rosto |
+| Amazon Textract | **Extrai texto, formulários e tabelas** de documentos, inclusive texto escrito à mão | Ler as certidões digitalizadas |
+
+Dois pares confundem na prova. **Polly e Transcribe** fazem caminhos opostos: Polly vai do texto para a voz; Transcribe, da voz para o texto. **Textract e Rekognition** olham imagens, mas com objetivos diferentes: Textract extrai o conteúdo de documentos (campos, tabelas); Rekognition analisa o que aparece em fotos e vídeos (rostos, objetos, cenas).
+
+Os serviços também se combinam. Um áudio em inglês pode passar pelo Transcribe (vira texto), pelo Translate (vira português) e pelo Polly (vira voz em português).
+
+## Amazon SageMaker AI: modelos próprios
+
+Prever o risco de abandono escolar não é uma tarefa pronta: depende das notas, das faltas e do histórico dos alunos da própria rede. Para isso, é preciso **treinar um modelo próprio**.
+
+O **Amazon SageMaker AI** é um serviço de machine learning **totalmente gerenciado**. Com ele, cientistas de dados e desenvolvedores **criam, treinam e implantam** modelos de ML num ambiente hospedado pronto para produção, sem montar e gerenciar os próprios servidores. Ele oferece algoritmos gerenciados e aceita os algoritmos e frameworks que a equipe já usa.
+
+A diferença em relação aos serviços prontos é de responsabilidade: com o SageMaker AI, a empresa escolhe os dados, treina o modelo e avalia o resultado; a AWS cuida da infraestrutura. Com o Rekognition, por exemplo, a AWS já entrega o modelo treinado.
+
+## IA generativa: Amazon Q
+
+O **Amazon Q** é a família de assistentes de IA generativa da AWS, e está na lista de serviços do exame. O **Amazon Q Developer** é um assistente conversacional que ajuda a entender, criar, estender e operar aplicações na AWS: responde perguntas sobre arquitetura, sobre os recursos da conta, boas práticas e documentação.
+
+Duas mudanças recentes: o **Amazon Q Business**, assistente que respondia perguntas com base nos dados da empresa, não aceita mais clientes novos (a AWS indica o Amazon Quick, visto na [aula 3.11](11-analytics.md), para funções parecidas); e os plugins do Q Developer para editores de código deixam de ter suporte em 30/04/2027.
+
+O **Amazon Bedrock**, serviço gerenciado que dá acesso a modelos de fundação de várias empresas de IA para criar aplicações de IA generativa, aparece com frequência em materiais sobre a AWS, mas não está na lista de serviços do exame CLF-C02.
+
+## Como escolher
+
+| Pedido | Serviço |
+|---|---|
+| Chatbot por voz ou texto | Lex |
+| Texto em fala | Polly |
+| Fala em texto | Transcribe |
+| Tradução | Translate |
+| Sentimento, entidades e idioma de textos | Comprehend |
+| Rostos, objetos e conteúdo impróprio em imagens e vídeos | Rekognition |
+| Texto, formulários e tabelas de documentos | Textract |
+| Treinar e implantar um modelo próprio | SageMaker AI |
+| Assistente de IA generativa para a AWS | Amazon Q Developer |
+
+```mermaid
+flowchart TB
+    P{"O problema é uma tarefa comum?"}
+    P -->|"Sim"| PR["Serviço de IA pronto<br/>(chamado por API)"]
+    P -->|"Não: depende dos dados da empresa"| SM["SageMaker AI<br/>(criar, treinar e implantar)"]
+    PR --> L["Lex: chatbot"]
+    PR --> V["Polly e Transcribe:<br/>texto ↔ fala"]
+    PR --> T["Translate e Comprehend:<br/>tradução e sentido do texto"]
+    PR --> I["Rekognition e Textract:<br/>imagens e documentos"]
+```
+
+*Figura 3.12 — Tarefa comum pede um serviço pronto; um modelo próprio pede o SageMaker AI.*
+
+## Na prova
+
+- **"Criar, treinar e implantar modelos de ML" = SageMaker AI.**
+- **"Chatbot", "interface conversacional" = Lex.**
+- **"Texto em fala" = Polly; "fala em texto", "transcrever" = Transcribe.**
+- **"Traduzir" = Translate.**
+- **"Sentimento", "entidades", "linguagem natural" = Comprehend.**
+- **"Rostos", "objetos em imagens e vídeos", "conteúdo impróprio" = Rekognition.**
+- **"Extrair texto e tabelas de documentos digitalizados" = Textract.**
+- **"Assistente de IA generativa da AWS" = Amazon Q.**
+
+## Caso resolvido
+
+**Situação.** A secretaria recebe centenas de certidões de nascimento digitalizadas por semana e digita os dados à mão no sistema. Ela quer automatizar a leitura dos campos (nome, data de nascimento, filiação) e, depois, conferir se a foto enviada pelo pai mostra mesmo um rosto. A equipe não tem cientistas de dados. O que usar?
+
+**Raciocínio.** Ler campos de documentos digitalizados é a tarefa do Textract, que extrai texto, formulários e tabelas, inclusive texto à mão, por chamada de API. Conferir se uma foto mostra um rosto é análise de imagem, tarefa do Rekognition. Os dois são serviços prontos, sem treinamento de modelo, o que atende uma equipe sem cientistas de dados.
+
+**Por que as alternativas tentadoras falham.** O SageMaker AI permitiria treinar um modelo próprio, mas exige conhecimento de ML e dados de treino, e as tarefas já têm serviço pronto. O Rekognition detecta texto em imagens, mas não organiza formulários e tabelas como o Textract. O Comprehend analisa o sentido de um texto que já existe; ele não lê o documento digitalizado.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### Qual é a relação entre IA, machine learning e IA generativa?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-é como **comida**: o **SageMaker AI** é cozinhar do zero; o **Bedrock** é comprar uma massa pronta e montar o seu prato; os **serviços de IA prontos** são pratos congelados — cada um resolve uma refeição específica.
+IA é o termo amplo; machine learning é um tipo de IA que aprende padrões a partir de dados; IA generativa é um tipo de IA que cria conteúdo novo usando modelos de fundação.
+
+Comentário: modelos de fundação são treinados com muitos dados gerais e fazem muitas tarefas diferentes.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Quando usar o SageMaker AI em vez de um serviço de IA pronto?
 
-Revise a função de cada serviço, porque a prova pede o serviço pelo caso de uso.
+<details>
+<summary>Ver resposta</summary>
 
-| Serviço | Função |
-| --- | --- |
-| Amazon SageMaker AI | Criar, treinar e implantar modelos de ML próprios |
-| Amazon Bedrock | Usar modelos de IA generativa (foundation models) via API |
-| Amazon Q | Assistente de IA generativa para empresas (Q Business) e desenvolvedores (Q Developer) |
-| Amazon Rekognition | Análise de imagens e vídeos: rostos, objetos, textos, conteúdo impróprio |
-| Amazon Comprehend | Processamento de linguagem natural: sentimento, entidades, idioma, tópicos |
-| Amazon Lex | Chatbots e interfaces conversacionais por voz e texto (mesma tecnologia da Alexa) |
-| Amazon Polly | Texto para fala |
-| Amazon Transcribe | Fala para texto |
-| Amazon Translate | Tradução de textos |
-| Amazon Textract | Extrair texto, formulários e tabelas de documentos digitalizados |
-| Amazon Kendra | Busca inteligente em documentos corporativos |
+Quando o problema exige um modelo próprio, treinado com os dados da empresa, que nenhum serviço pronto resolve.
 
-## 3. Como analisar uma situação
+Comentário: com o SageMaker AI, a empresa cria, treina e implanta o modelo; a AWS cuida da infraestrutura.
 
-**Primeiro, identifique o funcionamento:** Serviços prontos transformam entradas em resultados por API; SageMaker AI oferece recursos para preparar, treinar e servir modelos; Amazon Q entrega assistência conforme a variante.
+</details>
 
-**Depois, compare as escolhas:** Texto para voz: Polly. Voz para texto: Transcribe. Texto e sentimento: Comprehend. Documento e campos: Textract. Imagens: Rekognition. Conversação: Lex. Modelo próprio: SageMaker AI.
+### Qual é a diferença entre Amazon Polly e Amazon Transcribe?
 
-**Por fim, verifique o limite:** IA não garante resposta correta nem autorização para todo dado. Idioma, formato e região precisam ser suportados. Bedrock não citado na lista não implica automaticamente exclusão formal.
+<details>
+<summary>Ver resposta</summary>
 
-## 4. Caso resolvido
+O Polly converte texto em fala; o Transcribe converte fala em texto.
 
-Um formulário escaneado tem tabelas e campos que precisam ser extraídos. Basta usar Comprehend?
+Comentário: o Translate traduz textos e pode ficar entre os dois.
 
-**Raciocínio e resposta:** Textract atende a extração documental; Comprehend pode analisar o texto depois. Escolha pelo tipo de entrada e pelo resultado esperado.
+</details>
 
-## 5. Revisão do capítulo
+### Qual é a diferença entre Amazon Textract e Amazon Rekognition?
 
-**Objetivos de aprendizagem:**
+<details>
+<summary>Ver resposta</summary>
 
-- [ ] Diferenciar **SageMaker AI** (modelo próprio) de **Bedrock** (modelos de fundação via API) e **Amazon Q** (assistente pronto).
-- [ ] Ligar cada API pronta à tarefa: imagem → Rekognition; sentimento → Comprehend; chatbot → Lex; texto em fala → Polly; fala em texto → Transcribe; tradução → Translate; documentos → Textract.
+O Textract extrai texto, formulários e tabelas de documentos; o Rekognition analisa imagens e vídeos para detectar rostos, objetos e conteúdo impróprio.
 
-**Dica de revisão para a prova:** Polly e Transcribe confundem: **P**olly **P**roduz fala (texto → voz); **Transcribe** transcreve (voz → texto). "Treinar modelo próprio" → **SageMaker AI**.
+Comentário: "documento digitalizado" aponta para o Textract.
 
-### ❓ Perguntas típicas
+</details>
 
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
-**Pergunta:** "Construir, treinar e implantar modelos de ML próprios."
+### Para que serve o Amazon Lex?
 
-**Resposta curta:** SageMaker AI.
+<details>
+<summary>Ver resposta</summary>
 
-**Pergunta:** "Identificar rostos e objetos em fotos."
+Para criar interfaces conversacionais, como chatbots, por voz e texto, com reconhecimento de fala e compreensão de linguagem natural.
 
-**Resposta curta:** Rekognition.
+Comentário: não é preciso conhecimento de deep learning para criar um chatbot com o Lex.
 
-**Pergunta:** "Analisar o sentimento de avaliações de clientes."
+</details>
 
-**Resposta curta:** Comprehend.
+## Resumo
 
-**Pergunta:** "Criar um chatbot de atendimento."
+- IA é o termo amplo; ML aprende com dados; IA generativa cria conteúdo com modelos de fundação.
+- Serviços prontos: Lex (chatbot), Polly (texto em fala), Transcribe (fala em texto), Translate (tradução), Comprehend (sentido do texto), Rekognition (imagens e vídeos), Textract (documentos).
+- SageMaker AI cria, treina e implanta modelos próprios.
+- Amazon Q é o assistente de IA generativa da AWS; o Q Business não aceita clientes novos.
 
-**Resposta curta:** Lex.
+## Fontes oficiais
 
-**Pergunta:** "Converter texto em voz."
+Verificadas em 06/10/2026.
 
-**Resposta curta:** Polly. "Converter áudio em texto." → Transcribe.
-
-**Pergunta:** "Traduzir conteúdo do site."
-
-**Resposta curta:** Translate.
-
-**Pergunta:** "Extrair dados de formulários escaneados."
-
-**Resposta curta:** Textract.
-
-**Pergunta:** "Busca inteligente nos documentos internos da empresa."
-
-**Resposta curta:** Kendra.
-
-**Pergunta:** "Assistente de IA generativa para funcionários e desenvolvedores."
-
-**Resposta curta:** Amazon Q.
-
-<!-- extra:inicio -->
-## 🔄 Atualizações 2025-2026 e detalhes extras
-
-> Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
-
-- 🔄 **Nomes:** "Amazon **SageMaker AI**" (construir/treinar/implantar modelos próprios). Na prova pode aparecer "SageMaker".
-- **Bedrock** = modelos de fundação via API (IA generativa sem treinar do zero). **Amazon Q** = assistente de IA generativa (Q Developer para código, Q Business para dados corporativos).
-- **Associações frase → serviço (📌):** texto → fala = **Polly** · fala → texto = **Transcribe** · chatbot = **Lex** · sentimento/entidades = **Comprehend** · texto/formulários de documentos digitalizados = **Textract** (⚠️ não Rekognition) · rostos/objetos em imagem e vídeo = **Rekognition** · busca inteligente corporativa = **Kendra** · traduzir = **Translate**.
-<!-- extra:fim -->
+- [Content Domain 3 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html): tarefa 3.7 (serviços de IA e ML).
+- [In-Scope AWS Services](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html): Comprehend, Lex, Polly, Amazon Q, Rekognition, SageMaker AI, Textract, Transcribe e Translate na categoria de machine learning.
+- [What is AI?](https://aws.amazon.com/what-is/artificial-intelligence/), [What is machine learning?](https://aws.amazon.com/what-is/machine-learning/) e [What is generative AI?](https://aws.amazon.com/what-is/generative-ai/): definições e modelos de fundação.
+- [What is Amazon SageMaker AI?](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html): criar, treinar e implantar modelos, totalmente gerenciado.
+- [What is Amazon Lex V2?](https://docs.aws.amazon.com/lexv2/latest/dg/what-is.html), [What is Amazon Polly?](https://docs.aws.amazon.com/polly/latest/dg/what-is.html), [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html) e [What is Amazon Translate?](https://docs.aws.amazon.com/translate/latest/dg/what-is.html): chatbots, texto em fala, fala em texto e tradução.
+- [What is Amazon Comprehend?](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html), [What is Amazon Rekognition?](https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html) e [What is Amazon Textract?](https://docs.aws.amazon.com/textract/latest/dg/what-is.html): linguagem natural, imagens e vídeos, documentos.
+- [What is Amazon Q Developer?](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html) e [Amazon Q Business availability change](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html): assistente para a AWS, fim do suporte dos plugins e Q Business fechado a novos clientes.
+- [What is Amazon Bedrock?](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html): acesso gerenciado a modelos de fundação.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

@@ -154,24 +154,16 @@ Para que serve o NAT gateway?	Para que instâncias em sub-redes privadas iniciem
 Quando usar o Transit Gateway em vez de VPC peering?	Quando há muitas VPCs e redes locais para interligar; o Transit Gateway é um hub central, enquanto o peering liga só duas VPCs e não é transitivo.	CLF-C02 dominio-3 secao-3_10
 Qual é a diferença entre Site-to-Site VPN e Direct Connect?	A Site-to-Site VPN é uma conexão criptografada (IPsec) que passa pela internet; o Direct Connect é uma conexão dedicada por fibra até um local do Direct Connect, sem passar pelos provedores de internet, com desempenho mais consistente.	CLF-C02 dominio-3 secao-3_10
 Quais são as três funções do Amazon Route 53?	Registrar domínios, rotear o tráfego do nome do domínio para os recursos e verificar a saúde desses recursos.	CLF-C02 dominio-3 secao-3_10
-Consultar arquivos no S3 com SQL padrão, sem infraestrutura.	Athena.	CLF-C02 dominio-3 secao-3_11
-Como o Athena é cobrado?	Por volume de dados escaneados.	CLF-C02 dominio-3 secao-3_11
-Serviço de ETL serverless e catálogo de dados.	Glue.	CLF-C02 dominio-3 secao-3_11
-Ingerir e processar dados de cliques em tempo real.	Kinesis Data Streams.	CLF-C02 dominio-3 secao-3_11
-Entregar dados de streaming no S3 sem administração.	Amazon Data Firehose.	CLF-C02 dominio-3 secao-3_11
-Rodar Spark e Hadoop gerenciados.	EMR.	CLF-C02 dominio-3 secao-3_11
-Criar dashboards interativos de BI.	QuickSight.	CLF-C02 dominio-3 secao-3_11
-Busca de texto e análise de logs.	OpenSearch Service.	CLF-C02 dominio-3 secao-3_11
-Construir, treinar e implantar modelos de ML próprios.	SageMaker AI.	CLF-C02 dominio-3 secao-3_12
-Identificar rostos e objetos em fotos.	Rekognition.	CLF-C02 dominio-3 secao-3_12
-Analisar o sentimento de avaliações de clientes.	Comprehend.	CLF-C02 dominio-3 secao-3_12
-Criar um chatbot de atendimento.	Lex.	CLF-C02 dominio-3 secao-3_12
-Converter texto em voz.	Polly.	CLF-C02 dominio-3 secao-3_12
-Converter áudio em texto.	Transcribe.	CLF-C02 dominio-3 secao-3_12
-Traduzir conteúdo do site.	Translate.	CLF-C02 dominio-3 secao-3_12
-Extrair dados de formulários escaneados.	Textract.	CLF-C02 dominio-3 secao-3_12
-Busca inteligente nos documentos internos da empresa.	Kendra.	CLF-C02 dominio-3 secao-3_12
-Assistente de IA generativa para funcionários e desenvolvedores.	Amazon Q.	CLF-C02 dominio-3 secao-3_12
+Qual é a diferença entre data lake e data warehouse?	O data lake guarda dados estruturados e não estruturados como chegaram, em qualquer escala; o data warehouse guarda dados relacionais organizados antes, otimizados para consultas analíticas.	CLF-C02 dominio-3 secao-3_11
+Como o Amazon Athena é cobrado, e como reduzir esse custo?	Pela quantidade de dados lidos em cada consulta; comprimir, particionar e usar formatos colunares reduz o que o Athena lê.	CLF-C02 dominio-3 secao-3_11
+O que o AWS Glue faz?	Descobre, prepara e integra dados de muitas fontes, roda pipelines de ETL sem servidor e mantém um catálogo central de dados.	CLF-C02 dominio-3 secao-3_11
+Quando usar o Amazon Kinesis?	Quando os dados chegam em fluxo contínuo e precisam ser coletados e processados em tempo real, como cliques ou leituras de sensores.	CLF-C02 dominio-3 secao-3_11
+Que serviço cria painéis de BI na AWS?	O Amazon Quick Sight, que se conecta às fontes de dados e cria painéis interativos.	CLF-C02 dominio-3 secao-3_11
+Qual é a relação entre IA, machine learning e IA generativa?	IA é o termo amplo; machine learning é um tipo de IA que aprende padrões a partir de dados; IA generativa é um tipo de IA que cria conteúdo novo usando modelos de fundação.	CLF-C02 dominio-3 secao-3_12
+Quando usar o SageMaker AI em vez de um serviço de IA pronto?	Quando o problema exige um modelo próprio, treinado com os dados da empresa, que nenhum serviço pronto resolve.	CLF-C02 dominio-3 secao-3_12
+Qual é a diferença entre Amazon Polly e Amazon Transcribe?	O Polly converte texto em fala; o Transcribe converte fala em texto.	CLF-C02 dominio-3 secao-3_12
+Qual é a diferença entre Amazon Textract e Amazon Rekognition?	O Textract extrai texto, formulários e tabelas de documentos; o Rekognition analisa imagens e vídeos para detectar rostos, objetos e conteúdo impróprio.	CLF-C02 dominio-3 secao-3_12
+Para que serve o Amazon Lex?	Para criar interfaces conversacionais, como chatbots, por voz e texto, com reconhecimento de fala e compreensão de linguagem natural.	CLF-C02 dominio-3 secao-3_12
 Desacoplar componentes para que um pico não derrube o processamento.	SQS.	CLF-C02 dominio-3 secao-3_13
 Ordenar mensagens por grupo e tratar duplicações no envio.	Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.	CLF-C02 dominio-3 secao-3_13
 Enviar a mesma mensagem para vários sistemas e para e-mail.	SNS.	CLF-C02 dominio-3 secao-3_13
