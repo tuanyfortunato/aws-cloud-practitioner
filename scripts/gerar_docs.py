@@ -267,9 +267,10 @@ def titulo_ficha(nome):
     caminho = os.path.join(RAIZ, "servicos", CATEGORIA[nome], nome + ".md")
     if os.path.exists(caminho):
         with open(caminho) as f:
-            primeira = f.readline().strip()
-        if primeira.startswith("# "):
-            return primeira[2:]
+            for linha in f:
+                # Fichas autorais começam pelo marcador; o título é a primeira linha "# ".
+                if linha.startswith("# "):
+                    return linha[2:].strip()
     return nome
 
 

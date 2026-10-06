@@ -134,7 +134,7 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Em uma frase |
 |---|---|---|
-| [Amazon SQS (Simple Queue Service)](integracao/sqs.md) | ✅ | Fila de mensagens totalmente gerenciada que **desacopla** produtores e consumidores e absorve picos. |
+| [Amazon SQS (Simple Queue Service)](integracao/sqs.md) | ✅ | Fila de mensagens gerenciada que **desacopla** quem pede um trabalho de quem o executa e absorve picos. |
 | [Amazon SNS (Simple Notification Service)](integracao/sns.md) | ✅ | Serviço **pub/sub**: um produtor publica num **tópico** e a mensagem é **empurrada** para todos os assinantes. |
 | [Amazon EventBridge](integracao/eventbridge.md) | ✅ | **barramento de eventos** serverless que recebe eventos de serviços AWS, das suas aplicações e de parceiros SaaS e os roteia por **regras**. |
 | [AWS Step Functions](integracao/step-functions.md) | ✅ | Orquestra **fluxos de trabalho de várias etapas** como máquinas de estado visuais, com tratamento de erros e retentativas. |
