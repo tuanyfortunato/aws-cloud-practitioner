@@ -49,9 +49,9 @@ ABERTURA = "## 🧠 Antes de começar"
 REVISAO = "### Confira se você compreendeu"
 
 GRUPOS = (
-    ("aulas", lambda rel: rel.startswith("docs/") and re.match(r"docs/0[1-4]-", rel)
+    ("aulas", lambda rel: re.match(r"docs/(0[1-4]-[^/]+|fundamentos)/", rel)
      and not rel.endswith("README.md")),
-    ("índices de domínio", lambda rel: re.match(r"docs/0[1-4]-.*/README\.md$", rel)),
+    ("índices de domínio", lambda rel: re.match(r"docs/(0[1-4]-[^/]+|fundamentos)/README\.md$", rel)),
     ("páginas de apoio", lambda rel: rel.startswith("docs/00-guia-do-exame/")),
     ("fichas", lambda rel: rel.startswith("servicos/") and not rel.endswith("README.md")),
     ("resumos e flashcards", lambda rel: rel.startswith(("resumos/", "flashcards/"))),

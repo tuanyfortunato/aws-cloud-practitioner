@@ -166,6 +166,9 @@ O cliente, porque a instância é dele.
         self.assertEqual(cards[0][1], 'A AWS. Ela opera o hardware e a camada de virtualização.')
         self.assertNotIn('Parágrafo extra', cards[0][1])
         self.assertEqual(extrair_cards_revisao('# Aula sem revisão\n\nTexto.\n'), [])
+        recolhida = ('## Revisão\n\n### O que é IP?\n\n<details>\n<summary>Ver resposta</summary>\n\n'
+                     'O endereço de uma máquina na rede.\n\nComentário longo.\n\n</details>\n')
+        self.assertEqual(extrair_cards_revisao(recolhida), [('O que é IP?', 'O endereço de uma máquina na rede.')])
 
 
 if __name__=='__main__':

@@ -252,7 +252,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 |---|---|---|---|
 | 0 | Concluída | #21 (marcador autoral) · #22 (métricas) | Linha de base registrada na seção 3 |
 | 1 | Em andamento | PR 1.2 (revisão circular e repetições) | PR 1.1 (vocabulário) depende do glossário da Fase 2 |
-| 2 | Pendente | — | — |
+| 2 | Em andamento | PR 2.1 (capítulo 0: estrutura e aula 0.1) | Aulas 0.2 a 0.5 depois da revisão da 0.1 |
 | 3 | Pendente | — | — |
 | 4 | Pendente | — | — |
 | 5 | Pendente | — | — |

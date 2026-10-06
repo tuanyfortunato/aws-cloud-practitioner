@@ -22,8 +22,11 @@
 - Em cada tópico de `docs/`, só os blocos `<!-- extra:... -->` e `<!-- notas:... -->` são preservados ao regenerar.
 - Aulas de `docs/` e fichas de `servicos/` que começam com `<!-- autoral -->` são **escritas à mão**: o
   `gerar_docs.py` não reescreve o corpo delas, e os flashcards da aula vêm da seção `## Revisão` do próprio
-  arquivo (uma pergunta por subtítulo `###`; o primeiro parágrafo da resposta vira o flashcard). Os demais
+  arquivo (uma pergunta por subtítulo `###`, com a resposta recolhida num `<details>`; o primeiro parágrafo
+  da resposta vira o flashcard). Os demais
   arquivos seguem as regras abaixo. Ver [plano de implementação](pendencias/plano-de-implementacao.md).
+- O capítulo 0 (`docs/fundamentos/`) é todo autoral; o sumário do README lista as aulas que existem na pasta.
+  Use `docs/fundamentos/01-servidor-e-virtualizacao.md` como modelo até o modelo de aula da Fase 3.
 - Fichas novas seguem `templates/servico.md` e precisam ser registradas em `FICHAS` **e** em `ESCOPO` (status na lista oficial da prova) no `scripts/gerar_docs.py`; o gerador falha se faltar o status.
 - A seção didática de cada tópico ("🧠 Antes de começar") e a introdução de cada domínio ficam em `scripts/didatica_docs.py` (o gerador falha se faltar um tópico); não edite essa seção direto em `docs/`.
 - As aberturas das fichas ("🧠 Comece pelo problema") ficam em `scripts/introducoes_servicos.py`; registre cada ficha também nesse módulo. As aberturas das páginas de apoio de `docs/00-guia-do-exame/` ficam em `APOIO` de `scripts/didatica_docs.py`.
