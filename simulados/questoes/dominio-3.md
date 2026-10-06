@@ -1,6 +1,6 @@
 # ❓ Questões — Domínio 3 — Tecnologia e Serviços de Nuvem (34%)
 
-26 questões no formato da prova, em ordem de tópico. Responda antes de abrir "Ver resposta".
+37 questões no formato da prova, em ordem de tópico. Responda antes de abrir "Ver resposta".
 
 ⬅️ [Todas as questões por domínio](README.md)
 
@@ -509,19 +509,239 @@ O **SNS** é pub/sub: publica num tópico e empurra a mensagem para vários assi
 
 ### Questão 26
 
-<sub>Domínio 3 · tópico [3.17](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)</sub>
+<sub>Domínio 3 · tópico [3.14](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)</sub>
 
-Uma empresa quer migrar um banco Oracle on-premises para o Amazon Aurora PostgreSQL, mantendo o banco de origem em operação durante a migração. Quais serviços devem ser usados?
+Uma rede de escolas quer montar uma central de atendimento na nuvem para receber ligações e mensagens dos pais, com filas e relatórios para os supervisores, sem comprar equipamento de telefonia. Qual serviço atende a essa necessidade?
 
-- **A)** AWS DataSync e AWS Transfer Family
-- **B)** AWS Schema Conversion Tool (SCT) e AWS Database Migration Service (DMS)
-- **C)** AWS Snowball Edge e Amazon S3
-- **D)** Somente o AWS Application Migration Service
+- **A)** Amazon Simple Notification Service (SNS)
+- **B)** Amazon Connect
+- **C)** Amazon WorkSpaces
+- **D)** Amazon Simple Email Service (SES)
 
 <details>
 <summary>Ver resposta</summary>
 
 **Resposta: B**
+
+O **Amazon Connect** (hoje chamado Amazon Connect Customer) é a central de atendimento na nuvem, cobrada pelo uso. O SES envia e recebe e-mails; o SNS envia notificações a assinantes; o WorkSpaces entrega desktops virtuais.
+
+</details>
+
+### Questão 27
+
+<sub>Domínio 3 · tópico [3.14](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)</sub>
+
+Professores precisam abrir, de casa e pelo navegador, um programa de notas que só roda em desktop, sem receber um computador virtual inteiro. A equipe da secretaria, por outro lado, precisa de um desktop Windows completo na nuvem. Quais serviços atendem, respectivamente, a cada grupo?
+
+- **A)** Amazon Connect para os professores e Amazon EC2 para a secretaria
+- **B)** AWS Amplify para os professores e Amazon Lightsail para a secretaria
+- **C)** Amazon AppStream 2.0 (hoje WorkSpaces Applications) para os professores e Amazon WorkSpaces para a secretaria
+- **D)** Amazon WorkSpaces para os professores e Amazon AppStream 2.0 para a secretaria
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: C**
+
+O **AppStream 2.0**, hoje **WorkSpaces Applications**, faz *streaming* de aplicações: o usuário abre um programa pelo navegador, sem um desktop inteiro. O **WorkSpaces** entrega desktops virtuais completos, com Windows ou Linux. A alternativa invertida troca os papéis; Amplify cria aplicações web e mobile; Lightsail e EC2 são servidores, não desktops gerenciados; Connect é central de atendimento.
+
+</details>
+
+### Questão 28
+
+<sub>Domínio 3 · tópico [3.14](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)</sub>
+
+O sistema de matrícula precisa enviar e-mails de confirmação para cada família e, uma vez por mês, um boletim informativo por e-mail. Qual serviço é feito para esse envio?
+
+- **A)** Amazon Simple Email Service (SES)
+- **B)** Amazon Simple Queue Service (SQS)
+- **C)** Amazon Connect
+- **D)** Amazon Simple Notification Service (SNS)
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: A**
+
+O **SES** é o serviço de envio e recebimento de e-mails, usado para mensagens transacionais e de marketing. O SNS publica notificações simples a assinantes de um tópico; o SQS é uma fila entre componentes; o Connect é central de atendimento.
+
+</details>
+
+### Questão 29
+
+<sub>Domínio 3 · tópico [3.14](../../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)</sub>
+
+Uma escola instalou sensores de temperatura nas salas e quer conectá-los com segurança à AWS, recebendo as leituras pelo protocolo MQTT. Qual serviço atende a essa necessidade?
+
+- **A)** AWS IoT Core
+- **B)** AWS Amplify
+- **C)** Amazon Connect
+- **D)** Amazon SES
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: A**
+
+O **AWS IoT Core** conecta e gerencia dispositivos IoT com comunicação segura, aceitando protocolos como **MQTT** e HTTPS. O Amplify cria aplicações web e mobile; o SES envia e-mails; o Connect é central de atendimento.
+
+</details>
+
+### Questão 30
+
+<sub>Domínio 3 · tópico [3.15](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)</sub>
+
+Uma equipe quer que, a cada mudança no código, um serviço gerenciado compile a aplicação, rode os testes unitários e produza o pacote pronto para implantar, sem manter servidores de build. Qual serviço faz esse trabalho?
+
+- **A)** AWS X-Ray
+- **B)** AWS CodePipeline
+- **C)** AWS CodeBuild
+- **D)** AWS CloudFormation
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: C**
+
+O **CodeBuild** é o serviço de build gerenciado: compila o código, roda testes e produz os artefatos, escalando sozinho. O CodePipeline orquestra as etapas da entrega (e pode chamar o CodeBuild numa delas); o X-Ray rastreia requisições; o CloudFormation cria infraestrutura a partir de modelos.
+
+</details>
+
+### Questão 31
+
+<sub>Domínio 3 · tópico [3.15](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)</sub>
+
+Uma empresa quer automatizar todas as etapas de liberação do seu software (buscar o código, compilar, testar e implantar) a cada mudança, numa esteira de entrega contínua (CI/CD). Qual serviço modela e automatiza essa esteira?
+
+- **A)** AWS X-Ray
+- **B)** AWS CodePipeline
+- **C)** AWS CodeBuild
+- **D)** Amazon CloudWatch
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: B**
+
+O **CodePipeline** é o serviço de entrega contínua que modela, visualiza e automatiza as etapas da liberação do software. O CodeBuild cuida de uma etapa (compilar e testar), não da esteira inteira; o X-Ray rastreia requisições; o CloudWatch coleta métricas e logs.
+
+</details>
+
+### Questão 32
+
+<sub>Domínio 3 · tópico [3.15](../../docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md)</sub>
+
+Uma aplicação formada por vários microsserviços ficou lenta, e a equipe quer seguir o caminho de cada requisição entre os serviços para descobrir em qual deles está o gargalo. Qual serviço deve ser usado?
+
+- **A)** AWS CodePipeline
+- **B)** Amazon CloudWatch
+- **C)** AWS CloudTrail
+- **D)** AWS X-Ray
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: D**
+
+O **X-Ray** faz **rastreamento distribuído**: mostra cada requisição e as chamadas que ela faz a outros serviços, bancos e APIs. O CloudWatch mostra métricas e logs de cada recurso, não o caminho de uma requisição; o CloudTrail registra chamadas às APIs da AWS para auditoria; o CodePipeline automatiza a entrega do software.
+
+</details>
+
+### Questão 33
+
+<sub>Domínio 3 · tópico [3.16](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)</sub>
+
+A equipe de segurança quer que os administradores acessem as instâncias EC2 por um shell no navegador ou pela CLI, com registro das sessões, sem abrir portas de entrada, sem bastion host e sem gerenciar chaves SSH. Qual opção atende a esse requisito?
+
+- **A)** AWS Config
+- **B)** Um bastion host numa sub-rede pública
+- **C)** AWS Direct Connect
+- **D)** AWS Systems Manager Session Manager
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: D**
+
+O **Session Manager**, ferramenta do **Systems Manager**, dá acesso às instâncias sem portas de entrada abertas, sem bastion host e sem chaves SSH, com registro do acesso. O bastion host é justamente o que se quer evitar; o Direct Connect é uma conexão dedicada com a AWS; o Config registra e avalia configurações.
+
+</details>
+
+### Questão 34
+
+<sub>Domínio 3 · tópico [3.16](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)</sub>
+
+Uma empresa quer saber com antecedência quando a AWS fará uma manutenção agendada que afeta as suas instâncias EC2, e acompanhar eventos da AWS que impactam os seus recursos. Onde ela encontra essas informações?
+
+- **A)** AWS CloudTrail
+- **B)** AWS Service Quotas
+- **C)** AWS Health Dashboard
+- **D)** AWS Compute Optimizer
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: C**
+
+O **AWS Health Dashboard** mostra eventos da AWS que afetam os serviços e os recursos da conta, inclusive atividades planejadas como manutenções. O CloudTrail registra as chamadas de API feitas na conta; o Service Quotas mostra os limites da conta; o Compute Optimizer recomenda tamanhos de recursos.
+
+</details>
+
+### Questão 35
+
+<sub>Domínio 3 · tópico [3.16](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)</sub>
+
+Um time precisa conferir quantas vCPUs de instâncias EC2 a conta pode usar numa Região e pedir um aumento desse limite antes de um grande evento. Qual serviço deve ser usado?
+
+- **A)** AWS Service Quotas
+- **B)** AWS License Manager
+- **C)** AWS Budgets
+- **D)** AWS Compute Optimizer
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: A**
+
+O **Service Quotas** mostra, num só lugar, as cotas (limites) dos serviços da AWS na conta e permite pedir aumentos. O Compute Optimizer recomenda o tamanho certo dos recursos; o License Manager controla o uso de licenças de software; o Budgets alerta sobre gastos.
+
+</details>
+
+### Questão 36
+
+<sub>Domínio 3 · tópico [3.16](../../docs/03-tecnologia-e-servicos/16-gestao-e-governanca.md)</sub>
+
+Uma empresa desconfia que várias instâncias EC2 estão superdimensionadas e quer recomendações de tamanho baseadas nas métricas de utilização, para reduzir o custo sem perder desempenho. Qual serviço fornece essas recomendações?
+
+- **A)** AWS CloudTrail
+- **B)** AWS Service Quotas
+- **C)** AWS License Manager
+- **D)** AWS Compute Optimizer
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: D**
+
+O **Compute Optimizer** analisa a configuração e as métricas de utilização dos recursos e gera recomendações de tamanho (*rightsizing*), além de apontar recursos ociosos. O Service Quotas trata de limites da conta; o License Manager, de licenças; o CloudTrail registra chamadas de API.
+
+</details>
+
+### Questão 37
+
+<sub>Domínio 3 · tópico [3.17](../../docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.md)</sub>
+
+Uma empresa quer migrar um banco Oracle on-premises para o Amazon Aurora PostgreSQL, mantendo o banco de origem em operação durante a migração. Quais serviços devem ser usados?
+
+- **A)** AWS Schema Conversion Tool (SCT) e AWS Database Migration Service (DMS)
+- **B)** Somente o AWS Application Migration Service
+- **C)** AWS DataSync e AWS Transfer Family
+- **D)** AWS Snowball Edge e Amazon S3
+
+<details>
+<summary>Ver resposta</summary>
+
+**Resposta: A**
 
 Migração **heterogênea**: o **SCT** converte o schema e o código do Oracle para PostgreSQL, e o **DMS** move os dados com replicação contínua (CDC). O Application Migration Service migra servidores inteiros; DataSync, Transfer Family e Snowball transferem arquivos.
 
