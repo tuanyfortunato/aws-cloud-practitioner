@@ -1,105 +1,73 @@
+<!-- autoral -->
+
 # Amazon Q
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma pessoa quer assistência para tarefas de desenvolvimento ou para consultar informações corporativas, conforme seu contexto de trabalho.
-
-**Como este serviço ajuda?** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-
-**Exemplo do dia a dia:** Uma desenvolvedora pede ajuda para entender código. Em outro caso, uma funcionária faz uma pergunta sobre documentos disponibilizados ao assistente corporativo.
-
-**O que ele não resolve sozinho?** Os produtos não acessam automaticamente todo o conhecimento da empresa. Respostas e código precisam ser revisados; fontes, permissões e integrações dependem da modalidade.
-
-**Primeiras palavras para entender:**
-
-- **Assistente:** ferramenta que responde a pedidos.
-- **Fonte de dados:** conteúdo disponibilizado ao produto.
-- **Contexto:** informação usada para formular a resposta.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** IA generativa / assistentes · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
+> **Categoria:** IA generativa · **Domínio:** 3 · **Abrangência:** Console, documentação, IDEs, linha de comando e aplicativos de chat · **Ficha:** núcleo
 >
-> **Em uma frase:** família de **assistentes de IA generativa** prontos para desenvolvedores e para dados corporativos.
+> **Em uma frase:** família de assistentes de IA generativa da AWS; o Amazon Q Developer responde perguntas sobre a AWS e os recursos da conta e ajuda a escrever e melhorar código.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.12 IA e machine learning](../../docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.md)
 
-**Passo 1.** Escolha o produto do assistente conforme desenvolvimento ou conhecimento corporativo.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare o contexto e as integrações autorizadas e faça uma solicitação relacionada à tarefa.
+---
 
-**Passo 3.** Revise a resposta antes de usar. Um assistente não deve ter acesso presumido a todos os documentos nem substituir a validação do trabalho.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A equipe de TI da escola é pequena e aprende a AWS no caminho. Cada dúvida (qual serviço usar, por que a instância não aceita conexão, como escrever a função que redimensiona fotos) vira uma busca longa na documentação.
 
-### Variantes
+O **Amazon Q Developer** é um assistente conversacional de IA generativa que ajuda a entender, criar, estender e operar aplicações na AWS. No console, na documentação e no aplicativo móvel, ele responde perguntas sobre arquitetura, sobre os recursos da conta, boas práticas e suporte. Nos editores de código (IDEs) e na linha de comando, conversa sobre o código, sugere e gera código, procura vulnerabilidades e ajuda a atualizar versões de linguagem. Ele também atende em aplicativos de chat como Microsoft Teams e Slack. O Q Developer roda sobre o [Amazon Bedrock](bedrock.md).
 
-| Variante | Para quem | O que faz |
+O limite: as respostas são geradas por IA e precisam ser conferidas antes de ir para produção. Duas mudanças recentes: o **Amazon Q Business** não aceita mais clientes novos (a AWS indica o Amazon Quick), e os plugins do Q Developer para IDEs deixam de ter suporte em 30/04/2027.
+
+## Como funciona
+
+1. No console da AWS, quem tem as permissões necessárias no IAM abre o ícone do Amazon Q e faz a pergunta.
+2. Nos IDEs, instala-se a extensão e entra-se com um AWS Builder ID, sem precisar de conta da AWS, no nível gratuito.
+3. O Q responde com base em conteúdo de qualidade da AWS e pode responder sobre os recursos da conta.
+4. Empresas podem assinar o nível Pro, com limites maiores e administração pelo IAM Identity Center.
+
+## Opções principais
+
+| Onde ou nível | O que oferece | Exemplo na escola |
 |---|---|---|
-| **Amazon Q Developer** (✔️ o CodeWhisperer passou a integrá-lo em 30/04/2024) | Desenvolvedores e times de operação | Sugestões e geração de código na IDE e CLI, agentes que implementam funcionalidades, **varredura de segurança**, upgrade de código (ex.: Java), explicar e diagnosticar recursos e **erros no console AWS**, chat sobre a conta. |
-| **Amazon Q Business** | Funcionários | Responde perguntas, resume e gera conteúdo com base nos **dados da empresa** (40+ conectores: S3, SharePoint, Confluence, Salesforce), respeitando permissões. |
-| **Amazon Q in QuickSight** | Analistas | BI em linguagem natural. |
-| **Amazon Q in Connect** | Agentes de contact center | Respostas e ações sugeridas em tempo real. |
+| Console e documentação | Perguntas sobre serviços, recursos da conta e boas práticas | "Por que minha instância não aceita SSH?" |
+| IDEs e linha de comando | Chat sobre código, sugestões, geração e varredura de segurança | Escrever a função que redimensiona fotos |
+| Aplicativos de chat | Perguntas sobre a AWS no Teams ou no Slack | Equipe consulta pelo canal de TI |
+| Nível gratuito | Recursos avançados com limite mensal de uso | Equipe pequena experimenta |
+| Nível Pro | Limites maiores, administração e indenização de propriedade intelectual | Uso por toda a equipe |
 
-## 3. Como escolher e reconhecer os limites
+## Números que a prova cobra
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Nível Pro | US$ 19 por usuário por mês | 06/10/2026 |
+| Nível gratuito | 50 solicitações de agente por mês | 06/10/2026 |
+| Fim do suporte aos plugins de IDE | 30/04/2027 | 06/10/2026 |
+| Amazon Q Business | Fechado a novos clientes | 06/10/2026 |
 
-Os produtos não acessam automaticamente todo o conhecimento da empresa. Respostas e código precisam ser revisados; fontes, permissões e integrações dependem da modalidade.
+## Como é cobrado
 
-## 4. Operação, segurança e custo
+O Q Developer tem um nível gratuito, com limites mensais, e o nível Pro, cobrado por usuário por mês.
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+## Não confundir com
 
-### 🔄 Atualizações 2025-2026
+| Serviço | Diferença para o Amazon Q | Pista no enunciado |
+|---|---|---|
+| [Amazon Bedrock](bedrock.md) | Base para criar as próprias aplicações de IA generativa | "Modelos de fundação", "criar meu assistente" |
+| [Amazon SageMaker AI](sagemaker-ai.md) | Treinar e implantar modelos próprios | "Treinar um modelo" |
+| [Amazon Lex](servicos-de-ia-prontos.md) | Cria o chatbot para os clientes da empresa | "Chatbot para os pais" |
+| [AWS Trusted Advisor](../gerenciamento/trusted-advisor.md) | Verificações automáticas de boas práticas | "Recomendações para a conta" |
 
-✔️ Os **plugins de IDE do Amazon Q Developer** têm fim de suporte em **30/04/2027**; a documentação aponta o **Kiro** como alternativa.
+## Fontes oficiais
 
-**Amazon Q Business** entrou em manutenção e **não aceita novos clientes desde 30/07/2026**; aplicações existentes podem ser **conectadas** ao Amazon Quick Suite. O **Amazon Q** continua na lista oficial: "assistente de IA generativa para funcionários/desenvolvedores" → **Amazon Q**.
+Verificadas em 06/10/2026.
 
-## 5. Caso resolvido: ligando as peças
-
-Uma desenvolvedora pede ajuda para entender código. Em outro caso, uma funcionária faz uma pergunta sobre documentos disponibilizados ao assistente corporativo.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Escolha o produto do assistente conforme desenvolvimento ou conhecimento corporativo.
-**Etapa 2:** Prepare o contexto e as integrações autorizadas e faça uma solicitação relacionada à tarefa.
-**Etapa 3:** Revise a resposta antes de usar. Um assistente não deve ter acesso presumido a todos os documentos nem substituir a validação do trabalho.
-
-**Resultado e responsabilidade:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-
-**Recursos envolvidos:** Variantes voltadas a desenvolvimento e ao uso de informações de negócio.
-
-**Decisões que precisam ser tomadas:** Variante, identidades, fontes e permissões.
-
-**Outra situação comentada:** Apoio ao desenvolvedor: Q Developer; informações de negócio dependem da variante e das fontes autorizadas.
-
-**Por que não concluir mais do que isso:** Não é um único banco com acesso automático a todos os documentos da empresa
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Assistente de IA generativa para escrever código na IDE."
-
-**Resposta curta:** Amazon Q Developer.
-
-**Pergunta:** "Assistente que responde com base nos documentos internos da empresa."
-
-**Resposta curta:** Amazon Q Business.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Amazon Q](https://aws.amazon.com/q/)
+- [O que é o Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html)
+- [Mudança de disponibilidade do Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html)
+- [Preços do Amazon Q Developer](https://aws.amazon.com/q/developer/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
