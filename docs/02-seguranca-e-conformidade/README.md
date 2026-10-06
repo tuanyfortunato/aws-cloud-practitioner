@@ -30,8 +30,8 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 | # | Tópico | Perguntas típicas |
 |---|---|---|
 | 2.1 | [Modelo de responsabilidade compartilhada](01-responsabilidade-compartilhada.md) | 5 |
-| 2.2 | [Usuário root](02-usuario-root.md) | 4 |
-| 2.3 | [AWS IAM (Identity and Access Management)](03-iam.md) | 10 |
+| 2.2 | [Usuário root](02-usuario-root.md) | 5 |
+| 2.3 | [AWS IAM (Identity and Access Management)](03-iam.md) | 5 |
 | 2.4 | [Governança multi-conta](04-governanca-multi-conta.md) | 6 |
 | 2.5 | [Criptografia](05-criptografia.md) | 7 |
 | 2.6 | [Compliance e governança](06-compliance-e-governanca.md) | 5 |

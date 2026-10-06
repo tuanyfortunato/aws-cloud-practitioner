@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 66 cards
+**Total:** 62 cards
 
 
 ## [2.1 Modelo de responsabilidade compartilhada](../docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md)
@@ -41,90 +41,66 @@ Os dados e o acesso a eles: as opções de criptografia, a classificação do qu
 ## [2.2 Usuário root](../docs/02-seguranca-e-conformidade/02-usuario-root.md)
 
 <details>
-<summary>Qual é a boa prática para o usuário root?</summary>
+<summary>O que é o usuário root de uma conta AWS?</summary>
 
-Ativar MFA, não criar access keys e usá-lo só para tarefas que o exigem.
+É a identidade criada junto com a conta, que entra com o e-mail e a senha usados na criação e tem acesso completo a todos os serviços e recursos da conta.
 </details>
 
 <details>
-<summary>Qual destas tarefas exige o root?</summary>
+<summary>Por que a AWS recomenda não usar o root nas tarefas do dia a dia?</summary>
 
-Fechar a conta, alterar o e-mail ou a senha do root, restaurar permissões de administrador ou configurar MFA Delete. (🔄 Mudar o plano de suporte e alterar o nome da conta **não** estão mais na lista oficial.)
+Porque ele tem poder total sobre a conta: qualquer erro ou vazamento da credencial afeta tudo, inclusive a cobrança e o encerramento da conta. O trabalho diário deve usar identidades com só as permissões necessárias.
 </details>
 
 <details>
-<summary>Qual tarefa NÃO exige o root?</summary>
+<summary>Quais são as principais proteções do root?</summary>
 
-Criar usuários IAM, ver a fatura (com permissão) ou lançar instâncias.
+Ativar MFA (hoje exigido em todos os tipos de conta), usar uma senha forte e exclusiva, não criar chaves de acesso para o root e usar e-mail de grupo e aprovação por várias pessoas.
 </details>
 
 <details>
-<summary>O que fazer logo após criar a conta?</summary>
+<summary>Mudar o nome da conta exige entrar como root?</summary>
 
-Proteger o root com MFA e criar identidades administrativas para o dia a dia.
+Não. Nome da conta, dados de contato, contatos alternativos, moeda de pagamento e Regiões podem ser mudados sem o root. Mudar o e-mail, a senha e as chaves de acesso do root de uma conta independente exige o root.
+</details>
+
+<details>
+<summary>Cite três tarefas que exigem o root.</summary>
+
+Encerrar uma conta independente, restaurar as permissões de um administrador do IAM que se trancou do lado de fora e ativar o acesso do IAM ao console de faturamento. Também valem destravar uma política de bucket S3 ou de fila SQS que nega acesso a todos e configurar MFA Delete num bucket S3.
 </details>
 
 
 ## [2.3 AWS IAM (Identity and Access Management)](../docs/02-seguranca-e-conformidade/03-iam.md)
 
 <details>
-<summary>Uma aplicação no EC2 precisa ler um bucket S3. Qual a forma mais segura?</summary>
+<summary>Qual é a diferença entre um usuário do IAM e uma função do IAM?</summary>
 
-Anexar uma IAM role à instância.
+O usuário representa uma pessoa ou programa e tem credenciais de longo prazo (senha e chaves de acesso). A função não pertence a ninguém: é assumida por quem precisa dela e entrega credenciais temporárias, geradas pelo AWS STS.
 </details>
 
 <details>
-<summary>Dez desenvolvedores precisam das mesmas permissões.</summary>
+<summary>Uma política permite ler um bucket e outra nega a mesma ação. O que acontece?</summary>
 
-Criar um grupo IAM e anexar a política ao grupo.
+O pedido é negado, porque uma negação explícita sempre vence uma permissão.
 </details>
 
 <details>
-<summary>Uma política tem Allow e outra tem Deny explícito para a mesma ação. O que vale?</summary>
+<summary>Como dar a uma aplicação numa instância EC2 acesso a um bucket S3 sem gravar credenciais no servidor?</summary>
 
-Deny explícito.
+Criar uma função do IAM com a permissão necessária e anexá-la à instância por meio de um perfil de instância. A aplicação recebe credenciais temporárias renovadas automaticamente.
 </details>
 
 <details>
-<summary>Qual princípio diz para dar só as permissões necessárias?</summary>
+<summary>Quando usar o IAM Identity Center e quando usar o Amazon Cognito?</summary>
 
-Menor privilégio.
+O Identity Center dá a funcionários acesso a várias contas AWS e aplicações, com login único. O Cognito cuida do cadastro e do login dos usuários de um aplicativo, como clientes de um site.
 </details>
 
 <details>
-<summary>Qual relatório lista os usuários e o status de MFA e access keys?</summary>
+<summary>Qual serviço guarda a senha de um banco de dados com rotação automática?</summary>
 
-IAM credential report.
-</details>
-
-<details>
-<summary>Como dar login único a funcionários em várias contas?</summary>
-
-IAM Identity Center.
-</details>
-
-<details>
-<summary>Como permitir login com Google em um app mobile?</summary>
-
-Amazon Cognito.
-</details>
-
-<details>
-<summary>Onde guardar a senha do banco com rotação automática?</summary>
-
-Secrets Manager.
-</details>
-
-<details>
-<summary>Funcionários usam o Active Directory da empresa e precisam acessar a AWS.</summary>
-
-Federação (via Identity Center ou SAML) ou AWS Directory Service.
-</details>
-
-<details>
-<summary>Como acessar a AWS por linha de comando?</summary>
-
-AWS CLI com access keys (ou credenciais temporárias).
+O AWS Secrets Manager, que guarda, recupera e troca segredos automaticamente num calendário.
 </details>
 
 

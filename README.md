@@ -406,7 +406,7 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 |---|---|---|
 | 📖 [Tópicos da prova](#sumário-da-apostila) | **41 tópicos** que cobrem os 4 domínios, com conceitos explicados, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do roteiro |
 | 🔎 [Fichas de serviços](#caderno-de-serviços) | **105 fichas** (uma por serviço ou família), com funcionamento, opções, limites, segurança, custo e casos resolvidos; 5 reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |
-| 🃏 [Flashcards](flashcards/README.md) | **322 perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |
+| 🃏 [Flashcards](flashcards/README.md) | **318 perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |
 | 📝 [Simulado 01](simulados/simulado-01.md) | **65 questões** no formato da prova, com gabarito comentado | Depois de estudar os 4 domínios (90 min, sem consulta) |
 | ❓ [Questões por domínio](simulados/questoes/README.md) | As mesmas questões, agrupadas por tópico | Ao terminar cada domínio |
 | ⚖️ [Pares que confundem](resumos/comparativos.md) | **55 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
