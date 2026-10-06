@@ -1,97 +1,41 @@
+<!-- autoral -->
+
 # Amazon Detective
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Depois de um alerta de segurança, a equipe precisa reunir relações entre atividades, identidades e recursos para entender o que aconteceu.
-
-**Como este serviço ajuda?** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
-
-**Exemplo do dia a dia:** Após um alerta, a equipe explora atividades associadas à identidade e ao recurso envolvidos, procurando contexto para a investigação.
-
-**O que ele não resolve sozinho?** Ele apoia a investigação; não decide sozinho a causa de todo incidente nem substitui a equipe responsável pela resposta.
-
-**Primeiras palavras para entender:**
-
-- **Investigação:** análise das evidências e do contexto.
-- **Entidade:** identidade ou recurso observado.
-- **Relação:** conexão entre atividades e entidades.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / investigação · **Domínio:** 2 · **Escopo:** Regional · **Tópico do guia:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
+> **Categoria:** Segurança / investigação · **Domínio:** 2 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** facilita **investigar a causa raiz** de achados de segurança, montando um grafo de comportamento a partir dos logs.
+> **Em uma frase:** ajuda a investigar a causa raiz de achados de segurança e atividades suspeitas, com visualizações de como identidades, recursos e endereços se relacionaram ao longo do tempo.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.9 Detecção de ameaças](../../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 
-**Passo 1.** Prepare as fontes e o ambiente de investigação compatível.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Use as relações de atividades, identidades e recursos para entender o contexto de um alerta.
+---
 
-**Passo 3.** Compare evidências e registre conclusões da investigação. A ferramenta ajuda a analisar; a decisão e a resposta continuam precisando de responsáveis.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+O GuardDuty avisou que uma chave de acesso da escola foi usada de um endereço estranho. A pergunta seguinte é: o que exatamente aconteceu, desde quando e o que mais foi afetado? O **Amazon Detective** coleta dados de registros dos recursos e usa aprendizado de máquina, estatística e teoria de grafos para responder.
 
-### Como funciona
+1. Ativa-se o Detective na conta.
+2. Ele passa a coletar automaticamente dados de registros, como CloudTrail e VPC Flow Logs.
+3. A partir de um achado, como um do GuardDuty, a equipe abre a investigação.
+4. O Detective mostra as ligações e a linha do tempo entre identidades, recursos e endereços envolvidos.
 
-Coleta automaticamente CloudTrail, **VPC Flow Logs**, achados do **GuardDuty**, audit logs do EKS e achados do Security Hub.
+## Não confundir com
 
-Constrói um **behavior graph** (ML + estatística) mostrando relações entre usuários, roles, IPs, instâncias, ao longo de até 1 ano.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon GuardDuty](guardduty.md) | Detecta a ameaça e gera o achado | "Detectar atividade maliciosa" |
+| [AWS Security Hub](security-hub.md) | Reúne e prioriza achados de vários serviços | "Visão central", "pontuação" |
+| [AWS CloudTrail](../gerenciamento/cloudtrail.md) | Registra as chamadas de API | "Quem fez o quê" |
 
-Visualizações prontas: "o que este IP fez?", "esse usuário costuma chamar essa API?", *finding groups* que agrupam achados relacionados.
+## Fontes oficiais
 
-Teste gratuito de 30 dias; cobrado por volume de dados ingeridos.
+Verificadas em 06/10/2026.
 
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Ele apoia a investigação; não decide sozinho a causa de todo incidente nem substitui a equipe responsável pela resposta.
-
-### ⚠️ Não confundir
-
-**GuardDuty detecta → Detective investiga → Security Hub centraliza.**
-
-## 4. Caso resolvido: ligando as peças
-
-Após um alerta, a equipe explora atividades associadas à identidade e ao recurso envolvidos, procurando contexto para a investigação.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Prepare as fontes e o ambiente de investigação compatível.
-**Etapa 2:** Use as relações de atividades, identidades e recursos para entender o contexto de um alerta.
-**Etapa 3:** Compare evidências e registre conclusões da investigação. A ferramenta ajuda a analisar; a decisão e a resposta continuam precisando de responsáveis.
-
-**Resultado e responsabilidade:** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
-
-**Recursos envolvidos:** Behavior graph e investigação de entidades/eventos.
-
-**Decisões que precisam ser tomadas:** Conta, região, fontes e acesso.
-
-**Outra situação comentada:** Após finding GuardDuty, investigar contexto: Detective; bloquear requer ação apropriada.
-
-**Por que não concluir mais do que isso:** Não é firewall ou substituto automático da detecção/remediação
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Investigar a causa raiz de um achado de segurança."
-
-**Resposta curta:** Detective.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Amazon Detective](https://docs.aws.amazon.com/detective/latest/userguide/what-is-detective.html)
-
+- [O que é o Amazon Detective](https://docs.aws.amazon.com/detective/latest/userguide/what-is-detective.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

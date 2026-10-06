@@ -1,105 +1,44 @@
+<!-- autoral -->
+
 # AWS Service Catalog e AWS Resource Access Manager (RAM)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa quer padronizar o que suas equipes podem provisionar e, em outro caso, compartilhar recursos compatíveis entre contas sem duplicá-los.
-
-**Como este serviço ajuda?** Service Catalog organiza produtos de infraestrutura aprovados. RAM compartilha recursos compatíveis com outros destinatários autorizados. São duas funções diferentes.
-
-**Exemplo do dia a dia:** Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa compartilha um recurso compatível com outra conta pelo RAM.
-
-**O que ele não resolve sozinho?** Aprovar um produto é diferente de compartilhar um recurso já existente. RAM não permite compartilhar qualquer coisa sem restrições nem concede todo acesso aos dados.
-
-**Primeiras palavras para entender:**
-
-- **Produto:** definição provisionável no catálogo.
-- **Provisionar:** criar recursos.
-- **Compartilhamento:** disponibilizar um recurso compatível a destinatários definidos.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gerenciamento / governança · **Domínio:** 2 e 3 · **Escopo:** Regional (compartilháveis entre contas) · **Tópico do guia:** [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
+> **Categoria:** Gerenciamento / governança · **Domínio:** 2 e 3 · **Abrangência:** Regional (compartilhável entre contas) · **Ficha:** complementar
 >
-> **Em uma frase:** Service Catalog oferece um **catálogo de produtos aprovados** para autoatendimento; RAM **compartilha recursos** entre contas.
+> **Em uma frase:** o Service Catalog oferece um catálogo de produtos de TI aprovados para autoatendimento; o RAM compartilha recursos entre contas.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 
-**Passo 1.** Identifique se quer oferecer uma configuração aprovada ou compartilhar um recurso já existente.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Use produtos e portfólios do catálogo no primeiro caso; compartilhamentos compatíveis no RAM no segundo.
+---
 
-**Passo 3.** Verifique acessos e alcance. Um produto provisionável e um recurso compartilhado são objetos diferentes.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+Os professores de informática querem criar laboratórios sozinhos, mas a TI quer que usem só configurações aprovadas. O **AWS Service Catalog** oferece um catálogo de produtos de TI aprovados (servidores, bancos de dados ou arquiteturas completas), e as equipes criam o que precisam dentro das restrições definidas, como o tipo de instância permitido.
 
-### AWS Service Catalog
+1. A TI cria os produtos, a partir de modelos, e os agrupa em portfólios.
+2. Define restrições, como Região e tipo de instância.
+3. Dá acesso aos portfólios a usuários ou contas.
+4. Os usuários escolhem o produto e o criam sozinhos.
 
-| Item | Detalhe |
-|---|---|
-| **Produto** | Template CloudFormation (ou Terraform) aprovado (ex.: "servidor web padrão", "bucket criptografado"). |
-| **Portfólio** | Conjunto de produtos com permissões de acesso (usuários, grupos, roles). |
-| **Constraints** | Restringem parâmetros (tipos de instância permitidos), definem a role de lançamento (o usuário não precisa de permissões amplas), tags obrigatórias. |
-| **Compartilhamento** | Portfólios entre contas da organização. |
-| **Uso** | Times provisionam sozinhos, dentro das regras e da governança da empresa. |
+O **AWS Resource Access Manager** (RAM) resolve outro problema: em vez de criar o mesmo recurso em cada conta, cria-se uma vez e compartilha-se com a organização inteira, com algumas OUs ou com contas específicas, para os tipos de recurso que o RAM aceita.
 
-### AWS RAM
+## Não confundir com
 
-| Item | Detalhe |
-|---|---|
-| **O que compartilha** | **Subnets** (VPC compartilhada), **Transit Gateways**, regras do Route 53 Resolver, License Manager, Aurora clusters, prefix lists, Network Firewall policies, entre outros. |
-| **Com quem** | Contas específicas, OUs ou a organização inteira. |
-| **Benefício** | Evita duplicar recursos e reduz custo/complexidade. Sem custo próprio. |
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS Control Tower](control-tower.md) | Monta a landing zone de várias contas | "Ambiente multi-conta com boas práticas" |
+| [AWS CloudFormation](cloudformation.md) | Cria recursos a partir de modelos; o Service Catalog usa modelos como produtos | "Infraestrutura como código" |
+| [AWS Organizations](organizations.md) | Agrupa contas e aplica SCPs | "OU", "SCP" |
 
-## 3. Como escolher e reconhecer os limites
+## Fontes oficiais
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+Verificadas em 06/10/2026.
 
-Aprovar um produto é diferente de compartilhar um recurso já existente. RAM não permite compartilhar qualquer coisa sem restrições nem concede todo acesso aos dados.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa compartilha um recurso compatível com outra conta pelo RAM.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique se quer oferecer uma configuração aprovada ou compartilhar um recurso já existente.
-**Etapa 2:** Use produtos e portfólios do catálogo no primeiro caso; compartilhamentos compatíveis no RAM no segundo.
-**Etapa 3:** Verifique acessos e alcance. Um produto provisionável e um recurso compartilhado são objetos diferentes.
-
-**Resultado e responsabilidade:** Service Catalog organiza produtos de infraestrutura aprovados. RAM compartilha recursos compatíveis com outros destinatários autorizados. São duas funções diferentes.
-
-**Recursos envolvidos:** Portfolios/products/constraints no Catalog; resource shares no RAM.
-
-**Decisões que precisam ser tomadas:** Produto aprovado ou recurso compartilhável e destinatários.
-
-**Outra situação comentada:** Catálogo de stacks aprovadas: Service Catalog; compartilhar subnet compatível: RAM.
-
-**Por que não concluir mais do que isso:** Compartilhar não transfere propriedade nem permite qualquer tipo de recurso
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Deixar times criarem só recursos aprovados pela empresa."
-
-**Resposta curta:** Service Catalog.
-
-**Pergunta:** "Compartilhar uma subnet com outra conta."
-
-**Resposta curta:** AWS RAM.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) · [RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html)
-
+- [O que é o Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html)
+- [O que é o AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

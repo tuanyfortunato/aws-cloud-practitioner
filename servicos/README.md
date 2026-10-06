@@ -79,18 +79,18 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [AWS IAM (Identity and Access Management) e AWS STS](seguranca/iam.md) | ✅ | núcleo | Controla quem pode se autenticar na conta e o que cada identidade pode fazer em cada recurso. |
 | [AWS IAM Identity Center (antigo AWS SSO)](seguranca/iam-identity-center.md) | ✅ | núcleo | Login único para funcionários acessarem várias contas da AWS e aplicações com uma só identidade. |
 | [Amazon Cognito](seguranca/cognito.md) | ✅ | núcleo | Cadastro, login e controle de acesso para os usuários de aplicativos web e móveis. |
-| [AWS Directory Service](seguranca/directory-service.md) | ✅ | complementar | Microsoft Active Directory gerenciado na AWS, ou ponte para o AD on-premises. |
+| [AWS Directory Service](seguranca/directory-service.md) | ✅ | complementar | Formas de usar o Microsoft Active Directory com os serviços da AWS: um diretório gerenciado pela AWS ou a ligação com o diretório que a empresa já tem. |
 | [AWS KMS (Key Management Service)](seguranca/kms.md) | ✅ | núcleo | Cria e controla as chaves usadas para cifrar dados, integradas aos serviços da AWS e com cada uso registrado no CloudTrail. |
-| [AWS CloudHSM](seguranca/cloudhsm.md) | ✅ | complementar | HSM (hardware security module) **dedicado e exclusivo** na nuvem, em que só você controla as chaves. |
-| [AWS Certificate Manager (ACM) e AWS Private CA](seguranca/certificate-manager.md) | ✅ | complementar | Emite e gerencia certificados SSL/TLS, com renovação para certificados elegíveis; públicos não exportáveis em serviços integrados são gratuitos. |
+| [AWS CloudHSM](seguranca/cloudhsm.md) | ✅ | complementar | Módulos de segurança de hardware (HSMs) dedicados a um único cliente, na nuvem, para guardar chaves e fazer operações criptográficas sob controle exclusivo. |
+| [AWS Certificate Manager (ACM) e AWS Private CA](seguranca/certificate-manager.md) | ✅ | complementar | Cria, guarda e renova certificados SSL/TLS públicos e privados e os instala nos serviços integrados, como Elastic Load Balancing, CloudFront e API Gateway. |
 | [AWS Secrets Manager e Systems Manager Parameter Store](seguranca/secrets-manager-e-parameter-store.md) | ✅ | núcleo | Guardam segredos e configurações fora do código; o Secrets Manager também faz a rotação automática dos segredos. |
 | [AWS Shield](seguranca/shield.md) | ✅ | núcleo | Protege as aplicações contra ataques de negação de serviço distribuído (DDoS), de graça no nível Standard e com equipe de resposta e proteção de custo no Advanced. |
 | [AWS WAF (Web Application Firewall)](seguranca/waf.md) | ✅ | núcleo | Firewall de aplicações web que examina cada pedido HTTP ou HTTPS e, pelas regras do cliente, deixa passar, bloqueia ou devolve uma resposta personalizada. |
-| [AWS Firewall Manager e AWS Network Firewall](seguranca/firewall-manager-e-network-firewall.md) | 🔀 | complementar | O Firewall Manager **governa** regras de firewall em todas as contas; o Network Firewall **é** um firewall gerenciado para a VPC. |
+| [AWS Firewall Manager e AWS Network Firewall](seguranca/firewall-manager-e-network-firewall.md) | 🔀 | complementar | O Firewall Manager aplica as mesmas proteções em todas as contas de uma organização; o Network Firewall filtra e inspeciona o tráfego na borda de uma VPC. |
 | [Amazon GuardDuty](seguranca/guardduty.md) | ✅ | núcleo | Analisa continuamente os registros da conta com inteligência de ameaças e aprendizado de máquina e gera achados quando vê atividade suspeita. |
 | [Amazon Inspector](seguranca/inspector.md) | ✅ | núcleo | Descobre instâncias EC2, imagens de contêiner e funções Lambda e as examina continuamente em busca de vulnerabilidades conhecidas de software e de exposição de rede não intencional. |
 | [Amazon Macie](seguranca/macie.md) | ✅ | núcleo | Descobre dados sensíveis no Amazon S3 com aprendizado de máquina e reconhecimento de padrões e avalia a segurança e o controle de acesso dos buckets. |
-| [Amazon Detective](seguranca/detective.md) | ✅ | complementar | Facilita **investigar a causa raiz** de achados de segurança, montando um grafo de comportamento a partir dos logs. |
+| [Amazon Detective](seguranca/detective.md) | ✅ | complementar | Ajuda a investigar a causa raiz de achados de segurança e atividades suspeitas, com visualizações de como identidades, recursos e endereços se relacionaram ao longo do tempo. |
 | [AWS Security Hub](seguranca/security-hub.md) | ✅ | núcleo | Reúne, correlaciona e prioriza os sinais de segurança do GuardDuty, do Inspector, do Macie e das verificações de postura, e confere as contas contra padrões de boas práticas. |
 | [AWS Artifact](seguranca/artifact.md) | ✅ | núcleo | Portal de autoatendimento, gratuito, para baixar os relatórios de segurança e compliance da AWS e aceitar acordos com ela. |
 | [AWS Audit Manager](seguranca/audit-manager.md) | ⚪ | referência | Coleta **evidências da sua conta** continuamente e as mapeia para frameworks, para preparar as suas auditorias. |
@@ -106,10 +106,10 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | [AWS CloudFormation (e CDK, SAM)](gerenciamento/cloudformation.md) | ✅ | núcleo | Cria e atualiza a infraestrutura a partir de um modelo escrito em YAML ou JSON, sempre do mesmo jeito, como uma pilha de recursos que se gerencia em conjunto. |
 | [AWS Organizations](gerenciamento/organizations.md) | ✅ | núcleo | Reúne várias contas da AWS numa organização, com políticas aplicadas por grupo de contas e uma fatura única. |
 | [AWS Control Tower](gerenciamento/control-tower.md) | ✅ | núcleo | Monta e governa um ambiente com várias contas segundo boas práticas, orquestrando Organizations, IAM Identity Center e outros serviços, e aplicando controles às contas. |
-| [AWS Service Catalog e AWS Resource Access Manager (RAM)](gerenciamento/service-catalog-e-ram.md) | ✅ | complementar | Service Catalog oferece um **catálogo de produtos aprovados** para autoatendimento; RAM **compartilha recursos** entre contas. |
+| [AWS Service Catalog e AWS Resource Access Manager (RAM)](gerenciamento/service-catalog-e-ram.md) | ✅ | complementar | O Service Catalog oferece um catálogo de produtos de TI aprovados para autoatendimento; o RAM compartilha recursos entre contas. |
 | [AWS Trusted Advisor](gerenciamento/trusted-advisor.md) | ✅ | núcleo | Examina o ambiente da AWS e recomenda onde economizar, melhorar desempenho e disponibilidade, fechar brechas de segurança e respeitar os limites de serviço. |
 | [AWS Health Dashboard](gerenciamento/health-dashboard.md) | ✅ | núcleo | Mostra os eventos da AWS que afetam os serviços e as suas contas, como falhas em andamento e manutenções planejadas. |
-| [AWS Compute Optimizer, Service Quotas, License Manager e outros](gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) | ✅ | complementar | Ferramentas para dimensionar recursos, controlar limites e licenças, e organizar o ambiente. |
+| [AWS Compute Optimizer, Service Quotas e License Manager](gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) | ✅ | complementar | O Compute Optimizer recomenda o tamanho certo dos recursos, o Service Quotas mostra os limites da conta e pede aumentos, e o License Manager controla licenças de software. |
 
 ## 📊 Analytics
 

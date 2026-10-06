@@ -287,7 +287,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 - [AWS Service Catalog e AWS Resource Access Manager](servicos/gerenciamento/service-catalog-e-ram.md)
 - [AWS Trusted Advisor](servicos/gerenciamento/trusted-advisor.md)
 - [AWS Health Dashboard](servicos/gerenciamento/health-dashboard.md)
-- [AWS Compute Optimizer, Service Quotas, License Manager e outros](servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md)
+- [AWS Compute Optimizer, Service Quotas e License Manager](servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md)
 
 </details>
 
