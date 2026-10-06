@@ -1,48 +1,82 @@
+<!-- autoral -->
+
+<!--
+Modelo de ficha autoral (Fase 5 do plano de implementação). Ficha-piloto: servicos/integracao/sqs.md.
+
+- A ficha é consulta rápida de uma ou duas páginas, não uma segunda aula. Quando a aula já explica o
+  mecanismo, a ficha resume e remete a ela.
+- O marcador autoral na primeira linha faz o gerar_docs.py preservar a ficha. O índice de servicos/README.md
+  lê o título (primeira linha "# ") e a linha "**Em uma frase:**" do cabeçalho; mantenha as duas.
+- A ficha continua registrada em FICHAS, CATEGORIA e ESCOPO do gerar_docs.py e nas bases editoriais
+  (conteudo_servicos, introducoes_servicos, sequencias_servicos, aprofundamento), porque o gerador exige
+  cobertura completa; essas entradas não são mais usadas para escrever a ficha.
+- Ficha núcleo (serviço central de uma aula): todas as seções. Ficha complementar (no escopo, mas periférica):
+  só "Em uma frase", "Como funciona", "Não confundir com" e "Fontes oficiais".
+- Toda informação sobre a AWS precisa estar confirmada na documentação oficial e listada em "Fontes oficiais".
+  O que não for confirmado vai para docs/00-guia-do-exame/pendencias-de-verificacao.md, não para a ficha.
+- Explique cada termo em prosa no primeiro uso, sem frases defensivas. Apague estes comentários ao escrever.
+-->
+
 # Nome do serviço
 
-<!-- Modelo editorial. A ficha final é gerada. Registre o conteúdo-base em scripts/conteudo_servicos/<categoria>.json, a abertura em introducoes_servicos.py, três passos em sequencias_servicos.py, dados práticos em aprofundamento.py e os registros FICHAS/ESCOPO em gerar_docs.py. Definições ficam em vocabulario_apostila.py; casos estendidos podem ficar em casos_apostila.py. -->
-
-> **Categoria:** · **Domínio:** · **Escopo:** · **Tópico do guia:** [domínio](../../docs/03-tecnologia-e-servicos/README.md)
+> **Categoria:** Categoria · **Domínio:** N · **Abrangência:** Global, Regional ou por zona · **Ficha:** núcleo ou complementar
 >
-> **Em uma frase:** explique a capacidade sem exigir conhecimentos prévios.
+> **Em uma frase:** o que o serviço é e para que serve, sem exigir conhecimento prévio.
+>
+> **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Para que serve
+> 📖 **Aula que ensina:** [x.y Título da aula](../../docs/pasta-do-dominio/arquivo-da-aula.md)
 
-Descreva o trabalho que a pessoa precisa realizar. Use uma situação concreta e explique a diferença entre obter uma capacidade e receber um programa pronto.
+🏠 [Índice das fichas](../README.md)
 
-## Conceitos e componentes
+---
 
-Explique o significado antes de usar siglas. Relacione o componente à entrada, à execução ou à conservação do resultado. Uma tabela de definições pode ser usada na fonte editorial; o gerador apresenta cada item como explicação local.
+## Que problema resolve
 
-| Componente | O que é | Papel na solução |
+<!-- Dois ou três parágrafos: o problema, contado pelo caso da escola; como o serviço resolve; e o limite
+     (o que ele não faz sozinho). Termine remetendo à aula que explica o mecanismo. -->
+
+## Como funciona
+
+<!-- De três a cinco passos numerados, do pedido ao resultado. -->
+
+1. Primeiro passo.
+2. Segundo passo.
+3. Terceiro passo.
+
+## Opções principais
+
+<!-- Tabela com as escolhas que mudam o comportamento ou o preço e quando usar cada uma. -->
+
+| Opção | O que faz | Quando usar |
 |---|---|---|
 
-## Configurações e opções importantes
+## Números que a prova cobra
 
-Indique o efeito de cada escolha, sua unidade e suas condições. Use comparações apenas quando as alternativas podem ser examinadas pelos mesmos critérios.
+<!-- Só números citados em fonte oficial, com unidade, condição e data de verificação. -->
 
-## Segurança e responsabilidade compartilhada
+| O quê | Valor | Verificado em |
+|---|---|---|
 
-Explique o que AWS administra, o que o cliente decide e como acesso à rede difere de autorização a dados ou operações.
+## Como é cobrado
 
-## Cobrança
+<!-- A unidade de cobrança, o que é grátis e o que continua cobrando quando o trabalho termina. -->
 
-Identifique unidade e condição de consumo. Explique o que permanece cobrando quando a tarefa ou computação termina.
+## Não confundir com
 
-## Limites e números
+<!-- Serviços parecidos, comparados pelo problema que resolvem, e a pista do enunciado que leva a cada um. -->
 
-Indique o que o número mede, as condições e a fonte. Um número sem unidade ou contexto não deve ser tratado como regra universal.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
 
-## ⚠️ Não confundir
+## Fontes oficiais
 
-Compare pelo problema e pelo comportamento. Explique por que um produto parecido atende outra necessidade.
+Verificadas em DD/MM/AAAA.
 
-## ❓ Perguntas típicas
+- [Página da documentação](https://docs.aws.amazon.com/)
 
-- "Pergunta que especifica um requisito." → Resposta com critério e condição.
+<!-- notas:inicio -->
+## 📝 Minhas anotações
 
-## 🔗 Documentação oficial
-
-- Adicione fontes oficiais para confirmar cada capacidade nova. Links são para atualização e implantação; as explicações essenciais devem estar no próprio capítulo.
-
-<!-- O gerador acrescenta a abertura, os passos, os casos e a revisão e preserva o bloco notas do arquivo final. Não inclua um bloco notas nesta fonte editorial. -->
+<!-- Escreva aqui suas observações, dúvidas e as questões que você errou sobre o tema. -->
+<!-- notas:fim -->
