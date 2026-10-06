@@ -1,6 +1,6 @@
 # ❓ Questões por domínio
 
-As mesmas questões do [simulado completo](../simulado-01.md), agrupadas por domínio e tópico para estudo direcionado (as alternativas aparecem em outra ordem).
+Questões no formato da prova, agrupadas por domínio e tópico para estudo direcionado.
 
 | Domínio | Peso | Questões |
 |---|---|---|
@@ -13,4 +13,3 @@ As mesmas questões do [simulado completo](../simulado-01.md), agrupadas por dom
 
 1. Inclua a questão em [`scripts/banco_questoes.py`](../../scripts/banco_questoes.py) (enunciado, alternativas corretas, distratores e explicação).
 2. Rode `python3 scripts/gerar_simulado.py`.
-3. Para um novo simulado completo, mantenha a distribuição 16/20/21/8 por domínio.

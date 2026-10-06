@@ -35,7 +35,7 @@ Entender o fluxo atual define onde cada mudança entra.
 | 3 | Modelo de aula, aula-piloto e ficha-piloto | AP-05, AP-08 (piloto), AP-14 | 2 |
 | 4 | Reescrita das 41 aulas em ondas | AP-03, AP-06, AP-08 | 3 |
 | 5 | Fichas condensadas e caderno de consulta | AP-07 | 3; em paralelo à 4 |
-| 6 | Exercícios, banco de questões e segundo simulado | AP-09, AP-13 | 4 |
+| 6 | Exercícios e banco de questões | AP-09, AP-13 | 4 |
 | 7 | Edição impressa | AP-15, AP-16 | 4, 5, 6 |
 | 8 | Aposentar o gerador de conteúdo | AP-10, AP-11 | Todas as aulas e fichas migradas |
 
@@ -198,11 +198,11 @@ A classificação de cada ficha fica em `GRUPOS_FICHAS` do `scripts/gerar_docs.p
 
 Pode andar em paralelo à Fase 4: cada onda de aulas leva junto as fichas núcleo correspondentes.
 
-## 9. Fase 6 — Exercícios e simulados
+## 9. Fase 6 — Exercícios
 
 - Cada questão do `banco_questoes.py` ligada a uma aula (já existe o vínculo por tópico); completar as aulas sem questão: 2.10, 3.1, 3.6, 3.14, 3.15, 3.16, 3.18, 4.1 e 4.6.
-- Questões novas no mesmo padrão do simulado atual, que é o ponto forte do material: cenário plausível e comentário das alternativas erradas.
-- Montar o **simulado 02** só com questões inéditas, sem reaproveitar as páginas por domínio.
+- Questões novas no mesmo padrão das questões atuais, que são o ponto forte do material: cenário plausível e comentário das alternativas erradas.
+- Sem simulado completo: a dona do repositório decidiu em 06/10/2026 retirar o simulado 01 e não montar o simulado 02. A prática fica nas questões por domínio.
 - Tabela de rastreabilidade (AP-13): objetivo do exam guide → aula → questões.
 
 ## 10. Fase 7 — Edição impressa
@@ -262,7 +262,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 | 3 | Concluída | #31 (modelo de aula em `templates/topico.md`) · #32 (aula-piloto 2.1) · #52 (ficha-piloto SQS) | Aula-piloto lida e aprovada pela dona do repositório em 06/10/2026 (AP-14). A ficha-piloto do SQS usa o modelo da Fase 5 |
 | 4 | Concluída | Onda A concluída: #33 (aulas 2.2 e 2.3) · #34 (2.4 e 2.5) · #35 (2.6 e 2.7) · #36 (2.8 a 2.10). Onda B concluída: #37 (aulas 1.1 e 1.2) · #38 (1.3 e 1.4) · #39 (1.5 a 1.7). Onda C concluída: #40 (aulas 3.1 e 3.2) · #41 (3.3 e 3.4) · #42 (3.5 e 3.6) · #43 (3.7 e 3.8) · #44 (3.9 e 3.10). Onda D concluída: #45 (aulas 3.11 e 3.12) · #46 (3.13 e 3.14) · #47 (3.15 e 3.16) · #48 (3.17 e 3.18). Onda E concluída: #49 (aulas 4.1 e 4.2) · #50 (4.3 e 4.4) · #51 (4.5 e 4.6) | As 46 aulas são autorais. Próxima: fase 5 (fichas) |
 | 5 | Em andamento | #52 (modelo de ficha em `templates/servico.md` e ficha-piloto SQS) · #53 (classificação das fichas) · #54 (núcleo de integração: SNS, EventBridge e Step Functions) · #55 (EC2, Auto Scaling, ELB e Lambda) · #56 (ECS, EKS, Fargate e Elastic Beanstalk) · #57 (núcleo de armazenamento: S3, classes do S3, EBS, EFS, Storage Gateway e AWS Backup) · #58 (núcleo de banco de dados: RDS, Aurora, DynamoDB, ElastiCache e Redshift) · #59 (núcleo de redes: VPC, peering e Transit Gateway, VPN, Direct Connect, Route 53, CloudFront, Global Accelerator e API Gateway) | Fichas classificadas (#53). Núcleo reescrito: integração, computação, armazenamento, banco de dados e redes. Próximo: segurança; depois as demais categorias |
-| 6 | Pendente | — | — |
+| 6 | Pendente | #60 (simulado 01 retirado e simulado 02 fora do plano) | Decisão da dona do repositório em 06/10/2026; a prática fica nas questões por domínio |
 | 7 | Pendente | — | — |
 | 8 | Pendente | — | — |
 

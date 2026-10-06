@@ -33,7 +33,7 @@
 
 | Antes no repositório | Resultado oficial | Aplicado em |
 |---|---|---|
-| "Mudar o plano de suporte" e "alterar o nome da conta" exigem o root | **Não exigem mais.** Nome da conta, contatos e regiões não exigem root; o plano de suporte saiu da lista oficial | [2.2](../02-seguranca-e-conformidade/02-usuario-root.md), [IAM](../../servicos/seguranca/iam.md), [planos de suporte](../../servicos/custos/planos-de-suporte.md), [simulado](../../simulados/simulado-01.md) |
+| "Mudar o plano de suporte" e "alterar o nome da conta" exigem o root | **Não exigem mais.** Nome da conta, contatos e regiões não exigem root; o plano de suporte saiu da lista oficial | [2.2](../02-seguranca-e-conformidade/02-usuario-root.md), [IAM](../../servicos/seguranca/iam.md) e [planos de suporte](../../servicos/custos/planos-de-suporte.md) |
 | Intelligent-Tiering "sem taxa de recuperação" | Standard e Bulk grátis, mas **Expedited na camada Archive Access é cobrado**, além do monitoramento por objeto | [Classes do S3](../../servicos/armazenamento/s3-classes-de-armazenamento.md) |
 | CloudTrail Lake fechado a novos clientes em 30/04/2026 | **31/05/2026** (anúncio de 31/03/2026) | [CloudTrail](../../servicos/gerenciamento/cloudtrail.md) |
 | Security Hub "exige" o AWS Config | A maioria dos controles usa o Config; com o Security Hub novo, o recorder é criado automaticamente | [Security Hub](../../servicos/seguranca/security-hub.md) |

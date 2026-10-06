@@ -2,8 +2,7 @@
 
 ## Questões deste repositório
 
-- 📝 [Simulado 01](simulado-01.md): 65 questões no formato da prova (90 min), com gabarito comentado e folha de correção por domínio.
-- ❓ [Questões por domínio](questoes/README.md): as mesmas questões agrupadas por tópico, para estudo direcionado.
+- ❓ [Questões por domínio](questoes/README.md): questões no formato da prova, agrupadas por tópico, para estudo direcionado.
 
 ## Registro dos seus simulados
 

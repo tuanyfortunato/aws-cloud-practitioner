@@ -2,7 +2,7 @@
 
 20 questões no formato da prova, em ordem de tópico. Responda antes de abrir "Ver resposta".
 
-⬅️ [Todas as questões por domínio](README.md) · 📝 [Simulado completo](../simulado-01.md)
+⬅️ [Todas as questões por domínio](README.md)
 
 ---
 

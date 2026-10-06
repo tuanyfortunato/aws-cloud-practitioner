@@ -19,7 +19,7 @@ Se você chegou agora, faça esta sequência:
 
 ## Como usar a apostila
 
-Pense neste README como o sumário de um livro. As **aulas** constroem a base em sequência. As **fichas** aprofundam um serviço quando ele aparece na aula. **Flashcards** são cartões de pergunta e resposta para relembrar o que você já estudou. As **questões e o simulado** ajudam a aplicar esse conhecimento.
+Pense neste README como o sumário de um livro. As **aulas** constroem a base em sequência. As **fichas** aprofundam um serviço quando ele aparece na aula. **Flashcards** são cartões de pergunta e resposta para relembrar o que você já estudou. As **questões** ajudam a aplicar esse conhecimento.
 
 Por exemplo: ao chegar à [aula de EC2](docs/03-tecnologia-e-servicos/03-ec2.md), entenda primeiro o que é um computador virtual. Depois abra a [ficha de EC2](servicos/computacao/ec2.md) para estudar as escolhas de máquina, disco, acesso, segurança e custo. As fichas indicadas em cada aula ajudam a aprofundar esse assunto.
 
@@ -390,12 +390,11 @@ Ao terminar cada capítulo, faça as questões dele e explique por que escolheu 
 |---|---|---|
 | Durante a leitura | [Flashcards por domínio](flashcards/README.md) | Revise os cartões das aulas já estudadas; use o [arquivo para Anki](flashcards/anki-clf-c02.tsv) se preferir esse aplicativo. |
 | Depois de um capítulo | [Questões por domínio](simulados/questoes/README.md) | Responda sem consulta e confira as explicações. |
-| Depois dos quatro capítulos | [Simulado 01](simulados/simulado-01.md) | Reserve o tempo indicado no simulado, responda sem consulta e depois examine cada erro. |
 | Na revisão | [Serviços que se parecem](resumos/comparativos.md) | Explique qual necessidade distingue cada par. |
 | Na revisão | [Palavras-chave dos enunciados](resumos/palavras-chave.md) | Relacione as pistas ao problema completo; uma palavra isolada não substitui a leitura da questão. |
 | Na revisão | [Números-âncora](resumos/numeros-ancora.md) | Retome os números destacados depois de entender o conceito. |
 
-O simulado e as questões por domínio usam o mesmo banco. Refazer questões ajuda a revisar, mas reconhecer uma resposta já vista não demonstra, sozinho, domínio do assunto. Tente justificar a escolha antes de abrir o gabarito.
+Refazer questões ajuda a revisar, mas reconhecer uma resposta já vista não demonstra, sozinho, domínio do assunto. Tente justificar a escolha antes de abrir o gabarito.
 
 ## Materiais e acompanhamento
 
@@ -407,8 +406,7 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 | 📖 [Tópicos da prova](#sumário-da-apostila) | **41 tópicos** que cobrem os 4 domínios, com conceitos explicados, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do roteiro |
 | 🔎 [Fichas de serviços](#caderno-de-serviços) | **105 fichas** (uma por serviço ou família), com funcionamento, opções, limites, segurança, custo e casos resolvidos; 5 reúnem serviços **fora da prova** | Quando um tópico citar o serviço, ou para tirar dúvidas |
 | 🃏 [Flashcards](flashcards/README.md) | **226 perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |
-| 📝 [Simulado 01](simulados/simulado-01.md) | **65 questões** no formato da prova, com gabarito comentado | Depois de estudar os 4 domínios (90 min, sem consulta) |
-| ❓ [Questões por domínio](simulados/questoes/README.md) | As mesmas questões, agrupadas por tópico | Ao terminar cada domínio |
+| ❓ [Questões por domínio](simulados/questoes/README.md) | **65 questões** no formato da prova, agrupadas por tópico, com explicação | Ao terminar cada domínio |
 | ⚖️ [Pares que confundem](resumos/comparativos.md) | **55 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
 | 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **28 gatilhos** do enunciado que apontam a resposta | Revisão final |
 | 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |
@@ -457,7 +455,7 @@ As melhorias planejadas e seus critérios de conclusão estão na [pasta de pend
 | [Estrutura da apostila](scripts/apostila.py) | Organiza o corpo das aulas e fichas. |
 | [Fontes editoriais das fichas](scripts/conteudo_servicos/) | Conteúdo de cada categoria, antes da geração do Markdown. |
 | [Banco de questões](scripts/banco_questoes.py) | Enunciados, alternativas e explicações. |
-| [Gerador do simulado](scripts/gerar_simulado.py) | Atualiza o simulado e as questões por domínio. |
+| [Gerador das questões](scripts/gerar_simulado.py) | Atualiza as questões por domínio. |
 | [Verificador de links](scripts/verificar_links.py) | Confere os destinos dos links internos. |
 | [Modelo de ficha](templates/servico.md) | Orienta a criação de fichas de serviços. |
 
