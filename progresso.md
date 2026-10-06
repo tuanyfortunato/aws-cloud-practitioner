@@ -7,6 +7,8 @@ Marque `[x]` à medida que avança. Esta página é o único lugar de acompanham
 - [ ] [0.1 Computador, servidor e virtualização](docs/fundamentos/01-servidor-e-virtualizacao.md)
 - [ ] [0.2 Rede: endereço IP, porta, DNS e HTTPS](docs/fundamentos/02-rede.md)
 - [ ] [0.3 Dados: arquivo, bloco, objeto e banco de dados](docs/fundamentos/03-dados.md)
+- [ ] [0.4 Como programas conversam: API, requisição e fila](docs/fundamentos/04-api-e-filas.md)
+- [ ] [0.5 Segurança básica: identidade, autenticação, autorização e criptografia](docs/fundamentos/05-seguranca-basica.md)
 
 ## Domínio 1 — Conceitos de Nuvem (24%)
 
