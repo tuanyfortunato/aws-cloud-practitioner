@@ -1,162 +1,80 @@
+<!-- autoral -->
+
 # Amazon CloudWatch
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Um sistema ficou lento ou falhou. A equipe precisa acompanhar seu comportamento e perceber problemas, em vez de esperar alguém reclamar.
-
-**Como este serviço ajuda?** CloudWatch reúne recursos para métricas, logs e alarmes. Você observa dados do ambiente e define condições que devem gerar avisos ou ações integradas.
-
-**Exemplo do dia a dia:** A escola acompanha uma métrica da aplicação e cria um alarme quando ela ultrapassa um limite definido. Logs ajudam a entender erros do programa.
-
-**O que ele não resolve sozinho?** Nem todo dado é coletado automaticamente, e um alarme não corrige qualquer problema sozinho. Você precisa coletar os dados certos e configurar a resposta desejada.
-
-**Primeiras palavras para entender:**
-
-- **Métrica:** medida ao longo do tempo.
-- **Log:** registro de acontecimentos.
-- **Alarme:** condição monitorada que pode mudar de estado e acionar respostas.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gerenciamento / observabilidade · **Domínio:** 2 e 3 · **Escopo:** Regional (dashboards e alarmes entre regiões/contas) · **Tópico do guia:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)
+> **Categoria:** Gerenciamento e observabilidade · **Domínio:** 2 e 3 · **Abrangência:** Regional (painéis e alarmes podem reunir Regiões e contas) · **Ficha:** núcleo
 >
-> **Em uma frase:** monitoramento de **métricas, logs e alarmes** de recursos e aplicações AWS e on-premises.
+> **Em uma frase:** monitora recursos e aplicações com métricas, alarmes, painéis e logs, para ver como estão funcionando e agir quando algo passa do limite.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.7 Logs, monitoramento e auditoria](../../docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)
 
-**Passo 1.** Escolha quais medidas e registros ajudam a observar o problema da aplicação.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure coleta, visualizações e condições de alarme. Dados são acompanhados dentro dos períodos e critérios definidos.
+---
 
-**Passo 3.** Investigue mudanças e acione a resposta planejada. Um número isolado não explica a causa de toda falha.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Na manhã da matrícula, o portal da escola ficou lento e ninguém soube dizer por quê. O técnico só descobriu o pico de CPU horas depois, entrando na instância. E ninguém foi avisado quando a conta do mês passou do orçamento.
 
-### Componentes
+O **CloudWatch** acompanha o funcionamento em tempo real. Os serviços da AWS enviam **métricas** sem custo, como o uso de CPU de uma instância EC2. Um **alarme** observa uma métrica e age quando ela passa de um limite por um período: avisa por um tópico do SNS, para ou reinicia a instância, ou aciona o Auto Scaling. O **CloudWatch Logs** reúne os registros de sistemas e aplicações num só lugar, e os **painéis** mostram tudo numa tela.
 
-**Metrics**
+O limite: o CloudWatch mostra como os recursos estão funcionando, não quem fez cada mudança (isso é o [CloudTrail](cloudtrail.md)) nem como a configuração estava antes (isso é o [Config](config.md)). E algumas medidas de dentro do sistema operacional, como a memória usada numa instância EC2, só chegam com o **agente do CloudWatch** instalado.
 
-**Detalhe:** Séries temporais por *namespace* (ex.: `AWS/EC2`) e *dimensões* (ex.: InstanceId). Resolução padrão 1 min (EC2 básico: **5 min**); *high-resolution* até 1 s. Retenção de **15 meses** (agregadas).
+## Como funciona
 
-**Custom metrics**
+1. Os serviços da AWS enviam métricas automaticamente; o agente do CloudWatch coleta métricas e logs de dentro das instâncias.
+2. Você cria alarmes com um limite e uma ação, por exemplo "CPU acima de 80% por 5 minutos avisa a equipe".
+3. Os logs chegam aos grupos de log, onde ficam guardados pelo tempo definido e podem ser consultados com o Logs Insights.
+4. Painéis reúnem métricas e alarmes; o alarme de cobrança avisa quando os gastos estimados passam de um valor.
 
-**Detalhe:** Enviadas pela aplicação ou pelo **CloudWatch agent** (memória, disco, processos).
+## Opções principais
 
-**Alarms**
+| Peça | O que faz | Exemplo na escola |
+|---|---|---|
+| Métricas | Medidas numéricas ao longo do tempo | CPU do servidor do portal |
+| Alarmes | Agem quando a métrica passa do limite | Avisar a equipe e criar mais instâncias |
+| CloudWatch Logs | Centraliza e guarda os registros | Erros da aplicação de matrícula |
+| Logs Insights | Consulta os logs com uma linguagem própria | Quantos erros por hora na matrícula |
+| Painéis | Uma tela com métricas e alarmes | Painel do dia da matrícula |
+| Agente do CloudWatch | Coleta memória, disco e logs de dentro da instância | Memória usada no servidor |
 
-**Detalhe:** Estados **OK / ALARM / INSUFFICIENT_DATA**. Ações: **SNS**, **Auto Scaling**, **ações de EC2** (parar, encerrar, reiniciar, recuperar), Systems Manager. **Composite alarms** combinam vários. **Anomaly detection** cria faixas esperadas com ML.
+## Números que a prova cobra
 
-**Billing alarm**
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Monitoramento básico do EC2 | Métricas a cada 5 minutos, sem custo | 06/10/2026 |
+| Monitoramento detalhado do EC2 | Métricas a cada 1 minuto, cobrado | 06/10/2026 |
+| Memória e espaço em disco do EC2 | Só com o agente do CloudWatch | 06/10/2026 |
+| Métrica de cobrança | Região Leste dos EUA (Norte da Virgínia) | 06/10/2026 |
+| Retenção padrão do CloudWatch Logs | Indefinida, ajustável por grupo de log | 06/10/2026 |
+| Nível gratuito | 10 métricas, 10 alarmes, 3 painéis e 5 GB de logs por mês | 06/10/2026 |
 
-**Detalhe:** Alarme sobre a métrica *EstimatedCharges* (precisa ativar alertas de faturamento; métrica fica em **us-east-1**).
+## Como é cobrado
 
-**Logs**
+As métricas que os serviços enviam por padrão não custam nada. Acima do nível gratuito, paga-se por métrica personalizada ou de monitoramento detalhado, por alarme, por painel, pelos logs ingeridos e guardados e pelos dados lidos nas consultas.
 
-**Detalhe:** *Log groups* e *log streams*; **retenção configurável** (padrão: nunca expira); **metric filters** (transformar padrões de log em métricas); **subscription filters** (enviar a Lambda/Kinesis/OpenSearch); export para S3.
+## Não confundir com
 
-**Logs Insights**
+| Serviço | Diferença para o CloudWatch | Pista no enunciado |
+|---|---|---|
+| [AWS CloudTrail](cloudtrail.md) | Registra quem fez cada chamada de API | "Quem apagou", "quem alterou" |
+| [AWS Config](config.md) | Guarda o histórico de configuração | "Como estava configurado" |
+| [AWS Health Dashboard](health-dashboard.md) | Eventos do lado da AWS | "O problema é da AWS?" |
+| [AWS Budgets](../custos/budgets.md) | Orçamentos e alertas de custo e uso | "Orçamento mensal", "previsão de gasto" |
 
-**Detalhe:** Consultas interativas sobre logs. **Live Tail** acompanha em tempo real.
+## Fontes oficiais
 
-**Dashboards**
+Verificadas em 06/10/2026.
 
-**Detalhe:** Painéis **globais** com métricas de várias regiões/contas.
-
-**Synthetics**
-
-**Detalhe:** *Canaries* que simulam usuários (testes de endpoints/fluxos).
-
-**RUM**
-
-**Detalhe:** Monitoramento de usuários reais (front-end web).
-
-**Container / Lambda Insights, Application Signals**
-
-**Detalhe:** Observabilidade de contêineres, funções e aplicações (APM).
-
-**CloudWatch agent**
-
-**Detalhe:** Instalado em EC2/on-premises para métricas do SO e envio de logs.
-
-### Métricas padrão do EC2
-
-✅ CPU, rede (bytes/pacotes), disco de instance store (ops/bytes), **status checks** (a cada **1 min**, mesmo no básico), créditos de CPU (T).
-
-Monitoramento **detalhado**: todas as métricas a cada 1 min, pago por métrica.
-
-❌ **Memória**, uso de **disco do sistema de arquivos**, processos → exigem o **agent**.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Nem todo dado é coletado automaticamente, e um alarme não corrige qualquer problema sozinho. Você precisa coletar os dados certos e configurar a resposta desejada.
-
-### ⚠️ Não confundir
-
-**CloudWatch** (desempenho: métricas/logs/alarmes) × **CloudTrail** (quem fez qual chamada de API) × **Config** (estado/histórico de configuração).
-
-CloudWatch billing alarm × **AWS Budgets** (orçamentos mais completos, inclusive previsão).
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Camada gratuita ✔️ (Always Free): métricas básicas, **10 métricas** (customizadas + detailed monitoring, somadas) e **10 métricas de alarme** de resolução padrão, além de cota de logs; depois por métrica customizada, alarme, GB de log ingerido/armazenado, consulta, dashboard, canary.
-
-## 5. Caso resolvido: ligando as peças
-
-O sistema ficou lento, e a equipe quer perceber o problema e investigar seu comportamento. A pergunta inicial é como ele funciona, não quem realizou uma ação administrativa.
-
-A equipe coleta métricas pertinentes, registros da aplicação e cria um alarme com período e critério definidos. Um aumento de erros pode disparar uma notificação configurada. Logs ajudam a examinar o que o programa registrou durante a ocorrência.
-
-O alarme não explica sozinho a causa nem aplica qualquer correção por padrão. Para investigar quem alterou um recurso, eventos CloudTrail podem ser necessários; para acompanhar propriedades e conformidade de configuração, Config atende outra parte da investigação.
-
-**Recursos envolvidos:** Métricas, logs, alarmes e dashboards.
-
-**Decisões que precisam ser tomadas:** Coleta, retenção, thresholds e ações.
-
-**Outra situação comentada:** CPU acima da meta: métrica/alarme; quem mudou SG: CloudTrail.
-
-**Por que não concluir mais do que isso:** Memória de EC2 não vem toda por padrão; alarme sem ação não remedia nada
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Alerta quando a CPU passar de 80%."
-
-**Resposta curta:** Alarme do CloudWatch + SNS.
-
-**Pergunta:** "Coletar memória usada pelo EC2."
-
-**Resposta curta:** CloudWatch agent.
-
-**Pergunta:** "Onde ver logs de aplicação?"
-
-**Resposta curta:** CloudWatch Logs.
-
-**Pergunta:** "Reiniciar automaticamente uma instância com falha de status check."
-
-**Resposta curta:** Alarme com ação de EC2 (recover/reboot).
-
-**Pergunta:** "Monitorar um site simulando usuários a cada 5 minutos."
-
-**Resposta curta:** CloudWatch Synthetics.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+- [O que é o Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+- [Alarmes do CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.html)
+- [Monitoramento detalhado do EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html)
+- [Métricas coletadas pelo agente](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.html)
+- [Alarme de cobrança](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html)
+- [Retenção dos logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html)
+- [Preços do Amazon CloudWatch](https://aws.amazon.com/cloudwatch/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
