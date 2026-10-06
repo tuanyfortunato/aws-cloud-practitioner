@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 42 cards
+**Total:** 35 cards
 
 
 ## [1.1 O que é computação em nuvem](../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md)
@@ -140,139 +140,97 @@ Para revisar e medir uma carga de trabalho com base no framework, documentar dec
 ## [1.5 AWS Cloud Adoption Framework (CAF)](../docs/01-conceitos-de-nuvem/05-cloud-adoption-framework.md)
 
 <details>
-<summary>Qual perspectiva do CAF trata de treinamento, cultura e mudança organizacional?</summary>
+<summary>Quais são as seis perspectivas do AWS CAF?</summary>
 
-People.
+Negócio, Pessoas, Governança, Plataforma, Segurança e Operações.
 </details>
 
 <details>
-<summary>Qual perspectiva garante que a estratégia de nuvem gere valor de negócio?</summary>
+<summary>Qual perspectiva do CAF trata de cultura, treinamento e gestão da mudança?</summary>
 
-Business.
+Pessoas, que faz a ponte entre tecnologia e negócio com foco em cultura, estrutura organizacional, liderança e força de trabalho.
 </details>
 
 <details>
-<summary>Qual perspectiva cuida de risco, orçamento e gestão do programa?</summary>
+<summary>Quais são as quatro fases da jornada de transformação do CAF?</summary>
 
-Governance.
+Envision (oportunidades e resultados), Align (lacunas e alinhamento), Launch (pilotos em produção) e Scale (expandir o que funcionou).
 </details>
 
 <details>
-<summary>Qual perspectiva trata da arquitetura e da plataforma técnica?</summary>
+<summary>Quais resultados de negócio o CAF promete?</summary>
 
-Platform.
+Redução do risco de negócio, melhoria do desempenho ESG, aumento de receita e aumento da eficiência operacional.
 </details>
 
 <details>
-<summary>Qual perspectiva trata de identidade, proteção de dados e resposta a incidentes?</summary>
+<summary>Qual é a diferença entre o CAF e o Well-Architected Framework?</summary>
 
-Security.
-</details>
-
-<details>
-<summary>Qual perspectiva trata de monitoramento e gestão de incidentes operacionais?</summary>
-
-Operations.
-</details>
-
-<details>
-<summary>Quais são as fases da jornada de transformação?</summary>
-
-Envision, Align, Launch e Scale.
-</details>
-
-<details>
-<summary>Qual é um benefício do CAF?</summary>
-
-Reduzir risco de negócio, melhorar ESG, aumentar receita ou eficiência operacional.
+O CAF orienta a organização inteira na adoção da nuvem (pessoas, processos, decisões); o Well-Architected avalia a arquitetura de uma carga de trabalho.
 </details>
 
 
 ## [1.6 Estratégias de migração (os 7 Rs)](../docs/01-conceitos-de-nuvem/06-estrategias-de-migracao.md)
 
 <details>
-<summary>Migrar servidores para EC2 sem mudar nada.</summary>
+<summary>Quais são os 7 Rs de migração?</summary>
 
-Rehost.
+Retire, Retain, Rehost, Relocate, Repurchase, Replatform e Refactor (ou re-architect).
 </details>
 
 <details>
-<summary>Migrar o banco para RDS para reduzir administração, sem mudar a aplicação.</summary>
+<summary>Qual é a diferença entre rehost e replatform?</summary>
 
-Replatform.
+Rehost move a aplicação sem alterá-la; replatform move e faz algumas otimizações, como levar o banco para um serviço gerenciado como o Amazon RDS.
 </details>
 
 <details>
-<summary>Trocar o sistema próprio por um produto SaaS.</summary>
+<summary>Uma empresa troca seu CRM próprio por um produto SaaS. Qual estratégia?</summary>
 
-Repurchase.
+Repurchase, também chamada de drop and shop: substituir a aplicação por outro produto ou versão.
 </details>
 
 <details>
-<summary>Reescrever a aplicação para usar Lambda e microsserviços.</summary>
+<summary>Por que a AWS não recomenda refactor em migrações grandes?</summary>
 
-Refactor.
+Porque é a estratégia mais complexa e cara, já que moderniza a aplicação durante a migração; a recomendação é migrar primeiro e modernizar depois.
 </details>
 
 <details>
-<summary>Desligar aplicações que ninguém usa.</summary>
+<summary>Qual serviço replica continuamente um banco de dados durante a migração?</summary>
 
-Retire.
-</details>
-
-<details>
-<summary>Manter a aplicação no datacenter por exigência regulatória.</summary>
-
-Retain.
-</details>
-
-<details>
-<summary>Qual estratégia é a mais rápida?</summary>
-
-Rehost.
-</details>
-
-<details>
-<summary>Qual traz mais benefícios de nuvem a longo prazo?</summary>
-
-Refactor.
+O AWS Database Migration Service (AWS DMS), que faz migrações únicas ou replica as mudanças para manter origem e destino sincronizados.
 </details>
 
 
 ## [1.7 Economia da nuvem](../docs/01-conceitos-de-nuvem/07-economia-da-nuvem.md)
 
 <details>
-<summary>Qual custo deixa de existir ao migrar para a AWS?</summary>
+<summary>Qual é a diferença entre custo fixo e custo variável na nuvem?</summary>
 
-Custos de datacenter (energia, refrigeração, espaço físico, compra de hardware).
+Custo fixo é pago independentemente do uso, como um servidor comprado; custo variável acompanha o consumo, como pagar por hora de instância ligada.
 </details>
 
 <details>
-<summary>Qual custo continua sendo do cliente na nuvem?</summary>
+<summary>Que custos de um ambiente local costumam ficar de fora de uma comparação simples?</summary>
 
-Gestão das aplicações e dos dados, licenças não incluídas, uso dos recursos.
+Espaço, energia, refrigeração, trabalho de montar e manter servidores, licenças e a capacidade ociosa comprada para o pico.
 </details>
 
 <details>
-<summary>Como reduzir custo de licenças ao migrar?</summary>
+<summary>O que é BYOL e quando ele ajuda?</summary>
 
-BYOL com Dedicated Hosts, ou usar instâncias com licença incluída.
+É trazer as próprias licenças de software para a AWS, dentro dos termos de cada licença; ajuda quando a organização já tem licenças válidas, como de Windows Server ou SQL Server.
 </details>
 
 <details>
-<summary>Qual ferramenta ajuda a montar o caso de negócio (TCO) da migração?</summary>
+<summary>O que é rightsizing e qual serviço recomenda tamanhos?</summary>
 
-Migration Evaluator.
+É ajustar o tipo e o tamanho dos recursos ao uso real; o AWS Compute Optimizer analisa métricas de uso e recomenda tamanhos, além de apontar recursos ociosos.
 </details>
 
 <details>
-<summary>Qual prática ajusta recursos ao uso real?</summary>
+<summary>Qual ferramenta estima o custo de uma arquitetura na AWS antes de construí-la?</summary>
 
-Rightsizing.
-</details>
-
-<details>
-<summary>Por que serviços gerenciados reduzem o TCO?</summary>
-
-Diminuem o trabalho operacional (patches, backups, hardware).
+A AWS Pricing Calculator, ferramenta web gratuita para criar estimativas de custo dos serviços da AWS.
 </details>

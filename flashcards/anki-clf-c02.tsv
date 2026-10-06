@@ -39,28 +39,21 @@ Quais são os seis pilares do Well-Architected Framework?	Excelência operaciona
 """Fazer mudanças frequentes, pequenas e reversíveis"" pertence a qual pilar?"	Excelência operacional, o pilar de operar e evoluir a carga de trabalho, junto com observabilidade, automação e aprendizado com os eventos.	CLF-C02 dominio-1 secao-1_4
 O que o pilar de sustentabilidade recomenda sobre utilização dos recursos?	Maximizar a utilização: dimensionar corretamente e evitar recursos ociosos, porque poucos servidores bem usados gastam menos energia que muitos subutilizados.	CLF-C02 dominio-1 secao-1_4
 Para que serve a AWS Well-Architected Tool?	Para revisar e medir uma carga de trabalho com base no framework, documentar decisões, receber recomendações e acompanhar melhorias, sem cobrança adicional.	CLF-C02 dominio-1 secao-1_4
-Qual perspectiva do CAF trata de treinamento, cultura e mudança organizacional?	People.	CLF-C02 dominio-1 secao-1_5
-Qual perspectiva garante que a estratégia de nuvem gere valor de negócio?	Business.	CLF-C02 dominio-1 secao-1_5
-Qual perspectiva cuida de risco, orçamento e gestão do programa?	Governance.	CLF-C02 dominio-1 secao-1_5
-Qual perspectiva trata da arquitetura e da plataforma técnica?	Platform.	CLF-C02 dominio-1 secao-1_5
-Qual perspectiva trata de identidade, proteção de dados e resposta a incidentes?	Security.	CLF-C02 dominio-1 secao-1_5
-Qual perspectiva trata de monitoramento e gestão de incidentes operacionais?	Operations.	CLF-C02 dominio-1 secao-1_5
-Quais são as fases da jornada de transformação?	Envision, Align, Launch e Scale.	CLF-C02 dominio-1 secao-1_5
-Qual é um benefício do CAF?	Reduzir risco de negócio, melhorar ESG, aumentar receita ou eficiência operacional.	CLF-C02 dominio-1 secao-1_5
-Migrar servidores para EC2 sem mudar nada.	Rehost.	CLF-C02 dominio-1 secao-1_6
-Migrar o banco para RDS para reduzir administração, sem mudar a aplicação.	Replatform.	CLF-C02 dominio-1 secao-1_6
-Trocar o sistema próprio por um produto SaaS.	Repurchase.	CLF-C02 dominio-1 secao-1_6
-Reescrever a aplicação para usar Lambda e microsserviços.	Refactor.	CLF-C02 dominio-1 secao-1_6
-Desligar aplicações que ninguém usa.	Retire.	CLF-C02 dominio-1 secao-1_6
-Manter a aplicação no datacenter por exigência regulatória.	Retain.	CLF-C02 dominio-1 secao-1_6
-Qual estratégia é a mais rápida?	Rehost.	CLF-C02 dominio-1 secao-1_6
-Qual traz mais benefícios de nuvem a longo prazo?	Refactor.	CLF-C02 dominio-1 secao-1_6
-Qual custo deixa de existir ao migrar para a AWS?	Custos de datacenter (energia, refrigeração, espaço físico, compra de hardware).	CLF-C02 dominio-1 secao-1_7
-Qual custo continua sendo do cliente na nuvem?	Gestão das aplicações e dos dados, licenças não incluídas, uso dos recursos.	CLF-C02 dominio-1 secao-1_7
-Como reduzir custo de licenças ao migrar?	BYOL com Dedicated Hosts, ou usar instâncias com licença incluída.	CLF-C02 dominio-1 secao-1_7
-Qual ferramenta ajuda a montar o caso de negócio (TCO) da migração?	Migration Evaluator.	CLF-C02 dominio-1 secao-1_7
-Qual prática ajusta recursos ao uso real?	Rightsizing.	CLF-C02 dominio-1 secao-1_7
-Por que serviços gerenciados reduzem o TCO?	Diminuem o trabalho operacional (patches, backups, hardware).	CLF-C02 dominio-1 secao-1_7
+Quais são as seis perspectivas do AWS CAF?	Negócio, Pessoas, Governança, Plataforma, Segurança e Operações.	CLF-C02 dominio-1 secao-1_5
+Qual perspectiva do CAF trata de cultura, treinamento e gestão da mudança?	Pessoas, que faz a ponte entre tecnologia e negócio com foco em cultura, estrutura organizacional, liderança e força de trabalho.	CLF-C02 dominio-1 secao-1_5
+Quais são as quatro fases da jornada de transformação do CAF?	Envision (oportunidades e resultados), Align (lacunas e alinhamento), Launch (pilotos em produção) e Scale (expandir o que funcionou).	CLF-C02 dominio-1 secao-1_5
+Quais resultados de negócio o CAF promete?	Redução do risco de negócio, melhoria do desempenho ESG, aumento de receita e aumento da eficiência operacional.	CLF-C02 dominio-1 secao-1_5
+Qual é a diferença entre o CAF e o Well-Architected Framework?	O CAF orienta a organização inteira na adoção da nuvem (pessoas, processos, decisões); o Well-Architected avalia a arquitetura de uma carga de trabalho.	CLF-C02 dominio-1 secao-1_5
+Quais são os 7 Rs de migração?	Retire, Retain, Rehost, Relocate, Repurchase, Replatform e Refactor (ou re-architect).	CLF-C02 dominio-1 secao-1_6
+Qual é a diferença entre rehost e replatform?	Rehost move a aplicação sem alterá-la; replatform move e faz algumas otimizações, como levar o banco para um serviço gerenciado como o Amazon RDS.	CLF-C02 dominio-1 secao-1_6
+Uma empresa troca seu CRM próprio por um produto SaaS. Qual estratégia?	Repurchase, também chamada de drop and shop: substituir a aplicação por outro produto ou versão.	CLF-C02 dominio-1 secao-1_6
+Por que a AWS não recomenda refactor em migrações grandes?	Porque é a estratégia mais complexa e cara, já que moderniza a aplicação durante a migração; a recomendação é migrar primeiro e modernizar depois.	CLF-C02 dominio-1 secao-1_6
+Qual serviço replica continuamente um banco de dados durante a migração?	O AWS Database Migration Service (AWS DMS), que faz migrações únicas ou replica as mudanças para manter origem e destino sincronizados.	CLF-C02 dominio-1 secao-1_6
+Qual é a diferença entre custo fixo e custo variável na nuvem?	Custo fixo é pago independentemente do uso, como um servidor comprado; custo variável acompanha o consumo, como pagar por hora de instância ligada.	CLF-C02 dominio-1 secao-1_7
+Que custos de um ambiente local costumam ficar de fora de uma comparação simples?	Espaço, energia, refrigeração, trabalho de montar e manter servidores, licenças e a capacidade ociosa comprada para o pico.	CLF-C02 dominio-1 secao-1_7
+O que é BYOL e quando ele ajuda?	É trazer as próprias licenças de software para a AWS, dentro dos termos de cada licença; ajuda quando a organização já tem licenças válidas, como de Windows Server ou SQL Server.	CLF-C02 dominio-1 secao-1_7
+O que é rightsizing e qual serviço recomenda tamanhos?	É ajustar o tipo e o tamanho dos recursos ao uso real; o AWS Compute Optimizer analisa métricas de uso e recomenda tamanhos, além de apontar recursos ociosos.	CLF-C02 dominio-1 secao-1_7
+Qual ferramenta estima o custo de uma arquitetura na AWS antes de construí-la?	A AWS Pricing Calculator, ferramenta web gratuita para criar estimativas de custo dos serviços da AWS.	CLF-C02 dominio-1 secao-1_7
 Qual é a diferença entre segurança da nuvem e segurança na nuvem?	Segurança da nuvem é proteger a infraestrutura que roda os serviços, e é da AWS; segurança na nuvem é proteger o que o cliente coloca e configura nos serviços, e é do cliente.	CLF-C02 dominio-2 secao-2_1
 Por que a escola tem menos trabalho de segurança no RDS do que num banco instalado numa instância EC2?	Porque no RDS a AWS assume o sistema operacional e o software do banco, incluindo instalação, patches e backups, que no EC2 seriam da escola.	CLF-C02 dominio-2 secao-2_1
 Uma biblioteca empacotada numa função Lambda tem uma falha de segurança. Quem corrige?	O cliente, que precisa atualizar a biblioteca e publicar a função de novo.	CLF-C02 dominio-2 secao-2_1

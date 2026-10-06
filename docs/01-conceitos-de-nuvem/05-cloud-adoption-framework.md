@@ -1,127 +1,177 @@
+<!-- autoral -->
+
 # 1.5 AWS Cloud Adoption Framework (CAF)
 
-## 🧠 Antes de começar
-
-**Qual é a dificuldade?** Mudar para a nuvem afeta orçamento, equipes, processos e segurança. A mudança pode fracassar mesmo que as máquinas funcionem.
-
-**A ideia em palavras simples:** O Cloud Adoption Framework, ou CAF, ajuda a organizar a preparação da empresa em perspectivas. Cada perspectiva reúne capacidades e responsáveis por uma parte da adoção.
-
-**Exemplo do dia a dia:** A escola planeja treinamento para a equipe, regras de orçamento e operação do sistema, além da migração técnica.
-
-**O que não concluir?** CAF não transfere servidores nem substitui ferramentas de implantação. Ele organiza a transformação da empresa; Well-Architected se concentra na revisão de uma aplicação e sua operação.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Perspectiva** | um grupo de capacidades com um público responsável (ex.: People → RH e liderança). |
-| **ESG** | ambiental, social e governança. |
-
----
-
-> **Domínio 1 — Conceitos de Nuvem (24%)**
+> **Domínio 1 — Conceitos de Nuvem (24% da prova)** · Depende das aulas [1.2](02-vantagens-da-nuvem.md) e [1.4](04-well-architected-framework.md)
 
 ⬅️ [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) · 🏠 [Índice do domínio](README.md) · [1.6 Estratégias de migração (os 7 Rs)](06-estrategias-de-migracao.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+A rede de escolas decidiu levar todos os sistemas para a AWS, não só o de matrícula. Três meses depois, os servidores na nuvem funcionam, mas a mudança empacou. Os professores de informática não sabem operar o que foi criado. A diretoria financeira não sabe quanto vai gastar por mês nem quem aprova novos recursos. E ninguém definiu como medir se a mudança valeu a pena.
 
-Tecnologia é apenas uma parte da mudança. A empresa pode ter recursos funcionando, mas faltar equipe preparada, regras de decisão ou procedimentos operacionais. O CAF organiza essas capacidades para não deixar a transformação restrita à instalação de máquinas.
+A tecnologia estava pronta; faltava o resto da organização. É esse problema que o **AWS Cloud Adoption Framework** (AWS CAF) ataca. O guia do exame pede que você conheça os componentes do CAF e os benefícios que ele promete.
 
-Leia cada perspectiva como um grupo de perguntas e responsáveis. Quem cuida de competências e cultura não realiza a mesma tarefa de quem define padrões técnicos. As fases orientam começar com objetivos, identificar lacunas, experimentar e ampliar.
+## O que é o CAF
+
+O AWS CAF reúne a experiência e as boas práticas da AWS para ajudar organizações a se transformarem digitalmente e acelerarem seus resultados de negócio usando a AWS. Ele serve para identificar e priorizar oportunidades de transformação, avaliar e melhorar a **prontidão para a nuvem** (a capacidade de usar a nuvem para se transformar) e evoluir o plano de transformação aos poucos.
+
+A diferença para o [Well-Architected](04-well-architected-framework.md) é o alvo. O Well-Architected avalia uma carga de trabalho: se o sistema de matrícula está seguro, confiável e econômico. O CAF olha a organização inteira: se as pessoas, os processos e as decisões estão prontos para a nuvem. O limite é que o CAF é um guia de boas práticas, não um serviço que migra servidores.
+
+## Os resultados de negócio
+
+O CAF descreve uma cadeia de valor: a organização ganha **capacidades fundamentais**, que permitem a transformação, que acelera os resultados de negócio. Os principais resultados citados pela AWS são quatro, e o guia do exame cobra exatamente estes:
+
+- **Redução do risco de negócio.**
+- **Melhoria do desempenho ESG** (ambiental, social e de governança).
+- **Aumento de receita.**
+- **Aumento da eficiência operacional.**
+
+## Os quatro domínios de transformação
+
+A transformação acontece em quatro domínios, que a AWS apresenta como uma cadeia: a tecnológica permite a de processos, que permite a organizacional, que permite a de produto.
+
+| Domínio | Foco | Na escola |
+|---|---|---|
+| **Tecnologia** | Migrar e modernizar infraestrutura, aplicações e plataformas de dados | Levar os sistemas para a AWS |
+| **Processos** | Digitalizar, automatizar e otimizar as operações do negócio | Matrícula e rematrícula automáticas |
+| **Organização** | Repensar o modelo operacional, com equipes organizadas por produtos e métodos ágeis | Uma equipe responsável pelo portal das famílias |
+| **Produto** | Criar novas propostas de valor e modelos de receita | Oferecer cursos online pagos |
+
+## As seis perspectivas
+
+O CAF agrupa as capacidades fundamentais em **seis perspectivas**. Cada perspectiva reúne capacidades relacionadas e as pessoas que costumam cuidar delas (os *stakeholders*):
+
+| Perspectiva | Para que serve | Exemplos de capacidades | Stakeholders comuns |
+|---|---|---|---|
+| **Negócio** (*Business*) | Garantir que os investimentos em nuvem acelerem a transformação e os resultados de negócio | Gestão de estratégia, gestão de portfólio, inovação, gestão de produto | CEO, CFO, COO, CIO, CTO |
+| **Pessoas** (*People*) | Fazer a ponte entre tecnologia e negócio, com foco em cultura, estrutura organizacional, liderança e força de trabalho | Evolução da cultura, fluência em nuvem, transformação da força de trabalho, aceleração da mudança | CIO, COO, CTO, diretor de nuvem |
+| **Governança** (*Governance*) | Orquestrar as iniciativas de nuvem, maximizando os benefícios e minimizando os riscos da transformação | Gestão de programas e projetos, gestão de benefícios, gestão de riscos, gestão financeira na nuvem | CIO, CTO, CFO, CDO, CRO |
+| **Plataforma** (*Platform*) | Construir uma plataforma de nuvem escalável e híbrida, modernizar cargas existentes e criar soluções nativas da nuvem | Arquitetura de plataforma, engenharia de dados, provisionamento, CI/CD | CTO, arquitetos, engenheiros |
+| **Segurança** (*Security*) | Garantir a confidencialidade, a integridade e a disponibilidade dos dados e das cargas | Gestão de identidade e acesso, detecção de ameaças, proteção de dados, resposta a incidentes | CISO, CCO, auditoria interna |
+| **Operações** (*Operations*) | Garantir que os serviços de nuvem sejam entregues no nível combinado com o negócio | Observabilidade, gestão de incidentes e problemas, gestão de mudanças, gestão de patches | Líderes de infraestrutura e operações, SREs |
+
+As siglas são cargos: CEO (presidente), CFO (finanças), COO (operações), CIO e CTO (tecnologia), CDO (dados), CRO (riscos), CISO (segurança da informação), CCO (conformidade). SRE é o engenheiro de confiabilidade de sites, que cuida de manter os sistemas funcionando.
+
+Na escola, os professores que não sabem operar o ambiente são um problema de **Pessoas** (fluência em nuvem, treinamento). A diretoria que não sabe quanto vai gastar nem quem aprova é um problema de **Governança** (gestão financeira, gestão de programas). E não saber medir se a mudança valeu a pena é **Negócio** (estratégia) e **Governança** (gestão de benefícios).
+
+O limite é que perspectivas não são departamentos fechados: uma capacidade pode envolver várias áreas. Na prova, decida pelo foco descrito: cultura e treinamento apontam para Pessoas; risco, orçamento e programa apontam para Governança.
+
+## As quatro fases da jornada
+
+O CAF recomenda uma jornada iterativa e incremental em quatro fases, para mostrar valor cedo sem precisar prever tudo de uma vez:
+
+1. **Envision** (visualizar): mostrar como a nuvem vai acelerar os resultados de negócio, identificando e priorizando oportunidades de transformação nos quatro domínios.
+2. **Align** (alinhar): identificar lacunas de capacidade nas seis perspectivas, dependências entre áreas e preocupações dos stakeholders.
+3. **Launch** (lançar): entregar iniciativas-piloto em produção e demonstrar valor de forma incremental.
+4. **Scale** (escalar): expandir os pilotos e o valor de negócio para a escala desejada e garantir que os benefícios se mantenham.
+
+```mermaid
+flowchart LR
+    E["Envision<br/>oportunidades e resultados"] --> A["Align<br/>lacunas nas 6 perspectivas"]
+    A --> L["Launch<br/>pilotos em produção"]
+    L --> S["Scale<br/>expandir o que funciona"]
+    S -.->|"nova iteração"| E
+```
+
+*Figura 1.5 — As quatro fases do CAF formam um ciclo: cada volta amplia a transformação.*
+
+## Na prova
+
+- **Benefícios do CAF**: reduzir risco de negócio, melhorar desempenho ESG, aumentar receita e aumentar eficiência operacional.
+- **Seis perspectivas**: Negócio, Pessoas, Governança, Plataforma, Segurança e Operações.
+- **"Cultura, treinamento, gestão da mudança" = Pessoas.**
+- **"Riscos, orçamento, gestão do programa, benefícios" = Governança.**
+- **"Estratégia e portfólio, resultados de negócio" = Negócio.**
+- **"Arquitetura, engenharia, CI/CD" = Plataforma; "identidade, detecção, resposta a incidentes" = Segurança; "observabilidade, incidentes operacionais, patches" = Operações.**
+- **Fases, em ordem: Envision, Align, Launch, Scale.**
+- **CAF = organização inteira; Well-Architected = uma carga de trabalho.**
+
+## Caso resolvido
+
+**Situação.** Na fase de alinhamento da migração, a rede de escolas descobre três lacunas: os funcionários de TI resistem à mudança e não têm treinamento em nuvem; não existe um processo para aprovar e acompanhar o gasto com a AWS; e o ambiente na nuvem não tem monitoramento, então ninguém percebe quando algo para. Qual perspectiva do CAF cobre cada lacuna?
+
+**Raciocínio.** Resistência à mudança e falta de treinamento são cultura e fluência em nuvem: perspectiva de Pessoas. Aprovar e acompanhar gastos é gestão financeira na nuvem: perspectiva de Governança. Monitorar o ambiente para perceber falhas é observabilidade: perspectiva de Operações. E identificar lacunas nas seis perspectivas é exatamente o que a fase Align faz.
+
+**Por que as alternativas tentadoras falham.** Escolher Plataforma para a falta de treinamento só porque o assunto é técnico ignora que o problema é de pessoas e cultura. Escolher Negócio para o controle de gastos confunde estratégia com gestão financeira, que o CAF coloca em Governança. E escolher Segurança para o monitoramento erra o objetivo: perceber que um serviço parou é operação; detectar ameaças é segurança.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### Quais são as seis perspectivas do AWS CAF?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-é como **mudar a família inteira para outro país**: alguém cuida do dinheiro e do objetivo (Business), alguém prepara as pessoas e o idioma (People), alguém controla orçamento e riscos (Governance), e os outros cuidam da casa nova (Platform), da segurança (Security) e do dia a dia (Operations).
+Negócio, Pessoas, Governança, Plataforma, Segurança e Operações.
+
+Comentário: cada perspectiva reúne capacidades relacionadas e os stakeholders que costumam cuidar delas.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Qual perspectiva do CAF trata de cultura, treinamento e gestão da mudança?
 
-Guia para organizar a transformação digital de uma empresa na AWS.
+<details>
+<summary>Ver resposta</summary>
 
-**Benefícios declarados:** reduzir risco de negócio, melhorar desempenho ESG (ambiental, social e governança), aumentar receita e aumentar eficiência operacional.
+Pessoas, que faz a ponte entre tecnologia e negócio com foco em cultura, estrutura organizacional, liderança e força de trabalho.
 
-**6 perspectivas:**
+Comentário: não confunda com Governança, que cuida de riscos, programas, benefícios e gestão financeira.
 
-| Perspectiva | Público principal | Exemplos de capacidades |
-| --- | --- | --- |
-| Business | CEO, CFO, diretores de negócio | Estratégia, gestão de portfólio, inovação, dados como produto |
-| People | RH, liderança, gestores de pessoas | Cultura, treinamento, gestão da mudança, desenho organizacional |
-| Governance | CFO, gestores de risco e projetos | Gestão de programas, benefícios, riscos, finanças na nuvem (FinOps) |
-| Platform | CTO, arquitetos | Arquitetura, engenharia de plataforma, dados, CI/CD |
-| Security | CISO, times de segurança | Identidade, detecção, proteção de infraestrutura e dados, resposta a incidentes |
-| Operations | Times de operação e SRE | Observabilidade, gestão de incidentes e problemas, gestão de mudanças |
+</details>
 
-**Domínios de transformação:** Tecnologia, Processos, Organização e Produto.
+### Quais são as quatro fases da jornada de transformação do CAF?
 
-**4 fases (ciclo iterativo):** Envision (enxergar oportunidades), Align (identificar lacunas e alinhar stakeholders), Launch (entregar pilotos em produção), Scale (expandir pilotos para a organização).
+<details>
+<summary>Ver resposta</summary>
 
-**Cai na prova:** Business, People e Governance são perspectivas de negócio; Platform, Security e Operations são técnicas. "Treinar funcionários" = People; "gerenciar orçamento e risco do programa" = Governance.
+Envision (oportunidades e resultados), Align (lacunas e alinhamento), Launch (pilotos em produção) e Scale (expandir o que funcionou).
 
-## 3. Como analisar uma situação
+Comentário: a jornada é iterativa; cada ciclo amplia a transformação.
 
-**Primeiro, identifique o funcionamento:** O CAF organiza capacidades da empresa nas perspectivas Business, People, Governance, Platform, Security e Operations. Envision define resultados; Align identifica lacunas; Launch testa iniciativas; Scale amplia o que funciona.
+</details>
 
-**Depois, compare as escolhas:** Use quem é responsável e qual mudança é necessária: treinamento e cultura pertencem a People; decisões sobre investimento e risco, a Governance; infraestrutura e padrões técnicos, a Platform.
+### Quais resultados de negócio o CAF promete?
 
-**Por fim, verifique o limite:** CAF não é um serviço que migra servidores nem substitui uma revisão técnica do Well-Architected. Adoção inclui organização, habilidades e processos.
+<details>
+<summary>Ver resposta</summary>
 
-## 4. Caso resolvido
+Redução do risco de negócio, melhoria do desempenho ESG, aumento de receita e aumento da eficiência operacional.
 
-A infraestrutura já funciona, mas faltam habilidades e adaptação de funções na equipe. Qual perspectiva precisa de atenção?
+Comentário: esses quatro aparecem no guia do exame como exemplos de componentes do CAF.
 
-**Raciocínio e resposta:** People. Escolher Platform só porque o projeto usa AWS ignora que o impedimento é organizacional.
+</details>
 
-## 5. Revisão do capítulo
+### Qual é a diferença entre o CAF e o Well-Architected Framework?
 
-**Objetivos de aprendizagem:**
+<details>
+<summary>Ver resposta</summary>
 
-- [ ] Citar as **6 perspectivas** e separar as de **negócio** (Business, People, Governance) das **técnicas** (Platform, Security, Operations).
-- [ ] Citar as **4 fases**: Envision, Align, Launch e Scale.
-- [ ] Reconhecer os **benefícios** declarados (menos risco, melhor ESG, mais receita, mais eficiência).
+O CAF orienta a organização inteira na adoção da nuvem (pessoas, processos, decisões); o Well-Architected avalia a arquitetura de uma carga de trabalho.
 
-**Dica de revisão para a prova:** Leia **quem** está envolvido no enunciado: RH, cultura ou treinamento → **People**; orçamento e risco → **Governance**; arquitetura → **Platform**; monitoramento e incidentes → **Operations**.
+Comentário: nenhum dos dois é um serviço que executa a migração.
 
-### ❓ Perguntas típicas
+</details>
 
-> Também estão nos [flashcards](../../flashcards/dominio-1.md).
-**Pergunta:** "Qual perspectiva do CAF trata de treinamento, cultura e mudança organizacional?"
+## Resumo
 
-**Resposta curta:** People.
+- O AWS CAF orienta a transformação da organização na nuvem, não só a tecnologia.
+- Resultados: menos risco, melhor ESG, mais receita, mais eficiência operacional.
+- Domínios de transformação: tecnologia, processos, organização e produto.
+- Seis perspectivas: Negócio, Pessoas, Governança, Plataforma, Segurança e Operações.
+- Fases iterativas: Envision, Align, Launch e Scale.
 
-**Pergunta:** "Qual perspectiva garante que a estratégia de nuvem gere valor de negócio?"
+## Fontes oficiais
 
-**Resposta curta:** Business.
+Verificadas em 06/10/2026.
 
-**Pergunta:** "Qual perspectiva cuida de risco, orçamento e gestão do programa?"
-
-**Resposta curta:** Governance.
-
-**Pergunta:** "Qual perspectiva trata da arquitetura e da plataforma técnica?"
-
-**Resposta curta:** Platform.
-
-**Pergunta:** "Qual perspectiva trata de identidade, proteção de dados e resposta a incidentes?"
-
-**Resposta curta:** Security.
-
-**Pergunta:** "Qual perspectiva trata de monitoramento e gestão de incidentes operacionais?"
-
-**Resposta curta:** Operations.
-
-**Pergunta:** "Quais são as fases da jornada de transformação?"
-
-**Resposta curta:** Envision, Align, Launch e Scale.
-
-**Pergunta:** "Qual é um benefício do CAF?"
-
-**Resposta curta:** Reduzir risco de negócio, melhorar ESG, aumentar receita ou eficiência operacional.
-
-<!-- extra:inicio -->
-<!-- extra:fim -->
+- [An Overview of the AWS Cloud Adoption Framework](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/welcome.html): objetivo do CAF.
+- [Accelerating business outcomes](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/accelerating-business-outcomes.html): cadeia de valor, quatro domínios de transformação e principais resultados de negócio.
+- [Foundational capabilities](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html): definição de capacidade, seis perspectivas e stakeholders.
+- Perspectivas e suas capacidades: [Business](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/business-perspective.html), [People](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/people-perspective.html), [Governance](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/governance-perspective.html), [Platform](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/platform-perspective.html), [Security](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/security-perspective.html), [Operations](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/operations-perspective.html).
+- [Your cloud transformation journey](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html): as fases Envision, Align, Launch e Scale.
+- [Content Domain 1 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html): componentes do CAF cobrados (tarefa 1.3).
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
