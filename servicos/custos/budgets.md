@@ -1,118 +1,71 @@
+<!-- autoral -->
+
 # AWS Budgets
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa quer acompanhar um limite planejado de custo ou uso e receber avisos antes de perder o controle do orçamento.
-
-**Como este serviço ajuda?** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
-
-**Exemplo do dia a dia:** A escola configura um orçamento mensal e um aviso para determinados níveis de gasto observado ou previsto.
-
-**O que ele não resolve sozinho?** Um orçamento não é, por padrão, um teto rígido que interrompe todo consumo. Alertas e ações não substituem controle de acesso e acompanhamento dos recursos.
-
-**Primeiras palavras para entender:**
-
-- **Orçamento:** meta de gasto ou uso.
-- **Limite de aviso:** condição para notificação.
-- **Ação:** operação configurada para determinada condição.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gestão de custos · **Domínio:** 4 · **Escopo:** Conta / organização · **Tópico do guia:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
+> **Categoria:** Gestão de custos · **Domínio:** 4 · **Abrangência:** Global (console de Billing and Cost Management) · **Ficha:** núcleo
 >
-> **Em uma frase:** define orçamentos de custo e uso e **alerta** (ou **age**) quando o valor real ou **previsto** ultrapassa o limite.
+> **Em uma frase:** acompanha custos e uso contra um valor definido, avisa quando o real ou o previsto se aproxima ou passa dele e pode agir automaticamente.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 
-**Passo 1.** Defina a meta e quais condições devem gerar um aviso ou ação compatível.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure destinatários e acompanhe valores observados ou previstos conforme a ferramenta.
+---
 
-**Passo 3.** Ao receber um aviso, investigue e realize a ação pertinente. Um orçamento não é, por padrão, interrupção rígida de todo consumo.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A rede de escolas tem US$ 2.000 por mês para a AWS. No ano passado, um laboratório esquecido ligado só apareceu na fatura do mês seguinte, quando o dinheiro já tinha sido gasto. A diretora quer saber antes.
 
-### Tipos de orçamento
+O **AWS Budgets** acompanha custos e uso contra o valor definido e **avisa** por e-mail ou por um tópico do Amazon SNS quando o custo **real** ou o **previsto** se aproxima ou passa do limite. A escola cria um orçamento de custo de US$ 2.000 por mês, com aviso quando a previsão passar de 80%. Além de avisar, o Budgets pode **agir**, de forma automática ou depois de uma aprovação: aplicar uma política do IAM ou uma SCP que impeça criar novos recursos, ou agir sobre instâncias específicas do EC2 e do RDS.
 
-| Tipo | Monitora |
-|---|---|
-| **Cost budget** | Valor gasto (US$) |
-| **Usage budget** | Quantidade de uso (horas de EC2, GB de S3) |
-| **Savings Plans budget** | Utilização ou cobertura dos Savings Plans |
-| **Reservation budget** | Utilização ou cobertura das RIs |
+O limite: o Budgets compara com um valor fixo. Um gasto que dobrou sem passar do orçamento é trabalho do Cost Anomaly Detection, e entender de onde veio o gasto é trabalho do [Cost Explorer](cost-explorer.md).
 
-### Configurações
+## Como funciona
 
-| Item | Detalhe |
-|---|---|
-| **Período** | Diário, mensal, trimestral, anual; valor fixo ou planejado mês a mês. |
-| **Filtros** | Serviço, conta, região, tag, cost category… |
-| **Alertas** | Por limite **real** ou **previsto** (forecasted), em % ou valor; via **e-mail**, **SNS** ou Amazon Q Developer em chat (Slack/Teams). |
-| **Budget Actions** | Ações automáticas ao atingir o limite: aplicar **política IAM**, aplicar **SCP**, **parar instâncias EC2/RDS** — com ou sem aprovação. |
-| **Templates** | Orçamento de "gasto zero" e mensal fixo para começar (útil para quem estuda no Free Tier). |
-| **Budgets reports** | Relatórios periódicos por e-mail. |
+1. Escolhe-se o tipo de orçamento e o período, como custo mensal.
+2. Define-se o valor e os limites de aviso, pelo real ou pelo previsto.
+3. Indicam-se os destinatários: e-mails ou um tópico do SNS.
+4. Opcionalmente, configura-se uma ação que roda ao atingir o limite.
 
-## 3. Como escolher e reconhecer os limites
+## Opções principais
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| Tipo | O que acompanha | Na escola |
+|---|---|---|
+| Orçamento de custo | Gasto real ou previsto contra um valor | US$ 2.000 por mês |
+| Orçamento de uso | Uso de um ou mais serviços | Horas de instância do laboratório |
+| Utilização e cobertura de RIs e Savings Plans | Se os descontos comprados estão sendo usados | Reservas da sede pouco aproveitadas |
+| Ações | Política do IAM, SCP ou ação em instâncias do EC2 e do RDS | Bloquear novos recursos ao estourar |
 
-Um orçamento não é, por padrão, um teto rígido que interrompe todo consumo. Alertas e ações não substituem controle de acesso e acompanhamento dos recursos.
+## Números que a prova cobra
 
-### ⚠️ Não confundir
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Acompanhar e receber avisos | Gratuito | 06/10/2026 |
+| Orçamentos com ações | Os dois primeiros grátis por mês; depois US$ 0,10 por dia cada | 06/10/2026 |
+| Relatórios do Budgets por e-mail | US$ 0,01 por relatório entregue | 06/10/2026 |
 
-**Budgets** (alerta/ação) × **Cost Explorer** (análise) × **Cost Anomaly Detection** (gasto **fora do padrão**, sem limite definido) × **CloudWatch billing alarm** (alarme simples sobre a cobrança estimada).
+## Como é cobrado
 
-## 4. Operação, segurança e custo
+Criar orçamentos, acompanhá-los e receber avisos é gratuito. Paga-se só pelos orçamentos com ações além dos dois primeiros e por cada relatório entregue.
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+## Não confundir com
 
-### Cobrança
+| Serviço | Diferença para o Budgets | Pista no enunciado |
+|---|---|---|
+| [AWS Cost Explorer](cost-explorer.md) | Analisa gastos passados e prevê | "Visualizar", "tendência" |
+| Alarme de cobrança do CloudWatch | Dispara pela cobrança atual estimada, sem previsão | "Métrica de cobranças estimadas" |
+| Cost Anomaly Detection | Usa machine learning para gastos fora do padrão | "Gasto incomum" |
+| [AWS Organizations (SCP)](../gerenciamento/organizations.md) | Define limites de permissão; o Budgets pode aplicá-los | "Impedir em todas as contas" |
 
-Orçamentos de monitoramento são gratuitos; os **dois primeiros** orçamentos com **actions** são grátis por mês e os demais custam **US$ 0,10/dia**; cada relatório do Budgets Reports custa US$ 0,01 (🧊).
+## Fontes oficiais
 
-## 5. Caso resolvido: ligando as peças
+Verificadas em 06/10/2026.
 
-A escola quer acompanhar sua meta mensal de custo. O objetivo é receber sinal de desvio e agir a tempo, não presumir que a AWS nunca cobrará acima de um valor informado.
-
-A equipe define o orçamento, condições de notificação e destinatários. Quando recebe um aviso, investiga a parte do consumo que aumentou e decide quais mudanças atendem à aplicação. Ações compatíveis podem ser configuradas conforme requisitos e permissões.
-
-O orçamento, por padrão, não funciona como um corte universal e instantâneo de todos os serviços. Cost Explorer ajuda a analisar gastos; a calculadora estima antes do uso. Meta, análise e estimativa respondem perguntas diferentes.
-
-**Recursos envolvidos:** Orçamento, thresholds, notificações e actions opcionais.
-
-**Decisões que precisam ser tomadas:** Valor/meta, período, destinatários e permissões de ação.
-
-**Outra situação comentada:** Alertar em 80% do orçamento: Budgets; desligar qualquer recurso não é comportamento automático universal.
-
-**Por que não concluir mais do que isso:** Não garante teto rígido da conta: atualização e ações têm latência e alcance limitado
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Receber alerta quando o gasto previsto passar do orçamento."
-
-**Resposta curta:** Budgets.
-
-**Pergunta:** "Parar instâncias automaticamente se o orçamento estourar."
-
-**Resposta curta:** Budget Actions.
-
-**Pergunta:** "Alerta quando as RIs forem subutilizadas."
-
-**Resposta curta:** Reservation budget.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html)
+- [Gerenciar custos com o AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html)
+- [Ações do Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-controls.html)
+- [Preços do AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

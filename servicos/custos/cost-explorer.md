@@ -1,128 +1,73 @@
+<!-- autoral -->
+
 # AWS Cost Explorer
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A fatura aumentou, mas a equipe não sabe qual serviço, conta ou período explica esse crescimento.
-
-**Como este serviço ajuda?** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-
-**Exemplo do dia a dia:** A escola compara dois meses e separa custos por serviço para investigar onde o gasto mudou.
-
-**O que ele não resolve sozinho?** Ele analisa gastos; não bloqueia automaticamente a criação de recursos. Os dados não devem ser tratados como medição instantânea nem a previsão como garantia.
-
-**Primeiras palavras para entender:**
-
-- **Filtro:** seleção de uma parte dos dados.
-- **Agrupamento:** divisão por critério, como serviço.
-- **Previsão:** estimativa baseada em dados e método.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gestão de custos · **Domínio:** 4 · **Escopo:** Conta / organização · **Tópico do guia:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
+> **Categoria:** Gestão de custos · **Domínio:** 4 · **Abrangência:** Global (console de Billing and Cost Management) · **Ficha:** núcleo
 >
-> **Em uma frase:** visualiza, analisa e **prevê** seus custos e uso da AWS ao longo do tempo.
+> **Em uma frase:** mostra os custos e o uso da conta em gráficos e relatórios, com filtros e agrupamentos, até 13 meses para trás e previsão para os próximos.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 
-**Passo 1.** Selecione o período e a pergunta sobre custo ou uso que precisa responder.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Agrupe ou filtre dados para identificar a parte do gasto relacionada à pergunta.
+---
 
-**Passo 3.** Investigue a mudança nos recursos. Um aumento pode ter várias causas; a ferramenta mostra dados, não decide a ação sozinha.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A conta da rede de escolas subiu nos últimos três meses, e a diretora financeira quer saber o porquê e quanto vai gastar até dezembro. A fatura mostra os totais por serviço, mas não conta a história do gasto ao longo do tempo.
 
-### Recursos
+O **Cost Explorer** permite **ver e analisar** custos e uso com gráficos e relatórios. A diretora filtra e agrupa por serviço, conta, Região ou tag e descobre que o aumento veio da transferência de dados de uma escola. Ele mostra até os **últimos 13 meses**, faz a **previsão** dos próximos 18 e traz recomendações de compra de instâncias reservadas e de Savings Plans.
 
-**Gráficos e filtros**
+O limite: o Cost Explorer olha e prevê, mas não avisa nem age quando o gasto passa de um valor; isso é do [Budgets](budgets.md). Para os dados linha a linha, por recurso e por hora, numa análise própria, o caminho é o [Cost and Usage Report](pricing-calculator-cur-e-outras-ferramentas.md).
 
-**Detalhe:** Por serviço, conta, região, tipo de instância, **tag**, cost category, tipo de cobrança; granularidade mensal, diária (e horária, paga).
+## Como funciona
 
-**Previsão (forecast)**
+1. Abre-se o Cost Explorer no console de Billing and Cost Management.
+2. Escolhe-se o período, a granularidade (mês, dia ou hora) e a métrica.
+3. Filtra-se e agrupa-se por serviço, conta, Região ou tag de alocação de custos ativada.
+4. Lê-se o gráfico, a previsão e as recomendações; a visão pode ser salva como relatório.
 
-**Detalhe:** ✔️ Até **3 meses** em granularidade diária e até **12 meses** em mensal, com intervalo de predição de 80%; sem histórico suficiente (conta nova), não gera previsão.
+## Opções principais
 
-**Histórico**
+| Recurso | O que mostra | Na escola |
+|---|---|---|
+| Gráficos de custo e uso | Gasto ao longo do tempo, com filtros | De onde veio o aumento |
+| Previsão | Estimativa dos próximos meses | Quanto a rede gasta até dezembro |
+| Agrupar por tag | Custo de cada projeto ou unidade | Gasto de cada escola |
+| Recomendações | Compras de instâncias reservadas e Savings Plans | Economizar nos servidores sempre ligados |
 
-**Detalhe:** ✔️ **13 meses** + o mês corrente.
+## Números que a prova cobra
 
-**Relatórios salvos**
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Histórico | Até os últimos 13 meses | 06/10/2026 |
+| Previsão | Próximos 18 meses | 06/10/2026 |
+| Granularidade por hora | Últimos 14 dias, recurso cobrado à parte | 06/10/2026 |
+| Uso pelo console | Gratuito | 06/10/2026 |
+| Uso pela API | US$ 0,01 por requisição | 06/10/2026 |
 
-**Detalhe:** Modelos prontos (custo mensal por serviço, uso de RIs…) e customizados.
+## Como é cobrado
 
-**Recomendações**
+Usar o Cost Explorer pelo console não tem custo. O acesso programático pela API é cobrado por requisição, e a granularidade por hora, quando ativada, é cobrada pelo número de registros de uso.
 
-**Detalhe:** **Rightsizing** de EC2, **compra de RIs e Savings Plans** (com estimativa de economia).
+## Não confundir com
 
-**Relatórios de RI/SP**
+| Serviço | Diferença para o Cost Explorer | Pista no enunciado |
+|---|---|---|
+| [AWS Budgets](budgets.md) | Avisa e age ao passar de um limite | "Alerta", "orçamento" |
+| [AWS Pricing Calculator](pricing-calculator-cur-e-outras-ferramentas.md) | Estima o custo antes de criar os recursos | "Antes de migrar", "estimar" |
+| [Cost and Usage Report](pricing-calculator-cur-e-outras-ferramentas.md) | Dados mais detalhados, entregues no S3 | "Por recurso e por hora", "planilha" |
+| Cost Anomaly Detection | Detecta gastos fora do padrão com machine learning | "Gasto incomum" |
 
-**Detalhe:** **Utilização** (quanto do compromisso foi usado) e **cobertura** (quanto do uso está coberto).
+## Fontes oficiais
 
-**API**
+Verificadas em 06/10/2026.
 
-**Detalhe:** ✔️ Interface gráfica gratuita; a **API** custa **US$ 0,01 por requisição paginada**.
-
-**Ativação**
-
-**Detalhe:** Precisa ser **habilitado** no console (dados levam até 24 h para aparecer).
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Ele analisa gastos; não bloqueia automaticamente a criação de recursos. Os dados não devem ser tratados como medição instantânea nem a previsão como garantia.
-
-### ⚠️ Não confundir
-
-**Cost Explorer** (analisa o passado e prevê) × **Budgets** (alerta e age) × **Pricing Calculator** (estima **antes** de usar) × **CUR** (dados brutos mais detalhados).
-
-## 4. Caso resolvido: ligando as peças
-
-A escola compara dois meses e separa custos por serviço para investigar onde o gasto mudou.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Selecione o período e a pergunta sobre custo ou uso que precisa responder.
-**Etapa 2:** Agrupe ou filtre dados para identificar a parte do gasto relacionada à pergunta.
-**Etapa 3:** Investigue a mudança nos recursos. Um aumento pode ter várias causas; a ferramenta mostra dados, não decide a ação sozinha.
-
-**Resultado e responsabilidade:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-
-**Recursos envolvidos:** Relatórios, filtros, dimensões, grupos e previsões.
-
-**Decisões que precisam ser tomadas:** Período, granularidade e visão autorizada.
-
-**Outra situação comentada:** Descobrir serviço responsável pelo aumento: agrupar por serviço e investigar conta/região/tags.
-
-**Por que não concluir mais do que isso:** Não é medidor instantâneo nem bloqueio de consumo; previsão não garante valor final
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Visualizar gastos dos últimos meses e prever o próximo."
-
-**Resposta curta:** Cost Explorer.
-
-**Pergunta:** "Onde ver recomendações de Savings Plans e RIs?"
-
-**Resposta curta:** Cost Explorer.
-
-**Pergunta:** "Verificar se as Reserved Instances estão sendo usadas."
-
-**Resposta curta:** Relatório de utilização de RI no Cost Explorer.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html)
+- [Análise de custos com o AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html)
+- [Filtros do Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-filtering.html)
+- [Preços do AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

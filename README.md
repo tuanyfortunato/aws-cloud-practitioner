@@ -328,7 +328,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 <details>
 <summary>🛠️ Ferramentas de desenvolvedor — 3 fichas (clique para abrir)</summary>
 
-- [Formas de acesso: Console, CLI, SDKs, CloudShell](servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
+- [Formas de acesso: Console, CLI, SDKs e CloudShell](servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
 - [Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact](servicos/desenvolvimento/code-services.md)
 - [AWS X-Ray](servicos/desenvolvimento/x-ray.md)
 
@@ -363,7 +363,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 - [AWS Budgets](servicos/custos/budgets.md)
 - [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md)
 - [Planos de AWS Support](servicos/custos/planos-de-suporte.md)
-- [Recursos de ajuda, parceiros e serviços ao cliente](servicos/custos/recursos-de-ajuda-e-parceiros.md)
+- [Recursos de ajuda, parceiros e AWS Marketplace](servicos/custos/recursos-de-ajuda-e-parceiros.md)
 
 </details>
 

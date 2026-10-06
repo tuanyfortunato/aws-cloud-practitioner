@@ -1,190 +1,79 @@
-# Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Recursos de ajuda, parceiros e AWS Marketplace
 
-**Qual é a dificuldade?** Uma pessoa ou empresa precisa de orientação, conhecimento, software ou profissionais para usar a AWS, mas essas necessidades pedem canais diferentes.
-
-**Como este serviço ajuda?** A ficha organiza recursos de ajuda e o ecossistema: documentação e comunidades para aprender, Marketplace para ofertas e parceiros ou serviços profissionais para trabalhos especializados.
-
-**Exemplo do dia a dia:** Uma equipe consulta orientação oficial para uma decisão e avalia um parceiro quando precisa de apoio para executar uma migração.
-
-**O que ele não resolve sozinho?** Um fórum não é um contrato de operação, e uma oferta de software não garante adequação ao projeto. Verifique função, condições e escopo de cada recurso.
-
-**Primeiras palavras para entender:**
-
-- **Marketplace:** catálogo de ofertas.
-- **Parceiro:** empresa do ecossistema AWS.
-- **Orientação:** material para apoiar uma decisão ou atividade.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Suporte e capacitação do cliente · **Domínio:** 4 · **Escopo:** Global · **Tópico do guia:** [4.6 Outros recursos de ajuda](../../docs/04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md)
+> **Categoria:** Suporte e ecossistema · **Domínio:** 4 · **Abrangência:** Global · **Ficha:** núcleo
 >
-> **Em uma frase:** além dos planos de suporte, a AWS oferece comunidade, documentação, consultoria, parceiros e operação terceirizada — a prova pede quem procurar em cada situação.
+> **Em uma frase:** onde buscar ajuda além dos planos de suporte: documentação, Knowledge Center e re:Post para resolver sozinho; Professional Services e parceiros da APN para projetos; o Marketplace para software pronto; e o Trust and Safety para denunciar abuso.
 >
 > **Escopo oficial:** 🔀 Marketplace, APN, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post e Trust and Safety ✅ (task 4.3) · AWS IQ, Activate e AMS ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [4.6 Outros recursos de ajuda](../../docs/04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md)
 
-**Passo 1.** Descreva se precisa aprender, esclarecer uma dúvida, comprar software ou contratar execução de um trabalho.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha o canal ou a oferta que tem esse papel e examine suas condições.
+---
 
-**Passo 3.** Valide a orientação ou a entrega. Fórum, suporte, loja e parceiro não oferecem a mesma responsabilidade.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A equipe técnica da rede é pequena, e os pedidos são de tipos diferentes. Um técnico quer resolver um erro sem abrir caso de suporte. A diretoria quer especialistas para migrar o sistema financeiro. A escola precisa de um software de backup pronto. E chegou uma reclamação: um endereço da AWS está mandando spam para os pais.
 
-### 🎯 Escopo da prova
+Cada pedido tem um caminho. Para resolver sozinho, há a **documentação**, os whitepapers, o **AWS Prescriptive Guidance**, o **AWS Knowledge Center** (artigos e vídeos oficiais com as dúvidas mais comuns) e o **AWS re:Post** (a comunidade de perguntas e respostas), todos disponíveis no plano Basic. Para um projeto, há o **AWS Professional Services**, a consultoria da própria AWS, e os parceiros da **AWS Partner Network** (APN): **ISVs**, que criam software, e **integradores de sistemas**, que implementam projetos. Para software de terceiros, o **AWS Marketplace** vende produtos com cobrança na **fatura da AWS**. E o abuso vindo de recursos da AWS se denuncia à equipe **AWS Trust and Safety**, pelo formulário de abuso.
 
-A task 4.3 cita: **AWS Trust and Safety, AWS Partner Network, AWS Marketplace, AWS Professional Services, AWS Prescriptive Guidance, AWS Knowledge Center e AWS re:Post** — priorize esses.
+O limite: nenhum desses caminhos é um caso de suporte com tempo de resposta; isso vem dos [planos de AWS Support](planos-de-suporte.md). Na lista fora do escopo estão o **AWS IQ** (encerrado em 28/05/2026), o **AWS Managed Services** (AMS) e o **AWS Activate**.
 
-**AWS IQ**, **AWS Activate** e **AWS Managed Services (AMS)** estão declarados **fora do escopo**.
+## Como funciona
 
-### Detalhes por recurso
+1. Dúvida técnica ou de conta: Knowledge Center, documentação e, se faltar, pergunta no re:Post.
+2. Projeto grande: contratar o Professional Services ou um parceiro da APN.
+3. Software pronto: comprar no Marketplace, com o Private Marketplace limitando o catálogo da organização.
+4. Abuso vindo da AWS: formulário de denúncia ao AWS Trust and Safety.
 
-#### AWS re:Post
+## Opções principais
 
-Comunidade de perguntas e respostas **moderada pela AWS**; respostas aceitas e de especialistas AWS ganham destaque.
-
-Inclui o **Knowledge Center**, artigos da comunidade e o **re:Post Private** (versão privada para empresas, nos planos Enterprise).
-
-Disponível para **todos**, inclusive no plano Basic.
-
-#### AWS Professional Services × AWS Partner Network × AWS Managed Services
-
-| | Professional Services | APN (parceiros) | Managed Services (AMS) |
-|---|---|---|---|
-| Quem faz | Time de consultores **da AWS** | **Empresas parceiras** certificadas | A **AWS** |
-| O que faz | Consultoria para **projetos** (migração, transformação) junto com o time do cliente | Implementa projetos, revende, oferece produtos que integram com a AWS | **Opera a infraestrutura** no dia a dia |
-| Duração | Projeto | Projeto ou contínuo | Contínuo |
-
-**Benefícios de ser parceiro** (task 4.3): acesso a treinamentos e certificações, créditos e financiamento para projetos, programas de competência e listagem no Marketplace e no diretório de parceiros, apoio comercial (co-sell) da AWS.
-
-**Parceiros de consultoria/serviços** (integradores) implementam projetos; **parceiros de tecnologia/software (ISVs)** vendem produtos. Programas de competência e certificação ajudam a escolher.
-
-#### AWS IQ (encerrado)
-
-Era um marketplace para contratar **especialistas freelancers certificados** e empresas para tarefas sob demanda, pagos pela fatura AWS.
-
-🔄 Encerrado em **28/05/2026** (novos cadastros de especialistas pararam em 20/05/2025). ⚠️ Ainda está no exam guide: se aparecer "contratar especialista certificado sob demanda para um projeto pequeno", a resposta é **AWS IQ**.
-
-#### AWS Marketplace
-
-Catálogo digital com milhares de produtos de terceiros: **AMIs**, **SaaS**, **contêineres**, **modelos de ML**, **dados** e **serviços profissionais**.
-
-Licenciamento por uso (horário/anual) ou **BYOL**; cobrança consolidada na fatura AWS; **Private Offers** com preços negociados.
-
-**Custos, governança e entitlement** (task 4.3): o que é comprado no Marketplace aparece na fatura AWS e no Cost Explorer; o **AWS Marketplace Private Marketplace** restringe quais produtos os times podem assinar; o **License Manager** e os *entitlements* do Marketplace controlam quem tem direito a usar cada licença.
-
-#### AWS Trust & Safety
-
-Recebe denúncias de **uso abusivo** de recursos AWS: spam, phishing, malware, ataques (port scanning, DDoS) originados de IPs da AWS, violação de direitos autorais.
-
-⚠️ Não é o mesmo que o suporte técnico: serve para quem é **vítima** de abuso vindo da AWS.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Um fórum não é um contrato de operação, e uma oferta de software não garante adequação ao projeto. Verifique função, condições e escopo de cada recurso.
-
-### Tabela de decisão (📌 decorar)
-
-| Necessidade | Recurso | Custo |
+| Recurso | Para que serve | Na escola |
 |---|---|---|
-| Tirar dúvida técnica com a **comunidade** | **AWS re:Post** (substituiu os antigos fóruns; moderado pela AWS, com respostas de especialistas) | Grátis |
-| Resposta pronta para dúvida **comum** | **AWS Knowledge Center** (artigos com as perguntas mais frequentes ao suporte) | Grátis |
-| Guias e boas práticas oficiais | **Documentação**, **whitepapers**, **AWS Prescriptive Guidance**, **AWS Solutions Library** (arquiteturas e soluções prontas para implantar) | Grátis |
-| Boletins e boas práticas de **segurança** | **AWS Security Center**, Security Blog, Security Bulletins | Grátis |
-| **Consultoria da própria AWS** para um projeto (migração, modernização) | **AWS Professional Services** | Pago (contrato) |
-| **Empresa parceira** certificada para implementar o projeto | **AWS Partner Network (APN)** — parceiros de **consultoria/serviços** e de **tecnologia/software** | Pago ao parceiro |
-| **Freelancer/especialista** certificado sob demanda, pago na fatura AWS | **AWS IQ** ❌ *fora do escopo* — 🔄 encerrado em 28/05/2026; substituto: **AWS Marketplace Professional Services** | Pago |
-| A AWS **opera** a infraestrutura do cliente (monitoramento, patches, backup, incidentes) | **AWS Managed Services (AMS)** ❌ *fora do escopo* | Pago |
-| Comprar **software de terceiros** (AMIs, SaaS, contêineres, dados) e serviços profissionais, cobrados na fatura AWS | **AWS Marketplace** | Pago por produto |
-| Orientação técnica e comercial da conta | **Solutions Architects** e equipe de conta (account manager) | Incluso na relação comercial |
-| Acompanhamento técnico **proativo** | **TAM** (Enterprise: designado; Enterprise On-Ramp: pool) | Planos Enterprise |
-| Dúvidas de **faturamento** em planos Enterprise | **Concierge Support Team** | Planos Enterprise |
-| **Startup** buscando créditos e mentoria | **AWS Activate** ❌ *fora do escopo* | Grátis (créditos) |
-| Denunciar **abuso** vindo de recursos AWS (spam, phishing, ataques) | **AWS Trust & Safety** (formulário de abuso) | Grátis |
-| Cursos, laboratórios e certificações | **AWS Training and Certification / AWS Skill Builder** | Grátis e pago |
+| Documentação, whitepapers e blogs | Referência técnica da própria AWS | Configurar um serviço |
+| AWS Prescriptive Guidance | Orientação para adotar a nuvem e modernizar | Planejar a migração |
+| AWS Knowledge Center | Artigos oficiais com as dúvidas comuns | Resolver um erro conhecido |
+| AWS re:Post | Comunidade de perguntas e respostas | Perguntar o que não achou |
+| AWS Professional Services | Consultoria da AWS | Migrar o sistema financeiro |
+| AWS Partner Network | Parceiros ISVs, integradores e consultorias | Empresa que implementa o projeto |
+| AWS Marketplace | Software, dados e serviços de terceiros, pagos na fatura da AWS | Software de backup |
+| AWS Trust and Safety | Denúncias de abuso de recursos da AWS | Spam vindo de um endereço da AWS |
 
-### ⚠️ Pegadinhas e não confundir
+## Números que a prova cobra
 
-**Professional Services** (consultoria da AWS) × **Managed Services** (a AWS opera) × **APN** (parceiros) × **AWS IQ** (freelancers sob demanda).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Benefícios de parceiros citados no guia | Treinamento e certificação, eventos e descontos por volume | 06/10/2026 |
+| Opções de preço no Marketplace | Teste gratuito, por hora, mensal, anual, plurianual e BYOL | 06/10/2026 |
+| AWS IQ | Encerrado em 28/05/2026; fora do escopo | 06/10/2026 |
 
-**re:Post** (comunidade) × **Knowledge Center** (artigos prontos) × **Support Center** (abrir caso no plano de suporte).
+## Como é cobrado
 
-Todo cliente, mesmo no plano **Basic**, tem acesso a documentação, whitepapers, re:Post, Knowledge Center, Health Dashboard e atendimento de conta/faturamento.
+Documentação, Knowledge Center, re:Post e Prescriptive Guidance são gratuitos. O Professional Services e os parceiros são contratados à parte. As compras no Marketplace aparecem na fatura da AWS.
 
-## 4. Caso resolvido: ligando as peças
+## Não confundir com
 
-Uma equipe consulta orientação oficial para uma decisão e avalia um parceiro quando precisa de apoio para executar uma migração.
+| Recurso | Diferença | Pista no enunciado |
+|---|---|---|
+| Knowledge Center × re:Post | Knowledge Center: artigos oficiais. re:Post: comunidade | "Artigos oficiais" × "perguntar à comunidade" |
+| Professional Services × APN | Professional Services: equipe da AWS. APN: empresas parceiras | "Consultoria da AWS" × "parceiro" |
+| ISV × integrador de sistemas | ISV cria software; integrador implementa projetos | "Produto de software" × "implementar a migração" |
+| [Planos de AWS Support](planos-de-suporte.md) | Casos técnicos com tempo de resposta | "Engenheiro 24/7", "TAM" |
 
-**Aplicando a sequência à situação:**
+## Fontes oficiais
 
-**Etapa 1:** Descreva se precisa aprender, esclarecer uma dúvida, comprar software ou contratar execução de um trabalho.
-**Etapa 2:** Escolha o canal ou a oferta que tem esse papel e examine suas condições.
-**Etapa 3:** Valide a orientação ou a entrega. Fórum, suporte, loja e parceiro não oferecem a mesma responsabilidade.
+Verificadas em 06/10/2026.
 
-**Resultado e responsabilidade:** A ficha organiza recursos de ajuda e o ecossistema: documentação e comunidades para aprender, Marketplace para ofertas e parceiros ou serviços profissionais para trabalhos especializados.
-
-**Recursos envolvidos:** Documentação, comunidade, parceiros, Marketplace e serviços profissionais.
-
-**Decisões que precisam ser tomadas:** Necessidade de aprender, comprar, implementar ou reportar incidente.
-
-**Outra situação comentada:** Projeto de migração: parceiros/Professional Services; denúncia de abuso: Trust and Safety.
-
-**Por que não concluir mais do que isso:** Comprar oferta não transfere toda operação para AWS; re:Post não garante prazo de resposta
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Encontrar um parceiro certificado para implementar a migração."
-
-**Resposta curta:** AWS Partner Network.
-
-**Pergunta:** "Contratar consultoria diretamente da AWS."
-
-**Resposta curta:** AWS Professional Services.
-
-**Pergunta:** "Terceirizar a operação diária da infraestrutura para a AWS."
-
-**Resposta curta:** AWS Managed Services.
-
-**Pergunta:** "Contratar um especialista certificado sob demanda para um projeto pequeno."
-
-**Resposta curta:** AWS IQ (hoje, Marketplace Professional Services).
-
-**Pergunta:** "Tirar dúvidas técnicas com a comunidade."
-
-**Resposta curta:** AWS re:Post.
-
-**Pergunta:** "Respostas prontas para dúvidas comuns."
-
-**Resposta curta:** AWS Knowledge Center.
-
-**Pergunta:** "Arquiteturas de referência prontas para implantar."
-
-**Resposta curta:** AWS Solutions Library.
-
-**Pergunta:** "Uma instância da AWS está enviando phishing para a sua empresa."
-
-**Resposta curta:** AWS Trust & Safety.
-
-**Pergunta:** "Startup busca créditos para começar na AWS."
-
-**Resposta curta:** AWS Activate.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS re:Post](https://repost.aws/) · [Knowledge Center](https://repost.aws/knowledge-center) · [AWS Partner Network](https://aws.amazon.com/partners/) · [Professional Services](https://aws.amazon.com/professional-services/) · [Managed Services](https://aws.amazon.com/managed-services/) · [AWS Marketplace](https://aws.amazon.com/marketplace/) · [Denunciar abuso](https://repost.aws/knowledge-center/report-aws-abuse)
+- [Content Domain 4 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html)
+- [AWS re:Post](https://repost.aws/) e [AWS Knowledge Center](https://repost.aws/knowledge-center)
+- [AWS Prescriptive Guidance](https://aws.amazon.com/prescriptive-guidance/)
+- [AWS Professional Services](https://aws.amazon.com/professional-services/)
+- [AWS Partner Network](https://aws.amazon.com/partners/)
+- [O que é o AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html)
+- [Serviços fora do escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

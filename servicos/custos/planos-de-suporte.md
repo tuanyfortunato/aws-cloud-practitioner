@@ -1,188 +1,76 @@
+<!-- autoral -->
+
 # Planos de AWS Support
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Quando há uma dúvida ou problema, a empresa precisa saber que tipo de ajuda da AWS pode solicitar e em quais condições.
-
-**Como este serviço ajuda?** Planos de suporte definem acesso a canais, orientação e recursos de atendimento conforme a oferta. A necessidade do negócio deve orientar a escolha.
-
-**Exemplo do dia a dia:** Uma empresa com aplicação importante avalia quais recursos de suporte técnico e acompanhamento são necessários para sua operação.
-
-**O que ele não resolve sozinho?** Ter suporte não transfere toda a operação da aplicação para a AWS. Tempo inicial de resposta não é promessa de tempo de resolução; nomes e condições devem ser conferidos no contexto indicado.
-
-**Primeiras palavras para entender:**
-
-- **Caso de suporte:** solicitação de ajuda.
-- **Severidade:** impacto do problema.
-- **Tempo de resposta:** prazo para início do atendimento conforme as condições.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Suporte · **Domínio:** 4 · **Escopo:** Conta (ou organização, nos planos novos) · **Tópico do guia:** [4.5 Planos de AWS Support](../../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)
+> **Categoria:** Suporte · **Domínio:** 4 · **Abrangência:** Por conta · **Ficha:** núcleo
 >
-> **Em uma frase:** níveis de suporte técnico da AWS — quanto mais alto, mais rápido o atendimento e mais acompanhamento proativo.
+> **Em uma frase:** os quatro planos de suporte da AWS (Basic, Business Support+, Enterprise Support e Unified Operations), que vão do atendimento de conta incluído para todos até especialistas designados com resposta em minutos.
 >
 > **Escopo oficial:** ✅ No escopo (AWS Support — distinguir exemplos do guia e oferta comercial atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-> Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10.md)).
+> 📖 **Aula que ensina:** [4.5 Planos de AWS Support](../../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)
 
-> **Divergência entre fontes:** a [task 4.3 consultada](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html) ainda cita Developer, Business e Enterprise On-Ramp. A página comercial mostra os planos abaixo. Não há aqui evidência para afirmar que todos os exemplos da prova foram substituídos. [Ver auditoria](../../docs/00-guia-do-exame/auditoria-conteudo-2026-10.md).
+🏠 [Índice das fichas](../README.md)
 
-## 1. A sequência de funcionamento
+---
 
-**Passo 1.** Identifique a necessidade de ajuda e o impacto real do problema.
+## Que problema resolve
 
-**Passo 2.** Confira a oferta aplicável e abra um caso elegível com informações suficientes para o atendimento.
+São 22h de um domingo, e o sistema de matrícula da rede parou. A equipe técnica, de duas pessoas, não achou a causa. Dá para chamar um engenheiro da AWS agora, e em quanto tempo ele responde?
 
-**Passo 3.** Acompanhe investigação e ações. Primeira resposta, resolução e operação cotidiana da aplicação são responsabilidades distintas.
+Depende do plano. O **Basic** está incluído para todos: atendimento de **conta e faturamento**, pedidos de aumento de cota, documentação, o **re:Post**, as verificações principais do **Trusted Advisor** e o **AWS Health**, mas **não abre caso técnico**. O **Business Support+**, mínimo recomendado para produção, dá acesso 24/7 a engenheiros por telefone, web e chat, todas as verificações do Trusted Advisor e resposta em menos de 30 minutos quando um sistema crítico cai. O **Enterprise Support** acrescenta um **Technical Account Manager (TAM)** designado e resposta em até 15 minutos. O **Unified Operations**, para missão crítica, responde em até 5 minutos e monitora as cargas 24/7.
 
-## 2. Recursos e opções, com significado
+O limite: o suporte ajuda a resolver, mas a operação continua sendo da escola, no modelo de responsabilidade compartilhada. E os planos antigos (Developer, Business e Enterprise On-Ramp) acabam em **01/01/2027**; materiais antigos ainda os citam.
 
-### 📌 Planos comerciais atuais (distinguir dos exemplos do guia)
+## Como funciona
 
-> ✔️ Comparação completa verificada em 04/10/2026 nas páginas [plans](https://aws.amazon.com/premiumsupport/plans/) e [pricing](https://aws.amazon.com/premiumsupport/pricing/).
+1. A conta começa no Basic, sem custo.
+2. Quem precisa de mais contrata um plano pago, cobrado por mês, sem contrato de longo prazo.
+3. No AWS Support Center, abre-se um caso: conta e faturamento, aumento de cota ou técnico (este, só nos planos pagos).
+4. Escolhe-se a gravidade do caso, que define o tempo de resposta do plano.
 
-| | **Basic** | **AWS Business Support+** | **AWS Enterprise Support** | **AWS Unified Operations** |
-|---|---|---|---|---|
-| Preço mínimo | Incluído (grátis) | **US$ 29/mês por conta** ou % do uso (9 → 7 → 5 → 3%), o maior | **US$ 5.000/mês** ou % (10 → 7 → 5 → 3%), o maior | **US$ 50.000/mês** ou % (10 → 6 → 5%), o maior |
-| Cobrança | — | **Por conta** | Soma das contas inscritas | Soma das contas inscritas |
-| Compromisso mínimo | — | 30 dias | 30 dias | **90 dias** |
-| Canais | Customer service 24/7 (conta e faturamento), docs, whitepapers, re:Post | **Telefone, web, chat e e-mail 24/7**, Slack; casos e contatos ilimitados | Igual | Igual |
-| **Caso crítico** | — | **< 30 min** | **< 15 min** | **< 5 min** |
-| Produção fora do ar / prejudicada | — | < 1 h / < 4 h | < 1 h / < 4 h | < 1 h / < 4 h |
-| Sistema prejudicado / orientação geral | — | < 12 h / < 24 h | < 12 h / < 24 h | < 12 h / < 24 h |
-| Trusted Advisor | **Core checks** | **Completo** + API | Completo + API + **TA Priority** | Completo + API + **TA Priority** |
-| AWS Support API / AWS Health API | ❌ / Health básico | ✅ / ✅ | ✅ / ✅ | ✅ / ✅ |
-| TAM | ❌ | ❌ | **Designado** | Designado + especialistas de domínio + Incident Management Engineers |
-| Faturamento | — | Billing 24/7 | **Billing concierge** | Especialista de billing designado |
-| AWS Countdown (antigo IEM) | — | Countdown Premium pago | Countdown Premium pago | **Incluído** |
-| Revisões | — | Orientação contextual | Well-Architected, revisão de segurança, plano estratégico | Contínuas + Critical Workload Review |
-| Monitoramento 24/7 pela AWS | — | — | — | ✅ |
-| Security Incident Response | — | Pago à parte | **Incluído** | Incluído |
-| Incident Detection and Response | — | — | Pago à parte | **Incluído** |
-| IA (créditos de DevOps Agent) | — | 30% | 75% | 100% |
+## Opções principais
 
-⚠️ US$ 29 é o preço de entrada do **Business Support+** (novo) e era o do **Developer** (clássico): confira o nome do plano.
+| Plano | O que acrescenta | Na escola |
+|---|---|---|
+| Basic | Conta e faturamento, documentação, re:Post, Trusted Advisor principal, AWS Health | Só dúvidas da fatura |
+| Business Support+ | Engenheiros 24/7, IA generativa, todas as verificações do Trusted Advisor, Support API | Matrícula em produção |
+| Enterprise Support | TAM designado, revisões estratégicas, AWS Countdown | Rede grande com vários sistemas |
+| Unified Operations | Resposta em 5 min, engenheiros designados, monitoramento 24/7 | Missão crítica |
 
-⚠️ 30 min: **Business Support+** (novo) ou **Enterprise On-Ramp** (clássico). 15 min + TAM designado: **Enterprise** (nos dois modelos). 5 min + monitoramento 24/7: **Unified Operations**.
+## Números que a prova cobra
 
-📌 **Menor plano com todas as verificações do Trusted Advisor e acesso à API:** Business Support+. **Menor plano com TA Priority e TAM designado:** Enterprise.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Business Support+ | Maior entre US$ 29 por mês por conta e uma porcentagem da fatura | 06/10/2026 |
+| Enterprise Support | A partir de US$ 5.000 por mês | 06/10/2026 |
+| Unified Operations | A partir de US$ 50.000 por mês | 06/10/2026 |
+| Sistema crítico fora do ar | Menos de 30 min, 15 min e 5 min (Business Support+, Enterprise, Unified Operations) | 06/10/2026 |
+| Sistema de produção fora do ar | Menos de 1 h nos três planos | 06/10/2026 |
+| Orientação geral | Menos de 24 h nos três planos | 06/10/2026 |
+| Fim de Developer, Business e Enterprise On-Ramp | 01/01/2027 | 06/10/2026 |
 
-✔️ O **Enterprise** inclui **workshops conduzidos pelo TAM** e **AWS GameDays** (e exercícios de segurança). Assinatura do Skill Builder incluída: não encontrada.
+## Como é cobrado
 
-### Modelo clássico (válido até 01/01/2027)
+O Basic é incluído. Os planos pagos são cobrados por mês, sem contrato de longo prazo, pelo maior valor entre um mínimo mensal e uma porcentagem da fatura da AWS.
 
-Developer, Business e Enterprise On-Ramp **encerram em 01/01/2027** (clientes On-Ramp migram automaticamente para
+## Não confundir com
 
-Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em questões antigas.
+| Serviço | Diferença para os planos | Pista no enunciado |
+|---|---|---|
+| [AWS Trusted Advisor](../gerenciamento/trusted-advisor.md) | Verificações automáticas; o plano define quantas | "Recomendações de economia e segurança" |
+| [AWS Health Dashboard](../gerenciamento/health-dashboard.md) | Eventos que afetam a conta; a Health API pede plano pago | "Manutenção programada" |
+| [AWS Professional Services e parceiros](recursos-de-ajuda-e-parceiros.md) | Projetos de consultoria, não atendimento de casos | "Ajuda para migrar o datacenter" |
+| [AWS re:Post](recursos-de-ajuda-e-parceiros.md) | Comunidade aberta, sem tempo de resposta | "Perguntar à comunidade" |
 
-| | **Basic** | **Developer** | **Business** | **Enterprise On-Ramp** | **Enterprise** |
-|---|---|---|---|---|---|
-| Preço histórico | Grátis | US$ 29/mês | US$ 100/mês | US$ 5.500/mês | US$ 15.000/mês (hoje US$ 5.000) |
-| Suporte técnico | ❌ | E-mail em **horário comercial** | **24/7 telefone, chat, e-mail** | 24/7 | 24/7 |
-| Orientação geral | — | < 24 h úteis | < 24 h | < 24 h | < 24 h |
-| Sistema prejudicado | — | < 12 h úteis | < 12 h | < 12 h | < 12 h |
-| Produção prejudicada | — | — | < 4 h | < 4 h | < 4 h |
-| **Produção fora do ar** | — | — | **< 1 h** | < 1 h | < 1 h |
-| **Sistema crítico fora do ar** | — | — | — | **< 30 min** | **< 15 min** |
-| Trusted Advisor | Core checks | Core checks | **Todos** + API | Todos + API | Todos + API + Priority |
-| TAM | — | — | — | **Pool de TAMs** | **TAM designado** |
-| Concierge (faturamento/conta) | — | — | — | ✅ | ✅ |
-| Eventos de grande escala | — | — | Pago à parte | 1 engajamento **AWS Countdown** por ano | ✅ |
+## Fontes oficiais
 
-Os **tempos de resposta** clássicos estão confirmados nas páginas oficiais; os **preços** de Developer, Business e On-Ramp não aparecem mais (valores históricos).
+Verificadas em 06/10/2026.
 
-### Recursos ligados ao suporte (também na task 4.3)
-
-**AWS Trusted Advisor:** verificações completas e API a partir dos planos pagos superiores ([ficha](../gerenciamento/trusted-advisor.md)).
-
-**AWS Health Dashboard** e **AWS Health API** ([ficha](../gerenciamento/health-dashboard.md)).
-
-**TAM (Technical Account Manager):** consultor técnico proativo.
-
-**Concierge Support Team:** especialistas em faturamento e conta.
-
-**AWS Support Center:** onde se abrem e acompanham os casos de suporte (no console). No Basic, só casos de conta e faturamento.
-
-**Quem muda o plano de suporte:** 🔄 deixou de ser tarefa exclusiva do root (a lista oficial atual não a inclui); uma identidade IAM com as permissões necessárias pode fazê-lo.
-
-Demais recursos (Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post): [recursos de ajuda e parceiros](recursos-de-ajuda-e-parceiros.md).
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Ter suporte não transfere toda a operação da aplicação para a AWS. Tempo inicial de resposta não é promessa de tempo de resolução; nomes e condições devem ser conferidos no contexto indicado.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma empresa com aplicação importante avalia quais recursos de suporte técnico e acompanhamento são necessários para sua operação.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique a necessidade de ajuda e o impacto real do problema.
-**Etapa 2:** Confira a oferta aplicável e abra um caso elegível com informações suficientes para o atendimento.
-**Etapa 3:** Acompanhe investigação e ações. Primeira resposta, resolução e operação cotidiana da aplicação são responsabilidades distintas.
-
-**Resultado e responsabilidade:** Planos de suporte definem acesso a canais, orientação e recursos de atendimento conforme a oferta. A necessidade do negócio deve orientar a escolha.
-
-**Recursos envolvidos:** Plano, Support Center, casos, severidade, canais e orientação.
-
-**Decisões que precisam ser tomadas:** Plano aplicável, impacto real e informações do caso.
-
-**Outra situação comentada:** Aprenda ambos: Business clássico não se confunde com Business Support+; escolha pelo nome/contexto do enunciado.
-
-**Por que não concluir mais do que isso:** Primeira resposta não é resolução; guia da prova e página comercial citam modelos diferentes
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Plano gratuito sem suporte técnico."
-
-**Resposta curta:** Basic.
-
-**Pergunta:** "Plano pago de entrada, a partir de US$ 29 por conta, com resposta de 30 min para casos críticos."
-
-**Resposta curta:** Business Support+.
-
-**Fundamento explicado no capítulo:** 📌 **Menor plano com todas as verificações do Trusted Advisor e acesso à API:** Business Support+. **Menor plano com TA Priority e TAM designado:** Enterprise.
-
-**Pergunta:** "TAM designado e resposta em menos de 15 min para sistema crítico."
-
-**Resposta curta:** Enterprise.
-
-**Fundamento explicado no capítulo:** 📌 **Menor plano com todas as verificações do Trusted Advisor e acesso à API:** Business Support+. **Menor plano com TA Priority e TAM designado:** Enterprise.
-
-**Pergunta:** "Resposta em 5 minutos para incidentes críticos."
-
-**Resposta curta:** Unified Operations.
-
-**Pergunta:** (Clássico) "Mais barato com suporte técnico 24/7 por telefone e < 1 h para produção fora do ar."
-
-**Resposta curta:** Business.
-
-**Pergunta:** (Clássico) "Pool de TAMs e 30 min."
-
-**Resposta curta:** Enterprise On-Ramp.
-
-**Pergunta:** (Clássico) "Ambiente de testes, ajuda ocasional por e-mail em horário comercial."
-
-**Resposta curta:** Developer.
-
-**Pergunta:** "Quem pode mudar o plano de suporte?"
-
-**Resposta curta:** Não é mais exclusivo do root (lista oficial de 10/2026).
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Planos de suporte](https://aws.amazon.com/premiumsupport/plans/) · [Preços do suporte](https://aws.amazon.com/premiumsupport/pricing/) · [Anúncio da transformação do suporte (12/2025)](https://aws.amazon.com/about-aws/whats-new/2025/12/aws-support-transformation-ai-powered-operations)
+- [Planos de AWS Support](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html)
+- [Comparar os planos de AWS Support](https://aws.amazon.com/premiumsupport/plans/)
+- [Preços do AWS Support](https://aws.amazon.com/premiumsupport/pricing/)
+- [Gerenciamento de casos](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

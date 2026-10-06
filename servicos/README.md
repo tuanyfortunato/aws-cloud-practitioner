@@ -146,7 +146,7 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)](desenvolvimento/cli-sdk-e-cloudshell.md) | 🔀 | núcleo | Toda ação na AWS é uma **chamada de API** — Console, CLI e SDKs são apenas formas diferentes de fazê-la. |
+| [Formas de acesso: Console, CLI, SDKs e CloudShell](desenvolvimento/cli-sdk-e-cloudshell.md) | 🔀 | núcleo | As formas de usar a AWS: cliques no console, comandos na CLI, código com os SDKs e um terminal no navegador com o CloudShell, todas chegando às mesmas APIs. |
 | [Ferramentas de CI/CD: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CodeArtifact](desenvolvimento/code-services.md) | 🔀 | complementar | Serviços gerenciados que cobrem a esteira **código → build → teste → deploy**. |
 | [AWS X-Ray](desenvolvimento/x-ray.md) | ✅ | complementar | **rastreamento distribuído** — acompanha cada requisição através dos microsserviços para achar gargalos e erros. |
 
@@ -165,8 +165,8 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
 | [Migration Evaluator, Application Discovery Service e Migration Hub](migracao/discovery-migration-hub-e-evaluator.md) | ✅ | complementar | As ferramentas das fases **avaliar → planejar → acompanhar** de uma migração. |
-| [AWS Application Migration Service (AWS MGN)](migracao/application-migration-service.md) | ✅ | núcleo | Migração **lift-and-shift (Rehost)** de servidores físicos, virtuais ou de outras nuvens para EC2, com mínima indisponibilidade. |
-| [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](migracao/dms-e-sct.md) | ✅ | núcleo | O DMS **move os dados** (com o banco de origem funcionando); o SCT **converte o schema** entre motores diferentes. |
+| [AWS Application Migration Service (AWS MGN)](migracao/application-migration-service.md) | ✅ | núcleo | Automatiza o rehost (*lift and shift*) de servidores físicos, virtuais e de outras nuvens para a AWS, com replicação contínua e virada em minutos; hoje se chama AWS Transform MGN. |
+| [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](migracao/dms-e-sct.md) | ✅ | núcleo | O DMS move os dados de um banco para a AWS, uma vez ou com replicação contínua; a SCT converte o esquema quando o banco muda de motor. |
 | [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](migracao/snow-family.md) | ⚪ | referência | Dispositivos físicos robustos para **mover grandes volumes de dados** quando a rede é lenta, cara ou inexistente, e para **computação na borda** desconectada. |
 | [AWS DataSync e AWS Transfer Family](migracao/datasync-e-transfer-family.md) | 🔀 | referência | DataSync **move dados online** de forma automatizada e rápida; Transfer Family oferece **SFTP/FTPS/FTP** gerenciado com armazenamento em S3/EFS. |
 
@@ -174,11 +174,11 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [AWS Cost Explorer](custos/cost-explorer.md) | ✅ | núcleo | Visualiza, analisa e **prevê** seus custos e uso da AWS ao longo do tempo. |
-| [AWS Budgets](custos/budgets.md) | ✅ | núcleo | Define orçamentos de custo e uso e **alerta** (ou **age**) quando o valor real ou **previsto** ultrapassa o limite. |
-| [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](custos/pricing-calculator-cur-e-outras-ferramentas.md) | ✅ | núcleo | Ferramentas para estimar, detalhar, ratear, otimizar e acompanhar os custos da AWS. |
-| [Planos de AWS Support](custos/planos-de-suporte.md) | ✅ | núcleo | Níveis de suporte técnico da AWS — quanto mais alto, mais rápido o atendimento e mais acompanhamento proativo. |
-| [Recursos de ajuda, parceiros e serviços ao cliente (AWS IQ, Managed Services, Professional Services, re:Post…)](custos/recursos-de-ajuda-e-parceiros.md) | 🔀 | núcleo | Além dos planos de suporte, a AWS oferece comunidade, documentação, consultoria, parceiros e operação terceirizada — a prova pede quem procurar em cada situação. |
+| [AWS Cost Explorer](custos/cost-explorer.md) | ✅ | núcleo | Mostra os custos e o uso da conta em gráficos e relatórios, com filtros e agrupamentos, até 13 meses para trás e previsão para os próximos. |
+| [AWS Budgets](custos/budgets.md) | ✅ | núcleo | Acompanha custos e uso contra um valor definido, avisa quando o real ou o previsto se aproxima ou passa dele e pode agir automaticamente. |
+| [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](custos/pricing-calculator-cur-e-outras-ferramentas.md) | ✅ | núcleo | As demais ferramentas de custo da prova: a Pricing Calculator estima antes, as tags e o faturamento consolidado separam e juntam os custos, o Cost Anomaly Detection pega gastos fora do padrão e o Cost and Usage Report entrega os dados completos. |
+| [Planos de AWS Support](custos/planos-de-suporte.md) | ✅ | núcleo | Os quatro planos de suporte da AWS (Basic, Business Support+, Enterprise Support e Unified Operations), que vão do atendimento de conta incluído para todos até especialistas designados com resposta em minutos. |
+| [Recursos de ajuda, parceiros e AWS Marketplace](custos/recursos-de-ajuda-e-parceiros.md) | 🔀 | núcleo | Onde buscar ajuda além dos planos de suporte: documentação, Knowledge Center e re:Post para resolver sozinho; Professional Services e parceiros da APN para projetos; o Marketplace para software pronto; e o Trust and Safety para denunciar abuso. |
 
 ## ❌ Fora do escopo da prova (só para referência)
 

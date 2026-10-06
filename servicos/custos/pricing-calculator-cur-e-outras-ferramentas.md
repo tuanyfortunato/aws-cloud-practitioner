@@ -1,184 +1,78 @@
+<!-- autoral -->
+
 # Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A equipe precisa estimar um projeto antes de criar recursos e, depois, pode precisar entender a cobrança em mais detalhe.
-
-**Como este serviço ajuda?** Pricing Calculator estima custos com entradas fornecidas por você. Relatórios de custos e uso ajudam a analisar consumo ocorrido; outras ferramentas atendem organização e administração da cobrança.
-
-**Exemplo do dia a dia:** A escola descreve a capacidade planejada para estimar um sistema. Depois de usá-lo, consulta dados de cobrança para comparar a estimativa com o consumo real.
-
-**O que ele não resolve sozinho?** Estimativa não é uma proposta de preço garantido nem a fatura futura. Relatório de gasto real também não escolhe sozinho a arquitetura mais econômica.
-
-**Primeiras palavras para entender:**
-
-- **Estimativa:** cálculo com hipóteses.
-- **Uso:** consumo efetivo de recursos.
-- **CUR:** relatório detalhado de custos e uso.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Gestão de custos e faturamento · **Domínio:** 4 · **Escopo:** Conta / organização · **Tópico do guia:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
+> **Categoria:** Gestão de custos e faturamento · **Domínio:** 4 · **Abrangência:** Conta e organização · **Ficha:** núcleo
 >
-> **Em uma frase:** ferramentas para estimar, detalhar, ratear, otimizar e acompanhar os custos da AWS.
+> **Em uma frase:** as demais ferramentas de custo da prova: a Pricing Calculator estima antes, as tags e o faturamento consolidado separam e juntam os custos, o Cost Anomaly Detection pega gastos fora do padrão e o Cost and Usage Report entrega os dados completos.
 >
 > **Escopo oficial:** ✅ No escopo (Billing Conductor ❌ fora do escopo) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [4.4 Ferramentas de custo e faturamento](../../docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md)
 
-**Passo 1.** Antes do uso, estime a capacidade e as condições previstas na calculadora.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Depois do uso, analise registros e relatórios para entender o consumo ocorrido.
+---
 
-**Passo 3.** Compare hipóteses e realidade. Estimativa e relatório respondem perguntas diferentes e não são garantias de uma fatura fixa.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A diretora financeira da rede tem quatro pedidos além dos gráficos e dos avisos: saber quanto o sistema da biblioteca vai custar antes de criá-lo, ver o gasto de cada escola, receber uma fatura só para todas as contas e entregar à contabilidade os dados detalhados para as planilhas.
 
-### Tabela de ferramentas
+Cada pedido tem uma ferramenta. A **AWS Pricing Calculator** é uma ferramenta web **gratuita** para **estimar** o custo antes de criar os recursos; a estimativa mostra os custos adiantados, mensais e anuais, pode ser compartilhada por link e exportada em CSV ou PDF. As **tags de alocação de custos**, depois de **ativadas**, separam o gasto por escola nos relatórios. O **faturamento consolidado** do AWS Organizations junta as contas numa **fatura única** e soma o uso, o que compartilha descontos por volume, de instâncias reservadas e de Savings Plans. O **AWS Cost and Usage Report** (CUR) tem o conjunto **mais completo** de dados de custo e uso e os publica num **bucket do S3**; hoje a forma recomendada é o **CUR 2.0**, criado pelo **AWS Data Exports**. E o **Cost Anomaly Detection** usa machine learning para avisar sobre gastos fora do padrão.
 
-**AWS Pricing Calculator**
+O limite: a estimativa da calculadora não inclui impostos e não é um preço garantido; ela depende das hipóteses que a pessoa informa. E nenhuma dessas ferramentas escolhe sozinha a arquitetura mais barata.
 
-**Para que serve:** **Estimar** custos **antes** de criar recursos
+## Como funciona
 
-**Detalhes:** Web, **gratuita**, sem conta; estimativas compartilháveis por link e exportáveis (CSV/PDF); versão no console de Billing considera seus descontos
+1. Antes de criar, a equipe monta a solução na Pricing Calculator e compartilha a estimativa.
+2. Ao criar os recursos, aplica tags como `escola` e as ativa no console de Billing and Cost Management.
+3. Durante o mês, o Cost Anomaly Detection monitora os gastos; no fim, a conta de gerenciamento paga a fatura consolidada.
+4. O Data Exports entrega o CUR 2.0 no S3, onde pode ser analisado com Athena, Redshift ou Quick Sight.
 
-**Billing and Cost Management console**
+## Opções principais
 
-**Para que serve:** Fatura do mês, pagamentos, créditos, perfis de pagamento
+| Ferramenta | Para que serve | Na escola |
+|---|---|---|
+| AWS Pricing Calculator | Estimar antes de criar | Custo do sistema da biblioteca |
+| Página Bills (Billing and Cost Management) | Fatura do mês e as anteriores | Conferir a fatura de setembro |
+| Tags de alocação de custos | Separar custos por projeto, time ou unidade | Gasto de cada escola |
+| Faturamento consolidado | Uma fatura para várias contas, com uso somado | Sede paga por todas as escolas |
+| Cost Anomaly Detection | Avisar sobre gasto fora do padrão | Gasto que dobrou sem estourar o orçamento |
+| Cost and Usage Report (Data Exports) | Dados mais detalhados, no S3 | Planilhas da contabilidade |
 
-**Detalhes:** Ponto de partida do faturamento; root pode liberar acesso ao Billing para usuários IAM
+## Números que a prova cobra
 
-**Cost and Usage Report (CUR) / Data Exports**
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Pricing Calculator | Gratuita; exporta CSV ou PDF; sem impostos | 06/10/2026 |
+| Faturamento consolidado | Sem custo adicional | 06/10/2026 |
+| Prefixos das tags | `user:` (usuário) e `aws:` (geradas pela AWS) | 06/10/2026 |
+| Cost Anomaly Detection | Roda cerca de três vezes por dia | 06/10/2026 |
+| AWS Billing Conductor | Fora do escopo | 06/10/2026 |
 
-**Para que serve:** Dados **mais granulares** possíveis (hora a hora, por recurso, com tags)
+## Como é cobrado
 
-**Detalhes:** ✔️ Configurado pelo **AWS Data Exports**: CUR 2.0 (recomendado) e **FOCUS 1.2/1.0**; o CUR legado continua disponível. Entregue no **S3**; analisados com **Athena**, QuickSight, Redshift
+A Pricing Calculator é gratuita, e o faturamento consolidado não tem custo adicional. O CUR é gravado num bucket do S3 da própria conta.
 
-**Cost Anomaly Detection**
+## Não confundir com
 
-**Para que serve:** Detecta **gastos anormais** com ML
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS Cost Explorer](cost-explorer.md) | Analisa e prevê o gasto que já existe | "Visualizar gastos passados" |
+| [AWS Budgets](budgets.md) | Avisa e age ao passar de um valor fixo | "Alerta ao passar de US$ X" |
+| [AWS Organizations](../gerenciamento/organizations.md) | Agrupa as contas; o faturamento consolidado é um recurso dele | "Várias contas", "SCP" |
+| [AWS Marketplace](recursos-de-ajuda-e-parceiros.md) | Software de terceiros, cobrado na fatura da AWS | "Comprar software pronto" |
 
-**Detalhes:** Monitores por serviço/conta/tag; alertas com causa raiz provável; ✔️ **gratuito**
+## Fontes oficiais
 
-**Cost Optimization Hub**
+Verificadas em 06/10/2026.
 
-**Para que serve:** Consolida recomendações de economia (rightsizing, RIs/SPs, ociosos) num lugar
-
-**Detalhes:** Prioriza por economia estimada
-
-**Cost allocation tags**
-
-**Para que serve:** **Ratear custos** por projeto, time, centro de custo
-
-**Detalhes:** Tags do usuário ou geradas pela AWS; precisam ser **ativadas** no Billing para aparecer nos relatórios
-
-**Cost Categories**
-
-**Para que serve:** Regras que agrupam custos (ex.: "Marketing" = contas X e Y + tag Z)
-
-**Detalhes:** Usadas em Cost Explorer, Budgets, CUR
-
-**Consolidated billing (Organizations)**
-
-**Para que serve:** Fatura única, descontos por volume, compartilhamento de RIs/SPs
-
-**Detalhes:** Sem custo extra
-
-**AWS Billing Conductor ❌ fora do escopo**
-
-**Para que serve:** Faturamento **personalizado** (pro forma)
-
-**Detalhes:** Revendedores e empresas que refaturam clientes/áreas
-
-**Savings Plans / Reservations (console)**
-
-**Para que serve:** Comprar, acompanhar utilização e cobertura
-
-**Detalhes:** Recomendações no Cost Explorer
-
-**Free Tier usage alerts**
-
-**Para que serve:** Avisa quando o uso se aproxima dos limites gratuitos
-
-**Detalhes:** Ativado por padrão
-
-**AWS Customer Carbon Footprint Tool**
-
-**Para que serve:** Estimativa de **emissões de carbono** do seu uso
-
-**Detalhes:** Gratuita, no Billing; pilar Sustentabilidade
-
-**AWS Price List API**
-
-**Para que serve:** Preços via API
-
-**Detalhes:** Automação
-
-**AWS Marketplace**
-
-**Para que serve:** Comprar software de terceiros cobrado na fatura AWS
-
-**Detalhes:** AMIs, SaaS, contêineres, dados, serviços profissionais
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Estimativa não é uma proposta de preço garantido nem a fatura futura. Relatório de gasto real também não escolhe sozinho a arquitetura mais econômica.
-
-## 4. Caso resolvido: ligando as peças
-
-A escola descreve a capacidade planejada para estimar um sistema. Depois de usá-lo, consulta dados de cobrança para comparar a estimativa com o consumo real.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Antes do uso, estime a capacidade e as condições previstas na calculadora.
-**Etapa 2:** Depois do uso, analise registros e relatórios para entender o consumo ocorrido.
-**Etapa 3:** Compare hipóteses e realidade. Estimativa e relatório respondem perguntas diferentes e não são garantias de uma fatura fixa.
-
-**Resultado e responsabilidade:** Pricing Calculator estima custos com entradas fornecidas por você. Relatórios de custos e uso ajudam a analisar consumo ocorrido; outras ferramentas atendem organização e administração da cobrança.
-
-**Recursos envolvidos:** Estimativas, exports detalhados, tags de custo e detecção de anomalia.
-
-**Decisões que precisam ser tomadas:** Premissas, dados exportados, destino e acesso.
-
-**Outra situação comentada:** Planejar nova aplicação: Calculator; auditoria detalhada do gasto real: exportação de custos.
-
-**Por que não concluir mais do que isso:** Estimativa não é fatura garantida; tag precisa ativação como tag de custo quando aplicável
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Estimar o custo de uma arquitetura antes de criá-la."
-
-**Resposta curta:** Pricing Calculator.
-
-**Pergunta:** "Relatório mais detalhado de custo e uso, por hora e recurso."
-
-**Resposta curta:** Cost and Usage Report.
-
-**Pergunta:** "Ser avisado de um gasto anormal."
-
-**Resposta curta:** Cost Anomaly Detection.
-
-**Pergunta:** "Separar custos por projeto ou departamento."
-
-**Resposta curta:** Cost allocation tags (ativadas no Billing).
-
-**Pergunta:** "Acompanhar a pegada de carbono do uso da AWS."
-
-**Resposta curta:** Customer Carbon Footprint Tool.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Pricing Calculator](https://calculator.aws/) · [Data Exports / CUR](https://docs.aws.amazon.com/cur/latest/userguide/what-is-data-exports.html) · [Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html)
+- [O que é a AWS Pricing Calculator](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html)
+- [Entender a fatura](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/getting-viewing-bill.html)
+- [Tags de alocação de custos](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
+- [Faturamento consolidado](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html)
+- [AWS Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html)
+- [O que é o AWS Data Exports](https://docs.aws.amazon.com/cur/latest/userguide/what-is-data-exports.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
