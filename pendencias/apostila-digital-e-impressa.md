@@ -39,7 +39,7 @@ As contagens devem ser atualizadas quando o conteúdo mudar, registrando a vers�
 
 ## 3. Regras para a implementação
 
-- Seguir [CLAUDE.md](../CLAUDE.md): branch nova, PR para `main` e nenhum merge por conta própria.
+- Seguir [CLAUDE.md](../CLAUDE.md): branch nova, PR para `main` e merge depois que as verificações passam.
 - Alterar fontes editoriais e geradores, não apenas os Markdown gerados.
 - Preservar os documentos históricos em `fontes/`; correções do guia original seguem os mecanismos `CORRECOES` e `AVISOS` do gerador.
 - Preservar blocos de anotações e complementos previstos nas regras do projeto.

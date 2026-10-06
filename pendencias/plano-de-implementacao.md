@@ -39,7 +39,7 @@ Entender o fluxo atual define onde cada mudança entra.
 | 7 | Edição impressa | AP-15, AP-16 | 4, 5, 6 |
 | 8 | Aposentar o gerador de conteúdo | AP-10, AP-11 | Todas as aulas e fichas migradas |
 
-Cada fase é dividida em PRs pequenos, conforme o [CLAUDE.md](../CLAUDE.md): branch `claude/<descricao>`, PR para `main` e merge só pela dona do repositório.
+Cada fase é dividida em PRs pequenos, conforme o [CLAUDE.md](../CLAUDE.md): branch `claude/<descricao>`, PR para `main` e merge pelo Claude depois que as verificações passam.
 
 ## 3. Fase 0 — Mecanismo de conteúdo autoral
 
