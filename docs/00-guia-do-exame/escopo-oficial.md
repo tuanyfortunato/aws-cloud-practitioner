@@ -57,7 +57,7 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 | **3.8** | Identify services from other in-scope AWS service categories | [3.13](../03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md) · [3.14](../03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md) · [3.15](../03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md) · [3.18](../03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md) |
 | **4.1** | Compare AWS pricing models (On-Demand, RIs, Spot, Savings Plans, Dedicated Hosts/Instances, Capacity Reservations; flexibilidade de RIs e RIs no Organizations) | [4.1](../04-cobranca-precos-e-suporte/01-principios-de-preco.md) · [4.2](../04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md) · [4.3](../04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md) |
 | **4.2** | Understand resources for billing, budget, and cost management | [4.4](../04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md) |
-| **4.3** | Identify AWS technical resources and AWS Support options (**Developer, Business, Enterprise On-Ramp, Enterprise** nos exemplos consultados; comparar com os planos comerciais novos; Trusted Advisor, Health Dashboard e Health API; Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post) | [4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) · [4.6](../04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md) |
+| **4.3** | Identify AWS technical resources and AWS Support options (**Basic Support, Business Support+, Enterprise Support e Unified Operations**, conferido em 06/10/2026; Trusted Advisor, Health Dashboard e Health API; Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post) | [4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) · [4.6](../04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md) |
 
 ## 🔍 O que cada task cita (termos do exam guide)
 
@@ -84,13 +84,13 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 | 3.8 | EventBridge, SNS, SQS; Connect, SES; AWS Support; CodeBuild, CodePipeline, X-Ray; AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser; Amplify; IoT Core |
 | 4.1 | On-Demand, RIs, Spot, Savings Plans, Dedicated Hosts, Dedicated Instances, Capacity Reservations; flexibilidade de RIs; RIs no Organizations; transferência de dados (entrada, saída, entre regiões, na mesma região); preço por tier de armazenamento |
 | 4.2 | Billing; Organizations e faturamento consolidado; cost allocation tags; Budgets, Cost Explorer, Pricing Calculator; Cost and Usage Report |
-| 4.3 | Documentação, whitepapers, blogs; Prescriptive Guidance, Knowledge Center, re:Post; customer service e comunidades; Developer, Business, Enterprise On-Ramp, Enterprise nos exemplos consultados; Trusted Advisor, Health Dashboard, Health API; Trust and Safety; APN (ISVs, integradores) e benefícios de ser parceiro; Marketplace (custos, governança, entitlement); Professional Services; solutions architects; Support Center |
+| 4.3 | Documentação, whitepapers, blogs; Prescriptive Guidance, Knowledge Center, re:Post; customer service e comunidades; Basic Support, Business Support+, Enterprise Support e Unified Operations; Trusted Advisor, Health Dashboard, Health API; Trust and Safety; APN (ISVs, integradores) e benefícios de ser parceiro; Marketplace (custos, governança, entitlement); Professional Services; solutions architects; Support Center |
 
 **Destaques da revisão:**
 
 **3.8 (outras categorias):** end-user computing = AppStream 2.0, WorkSpaces e WorkSpaces Secure Browser; frontend = **só Amplify**; IoT = **só IoT Core**; developer tools = **CodeBuild, CodePipeline e X-Ray** (e a CLI).
 
-**4.3:** o guia consultado cita exemplos clássicos, e a página comercial oferece planos novos; não se presume substituição de questões. Veja [planos de suporte](../../servicos/custos/planos-de-suporte.md).
+**4.3:** em 06/10/2026, o guia já cita os planos atuais (Basic Support, Business Support+, Enterprise Support e Unified Operations); Developer, Business e Enterprise On-Ramp encerram em 01/01/2027. Veja a [aula 4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md).
 
 ## ✅ Serviços no escopo (lista oficial)
 

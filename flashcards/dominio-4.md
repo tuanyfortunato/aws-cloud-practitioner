@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 36 cards
+**Total:** 30 cards
 
 
 ## [4.1 Princípios de preço da AWS](../docs/04-cobranca-precos-e-suporte/01-principios-de-preco.md)
@@ -140,100 +140,64 @@ Uma fatura única para várias contas e a soma do uso de todas, o que compartilh
 ## [4.5 Planos de AWS Support](../docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.md)
 
 <details>
-<summary>Qual o plano mais barato com suporte técnico 24/7 por telefone?</summary>
+<summary>O que o Basic Support oferece?</summary>
 
-Business Support+ (no modelo clássico, Business).
+Atendimento ao cliente 24/7 para conta e faturamento, pedidos de aumento de cota, documentação, re:Post, as verificações principais do Trusted Advisor e o AWS Health.
 </details>
 
 <details>
-<summary>Qual o plano mais barato com todas as verificações do Trusted Advisor?</summary>
+<summary>Qual é o plano mínimo recomendado pela AWS para cargas de produção?</summary>
 
-Business Support+ (no modelo clássico, Business).
+O AWS Business Support+.
 </details>
 
 <details>
-<summary>Qual plano inclui TAM dedicado?</summary>
+<summary>O que o Enterprise Support acrescenta ao Business Support+?</summary>
 
-Enterprise.
+Um Technical Account Manager (TAM) designado, resposta de até 15 minutos para casos críticos e revisões estratégicas com especialistas da AWS.
 </details>
 
 <details>
-<summary>Qual plano dá acesso a um pool de TAMs?</summary>
+<summary>Quais tipos de caso existem no AWS Support Center?</summary>
 
-Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).
+Conta e faturamento, aumento de limite de serviço e técnico; os dois primeiros estão disponíveis para todos, e o técnico exige um plano pago.
 </details>
 
 <details>
-<summary>Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?</summary>
+<summary>O que acontece com os planos Developer, Business e Enterprise On-Ramp?</summary>
 
-Enterprise.
-</details>
-
-<details>
-<summary>Qual plano responde em menos de 1 hora a produção fora do ar?</summary>
-
-Business Support+ ou superior (no modelo clássico, Business).
-</details>
-
-<details>
-<summary>Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail.</summary>
-
-Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).
-</details>
-
-<details>
-<summary>O plano Basic oferece suporte técnico?</summary>
-
-Não; só atendimento de conta e faturamento, documentação e re:Post.
-</details>
-
-<details>
-<summary>Quem ajuda com dúvidas de faturamento em planos Enterprise?</summary>
-
-Concierge Support Team.
-</details>
-
-<details>
-<summary>Quem pode mudar o plano de suporte?</summary>
-
-🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.
+Serão descontinuados em 01/01/2027; a AWS indica o Business Support+ no lugar dos dois primeiros e migra o Enterprise On-Ramp para o Enterprise Support.
 </details>
 
 
 ## [4.6 Outros recursos de ajuda](../docs/04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md)
 
 <details>
-<summary>Encontrar um parceiro certificado para implementar a migração.</summary>
+<summary>Qual é a diferença entre o AWS re:Post e o AWS Knowledge Center?</summary>
 
-AWS Partner Network.
+O re:Post é a comunidade de perguntas e respostas da AWS; o Knowledge Center, dentro do re:Post, reúne artigos e vídeos oficiais com as perguntas mais comuns dos clientes.
 </details>
 
 <details>
-<summary>Contratar consultoria diretamente da AWS.</summary>
+<summary>O que é o AWS Professional Services?</summary>
 
-AWS Professional Services.
+A equipe de consultoria da própria AWS, que ajuda a projetar, construir, migrar e gerenciar cargas de trabalho na AWS.
 </details>
 
 <details>
-<summary>Terceirizar a operação diária da infraestrutura para a AWS.</summary>
+<summary>Qual é a diferença entre um ISV e um integrador de sistemas na APN?</summary>
 
-AWS Managed Services.
+O ISV (fornecedor independente de software) cria produtos de software; o integrador de sistemas implementa projetos para os clientes.
 </details>
 
 <details>
-<summary>Tirar dúvidas técnicas com a comunidade.</summary>
+<summary>Quais serviços o AWS Marketplace oferece além da compra de software?</summary>
 
-AWS re:Post.
+Gestão de custos, governança e controle (como o Private Marketplace) e gestão de direitos de uso das licenças (Managed Entitlements).
 </details>
 
 <details>
-<summary>Respostas prontas para dúvidas comuns.</summary>
+<summary>A quem denunciar spam ou ataques vindos de recursos da AWS?</summary>
 
-AWS Knowledge Center.
-</details>
-
-<details>
-<summary>Startup busca créditos para começar na AWS.</summary>
-
-AWS Activate.
+À equipe AWS Trust and Safety, pelo formulário de abuso da AWS.
 </details>

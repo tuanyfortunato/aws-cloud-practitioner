@@ -17,13 +17,13 @@
 
 A oferta comercial e o conteúdo publicado da prova podem apresentar exemplos diferentes.
 
-A consulta desta revisão encontrou **Developer, Business, Enterprise On-Ramp e Enterprise** na
+Em 06/10/2026, a [task 4.3](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html)
 
-[task 4.3](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html),
+já cita os planos atuais (Basic Support, Business Support+, Enterprise Support e Unified Operations), os mesmos da
 
-enquanto a [página comercial](https://aws.amazon.com/premiumsupport/plans/) apresenta os planos novos.
+[página comercial](https://aws.amazon.com/premiumsupport/plans/). Os planos antigos ainda podem aparecer em materiais de estudo.
 
-Estude ambos com seus nomes e condições. Um lançamento não comprova a data de atualização das questões.
+Um lançamento não comprova a data de atualização das questões.
 
 Números como S3 50 TB e SQS 1 MiB precisam do contexto: tamanho de objeto não é limite de um PUT simples
 

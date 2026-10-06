@@ -1,155 +1,210 @@
+<!-- autoral -->
+
 # 4.5 Planos de AWS Support
 
-## 🧠 Antes de começar
+> **Domínio 4 — Cobrança, Preços e Suporte (12% da prova)** · Depende das aulas [2.9](../02-seguranca-e-conformidade/09-deteccao-de-ameacas.md), [3.16](../03-tecnologia-e-servicos/16-gestao-e-governanca.md) e [4.4](04-ferramentas-de-custo.md)
 
-**Qual é a dificuldade?** Quando o sistema tem um problema, a empresa precisa saber como pedir ajuda e quais recursos de atendimento estão incluídos em sua oferta.
-
-**A ideia em palavras simples:** Planos de suporte definem canais e condições de auxílio. A escolha deve considerar a necessidade de orientação e o impacto dos incidentes.
-
-**Exemplo do dia a dia:** Uma empresa avalia o acesso a suporte técnico necessário para sua aplicação e confere as condições da oferta aplicável.
-
-**O que não concluir?** Tempo de primeira resposta não é prazo garantido de correção. Os nomes comerciais e os exemplos do guia podem diferir; leia os avisos e o contexto.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **TAM** | Technical Account Manager: consultor técnico que acompanha a conta. |
-| **Concierge** | time de especialistas em faturamento e conta. |
-| **Caso crítico** | sistema crítico de negócio fora do ar. |
-
----
-
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)**
-
-> 🔎 **Fichas detalhadas:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** A task 4.3 consultada cita **Developer, Business, Enterprise On-Ramp e Enterprise**; a página comercial apresenta **Business Support+, Enterprise e Unified Operations**. Estude os dois modelos, distinguindo contexto do guia e oferta comercial. Veja a [auditoria](../00-guia-do-exame/auditoria-conteudo-2026-10.md) e a [ficha de suporte](../../servicos/custos/planos-de-suporte.md). [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+> 🔎 **Fichas para aprofundar:** [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md) · [AWS Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md)
 
 ⬅️ [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) · 🏠 [Índice do domínio](README.md) · [4.6 Outros recursos de ajuda](06-outros-recursos-de-ajuda.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+São 22h de um domingo de janeiro, e o sistema de matrícula da rede de escolas parou de responder. A equipe técnica, de duas pessoas, já olhou os painéis e não achou a causa. Dá para ligar para alguém da AWS agora? Quanto tempo até um especialista responder? A resposta depende do plano de suporte que a escola contratou.
 
-Suporte é uma relação de assistência com cobertura definida. A organização informa o problema, seu impacto e o contexto; o atendimento responde e acompanha conforme a oferta. A equipe continua operando as partes que não foram contratadas para administração externa.
+O guia do exame cobra identificar as opções de suporte da AWS: o atendimento ao cliente e as comunidades, o Basic Support, o AWS Business Support+, o AWS Enterprise Support e o AWS Unified Operations. Cobra também o papel do AWS Trusted Advisor, do AWS Health Dashboard e da AWS Health API, e o AWS Support Center.
 
-Separe resposta inicial de resolução. Uma primeira resposta rápida pode iniciar uma investigação longa. Também diferencie exemplos do guia do exame de nomes comerciais atuais: a pergunta deve ser interpretada dentro do contexto descrito.
+## Os planos mudaram
+
+A AWS reorganizou os planos de suporte. Hoje são quatro: **Basic**, **AWS Business Support+**, **AWS Enterprise Support** e **AWS Unified Operations**. Os planos antigos **Developer**, **Business** e **Enterprise On-Ramp** serão descontinuados em **01/01/2027**: quem tem Developer ou Business pode passar para o Business Support+, e os clientes do Enterprise On-Ramp são migrados para o Enterprise Support ao longo de 2026. Materiais de estudo antigos ainda citam os planos antigos; o guia do exame já cita os novos.
+
+Todos os planos são cobrados mensalmente, sem contrato de longo prazo.
+
+## Basic: incluído para todos
+
+O **Basic Support** está incluído para todo cliente da AWS, sem custo. Ele oferece, 24 horas por dia:
+
+- **Atendimento ao cliente** para dúvidas de **conta e faturamento** e pedidos de aumento de cota de serviço.
+- **Documentação**, whitepapers, guias de boas práticas e o **AWS re:Post**, a comunidade de perguntas e respostas ([aula 4.6](06-outros-recursos-de-ajuda.md)).
+- **AWS Trusted Advisor** com as **verificações principais**: todas as de limites de serviço e algumas de segurança e tolerância a falhas.
+- **AWS Health**: uma visão personalizada da saúde dos serviços da AWS, com alertas quando os seus recursos são afetados.
+
+O que o Basic **não** tem: abrir caso de **suporte técnico**. Com ele, a escola de domingo à noite pode pesquisar a documentação e perguntar no re:Post, mas não pode chamar um engenheiro da AWS.
+
+## Business Support+: o mínimo para produção
+
+O **AWS Business Support+** é o plano que a AWS recomenda como **mínimo para cargas de produção**. Ele traz:
+
+- Acesso **24/7** a engenheiros de suporte da nuvem por **telefone, web e chat**, com casos ilimitados.
+- Respostas em tempo real com **IA generativa**, que considera o contexto da conta.
+- Tempo de resposta humana de **menos de 30 minutos** quando um sistema crítico para o negócio está fora do ar.
+- **Todas as verificações do Trusted Advisor** e a **AWS Support API**, para automatizar casos e verificações.
+- Ajuda com **software de terceiros** comum na AWS, como sistemas operacionais das instâncias do EC2.
+
+O preço é o maior entre **US$ 29 por mês por conta** e uma porcentagem da fatura mensal da AWS, que diminui por faixas à medida que o gasto cresce.
+
+## Enterprise Support: um especialista designado
+
+O **AWS Enterprise Support** tem tudo do Business Support+ e acrescenta:
+
+- Um **Technical Account Manager (TAM) designado**: um especialista técnico da AWS que acompanha a conta.
+- Resposta de até **15 minutos** para casos críticos de produção.
+- **Revisões estratégicas** com especialistas da AWS, revisões do Well-Architected e apoio para eventos importantes, como lançamentos, com o AWS Countdown.
+
+O preço mínimo é **US$ 5.000 por mês**, ou uma porcentagem da fatura, o que for maior.
+
+## Unified Operations: para cargas de missão crítica
+
+O **AWS Unified Operations** é o plano para cargas de **missão crítica** que exigem resiliência maior e conhecimento específico da aplicação. Acrescenta resposta em até **5 minutos** de um engenheiro de gestão de incidentes, um TAM e **engenheiros especialistas designados** para as aplicações do cliente, **monitoramento 24/7 das cargas**, revisões de cargas críticas e procedimentos operacionais personalizados. O preço mínimo é **US$ 50.000 por mês**.
+
+## Tempos de resposta
+
+| Gravidade do caso | Business Support+ | Enterprise Support | Unified Operations |
+|---|---|---|---|
+| Sistema crítico para o negócio fora do ar | menos de 30 min | menos de 15 min | menos de 5 min |
+| Sistema de produção fora do ar | menos de 1 h | menos de 1 h | menos de 1 h |
+| Sistema de produção prejudicado | menos de 4 h | menos de 4 h | menos de 4 h |
+| Sistema prejudicado | menos de 12 h | menos de 12 h | menos de 12 h |
+| Orientação geral | menos de 24 h | menos de 24 h | menos de 24 h |
+
+No Basic, não há caso técnico, então não há tempo de resposta técnica.
+
+## O AWS Support Center
+
+O **AWS Support Center**, no console, é onde se abrem e acompanham os **casos de suporte**. Há três tipos:
+
+- **Conta e faturamento:** disponível para todos os clientes.
+- **Aumento de limite de serviço** (cota): disponível para todos os clientes.
+- **Técnico:** problemas técnicos com os serviços; **não disponível no Basic**.
+
+Ao abrir um caso, escolhe-se a **gravidade**. A boa prática é usar a mais alta só para o que não tem contorno ou afeta a produção diretamente.
+
+## Trusted Advisor e AWS Health para controlar custos
+
+O guia do exame cobra o papel do Trusted Advisor, do Health Dashboard e da Health API para gerenciar e monitorar o ambiente, inclusive para **otimizar custos**:
+
+- O **AWS Trusted Advisor** ([aula 2.9](../02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)) examina o ambiente e recomenda quando há chance de **economizar**, melhorar a disponibilidade e o desempenho ou fechar brechas de segurança, como recursos ociosos. No Basic, só as verificações principais; nos planos pagos, todas.
+- O **AWS Health Dashboard** ([aula 3.16](../03-tecnologia-e-servicos/16-gestao-e-governanca.md)) mostra a saúde dos serviços e os eventos que afetam a sua conta, como manutenções planejadas. A **AWS Health API**, para consumir esses eventos por programa, está nos planos Business Support+, Enterprise e Unified Operations.
+
+## Como escolher
+
+| Necessidade | Plano |
+|---|---|
+| Só dúvidas de conta e faturamento, documentação e comunidade | Basic |
+| Carga de produção com suporte técnico 24/7 por telefone e chat | Business Support+ |
+| Todas as verificações do Trusted Advisor ao menor custo | Business Support+ |
+| TAM designado e resposta em até 15 minutos | Enterprise Support |
+| Missão crítica, resposta em até 5 minutos e monitoramento 24/7 | Unified Operations |
+
+```mermaid
+flowchart TD
+    Q["Que suporte a escola precisa?"] --> T{"Precisa de<br/>suporte técnico?"}
+    T -->|"não"| B["Basic<br/>(incluído)"]
+    T -->|"sim"| P{"Precisa de TAM<br/>designado?"}
+    P -->|"não"| BP["Business Support+<br/>(30 min no crítico)"]
+    P -->|"sim"| M{"Missão crítica<br/>com resposta em 5 min?"}
+    M -->|"não"| E["Enterprise Support<br/>(15 min)"]
+    M -->|"sim"| U["Unified Operations<br/>(5 min)"]
+```
+
+*Figura 4.5 — Um caminho para escolher o plano de suporte, do Basic ao Unified Operations.*
+
+## Na prova
+
+- **"Só ajuda com a fatura ou a conta" = Basic (atendimento ao cliente incluído para todos).**
+- **Basic não abre caso técnico.**
+- **"Plano mínimo para produção", "suporte 24/7 por telefone", "todas as verificações do Trusted Advisor" = Business Support+.**
+- **"TAM designado", "15 minutos" = Enterprise Support.**
+- **"5 minutos", "missão crítica", "monitoramento 24/7 das cargas" = Unified Operations.**
+- **Developer, Business e Enterprise On-Ramp encerram em 01/01/2027.**
+
+## Caso resolvido
+
+**Situação.** A rede de escolas roda o sistema de matrícula em produção e quer falar com um engenheiro da AWS a qualquer hora, por telefone, quando o sistema cair. Também quer todas as verificações do Trusted Advisor. Não precisa de um especialista designado e quer o menor custo. Qual plano?
+
+**Raciocínio.** Suporte técnico 24/7 por telefone, resposta rápida para sistema fora do ar e todas as verificações do Trusted Advisor estão no Business Support+, que a AWS recomenda como mínimo para produção. Sem a exigência de TAM, ele é o plano mais barato que atende.
+
+**Por que as alternativas tentadoras falham.** O Basic não permite caso técnico e tem só as verificações principais do Trusted Advisor. O Enterprise Support e o Unified Operations atendem, mas acrescentam TAM e outros recursos que a escola não pediu, a um custo mínimo bem maior. O plano Developer está sendo descontinuado.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### O que o Basic Support oferece?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-é como **planos de assistência técnica**: o básico só tem o manual e o FAQ; os planos maiores dão atendimento 24 h, resposta mais rápida e, no topo, um **consultor dedicado** (TAM) que acompanha você de perto.
+Atendimento ao cliente 24/7 para conta e faturamento, pedidos de aumento de cota, documentação, re:Post, as verificações principais do Trusted Advisor e o AWS Health.
+
+Comentário: está incluído para todos e não permite abrir caso técnico.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Qual é o plano mínimo recomendado pela AWS para cargas de produção?
 
-| Plano (modelo clássico; preços históricos, não cotação atual) | Preço mínimo histórico | Canais de suporte técnico | Tempo de primeira resposta | Recursos principais |
-| --- | --- | --- | --- | --- |
-| Basic | Gratuito | Atendimento ao cliente 24/7 só para conta e faturamento | Sem suporte técnico | Documentação, whitepapers, re:Post, Health Dashboard, verificações principais do Trusted Advisor |
-| Developer | A partir de US$ 29/mês | E-mail em horário comercial | Orientação geral: menos de 24 h úteis; sistema prejudicado: menos de 12 h úteis | Para testes e desenvolvimento; orientação de arquitetura geral |
-| Business | A partir de US$ 100/mês | Telefone, chat e e-mail 24/7 | Sistema de produção prejudicado: menos de 4 h; **produção fora do ar: menos de 1 h** | **Todas as verificações do Trusted Advisor**; Health API; suporte a software de terceiros comum; Infrastructure Event Management pago à parte |
-| Enterprise On-Ramp | A partir de US$ 5.500/mês | Telefone, chat e e-mail 24/7 | **Sistema crítico de negócio fora do ar: menos de 30 min** | **Pool de TAMs**; Concierge Support Team (faturamento e conta); revisões consultivas |
-| Enterprise | A partir de US$ 15.000/mês | Telefone, chat e e-mail 24/7 | **Sistema crítico de negócio fora do ar: menos de 15 min** | **TAM dedicado**; Concierge; Infrastructure Event Management; revisões Well-Architected e de operações; treinamentos |
+<details>
+<summary>Ver resposta</summary>
 
-**TAM (Technical Account Manager):** consultor técnico que acompanha a conta de forma proativa. Dedicado só no Enterprise; compartilhado (pool) no Enterprise On-Ramp.
+O AWS Business Support+.
 
-**Concierge Support Team:** especialistas em faturamento e gestão de conta (Enterprise On-Ramp e Enterprise).
+Comentário: tem suporte técnico 24/7, resposta de menos de 30 minutos para sistema crítico fora do ar e todas as verificações do Trusted Advisor.
 
-**Infrastructure Event Management (IEM):** apoio da AWS para planejar eventos de grande escala (lançamentos, Black Friday).
+</details>
 
-**Cai na prova:** 🔄 *oferta comercial atual (sem confirmação de substituição no banco da prova):* "plano pago de entrada, US$ 29 por conta, 30 min" = Business Support+; "TAM designado e 15 min" = Enterprise; "5 min" = Unified Operations. *Modelo clássico (até 01/01/2027):* "menor plano com suporte 24/7 por telefone" = Business; "menor plano com todas as verificações do Trusted Advisor" = Business; "TAM dedicado" = Enterprise; "resposta em 15 minutos" = Enterprise; "só precisa de ajuda com a fatura" = Basic (atendimento ao cliente é grátis). Preços e tempos mudam com frequência: confira a página oficial de planos antes da prova.
+### O que o Enterprise Support acrescenta ao Business Support+?
 
-## 3. Como analisar uma situação
+<details>
+<summary>Ver resposta</summary>
 
-**Primeiro, identifique o funcionamento:** Support Center organiza casos de suporte; planos determinam canais, recursos e objetivos de resposta. TAM oferece orientação técnica proativa; cobrança/conta é uma necessidade distinta de incidente técnico.
+Um Technical Account Manager (TAM) designado, resposta de até 15 minutos para casos críticos e revisões estratégicas com especialistas da AWS.
 
-**Depois, compare as escolhas:** Leia o nome e o contexto: o guia consultado cita modelos clássicos; a página comercial oferece planos novos. Preserve as duas tabelas com fonte e data, sem tratar lançamento comercial como confirmação de questão.
+Comentário: o preço mínimo é de US$ 5.000 por mês.
 
-**Por fim, verifique o limite:** Tempo de primeira resposta não é prazo de resolução nem SLA da aplicação. Basic não inclui atendimento técnico individual como os planos pagos.
+</details>
 
-## 4. Caso resolvido
+### Quais tipos de caso existem no AWS Support Center?
 
-Um plano promete primeira resposta para incidente crítico em quinze minutos. Isso garante que a aplicação será restaurada nesse prazo?
+<details>
+<summary>Ver resposta</summary>
 
-**Raciocínio e resposta:** Não. O objetivo se refere ao contato inicial do suporte, sujeito aos termos; restaurar depende do diagnóstico, contexto e ações necessárias.
+Conta e faturamento, aumento de limite de serviço e técnico; os dois primeiros estão disponíveis para todos, e o técnico exige um plano pago.
 
-## 5. Revisão do capítulo
+Comentário: a gravidade escolhida no caso define o tempo de resposta esperado.
 
-**Objetivos de aprendizagem:**
+</details>
 
-- [ ] Diferenciar os **planos novos** (Basic, Business Support+, Enterprise, Unified Operations) dos **clássicos**.
-- [ ] Ligar os tempos de resposta a cada plano (30 min, 15 min, 5 min no modelo novo).
-- [ ] Saber o que é **TAM**, **Concierge** e quem tem **todas as verificações do Trusted Advisor**.
+### O que acontece com os planos Developer, Business e Enterprise On-Ramp?
 
-**Dica de revisão para a prova:** Distinga os exemplos clássicos do guia da oferta comercial atual (veja o aviso no topo). "TAM designado + 15 min" → **Enterprise**. "5 min" → **Unified Operations**. "Plano pago de entrada, 30 min" → **Business Support+**.
+<details>
+<summary>Ver resposta</summary>
 
-### ❓ Perguntas típicas
+Serão descontinuados em 01/01/2027; a AWS indica o Business Support+ no lugar dos dois primeiros e migra o Enterprise On-Ramp para o Enterprise Support.
 
-> Também estão nos [flashcards](../../flashcards/dominio-4.md).
-**Pergunta:** "Qual o plano mais barato com suporte técnico 24/7 por telefone?"
+Comentário: materiais antigos ainda citam esses planos.
 
-**Resposta curta:** Business Support+ (no modelo clássico, Business).
+</details>
 
-**Pergunta:** "Qual o plano mais barato com todas as verificações do Trusted Advisor?"
+## Resumo
 
-**Resposta curta:** Business Support+ (no modelo clássico, Business).
+- Planos atuais: Basic, Business Support+, Enterprise Support e Unified Operations.
+- Basic: incluído, conta e faturamento, sem caso técnico.
+- Business Support+: mínimo para produção, 24/7, 30 minutos no crítico, todas as verificações do Trusted Advisor; a partir de US$ 29 por conta.
+- Enterprise Support: TAM designado, 15 minutos; a partir de US$ 5.000.
+- Unified Operations: missão crítica, 5 minutos; a partir de US$ 50.000.
+- Developer, Business e Enterprise On-Ramp encerram em 01/01/2027.
 
-**Pergunta:** "Qual plano inclui TAM dedicado?"
+## Fontes oficiais
 
-**Resposta curta:** Enterprise.
+Verificadas em 06/10/2026.
 
-**Pergunta:** "Qual plano dá acesso a um pool de TAMs?"
-
-**Resposta curta:** Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).
-
-**Pergunta:** "Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?"
-
-**Resposta curta:** Enterprise.
-
-**Pergunta:** "Qual plano responde em menos de 1 hora a produção fora do ar?"
-
-**Resposta curta:** Business Support+ ou superior (no modelo clássico, Business).
-
-**Pergunta:** "Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail."
-
-**Resposta curta:** Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).
-
-**Pergunta:** "O plano Basic oferece suporte técnico?"
-
-**Resposta curta:** Não; só atendimento de conta e faturamento, documentação e re:Post.
-
-**Pergunta:** "Quem ajuda com dúvidas de faturamento em planos Enterprise?"
-
-**Resposta curta:** Concierge Support Team.
-
-**Pergunta:** "Quem pode mudar o plano de suporte?"
-
-**Resposta curta:** 🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.
-
-<!-- extra:inicio -->
-## 🔄 Planos comerciais novos (distinguir dos exemplos do guia)
-
-> Verificado em fontes oficiais em 04/10/2026 ([relatório](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)). Comparação completa na [ficha de planos de suporte](../../servicos/custos/planos-de-suporte.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
-
-| Plano (📌) | Preço mínimo | Resposta para caso crítico | Destaques |
-|---|---|---|---|
-| **Basic** | Grátis | — (sem suporte técnico) | Conta e faturamento, documentação, re:Post, Health Dashboard, verificações principais do Trusted Advisor |
-| **AWS Business Support+** | **US$ 29/mês por conta** | **30 min** | Plano pago de entrada: 24/7 por telefone, chat e e-mail; Trusted Advisor completo + API; Support API e Health API |
-| **AWS Enterprise Support** | **US$ 5.000/mês** (antes US$ 15.000) | **15 min** | **TAM designado**, Trusted Advisor Priority, billing concierge, Security Incident Response incluído |
-| **AWS Unified Operations** | **US$ 50.000/mês**, compromisso mínimo de 90 dias | **5 min** | Monitoramento 24/7, AWS Countdown incluído, TAM + especialistas |
-
-- Nos três planos pagos (✔️ confirmado): produção fora do ar < 1 h · produção prejudicada < 4 h · sistema prejudicado < 12 h · orientação geral < 24 h.
-- 📌 **Menor plano com Trusted Advisor completo e API:** Business Support+. **Menor plano com TAM designado e TA Priority:** Enterprise.
-- Lançados em 02/12/2025. **Developer, Business e Enterprise On-Ramp encerram em 01/01/2027** (On-Ramp migrando automaticamente para Enterprise em 2026; os legados seguem no GovCloud).
-- ⚠️ **Pegadinha de preço:** o Business Support+ começa em US$ 29 — o mesmo valor que se cita para o antigo Developer. Confira o **nome** do plano na questão.
-- ⚠️ **30 minutos** aparece nos dois modelos: Enterprise On-Ramp (clássico) e Business Support+ (novo). **15 minutos + TAM designado** → Enterprise nos dois modelos. **5 minutos** → Unified Operations.
-- A task 4.3 também cita **Trusted Advisor**, **AWS Health Dashboard** e **AWS Health API**.
-- Os preços clássicos de Developer (US$ 29), Business (US$ 100) e On-Ramp (US$ 5.500) não aparecem mais nas páginas oficiais; os **tempos de resposta** clássicos continuam confirmados até 01/01/2027.
-- A página do Enterprise On-Ramp cita **1 engajamento AWS Countdown por ano** (não usa o termo "IEM").
-- Shield Advanced (US$ 3.000/mês) e Enterprise (US$ 5.000/mês) são "custo fixo alto": raramente são a resposta "mais barata".
-<!-- extra:fim -->
+- [Content Domain 4 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html): planos citados, Trusted Advisor, Health Dashboard, Health API e Support Center (tarefa 4.3).
+- [AWS Support Plans](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html): planos atuais, recursos de cada um e fim de Developer, Business e Enterprise On-Ramp em 01/01/2027.
+- [Compare AWS Support plans](https://aws.amazon.com/premiumsupport/plans/): o que o Basic inclui, plano mínimo para produção, tempos de resposta, TAM, Health API e Trusted Advisor por plano.
+- [AWS Support pricing](https://aws.amazon.com/premiumsupport/pricing/): preços mínimos e cobrança mensal sem contrato de longo prazo.
+- [AWS Enterprise Support](https://aws.amazon.com/premiumsupport/plans/enterprise/): revisões do Well-Architected conduzidas pelo TAM e AWS Countdown.
+- [Case management](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html): tipos de caso, caso técnico fora do Basic e escolha da gravidade.
+- [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html): recomendações e verificações disponíveis por plano.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
