@@ -214,19 +214,13 @@ Qual é a diferença entre o Cost Explorer e o Budgets?	O Cost Explorer analisa 
 Quais são os dois tipos de tags de alocação de custos?	As definidas pelo usuário (prefixo `user:`) e as geradas pela AWS (prefixo `aws:`), e as duas precisam ser ativadas no console de Billing para aparecer nos relatórios.	CLF-C02 dominio-4 secao-4_4
 O que o AWS Cost and Usage Report oferece?	O conjunto mais completo de dados de custo e uso, entregue num bucket do S3, por hora, dia ou mês, por recurso e por tag.	CLF-C02 dominio-4 secao-4_4
 O que o faturamento consolidado do Organizations traz?	Uma fatura única para várias contas e a soma do uso de todas, o que compartilha descontos por volume, de instâncias reservadas e de Savings Plans, sem custo adicional.	CLF-C02 dominio-4 secao-4_4
-Qual o plano mais barato com suporte técnico 24/7 por telefone?	Business Support+ (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
-Qual o plano mais barato com todas as verificações do Trusted Advisor?	Business Support+ (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
-Qual plano inclui TAM dedicado?	Enterprise.	CLF-C02 dominio-4 secao-4_5
-Qual plano dá acesso a um pool de TAMs?	Enterprise On-Ramp (plano clássico, encerra em 01/01/2027).	CLF-C02 dominio-4 secao-4_5
-Qual plano responde em menos de 15 minutos a um sistema crítico fora do ar?	Enterprise.	CLF-C02 dominio-4 secao-4_5
-Qual plano responde em menos de 1 hora a produção fora do ar?	Business Support+ ou superior (no modelo clássico, Business).	CLF-C02 dominio-4 secao-4_5
-Ambiente de testes que só precisa de ajuda técnica ocasional por e-mail.	Developer (plano clássico, encerra em 01/01/2027; no modelo atual, o plano pago de entrada é o Business Support+).	CLF-C02 dominio-4 secao-4_5
-O plano Basic oferece suporte técnico?	Não; só atendimento de conta e faturamento, documentação e re:Post.	CLF-C02 dominio-4 secao-4_5
-Quem ajuda com dúvidas de faturamento em planos Enterprise?	Concierge Support Team.	CLF-C02 dominio-4 secao-4_5
-Quem pode mudar o plano de suporte?	🔄 Não é mais tarefa exclusiva do root (saiu da lista oficial em 10/2026): uma identidade IAM com as permissões necessárias.	CLF-C02 dominio-4 secao-4_5
-Encontrar um parceiro certificado para implementar a migração.	AWS Partner Network.	CLF-C02 dominio-4 secao-4_6
-Contratar consultoria diretamente da AWS.	AWS Professional Services.	CLF-C02 dominio-4 secao-4_6
-Terceirizar a operação diária da infraestrutura para a AWS.	AWS Managed Services.	CLF-C02 dominio-4 secao-4_6
-Tirar dúvidas técnicas com a comunidade.	AWS re:Post.	CLF-C02 dominio-4 secao-4_6
-Respostas prontas para dúvidas comuns.	AWS Knowledge Center.	CLF-C02 dominio-4 secao-4_6
-Startup busca créditos para começar na AWS.	AWS Activate.	CLF-C02 dominio-4 secao-4_6
+O que o Basic Support oferece?	Atendimento ao cliente 24/7 para conta e faturamento, pedidos de aumento de cota, documentação, re:Post, as verificações principais do Trusted Advisor e o AWS Health.	CLF-C02 dominio-4 secao-4_5
+Qual é o plano mínimo recomendado pela AWS para cargas de produção?	O AWS Business Support+.	CLF-C02 dominio-4 secao-4_5
+O que o Enterprise Support acrescenta ao Business Support+?	Um Technical Account Manager (TAM) designado, resposta de até 15 minutos para casos críticos e revisões estratégicas com especialistas da AWS.	CLF-C02 dominio-4 secao-4_5
+Quais tipos de caso existem no AWS Support Center?	Conta e faturamento, aumento de limite de serviço e técnico; os dois primeiros estão disponíveis para todos, e o técnico exige um plano pago.	CLF-C02 dominio-4 secao-4_5
+O que acontece com os planos Developer, Business e Enterprise On-Ramp?	Serão descontinuados em 01/01/2027; a AWS indica o Business Support+ no lugar dos dois primeiros e migra o Enterprise On-Ramp para o Enterprise Support.	CLF-C02 dominio-4 secao-4_5
+Qual é a diferença entre o AWS re:Post e o AWS Knowledge Center?	O re:Post é a comunidade de perguntas e respostas da AWS; o Knowledge Center, dentro do re:Post, reúne artigos e vídeos oficiais com as perguntas mais comuns dos clientes.	CLF-C02 dominio-4 secao-4_6
+O que é o AWS Professional Services?	A equipe de consultoria da própria AWS, que ajuda a projetar, construir, migrar e gerenciar cargas de trabalho na AWS.	CLF-C02 dominio-4 secao-4_6
+Qual é a diferença entre um ISV e um integrador de sistemas na APN?	O ISV (fornecedor independente de software) cria produtos de software; o integrador de sistemas implementa projetos para os clientes.	CLF-C02 dominio-4 secao-4_6
+Quais serviços o AWS Marketplace oferece além da compra de software?	Gestão de custos, governança e controle (como o Private Marketplace) e gestão de direitos de uso das licenças (Managed Entitlements).	CLF-C02 dominio-4 secao-4_6
+A quem denunciar spam ou ataques vindos de recursos da AWS?	À equipe AWS Trust and Safety, pelo formulário de abuso da AWS.	CLF-C02 dominio-4 secao-4_6
