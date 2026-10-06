@@ -1,107 +1,41 @@
+<!-- autoral -->
+
 # AWS Directory Service
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa já organiza usuários e computadores com Active Directory e precisa usar esse tipo de identidade com aplicações e recursos na AWS.
-
-**Como este serviço ajuda?** Directory Service oferece opções para diretórios e integração com Active Directory, conforme a modalidade. Ele atende necessidades corporativas de identidade e compatibilidade.
-
-**Exemplo do dia a dia:** Uma aplicação Windows na AWS precisa reconhecer os usuários do diretório da empresa. A equipe escolhe uma modalidade compatível com essa integração.
-
-**O que ele não resolve sozinho?** As modalidades não são equivalentes: encaminhar autenticação para um diretório existente é diferente de manter um diretório gerenciado. Ele também não substitui qualquer mecanismo de login de aplicativos.
-
-**Primeiras palavras para entender:**
-
-- **Diretório:** cadastro organizado de identidades.
-- **Active Directory:** tecnologia corporativa de diretório.
-- **Domínio:** conjunto administrado por esse diretório.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / identidade · **Domínio:** 2 · **Escopo:** Regional (em VPC) · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
+> **Categoria:** Segurança / identidade · **Domínio:** 2 · **Abrangência:** Regional (na VPC) · **Ficha:** complementar
 >
-> **Em uma frase:** Microsoft Active Directory gerenciado na AWS, ou ponte para o AD on-premises.
+> **Em uma frase:** formas de usar o Microsoft Active Directory com os serviços da AWS: um diretório gerenciado pela AWS ou a ligação com o diretório que a empresa já tem.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.3 Identidades e acessos](../../docs/02-seguranca-e-conformidade/03-iam.md)
 
-**Passo 1.** Identifique o diretório existente e o tipo de integração requerido pelas aplicações.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha uma modalidade que cria um diretório ou usa uma relação com o ambiente existente, conforme sua função.
+---
 
-**Passo 3.** Prepare conexões e confiança e teste a autenticação. As modalidades não têm a mesma divisão de responsabilidades.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+A secretaria de educação já tem todos os funcionários no **Active Directory** (AD), o diretório de usuários e computadores da Microsoft, e quer que eles entrem nas máquinas Windows e nos WorkSpaces da AWS com a mesma senha. O **AWS Directory Service** oferece três opções para isso.
 
-### Opções
+1. Escolhe-se a opção: **AWS Managed Microsoft AD** (um AD de verdade gerenciado pela AWS), **AD Connector** (repassa o login ao AD local, sem copiar os usuários) ou **Simple AD** (diretório básico, baseado em Samba 4).
+2. Cria-se o diretório na VPC.
+3. Os serviços da AWS, como WorkSpaces, Quick Sight e instâncias Windows do EC2, passam a usar esse diretório para o login.
+4. No Managed Microsoft AD, a AWS cuida do monitoramento, dos snapshots diários e da recuperação.
 
-**AWS Managed Microsoft AD**
+## Não confundir com
 
-**O que é:** AD real gerenciado (controladores em 2 AZs)
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS IAM Identity Center](iam-identity-center.md) | Acesso de funcionários a várias contas AWS e aplicações; pode usar o AD como fonte | "Várias contas", "portal de acesso" |
+| [Amazon Cognito](cognito.md) | Login dos clientes de um aplicativo | "Usuários do app" |
+| [AWS IAM](iam.md) | Usuários, funções e permissões da própria conta | "Política", "função" |
 
-**Uso:** Aplicações que dependem de AD (SQL Server, FSx for Windows, WorkSpaces); trust com AD on-premises
+## Fontes oficiais
 
-**AD Connector**
+Verificadas em 06/10/2026.
 
-**O que é:** Proxy que redireciona autenticação para o **AD on-premises** (sem guardar dados na nuvem)
-
-**Uso:** Usar o AD existente com WorkSpaces, Identity Center, console
-
-**Simple AD**
-
-**O que é:** Diretório compatível com AD (Samba), básico e barato
-
-**Uso:** 🔄 Fechado a novos clientes desde 30/07/2026
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-As modalidades não são equivalentes: encaminhar autenticação para um diretório existente é diferente de manter um diretório gerenciado. Ele também não substitui qualquer mecanismo de login de aplicativos.
-
-## 4. Caso resolvido: ligando as peças
-
-Uma aplicação Windows na AWS precisa reconhecer os usuários do diretório da empresa. A equipe escolhe uma modalidade compatível com essa integração.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique o diretório existente e o tipo de integração requerido pelas aplicações.
-**Etapa 2:** Escolha uma modalidade que cria um diretório ou usa uma relação com o ambiente existente, conforme sua função.
-**Etapa 3:** Prepare conexões e confiança e teste a autenticação. As modalidades não têm a mesma divisão de responsabilidades.
-
-**Resultado e responsabilidade:** Directory Service oferece opções para diretórios e integração com Active Directory, conforme a modalidade. Ele atende necessidades corporativas de identidade e compatibilidade.
-
-**Recursos envolvidos:** Diretórios gerenciados/conectores e integração de rede.
-
-**Decisões que precisam ser tomadas:** Tipo de diretório, DNS, rede e trusts suportados.
-
-**Outra situação comentada:** Aplicação Windows precisa AD: avalie modalidade correta, em vez de presumir que IAM substitui qualquer protocolo de diretório.
-
-**Por que não concluir mais do que isso:** AD Connector não equivale a criar nova cópia de diretório gerenciado
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Rodar Active Directory gerenciado na AWS."
-
-**Resposta curta:** AWS Managed Microsoft AD.
-
-**Pergunta:** "Usar o AD on-premises sem replicá-lo para a nuvem."
-
-**Resposta curta:** AD Connector.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html)
-
+- [O que é o AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

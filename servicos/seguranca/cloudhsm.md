@@ -1,111 +1,41 @@
+<!-- autoral -->
+
 # AWS CloudHSM
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Algumas organizações precisam de controle sobre um equipamento criptográfico dedicado, com requisitos diferentes dos atendidos por um serviço de chaves mais abstrato.
-
-**Como este serviço ajuda?** CloudHSM fornece módulos de segurança de hardware para operações e armazenamento criptográfico. Você administra aspectos como usuários e chaves dentro dessa solução.
-
-**Exemplo do dia a dia:** Uma organização com exigências específicas de controle criptográfico avalia um conjunto de HSMs para sua aplicação compatível.
-
-**O que ele não resolve sozinho?** HSM dedicado não significa menos trabalho de administração. CloudHSM e KMS dividem responsabilidades de formas diferentes; a aplicação também precisa integrar-se corretamente.
-
-**Primeiras palavras para entender:**
-
-- **HSM:** equipamento especializado em proteger chaves e executar operações criptográficas.
-- **Dedicado:** destinado ao cliente.
-- **Cluster:** conjunto de equipamentos coordenados.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / criptografia · **Domínio:** 2 · **Escopo:** Regional (cluster multi-AZ na VPC) · **Tópico do guia:** [2.5 Criptografia](../../docs/02-seguranca-e-conformidade/05-criptografia.md)
+> **Categoria:** Segurança / criptografia · **Domínio:** 2 · **Abrangência:** Regional (cluster na VPC) · **Ficha:** complementar
 >
-> **Em uma frase:** HSM (hardware security module) **dedicado e exclusivo** na nuvem, em que só você controla as chaves.
+> **Em uma frase:** módulos de segurança de hardware (HSMs) dedicados a um único cliente, na nuvem, para guardar chaves e fazer operações criptográficas sob controle exclusivo.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.5 Criptografia](../../docs/02-seguranca-e-conformidade/05-criptografia.md)
 
-**Passo 1.** Avalie os requisitos de controle criptográfico e prepare os módulos compatíveis.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Administre usuários e chaves na solução e integre o software às operações necessárias.
+---
 
-**Passo 3.** Planeje disponibilidade e proteção operacional. Controle dedicado exige trabalho que não deve ser confundido com a abstração de KMS.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+Um **HSM** é um equipamento que faz operações criptográficas e guarda chaves com segurança. O KMS usa HSMs compartilhados e gerenciados pela AWS. Se uma regra interna ou um regulador exigir hardware **dedicado**, sob controle do próprio cliente, a resposta é o **AWS CloudHSM**: HSMs de uso exclusivo (*single-tenant*), com validação FIPS 140-2 ou 140-3 nível 3 nos clusters em modo FIPS.
 
-### Destaques
+1. Cria-se um cluster do CloudHSM na VPC, em modo FIPS ou não FIPS.
+2. A AWS cuida do provisionamento, dos backups, da configuração e da manutenção dos HSMs.
+3. O cliente administra os próprios usuários e chaves dentro dos HSMs.
+4. As aplicações usam as chaves; o KMS também pode guardar chaves num repositório apoiado no cluster do cliente.
 
-| Item | Detalhe |
-|---|---|
-| **Single-tenant** | Hardware dedicado a você; validação **FIPS 140 nível 3**. |
-| **Controle** | **Você** gerencia usuários e chaves; a **AWS não tem acesso** às chaves. Perdeu as credenciais → perdeu as chaves. |
-| **Alta disponibilidade** | Cluster com HSMs em várias AZs (responsabilidade do cliente montar). |
-| **APIs padrão** | PKCS#11, JCE (Java), CNG/KSP (Windows), OpenSSL. |
-| **Integração** | Custom key store do KMS; offload SSL/TLS de servidores web; Oracle TDE; assinatura de código; CA privada. |
+## Não confundir com
 
-### Responsabilidade compartilhada
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS KMS](kms.md) | Chaves gerenciadas e integradas aos serviços, em HSMs compartilhados | "Criptografia integrada ao S3", "rotação de chaves" |
+| [AWS Secrets Manager](secrets-manager-e-parameter-store.md) | Guarda e troca senhas e segredos | "Senha do banco" |
+| [AWS Certificate Manager](certificate-manager.md) | Certificados SSL/TLS para HTTPS | "Certificado", "HTTPS" |
 
-**AWS:** hardware, disponibilidade do HSM, patches de firmware.
+## Fontes oficiais
 
-**Cliente:** usuários, chaves, backup das credenciais, montar cluster multi-AZ, aplicação.
+Verificadas em 06/10/2026.
 
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-HSM dedicado não significa menos trabalho de administração. CloudHSM e KMS dividem responsabilidades de formas diferentes; a aplicação também precisa integrar-se corretamente.
-
-### ⚠️ Pegadinhas
-
-"Hardware dedicado", "single-tenant", "controle exclusivo das chaves", "FIPS 140 nível 3", "a AWS não pode acessar" → **CloudHSM**.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por **HSM por hora** (custo bem maior que o KMS).
-
-## 5. Caso resolvido: ligando as peças
-
-Uma organização com exigências específicas de controle criptográfico avalia um conjunto de HSMs para sua aplicação compatível.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Avalie os requisitos de controle criptográfico e prepare os módulos compatíveis.
-**Etapa 2:** Administre usuários e chaves na solução e integre o software às operações necessárias.
-**Etapa 3:** Planeje disponibilidade e proteção operacional. Controle dedicado exige trabalho que não deve ser confundido com a abstração de KMS.
-
-**Resultado e responsabilidade:** CloudHSM fornece módulos de segurança de hardware para operações e armazenamento criptográfico. Você administra aspectos como usuários e chaves dentro dessa solução.
-
-**Recursos envolvidos:** Cluster HSM, usuários criptográficos e clientes.
-
-**Decisões que precisam ser tomadas:** Quantidade/localização, usuários e gerenciamento de chaves.
-
-**Outra situação comentada:** Requisito de HSM dedicado com controle de chaves: CloudHSM; integração simples de chave gerenciada: KMS.
-
-**Por que não concluir mais do que isso:** Cliente mantém responsabilidades de usuários/chaves; não é simples cofre de senha
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Exigência regulatória de HSM dedicado com chaves sob controle exclusivo."
-
-**Resposta curta:** CloudHSM.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [CloudHSM](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html)
-
+- [O que é o AWS CloudHSM](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

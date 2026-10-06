@@ -1,144 +1,45 @@
+<!-- autoral -->
+
 # AWS Firewall Manager e AWS Network Firewall
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa precisa padronizar proteções em várias contas e também pode precisar inspecionar tráfego que passa pela rede.
-
-**Como este serviço ajuda?** Firewall Manager coordena políticas de proteção em recursos compatíveis de uma organização. Network Firewall inspeciona tráfego de rede conforme regras e caminhos configurados.
-
-**Exemplo do dia a dia:** A equipe central define uma política comum de proteção. Para uma necessidade de inspeção de rede, avalia separadamente Network Firewall.
-
-**O que ele não resolve sozinho?** Administrar políticas é diferente de inspecionar cada conexão. São serviços distintos e têm escopos de prova diferentes, indicados abaixo.
-
-**Primeiras palavras para entender:**
-
-- **Firewall:** controle de tráfego por regras.
-- **Política central:** regras administradas para vários ambientes.
-- **Inspeção:** análise de comunicações.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança de rede · **Domínio:** 2 · **Escopo:** Organização (Firewall Manager) / VPC (Network Firewall) · **Tópico do guia:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
+> **Categoria:** Segurança de rede · **Domínio:** 2 · **Abrangência:** Organização (Firewall Manager) e VPC (Network Firewall) · **Ficha:** complementar
 >
-> **Em uma frase:** o Firewall Manager **governa** regras de firewall em todas as contas; o Network Firewall **é** um firewall gerenciado para a VPC.
+> **Em uma frase:** o Firewall Manager aplica as mesmas proteções em todas as contas de uma organização; o Network Firewall filtra e inspeciona o tráfego na borda de uma VPC.
 >
 > **Escopo oficial:** 🔀 Firewall Manager ✅ · Network Firewall ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.8 Proteção de rede e aplicações](../../docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md)
 
-**Passo 1.** Separe a necessidade de administrar políticas da necessidade de inspecionar tráfego.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Use Firewall Manager para políticas compatíveis da organização; avalie Network Firewall para o caminho de rede que precisa de inspeção.
+---
 
-**Passo 3.** Configure escopo e verifique o efeito dos controles. As duas ferramentas não executam a mesma função.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+A rede tem uma conta da AWS por escola, e cada uma precisa das mesmas regras de WAF e de security groups. Configurar conta por conta é repetitivo e sujeito a esquecimento. O **AWS Firewall Manager** administra de forma central as proteções do WAF, do Shield Advanced, dos security groups e ACLs de rede, do Network Firewall e do Route 53 Resolver DNS Firewall nas contas de uma organização do AWS Organizations.
 
-### AWS Firewall Manager
+1. A conta administradora define uma política de proteção, por exemplo regras do WAF para todos os CloudFront.
+2. Escolhe as contas e recursos alvo: todos, de um tipo ou com certas tags.
+3. O Firewall Manager aplica a política automaticamente.
+4. Contas e recursos novos recebem a proteção sozinhos.
 
-| Item | Detalhe |
-|---|---|
-| **Função** | Gerenciamento **central** de políticas de segurança em todas as contas e recursos do **AWS Organizations**, aplicando-as automaticamente a novos recursos. |
-| **Políticas** | **WAF**, **Shield Advanced**, **security groups** (auditoria e regras comuns), **Network Firewall**, **Route 53 Resolver DNS Firewall**, firewalls de terceiros do Marketplace. |
-| **Pré-requisitos** | AWS Organizations (todos os recursos), **AWS Config** ativado, conta administradora do Firewall Manager. |
-| **Cobrança** | Por política por região/mês + recursos subjacentes (WAF, Config). |
+O **Network Firewall** é um firewall de rede gerenciado e *stateful*, com detecção e prevenção de intrusões, que filtra o tráfego que entra e sai da VPC. Ele está fora do escopo da prova.
 
-### AWS Network Firewall ❌
+## Não confundir com
 
-> ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS WAF](waf.md) | Filtra pedidos web numa aplicação | "Injeção de SQL", "pedidos HTTP" |
+| [AWS Shield](shield.md) | Protege contra DDoS | "Negação de serviço" |
+| [AWS Organizations](../gerenciamento/organizations.md) | Agrupa as contas; SCPs limitam permissões | "Impedir ações nas contas" |
 
-| Item | Detalhe |
-|---|---|
-| **Função** | Firewall de rede **stateful**, gerenciado e escalável, para filtrar todo o tráfego que entra, sai ou atravessa a VPC. |
-| **Regras** | Stateless e stateful; compatível com regras **Suricata** (IPS); filtragem por **domínio** (FQDN), IP, porta, protocolo; inspeção TLS. |
-| **Implantação** | Endpoints numa *firewall subnet*; rotas direcionam o tráfego por ele; pode ficar centralizado com Transit Gateway. |
-| **Uso** | Prevenção de intrusão (IPS), bloquear saída para domínios não autorizados, inspeção entre VPCs. |
-| **Cobrança** | Por endpoint-hora + GB processado. |
+## Fontes oficiais
 
-### Comparação de "firewalls" da AWS
+Verificadas em 06/10/2026.
 
-**Security group**
-
-**Camada:** 3/4
-
-**Onde:** Instância/ENI (stateful)
-
-**Network ACL**
-
-**Camada:** 3/4
-
-**Onde:** Subnet (stateless)
-
-**Network Firewall**
-
-**Camada:** 3–7
-
-**Onde:** VPC (stateful, IPS, domínios)
-
-**WAF**
-
-**Camada:** 7
-
-**Onde:** CloudFront, ALB, API Gateway…
-
-**Shield**
-
-**Camada:** 3/4 (+7 Advanced)
-
-**Onde:** DDoS
-
-**Firewall Manager**
-
-**Onde:** Governança central de todos acima
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Administrar políticas é diferente de inspecionar cada conexão. São serviços distintos e têm escopos de prova diferentes, indicados abaixo.
-
-## 4. Caso resolvido: ligando as peças
-
-A equipe central define uma política comum de proteção. Para uma necessidade de inspeção de rede, avalia separadamente Network Firewall.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Separe a necessidade de administrar políticas da necessidade de inspecionar tráfego.
-**Etapa 2:** Use Firewall Manager para políticas compatíveis da organização; avalie Network Firewall para o caminho de rede que precisa de inspeção.
-**Etapa 3:** Configure escopo e verifique o efeito dos controles. As duas ferramentas não executam a mesma função.
-
-**Resultado e responsabilidade:** Firewall Manager coordena políticas de proteção em recursos compatíveis de uma organização. Network Firewall inspeciona tráfego de rede conforme regras e caminhos configurados.
-
-**Recursos envolvidos:** Políticas centralizadas do Firewall Manager; endpoints/regras de Network Firewall.
-
-**Decisões que precisam ser tomadas:** Escopo de contas/recursos e regras.
-
-**Outra situação comentada:** Mesma política WAF em várias contas: Firewall Manager, com Organizations e configuração necessária.
-
-**Por que não concluir mais do que isso:** Não são o mesmo produto; Network Firewall está fora do escopo consultado
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Aplicar as mesmas regras de WAF em todas as contas."
-
-**Resposta curta:** Firewall Manager.
-
-**Pergunta:** "Inspecionar e filtrar todo o tráfego que entra na VPC (IPS)."
-
-**Resposta curta:** Network Firewall.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html) · [Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
-
+- [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html)
+- [O que é o AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
+- [Serviços fora do escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 
