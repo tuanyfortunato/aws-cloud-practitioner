@@ -1,123 +1,75 @@
-# Formas de acesso: Console, CLI, SDKs, CloudShell (e Cloud9)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Formas de acesso: Console, CLI, SDKs e CloudShell
 
-**Qual é a dificuldade?** Operar tudo clicando em telas pode ser lento. A equipe quer executar comandos ou fazer seu próprio programa interagir com a AWS.
-
-**Como este serviço ajuda?** CLI oferece comandos; SDKs oferecem bibliotecas para programação; CloudShell fornece um terminal pelo navegador. São formas diferentes de acessar operações AWS.
-
-**Exemplo do dia a dia:** Uma desenvolvedora usa um comando para consultar recursos. Seu aplicativo usa um SDK para enviar um arquivo a um serviço autorizado.
-
-**O que ele não resolve sozinho?** Mudar a forma de acesso não concede mais permissões. CLI e SDK não são recursos de hospedagem; o escopo da prova para cada ferramenta está indicado abaixo.
-
-**Primeiras palavras para entender:**
-
-- **CLI:** interface por comandos de texto.
-- **SDK:** biblioteca para desenvolver integrações.
-- **Terminal:** ambiente para executar comandos.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Ferramentas de desenvolvedor / acesso · **Domínio:** 3 · **Escopo:** Global (console) / por região (endpoints de API) · **Tópico do guia:** [3.1 Formas de acesso e implantação](../../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
+> **Categoria:** Ferramentas de desenvolvimento e acesso · **Domínio:** 3 · **Abrangência:** Console global; APIs por Região · **Ficha:** núcleo
 >
-> **Em uma frase:** toda ação na AWS é uma **chamada de API** — Console, CLI e SDKs são apenas formas diferentes de fazê-la.
+> **Em uma frase:** as formas de usar a AWS: cliques no console, comandos na CLI, código com os SDKs e um terminal no navegador com o CloudShell, todas chegando às mesmas APIs.
 >
-> **Escopo oficial:** 🔀 CLI e Management Console ✅ · CloudShell ❌ fora do escopo · Cloud9 ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
+> **Escopo oficial:** 🔀 CLI e Management Console ✅ · CloudShell ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.1 Formas de acessar e implantar na AWS](../../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
 
-**Passo 1.** Escolha comandos, biblioteca de programação ou terminal conforme a forma de trabalho.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure identidade e ambiente e solicite a operação AWS desejada.
+---
 
-**Passo 3.** Leia o resultado ou erro e trate-o no processo. Alterar a ferramenta de acesso não altera automaticamente a permissão da identidade.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Na escola, três pessoas usam a AWS de jeitos diferentes. A coordenadora confere a conta uma vez por mês. O professor de informática faz o backup das fotos toda noite. E o sistema de matrícula precisa guardar o comprovante de cada aluno sozinho, sem ninguém clicar.
 
-### Comparação
+Cada uma tem a sua forma de acesso, e todas acabam fazendo **chamadas às APIs** dos serviços. O **AWS Management Console** é a aplicação web para explorar e fazer tarefas pontuais. A **AWS CLI** é uma ferramenta de código aberto para usar os serviços por comandos no terminal e escrever roteiros (*scripts*) que repetem tarefas. Os **AWS SDKs** são bibliotecas para chamar as APIs de dentro de um programa, em linguagens como Python, JavaScript e Java. O **AWS CloudShell** é um terminal no navegador, aberto a partir do console, com a CLI já instalada e as credenciais de quem entrou.
 
-| Forma | Autenticação | Melhor para |
+O limite: trocar o console pela CLI não dá mais poder a ninguém. Toda chamada chega com uma identidade e passa pelas mesmas permissões do [IAM](../seguranca/iam.md). E para criar ambientes inteiros, de forma repetível, o caminho é a infraestrutura como código com o [CloudFormation](../gerenciamento/cloudformation.md).
+
+## Como funciona
+
+1. A pessoa ou o programa se identifica: login no console, ou credenciais configuradas na CLI e no SDK.
+2. Cada clique, comando ou linha de código vira uma chamada à API do serviço, na Região escolhida.
+3. O IAM avalia a chamada contra as permissões da identidade.
+4. Se permitida, o serviço executa a ação; o CloudTrail registra a chamada.
+
+## Opções principais
+
+| Forma | Quando usar | Exemplo na escola |
 |---|---|---|
-| **AWS Management Console** | Usuário/senha + MFA (ou SSO) | Tarefas pontuais, exploração, visualização; existe **app móvel** |
-| **AWS CLI** (v2) | Access keys, perfis, **`aws sso login`** (temporárias), role da instância | Scripts e automação; `aws configure`; perfis em `~/.aws/config` e `~/.aws/credentials` |
-| **SDKs** | Mesmas credenciais (cadeia de provedores) | Chamar a AWS **dentro do código**: Python (**boto3**), JavaScript, Java, .NET, Go, Ruby, PHP, C++, Rust… |
-| **AWS CloudShell** ❌ *fora do escopo* | Já autenticado com o usuário do console | Terminal **no navegador** com CLI e ferramentas pré-instaladas; **1 GB** de armazenamento persistente por região (apagado após 120 dias sem uso); **sem custo** |
-| **APIs REST/Query** | Assinatura SigV4 | Integrações de baixo nível |
-| **IaC** | — | Ambientes repetíveis: [CloudFormation/CDK](../gerenciamento/cloudformation.md) |
+| Management Console | Explorar um serviço ou fazer uma tarefa pontual | Conferência mensal da coordenadora |
+| AWS CLI | Repetir tarefas com comandos e roteiros | Backup noturno do professor |
+| AWS SDKs | A aplicação usa a AWS no próprio código | Sistema de matrícula grava comprovantes |
+| AWS CloudShell | Terminal rápido no navegador, sem instalar nada | Rodar um comando sem configurar o computador |
 
-### 🎯 Escopo da prova
+## Números que a prova cobra
 
-**AWS CLI** e **AWS Management Console** estão no escopo. **CloudShell** está declarado **fora do escopo** (continua útil no dia a dia); Cloud9 não aparece.
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Versão atual da CLI | Versão 2, com recursos que a 1 não recebe | 06/10/2026 |
+| Armazenamento persistente do CloudShell | Até 1 GB por Região, sem custo adicional | 06/10/2026 |
+| CloudShell na prova | Fora do escopo | 06/10/2026 |
+| AWS Cloud9 | Não aceita novos clientes | 06/10/2026 |
 
-### Boas práticas
+## Como é cobrado
 
-Preferir credenciais **temporárias** (Identity Center, roles) a access keys de longo prazo.
+O console, a CLI, os SDKs e o CloudShell não têm cobrança própria; paga-se pelos recursos e serviços que eles criam e usam.
 
-Nunca colocar access keys no código ou em repositórios.
+## Não confundir com
 
-Tarefas repetíveis → automatizar (CLI, SDK, CloudFormation), não clicar no console.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [AWS CloudFormation](../gerenciamento/cloudformation.md) | Descreve o ambiente inteiro num modelo | "Repetir o ambiente em várias Regiões" |
+| [AWS Systems Manager](../gerenciamento/systems-manager.md) | Opera muitas máquinas de uma vez | "Rodar um comando em 50 instâncias" |
+| [Amazon Q Developer](../ia-ml/amazon-q.md) | Assistente de IA no console e nos editores | "Perguntar como fazer" |
+| [AWS IAM](../seguranca/iam.md) | Define quem pode fazer cada chamada | "Permissão", "chave de acesso" |
 
-## 3. Como escolher e reconhecer os limites
+## Fontes oficiais
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+Verificadas em 06/10/2026.
 
-Mudar a forma de acesso não concede mais permissões. CLI e SDK não são recursos de hospedagem; o escopo da prova para cada ferramenta está indicado abaixo.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### 🔄 Atualizações 2025-2026
-
-**AWS Cloud9** (IDE no navegador) está **fechado a novos clientes** desde 25/07/2024 → use **CloudShell** ou IDEs locais com o AWS Toolkit. Ainda pode aparecer na prova como "IDE baseada em navegador".
-
-**AWS Toolkits** (VS Code, JetBrains) e **Amazon Q Developer** integram a AWS às IDEs.
-
-## 5. Caso resolvido: ligando as peças
-
-Uma desenvolvedora usa um comando para consultar recursos. Seu aplicativo usa um SDK para enviar um arquivo a um serviço autorizado.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Escolha comandos, biblioteca de programação ou terminal conforme a forma de trabalho.
-**Etapa 2:** Configure identidade e ambiente e solicite a operação AWS desejada.
-**Etapa 3:** Leia o resultado ou erro e trate-o no processo. Alterar a ferramenta de acesso não altera automaticamente a permissão da identidade.
-
-**Resultado e responsabilidade:** CLI oferece comandos; SDKs oferecem bibliotecas para programação; CloudShell fornece um terminal pelo navegador. São formas diferentes de acessar operações AWS.
-
-**Recursos envolvidos:** Console, comandos CLI, bibliotecas SDK e ambiente CloudShell.
-
-**Decisões que precisam ser tomadas:** Credenciais temporárias, região, serviço e operação.
-
-**Outra situação comentada:** Automatizar no Python: SDK; operar por terminal: CLI; reproduzir infraestrutura: IaC.
-
-**Por que não concluir mais do que isso:** CloudShell não concede privilégio extra e está fora do escopo; SDK permanece conceito do guia
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Formas de interagir com a AWS?"
-
-**Resposta curta:** Console, CLI, SDKs, APIs (e CloudShell).
-
-**Pergunta:** "Chamar a AWS dentro de um código Python."
-
-**Resposta curta:** SDK (boto3).
-
-**Pergunta:** "Executar comandos da CLI sem instalar nada."
-
-**Resposta curta:** CloudShell.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) · [SDKs e ferramentas](https://aws.amazon.com/developer/tools/) · [CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html)
+- [O que é o AWS Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/what-is.html)
+- [O que é a AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+- [Ferramentas para desenvolver na AWS](https://aws.amazon.com/developer/tools/)
+- [O que é o AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html)
+- [O que é o AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html)
+- [Serviços fora do escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
