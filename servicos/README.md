@@ -76,14 +76,14 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [AWS IAM (Identity and Access Management) e AWS STS](seguranca/iam.md) | ✅ | núcleo | Controla **quem** pode se autenticar e **o que** cada identidade pode fazer em quais recursos da conta. |
-| [AWS IAM Identity Center (antigo AWS SSO)](seguranca/iam-identity-center.md) | ✅ | núcleo | Login único (SSO) para que **funcionários** acessem várias contas AWS e aplicações SaaS com um só usuário. |
-| [Amazon Cognito](seguranca/cognito.md) | ✅ | núcleo | Cadastro, login e controle de acesso para **usuários finais** de aplicações web e mobile. |
+| [AWS IAM (Identity and Access Management) e AWS STS](seguranca/iam.md) | ✅ | núcleo | Controla quem pode se autenticar na conta e o que cada identidade pode fazer em cada recurso. |
+| [AWS IAM Identity Center (antigo AWS SSO)](seguranca/iam-identity-center.md) | ✅ | núcleo | Login único para funcionários acessarem várias contas da AWS e aplicações com uma só identidade. |
+| [Amazon Cognito](seguranca/cognito.md) | ✅ | núcleo | Cadastro, login e controle de acesso para os usuários de aplicativos web e móveis. |
 | [AWS Directory Service](seguranca/directory-service.md) | ✅ | complementar | Microsoft Active Directory gerenciado na AWS, ou ponte para o AD on-premises. |
-| [AWS KMS (Key Management Service)](seguranca/kms.md) | ✅ | núcleo | Cria e controla chaves de criptografia integradas a mais de 100 serviços AWS, com auditoria de cada uso. |
+| [AWS KMS (Key Management Service)](seguranca/kms.md) | ✅ | núcleo | Cria e controla as chaves usadas para cifrar dados, integradas aos serviços da AWS e com cada uso registrado no CloudTrail. |
 | [AWS CloudHSM](seguranca/cloudhsm.md) | ✅ | complementar | HSM (hardware security module) **dedicado e exclusivo** na nuvem, em que só você controla as chaves. |
 | [AWS Certificate Manager (ACM) e AWS Private CA](seguranca/certificate-manager.md) | ✅ | complementar | Emite e gerencia certificados SSL/TLS, com renovação para certificados elegíveis; públicos não exportáveis em serviços integrados são gratuitos. |
-| [AWS Secrets Manager e Systems Manager Parameter Store](seguranca/secrets-manager-e-parameter-store.md) | ✅ | núcleo | Guardam segredos e configurações fora do código, criptografados com KMS — o Secrets Manager também os **rotaciona automaticamente**. |
+| [AWS Secrets Manager e Systems Manager Parameter Store](seguranca/secrets-manager-e-parameter-store.md) | ✅ | núcleo | Guardam segredos e configurações fora do código; o Secrets Manager também faz a rotação automática dos segredos. |
 | [AWS Shield](seguranca/shield.md) | ✅ | núcleo | Proteção gerenciada contra ataques de negação de serviço distribuída (DDoS). |
 | [AWS WAF (Web Application Firewall)](seguranca/waf.md) | ✅ | núcleo | Firewall de **camada 7** que filtra requisições HTTP(S) maliciosas antes que cheguem à aplicação. |
 | [AWS Firewall Manager e AWS Network Firewall](seguranca/firewall-manager-e-network-firewall.md) | 🔀 | complementar | O Firewall Manager **governa** regras de firewall em todas as contas; o Network Firewall **é** um firewall gerenciado para a VPC. |

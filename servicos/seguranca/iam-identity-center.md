@@ -1,101 +1,70 @@
+<!-- autoral -->
+
 # AWS IAM Identity Center (antigo AWS SSO)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Funcionários usam várias contas AWS e aplicações. Manter um login diferente e permissões separadas em cada uma dificulta a administração.
-
-**Como este serviço ajuda?** IAM Identity Center centraliza o acesso da força de trabalho. Pessoas entram por um portal e acessam as contas e aplicações que lhes foram atribuídas.
-
-**Exemplo do dia a dia:** Uma funcionária entra no portal corporativo e escolhe a conta de testes ou de produção, recebendo as permissões definidas para cada uma.
-
-**O que ele não resolve sozinho?** Ele não é o cadastro de clientes de um aplicativo público. Centralizar a entrada também não elimina a necessidade de definir permissões adequadas.
-
-**Primeiras palavras para entender:**
-
-- **Força de trabalho:** funcionários e colaboradores.
-- **SSO:** uma entrada para vários ambientes autorizados.
-- **Permission set:** conjunto de permissões atribuído para acesso às contas.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Segurança / identidade · **Domínio:** 2 · **Escopo:** instância de organização numa região, acesso a todas as contas · **Gratuito** · **Tópico do guia:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md)
+> **Categoria:** Segurança e identidade · **Domínio:** 2 · **Abrangência:** Instância na conta de gerenciamento, com acesso a todas as contas da organização · **Ficha:** núcleo
 >
-> **Em uma frase:** login único (SSO) para que **funcionários** acessem várias contas AWS e aplicações SaaS com um só usuário.
+> **Em uma frase:** login único para funcionários acessarem várias contas da AWS e aplicações com uma só identidade.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md) · base em [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 
-**Passo 1.** Conecte ou configure a fonte de identidades da força de trabalho.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Atribua acessos a contas e aplicações, definindo permissões pertinentes a cada atribuição.
+---
 
-**Passo 3.** A pessoa entra pelo portal e seleciona os acessos autorizados. A sessão não dá poder sobre contas que não foram atribuídas.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A rede de escolas separou os sistemas em várias contas da AWS no AWS Organizations: produção, testes e contabilidade. Criar um usuário do IAM em cada conta para cada funcionário multiplica senhas, e ninguém sabe quem ainda tem acesso a quê.
 
-### Conceitos e configurações
+O IAM Identity Center dá a cada funcionário uma identidade só. Os usuários são criados nele ou sincronizados do provedor de identidade que a empresa já usa, e entram por um **portal de acesso**, onde veem as contas e aplicações liberadas. **Conjuntos de permissões** (*permission sets*) definem o acesso de cada função de trabalho e são aplicados nas contas. A AWS recomenda criar nele o usuário administrativo do dia a dia, em vez de usar o root.
 
-| Item | Detalhe |
-|---|---|
-| **Fonte de identidade** | Diretório próprio do Identity Center, **Active Directory** (AWS Managed AD ou AD Connector) ou **IdP externo** via SAML 2.0/SCIM (Okta, Entra ID, Google Workspace). |
-| **Permission sets** | Modelos de permissão (políticas IAM) atribuídos a usuários/grupos em contas específicas; viram roles nas contas. |
-| **AWS access portal** | Portal onde o usuário escolhe conta e permissão; credenciais temporárias para console e CLI (`aws sso login`). |
-| **Aplicações** | SSO para apps SaaS (SAML) e apps AWS (QuickSight, Amazon Q…). |
-| **MFA** | Configurável centralmente. |
-| **Integração** | Com AWS Organizations (instância de organização) — forma recomendada de acesso humano multi-conta. |
+O limite: ele serve para a força de trabalho. Clientes de um aplicativo usam o [Cognito](cognito.md); e o acesso de um programa a outro serviço continua sendo uma função do [IAM](iam.md).
 
-## 3. Como escolher e reconhecer os limites
+## Como funciona
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+1. Você ativa uma **instância de organização** na conta de gerenciamento do AWS Organizations.
+2. Escolhe a fonte de identidades: o próprio Identity Center ou um provedor externo (por exemplo, o Active Directory).
+3. Cria conjuntos de permissões e os atribui a usuários e grupos em contas específicas.
+4. O funcionário entra no portal de acesso e escolhe a conta ou aplicação; recebe credenciais temporárias.
 
-Ele não é o cadastro de clientes de um aplicativo público. Centralizar a entrada também não elimina a necessidade de definir permissões adequadas.
+## Opções principais
 
-### ⚠️ Não confundir
+| Opção | O que é | Quando lembrar |
+|---|---|---|
+| Instância de organização | A recomendada; a única que gerencia acesso às contas da AWS | Várias contas no Organizations |
+| Instância de conta | Ligada a uma conta só, para algumas aplicações gerenciadas da AWS | Implantação isolada de uma aplicação |
+| Conjunto de permissões | Modelo de permissões por função de trabalho, aplicado em várias contas | "Administrador em todas as contas de teste" |
 
-Identity Center (**funcionários** → contas AWS) × **Cognito** (**clientes** de um app) × **Directory Service** (AD gerenciado).
+## Números que a prova cobra
 
-## 4. Caso resolvido: ligando as peças
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Cobrança do Identity Center | Nenhuma | 06/10/2026 |
+| Tipos de instância | 2 (organização e conta) | 06/10/2026 |
 
-Uma funcionária entra no portal corporativo e escolhe a conta de testes ou de produção, recebendo as permissões definidas para cada uma.
+## Como é cobrado
 
-**Aplicando a sequência à situação:**
+O IAM Identity Center não tem cobrança adicional.
 
-**Etapa 1:** Conecte ou configure a fonte de identidades da força de trabalho.
-**Etapa 2:** Atribua acessos a contas e aplicações, definindo permissões pertinentes a cada atribuição.
-**Etapa 3:** A pessoa entra pelo portal e seleciona os acessos autorizados. A sessão não dá poder sobre contas que não foram atribuídas.
+## Não confundir com
 
-**Resultado e responsabilidade:** IAM Identity Center centraliza o acesso da força de trabalho. Pessoas entram por um portal e acessam as contas e aplicações que lhes foram atribuídas.
+| Serviço | Diferença para o Identity Center | Pista no enunciado |
+|---|---|---|
+| [AWS IAM](iam.md) | Identidades e políticas dentro de uma conta | "Uma conta", "função para a instância" |
+| [Amazon Cognito](cognito.md) | Login de clientes de um aplicativo | "Usuários do aplicativo" |
+| [AWS Directory Service](directory-service.md) | Active Directory gerenciado; pode ser a fonte de identidades do Identity Center | "Active Directory" |
+| [AWS Organizations](../gerenciamento/organizations.md) | Agrupa as contas; o Identity Center dá o acesso a elas | "Gerenciar várias contas" |
 
-**Recursos envolvidos:** Diretório/IdP, usuários/grupos, permission sets e assignments.
+## Fontes oficiais
 
-**Decisões que precisam ser tomadas:** Origem de identidade, contas, aplicações e permissões.
+Verificadas em 06/10/2026.
 
-**Outra situação comentada:** Funcionários em várias contas: Identity Center; clientes do app: Cognito.
-
-**Por que não concluir mais do que isso:** Não é cadastro de consumidores de uma aplicação pública; atribuição não ignora SCP
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Login único para funcionários em várias contas AWS."
-
-**Resposta curta:** IAM Identity Center.
-
-**Pergunta:** "Usar o Active Directory da empresa para acessar o console."
-
-**Resposta curta:** Identity Center com AD (ou federação SAML).
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
+- [O que é o IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
+- [Instâncias de organização e de conta](https://docs.aws.amazon.com/singlesignon/latest/userguide/identity-center-instances.html)
+- [Active Directory como fonte de identidades](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-ad.html)
+- [Credenciais temporárias no IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
