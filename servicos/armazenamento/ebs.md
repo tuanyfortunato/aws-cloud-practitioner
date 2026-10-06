@@ -1,169 +1,77 @@
-# Amazon EBS (Elastic Block Store) e Instance Store
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Amazon EBS (Elastic Block Store) e instance store
 
-**Qual é a dificuldade?** Uma máquina virtual precisa de um lugar para guardar seu sistema operacional e os arquivos que seus programas usam como num disco.
-
-**Como este serviço ajuda?** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis. A ficha também compara o disco local temporário chamado instance store.
-
-**Exemplo do dia a dia:** Uma aplicação instalada em EC2 grava seus arquivos em um volume EBS. A equipe cria cópias desse volume para ajudar na recuperação.
-
-**O que ele não resolve sozinho?** EBS não deve ser confundido com uma pasta compartilhada para muitas máquinas. Discos locais instance store podem perder seus dados com ações do ciclo de vida da máquina.
-
-**Primeiras palavras para entender:**
-
-- **Volume:** disco virtual.
-- **Snapshot:** cópia de um volume em determinado momento.
-- **Persistente:** dado que pode continuar existindo além de uma execução.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Armazenamento em bloco · **Domínio:** 3 · **Escopo:** **AZ** (volume) · Regional (snapshots) · **Tópico do guia:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
+> **Categoria:** Armazenamento em bloco · **Domínio:** 2 (responsabilidade compartilhada) e 3 · **Abrangência:** Zona de disponibilidade (volume); Regional (snapshots) · **Ficha:** núcleo
 >
-> **Em uma frase:** discos virtuais persistentes, em rede, para instâncias EC2 — como um HD/SSD que sobrevive ao desligamento.
+> **Em uma frase:** volumes de disco persistentes, ligados pela rede a instâncias do EC2, que continuam existindo quando a instância para.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.9 Outros serviços de armazenamento](../../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md) · base em [3.3 Amazon EC2](../../docs/03-tecnologia-e-servicos/03-ec2.md)
 
-**Passo 1.** Escolha a capacidade e o comportamento de armazenamento e crie um volume compatível com a máquina.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Conecte e prepare o disco no sistema operacional. A aplicação passa a ler e gravar arquivos nele.
+---
 
-**Passo 3.** Planeje cópias e exclusão. O volume pode continuar existindo e sendo cobrado mesmo quando a máquina deixa de executar.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+O banco de dados da escola ainda roda numa instância do EC2 e precisa de um disco: um lugar para instalar programas e gravar dados que continue lá depois de parar e ligar a instância.
 
-### Para que serve
+Um **volume do EBS** é anexado à instância e usado como um disco rígido local. Ele existe independentemente da instância e fica em **uma zona de disponibilidade**, onde os dados são replicados entre vários servidores. O backup é um **snapshot**, uma cópia incremental de um momento do volume, guardada no S3 e usada para restaurar volumes em outra zona, Região ou conta.
 
-Volume raiz (boot) das instâncias; discos de bancos de dados instalados no EC2; aplicações que precisam de sistema de arquivos em bloco.
+O limite: o volume fica numa zona só e normalmente serve uma instância por vez; para uma pasta compartilhada, o caminho é o [EFS](efs.md). E **a AWS não faz backup automático dos volumes**: criar snapshots é responsabilidade do cliente, à mão, com o Amazon Data Lifecycle Manager ou com o [AWS Backup](aws-backup.md).
 
-### Tipos de volume
+## Como funciona
 
-| Tipo | Mídia | Uso | Destaques | Boot? |
-|---|---|---|---|---|
-| **gp3** | SSD uso geral | Maioria das cargas | IOPS e throughput **configuráveis independentemente do tamanho** (base 3.000 IOPS e 125 MB/s em qualquer tamanho; hoje até 64 TB e 80.000 IOPS 🧊); mais barato que gp2 | Sim |
-| **gp2** | SSD uso geral | Legado | IOPS proporcional ao tamanho (3 IOPS/GB, com burst) | Sim |
-| **io2 Block Express / io1** | SSD IOPS provisionado | Bancos críticos, latência sub-ms | Maior durabilidade (io2: 99,999%); **Multi-Attach** | Sim |
-| **st1** | HDD otimizado p/ throughput | Big data, logs, data warehouse | Throughput alto e barato | **Não** |
-| **sc1** | HDD frio | Dados raramente acessados | O mais barato | **Não** |
+1. Você cria um volume na mesma zona de disponibilidade da instância, escolhendo tipo e tamanho.
+2. Anexa o volume à instância, que o usa como um disco.
+3. Pode aumentar a capacidade ou ajustar o desempenho sem parar a aplicação (Elastic Volumes).
+4. Cria snapshots, que guardam só os blocos que mudaram desde o anterior, e os copia para outra Região ou conta quando precisar.
 
-### Conceitos e configurações
+## Opções principais
 
-| Item | Detalhe |
-|---|---|
-| **Escopo** | Preso a **uma AZ**; ligado a uma instância por vez (exceto Multi-Attach). |
-| **Multi-Attach** | 📌 Só **io1/io2**, até **16 instâncias Nitro** na **mesma AZ**. |
-| **Durabilidade** | Replicado dentro da AZ (gp/st/sc: 99,8–99,9%; io2: 99,999%). |
-| **Snapshots** | **Incrementais**, armazenados no S3 (gerenciado pela AWS), **regionais**, copiáveis entre regiões e contas. Criam volumes em qualquer AZ. |
-| **Fast Snapshot Restore** | Volume criado do snapshot já com desempenho total (pago). |
-| **Snapshot Archive** | Camada de arquivamento até 75% mais barata (restauração em 24–72 h). |
-| **Recycle Bin** | Recupera snapshots/AMIs apagados por engano dentro do período de retenção. |
-| **Data Lifecycle Manager** | Automatiza criação, retenção e cópia de snapshots (ou use AWS Backup). |
-| **Criptografia** | AES-256 com KMS (volume, snapshots e tráfego para a instância). **Encryption by default** pode ser ativada por região. Volume não criptografado → copie o snapshot com criptografia. |
-| **Elastic Volumes** | Aumentar tamanho, mudar tipo e IOPS **sem parar** a instância. |
-| **DeleteOnTermination** | Volume raiz é apagado ao encerrar a instância (padrão); volumes adicionais, não. |
+| Tipo | O que é | Quando usar |
+|---|---|---|
+| SSD de uso geral (gp3, gp2) | Equilíbrio entre preço e desempenho | Volume de inicialização, aplicações e bancos médios |
+| SSD de IOPS provisionadas (io2 Block Express, io1) | Desempenho alto e constante | Bancos de dados com muita leitura e gravação |
+| HDD (st1, sc1) | Grande vazão sequencial, mais barato; não serve como volume de inicialização | Big data, logs, dados pouco acessados |
+| Instance store | Disco ligado fisicamente ao servidor da instância, sem custo adicional | Cache e dados temporários que podem ser perdidos |
 
-### Instance store
+O instance store mantém os dados quando a instância é reiniciada, mas os perde quando ela é parada, hibernada ou encerrada.
 
-Disco **físico local** do host: altíssimo desempenho, **sem custo extra** (incluso na instância).
+## Números que a prova cobra
 
-**Efêmero:** dados perdidos ao **parar, hibernar ou encerrar** a instância ou se o hardware falhar (sobrevivem ao reboot).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Durabilidade do io2 Block Express | 99,999% | 06/10/2026 |
+| Durabilidade dos outros tipos | De 99,8% a 99,9% | 06/10/2026 |
+| Desempenho incluído no gp3 | 3.000 IOPS e 125 MB/s | 06/10/2026 |
+| Tamanho máximo de um volume gp3 | 64 TiB | 06/10/2026 |
 
-Uso: cache, buffers, dados temporários, réplicas de dados (ex.: nós de banco NoSQL replicados).
+## Como é cobrado
 
-### Limites e números
+O EBS cobra por **GB-mês provisionado**: o tamanho do volume criado, cheio ou não, mesmo com a instância parada. No gp3 e no io2, o desempenho provisionado acima do incluído é cobrado à parte. Os snapshots são cobrados pelos dados guardados; como são incrementais, apagar um snapshot nem sempre reduz o custo. O instance store já está incluído no preço da instância.
 
-📌 Multi-Attach: io1/io2, 16 instâncias, mesma AZ.
+## Não confundir com
 
-🧊 Tamanhos máximos, IOPS e throughput por tipo — não decorar.
+| Serviço | Diferença para o EBS | Pista no enunciado |
+|---|---|---|
+| [Amazon EFS](efs.md) | Pasta compartilhada por várias instâncias Linux, em várias zonas | "Mesmos arquivos para várias instâncias" |
+| [Amazon S3](s3.md) | Objetos acessados pela rede, sem limite de quantidade | "Fotos, backups, site estático" |
+| [AWS Backup](aws-backup.md) | Automatiza os snapshots e backups de vários serviços num só lugar | "Centralizar backups" |
+| [Amazon FSx](fsx.md) | Sistemas de arquivos gerenciados, como Windows File Server | "Pasta compartilhada Windows" |
 
-## 3. Como escolher e reconhecer os limites
+## Fontes oficiais
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+Verificadas em 06/10/2026.
 
-EBS não deve ser confundido com uma pasta compartilhada para muitas máquinas. Discos locais instance store podem perder seus dados com ações do ciclo de vida da máquina.
-
-### ⚠️ Pegadinhas e não confundir
-
-Volume EBS **não** pode ser usado diretamente em outra AZ → snapshot + novo volume.
-
-"Muitas instâncias em várias AZs, mesmos arquivos" → **EFS**, não EBS.
-
-EBS × instance store: persistente × efêmero.
-
-"500 GB provisionados, 100 GB usados" → paga **500 GB**.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Pelo **volume provisionado** (GB-mês), **mesmo que esteja vazio**; gp3/io também por IOPS/throughput provisionados.
-
-Snapshots: GB-mês armazenado (só os blocos alterados).
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** replicação e disponibilidade do volume dentro da AZ.
-
-**Cliente:** ativar criptografia, fazer snapshots/backup, controlar quem anexa/compartilha snapshots (⚠️ snapshot público é check do Trusted Advisor).
-
-## 5. Caso resolvido: ligando as peças
-
-Uma aplicação instalada numa máquina EC2 precisa de um disco para seu sistema e seus arquivos. O objetivo é leitura e escrita pelo sistema operacional, não operações de objetos como no S3.
-
-A equipe escolhe um volume compatível, conecta-o à instância e prepara seu uso no sistema. Os arquivos ficam no volume. Snapshots ajudam a conservar pontos de recuperação, mas sua criação e sua restauração são operações distintas.
-
-Parar a computação pode manter o disco e seu custo. Encerrar a instância exige examinar as políticas de exclusão dos volumes. Instance store é armazenamento local temporário com outro ciclo de vida; não deve receber a única cópia de dados essenciais que precisam sobreviver a essas ações.
-
-**Recursos envolvidos:** Volume de bloco, anexação à EC2, tipos de volume e snapshots.
-
-**Decisões que precisam ser tomadas:** AZ, capacidade, desempenho, criptografia e DeleteOnTermination.
-
-**Outra situação comentada:** Disco do SO de EC2: EBS; arquivos compartilhados em AZs distintas: avalie EFS.
-
-**Por que não concluir mais do que isso:** Não é sistema de arquivos NFS multi-AZ; Multi-Attach tem requisitos específicos
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Armazenamento em bloco persistente para EC2."
-
-**Resposta curta:** EBS.
-
-**Pergunta:** "Mover um volume para outra AZ."
-
-**Resposta curta:** Snapshot e novo volume na AZ de destino.
-
-**Pergunta:** "Onde ficam os snapshots?"
-
-**Resposta curta:** No S3, incrementais, regionais.
-
-**Pergunta:** "Disco para banco crítico com IOPS altos."
-
-**Resposta curta:** io2.
-
-**Pergunta:** "Disco mais barato para dados frios."
-
-**Resposta curta:** sc1.
-
-**Pergunta:** "O que acontece com o instance store ao parar a instância?"
-
-**Resposta curta:** Dados perdidos.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do EBS](https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html)
-- [Tipos de volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html)
+- [O que é o Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html)
+- [Tipos de volume do EBS](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html)
+- [Snapshots do EBS](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html)
+- [Instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+- [Duração dos dados no instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-lifetime.html)
+- [Preços do Amazon EBS](https://aws.amazon.com/ebs/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
