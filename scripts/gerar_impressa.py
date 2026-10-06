@@ -223,8 +223,10 @@ def colofao(arquivos):
     hoje = datetime.date.today().strftime("%d/%m/%Y")
     verificacao = ""
     if datas:
-        verificacao = (f"<p>As informações sobre a AWS foram conferidas nas páginas oficiais entre "
-                       f"{min(datas):%d/%m/%Y} e {max(datas):%d/%m/%Y}. A AWS muda preços, limites e nomes com frequência: "
+        periodo = (f"em {min(datas):%d/%m/%Y}" if min(datas) == max(datas)
+                   else f"entre {min(datas):%d/%m/%Y} e {max(datas):%d/%m/%Y}")
+        verificacao = (f"<p>As informações sobre a AWS foram conferidas nas páginas oficiais {periodo}. "
+                       f"A AWS muda preços, limites e nomes com frequência: "
                        f"antes da prova, confira as fontes citadas em cada aula e ficha.</p>")
     return (f"<p>Edição impressa gerada em {hoje} a partir do commit <code>{commit[:12]}</code> do repositório "
             f"github.com/tuanyfortunato/aws-cloud-practitioner.</p>{verificacao}"
