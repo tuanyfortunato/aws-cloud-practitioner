@@ -373,7 +373,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 Leitura complementar; estas fichas reúnem serviços fora do escopo da prova.
 
 - [Serviços de mídia e jogos](servicos/fora-do-escopo/midia-e-jogos.md)
-- [IoT, robótica, satélite e visão computacional na borda](servicos/fora-do-escopo/iot-robotica-e-satelite.md)
+- [IoT, satélite e visão na borda](servicos/fora-do-escopo/iot-robotica-e-satelite.md)
 - [Desenvolvimento e aplicações](servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md)
 - [Rede e diretório](servicos/fora-do-escopo/rede-e-diretorio.md)
 - [Gerenciamento e custos](servicos/fora-do-escopo/gerenciamento-e-custos.md)

@@ -1,122 +1,48 @@
-# Serviços de mídia e jogos (Elemental, IVS, Elastic Transcoder, GameLift, Lumberyard)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Serviços de mídia e jogos (Elemental, IVS e GameLift)
 
-**Qual é a dificuldade?** Vídeo ao vivo, processamento de mídia e sessões de jogos exigem funções específicas, além de simplesmente guardar um arquivo ou executar uma página.
-
-**Como este serviço ajuda?** Esta ficha compara produtos para preparar e distribuir mídia e para operar jogos. Cada produto cobre uma parte do processo, conforme sua oferta.
-
-**Exemplo do dia a dia:** Compare preparar um vídeo em vários formatos, transmitir uma sessão ao vivo e hospedar partidas. São problemas diferentes, mesmo que todos envolvam conteúdo digital.
-
-**O que ele não resolve sozinho?** Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha serve para referência fora do escopo indicado, e não para decorar alternativas como respostas universais.
-
-**Primeiras palavras para entender:**
-
-- **Transcodificação:** conversão de formato ou qualidade de mídia.
-- **Streaming:** transmissão contínua.
-- **Sessão de jogo:** execução compartilhada de uma partida.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Mídia e Game Tech · **Domínio:** — (fora da prova) · **Escopo:** Regional · **Lista oficial:** [fora do escopo](../../docs/00-guia-do-exame/escopo-oficial.md#-fora-do-escopo-lista-oficial-não-exaustiva)
+> **Categoria:** Mídia e jogos · **Domínio:** — (fora da prova) · **Abrangência:** Regional · **Ficha:** referência
 >
-> **Em uma frase:** serviços para processar e transmitir vídeo e para hospedar jogos — úteis para conhecer, mas a prova os usa só como distratores.
+> **Em uma frase:** serviços para processar e transmitir vídeo e hospedar jogos multijogador, todos na lista fora do escopo da prova.
 >
 > **Escopo oficial:** ❌ Fora do escopo — documentado só para referência · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-> ❌ **Fora do escopo da CLF-C02.** Todos os serviços desta ficha estão declarados fora do escopo na lista oficial.
-> Se aparecerem como alternativa, quase sempre são **distratores**. Documentados aqui apenas para referência.
+> 📖 **Aula que ensina:** [3.18 Serviços menos conhecidos](../../docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md)
 
-## 1. A sequência de funcionamento
+🏠 [Índice das fichas](../README.md)
 
-**Passo 1.** Separe preparação de mídia, transmissão ao vivo e hospedagem de partidas.
+---
 
-**Passo 2.** Identifique o produto associado à etapa específica e confira sua oferta e suas restrições.
+## Como funciona
 
-**Passo 3.** Compare o resultado com a necessidade. Esta ficha é de referência e não uma recomendação de uso de ofertas antigas.
+Mídia e jogos são categorias inteiras sem nenhum serviço no escopo. Saber o que cada nome faz ajuda a descartar a alternativa numa questão.
 
-## 2. Recursos e opções, com significado
+1. **AWS Elemental MediaConvert:** processa arquivos de vídeo, convertendo-os para os formatos de entrega.
+2. **AWS Elemental MediaLive:** transforma vídeo ao vivo, em tempo real, para transmissão e streaming.
+3. **Amazon IVS** (Interactive Video Service): streaming de vídeo ao vivo gerenciado, com baixa latência e interação com o público.
+4. **Amazon GameLift Servers:** implanta e escala servidores dedicados para jogos multijogador por sessão.
 
-### AWS Elemental Media Services
+Já encerrados por completo, pela página de serviços encerrados da AWS: Amazon Lumberyard (01/05/2021), Amazon Elastic Transcoder (13/11/2025) e AWS Elemental MediaStore (12/11/2025).
 
-Família de serviços de vídeo profissional (broadcast e streaming).
+## Não confundir com
 
-| Serviço | O que faz | Exemplo |
+| Serviço | Diferença | Pista no enunciado |
 |---|---|---|
-| **AWS Elemental MediaConvert** | Transcodifica arquivos de vídeo (**VOD**) para vários formatos e resoluções | Converter vídeos enviados pelos usuários para HLS e DASH |
-| **AWS Elemental MediaLive** | Codifica vídeo **ao vivo** em tempo real para streaming | Transmitir um evento esportivo ao vivo |
-| **AWS Elemental MediaPackage** | Prepara e protege (DRM) streams para entrega em vários formatos; time-shift e DVR | Entregar o canal ao vivo para celulares, TVs e navegadores |
-| **AWS Elemental MediaConnect** | Transporte confiável e seguro de vídeo ao vivo entre locais e para a nuvem | Levar o sinal do estádio para a AWS |
-| **AWS Elemental MediaTailor** | Inserção de anúncios no servidor (SSAI) e montagem de canais lineares | Anúncios personalizados por espectador |
-| **AWS Elemental MediaStore** | Armazenamento otimizado para mídia como origem de vídeo (🔄 **encerrado em 13/11/2025**) | Origem de baixa latência para vídeo ao vivo |
-| **AWS Elemental Appliances and Software** | Codificadores e software Elemental para rodar on-premises | Emissoras com equipamento próprio |
+| [Amazon CloudFront](../redes/cloudfront.md) | Entrega conteúdo, inclusive vídeo, pelos pontos de presença; no escopo | "Entregar com baixa latência" |
+| [Amazon S3](../armazenamento/s3.md) | Guarda os arquivos de vídeo; no escopo | "Armazenar" |
+| [Amazon EC2](../computacao/ec2.md) | Servidores de uso geral; no escopo | "Instância" |
 
-### Amazon Interactive Video Service (IVS)
+## Fontes oficiais
 
-Streaming ao vivo **gerenciado e de baixa latência**, com a mesma tecnologia da Twitch; inclui chat e recursos interativos.
+Verificadas em 06/10/2026.
 
-Uso: lives em aplicativos, aulas ao vivo, leilões e e-commerce ao vivo.
-
-### Amazon Elastic Transcoder
-
-Serviço de transcodificação de arquivos de mídia armazenados no S3.
-
-🔄 **Encerrado em 13/11/2025**; a alternativa indicada é o **MediaConvert**.
-
-### Amazon GameLift
-
-Hospedagem gerenciada de **servidores dedicados para jogos multiplayer**: escalonamento, matchmaking e uso de instâncias Spot (GameLift Servers), além de streaming de jogos (GameLift Streams).
-
-### Amazon Lumberyard
-
-Antigo **motor de jogos** gratuito da AWS. 🔄 **Não é mais oferecido**; foi descontinuado e deu origem ao projeto open source **Open 3D Engine (O3DE)**.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Os produtos não são intercambiáveis; há ofertas antigas no material. A ficha serve para referência fora do escopo indicado, e não para decorar alternativas como respostas universais.
-
-### ⚠️ Como isso aparece na prova
-
-"Distribuir vídeos com baixa latência para usuários globais" → a resposta da CLF-C02 é **CloudFront** (no escopo), não Elemental.
-
-"Armazenar vídeos" → **S3**; "processar vídeo quando chega ao bucket" → **Lambda/S3 events** no escopo da prova.
-
-"Analisar rostos e objetos em vídeo" → **Rekognition** (no escopo).
-
-"Jogo multiplayer com IPs fixos globais" → **Global Accelerator** (no escopo), não GameLift.
-
-## 4. Caso resolvido: ligando as peças
-
-Compare preparar um vídeo em vários formatos, transmitir uma sessão ao vivo e hospedar partidas. São problemas diferentes, mesmo que todos envolvam conteúdo digital.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Separe preparação de mídia, transmissão ao vivo e hospedagem de partidas.
-**Etapa 2:** Identifique o produto associado à etapa específica e confira sua oferta e suas restrições.
-**Etapa 3:** Compare o resultado com a necessidade. Esta ficha é de referência e não uma recomendação de uso de ofertas antigas.
-
-**Resultado e responsabilidade:** Esta ficha compara produtos para preparar e distribuir mídia e para operar jogos. Cada produto cobre uma parte do processo, conforme sua oferta.
-
-**Recursos envolvidos:** Serviços de mídia/transmissão e infraestrutura especializada de jogos.
-
-**Decisões que precisam ser tomadas:** Tipo de mídia ou servidor de jogo e disponibilidade atual.
-
-**Outra situação comentada:** Vídeo ao vivo não é sinônimo de site estático; conheça a diferença, mas estude primeiro serviços incluídos.
-
-**Por que não concluir mais do que isso:** Estão fora do escopo; não memorize configurações como prioridade da CLF-C02
-
-## 5. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [AWS Elemental](https://aws.amazon.com/media-services/) · [Amazon IVS](https://aws.amazon.com/ivs/) · [Amazon GameLift](https://aws.amazon.com/gamelift/) · [Open 3D Engine](https://o3de.org/)
-
+- [O que é o AWS Elemental MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html)
+- [O que é o AWS Elemental MediaLive](https://docs.aws.amazon.com/medialive/latest/ug/what-is.html)
+- [O que é o Amazon IVS](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/what-is.html)
+- [O que é o Amazon GameLift Servers](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-intro.html)
+- [Serviços encerrados](https://docs.aws.amazon.com/general/latest/gr/full_shutdown_services.html)
+- [Serviços fora do escopo da prova](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 

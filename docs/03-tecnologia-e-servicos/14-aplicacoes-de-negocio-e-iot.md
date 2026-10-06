@@ -26,7 +26,7 @@ A diferença para o SNS da [aula 3.13](13-integracao-de-aplicacoes.md): o SNS po
 
 Esta categoria responde a uma pergunta do guia: que serviços apresentam o resultado de máquinas virtuais na tela do usuário? Nos três, o programa roda na AWS, e o dispositivo do usuário só mostra a tela.
 
-- O **Amazon WorkSpaces** cria **desktops virtuais** na nuvem, com Windows ou Linux, acessados de vários dispositivos ou pelo navegador. Não é preciso comprar e instalar hardware, e usuários entram e saem com facilidade. O **WorkSpaces Personal** dá a cada pessoa um desktop persistente e só dela; o **WorkSpaces Pools** oferece desktops não persistentes, recriados a cada uso.
+- O **Amazon WorkSpaces** cria **desktops virtuais** na nuvem, com Windows ou Linux, acessados de vários dispositivos ou pelo navegador. Não é preciso comprar e instalar hardware, e usuários entram e saem com facilidade. O **WorkSpaces Personal** dá a cada pessoa um desktop persistente e só dela; o **WorkSpaces Pools** oferece desktops não persistentes, recriados a cada uso. O WorkSpaces Pools não aceita clientes novos desde 31/07/2026, e o suporte a ele termina em 31/12/2027; a AWS indica o WorkSpaces Applications para quem usa.
 - O **Amazon WorkSpaces Applications**, que o guia do exame ainda chama pelo nome antigo, **Amazon AppStream 2.0**, faz **streaming de aplicações**: o usuário abre um programa de desktop pelo navegador ou por um cliente, sem receber um desktop inteiro. A empresa mantém uma só versão de cada programa, e todos usam a mais recente.
 - O **Amazon WorkSpaces Secure Browser** é um serviço gerenciado que dá acesso seguro, pelo navegador, a sites internos e aplicações SaaS, sem que os dados da empresa cheguem ao dispositivo do usuário. A AWS anunciou que ele deixa de aceitar clientes novos a partir de 29/10/2026.
 
@@ -165,6 +165,7 @@ Verificadas em 06/10/2026.
 - [What is Amazon Connect?](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html) e [Amazon Connect (página do produto)](https://aws.amazon.com/connect/): central de atendimento, novo nome Connect Customer e cobrança pelo uso.
 - [What is Amazon SES?](https://docs.aws.amazon.com/ses/latest/dg/Welcome.html): envio e recebimento de e-mails.
 - [What is Amazon WorkSpaces?](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html): desktops virtuais, Personal e Pools.
+- [Amazon WorkSpaces Pools end of support](https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-pools-end-of-support.html): sem clientes novos desde 31/07/2026 e fim do suporte em 31/12/2027.
 - [What is WorkSpaces Applications?](https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html) e [Amazon WorkSpaces Applications (página do produto)](https://aws.amazon.com/workspaces/applications/): streaming de aplicações, antigo AppStream 2.0.
 - [Amazon WorkSpaces Secure Browser (página do produto)](https://aws.amazon.com/workspaces/secure-browser/): acesso seguro pelo navegador e fim da entrada de novos clientes em 29/10/2026.
 - [AWS Amplify (página do produto)](https://aws.amazon.com/amplify/) e [Welcome to AWS Amplify Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html): aplicações full-stack e hospedagem com Git e CloudFront.
