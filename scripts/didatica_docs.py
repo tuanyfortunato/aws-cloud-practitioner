@@ -685,11 +685,6 @@ APOIO = {
         "Esta página registra pontos em aberto para revisão. Uma pendência é algo a confirmar, não uma regra a decorar.",
         "Se encontrar um prazo sem confirmação, use as referências verificadas do tópico para estudar e mantenha esse prazo como pendente até haver evidência adequada.",
     ),
-    "auditoria-conteudo-2026-10.md": (
-        "Você precisa saber o que foi conferido no material e quais limites essa revisão tem, em vez de assumir que uma lista de arquivos prova domínio do exame.",
-        "Esta página documenta a revisão realizada, sua cobertura e suas ressalvas. Ela serve para acompanhar a qualidade do material; não é uma aula sobre um serviço.",
-        "Use a auditoria para localizar a revisão de um tema e depois leia sua explicação. Um tópico coberto ainda pode precisar de estudo e confirmação de entendimento.",
-    ),
 }
 
 

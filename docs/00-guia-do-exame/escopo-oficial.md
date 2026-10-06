@@ -1,100 +1,81 @@
-# 🎯 Escopo oficial da CLF-C02 (verificado em 04/10/2026)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧭 Antes de ler
+# Escopo oficial da CLF-C02
 
-**Por que esta página existe?** Um serviço pode existir na AWS e, ainda assim, não estar na lista de estudo do exame. Também há listas antigas circulando.
+🏠 [Guia do exame](README.md)
 
-**Como usar?** Esta página separa tarefas e serviços conforme o guia oficial consultado. Use-a para priorizar o estudo e interpretar as marcações das fichas.
+---
 
-**Exemplo:** Ao encontrar uma ficha de referência, confira a marcação antes de investir tempo em detalhes. ‘Não listado’ e ‘explicitamente fora do escopo’ não são a mesma classificação.
-<!-- didatico:fim -->
+A AWS publica três listas que dizem o que pode cair na prova: as tarefas (*task statements*) de cada domínio, os serviços no escopo e os serviços fora do escopo. A própria AWS avisa que as listas de serviços não são completas e podem mudar. Esta página traduz as três, liga cada item à aula ou à ficha que o ensina e indica o que ficou de fora das duas listas de serviços.
 
-> Fontes: [verificação em fontes oficiais](../../fontes/verificacao-fontes-oficiais-2026-10.md) e [rodadas 3 e 4](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md), feitas no
-> [exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
-> e na [lista de serviços no escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html).
->
-> ⚠️ O código da prova continua **CLF-C02**, mas a AWS atualiza o conteúdo do guia **sem trocar o código**.
-> Reabra as duas páginas alguns dias antes da prova. A própria AWS avisa que as listas não são exaustivas.
+Use a página para decidir onde investir tempo. Um serviço fora do escopo pode aparecer como alternativa errada numa questão; por isso todos estão documentados nas fichas, com o aviso de que não são cobrados. Ainda assim, leia a alternativa antes de descartá-la: o nome do serviço sozinho não decide a questão.
 
-## 🧭 Em resumo
+## Como ler os símbolos
 
-> 💡 **Em palavras simples:** a AWS publica **o que pode cair** na prova (as *task statements* e a lista de serviços) e
-> **o que não cai** (a lista de fora do escopo). Esta página traduz essas listas e liga cada item ao tópico deste repositório.
-
-**Como ler os símbolos desta página (e das fichas):**
+As fichas usam os mesmos símbolos desta página na linha **Escopo oficial**.
 
 | Símbolo | Significado | O que fazer |
 |---|---|---|
-| ✅ | Está na lista oficial de serviços **no escopo** | Estude |
-| ❌ | Está na lista oficial **fora do escopo** | Prioridade baixa; não use apenas o nome para decidir uma questão |
-| ⚪ | Não aparece em **nenhuma** das duas listas | Baixa prioridade: saiba para que serve |
-| 🔀 | Ficha com serviços de status diferentes | Veja o status de cada serviço na linha *Escopo oficial* da ficha |
+| ✅ | Está na lista de serviços no escopo | Estude |
+| ❌ | Está na lista de serviços fora do escopo | Saiba reconhecer o nome, mas não aprofunde |
+| ⚪ | Não aparece em nenhuma das duas listas | Saiba para que serve |
+| 🔀 | A ficha reúne serviços com situações diferentes | Veja a situação de cada serviço na ficha |
 
-## Task statements oficiais → tópicos deste repositório
+## As tarefas de cada domínio
 
-Os tópicos de `docs/` seguem a numeração do guia de estudo (1.1 a 4.6), que é **diferente** da numeração
+A numeração das aulas (1.1 a 4.6) não é a mesma das tarefas oficiais. A tabela abaixo liga uma à outra; a [rastreabilidade](../../simulados/questoes/rastreabilidade.md) acrescenta as questões de cada tarefa.
 
-oficial das tasks. A tabela abaixo liga uma à outra.
-
-| Task oficial | Texto oficial | Tópicos do repositório |
+| Tarefa oficial | O que pede | Aulas |
 |---|---|---|
-| **1.1** | Define the benefits of the AWS Cloud | [1.1](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) · [1.2](../01-conceitos-de-nuvem/02-vantagens-da-nuvem.md) · [3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md) |
-| **1.2** | Identify design principles of the AWS Cloud | [1.3](../01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md) · [1.4 Well-Architected (6 pilares)](../01-conceitos-de-nuvem/04-well-architected-framework.md) |
-| **1.3** | Understand the benefits of and strategies for migration to the AWS Cloud | [1.5 CAF](../01-conceitos-de-nuvem/05-cloud-adoption-framework.md) · [1.6 7 Rs](../01-conceitos-de-nuvem/06-estrategias-de-migracao.md) · [3.17](../03-tecnologia-e-servicos/17-migracao-e-transferencia.md) |
-| **1.4** | Understand concepts of cloud economics | [1.7](../01-conceitos-de-nuvem/07-economia-da-nuvem.md) |
-| **2.1** | Understand the AWS shared responsibility model | [2.1](../02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md) |
-| **2.2** | Understand AWS Cloud security, governance, and compliance concepts | [2.5](../02-seguranca-e-conformidade/05-criptografia.md) · [2.6](../02-seguranca-e-conformidade/06-compliance-e-governanca.md) · [2.7](../02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md) |
-| **2.3** | Identify AWS access management capabilities (inclui **IAM Identity Center**, proteção do root e tarefas exclusivas do root) | [2.2](../02-seguranca-e-conformidade/02-usuario-root.md) · [2.3](../02-seguranca-e-conformidade/03-iam.md) · [2.4](../02-seguranca-e-conformidade/04-governanca-multi-conta.md) |
-| **2.4** | Identify components and resources for security | [2.8](../02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md) · [2.9](../02-seguranca-e-conformidade/09-deteccao-de-ameacas.md) · [2.10](../02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.md) |
-| **3.1** | Define methods of deploying and operating in the AWS Cloud | [3.1](../03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md) · [3.16](../03-tecnologia-e-servicos/16-gestao-e-governanca.md) |
-| **3.2** | Define the AWS global infrastructure | [3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md) |
-| **3.3** | Identify AWS compute services | [3.3](../03-tecnologia-e-servicos/03-ec2.md) · [3.4](../03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md) · [3.5](../03-tecnologia-e-servicos/05-containers-e-serverless.md) · [3.6](../03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md) |
-| **3.4** | Identify AWS database services | [3.7](../03-tecnologia-e-servicos/07-bancos-de-dados.md) · [3.17 DMS e SCT](../03-tecnologia-e-servicos/17-migracao-e-transferencia.md) |
-| **3.5** | Identify AWS network services | [3.10](../03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) |
-| **3.6** | Identify AWS storage services | [3.8](../03-tecnologia-e-servicos/08-s3.md) · [3.9](../03-tecnologia-e-servicos/09-outros-armazenamentos.md) |
-| **3.7** | Identify AWS AI/ML services and analytics services (SageMaker AI, Lex, Athena, Kinesis, Glue, Quick Sight…) | [3.11](../03-tecnologia-e-servicos/11-analytics.md) · [3.12](../03-tecnologia-e-servicos/12-ia-e-machine-learning.md) |
-| **3.8** | Identify services from other in-scope AWS service categories | [3.13](../03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md) · [3.14](../03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md) · [3.15](../03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md) · [3.18](../03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md) |
-| **4.1** | Compare AWS pricing models (On-Demand, RIs, Spot, Savings Plans, Dedicated Hosts/Instances, Capacity Reservations; flexibilidade de RIs e RIs no Organizations) | [4.1](../04-cobranca-precos-e-suporte/01-principios-de-preco.md) · [4.2](../04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md) · [4.3](../04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md) |
-| **4.2** | Understand resources for billing, budget, and cost management | [4.4](../04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md) |
-| **4.3** | Identify AWS technical resources and AWS Support options (**Basic Support, Business Support+, Enterprise Support e Unified Operations**, conferido em 06/10/2026; Trusted Advisor, Health Dashboard e Health API; Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post) | [4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) · [4.6](../04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md) |
+| **1.1** | Definir os benefícios da nuvem AWS (*Define the benefits of the AWS Cloud*) | [1.1](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) · [1.2](../01-conceitos-de-nuvem/02-vantagens-da-nuvem.md) · [3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md) |
+| **1.2** | Identificar os princípios de design da nuvem AWS (*Identify design principles of the AWS Cloud*) | [1.3](../01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md) · [1.4](../01-conceitos-de-nuvem/04-well-architected-framework.md) |
+| **1.3** | Entender os benefícios e as estratégias de migração (*Understand the benefits of and strategies for migration to the AWS Cloud*) | [1.5](../01-conceitos-de-nuvem/05-cloud-adoption-framework.md) · [1.6](../01-conceitos-de-nuvem/06-estrategias-de-migracao.md) · [3.17](../03-tecnologia-e-servicos/17-migracao-e-transferencia.md) |
+| **1.4** | Entender a economia da nuvem (*Understand concepts of cloud economics*) | [1.7](../01-conceitos-de-nuvem/07-economia-da-nuvem.md) |
+| **2.1** | Entender o modelo de responsabilidade compartilhada (*Understand the AWS shared responsibility model*) | [2.1](../02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md) |
+| **2.2** | Entender segurança, governança e conformidade (*Understand AWS Cloud security, governance, and compliance concepts*) | [2.5](../02-seguranca-e-conformidade/05-criptografia.md) · [2.6](../02-seguranca-e-conformidade/06-compliance-e-governanca.md) · [2.7](../02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md) |
+| **2.3** | Identificar os recursos de gestão de acesso (*Identify AWS access management capabilities*) | [2.2](../02-seguranca-e-conformidade/02-usuario-root.md) · [2.3](../02-seguranca-e-conformidade/03-iam.md) · [2.4](../02-seguranca-e-conformidade/04-governanca-multi-conta.md) |
+| **2.4** | Identificar componentes e recursos de segurança (*Identify components and resources for security*) | [2.8](../02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md) · [2.9](../02-seguranca-e-conformidade/09-deteccao-de-ameacas.md) · [2.10](../02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.md) |
+| **3.1** | Definir formas de implantar e operar na nuvem (*Define methods of deploying and operating in the AWS Cloud*) | [3.1](../03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md) · [3.16](../03-tecnologia-e-servicos/16-gestao-e-governanca.md) |
+| **3.2** | Definir a infraestrutura global (*Define the AWS global infrastructure*) | [3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md) |
+| **3.3** | Identificar os serviços de computação (*Identify AWS compute services*) | [3.3](../03-tecnologia-e-servicos/03-ec2.md) · [3.4](../03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md) · [3.5](../03-tecnologia-e-servicos/05-containers-e-serverless.md) · [3.6](../03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md) |
+| **3.4** | Identificar os serviços de banco de dados (*Identify AWS database services*) | [3.7](../03-tecnologia-e-servicos/07-bancos-de-dados.md) · [3.17](../03-tecnologia-e-servicos/17-migracao-e-transferencia.md) |
+| **3.5** | Identificar os serviços de rede (*Identify AWS network services*) | [3.10](../03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) |
+| **3.6** | Identificar os serviços de armazenamento (*Identify AWS storage services*) | [3.8](../03-tecnologia-e-servicos/08-s3.md) · [3.9](../03-tecnologia-e-servicos/09-outros-armazenamentos.md) |
+| **3.7** | Identificar os serviços de IA, machine learning e analytics (*Identify AWS AI/ML services and analytics services*) | [3.11](../03-tecnologia-e-servicos/11-analytics.md) · [3.12](../03-tecnologia-e-servicos/12-ia-e-machine-learning.md) |
+| **3.8** | Identificar serviços das demais categorias (*Identify services from other in-scope AWS service categories*) | [3.13](../03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md) · [3.14](../03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md) · [3.15](../03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.md) · [3.18](../03-tecnologia-e-servicos/18-servicos-menos-conhecidos.md) |
+| **4.1** | Comparar os modelos de preço (*Compare AWS pricing models*) | [4.1](../04-cobranca-precos-e-suporte/01-principios-de-preco.md) · [4.2](../04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md) · [4.3](../04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md) |
+| **4.2** | Entender os recursos de cobrança, orçamento e custos (*Understand resources for billing, budget, and cost management*) | [4.4](../04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md) |
+| **4.3** | Identificar os recursos técnicos e as opções de suporte (*Identify AWS technical resources and AWS Support options*) | [4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) · [4.6](../04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md) |
 
-A [rastreabilidade](../../simulados/questoes/rastreabilidade.md) liga cada task também às questões que a praticam.
+## O que cada tarefa cita
 
-## 🔍 O que cada task cita (termos do exam guide)
+O guia detalha cada tarefa em listas de conhecimentos e habilidades, com exemplos de serviços. A tabela resume todos os termos citados; o texto literal está nas páginas de cada domínio.
 
-> Resumo fiel das listas "Knowledge of / Skills in", com todos os termos citados ([verificação, seção A](../../fontes/verificacao-fontes-oficiais-2026-10-rodadas-3-4.md)).
-> Texto literal no [exam guide](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html).
-
-| Task | Termos e serviços citados |
+| Tarefa | Termos e serviços citados |
 |---|---|
-| 1.1 | Proposta de valor da nuvem; infraestrutura global (velocidade de implantação, alcance global); alta disponibilidade, elasticidade, agilidade |
-| 1.2 | Well-Architected Framework e os 6 pilares, e as diferenças entre eles |
-| 1.3 | Estratégias de adoção; recursos de apoio à migração; CAF (menor risco, melhor ESG, mais receita, eficiência operacional); estratégias de migração (ex.: replicação de banco de dados) |
-| 1.4 | Economia ao migrar; custos fixos × variáveis; custos on-premises; BYOL × licença incluída; rightsizing; automação; economias de escala |
-| 2.1 | Responsabilidades do cliente, da AWS e compartilhadas; como mudam em RDS, Lambda e EC2 |
-| 2.2 | Compliance e governança; Artifact; compliance por região ou setor; Inspector, Security Hub, GuardDuty, Shield; criptografia em trânsito e em repouso; CloudWatch, CloudTrail, Config; relatórios de acesso; onde ficam os logs |
-| 2.3 | IAM; proteção do root e tarefas exclusivas do root; menor privilégio; IAM Identity Center; access keys, políticas de senha; armazenamento de credenciais (Secrets Manager, Systems Manager); MFA; cross-account roles; grupos, usuários, políticas customizadas e gerenciadas; identidade federada |
-| 2.4 | WAF, Firewall Manager, Shield, GuardDuty; produtos de segurança de terceiros no Marketplace; Knowledge Center, Security Center, Security Blog; Trusted Advisor para problemas de segurança |
-| 3.1 | APIs, SDKs, CLI × Console × IaC; operação pontual × processo repetível; modelos cloud, híbrido e on-premises |
-| 3.2 | Regiões, AZs, edge locations e a relação entre elas; HA com várias AZs; AZs sem ponto único de falha compartilhado; várias regiões para DR, continuidade, latência e soberania de dados |
-| 3.3 | Tipos de instância EC2; ECS, EKS; Fargate, Lambda; Auto Scaling (elasticidade); load balancers |
-| 3.4 | Banco no EC2 × gerenciado; RDS, Aurora; DynamoDB; ElastiCache; DMS, SCT |
-| 3.5 | Subnets e gateways da VPC; network ACLs, security groups, Inspector; Route 53; VPN, Direct Connect |
-| 3.6 | Armazenamento de objetos e classes do S3; EBS, instance store; EFS, FSx; Storage Gateway (cache); lifecycle policies; AWS Backup |
-| 3.7 | SageMaker AI, Lex; Athena, Kinesis, Glue, Quick Sight |
-| 3.8 | EventBridge, SNS, SQS; Connect, SES; AWS Support; CodeBuild, CodePipeline, X-Ray; AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser; Amplify; IoT Core |
-| 4.1 | On-Demand, RIs, Spot, Savings Plans, Dedicated Hosts, Dedicated Instances, Capacity Reservations; flexibilidade de RIs; RIs no Organizations; transferência de dados (entrada, saída, entre regiões, na mesma região); preço por tier de armazenamento |
-| 4.2 | Billing; Organizations e faturamento consolidado; cost allocation tags; Budgets, Cost Explorer, Pricing Calculator; Cost and Usage Report |
-| 4.3 | Documentação, whitepapers, blogs; Prescriptive Guidance, Knowledge Center, re:Post; customer service e comunidades; Basic Support, Business Support+, Enterprise Support e Unified Operations; Trusted Advisor, Health Dashboard, Health API; Trust and Safety; APN (ISVs, integradores) e benefícios de ser parceiro; Marketplace (custos, governança, entitlement); Professional Services; solutions architects; Support Center |
+| 1.1 | Proposta de valor da nuvem; benefícios da infraestrutura global, como velocidade de implantação e alcance global; vantagens da alta disponibilidade, da elasticidade e da agilidade |
+| 1.2 | Well-Architected Framework, seus seis pilares (excelência operacional, segurança, confiabilidade, eficiência de desempenho, otimização de custos e sustentabilidade) e as diferenças entre eles |
+| 1.3 | Estratégias de adoção; recursos de apoio à migração; componentes do AWS CAF (menor risco de negócio, melhor desempenho ESG, mais receita, mais eficiência operacional); estratégias de migração, como a replicação de banco de dados |
+| 1.4 | Economia ao migrar; custos fixos e variáveis; custos do ambiente local; licença própria (BYOL) e licença incluída; dimensionamento correto (*rightsizing*); benefícios da automação; economias de escala |
+| 2.1 | Responsabilidades do cliente, da AWS e compartilhadas, e como elas mudam de um serviço para outro, como no RDS, no Lambda e no EC2 |
+| 2.2 | Conformidade e governança; onde ficam os logs de segurança; onde encontrar informações de conformidade (Artifact); exigências por região ou setor; Inspector, Security Hub, GuardDuty e Shield; criptografia em trânsito e em repouso; CloudWatch, CloudTrail, Config e relatórios de acesso |
+| 2.3 | IAM; proteção do usuário root e tarefas que só o root faz; menor privilégio; IAM Identity Center; chaves de acesso, políticas de senha e guarda de credenciais (Secrets Manager, Systems Manager); MFA e funções entre contas; grupos, usuários e políticas; identidade federada |
+| 2.4 | WAF, Firewall Manager, Shield e GuardDuty; produtos de segurança de terceiros no Marketplace; Knowledge Center, Security Center e Security Blog; Trusted Advisor para achar problemas de segurança |
+| 3.1 | APIs, SDKs e CLI, console e infraestrutura como código; operação única ou processo repetível; modelos de implantação em nuvem, híbrido e local |
+| 3.2 | Regiões, zonas de disponibilidade e pontos de presença e a relação entre eles; alta disponibilidade com várias zonas, que não compartilham pontos únicos de falha; quando usar várias Regiões (recuperação de desastres, continuidade, latência, soberania de dados) |
+| 3.3 | Tipos de instância do EC2; ECS e EKS; Fargate e Lambda; Auto Scaling como elasticidade; função dos load balancers |
+| 3.4 | Banco no EC2 ou gerenciado; relacionais (RDS, Aurora); NoSQL (DynamoDB); em memória (ElastiCache); ferramentas de migração (DMS, SCT) |
+| 3.5 | Componentes da VPC, como sub-redes e gateways; segurança na VPC (network ACLs, security groups, Inspector); Route 53; conexões com a AWS (VPN, Direct Connect) |
+| 3.6 | Armazenamento de objetos e classes do S3; armazenamento em bloco (EBS, instance store); serviços de arquivos (EFS, FSx); arquivos com cache (Storage Gateway); políticas de ciclo de vida; AWS Backup |
+| 3.7 | SageMaker AI e Lex; Athena, Kinesis, Glue e Quick Sight |
+| 3.8 | EventBridge, SNS e SQS; Connect e SES; AWS Support; CodeBuild, CodePipeline e X-Ray; AppStream 2.0, WorkSpaces e WorkSpaces Secure Browser; Amplify; IoT Core |
+| 4.1 | Sob demanda, instâncias reservadas, Spot, Savings Plans, Dedicated Hosts, Dedicated Instances e Capacity Reservations; flexibilidade das instâncias reservadas e comportamento delas no Organizations; custos de transferência de dados; preços das classes de armazenamento |
+| 4.2 | Informações de cobrança e preços; Organizations e faturamento consolidado; tags de alocação de custos e relatórios (Cost and Usage Report); Budgets, Cost Explorer e Pricing Calculator |
+| 4.3 | Documentação, whitepapers e blogs; Prescriptive Guidance, Knowledge Center e re:Post; Support Center; atendimento e comunidades, Basic Support, Business Support+, Enterprise Support e Unified Operations; Trusted Advisor, Health Dashboard e Health API; equipe Trust and Safety; parceiros (APN, ISVs, integradores) e seus benefícios; Marketplace; Professional Services e solutions architects |
 
-**Destaques da revisão:**
+## Serviços no escopo
 
-**3.8 (outras categorias):** end-user computing = AppStream 2.0, WorkSpaces e WorkSpaces Secure Browser; frontend = **só Amplify**; IoT = **só IoT Core**; developer tools = **CodeBuild, CodePipeline e X-Ray** (e a CLI).
-
-**4.3:** em 06/10/2026, o guia já cita os planos atuais (Basic Support, Business Support+, Enterprise Support e Unified Operations); Developer, Business e Enterprise On-Ramp encerram em 01/01/2027. Veja a [aula 4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md).
-
-## ✅ Serviços no escopo (lista oficial)
+A lista oficial organiza os serviços por categoria, com os nomes em inglês. Cada nome abaixo leva à ficha do serviço.
 
 | Categoria | Serviços → ficha |
 |---|---|
@@ -112,17 +93,17 @@ A [rastreabilidade](../../simulados/questoes/rastreabilidade.md) liga cada task 
 | Internet of Things | [IoT Core](../../servicos/aplicacoes/iot-core-e-greengrass.md) |
 | Machine Learning | [Comprehend, Lex, Polly, Rekognition, Textract, Transcribe, Translate](../../servicos/ia-ml/servicos-de-ia-prontos.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) |
 | Management and Governance | [Auto Scaling](../../servicos/computacao/ec2-auto-scaling.md) · [CloudFormation](../../servicos/gerenciamento/cloudformation.md) · [CloudTrail](../../servicos/gerenciamento/cloudtrail.md) · [CloudWatch](../../servicos/gerenciamento/cloudwatch.md) · [Compute Optimizer, License Manager, Service Quotas](../../servicos/gerenciamento/compute-optimizer-service-quotas-e-license-manager.md) · [Config](../../servicos/gerenciamento/config.md) · [Control Tower](../../servicos/gerenciamento/control-tower.md) · [Health Dashboard](../../servicos/gerenciamento/health-dashboard.md) · [Management Console](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md) · [Organizations](../../servicos/gerenciamento/organizations.md) · [Service Catalog](../../servicos/gerenciamento/service-catalog-e-ram.md) · [Systems Manager](../../servicos/gerenciamento/systems-manager.md) · [Trusted Advisor](../../servicos/gerenciamento/trusted-advisor.md) · [Well-Architected Tool](../01-conceitos-de-nuvem/04-well-architected-framework.md) |
-| Migration and Transfer | [Application Discovery Service, Migration Evaluator, Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [Application Migration Service](../../servicos/migracao/application-migration-service.md) · [DMS e SCT](../../servicos/migracao/dms-e-sct.md) — o Application Migration Service hoje se chama **AWS Transform MGN** |
+| Migration and Transfer | [Application Discovery Service, Migration Evaluator, Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [Application Migration Service](../../servicos/migracao/application-migration-service.md) · [DMS e SCT](../../servicos/migracao/dms-e-sct.md) (o Application Migration Service hoje se chama AWS Transform MGN) |
 | Networking and Content Delivery | [API Gateway](../../servicos/redes/api-gateway.md) · [CloudFront](../../servicos/redes/cloudfront.md) · [Direct Connect](../../servicos/redes/direct-connect.md) · [Global Accelerator](../../servicos/redes/global-accelerator.md) · [PrivateLink, Transit Gateway](../../servicos/redes/vpc-peering-transit-gateway-e-endpoints.md) · [Route 53](../../servicos/redes/route-53.md) · [VPC](../../servicos/redes/vpc.md) · [AWS VPN, Site-to-Site VPN, Client VPN](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) |
 | Security, Identity, and Compliance | [Artifact](../../servicos/seguranca/artifact.md) · [ACM](../../servicos/seguranca/certificate-manager.md) · [CloudHSM](../../servicos/seguranca/cloudhsm.md) · [Cognito](../../servicos/seguranca/cognito.md) · [Detective](../../servicos/seguranca/detective.md) · [Directory Service](../../servicos/seguranca/directory-service.md) · [Firewall Manager](../../servicos/seguranca/firewall-manager-e-network-firewall.md) · [GuardDuty](../../servicos/seguranca/guardduty.md) · [IAM](../../servicos/seguranca/iam.md) · [IAM Identity Center](../../servicos/seguranca/iam-identity-center.md) · [Inspector](../../servicos/seguranca/inspector.md) · [KMS](../../servicos/seguranca/kms.md) · [Macie](../../servicos/seguranca/macie.md) · [RAM](../../servicos/gerenciamento/service-catalog-e-ram.md) · [Secrets Manager](../../servicos/seguranca/secrets-manager-e-parameter-store.md) · [Security Hub](../../servicos/seguranca/security-hub.md) · [Shield](../../servicos/seguranca/shield.md) · [WAF](../../servicos/seguranca/waf.md) |
 | Serverless | [Fargate](../../servicos/computacao/fargate.md) · [Lambda](../../servicos/computacao/lambda.md) |
 | Storage | [AWS Backup](../../servicos/armazenamento/aws-backup.md) · [EBS](../../servicos/armazenamento/ebs.md) · [EFS](../../servicos/armazenamento/efs.md) · [Elastic Disaster Recovery](../../servicos/armazenamento/elastic-disaster-recovery.md) · [FSx](../../servicos/armazenamento/fsx.md) · [S3 e S3 Glacier](../../servicos/armazenamento/s3-classes-de-armazenamento.md) · [Storage Gateway](../../servicos/armazenamento/storage-gateway.md) |
 
-## ❌ Fora do escopo (lista oficial, não exaustiva)
+Alguns serviços da lista mudaram depois que ela foi publicada. O Amazon AppStream 2.0 hoje se chama Amazon WorkSpaces Applications, o Amazon Connect é oferecido como Amazon Connect Customer e o Quick Sight faz parte do Amazon Quick. O AWS Migration Hub e o AWS Application Discovery Service não aceitam clientes novos desde 07/11/2025, e o WorkSpaces Secure Browser deixa de aceitar em 29/10/2026. Todos continuam na lista e podem cair na prova.
 
-Estes serviços não são prioridade do conteúdo oficial consultado. Leia o requisito e as alternativas; o nome sozinho não constitui uma regra universal de eliminação. **Todos estão documentados** no repositório, com
+## Serviços fora do escopo
 
-aviso de que não caem na prova — use para reconhecer os distratores e para o dia a dia.
+Todos estão documentados nas fichas indicadas, com o aviso de que não caem na prova. Os que não pertencem a nenhuma outra ficha estão na categoria [fora do escopo da prova](../../servicos/README.md) do índice das fichas.
 
 | Categoria | Serviços → onde estão documentados |
 |---|---|
@@ -145,19 +126,20 @@ aviso de que não caem na prova — use para reconhecer os distratores e para o 
 | Robotics | [RoboMaker](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) |
 | Storage | [FSx for Lustre](../../servicos/armazenamento/fsx.md) |
 
-> Nas fichas, os serviços fora do escopo aparecem com ❌ *fora do escopo* ao lado do nome. A categoria
-> [❌ Fora do escopo da prova](../../servicos/README.md) reúne os que não pertencem a nenhuma outra ficha.
+## Serviços que não aparecem em nenhuma lista
 
-## ⚪ Nem dentro nem fora: não aparecem em nenhuma das listas
+Alguns serviços que aparecem em materiais de estudo não estão em nenhuma das duas listas: Local Zones, família Snow, DataSync, Bedrock, Kendra, Audit Manager, AppSync, Amazon MQ, Cloud9, CodeCommit, CodeStar, Timestream, Lake Formation e STS. A chance de serem cobrados é baixa, mas vale saber para que servem; as fichas e as aulas que os citam explicam cada um.
 
-Continuam úteis como contexto, mas têm baixa chance de cair: **Local Zones**, **família Snow** (Snowball Edge),
+## Fontes oficiais
 
-**DataSync**, **Bedrock**, **Kendra**, **Audit Manager**, **AppSync**, **Amazon MQ**, **Cloud9**, **CodeCommit**,
+Verificadas em 06/10/2026.
 
-**CodeStar**, **Timestream**, **Lake Formation**, **STS**.
+- [Guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html) e as páginas [Content Domain 1](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html), [2](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html), [3](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html) e [4](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html): tarefas e termos citados.
+- [In-Scope AWS Services](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html) e [Out-of-Scope AWS Services](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html): as duas listas e o aviso de que não são completas.
+- As mudanças de nome e de situação de cada serviço têm a fonte oficial na ficha correspondente.
 
-> Versões traduzidas antigas da lista ainda citam Audit Manager, AppSync e Kendra; a lista atual em inglês não.
+<!-- notas:inicio -->
+## 📝 Minhas anotações
 
-## ⏸️ No escopo, mas fechados a novos clientes
-
-**AWS Migration Hub** e **AWS Application Discovery Service** (desde 07/11/2025). Ainda podem cair na prova.
+<!-- Escreva aqui suas observações sobre o escopo. -->
+<!-- notas:fim -->

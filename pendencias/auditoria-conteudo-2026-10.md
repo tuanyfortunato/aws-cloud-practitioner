@@ -1,14 +1,6 @@
-# Auditoria de cobertura e aprofundamento — CLF-C02
+# Auditoria de cobertura e aprofundamento — CLF-C02 (registro interno)
 
-<!-- didatico:inicio -->
-## 🧭 Antes de ler
-
-**Por que esta página existe?** Você precisa saber o que foi conferido no material e quais limites essa revisão tem, em vez de assumir que uma lista de arquivos prova domínio do exame.
-
-**Como usar?** Esta página documenta a revisão realizada, sua cobertura e suas ressalvas. Ela serve para acompanhar a qualidade do material; não é uma aula sobre um serviço.
-
-**Exemplo:** Use a auditoria para localizar a revisão de um tema e depois leia sua explicação. Um tópico coberto ainda pode precisar de estudo e confirmação de entendimento.
-<!-- didatico:fim -->
+> Registro histórico da revisão de outubro de 2026, movido do guia do exame para `pendencias/` em 06/10/2026. Não é material de estudo; as aulas e as fichas foram reescritas depois desta auditoria e listam as próprias fontes.
 
 Revisão iniciada em **04/10/2026**, a partir do commit `1bdfdbff098dc1648c633fb86c39ff6f968a4b85`.
 
@@ -39,7 +31,7 @@ Faltava um caminho uniforme para explicar a sequência de uso, pré-requisitos e
 | 3 — Tecnologia e serviços | 3.1–3.8 | 18 | Acesso, infraestrutura, compute, banco, rede, armazenamento, analytics/IA e outras categorias; recursos e fluxo de uso sem depender da tela |
 | 4 — Cobrança, preços e suporte | 4.1–4.3 | 6 | Compras, custos, relatórios, suporte e recursos de ajuda; custo residual, compromissos, alertas e primeira resposta |
 
-A ligação de **cada task** aos arquivos está em [Escopo oficial](escopo-oficial.md).
+A ligação de **cada task** aos arquivos está em [Escopo oficial](../docs/00-guia-do-exame/escopo-oficial.md).
 
 A numeração local é editorial: tópico local 3.7 (bancos) não é task oficial 3.7 (IA/analytics).
 
@@ -47,7 +39,7 @@ A numeração local é editorial: tópico local 3.7 (bancos) não é task oficia
 
 | Categoria oficial | Local de estudo e observação |
 |---|---|
-| Analytics | [Fichas](../../servicos/README.md): Athena, EMR, Glue, Kinesis, OpenSearch, Quick Sight; Redshift está na pasta de bancos |
+| Analytics | [Fichas](../servicos/README.md): Athena, EMR, Glue, Kinesis, OpenSearch, Quick Sight; Redshift está na pasta de bancos |
 | Application Integration | EventBridge, SNS, SQS e Step Functions nas fichas de integração |
 | Business Applications | Connect e SES nas fichas de aplicações |
 | Cloud Financial Management | Budgets, Cost Explorer, CUR/Data Exports; Marketplace em recursos de ajuda |
@@ -95,7 +87,7 @@ não permite deduzir a data em que uma questão de certificação será alterada
 
 **105 fichas práticas**, cada uma com recursos, escolhas, sequência, capacidade condicional, limite e caso comentado.
 
-Um [roteiro de estudo](estrutura-da-apostila.md) com modelo de raciocínio e exemplo integrado.
+Um [roteiro de estudo](../docs/00-guia-do-exame/estrutura-da-apostila.md) com modelo de raciocínio e exemplo integrado.
 
 Cobertura obrigatória no gerador: falha se houver tópico/ficha sem aprofundamento ou registro extra sem destino.
 
@@ -149,4 +141,4 @@ Diff conferido sem erros de whitespace.
 
 [Serviços fora do escopo](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-out-of-scope-services.html)
 
-[Voltar ao índice](../../README.md)
+[Voltar ao índice](../README.md)
