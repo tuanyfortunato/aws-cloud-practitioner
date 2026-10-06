@@ -28,12 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **RAM:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 **Passo 1.** Identifique se quer oferecer uma configuração aprovada ou compartilhar um recurso já existente.
 
 **Passo 2.** Use produtos e portfólios do catálogo no primeiro caso; compartilhamentos compatíveis no RAM no segundo.
@@ -44,15 +38,6 @@
 
 ### AWS Service Catalog
 
-**Antes de ler este trecho:**
-
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-- **servidor web:** Programa ou computador que atende pedidos web. Guardar uma página estática e executar regras de um sistema completo são necessidades distintas.
-
 | Item | Detalhe |
 |---|---|
 | **Produto** | Template CloudFormation (ou Terraform) aprovado (ex.: "servidor web padrão", "bucket criptografado"). |
@@ -62,13 +47,6 @@
 | **Uso** | Times provisionam sozinhos, dentro das regras e da governança da empresa. |
 
 ### AWS RAM
-
-**Antes de ler este trecho:**
-
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
 | Item | Detalhe |
 |---|---|
@@ -98,10 +76,6 @@ Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa c
 
 **Decisões que precisam ser tomadas:** Produto aprovado ou recurso compartilhável e destinatários.
 
-**Antes de ler este trecho:**
-
-- **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
-
 **Outra situação comentada:** Catálogo de stacks aprovadas: Service Catalog; compartilhar subnet compatível: RAM.
 
 **Por que não concluir mais do que isso:** Compartilhar não transfere propriedade nem permite qualquer tipo de recurso
@@ -117,10 +91,6 @@ Uma equipe escolhe um ambiente aprovado no catálogo. Separadamente, a empresa c
 **Pergunta:** "Compartilhar uma subnet com outra conta."
 
 **Resposta curta:** AWS RAM.
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 ## 6. Fontes e próximos passos
 

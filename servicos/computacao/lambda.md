@@ -28,13 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-
 **Passo 1.** Escreva uma função que realize uma tarefa delimitada e defina como ela será chamada.
 
 **Passo 2.** Configure os recursos, os acessos e a integração que fornece a entrada. A AWS inicia a execução quando recebe a chamada ou o evento.
@@ -45,30 +38,11 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
-
 Processar arquivos assim que chegam ao S3 (miniaturas, validação, ETL leve).
-
-**Antes de ler este trecho:**
-
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 
 Back-ends de APIs (com [API Gateway](../redes/api-gateway.md) ou function URLs).
 
-**Antes de ler este trecho:**
-
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-
 Consumir filas e streams (SQS, Kinesis, DynamoDB Streams).
-
-**Antes de ler este trecho:**
-
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
 
 Tarefas agendadas (EventBridge Scheduler), automação de operações, chatbots.
 
@@ -76,56 +50,25 @@ Tarefas agendadas (EventBridge Scheduler), automação de operações, chatbots.
 
 **Função**
 
-**Antes de ler este trecho:**
-
-- **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
-- **timeout:** Limite de espera ou duração. Ao excedê-lo, uma operação pode falhar ou exigir tratamento; não presuma que nada aconteceu antes da interrupção.
-- **runtime:** Ambiente que executa código de uma linguagem ou plataforma. Compatibilidade de bibliotecas e versões deve ser avaliada.
-
 **O que é:** Código + configuração (runtime, memória, timeout, role).
 
 **Runtime**
-
-**Antes de ler este trecho:**
-
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
 
 **O que é:** Python, Node.js, Java, .NET, Ruby, **custom runtime** (`provided.al2023`) — Go e Rust usam o custom runtime; também **imagem de contêiner** (até 10 GB).
 
 **Trigger / event source**
 
-**Antes de ler este trecho:**
-
-- **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-
 **O que é:** O que invoca: S3, API Gateway, ALB, SQS, SNS, EventBridge, DynamoDB/Kinesis Streams, Cognito, IoT…
 
 **Execution role**
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 
 **O que é:** IAM role que dá permissões à função (ex.: gravar no DynamoDB).
 
 **Resource-based policy**
 
-**Antes de ler este trecho:**
-
-- **policy:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-
 **O que é:** Quem pode invocar a função (ex.: permitir o S3 ou outra conta).
 
 **Invocação**
-
-**Antes de ler este trecho:**
-
-- **URL:** Endereço usado para acessar um recurso. Uma URL pode incluir domínio, caminho e parâmetros; possuir o endereço não significa ter autorização.
-- **DLQ:** Fila separada para mensagens que atingiram condições configuradas de falha. Ajuda a isolar e investigar o problema; não corrige a mensagem automaticamente.
 
 **O que é:** **Síncrona** (API Gateway, function URL), **assíncrona** (S3, SNS, EventBridge — com retentativas e *destinations*/DLQ) ou **event source mapping** (polling de SQS/Kinesis/DynamoDB).
 
@@ -139,19 +82,11 @@ Tarefas agendadas (EventBridge Scheduler), automação de operações, chatbots.
 
 **Cold start**
 
-**Antes de ler este trecho:**
-
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-
 **O que é:** Latência extra ao criar um novo ambiente de execução.
 
 ### Configurações e opções importantes
 
 **Memória**
-
-**Antes de ler este trecho:**
-
-- **CPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
 
 **O que faz:** 128 MB – 10.240 MB; a **CPU é proporcional à memória**
 
@@ -165,17 +100,9 @@ Tarefas agendadas (EventBridge Scheduler), automação de operações, chatbots.
 
 **Variáveis de ambiente**
 
-**Antes de ler este trecho:**
-
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-
 **O que faz:** Configuração (criptografadas com KMS)
 
 **Arquitetura**
-
-**Antes de ler este trecho:**
-
-- **Graviton:** Família de processadores AWS baseada em arquitetura ARM. A aplicação e sua imagem precisam ser compatíveis com essa arquitetura.
 
 **O que faz:** x86_64 ou **arm64 (Graviton)** — mais barato por GB-s
 
@@ -189,28 +116,13 @@ Tarefas agendadas (EventBridge Scheduler), automação de operações, chatbots.
 
 **SnapStart**
 
-**Antes de ler este trecho:**
-
-- **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
-
 **O que faz:** Reduz cold start (Java, Python, .NET) restaurando um snapshot
 
 **Acesso à VPC**
 
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-
 **O que faz:** Função acessa recursos privados (RDS, ElastiCache)
 
 **Function URL**
-
-**Antes de ler este trecho:**
-
-- **HTTPS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 
 **O que faz:** Endpoint HTTPS dedicado, sem API Gateway
 
@@ -222,44 +134,21 @@ Tarefas agendadas (EventBridge Scheduler), automação de operações, chatbots.
 
 📌 Timeout máximo **15 min** · memória **10.240 MB** · CPU proporcional.
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 🧊 Concorrência padrão de 1.000 por região (ajustável), pacote zip 50 MB (250 MB descompactado), 5 layers, payload síncrono de 6 MB.
 
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-
 Lambda não é uma máquina em que você entra para instalar qualquer programa e deixá-lo rodando indefinidamente. Há limites de execução, e dados que precisam durar devem ser guardados em armazenamento apropriado.
 
 ### ⚠️ Pegadinhas e não confundir
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
-- **workflow:** Fluxo de trabalho descrito por etapas, decisões e estados. Coordenar etapas é diferente de escrever o programa que realiza cada tarefa.
 
 ⚠️ **Uma invocação convencional > 15 minutos** não é suportada. Considere Fargate/Batch/EC2 ou dividir o fluxo. Durable Functions e Lambda MicroVMs têm modelos próprios; não confunda duração total do workflow com uma invocação convencional.
 
 ⚠️ Não existe "configurar vCPU" no Lambda: aumente a **memória**.
 
-**Antes de ler este trecho:**
-
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-
 Lambda × Fargate: função convencional por evento (até 15 min por invocação) × contêiner serverless sem limite de duração.
-
-**Antes de ler este trecho:**
-
-- **PaaS:** Plataforma como serviço: parte da infraestrutura e do ambiente de execução é administrada para você entregar a aplicação. O código e suas regras continuam sendo do cliente.
 
 Lambda é "serverless/FaaS"; o guia o classifica também como PaaS.
 
@@ -275,26 +164,11 @@ Free Tier "sempre gratuito": **1 milhão de requisições e 400.000 GB-s por mê
 
 Extras: concorrência provisionada, `/tmp` acima de 512 MB, transferência de dados.
 
-**Antes de ler este trecho:**
-
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-
 Coberto pelo **Compute Savings Plans**.
 
 ### Segurança e responsabilidade compartilhada
 
-**Antes de ler este trecho:**
-
-- **SO:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
-
 **AWS:** infraestrutura, SO, runtime gerenciado (patches), escalonamento e alta disponibilidade (multi-AZ automático).
-
-**Antes de ler este trecho:**
-
-- **menor privilégio:** Conceder apenas o acesso necessário ao trabalho. Evita que uma tarefa simples carregue poder desnecessário sobre outros recursos.
 
 **Cliente:** **código**, dependências, permissões (execution role com menor privilégio), configuração, dados, segredos (use Secrets Manager).
 
@@ -333,10 +207,6 @@ Se o código falhar ou a entrada aparecer novamente, a aplicação precisa de tr
 **Pergunta:** "Como o Lambda é cobrado?"
 
 **Resposta curta:** No modelo base, requisições e duração (GB-s); concorrência provisionada, snapshots e outros extras podem cobrar sem invocação.
-
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 
 **Pergunta:** "Gerar miniatura quando uma imagem chega ao S3."
 

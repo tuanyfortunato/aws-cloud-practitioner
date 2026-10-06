@@ -38,23 +38,9 @@
 
 ### Destaques
 
-**Antes de ler este trecho:**
-
-- **RDF / SPARQL:** RDF representa informações por relações; SPARQL é uma linguagem de consulta desse modelo. São opções específicas de trabalho com grafos.
-
 Modelos **Property Graph** (Gremlin, openCypher) e **RDF** (SPARQL).
 
-**Antes de ler este trecho:**
-
-- **Neptune:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-
 Até 15 réplicas de leitura, 6 cópias em 3 AZs, Neptune Serverless, Neptune Analytics, Global Database.
-
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 
 Uso: **redes sociais** ("amigos de amigos"), **motores de recomendação**, **detecção de fraude**, grafos de conhecimento, segurança de rede.
 

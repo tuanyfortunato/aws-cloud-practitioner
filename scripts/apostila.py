@@ -1,7 +1,7 @@
 """Estrutura de capítulos: conceitos antes de opções, explicação antes de revisão.
 
 Conteúdo-base das fichas: conteudo_servicos/*.json. Regras e valores são preservados
-nessa fonte editorial; a apresentação expande vocabulário e organiza a leitura.
+nessa fonte editorial; a apresentação organiza a leitura.
 """
 import json
 import re
@@ -38,12 +38,20 @@ for nome, d in ABERTURAS.items():
         EXTRAS.setdefault(alias.casefold(), (alias, definicao))
 
 
+# Blocos "Antes de ler este trecho" com definições automáticas: desligados no PR 1.1 do
+# plano. As definições agora ficam nas aulas (em prosa, no primeiro uso) e no glossário.
+# Mude para True para voltar a gerar os blocos.
+VOCABULARIO_AUTOMATICO = False
+
+
 class Leitura:
     """Explica cada definição uma vez no arquivo, antes do trecho que a usa."""
     def __init__(self):
         self.explicados = set()
 
     def vocabulario(self, texto):
+        if not VOCABULARIO_AUTOMATICO:
+            return ''
         pares = termos_locais(simples(texto), EXTRAS)
         novos = [(nome, d) for nome, d in pares if d not in self.explicados]
         self.explicados.update(d for _, d in novos)

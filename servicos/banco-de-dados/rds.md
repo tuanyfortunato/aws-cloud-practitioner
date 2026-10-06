@@ -28,13 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 **Passo 1.** Escolha um mecanismo de banco compatível com a aplicação e suas necessidades de capacidade e disponibilidade.
 
 **Passo 2.** Prepare conexão e identidade. Crie as estruturas dos dados e faça a aplicação realizar operações autorizadas.
@@ -45,59 +38,15 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **OLTP:** Processamento de operações individuais do negócio, como registrar uma compra. É diferente de analisar grandes conjuntos históricos de registros.
-- **CRM:** CRM trata relacionamento com clientes; CAD, projeto assistido por computador; EDI, troca eletrônica estruturada de dados. São necessidades de aplicação distintas.
-- **ERP:** Tipos de aplicação: gestão de conteúdo, relacionamento com clientes e gestão empresarial. São funções de software, não nomes de um modelo de armazenamento.
-
 Aplicações transacionais (**OLTP**): e-commerce, ERP, CRM, sistemas web.
-
-**Antes de ler este trecho:**
-
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **replatform:** Mudar parte da plataforma mantendo boa parte da aplicação. Por exemplo, trocar a operação do banco sem reescrever todas as regras do programa.
 
 **Replatform** de bancos on-premises para reduzir administração.
 
 ### Motores
 
-**Antes de ler este trecho:**
-
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-
 **MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2** (e **Aurora**, ver [ficha própria](aurora.md)).
 
 ### Conceitos e configurações
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **SO:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-- **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-- **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
-- **transação:** Conjunto de operações tratado com garantias definidas pelo banco. As garantias e limites variam conforme o serviço e a modalidade.
-- **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **DB:** Abreviação de database, ou banco de dados. Cada mecanismo oferece formas e garantias próprias de armazenamento e consulta.
-- **DB cluster:** Conjunto coordenado de componentes de banco. A função de cada membro e seu comportamento de leitura, escrita ou recuperação dependem do serviço.
 
 | Item | Detalhe |
 |---|---|
@@ -119,10 +68,6 @@ Aplicações transacionais (**OLTP**): e-commerce, ERP, CRM, sistemas web.
 
 ### Limites e números
 
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-
 📌 Backup automático até **35 dias**. Read replicas: até **15** (MySQL/MariaDB/PostgreSQL).
 
 🧊 Limites de armazenamento por motor e versões.
@@ -135,24 +80,9 @@ RDS não cria as regras de negócio nem as consultas da aplicação. Você conti
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **read replica:** Cópia de banco que pode atender consultas em cenários suportados. Ela não deve ser confundida com toda modalidade de standby para recuperação.
-
 ⚠️ **Multi-AZ = disponibilidade**; **Read Replica = desempenho de leitura**.
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-
 Sem acesso ao SO (exceto RDS Custom). Precisa de acesso total ao SO → banco no **EC2**.
-
-**Antes de ler este trecho:**
-
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **NoSQL:** Família de modelos de banco que não se limita à estrutura relacional tradicional. Não significa ausência de estrutura ou que todo produto NoSQL faz o mesmo trabalho.
-- **OLAP:** Análise de conjuntos de dados, como comparar vendas de vários meses. Prioriza perguntas e agregações, não apenas registrar uma operação individual.
 
 RDS (OLTP) × Redshift (OLAP) × DynamoDB (NoSQL).
 
@@ -162,29 +92,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### Cobrança
 
-**Antes de ler este trecho:**
-
-- **IOPS:** Quantidade de operações de leitura e escrita por segundo. Ajuda a descrever o comportamento de um armazenamento, mas não mede sozinha a quantidade de bytes transferidos.
-- **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
-- **Reserved Instances:** Benefício e condições de reserva para configurações compatíveis. Não confunda desconto com qualquer garantia universal de capacidade.
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-- **BYOL:** Trazer licença própria elegível. É necessário verificar o direito de uso e as condições do software; a AWS não cria automaticamente essa licença.
-- **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
-- **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
-
 Horas de instância (On-Demand ou **Reserved Instances** / 🔄 **Database Savings Plans**: até 20% em instâncias provisionadas, 1 ano, sem pagamento adiantado), armazenamento provisionado, IOPS provisionados, backup além do tamanho do banco, transferência de dados, Multi-AZ (≈ dobra a instância), licença (Oracle/SQL Server *license included* ou BYOL).
 
 ### Segurança e responsabilidade compartilhada
 
-**Antes de ler este trecho:**
-
-- **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
-
 **AWS:** hardware, **SO**, **patch do motor**, backups automáticos, failover Multi-AZ.
-
-**Antes de ler este trecho:**
-
-- **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
 
 **Cliente:** usuários e permissões do banco, security groups, **ativar criptografia**, configurar backups/retenção, schema, consultas e dados.
 
@@ -199,11 +111,6 @@ Uma opção Multi-AZ ajuda no objetivo de disponibilidade conforme sua modalidad
 **Recursos envolvidos:** DB instance/cluster, engine, endpoint, subnet group, SG e backups.
 
 **Decisões que precisam ser tomadas:** Motor, tamanho, armazenamento, acesso, backup e disponibilidade.
-
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
 
 **Outra situação comentada:** Alta disponibilidade: Multi-AZ; aliviar consultas: read replicas compatíveis, distinguindo modalidades de cluster.
 
@@ -224,10 +131,6 @@ Uma opção Multi-AZ ajuda no objetivo de disponibilidade conforme sua modalidad
 **Pergunta:** "Aliviar consultas de leitura pesadas."
 
 **Resposta curta:** Read Replicas (ou ElastiCache).
-
-**Antes de ler este trecho:**
-
-- **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
 
 **Pergunta:** "Restaurar o banco para 10:32 de ontem."
 

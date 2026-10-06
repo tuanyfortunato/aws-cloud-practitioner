@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-
 **Passo 1.** Prepare os servidores compatíveis, permissões e destino de replicação.
 
 **Passo 2.** Mantenha os dados replicados e realize testes de recuperação na AWS. A aplicação precisa ser validada com suas dependências.
@@ -43,29 +38,11 @@
 
 ### Como funciona
 
-**Antes de ler este trecho:**
-
-- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-
 1. Instala-se o **agente de replicação** nos servidores de origem.
-
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
 
 2. Os discos são replicados continuamente (nível de bloco) para uma *staging area* barata na AWS (instâncias pequenas + EBS).
 
-**Antes de ler este trecho:**
-
-- **RTO:** Objetivo de tempo de recuperação: quanto tempo a organização aceita ficar sem o sistema após uma interrupção.
-- **RPO:** Objetivo de ponto de recuperação: quanto histórico de dados a organização aceita perder, medido como intervalo de tempo.
-- **DRS:** Sigla usada para Elastic Disaster Recovery. Replicação prepara uma recuperação; testes e dependências continuam necessários.
-
 3. Em um desastre ou teste, o DRS **lança instâncias de recuperação** totalmente provisionadas — **RPO de segundos (normalmente subsegundo), RTO de minutos** ✔️.
-
-**Antes de ler este trecho:**
-
-- **failback:** Retorno planejado ao ambiente principal depois de uma recuperação. Não deve ser confundido com simplesmente criar uma cópia de dados.
 
 4. Depois, *failback* para a origem.
 
@@ -81,19 +58,7 @@ Replicar dados não garante que todas as dependências e conexões da aplicaçã
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **AWS Backup:** AWS Backup centraliza políticas e operações de backup para recursos compatíveis.
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **Application Migration Service:** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-
 **DRS** (DR contínuo, RPO/RTO baixos) × **AWS Backup** (backups periódicos) × **Application Migration Service** (migração única — mesma tecnologia, outro objetivo).
-
-**Antes de ler este trecho:**
-
-- **pilot light:** Estratégia de recuperação que mantém uma base essencial ativa e amplia os demais recursos quando necessário. É mais que apenas guardar um backup.
-- **warm standby:** Ambiente alternativo reduzido já em execução, que pode ser ampliado na recuperação. O objetivo é reduzir preparação depois da falha.
 
 Estratégias de DR (Backup & Restore → Pilot Light → Warm Standby → Multi-site): DRS se aproxima de *pilot light* com custo baixo.
 
@@ -102,11 +67,6 @@ Estratégias de DR (Backup & Restore → Pilot Light → Warm Standby → Multi-
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 
 Por servidor de origem replicado por hora + recursos da staging area e das instâncias lançadas.
 
@@ -137,10 +97,6 @@ Uma empresa prepara a recuperação de seu sistema interno e realiza um teste pa
 **Pergunta:** "Recuperar servidores on-premises na AWS em minutos após um desastre."
 
 **Resposta curta:** Elastic Disaster Recovery.
-
-**Antes de ler este trecho:**
-
-- **Elastic Disaster Recovery:** Elastic Disaster Recovery replica dados de servidores compatíveis para preparar sua recuperação em máquinas AWS.
 
 ## 7. Fontes e próximos passos
 

@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **Kubernetes:** Sistema que coordena containers e mantém o estado de execução desejado. Sua operação exige conceitos e configurações próprios.
-
 **Passo 1.** Defina um ambiente Kubernetes e a forma de fornecer capacidade para os containers.
 
 **Passo 2.** Publique as descrições da aplicação e suas necessidades. Kubernetes coordena o posicionamento e a quantidade de unidades de execução.
@@ -43,10 +38,6 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-
 Empresas que **já usam Kubernetes** (on-premises ou outra nuvem) e querem migrar sem reescrever manifestos.
 
 Portabilidade entre ambientes; ecossistema open source (Helm, operadores).
@@ -55,44 +46,17 @@ Portabilidade entre ambientes; ecossistema open source (Helm, operadores).
 
 **Control plane**
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-- **control plane:** A camada de controle coordena; a camada de dados executa ou transporta o trabalho. Gerenciar uma não significa administrar automaticamente toda a outra.
-
 **O que é:** API server e etcd gerenciados, multi-AZ, pela AWS.
 
 **Nós (data plane)**
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **EKS:** O EKS oferece Kubernetes gerenciado.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
 **O que é:** **Managed node groups** (EC2 gerenciadas), **self-managed nodes**, **Fargate** (pods serverless) ou **EKS Auto Mode** (AWS gerencia os nós).
 
 **Add-ons**
 
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **CNI / CSI:** Interfaces de integração de rede e de armazenamento em ambientes de containers. Seus componentes conectam a execução aos recursos compatíveis.
-
 **O que é:** VPC CNI, CoreDNS, kube-proxy, EBS CSI driver…
 
 **IAM ↔ Kubernetes**
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **RBAC:** Controle de acesso baseado em papéis. As permissões dependem do papel atribuído à identidade e das regras do sistema.
-- **pod:** Unidade de execução do Kubernetes que reúne um ou mais containers. Recursos e disponibilidade dependem do ambiente e das configurações.
-- **IRSA:** Associação de roles IAM a contas de serviço Kubernetes em uma forma de integração EKS. Identidade do pod e permissões ainda precisam ser definidas.
 
 **O que é:** *EKS Pod Identity* / IRSA dão IAM roles a pods; *access entries* mapeiam usuários IAM para RBAC.
 
@@ -108,10 +72,6 @@ A AWS gerenciar a camada de controle não significa que toda a aplicação, as p
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-
 "Já usa Kubernetes" / "padrão open source portátil" → **EKS**. "Mais simples, nativo AWS" → **ECS**.
 
 EKS tem custo do plano de controle; ECS não.
@@ -122,18 +82,9 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### Cobrança
 
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
-
 **Taxa por cluster por hora** (plano de controle) + nós (EC2/Fargate). Versões do Kubernetes em *extended support* custam mais.
 
 ### Segurança e responsabilidade compartilhada
-
-**Antes de ler este trecho:**
-
-- **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
 **AWS:** plano de controle (disponibilidade, patch, escalonamento).
 

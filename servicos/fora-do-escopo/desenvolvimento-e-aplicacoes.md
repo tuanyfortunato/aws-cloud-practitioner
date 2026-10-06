@@ -43,13 +43,6 @@
 
 ### AWS AppConfig
 
-**Antes de ler este trecho:**
-
-- **Systems Manager:** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
-- **alarme:** Condição acompanhada sobre dados de monitoramento. Uma mudança de estado pode gerar ações configuradas; o alarme não diagnostica todo problema sozinho.
-- **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
-- **rollback:** Retorno a uma configuração ou versão anterior, quando suportado e planejado. Nem toda alteração de dados pode ser desfeita automaticamente.
-
 Parte do Systems Manager. Gerencia **feature flags** e **configuração dinâmica** de aplicações, com validação e implantação gradual (rollback automático se um alarme disparar).
 
 Exemplo: ligar uma funcionalidade nova só para 10% dos usuários, sem novo deploy.
@@ -58,74 +51,31 @@ A lista oficial o coloca em "Database" (erro de categorização da própria pág
 
 ### AWS Infrastructure Composer (antigo AWS Application Composer)
 
-**Antes de ler este trecho:**
-
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **SAM:** Ferramentas de desenvolvimento e descrição de infraestrutura. CDK ajuda a definir recursos por programação; SAM é voltado a aplicações serverless compatíveis.
-
 **Desenho visual** de arquiteturas serverless e de infraestrutura que gera templates do **CloudFormation/SAM**.
 
 ### Amazon CodeGuru
 
-**Antes de ler este trecho:**
-
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-
 **CodeGuru Reviewer:** revisão automática de código com ML (🔄 fechado a novos clientes desde 07/11/2025).
 
-**Antes de ler este trecho:**
-
-- **CPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-
 **CodeGuru Profiler:** encontra trechos caros de CPU e latência em aplicações em execução.
-
-**Antes de ler este trecho:**
-
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
 
 **CodeGuru Security:** varredura de vulnerabilidades no código. Grande parte dessas funções migrou para o **Amazon Q Developer**.
 
 ### AWS Copilot
 
-**Antes de ler este trecho:**
-
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-
 **CLI** para criar, publicar e operar aplicações em contêiner no ECS e no App Runner com poucos comandos (gera a infraestrutura com CloudFormation).
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
 🔄 **Fim de suporte em 12/06/2026**: segue como projeto open source, sem atualizações da AWS.
 
 ### AWS Migration Hub Refactor Spaces
 
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-
 Ajuda a **modernizar aos poucos** uma aplicação monolítica (padrão *strangler fig*): cria o ambiente de rede e o roteamento para mover funcionalidades uma a uma para microsserviços.
 
 ### AWS AppFabric
 
-**Antes de ler este trecho:**
-
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-
 Conecta aplicações **SaaS** (Slack, Zoom, Salesforce, Okta…) para **centralizar logs de segurança** e oferecer recursos de produtividade com IA generativa.
 
 ### Amazon Simple Workflow Service (SWF)
-
-**Antes de ler este trecho:**
-
-- **Step Functions:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis.
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
 
 Serviço **legado** de coordenação de tarefas em fluxos de trabalho. A AWS recomenda o **Step Functions** (no escopo) para novos projetos.
 
@@ -141,15 +91,7 @@ Não existe uma ferramenta desta lista que faça toda a modernização sozinha. 
 
 ### ⚠️ Como isso aparece na prova
 
-**Antes de ler este trecho:**
-
-- **SWF:** Simple Workflow Service: serviço de coordenação de trabalhos distribuídos com modelo próprio. É referência especializada, não sinônimo de todas as ferramentas de fluxo.
-
 "Orquestrar etapas de um fluxo" → **Step Functions** (no escopo), não SWF.
-
-**Antes de ler este trecho:**
-
-- **CI / CD / CI/CD:** Integração contínua e entrega ou implantação contínua: práticas para construir, verificar e disponibilizar versões por etapas repetíveis.
 
 "Esteira de CI/CD" → **CodePipeline**; "compilar e testar" → **CodeBuild** (no escopo).
 
@@ -170,10 +112,6 @@ Alterar uma configuração com controle é um problema diferente de analisar có
 **Recursos envolvidos:** Ferramentas extras de configuração, modelagem, código e aplicações.
 
 **Decisões que precisam ser tomadas:** Oferta atual e problema específico.
-
-**Antes de ler este trecho:**
-
-- **X-Ray:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
 
 **Outra situação comentada:** Para CLF-C02, diferencie CodeBuild/CodePipeline/X-Ray antes de aprofundar ferramentas extras.
 

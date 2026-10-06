@@ -27,10 +27,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **CAF:** Cloud Adoption Framework: orientação para preparar capacidades da organização na adoção de nuvem. Não é uma ferramenta que transfere servidores.
-
 Tecnologia é apenas uma parte da mudança. A empresa pode ter recursos funcionando, mas faltar equipe preparada, regras de decisão ou procedimentos operacionais. O CAF organiza essas capacidades para não deixar a transformação restrita à instalação de máquinas.
 
 Leia cada perspectiva como um grupo de perguntas e responsáveis. Quem cuida de competências e cultura não realiza a mesma tarefa de quem define padrões técnicos. As fases orientam começar com objetivos, identificar lacunas, experimentar e ampliar.
@@ -44,25 +40,11 @@ Leia cada perspectiva como um grupo de perguntas e responsáveis. Quem cuida de 
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 Guia para organizar a transformação digital de uma empresa na AWS.
-
-**Antes de ler este trecho:**
-
-- **ESG:** Conjunto de aspectos ambientais, sociais e de governança. É uma perspectiva de avaliação organizacional, não uma função de configuração de um recurso.
 
 **Benefícios declarados:** reduzir risco de negócio, melhorar desempenho ESG (ambiental, social e governança), aumentar receita e aumentar eficiência operacional.
 
 **6 perspectivas:**
-
-**Antes de ler este trecho:**
-
-- **CI / CD / CI/CD:** Integração contínua e entrega ou implantação contínua: práticas para construir, verificar e disponibilizar versões por etapas repetíveis.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **treinamento:** Ajuste de um modelo com dados. É uma etapa diferente de utilizar o modelo já treinado para responder a uma nova entrada.
 
 | Perspectiva | Público principal | Exemplos de capacidades |
 | --- | --- | --- |

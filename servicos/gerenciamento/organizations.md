@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 **Passo 1.** Organize contas e unidades conforme a separação de trabalho da empresa.
 
 **Passo 2.** Aplique políticas e recursos de administração central compatíveis com os objetivos.
@@ -42,12 +38,6 @@
 
 ### Estrutura
 
-**Antes de ler este trecho:**
-
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-- **OU:** Unidade organizacional: agrupamento de contas na organização. Agrupar contas permite aplicar regras de governança segundo a estrutura escolhida.
-- **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
-
 ```
 Root
 ├── Management account (paga a fatura; não é afetada por SCPs)
@@ -55,16 +45,6 @@ Root
 ├── OU: Produção   → contas prod-app1, prod-app2
 └── OU: Desenvolvimento → contas dev-*
 ```
-
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
-- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
 | Item | Detalhe |
 |---|---|
@@ -77,16 +57,6 @@ Root
 
 ### Tipos de política
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **AWS Backup:** AWS Backup centraliza políticas e operações de backup para recursos compatíveis.
-- **AI / IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **policy / política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-- **SCP:** Política de controle de serviços usada na organização para limitar permissões disponíveis em contas às quais se aplica. Ela não concede acesso ao usuário sozinha.
-- **RCP:** Política de controle de recursos que limita permissões aplicáveis a recursos compatíveis da organização. É um limite, não uma concessão isolada de acesso.
-- **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
-
 | Política | O que faz |
 |---|---|
 | **SCP (Service Control Policy)** | **Teto** de permissões das identidades das contas (inclusive o root da conta-membro). **Não concede** nada. Padrão `FullAWSAccess`. Estratégias *deny list* ou *allow list*. |
@@ -96,28 +66,13 @@ Root
 | **Backup policies** | Planos do AWS Backup em todas as contas. |
 | **AI services opt-out** | Impede uso de dados para melhorar serviços de IA da AWS. |
 
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-
 **Permissão efetiva** = interseção de SCP (e RCP) **e** política IAM.
 
 ### Consolidated billing
 
-**Antes de ler este trecho:**
-
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 **Uma fatura** para todas as contas; **soma o uso** para descontos por volume (ex.: faixas do S3); **compartilha RIs e Savings Plans**; sem custo extra.
 
 **Compartilhamento de RIs e Savings Plans (task 4.1):** ✔️ ativado por padrão; a conta de gerenciamento pode **desativar** para qualquer conta (inclusive ela mesma); as duas contas precisam ter o compartilhamento ativo; o desconto vale **primeiro na conta que comprou** e a sobra vai para as demais.
-
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **CLI / SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
 
 🔄 ✔️ Organizações criadas **pelo console** após **10/07/2026** recebem automaticamente na raiz uma SCP que **nega às contas-membro** `organizations:LeaveOrganization` (sair da organização) e `account:CloseAccount` (fechar a conta). Não vale para organizações anteriores nem criadas por API, CLI, SDK ou CloudFormation.
 
@@ -131,12 +86,6 @@ Uma política de controle não concede permissão a um usuário por si só. Perm
 
 SCP **não** afeta a management account e **não** concede permissões.
 
-**Antes de ler este trecho:**
-
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
-- **landing zone:** Base organizada de um ambiente AWS com várias contas e controles. Ainda é necessário definir aplicações, acessos e operação dentro dela.
-
 Organizations (contas, SCPs, fatura) × **Control Tower** (landing zone pronta sobre o Organizations).
 
 ## 4. Operação, segurança e custo
@@ -144,10 +93,6 @@ Organizations (contas, SCPs, fatura) × **Control Tower** (landing zone pronta s
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### 🔄 Atualizações 2025-2026
-
-**Antes de ler este trecho:**
-
-- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
 
 **Gerenciamento centralizado de acesso root:** remover credenciais root de contas-membro e executar ações privilegiadas a partir da conta de gerenciamento.
 

@@ -43,29 +43,6 @@ Considere a sequência detectar, avaliar e responder. Uma ferramenta pode emitir
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECR:** O ECR é um repositório de imagens de containers.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **Amazon GuardDuty / GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
-- **Amazon Inspector / Inspector:** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
-- **Amazon Macie / Macie:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
-- **Amazon Detective / Detective:** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
-- **AWS Security Hub / Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
-- **AWS Trusted Advisor / Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
-- **CIS:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
-- **ML / machine learning:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **CPF:** Identificador pessoal brasileiro. Neste material é exemplo de dado que pode exigir proteção, não um mecanismo AWS de autenticação.
-
 | Serviço | O que faz | Detalhes de prova |
 | --- | --- | --- |
 | Amazon GuardDuty | Detecção inteligente de ameaças com machine learning | Analisa CloudTrail, VPC Flow Logs e logs de DNS (e outras fontes opcionais); sem agentes; ativação com um clique; período de teste gratuito |
@@ -75,18 +52,7 @@ Considere a sequência detectar, avaliar e responder. Uma ferramenta pode emitir
 | AWS Security Hub | **Painel central** de segurança | Agrega achados de GuardDuty, Inspector, Macie e parceiros; verifica padrões como AWS Foundational Security Best Practices e CIS |
 | AWS Trusted Advisor | Recomendações de **boas práticas** | Categorias: otimização de custos, performance, segurança, tolerância a falhas, cotas de serviço e excelência operacional |
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 **Trusted Advisor por plano de suporte:** o Basic tem as verificações principais (service limits + 5 de segurança); 🔄 **Business Support+, Enterprise e Unified Operations têm todas as verificações** e acesso via API (no modelo clássico: Business, Enterprise On-Ramp e Enterprise). O **Trusted Advisor Priority** vem no Enterprise e no Unified Operations.
-
-**Antes de ler este trecho:**
-
-- **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
 
 **Exemplos de verificações do Trusted Advisor:** buckets S3 com acesso público, MFA no root, security groups com portas abertas para o mundo, instâncias ociosas, cotas próximas do limite.
 

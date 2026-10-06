@@ -43,19 +43,7 @@ o **CloudFormation** é a **planta da casa**; o **Systems Manager** é o **contr
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **AWS CloudFormation:** CloudFormation usa um arquivo de descrição para criar e atualizar conjuntos de recursos AWS compatíveis, com suas dependências.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 **AWS CloudFormation:** infraestrutura como código nativa.
-
-**Antes de ler este trecho:**
-
-- **JSON:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
-- **YAML:** Formatos de representação de dados e configurações. Um arquivo nesses formatos descreve informações; ele não cria permissões nem recursos sem ser usado por uma ferramenta.
-- **stack:** Conjunto de recursos administrados a partir de uma descrição CloudFormation. Excluir ou atualizar a stack pode afetar os recursos conforme suas políticas.
 
   - **Templates** em JSON ou YAML descrevem os recursos; cada execução cria uma **stack** (pilha) gerenciada como uma unidade.
 
@@ -64,100 +52,40 @@ o **CloudFormation** é a **planta da casa**; o **Systems Manager** é o **contr
   - **Drift detection:** detecta recursos alterados manualmente fora do template.
 
   - O serviço é gratuito; paga-se só pelos recursos criados.
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **AWS Systems Manager / Systems Manager:** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **SSM:** Sigla usada em recursos do Systems Manager. O serviço oferece ferramentas de administração; nós, acessos e conectividade precisam estar preparados.
 
 **AWS Systems Manager:** central de operações para gerenciar frotas de instâncias EC2 e servidores on-premises (via agente SSM).
-
-**Antes de ler este trecho:**
-
-- **porta:** Número que ajuda a identificar o serviço de destino de uma comunicação. Liberar uma porta autoriza tráfego segundo a regra, mas não configura a aplicação para responder.
-- **SSH:** Protocolo para acesso remoto protegido, comum na administração de Linux. Permissão para conectar pela rede e autorização para entrar no sistema são coisas diferentes.
 
   - **Session Manager:** acesso ao shell sem abrir porta SSH nem usar bastion host.
 
   - **Run Command:** executa comandos em várias instâncias de uma vez.
-**Antes de ler este trecho:**
-
-- **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
   - **Patch Manager:** automatiza a aplicação de patches.
-**Antes de ler este trecho:**
-
-- **Parameter Store:** Recurso de armazenamento de parâmetros do Systems Manager. É necessário configurar proteção e permissão, inclusive para valores sensíveis.
 
   - **Parameter Store:** guarda configurações e segredos (ver [2.3](../02-seguranca-e-conformidade/03-iam.md)).
 
   - **Automation** e **Inventory:** runbooks automatizados e inventário de software.
-**Antes de ler este trecho:**
-
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
 
 **Monitoramento e auditoria:** CloudWatch, CloudTrail e Config (ver [2.7](../02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.md)).
 
-**Antes de ler este trecho:**
-
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
-- **RAM:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-
 **Governança multi-conta:** Organizations, Control Tower, Service Catalog e RAM (ver [2.4](../02-seguranca-e-conformidade/04-governanca-multi-conta.md)).
-
-**Antes de ler este trecho:**
-
-- **AWS Health Dashboard / Health Dashboard:** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
 
 **AWS Health Dashboard:**
 
   - **Service health:** status público de todos os serviços em todas as regiões.
 
   - **Your account health:** eventos que afetam **os seus** recursos (manutenções agendadas, falhas, avisos), com orientação de correção.
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 
   - A **AWS Health API** está disponível a partir do plano Business Support+ (no modelo clássico, Business).
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 
 **Service Quotas:** mostra os limites (cotas) dos serviços por região e permite **pedir aumento**. Pode gerar alarmes quando o uso se aproxima do limite.
 
-**Antes de ler este trecho:**
-
-- **SAP:** Tecnologias e aplicações empresariais do ecossistema SAP. Podem exigir requisitos específicos de memória, licenciamento e operação.
-
 **AWS License Manager:** controla o uso de **licenças de software** (Microsoft, Oracle, SAP) para evitar excesso e multas.
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **machine learning:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-
 **AWS Compute Optimizer:** usa machine learning sobre as métricas de uso para recomendar o **tamanho ideal** de EC2, Auto Scaling groups, EBS, Lambda e tasks ECS no Fargate.
-
-**Antes de ler este trecho:**
-
-- **AWS Trusted Advisor / Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
 
 **AWS Trusted Advisor:** ver [2.9](../02-seguranca-e-conformidade/09-deteccao-de-ameacas.md). **Well-Architected Tool:** ver [1.4](../01-conceitos-de-nuvem/04-well-architected-framework.md).
 
 **AWS Management Console:** inclui o aplicativo móvel para acompanhar recursos e alarmes.
-
-**Antes de ler este trecho:**
-
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
 **Cai na prova:** "acessar instância sem SSH nem bastion" = Session Manager; "aplicar patch em 500 servidores" = Systems Manager Patch Manager; "evento da AWS que afeta minhas instâncias" = Health Dashboard; "preciso de mais instâncias do que o limite permite" = Service Quotas; "instância superdimensionada" = Compute Optimizer; "mesma infraestrutura em várias contas" = CloudFormation StackSets.
 
@@ -168,13 +96,6 @@ o **CloudFormation** é a **planta da casa**; o **Systems Manager** é o **contr
 **Disponibilidade do Health Dashboard:** gratuito para todos os clientes; a API exige plano Business Support+ ou superior (no modelo clássico, Business).
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **quota:** Limite de uso de um serviço ou recurso. Algumas quotas podem ser aumentadas mediante solicitação; limite não significa capacidade já reservada.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
 **Primeiro, identifique o funcionamento:** CloudFormation cria stacks; Systems Manager opera recursos gerenciados; Config avalia configuração; CloudWatch observa operação; Trusted Advisor recomenda; Health informa eventos AWS.
 

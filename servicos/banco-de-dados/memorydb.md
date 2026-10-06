@@ -30,12 +30,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-- **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
-
 **Passo 1.** Avalie a compatibilidade da aplicação e a necessidade de manter dados em memória com durabilidade.
 
 **Passo 2.** Prepare o banco e a conexão autorizada. A aplicação usa as estruturas e operações compatíveis.
@@ -46,17 +40,9 @@
 
 ### Diferencial
 
-**Antes de ler este trecho:**
-
-- **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
-
 Grava as alterações num **log transacional distribuído em várias AZs** → não perde dados se um nó falhar (ao contrário de um cache).
 
 Leituras em microssegundos, escritas em milissegundos de um dígito.
-
-**Antes de ler este trecho:**
-
-- **Redis:** Tecnologias de dados em memória com comportamentos e funções diferentes. A modalidade gerenciada deve ser escolhida segundo compatibilidade e necessidade, não apenas pela palavra cache.
 
 Uso: microsserviços que usam estruturas Redis como banco principal, sessões críticas, placares, feeds, busca vetorial.
 
@@ -67,11 +53,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Não confunda banco em memória durável com qualquer cache. O serviço está fora do escopo indicado nesta ficha; o exemplo explica sua função, não recomenda priorizá-lo para a prova.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-- **MemoryDB:** MemoryDB oferece um banco em memória com mecanismos de durabilidade.
 
 ElastiCache = **cache** (pode ser reconstruído). MemoryDB = **banco durável**.
 
@@ -98,10 +79,6 @@ Um sistema que trabalha intensamente com estruturas compatíveis pode avaliar Me
 **Recursos envolvidos:** Banco compatível com APIs Redis/Valkey conforme oferta, shards e réplicas.
 
 **Decisões que precisam ser tomadas:** Motor, capacidade, acesso e disponibilidade.
-
-**Antes de ler este trecho:**
-
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
 **Outra situação comentada:** Necessidade de banco durável de baixa latência difere de cache descartável; preserve essa diferença sem priorizar na CLF-C02.
 

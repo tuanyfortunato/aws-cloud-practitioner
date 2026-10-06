@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-- **consistência:** Garantia sobre o que leituras observam após gravações. Não é o mesmo que durabilidade, nem garante que o dado inserido pelo programa está correto.
-
 **Passo 1.** Avalie origem, destino e necessidade de conversão da estrutura do banco.
 
 **Passo 2.** Converta o que for suportado e mova dados com o processo compatível, incluindo alterações quando necessário.
@@ -42,24 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### AWS DMS
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **DocumentDB:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-- **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
-- **CDC:** Captura de mudanças nos dados para transferi-las ao destino. É diferente de simplesmente copiar uma tabela uma única vez.
-- **SCT:** Ferramenta de conversão de estrutura de banco em migrações compatíveis. Nem toda estrutura ou regra da aplicação é convertida automaticamente.
-- **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
-- **SAP:** Tecnologias e aplicações empresariais do ecossistema SAP. Podem exigir requisitos específicos de memória, licenciamento e operação.
 
 | Item | Detalhe |
 |---|---|
@@ -73,10 +50,6 @@
 ### AWS SCT e DMS Schema Conversion
 
 Converte **schema, views, stored procedures e funções** entre motores; gera relatório de avaliação (o que converte automaticamente e o que exige trabalho manual).
-
-**Antes de ler este trecho:**
-
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
 
 **SCT:** aplicativo de desktop. **DMS Schema Conversion:** versão gerenciada no console, com assistência de IA generativa.
 
@@ -93,11 +66,6 @@ Mover dados é diferente de converter todas as consultas e regras da aplicação
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **DCU:** Unidade de capacidade em modalidade serverless de migração de dados. Deve ser interpretada segundo a oferta; não é duração da migração.
 
 DMS: por hora da replication instance (ou DCU no Serverless) + armazenamento + transferência. SCT: gratuito.
 

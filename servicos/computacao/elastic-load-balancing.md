@@ -28,12 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **balanceador:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 **Passo 1.** Defina os recursos que podem atender pedidos e como verificar sua saúde.
 
 **Passo 2.** Configure a entrada de tráfego e seu encaminhamento aos destinos. O balanceador escolhe destinos conforme suas regras e condições.
@@ -44,23 +38,9 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
-- **health check:** Teste de resposta usado para avaliar um destino. O teste e os limites precisam refletir a função observada; não equivale a uma investigação completa da aplicação.
-
 Alta disponibilidade e tolerância a falhas: só envia tráfego a destinos que passam no health check.
 
-**Antes de ler este trecho:**
-
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-
 Ponto único de entrada (DNS) para uma frota que escala.
-
-**Antes de ler este trecho:**
-
-- **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
 
 Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate-manager.md).
 
@@ -68,30 +48,13 @@ Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate
 
 **Listener**
 
-**Antes de ler este trecho:**
-
-- **porta:** Número que ajuda a identificar o serviço de destino de uma comunicação. Liberar uma porta autoriza tráfego segundo a regra, mas não configura a aplicação para responder.
-- **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
-- **listener:** Configuração que recebe conexões em uma porta e protocolo. No balanceador, ela participa da decisão de encaminhamento para destinos.
-
 **O que é:** Porta/protocolo que o LB escuta (ex.: HTTPS:443).
 
 **Rules (ALB)**
 
-**Antes de ler este trecho:**
-
-- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-- **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
-
 **O que é:** Condições (caminho, host, cabeçalho, query string, IP de origem) → ação (encaminhar, redirecionar, resposta fixa, autenticar).
 
 **Target group**
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **target group:** Grupo de destinos do balanceamento, com configurações como verificações de saúde. Destino saudável não significa que toda regra de negócio está correta.
 
 **O que é:** Conjunto de destinos (instâncias, IPs, Lambda, ALB) com seu health check.
 
@@ -113,24 +76,6 @@ Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate
 
 ### Tipos
 
-**Antes de ler este trecho:**
-
-- **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
-- **WAF:** WAF aplica regras ao tráfego web em integrações compatíveis.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **TCP:** Protocolo de transporte orientado a conexão, com mecanismos de entrega e ordem. É usado por muitas aplicações; não acrescenta criptografia por si só.
-- **UDP:** Protocolo de transporte por datagramas, sem as mesmas garantias de entrega e ordem do TCP. A aplicação precisa lidar com os requisitos que o protocolo não fornece.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **WebSocket:** Comunicação que mantém uma conexão para troca de mensagens entre cliente e servidor. É diferente de uma sequência de pedidos web independentes.
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-- **OIDC:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
-- **IPS:** Sistema de prevenção de intrusões. Atua em condições e tráfego compatíveis; não é uma correção automática de todo software vulnerável.
-- **IDS:** Sistema de detecção de intrusões. Detectar é diferente de bloquear; o efeito depende da ferramenta e da configuração.
-- **GENEVE:** Protocolo de encapsulamento de rede usado em integrações compatíveis, como equipamentos com Gateway Load Balancer. Não é uma aplicação de proteção por si só.
-
 | Tipo | Camada | Protocolos | Destaques | Uso |
 |---|---|---|---|---|
 | **Application LB (ALB)** | 7 | HTTP, HTTPS, gRPC, WebSocket | Roteamento por caminho/host/cabeçalho; destino Lambda; autenticação com Cognito/OIDC; integra com **WAF** | Microsserviços, contêineres, web |
@@ -140,24 +85,11 @@ Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate
 
 ### Configurações e opções importantes
 
-**Antes de ler este trecho:**
-
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-
 **Internet-facing** (IP público) × **internal** (só dentro da VPC).
-
-**Antes de ler este trecho:**
-
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
 **SSL/TLS offloading:** o LB descriptografa e alivia as instâncias; certificado do ACM; política de segurança TLS.
 
 **Redirect HTTP → HTTPS** com regra no ALB.
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
 
 **Access logs** no S3; métricas no CloudWatch.
 
@@ -169,21 +101,9 @@ Ele distribui tráfego; não cria mais máquinas por conta própria nem corrige 
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-
 ⚠️ **WAF não se associa a NLB** (só ALB, CloudFront, API Gateway, AppSync, Cognito…).
 
 "Rotear `/api` e `/imagens` para serviços diferentes" → **ALB**.
-
-**Antes de ler este trecho:**
-
-- **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
 
 "IP fixo para clientes liberarem no firewall" → **NLB** (ou Global Accelerator para IP global).
 
@@ -195,21 +115,9 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### Cobrança
 
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **LCU / NLCU / GLCU:** Unidades de capacidade usadas por modalidades de balanceadores. A unidade representa dimensões de consumo definidas pela oferta, não uma contagem direta de usuários.
-
 Por **hora** de LB + **LCU/NLCU/GLCU** (unidades de capacidade consumidas: conexões novas, ativas, bytes, avaliações de regras).
 
 ### Segurança e responsabilidade compartilhada
-
-**Antes de ler este trecho:**
-
-- **Shield:** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
 **AWS:** disponibilidade, escala e patch do LB (serviço gerenciado). Inclui **Shield Standard**.
 

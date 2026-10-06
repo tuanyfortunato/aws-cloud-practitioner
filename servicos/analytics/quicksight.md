@@ -38,21 +38,6 @@
 
 ### Destaques
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **IAM Identity Center:** Serviço de acesso central para a força de trabalho. Atribuições de contas e aplicações não são o cadastro de clientes de um aplicativo.
-- **Athena:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL.
-- **QuickSight:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis.
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **SPICE:** Mecanismo de dados do QuickSight para consultas e visualizações. Conservação e atualização do conjunto precisam ser planejadas.
-
 | Item | Detalhe |
 |---|---|
 | **Fontes** | S3 (via Athena), Redshift, RDS/Aurora, OpenSearch, Snowflake, Salesforce, arquivos, entre outras. |
@@ -74,17 +59,9 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### Cobrança
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 Por usuário (autores, leitores) — leitores podem ser **por sessão**; capacidade SPICE adicional.
 
 ### 🔄 Atualizações 2025-2026
-
-**Antes de ler este trecho:**
-
-- **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
 
 Nomes: Amazon QuickSight → **Amazon Quick Suite** → hoje **"Amazon Quick"**. A parte de BI continua como **Amazon Quick Sight**, nome usado no exam guide e na lista de serviços. Na prova pode aparecer também "QuickSight".
 
@@ -103,10 +80,6 @@ A escola cria um painel com matrículas por curso e período para a equipe admin
 **Recursos envolvidos:** Data sources, datasets, analyses e dashboards.
 
 **Decisões que precisam ser tomadas:** Conexão, atualização, permissões e compartilhamento.
-
-**Antes de ler este trecho:**
-
-- **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
 
 **Outra situação comentada:** Gerentes precisam gráficos de vendas: Quick Sight sobre uma fonte preparada.
 

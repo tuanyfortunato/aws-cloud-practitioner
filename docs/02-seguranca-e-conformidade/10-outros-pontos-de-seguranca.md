@@ -29,13 +29,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-- **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
-- **menor privilégio:** Conceder apenas o acesso necessário ao trabalho. Evita que uma tarefa simples carregue poder desnecessário sobre outros recursos.
-
 Segurança precisa de processos além de ferramentas. Definir quem recebe um aviso, como credenciais são protegidas e quem pode alterar dados evita que uma capacidade técnica fique sem uso adequado.
 
 Relacione cada prática ao risco: autenticação adicional protege a entrada; menor privilégio reduz o poder disponível; comunicação de abuso aciona um canal apropriado. As ações não são intercambiáveis só por pertencerem à segurança.
@@ -49,36 +42,15 @@ o **Trust & Safety** é a **ouvidoria** da AWS para denúncias: se alguém usa a
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
-
 **Testes de intrusão (pentest):** permitidos sem aprovação prévia para uma lista de serviços (ex.: EC2, RDS, Lambda); ataques DDoS simulados e alguns testes são proibidos ou exigem aprovação.
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 **AWS Trust & Safety:** time para reportar abuso de recursos AWS (spam, phishing, ataques vindos de IPs da AWS).
 
 **Onde buscar informação de segurança:** AWS Security Center, AWS Security Blog, Security Bulletins, Knowledge Center, AWS re:Post e documentação. Ferramentas de segurança de terceiros: AWS Marketplace.
 
-**Antes de ler este trecho:**
-
-- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-
 **Cai na prova:** "recebi phishing vindo de um IP da AWS" = AWS Trust & Safety.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
 **Primeiro, identifique o funcionamento:** Documentação, Security Blog e Knowledge Center explicam práticas e problemas; Marketplace oferece soluções de terceiros; Trust and Safety recebe denúncias de abuso.
 

@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **DDoS:** Ataque distribuído que tenta sobrecarregar um serviço e impedir seu uso legítimo. É diferente de tentar explorar um campo vulnerável de um programa.
-
 **Passo 1.** Identifique os recursos e o tipo de exposição que precisam de proteção contra sobrecarga.
 
 **Passo 2.** Avalie a modalidade e sua cobertura para a arquitetura. Os mecanismos de proteção atuam conforme suas condições.
@@ -41,22 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Standard × Advanced
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
-- **Shield:** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
-- **WAF:** WAF aplica regras ao tráfego web em integrações compatíveis.
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-- **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
-- **UDP:** Protocolo de transporte por datagramas, sem as mesmas garantias de entrega e ordem do TCP. A aplicação precisa lidar com os requisitos que o protocolo não fornece.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
-- **ELB:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-- **SRT:** Protocolo de transporte de mídia. Compatibilidade de transmissão depende do produto e da configuração; não é uma classe de armazenamento.
-- **SYN:** Sinalização do início de conexão TCP. Ataques que exploram esse fluxo são diferentes de uma consulta de aplicação autorizada.
 
 | | **Shield Standard** | **Shield Advanced** |
 |---|---|---|
@@ -71,34 +51,15 @@
 
 A assinatura do Advanced cobre **todas as contas** da Organization.
 
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **AWS CloudFormation:** CloudFormation usa um arquivo de descrição para criar e atualizar conjuntos de recursos AWS compatíveis, com suas dependências.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-
 ✔️ Para acionar o SRT é preciso plano **Business Support+, Enterprise ou Unified Operations** (a fonte cita "Business Support") (documentação do AWS CloudFormation, 10/2026) e uma IAM role que autorize o SRT (política gerenciada `AWSShieldDRTAccessPolicy`).
 
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 Shield não elimina todos os riscos de segurança nem substitui regras de acesso, proteção da aplicação ou planejamento de capacidade. Standard e Advanced têm condições diferentes.
 
 ### ⚠️ Pegadinhas
-
-**Antes de ler este trecho:**
-
-- **XSS:** Ataque que busca executar conteúdo indevido no contexto de uma página acessada pelo usuário. Regras de proteção e correções do código atendem partes desse risco.
-- **SQL injection:** Tentativa de manipular comandos de banco por entradas indevidas. Proteger a entrada não dispensa corrigir como a aplicação constrói e executa consultas.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 
 "DDoS volumétrico" → Shield. "SQL injection/XSS" → WAF.
 
@@ -121,10 +82,6 @@ Um site público usa os recursos de proteção aplicáveis à sua arquitetura pa
 **Recursos envolvidos:** Proteção Standard e assinatura Advanced para recursos elegíveis.
 
 **Decisões que precisam ser tomadas:** Recursos protegidos e recursos extras contratados.
-
-**Antes de ler este trecho:**
-
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
 
 **Outra situação comentada:** Ataque volumétrico: Shield; requisição HTTP maliciosa: WAF pode complementar.
 

@@ -38,36 +38,11 @@
 
 ### Visão da esteira
 
-**Antes de ler este trecho:**
-
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-
 ```
 CodeCommit / GitHub ──▶ CodeBuild ──▶ (testes) ──▶ CodeDeploy / ECS / CloudFormation
           └─────────────── orquestrado pelo CodePipeline ───────────────┘
                      pacotes de dependências: CodeArtifact
 ```
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECR:** O ECR é um repositório de imagens de containers.
-- **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-- **CI / CD / CI/CD:** Integração contínua e entrega ou implantação contínua: práticas para construir, verificar e disponibilizar versões por etapas repetíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **minuto:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **alarme:** Condição acompanhada sobre dados de monitoramento. Uma mudança de estado pode gerar ações configuradas; o alarme não diagnostica todo problema sozinho.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **build:** Processo de preparar uma versão executável da aplicação. Pode compilar, empacotar e executar tarefas configuradas, mas não inventa os testes necessários.
-- **deploy:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
-- **rollback:** Retorno a uma configuração ou versão anterior, quando suportado e planejado. Nem toda alteração de dados pode ser desfeita automaticamente.
 
 | Serviço | Função | Detalhes |
 |---|---|---|
@@ -82,11 +57,6 @@ CodeCommit / GitHub ──▶ CodeBuild ──▶ (testes) ──▶ CodeDeploy 
 
 ### 🎯 Escopo da prova
 
-**Antes de ler este trecho:**
-
-- **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-- **X-Ray:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
-
 No escopo: **CodeBuild** e **CodePipeline** (além de X-Ray e CLI). **CodeDeploy**, **CodeArtifact** e **CodeGuru** estão **fora do escopo**; CodeCommit e CodeStar não aparecem. CodeCatalyst e CodeGuru Reviewer estão fechados a novos clientes desde 07/11/2025.
 
 ## 3. Como escolher e reconhecer os limites
@@ -99,10 +69,6 @@ Automatizar uma sequência não cria os testes nem garante que a aplicação est
 
 CodeBuild (build/teste) × CodeDeploy (implantar) × CodePipeline (orquestrar tudo).
 
-**Antes de ler este trecho:**
-
-- **pipeline:** Sequência de etapas de um processo. No desenvolvimento, pode conectar construção, testes e entrega; cada etapa tem ações e permissões próprias.
-
 Equivalentes de terceiros: GitHub (repositório), GitHub Actions/Jenkins (pipeline).
 
 ## 4. Operação, segurança e custo
@@ -110,10 +76,6 @@ Equivalentes de terceiros: GitHub (repositório), GitHub Actions/Jenkins (pipeli
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
 CodeCommit por usuário ativo; CodeBuild por minuto; CodeDeploy grátis para EC2/Lambda (pago on-premises); CodePipeline por pipeline ativo ou minuto de execução (V2); CodeArtifact por GB e requisições.
 

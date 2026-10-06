@@ -45,65 +45,25 @@ Não confunda e-mail de uma aplicação com caixa postal de funcionários, nem t
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **Amazon Connect / Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-
 **Amazon Connect:** **central de atendimento (contact center) na nuvem**, com voz, chat e tarefas, pago por uso.
-
-**Antes de ler este trecho:**
-
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **Amazon SES / SES:** SES oferece envio de e-mail para aplicações, com recursos de identidade, acompanhamento e controle de envio.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
 **Amazon SES (Simple Email Service):** envio de **e-mails** transacionais e de marketing em grande volume. Diferença para o SNS: SES é para e-mails formatados a clientes; SNS é para notificações simples.
 
 **Amazon WorkSpaces:** **desktops virtuais** (DaaS) Windows ou Linux, acessados de qualquer dispositivo.
 
-**Antes de ler este trecho:**
-
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-
 **Amazon AppStream 2.0:** **streaming de aplicações** de desktop para o navegador, sem entregar o desktop inteiro.
-
-**Antes de ler este trecho:**
-
-- **VPN:** Conexão lógica protegida que liga usuários ou redes. Um túnel VPN não concede automaticamente acesso a todos os recursos do destino.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
 **Amazon WorkSpaces Secure Browser:** navegador seguro gerenciado para acessar sites internos sem VPN.
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 **AWS Amplify:** ferramentas para **criar, implantar e hospedar** aplicações web e mobile full-stack rapidamente.
 
-**Antes de ler este trecho:**
-
-- **GraphQL:** Forma de definir uma API e solicitar campos de dados. A aplicação ainda precisa de lógica de resolução, acesso e fontes adequadas.
-
 **AWS AppSync:** **APIs GraphQL** gerenciadas, com dados em tempo real e sincronização offline.
-
-**Antes de ler este trecho:**
-
-- **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-- **MQTT:** Protocolo de mensagens comum em dispositivos conectados. Aplicação, tópicos e permissões precisam ser definidos para a comunicação desejada.
 
 **AWS IoT Core:** conecta **dispositivos IoT** à nuvem (protocolo MQTT) com segurança e em grande escala.
 
 **Cai na prova:** "call center" = Connect; "funcionários remotos precisam de um desktop" = WorkSpaces; "rodar um app de desktop no navegador" = AppStream 2.0; "sensores enviando dados" = IoT Core.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **back-end:** Parte que processa regras e dados de uma aplicação. É diferente da interface que a pessoa vê no navegador ou aplicativo.
 
 **Primeiro, identifique o funcionamento:** Connect organiza atendimento; SES envia e-mails; WorkSpaces entrega desktops; AppStream entrega aplicações por streaming; Secure Browser entrega navegação isolada; IoT Core conecta dispositivos.
 

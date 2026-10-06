@@ -32,11 +32,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
-
 **Passo 1.** Diferencie conservação de cópias, comunicação operacional e assistência de implantação.
 
 **Passo 2.** Use a ferramenta pertinente ao recurso e à tarefa, considerando sua oferta atual.
@@ -47,43 +42,17 @@
 
 ### Amazon Data Lifecycle Manager (DLM)
 
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-
 **Automatiza** a criação, retenção, cópia entre regiões e exclusão de **snapshots do EBS** e de **AMIs**, com políticas baseadas em tags.
-
-**Antes de ler este trecho:**
-
-- **AWS Backup:** AWS Backup centraliza políticas e operações de backup para recursos compatíveis.
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 Na prova, a resposta para "centralizar backups com políticas" é o **AWS Backup** (no escopo).
 
 ### AWS Chatbot (Amazon Q Developer em aplicativos de chat)
 
-**Antes de ler este trecho:**
-
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **Budgets:** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
-
 Recebe **notificações** da AWS (alarmes do CloudWatch, eventos do Health, alertas do Budgets) no **Slack, Microsoft Teams ou Amazon Chime** e permite executar comandos de leitura e operação a partir do chat.
-
-**Antes de ler este trecho:**
-
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
 
 🔄 Renomeado para **Amazon Q Developer** em 19/02/2025 (no console: "in chat applications").
 
 ### AWS Launch Wizard
-
-**Antes de ler este trecho:**
-
-- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-- **SAP:** Tecnologias e aplicações empresariais do ecossistema SAP. Podem exigir requisitos específicos de memória, licenciamento e operação.
 
 Assistente que dimensiona e implanta, com boas práticas, aplicações de terceiros como **SAP, Microsoft SQL Server, Active Directory e Exchange**.
 
@@ -95,11 +64,6 @@ Separava o custo de recursos **compartilhados** por **cliente (tenant)** em apli
 
 ### Amazon DevPay
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
-
 Serviço **legado** de cobrança para vender AMIs e produtos baseados em S3. Hoje, vender software na AWS é feito pelo **AWS Marketplace** (no escopo).
 
 ## 3. Como escolher e reconhecer os limites
@@ -109,10 +73,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Não escolha uma dessas ferramentas apenas porque a pergunta fala em custo ou gerenciamento. Verifique finalidade, status comercial e escopo; a ficha é de referência.
 
 ### ⚠️ Como isso aparece na prova
-
-**Antes de ler este trecho:**
-
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
 
 "Centralizar backups" → **AWS Backup**. "Alertas de custo" → **AWS Budgets**. "Notificar o time" → **SNS**.
 

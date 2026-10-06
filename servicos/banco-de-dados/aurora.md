@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 **Passo 1.** Escolha a compatibilidade MySQL ou PostgreSQL e a modalidade que atende à aplicação.
 
 **Passo 2.** Defina as instâncias ou opções de capacidade, os acessos e os pontos de conexão do conjunto.
@@ -42,33 +38,11 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
-- **OLTP:** Processamento de operações individuais do negócio, como registrar uma compra. É diferente de analisar grandes conjuntos históricos de registros.
-
 OLTP que exige alto desempenho e alta disponibilidade gerenciada.
-
-**Antes de ler este trecho:**
-
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-- **SCT:** Ferramenta de conversão de estrutura de banco em migrações compatíveis. Nem toda estrutura ou regra da aplicação é convertida automaticamente.
-- **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 
 Migrações de Oracle/SQL Server para um motor open source compatível (com DMS + SCT).
 
 ### Arquitetura
-
-**Antes de ler este trecho:**
-
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **GiB:** Unidades em escala binária: cada nível corresponde a 1.024 do anterior. MiB e MB não são a mesma unidade; preserve a unidade indicada pelo serviço.
-- **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
-- **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
 | Item | Detalhe |
 |---|---|
@@ -81,29 +55,13 @@ Migrações de Oracle/SQL Server para um motor open source compatível (com DMS 
 
 **Aurora Serverless v2**
 
-**Antes de ler este trecho:**
-
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **ACU:** Unidade de capacidade de determinadas ofertas Aurora. Ela expressa capacidade conforme a oferta; não é uma contagem de usuários do aplicativo.
-
 **Detalhe:** Capacidade em ACUs ajustada automaticamente em segundos, em incrementos de 0,5 ACU; ✔️ com *auto-pause* pode escalar até **0 ACU**.
 
 **Aurora Global Database**
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-
 **Detalhe:** Replicação entre regiões com lag tipicamente < 1 s; região secundária pode ser promovida (DR) e servir leituras locais.
 
 **Backtrack (MySQL)**
-
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
 
 **Detalhe:** "Voltar no tempo" o cluster sem restaurar backup.
 
@@ -117,18 +75,9 @@ Migrações de Oracle/SQL Server para um motor open source compatível (com DMS 
 
 **Zero-ETL com Redshift**
 
-**Antes de ler este trecho:**
-
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-
 **Detalhe:** Replicação quase em tempo real para análise.
 
 **Aurora DSQL**
-
-**Antes de ler este trecho:**
-
-- **ativo-ativo:** Mais de um ambiente atende ao mesmo tempo. Isso exige tratar distribuição de tráfego e consistência dos dados conforme a aplicação.
-- **DSQL:** Nome de uma oferta distribuída de SQL da família Aurora. Sua arquitetura e compatibilidade precisam ser avaliadas separadamente das demais modalidades Aurora.
 
 **Detalhe:** 🔄 Banco SQL distribuído, serverless, ativo-ativo multi-região (2025) — 🧊 fora da prova.
 
@@ -141,10 +90,6 @@ Migrações de Oracle/SQL Server para um motor open source compatível (com DMS 
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
 
 Aurora não é compatível com todos os mecanismos disponíveis no RDS. Compatibilidade também não significa que toda extensão e configuração funcionará sem avaliação.
 
@@ -163,13 +108,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 Instâncias (ou ACU-hora no Serverless), armazenamento GB-mês, I/O (configuração Standard), backup extra, transferência; replicação do Global Database.
 
 ### Segurança e responsabilidade compartilhada
-
-**Antes de ler este trecho:**
-
-- **SO:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
 Igual ao [RDS](rds.md): AWS cuida de infra, SO, patch, replicação de armazenamento; cliente de usuários, acesso de rede, criptografia, dados.
 

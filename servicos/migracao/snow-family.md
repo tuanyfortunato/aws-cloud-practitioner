@@ -38,13 +38,6 @@
 
 ### Dispositivos
 
-**Antes de ler este trecho:**
-
-- **TB / PB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-- **campo:** Informação nomeada dentro de um registro, como nome ou data. Consultas usam os campos conforme a estrutura e o modelo do banco.
-
 | Dispositivo | Capacidade | Uso | Status 🔄 |
 |---|---|---|---|
 | **Snowball Edge Storage Optimized** | **210 TB** utilizáveis ✔️ (antes 80 TB) | Migração de dezenas a centenas de TB / petabytes (vários dispositivos) | Só para **clientes existentes** desde 07/11/2025 |
@@ -56,22 +49,9 @@
 
 ### Como funciona (Snowball)
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 1. Pedido no console → AWS envia o dispositivo.
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-
 2. Copia os dados localmente (cliente OpsHub ou S3 adapter); dados **criptografados** (KMS, 256 bits); dispositivo resistente a violação, com **E Ink** de envio.
-
-**Antes de ler este trecho:**
-
-- **NIST:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
 
 3. Devolve à AWS → dados importados no **S3** → dispositivo é **apagado** seguindo padrões NIST.
 
@@ -82,10 +62,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Não trate esse exemplo como uma oferta atual disponível a qualquer cliente. Há produtos encerrados ou restritos; confira o status e as alternativas indicadas na ficha.
 
 ### Regra prática
-
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 
 Se transferir pela rede levaria **semanas**, use Snow. Ex.: 100 TB num link de 100 Mbps ≈ 100+ dias.
 

@@ -28,12 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-
 **Passo 1.** Determine quais atividades e tipos de evento precisam ser registrados e conservados.
 
 **Passo 2.** Configure a cobertura e consulte eventos para examinar ações realizadas por identidades.
@@ -44,15 +38,6 @@
 
 ### Tipos de eventos
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 | Tipo | Exemplo | Registrado por padrão? |
 |---|---|---|
 | **Management events** | `RunInstances`, `CreateBucket`, `AttachRolePolicy`, login no console | ✅ (Event history) |
@@ -61,20 +46,6 @@
 | **Insights events** | Picos anormais de chamadas/erros de API | ❌ — ativar CloudTrail Insights (pago) |
 
 ### Configurações
-
-**Antes de ler este trecho:**
-
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-- **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
-- **SSE-S3 / SSE-KMS:** Formas de criptografia no servidor do S3, que diferem na origem e administração das chaves e, no último caso, nas camadas. A tabela da seção distingue essas escolhas.
-- **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 
 | Item | Detalhe |
 |---|---|
@@ -93,16 +64,7 @@ Ele não é o registro de todo erro dentro do seu programa. Diferentes tipos de 
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
-
 CloudTrail (**ações**: quem fez) × Config (**estado**: como estava) × CloudWatch (**desempenho**).
-
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
 CloudTrail registra **chamadas de API**, não o tráfego de rede (isso é VPC Flow Logs).
 
@@ -129,10 +91,6 @@ A equipe investiga quem solicitou uma alteração num recurso e consulta o event
 **Recursos envolvidos:** Eventos de gerenciamento/dados, event history e trails.
 
 **Decisões que precisam ser tomadas:** Cobertura, regiões, destino e retenção.
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 
 **Outra situação comentada:** Descobrir quem alterou IAM: CloudTrail; gravar trilha e retenção conforme auditoria.
 

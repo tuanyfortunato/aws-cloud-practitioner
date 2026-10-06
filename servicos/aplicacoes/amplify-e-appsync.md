@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-
 **Passo 1.** Separe a necessidade de publicar a interface da necessidade de uma API e de dados.
 
 **Passo 2.** Prepare a hospedagem e as integrações compatíveis com o projeto, escolhendo a ferramenta apropriada para cada função.
@@ -45,24 +40,9 @@
 
 **Amplify Hosting**
 
-**Antes de ler este trecho:**
-
-- **CI / CD / CI/CD:** Integração contínua e entrega ou implantação contínua: práticas para construir, verificar e disponibilizar versões por etapas repetíveis.
-- **HTTPS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **CDN:** Rede de distribuição de conteúdo. Ela aproxima entrega de conteúdo dos usuários e pode manter cópias em cache conforme as regras.
-- **SSR:** Renderização de páginas no servidor. É diferente de entregar somente arquivos estáticos sem executar essa etapa de aplicação.
-
 **Detalhe:** Hospedagem **full-stack** e de sites estáticos/SSR (React, Next.js, Vue, Angular) com CI/CD a partir do Git, CDN, domínios e HTTPS.
 
 **Back-end (Gen 2)**
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
-- **back-end:** Parte que processa regras e dados de uma aplicação. É diferente da interface que a pessoa vê no navegador ou aplicativo.
 
 **Detalhe:** Define autenticação (Cognito), dados (AppSync/DynamoDB), armazenamento (S3) e funções (Lambda) em TypeScript.
 
@@ -72,28 +52,9 @@
 
 ### AWS AppSync
 
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
-- **GraphQL:** Forma de definir uma API e solicitar campos de dados. A aplicação ainda precisa de lógica de resolução, acesso e fontes adequadas.
-
 **APIs GraphQL** gerenciadas: um endpoint que combina várias fontes (DynamoDB, Lambda, RDS, HTTP, OpenSearch).
 
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-- **WebSocket:** Comunicação que mantém uma conexão para troca de mensagens entre cliente e servidor. É diferente de uma sequência de pedidos web independentes.
-- **OIDC:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
-
 **Tempo real** (subscriptions via WebSocket), **sincronização offline** em apps móveis, cache, autenticação (Cognito, IAM, OIDC, API key).
-
-**Antes de ler este trecho:**
-
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **pub/sub:** Publicação de uma mensagem para destinatários inscritos. Distribuir avisos a vários destinos é diferente de manter uma tarefa aguardando um consumidor.
 
 **AppSync Events:** pub/sub serverless via WebSocket.
 
@@ -111,19 +72,7 @@ Hospedar a interface não cria automaticamente todas as regras e dados da aplica
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **REST:** Estilo de API que usa recursos e operações, frequentemente por HTTP. O código integrado continua sendo responsável pelo comportamento da aplicação.
-
 AppSync (**GraphQL**) × API Gateway (**REST/HTTP/WebSocket**).
-
-**Antes de ler este trecho:**
-
-- **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
-- **Lightsail:** O Lightsail reúne recursos como servidores virtuais, armazenamento e rede em ofertas simplificadas.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **front-end:** Parte da aplicação com que a pessoa interage. Publicá-la não cria automaticamente todas as operações e bancos da parte interna.
 
 Amplify (front-end + back-end rápido) × Elastic Beanstalk (aplicações web tradicionais) × Lightsail (servidor simples).
 
@@ -142,10 +91,6 @@ Uma equipe hospeda a interface do aplicativo com Amplify e avalia as integraçõ
 **Recursos envolvidos:** Aplicação/hosting/build do Amplify e API GraphQL do AppSync.
 
 **Decisões que precisam ser tomadas:** Código, domínio, autenticação e integrações.
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 **Outra situação comentada:** Publicar front-end com integração AWS: Amplify; requisito específico GraphQL: entender AppSync como complemento.
 

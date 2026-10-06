@@ -38,10 +38,6 @@
 
 ### Duas visões
 
-**Antes de ler este trecho:**
-
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 | Visão | O que mostra | Acesso |
 |---|---|---|
 | **Service health** | Status **público** de todos os serviços em todas as regiões | Sem login |
@@ -49,16 +45,7 @@
 
 ### Integrações
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 **AWS Health API:** acesso programático — exige plano **Business ou superior**.
-
-**Antes de ler este trecho:**
-
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
 
 **EventBridge:** automatizar respostas a eventos (ex.: notificar no Slack, mover cargas).
 
@@ -71,12 +58,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 A visão pública não mostra todos os detalhes específicos de uma conta. AWS Health também não substitui métricas e logs da aplicação.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-- **Health Dashboard:** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
 
 Health Dashboard (eventos **da AWS** que afetam você) × CloudWatch (métricas **dos seus** recursos) × Trusted Advisor (recomendações).
 
@@ -95,11 +76,6 @@ A equipe consulta um evento de manutenção que afeta seu ambiente e planeja a a
 **Recursos envolvidos:** Eventos públicos e eventos específicos da conta.
 
 **Decisões que precisam ser tomadas:** Conta, região, serviço e integrações de evento.
-
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
 
 **Outra situação comentada:** Manutenção de recurso específico: Health; erro interno do app: logs/métricas da aplicação.
 

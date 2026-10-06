@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-- **PDF:** Formato de documento. Um serviço de extração analisa conteúdo compatível; guardar um PDF num bucket não executa automaticamente essa análise.
-
 **Passo 1.** Avalie as operações e estruturas que sua aplicação usa na interface de documentos.
 
 **Passo 2.** Prepare um ambiente compatível e grave registros estruturados. A aplicação consulta campos e documentos por suas operações.
@@ -43,32 +38,15 @@
 
 ### Destaques
 
-**Antes de ler este trecho:**
-
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 Arquitetura parecida com a do Aurora: armazenamento distribuído (6 cópias em 3 AZs), até 15 réplicas, backups contínuos, criptografia.
 
-**Antes de ler este trecho:**
-
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-
 Opções *instance-based* e *elastic clusters* (sharding para milhões de leituras/escritas); Global Clusters.
-
-**Antes de ler este trecho:**
-
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
 Uso: catálogos, perfis, gerenciamento de conteúdo, migração de MongoDB para serviço gerenciado.
 
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-**Antes de ler este trecho:**
-
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
 
 Compatibilidade com MongoDB não significa identidade em todas as funções e versões. Ele não é um serviço para simplesmente guardar PDFs como arquivos.
 
@@ -99,10 +77,6 @@ Um catálogo guarda, em cada documento, o nome do produto, características e ou
 **Pergunta:** "Migrar banco MongoDB para um serviço gerenciado."
 
 **Resposta curta:** DocumentDB.
-
-**Antes de ler este trecho:**
-
-- **DocumentDB:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos.
 
 ## 6. Fontes e próximos passos
 

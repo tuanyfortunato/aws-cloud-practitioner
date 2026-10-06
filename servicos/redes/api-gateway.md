@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-
 **Passo 1.** Descreva as operações que outro programa pode solicitar e seus dados de entrada.
 
 **Passo 2.** Configure uma API e suas integrações e controles. Cada chamada segue para o componente que realiza o trabalho.
@@ -42,18 +38,6 @@
 
 ### Tipos de API
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **WAF:** WAF aplica regras ao tráfego web em integrações compatíveis.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-- **WebSocket:** Comunicação que mantém uma conexão para troca de mensagens entre cliente e servidor. É diferente de uma sequência de pedidos web independentes.
-- **REST:** Estilo de API que usa recursos e operações, frequentemente por HTTP. O código integrado continua sendo responsável pelo comportamento da aplicação.
-- **OIDC:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
-- **JWT:** Formato de token com informações verificáveis. Receber um token não dispensa validar sua origem, condições e permissões na aplicação.
-
 | Tipo | Destaques | Uso |
 |---|---|---|
 | **REST API** | Mais recursos: **cache**, **usage plans e API keys**, validação de requisições, transformação, WAF, endpoints privados | APIs completas e gerenciadas |
@@ -61,28 +45,6 @@
 | **WebSocket API** | Conexões bidirecionais persistentes | Chats, painéis em tempo real |
 
 ### Configurações importantes
-
-**Antes de ler este trecho:**
-
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-- **X-Ray:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
-- **TTL:** Tempo de vida de uma informação. Em DNS pode orientar cache; em um banco pode indicar expiração de itens. O efeito concreto depende do serviço.
-- **ALB / NLB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
-- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
-- **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
-- **back-end:** Parte que processa regras e dados de uma aplicação. É diferente da interface que a pessoa vê no navegador ou aplicativo.
 
 | Item | Detalhe |
 |---|---|
@@ -103,16 +65,7 @@ Ele não escreve a regra de matrícula nem armazena os registros como um banco. 
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **GraphQL:** Forma de definir uma API e solicitar campos de dados. A aplicação ainda precisa de lógica de resolução, acesso e fontes adequadas.
-
 API Gateway (APIs REST/HTTP/WebSocket) × **AppSync** (APIs **GraphQL**).
-
-**Antes de ler este trecho:**
-
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
 
 API Gateway × ALB: ambos podem chamar Lambda; API Gateway tem throttling, chaves de API, autenticação e cache.
 

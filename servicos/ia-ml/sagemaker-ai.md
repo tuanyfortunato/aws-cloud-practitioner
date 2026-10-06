@@ -28,12 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-- **treinamento:** Ajuste de um modelo com dados. É uma etapa diferente de utilizar o modelo já treinado para responder a uma nova entrada.
-- **inferência:** Uso de um modelo para produzir um resultado com uma nova entrada. Pode acontecer sem um novo treinamento em cada solicitação.
-
 **Passo 1.** Defina a tarefa, prepare dados adequados e escolha o processo de desenvolvimento do modelo.
 
 **Passo 2.** Treine e avalie o modelo com critérios pertinentes. Separe dados e etapas de forma adequada ao método escolhido.
@@ -54,10 +48,6 @@
 
 **Construir**
 
-**Antes de ler este trecho:**
-
-- **IDE:** Ambiente de desenvolvimento com ferramentas para editar e trabalhar com código. Não é necessariamente o local que hospeda a aplicação em produção.
-
 **Recurso:** **SageMaker Studio** (IDE, notebooks JupyterLab), algoritmos embutidos, frameworks (PyTorch, TensorFlow)
 
 **Sem código**
@@ -74,10 +64,6 @@
 
 **Treinar**
 
-**Antes de ler este trecho:**
-
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-
 **Recurso:** Treinamento gerenciado, distribuído, com **Spot** (*managed spot training*), HyperPod para modelos grandes
 
 **Ajustar**
@@ -90,10 +76,6 @@
 
 **Implantar**
 
-**Antes de ler este trecho:**
-
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-
 **Recurso:** Endpoints **real-time**, **serverless**, **asynchronous** e **batch transform**
 
 **Monitorar**
@@ -102,29 +84,15 @@
 
 **MLOps**
 
-**Antes de ler este trecho:**
-
-- **MLOps:** Práticas para organizar desenvolvimento, implantação e acompanhamento de modelos. Não se resume a treinar uma vez e deixar o modelo sem observação.
-
 **Recurso:** **Pipelines**, Model Registry
 
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-
 O serviço não garante previsões corretas nem dispensa dados adequados, avaliação e controle de acesso. Criar seu modelo é diferente de usar uma função de IA pronta.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **SageMaker AI:** SageMaker AI oferece recursos para etapas do desenvolvimento e operação de modelos.
-- **Bedrock:** Bedrock oferece acesso gerenciado a modelos e recursos de desenvolvimento de aplicações com IA generativa, conforme a oferta e as autorizações.
 
 **SageMaker AI** (treinar **seus** modelos) × **Bedrock** (usar modelos de fundação prontos via API) × serviços de IA prontos (Rekognition, Comprehend…).
 
@@ -133,12 +101,6 @@ O serviço não garante previsões corretas nem dispensa dados adequados, avalia
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
 Por instância/hora de notebook, treinamento e inferência + armazenamento; **SageMaker AI Savings Plans** (até 64%).
 
@@ -161,10 +123,6 @@ A escola usa um histórico autorizado para experimentar um modelo de previsão d
 **Recursos envolvidos:** Preparação, treinamento, modelos, endpoints e jobs.
 
 **Decisões que precisam ser tomadas:** Dados, algoritmo, infraestrutura, acesso e modalidade de inferência.
-
-**Antes de ler este trecho:**
-
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 
 **Outra situação comentada:** Treinar modelo da empresa: SageMaker AI; converter texto em voz sem treino próprio: Polly.
 

@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-
 **Passo 1.** Selecione recursos compatíveis e defina periodicidade, destinos e retenção das cópias.
 
 **Passo 2.** Atribua os recursos ao plano. O serviço executa operações conforme a agenda e as permissões.
@@ -42,38 +38,9 @@
 
 ### Recursos suportados (exemplos)
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **EFS:** O EFS oferece um sistema de arquivos compartilhado.
-- **FSx:** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes.
-- **Storage Gateway:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **DocumentDB:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos.
-- **Neptune:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-
 EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3, DocumentDB, Neptune, Redshift, Storage Gateway (volumes), VMware on-premises, entre outros.
 
 ### Conceitos e configurações
-
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-- **WORM:** Escrever uma vez e ler muitas vezes: modelo de retenção que impede alterações ou exclusões conforme o mecanismo e o modo aplicáveis.
-- **compliance / conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-- **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
 
 | Item | Detalhe |
 |---|---|
@@ -91,27 +58,11 @@ EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3, DocumentDB, Neptune, Redshift, St
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 Ter backup não mantém automaticamente uma aplicação disponível durante uma falha. Também é preciso planejar e testar a restauração; a cobertura depende do recurso e das opções usadas.
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **AWS Backup:** AWS Backup centraliza políticas e operações de backup para recursos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **DLM:** Data Lifecycle Manager: administração de ciclo de vida de cópias compatíveis de armazenamento. Não é o gerenciador de todo dado da conta.
-
 **AWS Backup** (centraliza políticas) × snapshots manuais/DLM (por serviço).
-
-**Antes de ler este trecho:**
-
-- **Elastic Disaster Recovery:** Elastic Disaster Recovery replica dados de servidores compatíveis para preparar sua recuperação em máquinas AWS.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-- **RPO:** Objetivo de ponto de recuperação: quanto histórico de dados a organização aceita perder, medido como intervalo de tempo.
 
 **AWS Backup** × **Elastic Disaster Recovery**: backup com RPO de horas × replicação contínua com recuperação em minutos.
 

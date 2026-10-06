@@ -38,24 +38,6 @@
 
 ### Conceitos
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **X-Ray:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **trace:** Rastreamento do caminho de uma requisição em componentes instrumentados. Permite examinar etapas, mas depende dos dados emitidos pela aplicação.
-- **instrumentação:** Preparação do software para emitir informações de observação. Sem os dados necessários, a ferramenta não consegue mostrar todos os detalhes da execução.
-- **sampling:** Amostragem: observar parte das ocorrências. Uma amostra reduz volume, mas não deve ser tratada como o registro completo de cada pedido.
-- **SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-- **ADOT:** Distribuição AWS de OpenTelemetry para instrumentação e coleta de dados de observação compatíveis.
-
 | Item | Detalhe |
 |---|---|
 | **Trace** | Caminho completo de uma requisição. |
@@ -72,10 +54,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Ele não coleta todos os detalhes sem preparação nem corrige a etapa lenta. A aplicação e suas integrações precisam fornecer dados de rastreamento compatíveis.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 
 **X-Ray** (rastreia requisições entre serviços) × **CloudWatch** (métricas/logs) × **CloudTrail** (chamadas de API da conta).
 
@@ -94,10 +72,6 @@ Ao consultar uma matrícula, a aplicação chama outro serviço e um banco. O ra
 **Recursos envolvidos:** Traces, segments, subsegments e mapa de serviços.
 
 **Decisões que precisam ser tomadas:** Instrumentação, amostragem e envio autorizado.
-
-**Antes de ler este trecho:**
-
-- **CPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
 
 **Outra situação comentada:** Latência entre API e banco: X-Ray; tendência de CPU: CloudWatch.
 

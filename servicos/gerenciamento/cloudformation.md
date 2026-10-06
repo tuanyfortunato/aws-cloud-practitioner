@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **stack:** Conjunto de recursos administrados a partir de uma descrição CloudFormation. Excluir ou atualizar a stack pode afetar os recursos conforme suas políticas.
-
 **Passo 1.** Escreva um template com recursos, parâmetros e dependências do ambiente.
 
 **Passo 2.** Crie ou atualize uma stack. A ferramenta realiza operações sobre os recursos conforme a descrição e as políticas.
@@ -41,16 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### Template
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **URL:** Endereço usado para acessar um recurso. Uma URL pode incluir domínio, caminho e parâmetros; possuir o endereço não significa ter autorização.
-- **AMI:** Imagem de máquina EC2: modelo com o software necessário para iniciar uma instância. A imagem precisa ser compatível com a configuração de execução escolhida.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
-- **retain:** Estratégias de migração: trocar por outra oferta, manter onde está, desativar ou mover a plataforma, respectivamente. A decisão vem do objetivo da aplicação e do negócio.
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
@@ -69,15 +55,6 @@ Outputs:         # valores exportados (ex.: URL)
 
 ### Conceitos e configurações
 
-**Antes de ler este trecho:**
-
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
-- **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
-- **policy:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-- **rollback:** Retorno a uma configuração ou versão anterior, quando suportado e planejado. Nem toda alteração de dados pode ser desfeita automaticamente.
-- **IaC:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-
 | Item | Detalhe |
 |---|---|
 | **Stack** | Conjunto de recursos criado, atualizado e apagado **como uma unidade**. |
@@ -93,19 +70,7 @@ Outputs:         # valores exportados (ex.: URL)
 
 ### Ferramentas relacionadas
 
-**Antes de ler este trecho:**
-
-- **CDK:** Ferramentas de desenvolvimento e descrição de infraestrutura. CDK ajuda a definir recursos por programação; SAM é voltado a aplicações serverless compatíveis.
-
 **AWS CDK:** define a infraestrutura em linguagens de programação (TypeScript, Python, Java, C#, Go) e **gera CloudFormation**.
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
 **AWS SAM:** extensão do CloudFormation simplificada para aplicações **serverless** (Lambda, API Gateway, DynamoDB).
 
@@ -120,11 +85,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Ele não inventa uma arquitetura segura nem impede todo erro de configuração. A descrição precisa estar correta, e mudanças ou exclusões podem afetar recursos e dados.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
-- **CFN:** Abreviação usada para CloudFormation. Templates descrevem recursos e stacks administram conjuntos desses recursos.
 
 CloudFormation (qualquer infra como código) × **Elastic Beanstalk** (sobe a aplicação, usa CFN por baixo) × **Service Catalog** (catálogo de templates aprovados).
 
@@ -151,11 +111,6 @@ A escola descreve seu ambiente de testes num template e usa uma stack para admin
 **Recursos envolvidos:** Template, stack, parameters, outputs e change sets.
 
 **Decisões que precisam ser tomadas:** Recursos, dependências, permissões e tratamento de atualização.
-
-**Antes de ler este trecho:**
-
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 
 **Outra situação comentada:** Recriar rede e aplicação em teste: template versionado; valide change set antes de atualização sensível.
 

@@ -40,42 +40,17 @@
 
 **Data Catalog**
 
-**Antes de ler este trecho:**
-
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **Athena:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL.
-- **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
-- **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
-
 **Detalhe:** Repositório central de metadados (bancos, tabelas, schemas) usado por **Athena, Redshift Spectrum, EMR e Lake Formation**.
 
 **Crawlers**
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **schema:** Estrutura e tipos dos dados. Em migração, adaptar a estrutura é uma tarefa diferente de copiar os registros.
-- **JDBC:** Interface Java para acesso a bancos compatíveis. Um driver faz a integração; conexão e autorização ainda precisam estar corretas.
 
 **Detalhe:** Percorrem S3, JDBC, DynamoDB e **inferem o schema** automaticamente, criando/atualizando tabelas.
 
 **ETL jobs**
 
-**Antes de ler este trecho:**
-
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
-- **Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
-- **job:** Trabalho submetido a uma execução. Uma fila ou agendador organiza quando ele roda; seu programa realiza a tarefa.
-
 **Detalhe:** Spark (PySpark/Scala), Python shell ou Ray; serverless; *job bookmarks* processam só dados novos.
 
 **Glue Studio**
-
-**Antes de ler este trecho:**
-
-- **Glue:** Glue oferece catálogo e ferramentas de integração e transformação de dados.
 
 **Detalhe:** Interface visual para criar jobs.
 
@@ -93,10 +68,6 @@
 
 **Zero-ETL / conectores**
 
-**Antes de ler este trecho:**
-
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
-
 **Detalhe:** Integrações com fontes SaaS e bancos.
 
 ## 3. Como escolher e reconhecer os limites
@@ -107,10 +78,6 @@ Catalogar um dado não o torna correto nem concede acesso irrestrito. As transfo
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
-
 Glue (ETL **serverless** + catálogo) × **EMR** (clusters Spark/Hadoop sob seu controle) × **Data Firehose** (entrega de streaming com transformações simples).
 
 ## 4. Operação, segurança e custo
@@ -118,10 +85,6 @@ Glue (ETL **serverless** + catálogo) × **EMR** (clusters Spark/Hadoop sob seu 
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **segundo:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 
 Jobs e crawlers por **DPU-hora** (por segundo); Data Catalog por objetos armazenados e requisições (camada gratuita).
 

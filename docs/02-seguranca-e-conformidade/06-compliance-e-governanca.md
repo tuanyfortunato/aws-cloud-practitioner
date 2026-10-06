@@ -30,10 +30,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-
 Conformidade exige um requisito definido e evidências de atendimento. O provedor demonstra sua parte; o cliente precisa demonstrar decisões e operação que continuam sob sua responsabilidade. Um documento só vale dentro do escopo que descreve.
 
 Separe obter um relatório oficial, avaliar uma configuração e coletar evidências. Esses trabalhos se complementam. A conclusão de uma auditoria não é obtida apenas por abrir uma ferramenta ou usar um serviço certificado.
@@ -47,26 +43,9 @@ o **Artifact** é a **pasta de certificados da AWS** que você entrega ao audito
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **AWS Artifact / Artifact:** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **SOC / PCI DSS / HIPAA:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
-- **BAA:** Acordos com funções diferentes: confidencialidade e relacionamento associado a requisitos específicos de saúde. Aceitar um documento não torna toda operação conforme.
-- **ISO:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
-
 **AWS Artifact:** portal de autoatendimento para baixar **relatórios de compliance da AWS** (SOC 1/2/3, PCI DSS, ISO 27001 etc.) e aceitar **acordos** (ex.: BAA para HIPAA). Gratuito.
 
-**Antes de ler este trecho:**
-
-- **AWS Audit Manager / Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
-
 **AWS Audit Manager:** coleta evidências **da sua conta** continuamente e mapeia para frameworks (PCI DSS, GDPR, HIPAA), para preparar as suas auditorias.
-
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 
 **Programas de compliance:** a AWS mantém certificações e atestados, mas compliance da carga de trabalho é responsabilidade compartilhada. Nem todo serviço é elegível para todo programa e a disponibilidade varia por região.
 
@@ -74,20 +53,11 @@ o **Artifact** é a **pasta de certificados da AWS** que você entrega ao audito
 
 **AWS GovCloud (US):** regiões isoladas para cargas reguladas do governo americano.
 
-**Antes de ler este trecho:**
-
-- **AWS Config:** AWS Config registra configurações de recursos compatíveis e permite avaliá-las com regras.
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
-
 **AWS Config** com **conformance packs:** conjuntos de regras para avaliar conformidade (ver [2.7](07-logs-monitoramento-e-auditoria.md)).
 
 **Cai na prova:** "auditor pede o relatório SOC 2 da AWS" = Artifact; "automatizar a coleta de evidências para auditoria da empresa" = Audit Manager.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 
 **Primeiro, identifique o funcionamento:** Artifact disponibiliza documentos de conformidade da AWS. Config registra configuração e avalia regras. Evidências do ambiente do cliente ajudam uma auditoria, mas exigem interpretação.
 

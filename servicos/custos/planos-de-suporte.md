@@ -44,16 +44,6 @@
 
 > ✔️ Comparação completa verificada em 04/10/2026 nas páginas [plans](https://aws.amazon.com/premiumsupport/plans/) e [pricing](https://aws.amazon.com/premiumsupport/pricing/).
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **workload:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-- **TAM:** Gerente técnico de conta em ofertas de suporte que incluem esse papel. Atua no acompanhamento e orientação previstos; não substitui toda a equipe do cliente.
-- **IEM:** Nome histórico de uma oferta de acompanhamento de eventos de infraestrutura. Leia o contexto e a oferta atual indicados na ficha.
-
 | | **Basic** | **AWS Business Support+** | **AWS Enterprise Support** | **AWS Unified Operations** |
 |---|---|---|---|---|
 | Preço mínimo | Incluído (grátis) | **US$ 29/mês por conta** ou % do uso (9 → 7 → 5 → 3%), o maior | **US$ 5.000/mês** ou % (10 → 7 → 5 → 3%), o maior | **US$ 50.000/mês** ou % (10 → 6 → 5%), o maior |
@@ -88,10 +78,6 @@ Developer, Business e Enterprise On-Ramp **encerram em 01/01/2027** (clientes On
 
 Enterprise em 2026; os três seguem no GovCloud). Ainda podem aparecer em questões antigas.
 
-**Antes de ler este trecho:**
-
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 | | **Basic** | **Developer** | **Business** | **Enterprise On-Ramp** | **Enterprise** |
 |---|---|---|---|---|---|
 | Preço histórico | Grátis | US$ 29/mês | US$ 100/mês | US$ 5.500/mês | US$ 15.000/mês (hoje US$ 5.000) |
@@ -112,10 +98,6 @@ Os **tempos de resposta** clássicos estão confirmados nas páginas oficiais; o
 
 **AWS Trusted Advisor:** verificações completas e API a partir dos planos pagos superiores ([ficha](../gerenciamento/trusted-advisor.md)).
 
-**Antes de ler este trecho:**
-
-- **AWS Health Dashboard / Health Dashboard:** AWS Health apresenta eventos sobre a saúde dos serviços e informações relevantes aos recursos da conta, conforme a visão consultada.
-
 **AWS Health Dashboard** e **AWS Health API** ([ficha](../gerenciamento/health-dashboard.md)).
 
 **TAM (Technical Account Manager):** consultor técnico proativo.
@@ -124,17 +106,7 @@ Os **tempos de resposta** clássicos estão confirmados nas páginas oficiais; o
 
 **AWS Support Center:** onde se abrem e acompanham os casos de suporte (no console). No Basic, só casos de conta e faturamento.
 
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-
 **Quem muda o plano de suporte:** 🔄 deixou de ser tarefa exclusiva do root (a lista oficial atual não a inclui); uma identidade IAM com as permissões necessárias pode fazê-lo.
-
-**Antes de ler este trecho:**
-
-- **APN:** Rede de parceiros AWS. Parceiros oferecem serviços e soluções conforme seus próprios contratos e competências.
 
 Demais recursos (Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post): [recursos de ajuda e parceiros](recursos-de-ajuda-e-parceiros.md).
 

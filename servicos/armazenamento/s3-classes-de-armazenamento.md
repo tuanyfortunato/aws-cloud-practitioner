@@ -38,16 +38,6 @@
 
 ### Tabela completa
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **MB / KB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-- **objeto:** Unidade de dados guardada no armazenamento de objetos: conteúdo, identificação e informações associadas. Não é uma máquina nem um programa em execução.
-- **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
-
 | Classe | Uso | Disponibilidade (design) | AZs | Duração mínima | Tamanho mínimo cobrado | Recuperação | Taxa de recuperação |
 |---|---|---|---|---|---|---|---|
 | **S3 Standard** | Acesso frequente | 99,99% | ≥3 | — | — | ms | Não |
@@ -59,10 +49,6 @@
 | **S3 Glacier Flexible Retrieval** | Arquivo sem pressa | 99,99% | ≥3 | **90 dias** | 40 KB (metadados) | Expedited **1–5 min** para objetos < 250 MB ✔️ · Standard **3–5 h** · Bulk **5–12 h** (grátis) | Sim (Bulk grátis) |
 | **S3 Glacier Deep Archive** | Retenção de longo prazo (7–10 anos) | 99,99% | ≥3 | **180 dias** | 40 KB (metadados) | Standard **até 12 h** · Bulk **até 48 h** · **sem Expedited** | Sim |
 
-**Antes de ler este trecho:**
-
-- **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
-
 📌 Todas têm durabilidade de **11 noves**.
 
 📌 Classe padrão do upload: **S3 Standard**.
@@ -70,10 +56,6 @@
 Objetos apagados/movidos antes da duração mínima pagam o restante do período (*early deletion*).
 
 ### SLA × disponibilidade de projeto (oficial)
-
-**Antes de ler este trecho:**
-
-- **SLA:** Acordo de nível de serviço com condições e medidas próprias. Não é garantia de que a aplicação do cliente nunca falhará.
 
 | Classe | Disponibilidade de projeto | SLA |
 |---|---|---|
@@ -100,10 +82,6 @@ Um acesso traz o objeto de volta para Frequent Access. ✔️ Cobra uma taxa men
 Standard ──30d──▶ Standard-IA ──60d──▶ Glacier Instant/Flexible ──180d──▶ Deep Archive ──(expiração)──▶ apagado
 ```
 
-**Antes de ler este trecho:**
-
-- **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
-
 Regras podem filtrar por prefixo ou tag e também apagar **versões antigas** e **uploads multipart incompletos**.
 
 ### Restaurar do Glacier
@@ -118,10 +96,6 @@ O Express One Zone usa *directory buckets* e **não** suporta transições de Li
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 Armazenamento mais barato por volume pode ter cobrança de recuperação, prazo mínimo e espera para obter o conteúdo. A classe deve atender ao tempo em que você precisa dos dados.
 
 ### ⚠️ Pegadinhas
@@ -130,15 +104,7 @@ Armazenamento mais barato por volume pode ter cobrança de recuperação, prazo 
 
 "Raro, mas precisa abrir **na hora**" → **Glacier Instant Retrieval** (não Flexible).
 
-**Antes de ler este trecho:**
-
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-
 "Pode ser regenerado" / "uma AZ basta" → **One Zone-IA**.
-
-**Antes de ler este trecho:**
-
-- **compliance:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
 
 "Compliance 7 anos, menor custo, até 48 h" → **Deep Archive**.
 
@@ -161,10 +127,6 @@ A escola mantém materiais atuais em uma classe de acesso frequente e avalia uma
 **Recursos envolvidos:** Classes/camadas de objeto, regras lifecycle e solicitações de restore.
 
 **Decisões que precisam ser tomadas:** Frequência, prazo de acesso, permanência mínima e tolerância a uma AZ.
-
-**Antes de ler este trecho:**
-
-- **resiliência:** Capacidade de resistir e recuperar-se de falhas. Requer escolher quais falhas serão tratadas e como a operação continuará.
 
 **Outra situação comentada:** Arquivo raro que deve abrir imediatamente: Glacier Instant Retrieval; espera de horas permite outras classes.
 

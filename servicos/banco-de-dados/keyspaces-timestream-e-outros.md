@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 **Passo 1.** Identifique se os dados são registros Cassandra, valores com horários ou outro modelo especializado.
 
 **Passo 2.** Compare compatibilidade e disponibilidade da oferta apropriada; a ficha não descreve um único banco para todos os casos.
@@ -46,19 +42,6 @@ Não existe um único banco desta ficha que resolva todos esses casos. Algumas o
 
 ### Tabela de decisão
 
-**Antes de ler este trecho:**
-
-- **Amazon MemoryDB / MemoryDB:** MemoryDB oferece um banco em memória com mecanismos de durabilidade.
-- **Amazon DocumentDB / DocumentDB:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos.
-- **Amazon Neptune / Neptune:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **IoT:** Dispositivos físicos conectados que enviam informações ou recebem comandos. Conexão não substitui autenticação, software e análise dos dados.
-- **telemetria:** Medidas e informações enviadas por um equipamento ou sistema. Coletar dados é uma etapa diferente de analisá-los ou agir sobre eles.
-- **Redis:** Tecnologias de dados em memória com comportamentos e funções diferentes. A modalidade gerenciada deve ser escolhida segundo compatibilidade e necessidade, não apenas pela palavra cache.
-- **CQL:** Linguagem de consulta associada a Cassandra. Não equivale automaticamente ao conjunto de recursos de SQL de qualquer banco relacional.
-- **QLDB:** Quantum Ledger Database: oferta histórica de registro verificável descrita na ficha de bancos especializados. Confira seu encerramento antes de tratar o exemplo como uma opção atual.
-
 | Serviço | Modelo | Uso | Observação |
 |---|---|---|---|
 | **Amazon Keyspaces** ❌ *fora do escopo* | Colunar largo (**Apache Cassandra**, CQL) | Migrar Cassandra para serverless | Fora da lista oficial; raramente cai |
@@ -69,19 +52,6 @@ Não existe um único banco desta ficha que resolva todos esses casos. Algumas o
 | **Amazon QLDB** | Ledger imutável | — | 🔄 Encerrado em 31/07/2025 (confirmado) — se aparecer em questão antiga: "registro imutável e verificável criptograficamente" |
 
 ### Visão geral: qual banco para qual dado
-
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-- **OLTP:** Processamento de operações individuais do negócio, como registrar uma compra. É diferente de analisar grandes conjuntos históricos de registros.
-- **OLAP:** Análise de conjuntos de dados, como comparar vendas de vários meses. Prioriza perguntas e agregações, não apenas registrar uma operação individual.
-- **DAX:** Cache compatível com DynamoDB para determinados acessos. É uma camada de aceleração, não uma cópia independente de qualquer banco.
-- **data warehouse:** Ambiente de dados organizado para análise de grandes conjuntos. O modelo e as consultas são orientados a perguntas analíticas.
 
 | Necessidade | Serviço |
 |---|---|

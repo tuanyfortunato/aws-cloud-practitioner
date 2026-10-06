@@ -32,11 +32,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-
 Armazenamento em blocos apresenta um disco para o sistema. Armazenamento de arquivos apresenta pastas e arquivos por uma interface de rede. Armazenamento de objetos apresenta conteúdo por operações de serviço. A forma como o programa usa os dados orienta a escolha.
 
 Depois da compatibilidade, avalie compartilhamento, desempenho, disponibilidade e conservação. Um disco para uma máquina não é automaticamente uma pasta para várias. Um backup protege recuperação, mas não transforma sozinho um armazenamento em ambiente de atendimento ativo.
@@ -50,141 +45,51 @@ o **EBS** é o **HD do computador**; o **EFS** é a **pasta de rede** que todos 
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Amazon EBS / EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-
 **Amazon EBS (Elastic Block Store):** armazenamento em **bloco** (disco) para EC2.
 
-**Antes de ler este trecho:**
-
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
   - Persistente, preso a **uma AZ**, normalmente ligado a uma instância por vez.
-**Antes de ler este trecho:**
-
-- **IOPS:** Quantidade de operações de leitura e escrita por segundo. Ajuda a descrever o comportamento de um armazenamento, mas não mede sozinha a quantidade de bytes transferidos.
-- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
-- **SSD:** Tipo de armazenamento sem partes mecânicas, usado para acesso rápido a dados. A escolha de um volume também envolve sua capacidade e limites de desempenho.
-- **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
-- **HDD:** Armazenamento por disco mecânico. Seu comportamento difere de SSD; a necessidade de acesso orienta a escolha.
 
   - Tipos: SSD de uso geral (**gp3**/gp2), SSD de IOPS provisionado (**io2**/io1, para bancos críticos), HDD otimizado para throughput (**st1**, big data e logs) e HDD frio (**sc1**, acesso raro).
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 
   - **Snapshots** incrementais, guardados no S3, copiáveis entre regiões; usados para backup e para criar volumes em outra AZ.
-**Antes de ler este trecho:**
-
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 
   - Criptografia com KMS.
-**Antes de ler este trecho:**
-
-- **instance store:** Armazenamento local temporário da máquina física. Não é lugar seguro para a única cópia de dados que precisam sobreviver às ações descritas no ciclo de vida.
 
 **Instance store:** disco físico do host. Muito rápido, mas **efêmero**: perde os dados ao parar ou encerrar a instância.
 
-**Antes de ler este trecho:**
-
-- **Amazon EFS / EFS:** O EFS oferece um sistema de arquivos compartilhado.
-- **NFS:** NFS e SMB são protocolos para acesso a arquivos compartilhados. POSIX descreve interfaces e comportamentos de sistemas. Compatibilidade importa para a aplicação usar os arquivos corretamente.
-
 **Amazon EFS (Elastic File System):** sistema de arquivos **compartilhado** (NFS) para **Linux**, acessado por muitas instâncias ao mesmo tempo, em várias AZs. Cresce e encolhe sozinho; paga pelo que usa. Classes Standard, Infrequent Access e Archive.
-
-**Antes de ler este trecho:**
-
-- **Amazon FSx / FSx:** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes.
 
 **Amazon FSx:** sistemas de arquivos gerenciados de terceiros:
 
-**Antes de ler este trecho:**
-
-- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-
   - **FSx for Windows File Server:** SMB, integrado ao Active Directory.
-**Antes de ler este trecho:**
-
-- **HPC:** Computação de alto desempenho: execução de cálculos intensivos, como simulações. O requisito concreto pode envolver processamento, comunicação ou outro recurso.
-- **machine learning:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 
   - **FSx for Lustre:** alto desempenho para HPC e machine learning, integrado ao S3.
-**Antes de ler este trecho:**
-
-- **ONTAP:** Tecnologia de armazenamento e gerenciamento de arquivos associada a uma modalidade FSx. A aplicação precisa da compatibilidade e dos recursos daquela modalidade.
-- **NAS:** Armazenamento acessível pela rede como arquivos. É diferente de apresentar um disco em blocos ou objetos por API.
 
   - **FSx for NetApp ONTAP** e **FSx for OpenZFS:** para migrar storages NAS existentes.
-**Antes de ler este trecho:**
-
-- **AWS Storage Gateway / Storage Gateway:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **híbrido:** Combinação de ambiente próprio e nuvem. É necessário definir quais partes ficam em cada lado e como se comunicam.
 
 **AWS Storage Gateway:** armazenamento **híbrido**; liga o datacenter on-premises ao armazenamento na AWS.
 
   - **S3 File Gateway:** arquivos via NFS/SMB gravados como objetos no S3.
-**Antes de ler este trecho:**
-
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
   - **FSx File Gateway:** acesso local de baixa latência ao FSx for Windows.
-**Antes de ler este trecho:**
-
-- **iSCSI:** Protocolo para apresentar armazenamento em blocos pela rede. É diferente de acessar objetos por uma API ou arquivos por um compartilhamento.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
   - **Volume Gateway:** volumes iSCSI com cópia na AWS.
 
   - **Tape Gateway:** fitas virtuais; substitui backup em fita física, arquivando no S3 Glacier.
-**Antes de ler este trecho:**
-
-- **AWS Backup:** AWS Backup centraliza políticas e operações de backup para recursos compatíveis.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
 
 **AWS Backup:** gerencia **backups de forma centralizada** com políticas (EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3 etc.), inclusive entre contas e regiões.
 
-**Antes de ler este trecho:**
-
-- **AWS Elastic Disaster Recovery / Elastic Disaster Recovery:** Elastic Disaster Recovery replica dados de servidores compatíveis para preparar sua recuperação em máquinas AWS.
-
 **AWS Elastic Disaster Recovery:** replica servidores (on-premises ou na nuvem) continuamente para a AWS e permite recuperar em minutos em caso de desastre.
 
-**Antes de ler este trecho:**
-
-- **Família AWS Snow:** A família Snow foi associada a dispositivos físicos para transferência e processamento local.
-- **campo:** Informação nomeada dentro de um registro, como nome ou data. Consultas usam os campos conforme a estrutura e o modelo do banco.
-
 **Família AWS Snow:** dispositivos físicos para **mover grandes volumes de dados** quando a rede é lenta, cara ou inexistente, e para **computação na borda** em locais desconectados (navios, campo, áreas remotas).
-
-**Antes de ler este trecho:**
-
-- **TB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
   - **Snowball Edge:** versões otimizadas para armazenamento (dezenas de TB) ou para computação.
 
   - Versões menores (Snowcone) e o caminhão Snowmobile foram descontinuados, mas podem aparecer em questões antigas.
 
   - Regra prática: se transferir pela rede levaria semanas, use Snow.
-**Antes de ler este trecho:**
-
-- **SFTP / FTP / FTPS:** Protocolos de transferência de arquivos. SFTP usa SSH; FTP não fornece a mesma proteção; FTPS adiciona TLS ao FTP. São opções de compatibilidade diferentes.
 
 **Transferência online:** AWS DataSync (copia dados de NFS/SMB on-premises para S3, EFS ou FSx de forma automatizada) e AWS Transfer Family (SFTP/FTPS/FTP direto para S3 ou EFS).
-
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **objeto:** Unidade de dados guardada no armazenamento de objetos: conteúdo, identificação e informações associadas. Não é uma máquina nem um programa em execução.
 
 | Tipo | Serviço | Acesso |
 | --- | --- | --- |
@@ -197,11 +102,6 @@ o **EBS** é o **HD do computador**; o **EFS** é a **pasta de rede** que todos 
 **Cai na prova:** "várias instâncias Linux precisam ler os mesmos arquivos" = EFS; "disco para banco de dados no EC2" = EBS io2; "substituir backup em fita" = Tape Gateway; "migrar 500 TB de um datacenter com internet lenta" = Snowball Edge.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
 
 **Primeiro, identifique o funcionamento:** Bloco funciona como disco; arquivo usa protocolos de sistema de arquivos; objeto é acessado por API. Backup guarda pontos de recuperação; replicação para DR mantém dados preparados para recuperação.
 
@@ -237,17 +137,9 @@ Duas EC2 Linux em AZs diferentes precisam dos mesmos arquivos. Um único EBS ate
 
 **Resposta curta:** Não diretamente; cria-se um snapshot e um novo volume na outra AZ.
 
-**Antes de ler este trecho:**
-
-- **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
-
 **Pergunta:** "Onde ficam os snapshots do EBS?"
 
 **Resposta curta:** No S3 (gerenciado pela AWS), de forma incremental.
-
-**Antes de ler este trecho:**
-
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
 **Pergunta:** "Sistema de arquivos compartilhado para várias instâncias Linux."
 

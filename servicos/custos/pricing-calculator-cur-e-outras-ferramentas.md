@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 **Passo 1.** Antes do uso, estime a capacidade e as condições previstas na calculadora.
 
 **Passo 2.** Depois do uso, analise registros e relatórios para entender o consumo ocorrido.
@@ -44,22 +40,11 @@
 
 **AWS Pricing Calculator**
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **CSV:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
-- **PDF:** Formato de documento. Um serviço de extração analisa conteúdo compatível; guardar um PDF num bucket não executa automaticamente essa análise.
-
 **Para que serve:** **Estimar** custos **antes** de criar recursos
 
 **Detalhes:** Web, **gratuita**, sem conta; estimativas compartilháveis por link e exportáveis (CSV/PDF); versão no console de Billing considera seus descontos
 
 **Billing and Cost Management console**
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
 
 **Para que serve:** Fatura do mês, pagamentos, créditos, perfis de pagamento
 
@@ -67,38 +52,17 @@
 
 **Cost and Usage Report (CUR) / Data Exports**
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-- **Athena:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL.
-- **QuickSight:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis.
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **CUR:** Relatório de custos e uso. Ele ajuda a analisar consumo registrado; é diferente de uma estimativa antes de criar recursos.
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
-- **FOCUS:** Especificação de organização de dados de custos e uso. Padronizar dados ajuda a analisá-los, mas não reduz o gasto automaticamente.
-
 **Para que serve:** Dados **mais granulares** possíveis (hora a hora, por recurso, com tags)
 
 **Detalhes:** ✔️ Configurado pelo **AWS Data Exports**: CUR 2.0 (recomendado) e **FOCUS 1.2/1.0**; o CUR legado continua disponível. Entregue no **S3**; analisados com **Athena**, QuickSight, Redshift
 
 **Cost Anomaly Detection**
 
-**Antes de ler este trecho:**
-
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
-
 **Para que serve:** Detecta **gastos anormais** com ML
 
 **Detalhes:** Monitores por serviço/conta/tag; alertas com causa raiz provável; ✔️ **gratuito**
 
 **Cost Optimization Hub**
-
-**Antes de ler este trecho:**
-
-- **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 
 **Para que serve:** Consolida recomendações de economia (rightsizing, RIs/SPs, ociosos) num lugar
 
@@ -112,21 +76,11 @@
 
 **Cost Categories**
 
-**Antes de ler este trecho:**
-
-- **Cost Explorer:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-- **Budgets:** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
-
 **Para que serve:** Regras que agrupam custos (ex.: "Marketing" = contas X e Y + tag Z)
 
 **Detalhes:** Usadas em Cost Explorer, Budgets, CUR
 
 **Consolidated billing (Organizations)**
-
-**Antes de ler este trecho:**
-
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
 **Para que serve:** Fatura única, descontos por volume, compartilhamento de RIs/SPs
 
@@ -139,10 +93,6 @@
 **Detalhes:** Revendedores e empresas que refaturam clientes/áreas
 
 **Savings Plans / Reservations (console)**
-
-**Antes de ler este trecho:**
-
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
 
 **Para que serve:** Comprar, acompanhar utilização e cobertura
 
@@ -162,19 +112,11 @@
 
 **AWS Price List API**
 
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-
 **Para que serve:** Preços via API
 
 **Detalhes:** Automação
 
 **AWS Marketplace**
-
-**Antes de ler este trecho:**
-
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
 
 **Para que serve:** Comprar software de terceiros cobrado na fatura AWS
 

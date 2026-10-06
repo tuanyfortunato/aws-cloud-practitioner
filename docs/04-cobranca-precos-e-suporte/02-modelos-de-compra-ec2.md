@@ -30,11 +30,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
-
 Uma opção de compra combina preço com condições. Uso flexível, compromisso de gasto, possibilidade de interrupção, capacidade e dedicação física são requisitos separados. Uma opção que reduz preço pode mudar uma condição importante do trabalho.
 
 Primeiro descreva se a tarefa pode parar, quanto uso é previsível e se precisa de uma modalidade específica de hardware ou licença. Só então compare a compra. Reserva de capacidade e desconto não são sinônimos, e um compromisso pode permanecer mesmo após reduzir recursos.
@@ -47,29 +42,6 @@ Primeiro descreva se a tarefa pode parar, quanto uso é previsível e se precisa
 </details>
 
 ## 2. Conceitos e opções explicados
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **CI / CD / CI/CD:** Integração contínua e entrega ou implantação contínua: práticas para construir, verificar e disponibilizar versões por etapas repetíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **SO:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
-- **segundo / hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-- **compliance:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-- **tenancy:** Forma de compartilhamento ou dedicação de infraestrutura física. Uma máquina virtual dedicada e um host físico dedicado têm controles e usos de licença distintos.
-- **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
-- **Reserved Instances:** Benefício e condições de reserva para configurações compatíveis. Não confunda desconto com qualquer garantia universal de capacidade.
-- **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-- **BYOL:** Trazer licença própria elegível. É necessário verificar o direito de uso e as condições do software; a AWS não cria automaticamente essa licença.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
 | Modelo | Desconto (referência AWS) | Compromisso | Quando usar |
 | --- | --- | --- | --- |
@@ -85,20 +57,9 @@ Primeiro descreva se a tarefa pode parar, quanto uso é previsível e se precisa
 
 **Formas de pagamento de RIs e Savings Plans:** All Upfront (maior desconto), Partial Upfront e No Upfront (menor desconto).
 
-**Antes de ler este trecho:**
-
-- **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
-
 **RIs regionais vs zonais:** a zonal reserva capacidade numa AZ; a regional dá flexibilidade de AZ e tamanho, sem reservar capacidade.
 
 **Reserved Instance Marketplace:** permite revender RIs Standard que não serão mais usadas.
-
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-- **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
 
 **Reservas em outros serviços:** RDS, ElastiCache, Redshift e OpenSearch têm instâncias ou nós reservados; DynamoDB tem capacidade reservada.
 

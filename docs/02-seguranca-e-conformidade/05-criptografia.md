@@ -31,11 +31,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **chave:** Pode indicar identificação de um registro, identificação de um objeto ou elemento criptográfico. Leia o contexto: localizar um dado e protegê-lo são tarefas diferentes.
-
 Proteção durante uma comunicação e proteção de dados armazenados atuam em momentos distintos. Uma conexão protegida evita leitura indevida no caminho; o armazenamento protegido envolve chaves e autorizações para obter os dados depois.
 
 Chave e certificado não são a mesma coisa. O certificado participa da identidade e proteção da conexão; a chave criptográfica é usada nas operações de proteção dos dados. Configurar um deles não prepara automaticamente todas as camadas.
@@ -49,76 +44,27 @@ a criptografia é um **cadeado**; a chave é o que abre. O **KMS** é um chaveir
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-
 **Em repouso (at rest):** dados armazenados (S3, EBS, RDS, DynamoDB) criptografados com chaves do KMS.
-
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **HTTPS / TLS / SSL:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
 
 **Em trânsito (in transit):** dados trafegando pela rede, protegidos com TLS/SSL (HTTPS).
 
-**Antes de ler este trecho:**
-
-- **AWS KMS:** KMS administra chaves criptográficas e oferece operações de criptografia integradas a serviços AWS.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 **AWS KMS (Key Management Service):** cria e gerencia chaves de criptografia; integrado à maioria dos serviços.
 
-**Antes de ler este trecho:**
-
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-
   - **AWS owned keys** (invisíveis para você), **AWS managed keys** (criadas pela AWS na sua conta para um serviço) e **customer managed keys** (criadas e controladas por você, com política de chave, rotação e auditoria).
-**Antes de ler este trecho:**
-
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 
   - Toda utilização de chave fica registrada no CloudTrail.
 
   - As chaves ficam em HSMs compartilhados e gerenciados pela AWS; são regionais.
-**Antes de ler este trecho:**
-
-- **AWS CloudHSM / CloudHSM:** CloudHSM fornece módulos de segurança de hardware para operações e armazenamento criptográfico.
-- **HSM:** Equipamento especializado em proteger chaves e executar operações criptográficas. A forma de administração depende da solução escolhida.
 
 **AWS CloudHSM:** HSM **dedicado e exclusivo** (single-tenant) na nuvem. Você gerencia as chaves e a AWS não tem acesso a elas. Para exigências regulatórias fortes.
 
-**Antes de ler este trecho:**
-
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **AWS Certificate Manager / Certificate Manager:** ACM ajuda a provisionar e gerenciar certificados para integrações compatíveis.
-- **ELB:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-- **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
-
 **AWS Certificate Manager (ACM):** emite, gerencia e **renova automaticamente** certificados SSL/TLS. Certificados públicos do ACM são gratuitos e usados em ELB, CloudFront e API Gateway.
-
-**Antes de ler este trecho:**
-
-- **SSE-S3 / SSE-KMS / SSE-C:** Formas de criptografia no servidor do S3, que diferem na origem e administração das chaves e, no último caso, nas camadas. A tabela da seção distingue essas escolhas.
-- **objeto:** Unidade de dados guardada no armazenamento de objetos: conteúdo, identificação e informações associadas. Não é uma máquina nem um programa em execução.
 
 **S3:** todo objeto novo é criptografado por padrão com SSE-S3. Opções: SSE-S3 (chave da AWS), SSE-KMS (chave do KMS, com auditoria), SSE-C (chave fornecida pelo cliente) e criptografia no lado do cliente.
 
 **Cai na prova:** "chave controlada pelo cliente em hardware dedicado" = CloudHSM; "criar e gerenciar chaves integradas aos serviços" = KMS; "certificado HTTPS para o load balancer" = ACM; "quem ativa a criptografia dos dados?" = cliente.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
 
 **Primeiro, identifique o funcionamento:** TLS protege o caminho da comunicação; criptografia em repouso protege os dados armazenados. KMS administra chaves e autoriza operações criptográficas; ACM administra certificados.
 

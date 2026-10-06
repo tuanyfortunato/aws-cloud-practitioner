@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
-- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
-
 **Passo 1.** Separe sincronização entre locais de recebimento por protocolo de arquivo.
 
 **Passo 2.** Prepare a ferramenta correspondente, seus locais e sua autorização; então execute a transferência compatível.
@@ -42,24 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### AWS DataSync
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **EFS:** O EFS oferece um sistema de arquivos compartilhado.
-- **FSx:** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **VM:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-- **NFS / SMB:** NFS e SMB são protocolos para acesso a arquivos compartilhados. POSIX descreve interfaces e comportamentos de sistemas. Compatibilidade importa para a aplicação usar os arquivos corretamente.
-- **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **HDFS:** Sistema de arquivos distribuído do ecossistema Hadoop. Divide armazenamento entre nós; não é o mesmo modelo de objetos S3.
-- **KVM:** Tecnologia de virtualização associada a Linux. É uma camada de execução de máquinas, não o programa de negócio instalado nelas.
 
 | Item | Detalhe |
 |---|---|
@@ -73,18 +50,6 @@
 ### AWS Transfer Family ❌
 
 > ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **SFTP / FTP / FTPS:** Protocolos de transferência de arquivos. SFTP usa SSH; FTP não fornece a mesma proteção; FTPS adiciona TLS ao FTP. São opções de compatibilidade diferentes.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-- **AD:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-- **B2B:** Relação entre empresas. Em integração, identifica o contexto dos participantes, não um protocolo único.
-- **EDI:** CRM trata relacionamento com clientes; CAD, projeto assistido por computador; EDI, troca eletrônica estruturada de dados. São necessidades de aplicação distintas.
 
 | Item | Detalhe |
 |---|---|
@@ -106,11 +71,6 @@ Sincronizar arquivos não migra sozinho toda a aplicação. Cada ferramenta tem 
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **Storage Gateway:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
-- **híbrido:** Combinação de ambiente próprio e nuvem. É necessário definir quais partes ficam em cada lado e como se comunicam.
-
 **DataSync** (transferência/migração online) × **Storage Gateway** (acesso híbrido contínuo) × **Snow** (offline, dispositivo físico) × **Transfer Family** (protocolos FTP para terceiros).
 
 ## 4. Caso resolvido: ligando as peças
@@ -128,10 +88,6 @@ Uma equipe sincroniza arquivos com DataSync. Em outro caso, um parceiro envia ar
 **Recursos envolvidos:** Locations/tasks DataSync e endpoints/users Transfer Family.
 
 **Decisões que precisam ser tomadas:** Fonte/destino/protocolo, rede e permissões.
-
-**Antes de ler este trecho:**
-
-- **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 
 **Outra situação comentada:** Copiar arquivos periodicamente difere de dar endpoint SFTP a parceiros.
 

@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 **Passo 1.** Prepare o programa que realiza um trabalho e descreva sua execução.
 
 **Passo 2.** Envie trabalhos a uma fila e configure o ambiente de computação. Batch agenda as execuções conforme as necessidades e a capacidade.
@@ -43,29 +38,13 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
-
 Milhares de jobs de processamento: renderização, simulações, genômica, análise financeira, ETL pesado.
-
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
 
 Jobs que **duram mais de 15 min** (ao contrário do Lambda).
 
 ### Conceitos e componentes
 
 **Job definition**
-
-**Antes de ler este trecho:**
-
-- **vCPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **timeout:** Limite de espera ou duração. Ao excedê-lo, uma operação pode falhar ou exigir tratamento; não presuma que nada aconteceu antes da interrupção.
-- **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
-- **job:** Trabalho submetido a uma execução. Uma fila ou agendador organiza quando ele roda; seu programa realiza a tarefa.
 
 **O que é:** Imagem de contêiner, vCPU, memória, comando, retentativas, timeout.
 
@@ -74,15 +53,6 @@ Jobs que **duram mais de 15 min** (ao contrário do Lambda).
 **O que é:** Fila com prioridade onde os jobs aguardam.
 
 **Compute environment**
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **EKS:** O EKS oferece Kubernetes gerenciado.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
 
 **O que é:** Onde os jobs rodam: **EC2 On-Demand, EC2 Spot, Fargate, Fargate Spot** ou EKS; gerenciado (a AWS escala) ou não gerenciado.
 
@@ -102,16 +72,7 @@ Batch organiza a execução, mas você fornece o programa que faz o trabalho. El
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-
 Batch × Lambda: jobs longos e pesados × funções curtas por evento.
-
-**Antes de ler este trecho:**
-
-- **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
-- **Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
 
 Batch × EMR: jobs genéricos em contêiner × frameworks de big data (Spark/Hadoop).
 
@@ -138,10 +99,6 @@ Uma produtora envia centenas de vídeos para conversão. Cada conversão vira um
 **Recursos envolvidos:** Job definition, job queue, compute environment e jobs.
 
 **Decisões que precisam ser tomadas:** Container/comando, recursos, prioridade, tentativas e capacidade.
-
-**Antes de ler este trecho:**
-
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
 
 **Outra situação comentada:** Processar simulações independentes: jobs Batch, com resultados persistidos fora da execução efêmera.
 

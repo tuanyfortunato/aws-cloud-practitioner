@@ -32,11 +32,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-- **treinamento:** Ajuste de um modelo com dados. É uma etapa diferente de utilizar o modelo já treinado para responder a uma nova entrada.
-
 Diferencie usar uma função pronta, construir um modelo próprio e usar um modelo generativo existente. Na função pronta, você solicita uma transformação específica. No modelo próprio, precisa preparar treinamento e avaliação. Na geração, fornece instrução e contexto para uma resposta.
 
 Em todos os casos, dados e resultados exigem cuidado. Precisão não é garantida; acesso aos documentos deve ser autorizado; produzir uma resposta não a transforma em evidência. O requisito da tarefa e o escopo da prova orientam qual produto estudar.
@@ -51,15 +46,6 @@ Em todos os casos, dados e resultados exigem cuidado. Precisão não é garantid
 ## 2. Conceitos e opções explicados
 
 Revise a função de cada serviço, porque a prova pede o serviço pelo caso de uso.
-
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **Amazon SageMaker AI / SageMaker AI:** SageMaker AI oferece recursos para etapas do desenvolvimento e operação de modelos.
-- **AI / IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **Amazon Bedrock / Bedrock:** Bedrock oferece acesso gerenciado a modelos e recursos de desenvolvimento de aplicações com IA generativa, conforme a oferta e as autorizações.
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 
 | Serviço | Função |
 | --- | --- |
@@ -76,11 +62,6 @@ Revise a função de cada serviço, porque a prova pede o serviço pelo caso de 
 | Amazon Kendra | Busca inteligente em documentos corporativos |
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
 
 **Primeiro, identifique o funcionamento:** Serviços prontos transformam entradas em resultados por API; SageMaker AI oferece recursos para preparar, treinar e servir modelos; Amazon Q entrega assistência conforme a variante.
 

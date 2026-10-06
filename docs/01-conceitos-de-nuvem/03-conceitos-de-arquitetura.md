@@ -29,12 +29,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **redundância:** Existência de componentes alternativos. Duas cópias só ajudam se forem utilizáveis na falha que você pretende enfrentar.
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-
 Uma aplicação depende de várias partes. Crescer uma delas ajuda apenas se ela for o limite do atendimento. Disponibilidade trata de continuar atendendo; recuperação trata de voltar após uma interrupção. Esses objetivos podem exigir soluções diferentes.
 
 Imagine um banco com cópias: se uma máquina falha, uma alternativa pode ajudar. Se um comando apaga dados e a exclusão chega às cópias, pode ser necessário restaurar um ponto anterior. Isso explica por que redundância, replicação e backup não são sinônimos.
@@ -48,24 +42,9 @@ pense num **restaurante**: contratar garçons extras no sábado e dispensá-los 
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **escalabilidade:** Capacidade de aumentar o atendimento. Crescer uma máquina é escala vertical; acrescentar máquinas é escala horizontal.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 **Escalabilidade:** capacidade de crescer para atender à demanda. *Vertical* (scale up: instância maior) vs *horizontal* (scale out: mais instâncias).
 
-**Antes de ler este trecho:**
-
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-- **elasticidade:** Ajuste da capacidade para crescer e reduzir conforme a necessidade, dentro das regras e dos limites da solução.
-
 **Elasticidade:** crescer e encolher automaticamente conforme a carga (ex.: Auto Scaling). A diferença para escalabilidade é o "encolher sozinho".
-
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 
 **Alta disponibilidade:** o sistema continua acessível com falhas, normalmente com várias AZs.
 
@@ -73,34 +52,13 @@ pense num **restaurante**: contratar garçons extras no sábado e dispensá-los 
 
 **Agilidade:** reduzir o tempo e o custo de experimentar.
 
-**Antes de ler este trecho:**
-
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-- **pilot light:** Estratégia de recuperação que mantém uma base essencial ativa e amplia os demais recursos quando necessário. É mais que apenas guardar um backup.
-- **warm standby:** Ambiente alternativo reduzido já em execução, que pode ser ampliado na recuperação. O objetivo é reduzir preparação depois da falha.
-- **backup and restore:** Recuperação baseada em cópias e restauração. Depois da cópia, ainda pode ser necessário criar recursos e preparar o atendimento.
-
 **Recuperação de desastres (DR):** do mais barato e lento para o mais caro e rápido: Backup and Restore → Pilot Light → Warm Standby → Multi-site active/active.
-
-**Antes de ler este trecho:**
-
-- **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-- **SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
 
 **Acoplamento fraco (loose coupling):** componentes se comunicam por filas e eventos (SQS, SNS, EventBridge), e a falha de um não derruba o outro.
 
 ### ➕ Complemento
 
-**Antes de ler este trecho:**
-
-- **RTO:** Objetivo de tempo de recuperação: quanto tempo a organização aceita ficar sem o sistema após uma interrupção.
-
 **RTO (Recovery Time Objective):** tempo máximo aceitável para restaurar o serviço após um desastre.
-
-**Antes de ler este trecho:**
-
-- **RPO:** Objetivo de ponto de recuperação: quanto histórico de dados a organização aceita perder, medido como intervalo de tempo.
 
 **RPO (Recovery Point Objective):** quantidade máxima de dados que se aceita perder, medida em tempo (ex.: "no máximo 15 minutos de dados").
 
@@ -110,29 +68,11 @@ Quanto menores RTO e RPO, mais cara a estratégia de DR (Multi-site é a de meno
 
 **Projetar para falhas (design for failure):** assumir que componentes vão falhar e construir redundância e recuperação automática.
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-
 **Serverless:** não gerenciar servidores, escala automática, pagar só pelo uso e alta disponibilidade embutida (Lambda, Fargate, DynamoDB, S3, SQS, SNS).
-
-**Antes de ler este trecho:**
-
-- **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-- **stateless:** Controle que avalia cada direção sem manter o mesmo estado de conexão. Regras de ida e de volta precisam ser consideradas separadamente.
 
 **Stateless:** a aplicação não guarda estado no servidor (sessão vai para ElastiCache ou DynamoDB), o que facilita escalar horizontalmente.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
 
 **Primeiro, identifique o funcionamento:** Escala vertical aumenta uma máquina; horizontal adiciona máquinas. Filas desacoplam produtores e consumidores. Redundância reduz impacto de falhas; backups permitem voltar a uma cópia anterior.
 
@@ -179,10 +119,6 @@ Uma empresa aceita ficar duas horas fora do ar e perder até dez minutos de dado
 **Pergunta:** "O que significa RPO de 1 hora?"
 
 **Resposta curta:** Aceita-se perder no máximo 1 hora de dados.
-
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 
 **Pergunta:** "Aumentar o tamanho da instância é escala..."
 

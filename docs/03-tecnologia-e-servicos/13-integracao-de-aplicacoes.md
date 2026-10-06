@@ -30,11 +30,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **consumidor:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
-- **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
-
 Enviar uma solicitação e executar seu trabalho não precisam acontecer no mesmo instante. Uma fila conserva trabalho; uma notificação avisa interessados; um evento descreve algo ocorrido; um fluxo coordena tarefas. Essa separação reduz dependências imediatas.
 
 Pense num certificado: o site confirma que recebeu o pedido, a fila guarda a tarefa e um consumidor gera o arquivo depois. Se o processamento falhar, receber de novo pode ser necessário. A aplicação precisa evitar que repetição crie efeitos indevidos.
@@ -48,53 +43,19 @@ o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **Amazon SQS / SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
-
 **Amazon SQS:** Pontos de prova:
 
   - Fila gerenciada que **desacopla** componentes; o consumidor **puxa** (poll) as mensagens.
-**Antes de ler este trecho:**
-
-- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
-- **FIFO:** Primeiro a entrar, primeiro a sair. No SQS, a ordenação considera grupos de mensagens; deduplicação no envio não garante ausência de repetição de efeitos no programa.
-- **deduplicação:** Identificação e tratamento de entradas repetidas conforme um critério e uma janela. É diferente de garantir toda a execução da aplicação apenas uma vez.
 
   - **Standard:** throughput quase ilimitado, entrega pelo menos uma vez, ordem não garantida. **FIFO:** ordenação por grupo e deduplicação no envio dentro das condições do serviço; o consumidor ainda precisa tratar recebimentos repetidos e efeitos de negócio.
-**Antes de ler este trecho:**
-
-- **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-- **visibility timeout:** Intervalo em que uma mensagem recebida do SQS fica temporariamente invisível a outros recebimentos. Se ela não for excluída e o prazo terminar, pode voltar a ser recebida.
-- **dead-letter queue:** Fila separada para mensagens que atingiram condições configuradas de falha. Ajuda a isolar e investigar o problema; não corrige a mensagem automaticamente.
-- **timeout:** Limite de espera ou duração. Ao excedê-lo, uma operação pode falhar ou exigir tratamento; não presuma que nada aconteceu antes da interrupção.
 
   - Retenção padrão de 4 dias, configurável até 14 dias; **visibility timeout**; **dead-letter queue** para mensagens com falha.
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **Amazon SNS / SNS:** SNS publica mensagens em tópicos e as distribui a assinantes compatíveis.
-- **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
-- **produtor:** Componente que envia dados ou mensagens. Enviar uma mensagem não significa que o trabalho correspondente já foi realizado.
-- **pub/sub:** Publicação de uma mensagem para destinatários inscritos. Distribuir avisos a vários destinos é diferente de manter uma tarefa aguardando um consumidor.
-- **push:** Em pull, o consumidor busca dados. Em push, o envio é iniciado para o destinatário. A forma de entrega não executa automaticamente a regra de negócio.
-- **SMS:** Mensagem de texto para dispositivos móveis. Integrações e condições de envio são diferentes de e-mail e de entrega a uma fila.
 
 **Amazon SNS:** **pub/sub**. Um produtor publica num **tópico** e a mensagem é **empurrada** (push) para todos os assinantes: e-mail, SMS, HTTP, Lambda, filas SQS e push mobile.
 
   - **Fan-out:** SNS publica e várias filas SQS recebem a mesma mensagem para processamento paralelo.
-**Antes de ler este trecho:**
-
-- **Amazon EventBridge / EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
 
 **Amazon EventBridge:** **barramento de eventos** serverless. Recebe eventos de serviços AWS, de aplicações e de parceiros SaaS e os roteia com **regras** para destinos. **EventBridge Scheduler** agenda tarefas (estilo cron).
-
-**Antes de ler este trecho:**
-
-- **AWS Step Functions / Step Functions:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis.
 
 **AWS Step Functions:** **orquestra fluxos de trabalho** com várias etapas em máquinas de estado visuais, com tratamento de erros e novas tentativas (ex.: várias Lambdas em sequência, com aprovação humana no meio).
 

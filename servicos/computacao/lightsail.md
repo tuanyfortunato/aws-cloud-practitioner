@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 **Passo 1.** Escolha uma oferta e um modelo de software compatíveis com seu site ou aplicação.
 
 **Passo 2.** Crie o recurso e prepare o conteúdo, a conexão e o domínio quando necessário.
@@ -45,29 +40,15 @@
 
 Sites WordPress, lojas pequenas, blogs, ambientes de teste, aplicações simples.
 
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 Usuários com pouca experiência em AWS que querem previsibilidade de custo.
 
 ### O que oferece
 
 **Instâncias**
 
-**Antes de ler este trecho:**
-
-- **LAMP:** Conjunto tradicional de tecnologias para aplicações web: Linux, Apache, banco MySQL e PHP. O pacote não dispensa configuração e manutenção.
-
 **Detalhe:** Linux/Windows com blueprints prontos (WordPress, LAMP, Node.js, cPanel…).
 
 **Planos (bundles)**
-
-**Antes de ler este trecho:**
-
-- **vCPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-- **SSD:** Tipo de armazenamento sem partes mecânicas, usado para acesso rápido a dados. A escolha de um volume também envolve sua capacidade e limites de desempenho.
 
 **Detalhe:** Preço mensal fixo que inclui vCPU, memória, SSD e **cota de transferência de dados**.
 
@@ -77,20 +58,9 @@ Usuários com pouca experiência em AWS que querem previsibilidade de custo.
 
 **Outros**
 
-**Antes de ler este trecho:**
-
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **CDN:** Rede de distribuição de conteúdo. Ela aproxima entrega de conteúdo dos usuários e pode manter cópias em cache conforme as regras.
-- **load balancer:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-
 **Detalhe:** Load balancer, contêineres, armazenamento em objetos e em bloco, CDN, DNS, snapshots.
 
 **Upgrade**
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
 
 **Detalhe:** Snapshot pode ser exportado para EC2 quando a aplicação crescer.
 
@@ -102,11 +72,6 @@ A simplicidade não elimina manutenção do software, segurança ou limites do p
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
-- **Lightsail:** O Lightsail reúne recursos como servidores virtuais, armazenamento e rede em ofertas simplificadas.
-
 "Preço fixo e previsível, simples" → **Lightsail**. "Escala automática gerenciada a partir do código" → **Elastic Beanstalk**. "Controle total" → **EC2**.
 
 ## 4. Operação, segurança e custo
@@ -114,10 +79,6 @@ A simplicidade não elimina manutenção do software, segurança ou limites do p
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 
 Preço **mensal fixo** por plano (cobrado por hora até o teto mensal). Transferência acima da cota é cobrada.
 
@@ -136,10 +97,6 @@ Uma pessoa cria um pequeno site institucional numa instância Lightsail, usando 
 **Recursos envolvidos:** Instâncias, discos, snapshots e recursos simplificados.
 
 **Decisões que precisam ser tomadas:** Blueprint, bundle, rede e backups.
-
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 
 **Outra situação comentada:** Pequeno site com requisitos simples: Lightsail; requisitos complexos pedem avaliar EC2 e serviços especializados.
 

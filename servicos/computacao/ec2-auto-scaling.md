@@ -28,11 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-- **métrica:** Medida observada ao longo do tempo, como utilização ou número de erros. O número precisa de unidade, período e contexto para ter significado.
-
 **Passo 1.** Defina a configuração das máquinas e a quantidade mínima, desejada e máxima do grupo.
 
 **Passo 2.** Escolha condições que ajustam a quantidade, como uma métrica de utilização. O grupo cria ou remove máquinas dentro desses limites.
@@ -43,16 +38,7 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **elasticidade:** Ajuste da capacidade para crescer e reduzir conforme a necessidade, dentro das regras e dos limites da solução.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
-
 **Elasticidade:** acompanhar picos e vales de tráfego sem intervenção manual.
-
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 
 **Alta disponibilidade:** manter um número mínimo de instâncias saudáveis distribuídas em várias AZs.
 
@@ -62,40 +48,17 @@
 
 **Auto Scaling Group (ASG)**
 
-**Antes de ler este trecho:**
-
-- **ASG:** Grupo de Auto Scaling: conjunto cuja quantidade e saúde são administradas conforme uma configuração e suas regras.
-
 **O que é:** Conjunto lógico de instâncias com capacidade **mínima**, **desejada** e **máxima**.
 
 **Launch template**
-
-**Antes de ler este trecho:**
-
-- **SG:** Regras de tráfego associadas a interfaces ou recursos compatíveis. É um controle de rede, não uma permissão IAM para ler um arquivo ou chamar uma API.
-- **AMI:** Imagem de máquina EC2: modelo com o software necessário para iniciar uma instância. A imagem precisa ser compatível com a configuração de execução escolhida.
-- **key pair:** Par de chaves usado em mecanismos de acesso: uma parte pública e uma privada. A parte privada precisa ser protegida pelo cliente.
-- **user data:** Dados ou instruções fornecidos à inicialização da máquina. Um script configurado pode preparar o ambiente; ele não instala qualquer sistema sem você descrever as ações.
-- **launch template:** Modelo versionado de parâmetros para iniciar máquinas. Facilita repetir configurações; não contém por si só todas as regras da aplicação.
 
 **O que é:** Configuração das instâncias (AMI, tipo, SG, key pair, user data). Substitui as antigas *launch configurations*.
 
 **Health check**
 
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **load balancer / ELB:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
-- **health check:** Teste de resposta usado para avaliar um destino. O teste e os limites precisam refletir a função observada; não equivale a uma investigação completa da aplicação.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 **O que é:** EC2 (status da instância) e/ou **ELB** (health check do load balancer). Instância não saudável é substituída.
 
 **Scaling policy**
-
-**Antes de ler este trecho:**
-
-- **policy:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
 **O que é:** Regra que muda a capacidade desejada.
 
@@ -113,13 +76,6 @@
 
 ### Configurações e opções importantes
 
-**Antes de ler este trecho:**
-
-- **CPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
-- **alarme:** Condição acompanhada sobre dados de monitoramento. Uma mudança de estado pode gerar ações configuradas; o alarme não diagnostica todo problema sozinho.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
-
 | Política | Como funciona | Exemplo |
 |---|---|---|
 | **Target tracking** | Mantém uma métrica num alvo | CPU média em 50% |
@@ -128,25 +84,13 @@
 | **Scheduled** | Capacidade em horários conhecidos | Pico toda sexta às 18h |
 | **Predictive** | ML prevê a demanda com base no histórico e escala antes | Padrões diários/semanais |
 
-**Antes de ler este trecho:**
-
-- **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
-
 **Mixed instances policy:** combina On-Demand e **Spot** e vários tipos de instância no mesmo grupo.
 
 **Termination policy:** define qual instância sai primeiro (padrão: equilibra AZs, depois a com template mais antigo…).
 
-**Antes de ler este trecho:**
-
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-
 **Rebalanceamento entre AZs:** o ASG tenta manter o mesmo número de instâncias por AZ.
 
 ### Limites e números
-
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
 
 🧊 Quotas de ASGs e templates por região não caem.
 
@@ -160,14 +104,6 @@ Ele gerencia a quantidade de máquinas; não distribui sozinho cada pedido dos v
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **EC2 Auto Scaling:** O EC2 Auto Scaling aumenta ou diminui a quantidade de máquinas EC2 seguindo regras que você configura.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
-- **DynamoDB:** DynamoDB é um banco gerenciado que organiza dados em tabelas de itens.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 **EC2 Auto Scaling** (instâncias) × **AWS Auto Scaling** (planos de escalonamento para vários recursos: EC2, ECS, DynamoDB, Aurora).
 
 Auto Scaling **não distribui tráfego** — quem faz isso é o [ELB](elastic-load-balancing.md). Juntos dão HA + elasticidade.
@@ -180,19 +116,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### Cobrança
 
-**Antes de ler este trecho:**
-
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-
 **Sem custo próprio:** paga-se as instâncias EC2 e alarmes/métricas do CloudWatch usados.
 
 ### Segurança e responsabilidade compartilhada
 
 **AWS:** executa o serviço de escalonamento.
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 
 **Cliente:** define políticas, AMIs atualizadas, IAM, security groups.
 

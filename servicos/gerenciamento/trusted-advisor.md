@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 **Passo 1.** Consulte verificações compatíveis com seu ambiente e seu nível de acesso.
 
 **Passo 2.** Leia o problema e a recomendação associados ao recurso. Compare-os com os requisitos reais da aplicação.
@@ -42,33 +38,11 @@
 
 ### Categorias
 
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-
 1. **Cost optimization** — instâncias ociosas, volumes EBS sem uso, Elastic IPs não associados, RIs/SPs subutilizados.
-
-**Antes de ler este trecho:**
-
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
 
 2. **Performance** — instâncias sobrecarregadas, configuração do CloudFront.
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **MFA:** Verificação adicional de autenticação, além da primeira credencial. Ela protege a entrada, mas não concede permissões por si só.
-- **root:** Na conta AWS, é a identidade principal com poderes especiais. Dentro de Linux, root é o administrador do sistema operacional. Administrar Linux não é o mesmo que administrar a conta AWS.
-
 3. **Security** — buckets S3 abertos, SGs com portas irrestritas, **MFA no root**, uso do IAM, snapshots públicos, access keys expostas.
-
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-- **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
 
 4. **Fault tolerance** — EBS sem snapshot, instâncias numa só AZ, RDS sem Multi-AZ, backups.
 
@@ -79,14 +53,6 @@
 Status das verificações: 🟢 sem problema · 🟡 investigação recomendada · 🔴 ação recomendada.
 
 ### Por plano de suporte
-
-**Antes de ler este trecho:**
-
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 
 | Plano | Verificações | Extras |
 |---|---|---|
@@ -101,13 +67,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 Uma recomendação não conhece sozinha todas as necessidades do negócio. Cobertura e acesso dependem das condições aplicáveis; a equipe deve avaliar antes de agir.
 
 ### ⚠️ Não confundir
-
-**Antes de ler este trecho:**
-
-- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 
 Trusted Advisor (boas práticas amplas: custo, desempenho, segurança, cotas) × **Security Hub** (achados de segurança) × **Compute Optimizer** (rightsizing com ML) × **Well-Architected Tool** (revisão de uma carga contra os pilares).
 
@@ -142,10 +101,6 @@ A equipe consulta uma recomendação sobre recursos pouco usados e decide se pod
 **Pergunta:** "Menor plano com todas as verificações do Trusted Advisor."
 
 **Resposta curta:** Business Support+ (no modelo clássico, Business).
-
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 
 **Pergunta:** "Menor plano com Trusted Advisor Priority."
 

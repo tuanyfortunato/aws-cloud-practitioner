@@ -32,13 +32,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **ponto de presença:** Local de infraestrutura usado para aproximar determinadas funções dos usuários, como entrega de conteúdo. Não é uma região completa com todos os serviços.
-- **redundância:** Existência de componentes alternativos. Duas cópias só ajudam se forem utilizáveis na falha que você pretende enfrentar.
-
 Região, zona e ponto de presença descrevem unidades diferentes. Primeiro escolha onde o recurso será criado; depois avalie como ele distribui componentes e atende usuários. Um recurso numa região não ganhou redundância automaticamente.
 
 Várias zonas podem ajudar com falhas locais. Pontos de presença aproximam determinadas funções, como distribuição de conteúdo. Múltiplas regiões pedem decisões adicionais sobre dados, acesso, custos e recuperação; são escolhas de projeto, não apenas nomes no mapa.
@@ -52,89 +45,37 @@ a **região** é uma **cidade**; cada **AZ** é um **bairro** com a própria ene
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
-- **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
-
 **Região:** área geográfica isolada e independente das outras, com várias AZs. A maioria dos serviços é **regional**; alguns são **globais** (IAM, Route 53, CloudFront, Organizations).
 
 **Como escolher a região (4 fatores):**
 
-**Antes de ler este trecho:**
-
-- **compliance:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-
   1. **Compliance e governança de dados:** leis que exigem que os dados fiquem num país.
-**Antes de ler este trecho:**
-
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
   2. **Proximidade dos clientes:** menor latência.
 
   3. **Serviços disponíveis:** nem todo serviço ou recurso existe em todas as regiões.
 
   4. **Preço:** varia entre regiões.
-**Antes de ler este trecho:**
-
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 
 **Availability Zone (AZ):** um ou mais datacenters distintos, com energia, rede e refrigeração redundantes, fisicamente separados de outras AZs (distância significativa), mas ligados por rede de baixa latência. Regiões novas têm no mínimo três AZs.
 
-**Antes de ler este trecho:**
-
-- **Global Accelerator:** Global Accelerator usa a rede global da AWS para encaminhar tráfego a destinos compatíveis, considerando configuração e saúde desses destinos.
-- **Shield:** Shield oferece proteção contra ataques de negação de serviço distribuídos, com diferenças de cobertura e recursos entre suas modalidades.
-- **WAF:** WAF aplica regras ao tráfego web em integrações compatíveis.
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-- **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-
 **Edge locations (pontos de presença):** muito mais numerosas que as regiões, em grandes cidades. Usadas por **CloudFront** (cache), **Route 53** (DNS), **Global Accelerator**, **Shield** e **WAF**. **Regional edge caches** ficam entre as edge locations e a origem.
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
 **AWS Local Zones:** extensão de uma região para perto de grandes centros urbanos, para latência de um dígito de milissegundo (ex.: renderização, games, mídia).
 
 **AWS Wavelength:** infraestrutura AWS dentro das redes **5G** das operadoras, para aplicações móveis de ultrabaixa latência.
 
-**Antes de ler este trecho:**
-
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-
 **AWS Outposts:** racks e servidores da AWS instalados **no seu datacenter**, com os mesmos serviços, APIs e ferramentas. Para latência local, processamento local de dados ou residência de dados.
-
-**Antes de ler este trecho:**
-
-- **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 
 **Alta disponibilidade na prática:**
 
-**Antes de ler este trecho:**
-
-- **Multi-AZ:** Configuração que utiliza mais de uma zona de disponibilidade. Seu comportamento depende do serviço: não presuma que toda cópia atende leituras ou que isso é backup de dados apagados.
-
   - Falha de um datacenter → distribuir em **várias AZs** (Multi-AZ).
-**Antes de ler este trecho:**
-
-- **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
 
   - Desastre regional, latência para usuários globais ou exigência de DR → **várias regiões**.
 
 **Cai na prova:** "menor latência para usuários do mundo todo" = CloudFront/edge locations; "serviço AWS no datacenter da empresa" = Outposts; "aplicação 5G" = Wavelength; "apagão de uma AZ não derrubar a aplicação" = Multi-AZ.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 
 **Primeiro, identifique o funcionamento:** Uma região reúne AZs; cada AZ é um domínio de falha com um ou mais datacenters. Edge locations aproximam entrega e serviços de usuários.
 

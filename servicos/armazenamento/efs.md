@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-
 **Passo 1.** Crie um sistema de arquivos e prepare os pontos de acesso de rede necessários.
 
 **Passo 2.** Permita que máquinas compatíveis e autorizadas montem o armazenamento. Elas passam a acessar um conjunto compartilhado de arquivos.
@@ -42,38 +38,9 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
-- **CMS:** Tipos de aplicação: gestão de conteúdo, relacionamento com clientes e gestão empresarial. São funções de software, não nomes de um modelo de armazenamento.
-
 Conteúdo web compartilhado, diretórios home, CMS, pipelines de mídia, ML, contêineres e Lambda que precisam de arquivos persistentes.
 
 ### Conceitos e configurações
-
-**Antes de ler este trecho:**
-
-- **EFS:** O EFS oferece um sistema de arquivos compartilhado.
-- **AWS Backup:** AWS Backup centraliza políticas e operações de backup para recursos compatíveis.
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **KMS:** Serviço AWS para gerenciar chaves e operações criptográficas. Ter uma chave não ativa automaticamente criptografia em todos os recursos.
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
-- **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
-- **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
-- **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
-- **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-- **security group:** Regras de tráfego associadas a interfaces ou recursos compatíveis. É um controle de rede, não uma permissão IAM para ler um arquivo ou chamar uma API.
-- **NFS / POSIX:** NFS e SMB são protocolos para acesso a arquivos compartilhados. POSIX descreve interfaces e comportamentos de sistemas. Compatibilidade importa para a aplicação usar os arquivos corretamente.
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-- **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
 
 | Item | Detalhe |
 |---|---|
@@ -96,23 +63,9 @@ Ele fornece arquivos compartilhados, não um banco de dados nem armazenamento lo
 
 ### ⚠️ Pegadinhas e não confundir
 
-**Antes de ler este trecho:**
-
-- **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
-- **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
-
 **EFS × EBS:** compartilhado entre muitas instâncias e AZs × disco de uma instância numa AZ.
 
-**Antes de ler este trecho:**
-
-- **FSx:** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes.
-- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-
 **EFS × FSx for Windows:** Linux/NFS × Windows/SMB com Active Directory.
-
-**Antes de ler este trecho:**
-
-- **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
 
 EFS cobra pelo usado; EBS cobra pelo provisionado.
 
@@ -122,17 +75,9 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### Cobrança
 
-**Antes de ler este trecho:**
-
-- **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-
 Por **GB efetivamente armazenado** por mês (cresce e encolhe sozinho) + throughput (Elastic/Provisioned) + acessos a IA/Archive.
 
 ### Segurança e responsabilidade compartilhada
-
-**Antes de ler este trecho:**
-
-- **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
 
 **AWS:** disponibilidade, durabilidade e escala do sistema de arquivos.
 
@@ -153,11 +98,6 @@ Vários servidores de uma aplicação acessam a mesma pasta de documentos pelo E
 **Recursos envolvidos:** Sistema de arquivos, mount targets, access points e classes.
 
 **Decisões que precisam ser tomadas:** Rede NFS, permissões, modalidade regional/uma zona e lifecycle.
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
 
 **Outra situação comentada:** Vários servidores web Linux usam o mesmo conteúdo: EFS, com configuração dos mounts.
 

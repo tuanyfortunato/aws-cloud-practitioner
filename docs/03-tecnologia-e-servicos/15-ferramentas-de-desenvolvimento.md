@@ -45,60 +45,21 @@ Testes precisam existir e verificar comportamentos relevantes. Rastreamentos aju
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 **AWS CLI:** ver [3.1](01-formas-de-acesso-e-implantacao.md).
-
-**Antes de ler este trecho:**
-
-- **minuto:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-- **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
-- **build:** Processo de preparar uma versão executável da aplicação. Pode compilar, empacotar e executar tarefas configuradas, mas não inventa os testes necessários.
 
 **AWS CodeBuild:** **compila, testa e empacota** código; serverless, cobrado por minuto de build.
 
-**Antes de ler este trecho:**
-
-- **CI / CD / CI/CD:** Integração contínua e entrega ou implantação contínua: práticas para construir, verificar e disponibilizar versões por etapas repetíveis.
-- **deploy:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
-
 **AWS CodePipeline:** **orquestra a esteira de CI/CD** (fonte → build → teste → deploy) — o GitHub Actions é um equivalente de terceiros.
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-- **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
 
 **AWS CodeDeploy:** automatiza **deploys** em EC2, servidores on-premises, Lambda e ECS (não está na lista oficial, mas costuma aparecer com os outros).
 
-**Antes de ler este trecho:**
-
-- **AWS X-Ray / X-Ray:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
-
 **AWS X-Ray:** **rastreamento distribuído**: acompanha requisições entre microsserviços para achar gargalos e erros.
-
-**Antes de ler este trecho:**
-
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
 **AWS CodeArtifact:** repositório gerenciado de pacotes (npm, Maven, PyPI).
 
 **Cai na prova:** "descobrir qual microsserviço está deixando a requisição lenta" = X-Ray; "automatizar a esteira de entrega" = CodePipeline; "compilar e rodar testes" = CodeBuild.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **CloudWatch:** Ferramentas AWS para métricas, logs e alarmes, conforme a coleta e a configuração. Seu foco é observar comportamento e operação.
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-- **trace:** Rastreamento do caminho de uma requisição em componentes instrumentados. Permite examinar etapas, mas depende dos dados emitidos pela aplicação.
-- **instrumentação:** Preparação do software para emitir informações de observação. Sem os dados necessários, a ferramenta não consegue mostrar todos os detalhes da execução.
-- **pipeline:** Sequência de etapas de um processo. No desenvolvimento, pode conectar construção, testes e entrega; cada etapa tem ações e permissões próprias.
 
 **Primeiro, identifique o funcionamento:** CodeBuild executa build/testes; CodePipeline coordena estágios e integra ferramentas; X-Ray acompanha traces de requisições; CLI/SDK operam APIs.
 

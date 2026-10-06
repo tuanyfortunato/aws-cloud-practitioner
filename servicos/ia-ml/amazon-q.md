@@ -38,17 +38,6 @@
 
 ### Variantes
 
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **QuickSight:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis.
-- **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-- **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
-- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
-- **IDE:** Ambiente de desenvolvimento com ferramentas para editar e trabalhar com código. Não é necessariamente o local que hospeda a aplicação em produção.
-
 | Variante | Para quem | O que faz |
 |---|---|---|
 | **Amazon Q Developer** (✔️ o CodeWhisperer passou a integrá-lo em 30/04/2024) | Desenvolvedores e times de operação | Sugestões e geração de código na IDE e CLI, agentes que implementam funcionalidades, **varredura de segurança**, upgrade de código (ex.: Java), explicar e diagnosticar recursos e **erros no console AWS**, chat sobre a conta. |
@@ -68,15 +57,7 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 ### 🔄 Atualizações 2025-2026
 
-**Antes de ler este trecho:**
-
-- **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 ✔️ Os **plugins de IDE do Amazon Q Developer** têm fim de suporte em **30/04/2027**; a documentação aponta o **Kiro** como alternativa.
-
-**Antes de ler este trecho:**
-
-- **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
 
 **Amazon Q Business** entrou em manutenção e **não aceita novos clientes desde 30/07/2026**; aplicações existentes podem ser **conectadas** ao Amazon Quick Suite. O **Amazon Q** continua na lista oficial: "assistente de IA generativa para funcionários/desenvolvedores" → **Amazon Q**.
 

@@ -27,10 +27,6 @@
 
 ## 1. Entenda as peças e a relação entre elas
 
-**Antes de ler este trecho:**
-
-- **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 A demanda muda, mas um equipamento comprado permanece na empresa mesmo quando não é utilizado. Obter recursos sob demanda permite aproximar capacidade e necessidade. Isso também reduz a espera para experimentar ou atender um novo projeto.
 
 Diferencie o benefício de sua implementação. A nuvem permite ajustar capacidade, mas a equipe precisa configurar esse ajuste. Também é possível manter recursos ociosos na nuvem e pagar por eles; o benefício não acontece só por mudar o local.
@@ -44,16 +40,7 @@ Diferencie o benefício de sua implementação. A nuvem permite ajustar capacida
 
 ## 2. Conceitos e opções explicados
 
-**Antes de ler este trecho:**
-
-- **CapEx / OpEx:** Despesa de capital e despesa operacional. Comprar equipamentos antecipadamente e pagar recursos ao longo do uso têm estruturas econômicas diferentes.
-
 1. **Trocar despesa de capital por despesa variável:** sem investimento antecipado em hardware (CapEx → OpEx).
-
-**Antes de ler este trecho:**
-
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
 2. **Beneficiar-se de economias de escala massivas:** a AWS compra em volume e repassa preços menores.
 
@@ -63,21 +50,11 @@ Diferencie o benefício de sua implementação. A nuvem permite ajustar capacida
 
 5. **Parar de gastar dinheiro mantendo datacenters:** foco no negócio, não em racks e energia.
 
-**Antes de ler este trecho:**
-
-- **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
-
 6. **Tornar-se global em minutos:** implantar em várias regiões com poucos cliques.
 
 **Cai na prova:** a questão descreve um benefício e pede o nome oficial. Ex.: "não precisa mais comprar servidores para o pico de Black Friday" = parar de adivinhar capacidade.
 
 ## 3. Como analisar uma situação
-
-**Antes de ler este trecho:**
-
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-- **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
 **Primeiro, identifique o funcionamento:** Capacidade é disponibilizada conforme a demanda, em vez de ser comprada para um pico futuro. A escala da AWS permite compartilhar infraestrutura entre clientes com isolamento.
 

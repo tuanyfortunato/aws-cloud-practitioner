@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 **Passo 1.** Planeje o local e a conexão física compatível com o ambiente da empresa.
 
 **Passo 2.** Configure interfaces e rotas de acesso aos recursos desejados. A comunicação usa a conectividade planejada.
@@ -42,10 +38,6 @@
 
 ### Para que serve
 
-**Antes de ler este trecho:**
-
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-
 Banda alta e **desempenho consistente** (latência previsível).
 
 **Reduzir custo de transferência** de grandes volumes (tarifa de saída menor que a da internet).
@@ -53,25 +45,6 @@ Banda alta e **desempenho consistente** (latência previsível).
 Requisitos de conectividade privada (sem internet pública).
 
 ### Conceitos e configurações
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **VPN:** Conexão lógica protegida que liga usuários ou redes. Um túnel VPN não concede automaticamente acesso a todos os recursos do destino.
-- **Direct Connect:** Direct Connect permite estabelecer essa conectividade por conexões e locais compatíveis, com interfaces e rotas configuradas para o ambiente.
-- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-- **virtual:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
-- **resiliência:** Capacidade de resistir e recuperar-se de falhas. Requer escolher quais falhas serão tratadas e como a operação continuará.
-- **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **porta:** Número que ajuda a identificar o serviço de destino de uma comunicação. Liberar uma porta autoriza tráfego segundo a regra, mas não configura a aplicação para responder.
-- **DX:** Sigla de Direct Connect, conectividade dedicada com locais e interfaces próprios. Dedicada não equivale automaticamente a criptografada.
-- **VIF:** Interface virtual de Direct Connect. Ela organiza acesso conforme a modalidade e os requisitos de rede; não é uma máquina virtual.
-- **LAG:** Agrupamento de conexões de rede compatíveis para administração e capacidade. Não elimina a necessidade de planejar resiliência do caminho.
-- **VGW:** Virtual Private Gateway: componente de conectividade associado a uma VPC em cenários compatíveis de ligação com outras redes.
 
 | Item | Detalhe |
 |---|---|
@@ -89,10 +62,6 @@ Requisitos de conectividade privada (sem internet pública).
 ## 3. Como escolher e reconhecer os limites
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-**Antes de ler este trecho:**
-
-- **redundância:** Existência de componentes alternativos. Duas cópias só ajudam se forem utilizáveis na falha que você pretende enfrentar.
 
 Dedicada não significa automaticamente criptografada nem sem possibilidade de falha. A proteção dos dados e a redundância precisam ser planejadas.
 

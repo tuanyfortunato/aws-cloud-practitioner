@@ -28,10 +28,6 @@
 
 ## 1. A sequência de funcionamento
 
-**Antes de ler este trecho:**
-
-- **landing zone:** Base organizada de um ambiente AWS com várias contas e controles. Ainda é necessário definir aplicações, acessos e operação dentro dela.
-
 **Passo 1.** Defina a base de várias contas e os controles necessários para seu ambiente.
 
 **Passo 2.** Estabeleça a landing zone e use os mecanismos compatíveis de criação e governança das contas.
@@ -41,17 +37,6 @@
 ## 2. Recursos e opções, com significado
 
 ### O que configura
-
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **IAM Identity Center:** Serviço de acesso central para a força de trabalho. Atribuições de contas e aplicações não são o cadastro de clientes de um aplicativo.
-- **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
-- **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-- **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-- **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
-- **AFT:** Automação de criação e preparação de contas em ambiente Control Tower usando Terraform conforme a solução. Não configura toda aplicação de cada conta.
 
 | Item | Detalhe |
 |---|---|
@@ -69,11 +54,6 @@ Ele não é uma certificação automática de segurança nem administra toda con
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-- **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
-
 Organizations = estrutura e políticas. Control Tower = **automatiza boas práticas** em cima do Organizations.
 
 ## 4. Operação, segurança e custo
@@ -81,10 +61,6 @@ Organizations = estrutura e políticas. Control Tower = **automatiza boas práti
 Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
 
 ### Cobrança
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 
 Sem custo próprio; paga-se os serviços usados (Config, CloudTrail, S3, Service Catalog…).
 
@@ -103,10 +79,6 @@ A equipe cria uma base para contas de trabalho e utiliza os mecanismos previstos
 **Recursos envolvidos:** Landing zone, contas compartilhadas, OUs e controls.
 
 **Decisões que precisam ser tomadas:** Contas/regiões governadas e controles.
-
-**Antes de ler este trecho:**
-
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
 **Outra situação comentada:** Criar base padronizada para novas contas: Control Tower, com responsabilidades de governança continuadas.
 

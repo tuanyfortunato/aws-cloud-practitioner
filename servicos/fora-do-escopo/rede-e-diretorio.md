@@ -42,31 +42,13 @@
 
 ### AWS Cloud Map
 
-**Antes de ler este trecho:**
-
-- **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
-- **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-- **Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
-- **DNS:** Sistema que relaciona nomes a informações de endereço e outros registros. Resolver o nome de um site não hospeda o site nem garante que ele está funcionando.
-
 **Descoberta de serviços**: registra os recursos de uma aplicação (microsserviços, bancos, filas) com nomes amigáveis e o local atual, para que os serviços encontrem uns aos outros por API ou DNS. Usado pelo ECS Service Connect.
 
 ### Amazon VPC Lattice
 
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-- **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-
 **Rede de aplicação** gerenciada: conecta, protege (políticas de autenticação com IAM) e monitora a comunicação entre serviços em várias VPCs e contas, sem gerenciar peering, rotas ou load balancers.
 
 ### Network Access Analyzer
-
-**Antes de ler este trecho:**
-
-- **VPC:** A VPC é uma rede virtual isolada logicamente para seus recursos.
-- **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 
 Recurso da VPC que **identifica caminhos de rede não intencionais** até seus recursos (ex.: "algum banco de dados é acessível pela internet?"), comparando com requisitos que você define.
 
@@ -86,17 +68,7 @@ Esses produtos não substituem uns aos outros nem tornam toda rede acessível au
 
 "Ligar dezenas de VPCs" → **Transit Gateway** (no escopo). "Expor um serviço de forma privada" → **PrivateLink** (no escopo).
 
-**Antes de ler este trecho:**
-
-- **Directory Service:** Directory Service oferece opções para diretórios e integração com Active Directory, conforme a modalidade.
-- **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-- **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
-
 "Active Directory gerenciado" → **Directory Service** (no escopo), não Cloud Directory.
-
-**Antes de ler este trecho:**
-
-- **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
 "Analisar tráfego de rede" → **VPC Flow Logs**.
 
@@ -115,11 +87,6 @@ Se uma parte da aplicação precisa descobrir onde está outra, descoberta de se
 **Recursos envolvidos:** Descoberta de serviços, conectividade de aplicações e diretórios especializados.
 
 **Decisões que precisam ser tomadas:** Escopo de rede, identidade e serviço.
-
-**Antes de ler este trecho:**
-
-- **Route 53:** Route 53 oferece DNS e recursos associados, como registro de domínios e verificações de saúde.
-- **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
 
 **Outra situação comentada:** DNS Route 53 e identidade IAM são conceitos centrais; ferramentas especializadas pedem contexto próprio.
 

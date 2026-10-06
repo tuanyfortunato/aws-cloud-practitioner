@@ -38,25 +38,6 @@
 
 ### O que faz
 
-**Antes de ler este trecho:**
-
-- **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-- **GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
-- **Inspector:** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
-- **Macie:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
-- **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
-- **AWS Config:** AWS Config registra configurações de recursos compatíveis e permite avaliá-las com regras.
-- **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
-- **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
-- **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-- **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
-- **CIS / NIST / PCI DSS:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
-- **SP:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-- **CSPM:** Gestão da postura de segurança na nuvem: avaliação e acompanhamento de controles de configuração. Resultado de avaliação não é certificação automática.
-- **FSBP:** Práticas fundamentais de segurança AWS usadas em avaliações de controles. Um controle aprovado não certifica toda a aplicação.
-- **ASFF / OCSF:** Formatos ou esquemas para representar informações de segurança. Padronizar o registro facilita integração, mas não confirma sozinho a natureza do incidente.
-
 | Função | Detalhe |
 |---|---|
 | **Agregação de achados** | GuardDuty, Inspector, Macie, IAM Access Analyzer, Firewall Manager, Config, Health e **parceiros**, num formato padrão (ASFF/OCSF). |
@@ -69,23 +50,11 @@
 
 Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
 
-**Antes de ler este trecho:**
-
-- **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
-
 Centralizar achados não corrige todos os recursos automaticamente nem garante conformidade com qualquer norma. Integrações, controles e ações de resposta exigem configuração.
 
 ### ⚠️ Não confundir
 
-**Antes de ler este trecho:**
-
-- **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
-
 Security Hub (achados de **segurança** centralizados) × **Trusted Advisor** (boas práticas de custo, desempenho, segurança, cotas).
-
-**Antes de ler este trecho:**
-
-- **data lake:** Conjunto de dados mantido para usos diversos, frequentemente em armazenamento de objetos. Organização, catálogo e permissões continuam necessários.
 
 Security Hub (painel) × **Security Lake** (data lake de logs de segurança no formato OCSF).
 
@@ -112,11 +81,6 @@ A equipe consulta uma visão central de achados e controles para acompanhar prob
 **Recursos envolvidos:** Findings, controles/standards, agregação e configuração de contas.
 
 **Decisões que precisam ser tomadas:** Padrões, regiões, contas e integrações.
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-- **PII:** Informação que pode identificar uma pessoa. Sua identificação ajuda a planejar proteção de dados, mas não substitui avaliação do contexto e das regras aplicáveis.
 
 **Outra situação comentada:** Ver achados de vários serviços num lugar: Security Hub; identificar PII em S3: Macie produz o achado.
 
