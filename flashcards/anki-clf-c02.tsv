@@ -164,20 +164,16 @@ Quando usar o SageMaker AI em vez de um serviço de IA pronto?	Quando o problema
 Qual é a diferença entre Amazon Polly e Amazon Transcribe?	O Polly converte texto em fala; o Transcribe converte fala em texto.	CLF-C02 dominio-3 secao-3_12
 Qual é a diferença entre Amazon Textract e Amazon Rekognition?	O Textract extrai texto, formulários e tabelas de documentos; o Rekognition analisa imagens e vídeos para detectar rostos, objetos e conteúdo impróprio.	CLF-C02 dominio-3 secao-3_12
 Para que serve o Amazon Lex?	Para criar interfaces conversacionais, como chatbots, por voz e texto, com reconhecimento de fala e compreensão de linguagem natural.	CLF-C02 dominio-3 secao-3_12
-Desacoplar componentes para que um pico não derrube o processamento.	SQS.	CLF-C02 dominio-3 secao-3_13
-Ordenar mensagens por grupo e tratar duplicações no envio.	Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.	CLF-C02 dominio-3 secao-3_13
-Enviar a mesma mensagem para vários sistemas e para e-mail.	SNS.	CLF-C02 dominio-3 secao-3_13
-Um evento precisa ser processado por várias filas em paralelo.	Fan-out com SNS + SQS.	CLF-C02 dominio-3 secao-3_13
-Reagir a eventos de serviços AWS e de aplicações SaaS com regras.	EventBridge.	CLF-C02 dominio-3 secao-3_13
-Executar uma tarefa todo dia às 2h sem servidor.	EventBridge Scheduler (disparando Lambda).	CLF-C02 dominio-3 secao-3_13
-Orquestrar um processo com várias etapas e tratamento de erro.	Step Functions.	CLF-C02 dominio-3 secao-3_13
-Criar uma central de atendimento na nuvem.	Amazon Connect.	CLF-C02 dominio-3 secao-3_14
-Enviar e-mails de confirmação e marketing em massa.	SES.	CLF-C02 dominio-3 secao-3_14
-Oferecer desktops virtuais a funcionários remotos.	WorkSpaces.	CLF-C02 dominio-3 secao-3_14
-Disponibilizar um aplicativo de desktop pelo navegador.	AppStream 2.0.	CLF-C02 dominio-3 secao-3_14
-Criar e hospedar rapidamente um app web ou mobile full-stack.	Amplify.	CLF-C02 dominio-3 secao-3_14
-API GraphQL gerenciada com dados em tempo real.	AppSync.	CLF-C02 dominio-3 secao-3_14
-Conectar milhões de sensores à nuvem.	IoT Core.	CLF-C02 dominio-3 secao-3_14
+Para que serve o Amazon SQS?	Para desacoplar componentes com uma fila: o produtor envia mensagens, e o consumidor as busca e processa no seu ritmo, o que absorve picos e falhas.	CLF-C02 dominio-3 secao-3_13
+Qual é a diferença entre uma fila padrão e uma fila FIFO no SQS?	A fila padrão tem vazão quase ilimitada, mas pode repetir mensagens e entregá-las fora de ordem; a FIFO mantém a ordem dentro de cada grupo e processa cada mensagem uma vez.	CLF-C02 dominio-3 secao-3_13
+Qual é a diferença entre SQS e SNS?	No SQS, a mensagem espera numa fila até um consumidor buscá-la; no SNS, a mensagem publicada num tópico é empurrada na hora para todos os assinantes.	CLF-C02 dominio-3 secao-3_13
+Quando usar o Amazon EventBridge?	Para ligar componentes por eventos: receber eventos de aplicações, de serviços da AWS e de softwares de terceiros e entregá-los aos destinos certos, ou para agendar tarefas com o EventBridge Scheduler.	CLF-C02 dominio-3 secao-3_13
+O que o AWS Step Functions faz?	Coordena fluxos de trabalho com várias etapas, chamando serviços como o Lambda, com novas tentativas e caminhos alternativos em caso de erro.	CLF-C02 dominio-3 secao-3_13
+Para que serve o Amazon Connect?	É a central de atendimento na nuvem: clientes entram em contato por voz, chat ou SMS, e atendentes resolvem os casos, pagando-se pelo uso.	CLF-C02 dominio-3 secao-3_14
+Qual é a diferença entre Amazon SES e Amazon SNS para enviar e-mails?	O SES é o serviço de e-mail completo, para mensagens transacionais e de marketing enviadas da aplicação; o SNS manda notificações simples a quem assinou um tópico.	CLF-C02 dominio-3 secao-3_14
+Qual é a diferença entre WorkSpaces e WorkSpaces Applications (AppStream 2.0)?	O WorkSpaces entrega um desktop virtual inteiro; o WorkSpaces Applications faz streaming de programas de desktop específicos para o navegador ou um cliente.	CLF-C02 dominio-3 secao-3_14
+O que o AWS Amplify oferece?	Ferramentas para criar, implantar e hospedar aplicações web e mobile full-stack, sem exigir conhecimento de nuvem.	CLF-C02 dominio-3 secao-3_14
+Para que serve o AWS IoT Core?	Para conectar dispositivos IoT à AWS com segurança, nos dois sentidos, e gerenciar frotas de dispositivos sem provisionar servidores.	CLF-C02 dominio-3 secao-3_14
 Orquestrar a esteira de CI/CD na AWS.	CodePipeline.	CLF-C02 dominio-3 secao-3_15
 Compilar e executar testes sem gerenciar servidores de build.	CodeBuild.	CLF-C02 dominio-3 secao-3_15
 Automatizar deploy em EC2 e servidores on-premises.	CodeDeploy.	CLF-C02 dominio-3 secao-3_15
