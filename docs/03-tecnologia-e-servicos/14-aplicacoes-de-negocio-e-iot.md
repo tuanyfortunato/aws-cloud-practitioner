@@ -1,131 +1,174 @@
+<!-- autoral -->
+
 # 3.14 Aplicações de negócio, usuário final, front-end e IoT
 
-## 🧠 Antes de começar
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34% da prova)** · Depende das aulas [1.1](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md), [3.10](10-rede-e-entrega-de-conteudo.md) e [3.13](13-integracao-de-aplicacoes.md)
 
-**Qual é a dificuldade?** Uma organização pode precisar atender pessoas, enviar e-mails, oferecer trabalho remoto ou conectar equipamentos. Cada necessidade vai além de criar uma máquina.
-
-**A ideia em palavras simples:** Este tópico reúne serviços voltados a experiências e aplicações específicas. É importante reconhecer o problema de cada produto, e não memorizar a categoria como se fosse um serviço só.
-
-**Exemplo do dia a dia:** A escola pode usar um serviço de e-mail para confirmações e uma plataforma de atendimento para a secretaria. Sensores conectados exigem outro conjunto de recursos.
-
-**O que não concluir?** Um serviço pronto continua exigindo configuração, identidade e integração. As ferramentas desta seção não substituem umas às outras.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Contact center** | central de atendimento (telefone, chat). |
-| **DaaS** | desktop como serviço. |
-| **IoT** | internet das coisas: sensores e dispositivos conectados. |
-
----
-
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
-
-> 🔎 **Fichas detalhadas:** [Amazon Connect](../../servicos/aplicacoes/amazon-connect.md) · [Amazon SES (Simple Email Service)](../../servicos/aplicacoes/ses.md) · [Amazon WorkSpaces, AppStream 2.0 e WorkSpaces Secure Browser](../../servicos/aplicacoes/workspaces-e-appstream.md) · [AWS Amplify, AWS AppSync e AWS Device Farm](../../servicos/aplicacoes/amplify-e-appsync.md) · [AWS IoT Core, IoT Greengrass e outros serviços de IoT](../../servicos/aplicacoes/iot-core-e-greengrass.md)
-
-> ⚠️ **Atualização do exam guide (verificado em 04/10/2026):** No escopo: Connect, SES, AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser, **Amplify** e **IoT Core**. AppSync não aparece na lista atual. [Ver escopo oficial](../00-guia-do-exame/escopo-oficial.md).
+> 🔎 **Fichas para aprofundar:** [Amazon Connect](../../servicos/aplicacoes/amazon-connect.md) · [Amazon SES](../../servicos/aplicacoes/ses.md) · [Amazon WorkSpaces, WorkSpaces Applications e WorkSpaces Secure Browser](../../servicos/aplicacoes/workspaces-e-appstream.md) · [AWS Amplify](../../servicos/aplicacoes/amplify-e-appsync.md) · [AWS IoT Core](../../servicos/aplicacoes/iot-core-e-greengrass.md)
 
 ⬅️ [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+Nem tudo o que a rede de escolas precisa é infraestrutura para montar. A central telefônica da secretaria vive congestionada em janeiro. Os e-mails de confirmação de matrícula às vezes caem no spam. Os professores precisam usar um programa de notas instalado só nos computadores da escola, mas querem acessá-lo de casa. Uma equipe pequena quer lançar o aplicativo dos pais sem virar especialista em nuvem. E as salas novas têm sensores de temperatura que precisam mandar leituras para algum lugar.
 
-Um serviço de aplicação normalmente já oferece uma função do negócio, como atendimento ou envio de mensagens, mas ainda precisa de configuração e integração. A empresa define identidades, conteúdo e os sistemas relacionados àquela experiência.
+Para cada pedido, a AWS tem um serviço pronto. A tarefa 3.8 do guia do exame cobra esses serviços por categoria: **aplicações de negócio** (Amazon Connect e Amazon SES), **computação para o usuário final** (Amazon AppStream 2.0, Amazon WorkSpaces e Amazon WorkSpaces Secure Browser), **front-end web e mobile** (AWS Amplify) e **IoT** (AWS IoT Core).
 
-Não confunda e-mail de uma aplicação com caixa postal de funcionários, nem transmissão de software com armazenamento de arquivos. Dispositivos físicos também precisam de software e proteção. Cada produto abaixo atende uma necessidade concreta diferente.
+## Aplicações de negócio: Amazon Connect e Amazon SES
+
+O **Amazon Connect** é a central de atendimento (contact center) da AWS, na nuvem. Clientes entram em contato pelo canal que preferirem, como voz, chat e SMS; atendentes resolvem os casos; supervisores acompanham as métricas da equipe; administradores configuram números de telefone, filas e roteamento. Os recursos de IA podem resolver parte dos atendimentos sozinhos. Não há custo fixo: paga-se pelo uso. A AWS passou a chamar o produto de **Amazon Connect Customer**, e "Amazon Connect" virou o nome de um conjunto de soluções; na prova, "central de atendimento na nuvem" continua apontando para o Amazon Connect.
+
+O **Amazon SES** (Simple Email Service) é uma plataforma de **e-mail** para enviar e receber mensagens com os endereços e domínios da própria empresa. Serve para e-mails transacionais (como a confirmação de matrícula), de marketing (como a divulgação de um evento) e boletins, e também para receber e-mails e tratá-los por software.
+
+A diferença para o SNS da [aula 3.13](13-integracao-de-aplicacoes.md): o SNS pode mandar uma notificação simples por e-mail a quem assinou um tópico; o SES é o serviço de e-mail completo, para mensagens formatadas enviadas da aplicação aos clientes.
+
+## Computação para o usuário final
+
+Esta categoria responde a uma pergunta do guia: que serviços apresentam o resultado de máquinas virtuais na tela do usuário? Nos três, o programa roda na AWS, e o dispositivo do usuário só mostra a tela.
+
+- O **Amazon WorkSpaces** cria **desktops virtuais** na nuvem, com Windows ou Linux, acessados de vários dispositivos ou pelo navegador. Não é preciso comprar e instalar hardware, e usuários entram e saem com facilidade. O **WorkSpaces Personal** dá a cada pessoa um desktop persistente e só dela; o **WorkSpaces Pools** oferece desktops não persistentes, recriados a cada uso.
+- O **Amazon WorkSpaces Applications**, que o guia do exame ainda chama pelo nome antigo, **Amazon AppStream 2.0**, faz **streaming de aplicações**: o usuário abre um programa de desktop pelo navegador ou por um cliente, sem receber um desktop inteiro. A empresa mantém uma só versão de cada programa, e todos usam a mais recente.
+- O **Amazon WorkSpaces Secure Browser** é um serviço gerenciado que dá acesso seguro, pelo navegador, a sites internos e aplicações SaaS, sem que os dados da empresa cheguem ao dispositivo do usuário. A AWS anunciou que ele deixa de aceitar clientes novos a partir de 29/10/2026.
+
+Na escola: o programa de notas vai para o WorkSpaces Applications, e os professores o abrem de casa pelo navegador; a equipe da secretaria que precisa de um computador completo recebe um WorkSpace.
+
+## Front-end web e mobile: AWS Amplify
+
+O **AWS Amplify** acelera o desenvolvimento de aplicações **web e mobile full-stack** (com a parte visível, o front-end, e a parte de servidor, o back-end), sem exigir conhecimento de nuvem. Ele hospeda e implanta o front-end a partir de um repositório Git, com entrega contínua e distribuição pela rede de borda do CloudFront ([aula 3.10](10-rede-e-entrega-de-conteudo.md)), e adiciona recursos como login de usuários, armazenamento e dados em tempo real, configurando os serviços da AWS por trás. É a resposta para a equipe pequena que quer lançar o aplicativo dos pais.
+
+## IoT: AWS IoT Core
+
+**Internet das coisas** (IoT) é o nome para dispositivos conectados à internet que não são computadores: sensores, câmeras, medidores, eletrodomésticos. Eles enviam leituras e recebem comandos.
+
+O **AWS IoT Core** permite a comunicação segura, nos dois sentidos, entre dispositivos conectados e os serviços da AWS. Ele conecta, gerencia e escala frotas de dispositivos sem que você provisione servidores, com autenticação mútua e criptografia. Aceita protocolos usados por dispositivos, como **MQTT**, um protocolo leve de publicar e assinar mensagens, além de HTTPS. Na escola, os sensores de temperatura publicam as leituras no IoT Core, que as encaminha para outros serviços da AWS, por exemplo para guardar e analisar.
+
+## Como escolher
+
+| Pedido | Serviço |
+|---|---|
+| Central de atendimento na nuvem (voz, chat) | Amazon Connect |
+| Enviar e-mails da aplicação para clientes | Amazon SES |
+| Desktop completo na nuvem para cada pessoa | Amazon WorkSpaces |
+| Abrir um programa de desktop pelo navegador | WorkSpaces Applications (antes AppStream 2.0) |
+| Acesso seguro pelo navegador a sites internos | WorkSpaces Secure Browser |
+| Criar e hospedar aplicações web e mobile full-stack | AWS Amplify |
+| Conectar e gerenciar dispositivos IoT | AWS IoT Core |
+
+```mermaid
+flowchart TB
+    subgraph USU["Dispositivo do usuário (só mostra a tela)"]
+        N["Navegador ou cliente"]
+    end
+    subgraph AWS["AWS (onde o programa roda)"]
+        WS["WorkSpaces<br/>desktop inteiro"]
+        WA["WorkSpaces Applications<br/>só o programa"]
+        SB["Secure Browser<br/>só o navegador"]
+    end
+    N --> WS
+    N --> WA
+    N --> SB
+    SENS["Sensores das salas"] -->|"MQTT"| IOT["AWS IoT Core"] --> OUT["Outros serviços da AWS"]
+```
+
+*Figura 3.14 — Na computação para o usuário final, o programa roda na AWS e o dispositivo só mostra a tela; o IoT Core recebe as leituras dos sensores.*
+
+## Na prova
+
+- **"Call center", "central de atendimento na nuvem" = Amazon Connect.**
+- **"Enviar e-mails transacionais ou de marketing" = SES**; notificação simples a assinantes = SNS.
+- **"Desktop virtual para funcionários remotos" = WorkSpaces.**
+- **"Rodar um aplicativo de desktop pelo navegador" = AppStream 2.0 (hoje WorkSpaces Applications).**
+- **"Acesso seguro a sites internos pelo navegador, sem dados no dispositivo" = WorkSpaces Secure Browser.**
+- **"Criar e implantar aplicações web e mobile full-stack" = Amplify.**
+- **"Conectar e gerenciar dispositivos IoT", "MQTT" = IoT Core.**
+
+## Caso resolvido
+
+**Situação.** A rede de escolas contratou professores temporários para janeiro. Eles precisam usar o programa de notas, que hoje só roda instalado nos computadores da escola, a partir dos próprios notebooks, em casa. A direção não quer comprar computadores nem instalar o programa em máquinas pessoais, e quer que todos usem sempre a mesma versão. O que usar?
+
+**Raciocínio.** O pedido é usar um único programa de desktop a partir de qualquer dispositivo, sem instalá-lo. É streaming de aplicações: o WorkSpaces Applications (o AppStream 2.0 do guia do exame) roda o programa na AWS, e o professor o abre pelo navegador. A escola mantém uma só versão, e todos usam a mais recente. Quando o contrato termina, basta remover o acesso.
+
+**Por que as alternativas tentadoras falham.** O WorkSpaces resolveria, mas entrega um desktop inteiro para cada professor quando só um programa é necessário. O WorkSpaces Secure Browser dá acesso a sites internos e aplicações web, não a um programa de desktop. O Amplify serve para criar aplicações web e mobile novas, não para levar um programa existente ao navegador.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### Para que serve o Amazon Connect?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-é uma **caixa de ferramentas de escritório**: o **Connect** é a central telefônica; o **SES**, o correio; o **WorkSpaces**, o computador de trabalho na nuvem; o **Amplify**, um kit para montar apps; o **IoT Core**, a central que recebe mensagens dos sensores.
+É a central de atendimento na nuvem: clientes entram em contato por voz, chat ou SMS, e atendentes resolvem os casos, pagando-se pelo uso.
+
+Comentário: a AWS passou a chamar o produto de Amazon Connect Customer.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Qual é a diferença entre Amazon SES e Amazon SNS para enviar e-mails?
 
-**Amazon Connect:** **central de atendimento (contact center) na nuvem**, com voz, chat e tarefas, pago por uso.
+<details>
+<summary>Ver resposta</summary>
 
-**Amazon SES (Simple Email Service):** envio de **e-mails** transacionais e de marketing em grande volume. Diferença para o SNS: SES é para e-mails formatados a clientes; SNS é para notificações simples.
+O SES é o serviço de e-mail completo, para mensagens transacionais e de marketing enviadas da aplicação; o SNS manda notificações simples a quem assinou um tópico.
 
-**Amazon WorkSpaces:** **desktops virtuais** (DaaS) Windows ou Linux, acessados de qualquer dispositivo.
+Comentário: o SES também recebe e-mails e permite tratá-los por software.
 
-**Amazon AppStream 2.0:** **streaming de aplicações** de desktop para o navegador, sem entregar o desktop inteiro.
+</details>
 
-**Amazon WorkSpaces Secure Browser:** navegador seguro gerenciado para acessar sites internos sem VPN.
+### Qual é a diferença entre WorkSpaces e WorkSpaces Applications (AppStream 2.0)?
 
-**AWS Amplify:** ferramentas para **criar, implantar e hospedar** aplicações web e mobile full-stack rapidamente.
+<details>
+<summary>Ver resposta</summary>
 
-**AWS AppSync:** **APIs GraphQL** gerenciadas, com dados em tempo real e sincronização offline.
+O WorkSpaces entrega um desktop virtual inteiro; o WorkSpaces Applications faz streaming de programas de desktop específicos para o navegador ou um cliente.
 
-**AWS IoT Core:** conecta **dispositivos IoT** à nuvem (protocolo MQTT) com segurança e em grande escala.
+Comentário: nos dois, o programa roda na AWS e o dispositivo só mostra a tela.
 
-**Cai na prova:** "call center" = Connect; "funcionários remotos precisam de um desktop" = WorkSpaces; "rodar um app de desktop no navegador" = AppStream 2.0; "sensores enviando dados" = IoT Core.
+</details>
 
-## 3. Como analisar uma situação
+### O que o AWS Amplify oferece?
 
-**Primeiro, identifique o funcionamento:** Connect organiza atendimento; SES envia e-mails; WorkSpaces entrega desktops; AppStream entrega aplicações por streaming; Secure Browser entrega navegação isolada; IoT Core conecta dispositivos.
+<details>
+<summary>Ver resposta</summary>
 
-**Depois, compare as escolhas:** Diferencie aplicação corporativa pronta, capacidade para executar servidor e conexão de dispositivo. Amplify ajuda a construir e implantar aplicações web/mobile.
+Ferramentas para criar, implantar e hospedar aplicações web e mobile full-stack, sem exigir conhecimento de nuvem.
 
-**Por fim, verifique o limite:** SES não é uma caixa de e-mail de uso pessoal. Desktop remoto não é um servidor EC2 de back-end. IoT Core não instala sensores nem resolve a conectividade física do dispositivo.
+Comentário: ele implanta a partir do Git e distribui pela rede de borda do CloudFront.
 
-## 4. Caso resolvido
+</details>
 
-Funcionários precisam de desktop completo, e clientes precisam receber confirmação por e-mail. Quais serviços?
+### Para que serve o AWS IoT Core?
 
-**Raciocínio e resposta:** WorkSpaces para os desktops; SES para o envio de e-mail pela aplicação. São necessidades independentes.
+<details>
+<summary>Ver resposta</summary>
 
-## 5. Revisão do capítulo
+Para conectar dispositivos IoT à AWS com segurança, nos dois sentidos, e gerenciar frotas de dispositivos sem provisionar servidores.
 
-**Objetivos de aprendizagem:**
+Comentário: aceita protocolos como MQTT e HTTPS.
 
-- [ ] Ligar cada serviço ao cenário: call center → Connect; e-mails → SES; desktop virtual → WorkSpaces.
-- [ ] Diferenciar **WorkSpaces** (desktop inteiro) de **AppStream 2.0** (só o aplicativo no navegador).
-- [ ] Diferenciar **SES** (e-mails formatados a clientes) de **SNS** (notificações simples).
+</details>
 
-**Dica de revisão para a prova:** "Call center" → **Connect**. "Funcionário remoto precisa de desktop" → **WorkSpaces**. "App de desktop no navegador" → **AppStream 2.0**. "Sensores" → **IoT Core**.
+## Resumo
 
-### ❓ Perguntas típicas
+- Connect é a central de atendimento na nuvem; SES envia e recebe e-mails.
+- WorkSpaces entrega desktops; WorkSpaces Applications (antes AppStream 2.0) entrega programas; Secure Browser dá acesso seguro a sites internos.
+- Amplify cria e hospeda aplicações web e mobile full-stack.
+- IoT Core conecta e gerencia dispositivos IoT.
 
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
-**Pergunta:** "Criar uma central de atendimento na nuvem."
+## Fontes oficiais
 
-**Resposta curta:** Amazon Connect.
+Verificadas em 06/10/2026.
 
-**Pergunta:** "Enviar e-mails de confirmação e marketing em massa."
-
-**Resposta curta:** SES.
-
-**Pergunta:** "Oferecer desktops virtuais a funcionários remotos."
-
-**Resposta curta:** WorkSpaces.
-
-**Pergunta:** "Disponibilizar um aplicativo de desktop pelo navegador."
-
-**Resposta curta:** AppStream 2.0.
-
-**Pergunta:** "Criar e hospedar rapidamente um app web ou mobile full-stack."
-
-**Resposta curta:** Amplify.
-
-**Pergunta:** "API GraphQL gerenciada com dados em tempo real."
-
-**Resposta curta:** AppSync.
-
-**Pergunta:** "Conectar milhões de sensores à nuvem."
-
-**Resposta curta:** IoT Core.
-
-<!-- extra:inicio -->
-## 🔄 Atualizações 2025-2026 e detalhes extras
-
-> Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
-
-- **IoT:** IoT Core (conectar dispositivos e trocar mensagens MQTT) × **IoT Greengrass** (rodar Lambda e ML localmente no dispositivo de borda).
-- 🔄 IoT Analytics encerrado em 15/12/2025 e IoT Events em 20/05/2026 — não estudar. Na prova, IoT = **só IoT Core** (Greengrass está fora do escopo).
-<!-- extra:fim -->
+- [Content Domain 3 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html): tarefa 3.8 (aplicações de negócio, computação para o usuário final, front-end e IoT).
+- [In-Scope AWS Services](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html): Connect, SES, AppStream 2.0, WorkSpaces, WorkSpaces Secure Browser, Amplify e IoT Core.
+- [What is Amazon Connect?](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html) e [Amazon Connect (página do produto)](https://aws.amazon.com/connect/): central de atendimento, novo nome Connect Customer e cobrança pelo uso.
+- [What is Amazon SES?](https://docs.aws.amazon.com/ses/latest/dg/Welcome.html): envio e recebimento de e-mails.
+- [What is Amazon WorkSpaces?](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html): desktops virtuais, Personal e Pools.
+- [What is WorkSpaces Applications?](https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html) e [Amazon WorkSpaces Applications (página do produto)](https://aws.amazon.com/workspaces/applications/): streaming de aplicações, antigo AppStream 2.0.
+- [Amazon WorkSpaces Secure Browser (página do produto)](https://aws.amazon.com/workspaces/secure-browser/): acesso seguro pelo navegador e fim da entrada de novos clientes em 29/10/2026.
+- [AWS Amplify (página do produto)](https://aws.amazon.com/amplify/) e [Welcome to AWS Amplify Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html): aplicações full-stack e hospedagem com Git e CloudFront.
+- [What is AWS IoT?](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html) e [AWS IoT Core (página do produto)](https://aws.amazon.com/iot-core/): comunicação segura com dispositivos, protocolos MQTT e HTTPS.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

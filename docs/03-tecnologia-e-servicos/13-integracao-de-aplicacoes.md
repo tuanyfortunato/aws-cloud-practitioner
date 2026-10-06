@@ -1,140 +1,183 @@
+<!-- autoral -->
+
 # 3.13 Integração de aplicações
 
-## 🧠 Antes de começar
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34% da prova)** · Depende das aulas [0.4](../fundamentos/04-api-e-filas.md), [1.3](../01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md) e [3.5](05-containers-e-serverless.md)
 
-**Qual é a dificuldade?** Uma ação pode gerar tarefas para outros sistemas. Se cada parte depender de todas as outras responderem na hora, a aplicação fica mais difícil de operar.
-
-**A ideia em palavras simples:** Integração permite separar tarefas e coordenar comunicação. Filas guardam trabalho; notificações distribuem avisos; eventos orientam ações; fluxos coordenam etapas.
-
-**Exemplo do dia a dia:** A matrícula confirmada gera um aviso e uma tarefa de emitir certificado. Uma fila pode guardar a tarefa; um fluxo pode acompanhar etapas do processo.
-
-**O que não concluir?** Uma fila não executa o trabalho, e uma notificação não coordena por si só todo o processo. Entenda qual parte da comunicação precisa ser resolvida.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Desacoplar** | fazer componentes funcionarem sem depender um do outro estar disponível. |
-| **Pub/sub** | publicar uma vez e todos os assinantes recebem. |
-| **Fan-out** | uma mensagem do SNS copiada para várias filas SQS. |
-
----
-
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
-
-> 🔎 **Fichas detalhadas:** [Amazon SQS (Simple Queue Service)](../../servicos/integracao/sqs.md) · [Amazon SNS (Simple Notification Service)](../../servicos/integracao/sns.md) · [Amazon EventBridge](../../servicos/integracao/eventbridge.md) · [AWS Step Functions](../../servicos/integracao/step-functions.md) · [Amazon MQ](../../servicos/integracao/amazon-mq.md)
+> 🔎 **Fichas para aprofundar:** [Amazon SQS](../../servicos/integracao/sqs.md) · [Amazon SNS](../../servicos/integracao/sns.md) · [Amazon EventBridge](../../servicos/integracao/eventbridge.md) · [AWS Step Functions](../../servicos/integracao/step-functions.md)
 
 ⬅️ [3.12 IA e machine learning](12-ia-e-machine-learning.md) · 🏠 [Índice do domínio](README.md) · [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+No primeiro dia de inscrições, milhares de pais enviam o formulário de matrícula ao mesmo tempo. Cada envio dispara trabalhos demorados: gerar o PDF do comprovante, enviar o e-mail de confirmação, avisar a secretaria da unidade, atualizar o sistema financeiro. Se o site esperar todos esses trabalhos terminarem antes de responder ao pai, ele trava. Se o sistema financeiro cair, as matrículas não podem se perder.
 
-Enviar uma solicitação e executar seu trabalho não precisam acontecer no mesmo instante. Uma fila conserva trabalho; uma notificação avisa interessados; um evento descreve algo ocorrido; um fluxo coordena tarefas. Essa separação reduz dependências imediatas.
+Na [aula 0.4](../fundamentos/04-api-e-filas.md), você viu a solução em palavras simples: deixar o recado numa **fila** em vez de esperar, e usar um **tópico** para avisar vários interessados de uma vez. Na [aula 1.3](../01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md), viu que isso se chama **acoplamento fraco**: componentes que não dependem de que os outros estejam no ar no mesmo instante. Esta aula apresenta os serviços da AWS para isso. O guia do exame cobra o Amazon EventBridge, o Amazon SNS e o Amazon SQS, e a escolha do serviço certo para entregar mensagens e enviar alertas e notificações.
 
-Pense num certificado: o site confirma que recebeu o pedido, a fila guarda a tarefa e um consumidor gera o arquivo depois. Se o processamento falhar, receber de novo pode ser necessário. A aplicação precisa evitar que repetição crie efeitos indevidos.
+## Amazon SQS: a fila
+
+O **Amazon SQS** (Simple Queue Service) oferece uma fila hospedada, segura, durável e disponível, para **integrar e desacoplar** componentes de um sistema. Um componente (o **produtor**) envia mensagens para a fila; outro (o **consumidor**) busca as mensagens quando pode, processa e as apaga. As mensagens ficam guardadas em vários servidores, por **4 dias** por padrão, com máximo configurável de **14 dias**.
+
+Na escola, o site grava cada matrícula na fila e responde ao pai na hora. As instâncias que geram os PDFs puxam as mensagens no ritmo delas. Se houver um pico, a fila cresce e as instâncias vão esvaziando; se uma instância cair, a mensagem continua na fila para outra pegar.
+
+Há dois tipos de fila:
+
+| | Fila padrão (Standard) | Fila FIFO |
+|---|---|---|
+| Vazão | Quase ilimitada | Alta, com limites por segundo |
+| Entrega | Pelo menos uma vez: uma mensagem pode chegar repetida | Processamento exato uma vez |
+| Ordem | Melhor esforço: pode chegar fora de ordem | Primeiro a entrar, primeiro a sair, dentro de cada grupo de mensagens |
+
+FIFO quer dizer *first in, first out*. A fila padrão serve quando a vazão importa mais; a FIFO, quando a ordem e a ausência de repetição importam, como lançamentos financeiros na ordem em que aconteceram.
+
+O SQS também oferece a **fila de mensagens mortas** (dead-letter queue), que recebe as mensagens que falharam várias vezes, para que alguém investigue sem travar a fila principal.
+
+## Amazon SNS: o tópico que avisa todos
+
+Uma matrícula nova interessa a vários sistemas ao mesmo tempo. O **Amazon SNS** (Simple Notification Service) é um serviço totalmente gerenciado que entrega mensagens de **publicadores** a **assinantes**. O publicador envia a mensagem para um **tópico**, e o SNS a entrega a todos os assinantes daquele tópico. Esse modelo se chama **publicar e assinar** (pub/sub).
+
+Os assinantes podem ser filas do SQS, funções Lambda, endereços HTTP(S), e-mail, notificações push em celulares, SMS e o Amazon Data Firehose, entre outros. Por isso o SNS é a resposta para **alertas e notificações**: avisar a equipe por e-mail ou SMS quando algo acontece.
+
+A diferença essencial para o SQS: na fila, a mensagem espera até um consumidor buscá-la, e cada mensagem é processada por um consumidor; no tópico, o SNS **empurra** a mensagem para todos os assinantes na hora.
+
+Os dois se combinam no padrão **fan-out** (espalhar): a mensagem publicada no tópico do SNS é copiada para várias filas do SQS, e cada fila alimenta um sistema diferente, em paralelo. Na escola, o tópico "matrícula nova" alimenta a fila do PDF, a fila do financeiro e a fila da secretaria; se o financeiro cair, a fila dele guarda as mensagens até ele voltar.
+
+## Amazon EventBridge: reagir a eventos
+
+Um **evento** é o registro de que algo aconteceu: um arquivo chegou ao S3, uma instância parou, um pagamento foi aprovado num sistema de terceiros. Uma **arquitetura orientada a eventos** é feita de componentes fracamente acoplados que emitem eventos e reagem a eles.
+
+O **Amazon EventBridge** é um serviço serverless que usa eventos para ligar os componentes de uma aplicação. Um **barramento de eventos** (event bus) recebe eventos de aplicações próprias, de serviços da AWS e de softwares de terceiros e os entrega aos destinos certos, filtrando e transformando no caminho. O **EventBridge Scheduler** é um agendador serverless que roda tarefas em horários definidos ou em intervalos recorrentes.
+
+Na escola, quando o sistema de pagamento de terceiros avisa que a taxa de matrícula foi paga, o EventBridge reconhece o evento e aciona a função Lambda que confirma a vaga. Toda noite, o Scheduler dispara o relatório de matrículas do dia.
+
+## AWS Step Functions: coordenar várias etapas
+
+Alguns processos têm etapas em ordem, com decisões no meio: validar os documentos, esperar a aprovação da coordenação, reservar a vaga, cobrar a taxa e, se a cobrança falhar, liberar a vaga. Coordenar isso com código espalhado em várias funções fica frágil.
+
+O **AWS Step Functions** cria **fluxos de trabalho** (workflows, também chamados máquinas de estado), sequências de etapas em que cada etapa pode chamar um serviço da AWS, como uma função Lambda. Ele trata erros com **novas tentativas** ou desviando para etapas alternativas, mostra cada execução visualmente no console e atende fluxos longos, inclusive os que esperam uma ação humana.
+
+## Como escolher
+
+| Necessidade | Serviço |
+|---|---|
+| Desacoplar componentes e absorver picos | SQS |
+| Garantir ordem e processar cada mensagem uma vez | SQS FIFO |
+| Avisar vários sistemas ou pessoas ao mesmo tempo | SNS |
+| Enviar alertas por e-mail, SMS ou push | SNS |
+| Uma mensagem para várias filas em paralelo | SNS + SQS (fan-out) |
+| Reagir a eventos de serviços da AWS ou de terceiros | EventBridge |
+| Agendar tarefas recorrentes | EventBridge Scheduler |
+| Coordenar um processo com várias etapas e tratamento de erros | Step Functions |
+
+```mermaid
+flowchart LR
+    SITE["Site de matrícula"] -->|"publica"| T["Tópico SNS<br/>matrícula nova"]
+    T --> Q1["Fila SQS: PDF"]
+    T --> Q2["Fila SQS: financeiro"]
+    T --> Q3["Fila SQS: secretaria"]
+    T --> EM["E-mail para a coordenação"]
+    Q1 --> W1["Gera o comprovante"]
+    Q2 --> W2["Sistema financeiro"]
+    Q3 --> W3["Painel da secretaria"]
+    PAG["Pagamento de terceiros"] -->|"evento"| EB["EventBridge"] --> L["Lambda: confirma a vaga"]
+```
+
+*Figura 3.13 — Fan-out com SNS e SQS para os trabalhos da matrícula; EventBridge reage ao evento de pagamento.*
+
+## Na prova
+
+- **"Desacoplar", "absorver picos", "fila", "o consumidor busca as mensagens" = SQS.**
+- **"Ordem garantida", "sem duplicadas" = SQS FIFO.**
+- **"Notificar vários assinantes", "pub/sub", "alertas por e-mail ou SMS" = SNS.**
+- **"Uma mensagem para várias filas" = fan-out com SNS e SQS.**
+- **"Reagir a eventos de serviços da AWS ou de SaaS", "barramento de eventos", "agendar" = EventBridge.**
+- **"Coordenar várias etapas, com novas tentativas e espera por aprovação" = Step Functions.**
+
+## Caso resolvido
+
+**Situação.** Quando um pai conclui a matrícula, três sistemas precisam saber: o que gera o comprovante, o financeiro e o painel da secretaria. O financeiro às vezes fica fora do ar por alguns minutos, e nenhuma matrícula pode se perder. Além disso, a coordenação quer receber um e-mail a cada matrícula. Como integrar?
+
+**Raciocínio.** O site publica a matrícula num tópico do SNS. O tópico entrega a mensagem a três filas do SQS, uma para cada sistema (fan-out), e a um assinante de e-mail para a coordenação. Cada sistema consome a sua fila no seu ritmo. Se o financeiro cair, a fila dele guarda as mensagens (por 4 dias por padrão, até 14 dias) até ele voltar, e os outros sistemas seguem normalmente.
+
+**Por que as alternativas tentadoras falham.** Uma única fila do SQS faria cada matrícula ser processada por um só consumidor, e os outros sistemas não a veriam. Só o SNS, sem filas, empurraria a mensagem para o financeiro no momento em que ele está fora do ar. Chamar os três sistemas direto do site deixa o pai esperando e faz uma falha num sistema derrubar a matrícula.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### Para que serve o Amazon SQS?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-o **SQS** é uma **fila de pedidos** (cada um é atendido no seu ritmo); o **SNS** é um **alto-falante** (todos ouvem ao mesmo tempo); o **EventBridge** é uma **central de regras** ("quando acontecer X, avise Y"); o **Step Functions** é um **fluxograma** que se executa sozinho.
+Para desacoplar componentes com uma fila: o produtor envia mensagens, e o consumidor as busca e processa no seu ritmo, o que absorve picos e falhas.
+
+Comentário: as mensagens ficam 4 dias por padrão, com máximo de 14 dias.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Qual é a diferença entre uma fila padrão e uma fila FIFO no SQS?
 
-**Amazon SQS:** Pontos de prova:
+<details>
+<summary>Ver resposta</summary>
 
-  - Fila gerenciada que **desacopla** componentes; o consumidor **puxa** (poll) as mensagens.
+A fila padrão tem vazão quase ilimitada, mas pode repetir mensagens e entregá-las fora de ordem; a FIFO mantém a ordem dentro de cada grupo e processa cada mensagem uma vez.
 
-  - **Standard:** throughput quase ilimitado, entrega pelo menos uma vez, ordem não garantida. **FIFO:** ordenação por grupo e deduplicação no envio dentro das condições do serviço; o consumidor ainda precisa tratar recebimentos repetidos e efeitos de negócio.
+Comentário: FIFO quer dizer primeiro a entrar, primeiro a sair.
 
-  - Retenção padrão de 4 dias, configurável até 14 dias; **visibility timeout**; **dead-letter queue** para mensagens com falha.
+</details>
 
-**Amazon SNS:** **pub/sub**. Um produtor publica num **tópico** e a mensagem é **empurrada** (push) para todos os assinantes: e-mail, SMS, HTTP, Lambda, filas SQS e push mobile.
+### Qual é a diferença entre SQS e SNS?
 
-  - **Fan-out:** SNS publica e várias filas SQS recebem a mesma mensagem para processamento paralelo.
+<details>
+<summary>Ver resposta</summary>
 
-**Amazon EventBridge:** **barramento de eventos** serverless. Recebe eventos de serviços AWS, de aplicações e de parceiros SaaS e os roteia com **regras** para destinos. **EventBridge Scheduler** agenda tarefas (estilo cron).
+No SQS, a mensagem espera numa fila até um consumidor buscá-la; no SNS, a mensagem publicada num tópico é empurrada na hora para todos os assinantes.
 
-**AWS Step Functions:** **orquestra fluxos de trabalho** com várias etapas em máquinas de estado visuais, com tratamento de erros e novas tentativas (ex.: várias Lambdas em sequência, com aprovação humana no meio).
+Comentário: combinados, formam o fan-out: um tópico do SNS alimenta várias filas do SQS.
 
-**Cai na prova:** "desacoplar e absorver picos" = SQS; "notificar vários sistemas ao mesmo tempo" = SNS; "reagir a eventos de um SaaS" = EventBridge; "coordenar várias etapas de um processo" = Step Functions.
+</details>
 
-## 3. Como analisar uma situação
+### Quando usar o Amazon EventBridge?
 
-**Primeiro, identifique o funcionamento:** SQS mantém mensagens para consumidores; SNS publica para assinantes; EventBridge filtra e roteia eventos; Step Functions controla etapas, escolhas e retentativas do fluxo.
+<details>
+<summary>Ver resposta</summary>
 
-**Depois, compare as escolhas:** Fila de trabalho: SQS. Aviso para vários destinos: SNS. Eventos com regras: EventBridge. Sequência com estado: Step Functions. As combinações podem ser necessárias.
+Para ligar componentes por eventos: receber eventos de aplicações, de serviços da AWS e de softwares de terceiros e entregá-los aos destinos certos, ou para agendar tarefas com o EventBridge Scheduler.
 
-**Por fim, verifique o limite:** Ler da fila não é o mesmo que excluir. Consumidores devem tratar repetição. SNS sozinho não dá a cada assinante uma fila persistente para consumo posterior.
+Comentário: é a base de arquiteturas orientadas a eventos.
 
-## 4. Caso resolvido
+</details>
 
-Cada pedido precisa acionar faturamento e estoque, e cada equipe deve processar no próprio ritmo. Como combinar?
+### O que o AWS Step Functions faz?
 
-**Raciocínio e resposta:** SNS com uma fila SQS para cada consumidor permite fan-out e desacoplamento. Uma só fila com dois consumidores normalmente distribui trabalho entre eles, em vez de entregar uma cópia para cada equipe.
+<details>
+<summary>Ver resposta</summary>
 
-## 5. Revisão do capítulo
+Coordena fluxos de trabalho com várias etapas, chamando serviços como o Lambda, com novas tentativas e caminhos alternativos em caso de erro.
 
-**Objetivos de aprendizagem:**
+Comentário: atende fluxos longos, inclusive os que esperam uma ação humana.
 
-- [ ] Diferenciar **SQS** (fila, o consumidor puxa) de **SNS** (pub/sub, empurra para todos).
-- [ ] Diferenciar fila **Standard** de **FIFO**.
-- [ ] Saber quando usar **EventBridge** (reagir a eventos, inclusive de SaaS) e **Step Functions** (orquestrar etapas).
+</details>
 
-**Dica de revisão para a prova:** "Desacoplar/absorver picos" → **SQS**. "Notificar vários" → **SNS**. "Ordem garantida" → **SQS FIFO**. "Evento de SaaS" → **EventBridge**. "Várias etapas com aprovação" → **Step Functions**.
+## Resumo
 
-### ❓ Perguntas típicas
+- SQS é a fila que desacopla componentes; a padrão prioriza vazão, a FIFO prioriza ordem e processamento único.
+- SNS publica num tópico e entrega a todos os assinantes, inclusive por e-mail e SMS.
+- Fan-out: SNS espalha a mensagem para várias filas do SQS.
+- EventBridge liga componentes por eventos e agenda tarefas.
+- Step Functions coordena processos com várias etapas.
 
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
-**Pergunta:** "Desacoplar componentes para que um pico não derrube o processamento."
+## Fontes oficiais
 
-**Resposta curta:** SQS.
+Verificadas em 06/10/2026.
 
-**Pergunta:** "Ordenar mensagens por grupo e tratar duplicações no envio."
-
-**Resposta curta:** Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.
-
-**Pergunta:** "Enviar a mesma mensagem para vários sistemas e para e-mail."
-
-**Resposta curta:** SNS.
-
-**Pergunta:** "Um evento precisa ser processado por várias filas em paralelo."
-
-**Resposta curta:** Fan-out com SNS + SQS.
-
-**Pergunta:** "Reagir a eventos de serviços AWS e de aplicações SaaS com regras."
-
-**Resposta curta:** EventBridge.
-
-**Pergunta:** "Executar uma tarefa todo dia às 2h sem servidor."
-
-**Resposta curta:** EventBridge Scheduler (disparando Lambda).
-
-**Pergunta:** "Orquestrar um processo com várias etapas e tratamento de erro."
-
-**Resposta curta:** Step Functions.
-
-<!-- extra:inicio -->
-## 🔄 Atualizações 2025-2026 e detalhes extras
-
-> Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
-
-- **SQS — números (📌):**
-
-| Item | Valor |
-|---|---|
-| Tamanho máximo de mensagem | 🔄 **1 MiB** desde 04/08/2025 (antes **256 KiB**) (✔️ confirmado) — escolha pelo contexto e pelas condições pedidas |
-| Retenção | padrão **4 dias**, mínimo 60 s, máximo **14 dias** |
-| Visibility timeout | padrão **30 s**, mínimo 0, máximo **12 h** |
-| Delay queue | até **15 min** |
-
-- **Standard × FIFO:** Standard = throughput quase ilimitado, entrega "pelo menos uma vez", ordem por melhor esforço. FIFO = ordem garantida e processamento exatamente uma vez.
-- 🔄 **SNS:** o padrão continua **256 KiB**; dá para aceitar até **1 MiB** configurando `MaximumMessageSize` no tópico (desde 18/09/2026, ✔️ confirmado).
-- **SQS × SNS × EventBridge:** fila (pull, buffer) × pub/sub (push, fan-out) × barramento de eventos com regras, eventos AWS/SaaS e agendamento (Scheduler). **Step Functions** = orquestração; **SWF** é legado.
-- 🧊 Não decorar: mensagens in-flight, cobrança por blocos de 64 KB, throughput exato do FIFO.
-<!-- extra:fim -->
+- [Content Domain 3 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html): tarefa 3.8 (EventBridge, SNS e SQS; entregar mensagens e enviar alertas).
+- [In-Scope AWS Services](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html): EventBridge, SNS, SQS e Step Functions na categoria de integração de aplicações.
+- [What is Amazon SQS?](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html), [Amazon SQS queue types](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-types.html) e [Amazon SQS message quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html): fila durável, tipos padrão e FIFO, fila de mensagens mortas e retenção de 4 a 14 dias.
+- [What is Amazon SNS?](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) e [Fanout scenario](https://docs.aws.amazon.com/sns/latest/dg/sns-common-scenarios.html): tópicos, tipos de assinante e fan-out.
+- [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html): arquitetura orientada a eventos, barramentos e Scheduler.
+- [What is Step Functions?](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html): fluxos de trabalho, tratamento de erros e visualização.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

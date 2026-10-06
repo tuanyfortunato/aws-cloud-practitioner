@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 100 cards
+**Total:** 96 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -404,90 +404,66 @@ Para criar interfaces conversacionais, como chatbots, por voz e texto, com recon
 ## [3.13 Integração de aplicações](../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md)
 
 <details>
-<summary>Desacoplar componentes para que um pico não derrube o processamento.</summary>
+<summary>Para que serve o Amazon SQS?</summary>
 
-SQS.
+Para desacoplar componentes com uma fila: o produtor envia mensagens, e o consumidor as busca e processa no seu ritmo, o que absorve picos e falhas.
 </details>
 
 <details>
-<summary>Ordenar mensagens por grupo e tratar duplicações no envio.</summary>
+<summary>Qual é a diferença entre uma fila padrão e uma fila FIFO no SQS?</summary>
 
-Fila SQS FIFO; o programa ainda precisa evitar efeitos repetidos.
+A fila padrão tem vazão quase ilimitada, mas pode repetir mensagens e entregá-las fora de ordem; a FIFO mantém a ordem dentro de cada grupo e processa cada mensagem uma vez.
 </details>
 
 <details>
-<summary>Enviar a mesma mensagem para vários sistemas e para e-mail.</summary>
+<summary>Qual é a diferença entre SQS e SNS?</summary>
 
-SNS.
+No SQS, a mensagem espera numa fila até um consumidor buscá-la; no SNS, a mensagem publicada num tópico é empurrada na hora para todos os assinantes.
 </details>
 
 <details>
-<summary>Um evento precisa ser processado por várias filas em paralelo.</summary>
+<summary>Quando usar o Amazon EventBridge?</summary>
 
-Fan-out com SNS + SQS.
+Para ligar componentes por eventos: receber eventos de aplicações, de serviços da AWS e de softwares de terceiros e entregá-los aos destinos certos, ou para agendar tarefas com o EventBridge Scheduler.
 </details>
 
 <details>
-<summary>Reagir a eventos de serviços AWS e de aplicações SaaS com regras.</summary>
+<summary>O que o AWS Step Functions faz?</summary>
 
-EventBridge.
-</details>
-
-<details>
-<summary>Executar uma tarefa todo dia às 2h sem servidor.</summary>
-
-EventBridge Scheduler (disparando Lambda).
-</details>
-
-<details>
-<summary>Orquestrar um processo com várias etapas e tratamento de erro.</summary>
-
-Step Functions.
+Coordena fluxos de trabalho com várias etapas, chamando serviços como o Lambda, com novas tentativas e caminhos alternativos em caso de erro.
 </details>
 
 
 ## [3.14 Aplicações de negócio, usuário final, front-end e IoT](../docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.md)
 
 <details>
-<summary>Criar uma central de atendimento na nuvem.</summary>
+<summary>Para que serve o Amazon Connect?</summary>
 
-Amazon Connect.
+É a central de atendimento na nuvem: clientes entram em contato por voz, chat ou SMS, e atendentes resolvem os casos, pagando-se pelo uso.
 </details>
 
 <details>
-<summary>Enviar e-mails de confirmação e marketing em massa.</summary>
+<summary>Qual é a diferença entre Amazon SES e Amazon SNS para enviar e-mails?</summary>
 
-SES.
+O SES é o serviço de e-mail completo, para mensagens transacionais e de marketing enviadas da aplicação; o SNS manda notificações simples a quem assinou um tópico.
 </details>
 
 <details>
-<summary>Oferecer desktops virtuais a funcionários remotos.</summary>
+<summary>Qual é a diferença entre WorkSpaces e WorkSpaces Applications (AppStream 2.0)?</summary>
 
-WorkSpaces.
+O WorkSpaces entrega um desktop virtual inteiro; o WorkSpaces Applications faz streaming de programas de desktop específicos para o navegador ou um cliente.
 </details>
 
 <details>
-<summary>Disponibilizar um aplicativo de desktop pelo navegador.</summary>
+<summary>O que o AWS Amplify oferece?</summary>
 
-AppStream 2.0.
+Ferramentas para criar, implantar e hospedar aplicações web e mobile full-stack, sem exigir conhecimento de nuvem.
 </details>
 
 <details>
-<summary>Criar e hospedar rapidamente um app web ou mobile full-stack.</summary>
+<summary>Para que serve o AWS IoT Core?</summary>
 
-Amplify.
-</details>
-
-<details>
-<summary>API GraphQL gerenciada com dados em tempo real.</summary>
-
-AppSync.
-</details>
-
-<details>
-<summary>Conectar milhões de sensores à nuvem.</summary>
-
-IoT Core.
+Para conectar dispositivos IoT à AWS com segurança, nos dois sentidos, e gerenciar frotas de dispositivos sem provisionar servidores.
 </details>
 
 
