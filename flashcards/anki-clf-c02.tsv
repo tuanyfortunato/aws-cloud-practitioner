@@ -174,18 +174,16 @@ Qual é a diferença entre Amazon SES e Amazon SNS para enviar e-mails?	O SES é
 Qual é a diferença entre WorkSpaces e WorkSpaces Applications (AppStream 2.0)?	O WorkSpaces entrega um desktop virtual inteiro; o WorkSpaces Applications faz streaming de programas de desktop específicos para o navegador ou um cliente.	CLF-C02 dominio-3 secao-3_14
 O que o AWS Amplify oferece?	Ferramentas para criar, implantar e hospedar aplicações web e mobile full-stack, sem exigir conhecimento de nuvem.	CLF-C02 dominio-3 secao-3_14
 Para que serve o AWS IoT Core?	Para conectar dispositivos IoT à AWS com segurança, nos dois sentidos, e gerenciar frotas de dispositivos sem provisionar servidores.	CLF-C02 dominio-3 secao-3_14
-Orquestrar a esteira de CI/CD na AWS.	CodePipeline.	CLF-C02 dominio-3 secao-3_15
-Compilar e executar testes sem gerenciar servidores de build.	CodeBuild.	CLF-C02 dominio-3 secao-3_15
-Automatizar deploy em EC2 e servidores on-premises.	CodeDeploy.	CLF-C02 dominio-3 secao-3_15
-Encontrar gargalos de latência entre microsserviços.	X-Ray.	CLF-C02 dominio-3 secao-3_15
-Provisionar infraestrutura a partir de templates JSON/YAML.	CloudFormation.	CLF-C02 dominio-3 secao-3_16
-Implantar a mesma stack em várias contas e regiões.	CloudFormation StackSets.	CLF-C02 dominio-3 secao-3_16
-Gerenciar e aplicar patches em uma frota de instâncias, inclusive on-premises.	Systems Manager.	CLF-C02 dominio-3 secao-3_16
-Acessar a instância sem abrir a porta 22.	Systems Manager Session Manager.	CLF-C02 dominio-3 secao-3_16
-Ver eventos de manutenção da AWS que afetam meus recursos.	AWS Health Dashboard.	CLF-C02 dominio-3 secao-3_16
-Pedir aumento do limite de instâncias.	Service Quotas.	CLF-C02 dominio-3 secao-3_16
-Controlar quantas licenças de SQL Server estão em uso.	License Manager.	CLF-C02 dominio-3 secao-3_16
-Recomendar o tamanho ideal das instâncias com base no uso.	Compute Optimizer.	CLF-C02 dominio-3 secao-3_16
+O que é integração contínua?	É a prática de juntar as mudanças de código num repositório central com frequência, e cada junção dispara automaticamente a compilação e os testes.	CLF-C02 dominio-3 secao-3_15
+Para que serve o AWS CodeBuild?	Para compilar o código-fonte, rodar os testes e produzir pacotes prontos para implantar, sem servidores de build para gerenciar.	CLF-C02 dominio-3 secao-3_15
+Para que serve o AWS CodePipeline?	Para modelar, visualizar e automatizar as etapas de lançamento de software, da mudança no repositório até a implantação.	CLF-C02 dominio-3 secao-3_15
+O que o AWS X-Ray mostra?	O caminho de cada requisição pela aplicação, incluindo as chamadas a outros serviços, microsserviços e bancos, para encontrar gargalos e erros.	CLF-C02 dominio-3 secao-3_15
+Qual é a diferença entre o CloudWatch e o X-Ray?	O CloudWatch coleta métricas e logs de cada recurso; o X-Ray segue uma requisição de ponta a ponta pelas várias peças da aplicação.	CLF-C02 dominio-3 secao-3_15
+O que o AWS Systems Manager permite fazer?	Operar de forma centralizada muitas máquinas na AWS e fora dela: aplicar patches em escala, rodar comandos remotamente, conectar-se sem abrir portas de entrada e guardar configurações.	CLF-C02 dominio-3 secao-3_16
+Quais são as duas visões do AWS Health Dashboard?	A saúde dos serviços, página pública com os eventos da AWS em todas as Regiões, e a saúde da conta, com os eventos que podem afetar as suas contas e recursos.	CLF-C02 dominio-3 secao-3_16
+O que fazer quando a conta atinge o limite de um recurso?	Verificar a cota no Service Quotas e, se ela for ajustável, pedir o aumento por lá.	CLF-C02 dominio-3 secao-3_16
+Para que serve o AWS Compute Optimizer?	Para analisar a configuração e o uso dos recursos e recomendar o tamanho certo, além de apontar recursos ociosos, reduzindo custo e melhorando desempenho.	CLF-C02 dominio-3 secao-3_16
+O que o CloudFormation StackSets acrescenta ao CloudFormation?	A possibilidade de criar, atualizar ou apagar pilhas em várias contas e Regiões numa única operação, a partir do mesmo modelo.	CLF-C02 dominio-3 secao-3_16
 Levantar servidores e dependências antes de migrar.	Application Discovery Service.	CLF-C02 dominio-3 secao-3_17
 Estimar quanto a empresa vai economizar ao migrar.	Migration Evaluator.	CLF-C02 dominio-3 secao-3_17
 Acompanhar todas as migrações num painel central.	Migration Hub.	CLF-C02 dominio-3 secao-3_17
