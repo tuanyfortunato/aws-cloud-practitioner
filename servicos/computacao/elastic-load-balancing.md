@@ -1,179 +1,73 @@
+<!-- autoral -->
+
 # Elastic Load Balancing (ELB)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Várias máquinas podem atender o mesmo site. Se todos os visitantes chegarem a uma só, ela pode ficar sobrecarregada enquanto as outras estão ociosas.
-
-**Como este serviço ajuda?** O Elastic Load Balancing recebe conexões e encaminha o tráfego aos destinos configurados. Verificações de saúde ajudam a evitar destinos considerados indisponíveis.
-
-**Exemplo do dia a dia:** A loja coloca um balanceador na entrada do site. Os pedidos dos visitantes são encaminhados às máquinas que atendem a aplicação.
-
-**O que ele não resolve sozinho?** Ele distribui tráfego; não cria mais máquinas por conta própria nem corrige erros do programa. Os tipos de balanceador atendem protocolos e necessidades diferentes.
-
-**Primeiras palavras para entender:**
-
-- **Tráfego:** comunicações recebidas e enviadas.
-- **Destino:** recurso que atende o pedido.
-- **Verificação de saúde:** teste para saber se o destino responde adequadamente.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação / Rede · **Domínio:** 3 · **Escopo:** Regional (multi-AZ) · **Tópico do guia:** [3.4 Escalabilidade e balanceamento](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md)
+> **Categoria:** Computação e rede · **Domínio:** 3 · **Abrangência:** Regional; distribui entre várias zonas de disponibilidade · **Ficha:** núcleo
 >
-> **Em uma frase:** distribui automaticamente o tráfego entre destinos saudáveis (EC2, contêineres, IPs, Lambda) em várias AZs.
+> **Em uma frase:** distribui automaticamente o tráfego que chega entre destinos saudáveis, como instâncias EC2, containers e endereços IP, em uma ou mais zonas de disponibilidade.
 >
 > **Escopo oficial:** ✅ Cobrado junto com o EC2 (não aparece como item separado na lista) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.4 Escalabilidade e balanceamento de carga](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md)
 
-**Passo 1.** Defina os recursos que podem atender pedidos e como verificar sua saúde.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure a entrada de tráfego e seu encaminhamento aos destinos. O balanceador escolhe destinos conforme suas regras e condições.
+---
 
-**Passo 3.** Uma verificação malsucedida pode retirar um destino do atendimento. Corrija a causa e acompanhe a capacidade dos recursos restantes.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Quando o sistema de matrícula roda em várias instâncias, os pais precisam de um único endereço para acessá-lo, qualquer que seja a instância que os atenda. E se uma instância travar, os acessos não podem continuar indo para ela.
 
-### Para que serve
+O Elastic Load Balancing resolve o problema da **distribuição**: o **balanceador de carga** é o único ponto de contato, recebe cada acesso e o encaminha a um destino saudável. Ele verifica a saúde dos destinos, escala a própria capacidade quando o tráfego muda e pode receber as conexões HTTPS com certificados do AWS Certificate Manager, liberando as instâncias desse trabalho.
 
-Alta disponibilidade e tolerância a falhas: só envia tráfego a destinos que passam no health check.
+O limite: o balanceador distribui a capacidade que existe, mas não cria instâncias. Quem ajusta a quantidade é o [EC2 Auto Scaling](ec2-auto-scaling.md); juntos, os dois dão elasticidade e alta disponibilidade.
 
-Ponto único de entrada (DNS) para uma frota que escala.
+## Como funciona
 
-Terminação TLS centralizada com certificados do [ACM](../seguranca/certificate-manager.md).
+1. O balanceador tem um **listener**, que escuta uma porta e um protocolo, como HTTPS na porta 443.
+2. Os destinos (instâncias, containers, endereços IP ou funções Lambda) ficam em **grupos de destino** (*target groups*).
+3. O balanceador faz **verificações de saúde** periódicas em cada destino.
+4. Cada acesso que chega vai para um destino saudável. No Application Load Balancer, regras podem escolher o grupo de destino pelo caminho da URL ou pelo nome do site.
+5. Destinos que falham na verificação deixam de receber tráfego até voltarem a passar nela.
 
-### Conceitos e componentes
+## Opções principais
 
-**Listener**
+| Tipo | Camada | Quando usar |
+|---|---|---|
+| Application Load Balancer (ALB) | Aplicação (camada 7), HTTP e HTTPS | Rotear pelo conteúdo do pedido: caminho da URL (`/matricula`, `/boletim`) ou nome do site |
+| Network Load Balancer (NLB) | Transporte (camada 4), TCP, UDP e TLS | Milhões de pedidos por segundo, latência baixa e endereço IP fixo em cada zona de disponibilidade |
+| Gateway Load Balancer (GWLB) | Rede (camada 3) | Enviar o tráfego a appliances virtuais de terceiros, como firewalls e sistemas de detecção de intrusão |
+| Classic Load Balancer | — | Geração anterior; a AWS recomenda migrar para os atuais |
 
-**O que é:** Porta/protocolo que o LB escuta (ex.: HTTPS:443).
+As camadas vêm do modelo OSI ([aula 3.4](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md)): quanto mais alta, mais o balanceador "entende" do pedido.
 
-**Rules (ALB)**
+## Números que a prova cobra
 
-**O que é:** Condições (caminho, host, cabeçalho, query string, IP de origem) → ação (encaminhar, redirecionar, resposta fixa, autenticar).
+O ELB não tem número que a prova costuma cobrar; o que cai é a escolha do tipo de balanceador e a diferença entre balanceador e Auto Scaling.
 
-**Target group**
+## Como é cobrado
 
-**O que é:** Conjunto de destinos (instâncias, IPs, Lambda, ALB) com seu health check.
+Cada balanceador é cobrado por **hora** (ou fração de hora) em funcionamento, mais as **unidades de capacidade** que consome, medidas por minuto: conexões novas e ativas, volume de dados e avaliações de regras. Um balanceador ligado sem tráfego continua cobrando as horas.
 
-**Health check**
+## Não confundir com
 
-**O que é:** Requisição periódica a um caminho/porta; define saudável/não saudável.
+| Serviço | Diferença para o ELB | Pista no enunciado |
+|---|---|---|
+| [EC2 Auto Scaling](ec2-auto-scaling.md) | Ajusta quantas instâncias existem; não distribui tráfego | "Acompanhar a demanda", "substituir instâncias com defeito" |
+| [Amazon Route 53](../redes/route-53.md) | DNS: traduz nomes em endereços e pode escolher entre Regiões ou recursos | "Nome de domínio", "rotear por localização" |
+| [AWS Global Accelerator](../redes/global-accelerator.md) | IPs estáticos globais que levam o tráfego pela rede da AWS até a Região mais próxima | "IP estático global", "usuários no mundo todo" |
+| [AWS WAF](../seguranca/waf.md) | Filtra pedidos web maliciosos; pode proteger um ALB, mas não distribui tráfego | "Injeção de SQL", "bloquear ataques à aplicação" |
 
-**Cross-zone load balancing**
+## Fontes oficiais
 
-**O que é:** Distribui igualmente entre todos os destinos de todas as AZs. Ativado por padrão no ALB.
+Verificadas em 06/10/2026.
 
-**Sticky sessions**
-
-**O que é:** Mantém o mesmo cliente no mesmo destino (cookie).
-
-**Connection draining / deregistration delay**
-
-**O que é:** Termina requisições em andamento antes de remover um destino.
-
-### Tipos
-
-| Tipo | Camada | Protocolos | Destaques | Uso |
-|---|---|---|---|---|
-| **Application LB (ALB)** | 7 | HTTP, HTTPS, gRPC, WebSocket | Roteamento por caminho/host/cabeçalho; destino Lambda; autenticação com Cognito/OIDC; integra com **WAF** | Microsserviços, contêineres, web |
-| **Network LB (NLB)** | 4 | TCP, UDP, TLS | Milhões de req/s, latência ultrabaixa, **IP estático por AZ** (aceita Elastic IP), preserva IP de origem | Jogos, IoT, protocolos não HTTP, PrivateLink |
-| **Gateway LB (GWLB)** | 3 | IP (GENEVE) | Insere appliances de terceiros de forma transparente | Firewalls, IDS/IPS virtuais |
-| **Classic LB (CLB)** | 4 e 7 | HTTP, HTTPS, TCP | Geração anterior | Legado — não recomendado |
-
-### Configurações e opções importantes
-
-**Internet-facing** (IP público) × **internal** (só dentro da VPC).
-
-**SSL/TLS offloading:** o LB descriptografa e alivia as instâncias; certificado do ACM; política de segurança TLS.
-
-**Redirect HTTP → HTTPS** com regra no ALB.
-
-**Access logs** no S3; métricas no CloudWatch.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Ele distribui tráfego; não cria mais máquinas por conta própria nem corrige erros do programa. Os tipos de balanceador atendem protocolos e necessidades diferentes.
-
-### ⚠️ Pegadinhas e não confundir
-
-⚠️ **WAF não se associa a NLB** (só ALB, CloudFront, API Gateway, AppSync, Cognito…).
-
-"Rotear `/api` e `/imagens` para serviços diferentes" → **ALB**.
-
-"IP fixo para clientes liberarem no firewall" → **NLB** (ou Global Accelerator para IP global).
-
-ELB distribui tráfego; **Auto Scaling** ajusta a quantidade. São complementares.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por **hora** de LB + **LCU/NLCU/GLCU** (unidades de capacidade consumidas: conexões novas, ativas, bytes, avaliações de regras).
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** disponibilidade, escala e patch do LB (serviço gerenciado). Inclui **Shield Standard**.
-
-**Cliente:** listeners, certificados, security groups do LB, regras do WAF, health checks.
-
-## 5. Caso resolvido: ligando as peças
-
-A loja coloca um balanceador na entrada do site. Os pedidos dos visitantes são encaminhados às máquinas que atendem a aplicação.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina os recursos que podem atender pedidos e como verificar sua saúde.
-**Etapa 2:** Configure a entrada de tráfego e seu encaminhamento aos destinos. O balanceador escolhe destinos conforme suas regras e condições.
-**Etapa 3:** Uma verificação malsucedida pode retirar um destino do atendimento. Corrija a causa e acompanhe a capacidade dos recursos restantes.
-
-**Resultado e responsabilidade:** O Elastic Load Balancing recebe conexões e encaminha o tráfego aos destinos configurados. Verificações de saúde ajudam a evitar destinos considerados indisponíveis.
-
-**Recursos envolvidos:** Load balancer, listeners, target groups, destinos e health checks.
-
-**Decisões que precisam ser tomadas:** Tipo, protocolo, portas, certificados e destinos.
-
-**Outra situação comentada:** Dois caminhos de uma aplicação web vão para serviços diferentes: regras por caminho no ALB.
-
-**Por que não concluir mais do que isso:** Não executa aplicação nem aumenta capacidade sozinho
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Qual LB roteia por caminho de URL?"
-
-**Resposta curta:** ALB.
-
-**Pergunta:** "Qual LB para milhões de conexões TCP com IP estático?"
-
-**Resposta curta:** NLB.
-
-**Pergunta:** "Qual LB para appliances de firewall de terceiros?"
-
-**Resposta curta:** GWLB.
-
-**Pergunta:** "Como fazer HTTPS no LB com certificado gratuito?"
-
-**Resposta curta:** ACM no listener do ALB/NLB.
-
-**Pergunta:** "Como garantir que o tráfego só vá para instâncias saudáveis?"
-
-**Resposta curta:** Health checks do ELB.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Elastic Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+- [O que é o Elastic Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+- [Como o Elastic Load Balancing funciona](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html)
+- [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
+- [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
+- [Gateway Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html)
+- [Preços do Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

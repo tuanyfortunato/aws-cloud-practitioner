@@ -1,184 +1,73 @@
+<!-- autoral -->
+
 # Amazon EC2 Auto Scaling
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Uma loja tem poucos visitantes de madrugada e muitos durante uma promoção. Manter sempre a mesma quantidade de máquinas pode desperdiçar dinheiro ou deixar o site lento.
-
-**Como este serviço ajuda?** O EC2 Auto Scaling aumenta ou diminui a quantidade de máquinas EC2 seguindo regras que você configura. Ele também pode substituir máquinas consideradas sem saúde pelo grupo.
-
-**Exemplo do dia a dia:** A loja configura um grupo que adiciona máquinas quando a demanda aumenta e reduz a quantidade depois da promoção. O programa precisa estar preparado para funcionar em várias máquinas.
-
-**O que ele não resolve sozinho?** Ele gerencia a quantidade de máquinas; não distribui sozinho cada pedido dos visitantes entre elas. Essa distribuição costuma ser feita por um balanceador.
-
-**Primeiras palavras para entender:**
-
-- **Escalar:** ajustar capacidade.
-- **Grupo:** conjunto de máquinas administrado em conjunto.
-- **Política:** regra para decidir quando ajustar esse conjunto.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação · **Domínio:** 1 (elasticidade) e 3 · **Escopo:** Regional (grupo distribuído entre AZs) · **Tópico do guia:** [3.4 Escalabilidade e balanceamento](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md)
+> **Categoria:** Computação · **Domínio:** 1 (elasticidade) e 3 · **Abrangência:** Regional; o grupo pode usar várias zonas de disponibilidade · **Ficha:** núcleo
 >
-> **Em uma frase:** aumenta e reduz automaticamente o número de instâncias EC2 conforme a demanda e substitui as que falham.
+> **Em uma frase:** aumenta e reduz automaticamente o número de instâncias EC2 para acompanhar a demanda e substitui as que falham.
 >
 > **Escopo oficial:** ✅ No escopo (AWS Auto Scaling) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.4 Escalabilidade e balanceamento de carga](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md) · base em [1.3 Conceitos de arquitetura](../../docs/01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md)
 
-**Passo 1.** Defina a configuração das máquinas e a quantidade mínima, desejada e máxima do grupo.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Escolha condições que ajustam a quantidade, como uma métrica de utilização. O grupo cria ou remove máquinas dentro desses limites.
+---
 
-**Passo 3.** Observe se a capacidade acompanha a demanda. A aplicação deve funcionar com cópias que podem ser substituídas.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+Na primeira semana de janeiro, o sistema de matrícula recebe dez vezes mais acessos que no resto do ano. Criar instâncias à mão em dezembro e apagá-las em fevereiro depende de alguém lembrar, e uma instância que trava de madrugada fica fora até alguém notar.
 
-### Para que serve
+O EC2 Auto Scaling resolve o problema da **capacidade**: ele mantém um **grupo do Auto Scaling** com o número certo de instâncias em cada momento, criando instâncias quando a carga sobe e encerrando quando cai. Essa é a **elasticidade** da [aula 1.3](../../docs/01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md). O grupo também verifica a saúde das instâncias e substitui as que falham, e pode espalhá-las por várias zonas de disponibilidade.
 
-**Elasticidade:** acompanhar picos e vales de tráfego sem intervenção manual.
+O limite: o Auto Scaling cria e encerra instâncias, mas não distribui os acessos entre elas; isso é do [Elastic Load Balancing](elastic-load-balancing.md). E a aplicação precisa funcionar em várias cópias, sem guardar a sessão do usuário no disco de uma instância.
 
-**Alta disponibilidade:** manter um número mínimo de instâncias saudáveis distribuídas em várias AZs.
+## Como funciona
 
-**Otimização de custos:** não pagar por capacidade ociosa.
+1. Um **modelo de execução** (*launch template*) diz como criar cada instância: AMI, tipo de instância e demais configurações.
+2. O grupo tem três números: **capacidade mínima**, **máxima** e **desejada**. O serviço cria ou encerra instâncias até chegar à desejada, sem sair do intervalo.
+3. Uma **política de escalonamento** muda a capacidade desejada: por horário, por uma métrica ou por previsão.
+4. As **verificações de saúde** encontram instâncias com defeito, e o grupo as substitui.
+5. Com um balanceador ligado ao grupo, cada instância nova é registrada nele, e cada instância encerrada sai dele.
 
-### Conceitos e componentes
+## Opções principais
 
-**Auto Scaling Group (ASG)**
-
-**O que é:** Conjunto lógico de instâncias com capacidade **mínima**, **desejada** e **máxima**.
-
-**Launch template**
-
-**O que é:** Configuração das instâncias (AMI, tipo, SG, key pair, user data). Substitui as antigas *launch configurations*.
-
-**Health check**
-
-**O que é:** EC2 (status da instância) e/ou **ELB** (health check do load balancer). Instância não saudável é substituída.
-
-**Scaling policy**
-
-**O que é:** Regra que muda a capacidade desejada.
-
-**Lifecycle hooks**
-
-**O que é:** Pausam a instância ao entrar/sair do grupo para rodar ações (ex.: instalar agente, drenar logs).
-
-**Warm pools**
-
-**O que é:** Instâncias pré-inicializadas para escalar mais rápido.
-
-**Instance refresh**
-
-**O que é:** Substitui gradualmente as instâncias para aplicar nova AMI/template.
-
-### Configurações e opções importantes
-
-| Política | Como funciona | Exemplo |
+| Forma de escalar | Como funciona | Exemplo |
 |---|---|---|
-| **Target tracking** | Mantém uma métrica num alvo | CPU média em 50% |
-| **Step scaling** | Ajustes em degraus conforme o tamanho do desvio do alarme | +2 instâncias se CPU > 70%, +4 se > 90% |
-| **Simple scaling** | Um ajuste por alarme, com cooldown | Legado |
-| **Scheduled** | Capacidade em horários conhecidos | Pico toda sexta às 18h |
-| **Predictive** | ML prevê a demanda com base no histórico e escala antes | Padrões diários/semanais |
+| Manual | Alguém muda a capacidade desejada | Ajuste pontual |
+| Programada (*scheduled*) | Ações em horários definidos | Aumentar no dia 2 de janeiro e reduzir no dia 15 |
+| Rastreamento de destino (*target tracking*) | Mantém uma métrica num valor, como um termostato | Uso médio de processador em 50% |
+| Em etapas (*step scaling*) | Ajustes que variam com o tamanho do desvio medido por um alarme | +2 instâncias acima de 70%, +4 acima de 90% |
+| Preditiva (*predictive*) | Analisa o histórico e cria capacidade antes da carga prevista | Picos diários ou semanais que se repetem |
 
-**Mixed instances policy:** combina On-Demand e **Spot** e vários tipos de instância no mesmo grupo.
+## Números que a prova cobra
 
-**Termination policy:** define qual instância sai primeiro (padrão: equilibra AZs, depois a com template mais antigo…).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Cobrança própria do EC2 Auto Scaling | Nenhuma | 06/10/2026 |
 
-**Rebalanceamento entre AZs:** o ASG tenta manter o mesmo número de instâncias por AZ.
+## Como é cobrado
 
-### Limites e números
+O EC2 Auto Scaling não tem cobrança adicional: você paga pelas instâncias que o grupo cria e pelos demais recursos usados, como o monitoramento do CloudWatch. Por isso ele também economiza: no resto do ano, o grupo encolhe até a capacidade mínima, e a escola não paga por instâncias paradas esperando janeiro.
 
-🧊 Quotas de ASGs e templates por região não caem.
+## Não confundir com
 
-📌 Monitoramento detalhado (1 min) deixa o escalonamento mais rápido.
+| Serviço | Diferença para o EC2 Auto Scaling | Pista no enunciado |
+|---|---|---|
+| [Elastic Load Balancing](elastic-load-balancing.md) | Distribui os acessos entre as instâncias que existem; não cria capacidade | "Distribuir o tráfego", "um único ponto de acesso" |
+| Escalar verticalmente | Trocar a instância por uma maior; o Auto Scaling escala horizontalmente, mudando a quantidade | "Aumentar o tamanho da instância" |
+| [Amazon EC2](ec2.md) | Uma instância sozinha não acompanha a demanda nem se substitui quando falha | "Pico de acessos", "substituir instâncias com defeito" |
 
-## 3. Como escolher e reconhecer os limites
+## Fontes oficiais
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+Verificadas em 06/10/2026.
 
-Ele gerencia a quantidade de máquinas; não distribui sozinho cada pedido dos visitantes entre elas. Essa distribuição costuma ser feita por um balanceador.
-
-### ⚠️ Pegadinhas e não confundir
-
-**EC2 Auto Scaling** (instâncias) × **AWS Auto Scaling** (planos de escalonamento para vários recursos: EC2, ECS, DynamoDB, Aurora).
-
-Auto Scaling **não distribui tráfego** — quem faz isso é o [ELB](elastic-load-balancing.md). Juntos dão HA + elasticidade.
-
-Escalar **horizontalmente** (scale out) é o que o ASG faz; aumentar o tamanho da instância é **vertical** (scale up) e exige parar a instância.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-**Sem custo próprio:** paga-se as instâncias EC2 e alarmes/métricas do CloudWatch usados.
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** executa o serviço de escalonamento.
-
-**Cliente:** define políticas, AMIs atualizadas, IAM, security groups.
-
-## 5. Caso resolvido: ligando as peças
-
-A loja configura um grupo que adiciona máquinas quando a demanda aumenta e reduz a quantidade depois da promoção. O programa precisa estar preparado para funcionar em várias máquinas.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Defina a configuração das máquinas e a quantidade mínima, desejada e máxima do grupo.
-**Etapa 2:** Escolha condições que ajustam a quantidade, como uma métrica de utilização. O grupo cria ou remove máquinas dentro desses limites.
-**Etapa 3:** Observe se a capacidade acompanha a demanda. A aplicação deve funcionar com cópias que podem ser substituídas.
-
-**Resultado e responsabilidade:** O EC2 Auto Scaling aumenta ou diminui a quantidade de máquinas EC2 seguindo regras que você configura. Ele também pode substituir máquinas consideradas sem saúde pelo grupo.
-
-**Recursos envolvidos:** Grupo, launch template, mínimo, máximo, capacidade desejada e políticas.
-
-**Decisões que precisam ser tomadas:** Número de instâncias e critérios de saúde/escala.
-
-**Outra situação comentada:** Pico previsível: política agendada; demanda variável: política dinâmica com métrica adequada.
-
-**Por que não concluir mais do que isso:** Não remove gargalos de aplicação/banco nem copia arquivos locais entre instâncias
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Ajustar automaticamente o número de instâncias à demanda."
-
-**Resposta curta:** EC2 Auto Scaling.
-
-**Pergunta:** "A loja tem pico toda sexta às 18h."
-
-**Resposta curta:** Scheduled scaling.
-
-**Pergunta:** "Manter a CPU média em 50%."
-
-**Resposta curta:** Target tracking.
-
-**Pergunta:** "Escalar antes do pico com base no histórico."
-
-**Resposta curta:** Predictive scaling.
-
-**Pergunta:** "Substituir automaticamente instâncias com falha."
-
-**Resposta curta:** ASG com health checks.
-
-**Pergunta:** "O Auto Scaling tem custo?"
-
-**Resposta curta:** Não; paga-se só os recursos.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
+- [O que é o Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
+- [Escalar o grupo](https://docs.aws.amazon.com/autoscaling/ec2/userguide/scale-your-group.html)
+- [Escalonamento programado](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html)
+- [Rastreamento de destino](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)
+- [Escalonamento preditivo](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html)
+- [Verificações de saúde](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

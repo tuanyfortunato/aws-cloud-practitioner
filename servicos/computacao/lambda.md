@@ -1,239 +1,79 @@
+<!-- autoral -->
+
 # AWS Lambda
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** Você precisa executar uma tarefa quando algo acontece, mas não quer manter uma máquina inteira só para esperar por esse acontecimento.
-
-**Como este serviço ajuda?** No Lambda, você entrega uma função, isto é, um trecho de programa. Um evento ou uma chamada dispara sua execução, e a AWS administra a infraestrutura usada para executá-la.
-
-**Exemplo do dia a dia:** Quando uma pessoa envia uma foto, uma função pode gerar uma miniatura. Você escreve o código dessa transformação e configura o que vai acioná-lo.
-
-**O que ele não resolve sozinho?** Lambda não é uma máquina em que você entra para instalar qualquer programa e deixá-lo rodando indefinidamente. Há limites de execução, e dados que precisam durar devem ser guardados em armazenamento apropriado.
-
-**Primeiras palavras para entender:**
-
-- **Evento:** acontecimento que dispara uma ação.
-- **Função:** código executado para uma tarefa.
-- **Serverless:** a AWS administra os servidores; eles continuam existindo.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Computação serverless · **Domínio:** 1 (serverless) e 3 · **Escopo:** Regional · **Tópico do guia:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
+> **Categoria:** Computação serverless · **Domínio:** 1 (serverless) e 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** executa código em resposta a eventos sem você administrar servidores; o modelo base cobra requisições e duração.
+> **Em uma frase:** roda código em resposta a eventos sem que você provisione ou gerencie servidores, cobrando pelos pedidos e pela duração.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.5 Containers e serverless](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md) · base em [1.1 O que é computação em nuvem](../../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md)
 
-**Passo 1.** Escreva uma função que realize uma tarefa delimitada e defina como ela será chamada.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Configure os recursos, os acessos e a integração que fornece a entrada. A AWS inicia a execução quando recebe a chamada ou o evento.
+---
 
-**Passo 3.** Guarde resultados que precisam durar em um recurso apropriado e trate falhas. Não dependa de execução infinita nem de memória preservada entre chamadas.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A escola quer gerar uma miniatura toda vez que alguém envia uma foto. As fotos chegam algumas vezes por dia, sem horário certo. Deixar uma instância EC2 ligada o tempo todo esperando por elas significa pagar por horas paradas e ainda cuidar de sistema operacional e patches.
 
-### Para que serve
+O Lambda roda o código só quando algo acontece. Você escreve uma **função** e a liga a um **gatilho**, como um arquivo novo no S3, um pedido no API Gateway, uma mensagem numa fila do SQS ou uma regra do EventBridge. A AWS cuida dos servidores, da capacidade, do escalonamento e dos patches, e cobra só pelas execuções. É o exemplo de **serverless** da [aula 1.1](../../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md).
 
-Processar arquivos assim que chegam ao S3 (miniaturas, validação, ETL leve).
+O limite: uma execução comum dura **até 15 minutos**, e cada execução é independente, sem guardar estado para a próxima. Uma conversão de vídeo de duas horas cabe melhor em containers com Fargate, no AWS Batch ou no EC2 ([aula 3.5](../../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)).
 
-Back-ends de APIs (com [API Gateway](../redes/api-gateway.md) ou function URLs).
+## Como funciona
 
-Consumir filas e streams (SQS, Kinesis, DynamoDB Streams).
+1. Você escreve a função numa linguagem que o Lambda roda e escolhe a **memória**; o processamento é proporcional a ela.
+2. Liga a função a um gatilho e dá a ela uma **função de execução** do IAM, com as permissões de que precisa (por exemplo, ler e gravar no S3).
+3. Quando o evento acontece, o Lambda cria um ambiente de execução e roda o código. Muitos eventos ao mesmo tempo viram muitas execuções em paralelo.
+4. A função entrega o resultado a outro serviço, como gravar a miniatura no S3. O que precisa durar fica num armazenamento, não na função.
 
-Tarefas agendadas (EventBridge Scheduler), automação de operações, chatbots.
+## Opções principais
 
-### Conceitos e componentes
+| Opção | O que faz | Quando lembrar |
+|---|---|---|
+| Memória | De 128 MB a 10.240 MB; o processamento cresce junto | Não existe "escolher vCPU" no Lambda: aumenta-se a memória |
+| Tempo limite (*timeout*) | Até 15 minutos por execução | Tarefas mais longas vão para outro serviço |
+| Concorrência provisionada | Mantém ambientes já iniciados, prontos para responder | Eliminar a demora da primeira execução (*cold start*) |
+| Arquitetura arm64 (Graviton) | Roda a função em processadores Graviton2 | Melhor relação entre preço e desempenho que a x86 |
+| Funções duráveis (*durable functions*) | Aplicações de várias etapas que salvam o progresso e podem durar até um ano | Processos longos com espera; não confundir com uma execução comum |
 
-**Função**
+## Números que a prova cobra
 
-**O que é:** Código + configuração (runtime, memória, timeout, role).
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Duração máxima de uma execução comum | 15 minutos | 06/10/2026 |
+| Memória | De 128 MB a 10.240 MB | 06/10/2026 |
+| Nível gratuito | 1 milhão de pedidos e 400.000 GB-segundo por mês | 06/10/2026 |
 
-**Runtime**
+## Como é cobrado
 
-**O que é:** Python, Node.js, Java, .NET, Ruby, **custom runtime** (`provided.al2023`) — Go e Rust usam o custom runtime; também **imagem de contêiner** (até 10 GB).
+Você paga pelos **pedidos** (preço por milhão) e pela **duração** em GB-segundo, que combina o tempo de execução com a memória escolhida. O nível gratuito cobre 1 milhão de pedidos e 400.000 GB-segundo por mês. Função parada, sem eventos, não gera cobrança de pedidos nem de duração.
 
-**Trigger / event source**
+Alguns recursos cobram à parte: a concorrência provisionada é cobrada pelo tempo em que fica configurada, mesmo sem execuções; o armazenamento temporário acima de 512 MB também é cobrado. O Compute Savings Plans dá desconto no Lambda ([aula 4.2](../../docs/04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md)).
 
-**O que é:** O que invoca: S3, API Gateway, ALB, SQS, SNS, EventBridge, DynamoDB/Kinesis Streams, Cognito, IoT…
+## Não confundir com
 
-**Execution role**
+| Serviço | Diferença para o Lambda | Pista no enunciado |
+|---|---|---|
+| [Amazon EC2](ec2.md) | Servidor virtual com controle do sistema operacional, cobrado enquanto está ligado | "Controle do sistema operacional", "software legado" |
+| [AWS Fargate](fargate.md) | Roda containers sem servidores para gerenciar, sem o limite de 15 minutos | "Container", "tarefa de horas sem servidor" |
+| [AWS Step Functions](../integracao/step-functions.md) | Encadeia várias funções num fluxo de etapas | "Processo de várias etapas", "passa de 15 minutos" |
+| [AWS Batch](batch.md) | Roda grandes volumes de trabalhos em lote, escolhendo a computação | "Milhares de jobs em lote" |
 
-**O que é:** IAM role que dá permissões à função (ex.: gravar no DynamoDB).
+## Fontes oficiais
 
-**Resource-based policy**
+Verificadas em 06/10/2026.
 
-**O que é:** Quem pode invocar a função (ex.: permitir o S3 ou outra conta).
-
-**Invocação**
-
-**O que é:** **Síncrona** (API Gateway, function URL), **assíncrona** (S3, SNS, EventBridge — com retentativas e *destinations*/DLQ) ou **event source mapping** (polling de SQS/Kinesis/DynamoDB).
-
-**Layers**
-
-**O que é:** Pacotes de bibliotecas compartilhados entre funções (até 5).
-
-**Versões e aliases**
-
-**O que é:** Versões imutáveis + aliases (`prod`, `dev`) que apontam para elas; permitem *canary*/peso.
-
-**Cold start**
-
-**O que é:** Latência extra ao criar um novo ambiente de execução.
-
-### Configurações e opções importantes
-
-**Memória**
-
-**O que faz:** 128 MB – 10.240 MB; a **CPU é proporcional à memória**
-
-**Timeout**
-
-**O que faz:** até **900 s (15 min)**
-
-**Armazenamento efêmero /tmp**
-
-**O que faz:** 512 MB – 10.240 MB
-
-**Variáveis de ambiente**
-
-**O que faz:** Configuração (criptografadas com KMS)
-
-**Arquitetura**
-
-**O que faz:** x86_64 ou **arm64 (Graviton)** — mais barato por GB-s
-
-**Concorrência reservada**
-
-**O que faz:** Garante (e limita) concorrência para uma função
-
-**Concorrência provisionada**
-
-**O que faz:** Ambientes pré-aquecidos — elimina cold start (pago)
-
-**SnapStart**
-
-**O que faz:** Reduz cold start (Java, Python, .NET) restaurando um snapshot
-
-**Acesso à VPC**
-
-**O que faz:** Função acessa recursos privados (RDS, ElastiCache)
-
-**Function URL**
-
-**O que faz:** Endpoint HTTPS dedicado, sem API Gateway
-
-**Destinations / DLQ**
-
-**O que faz:** Para onde vão os resultados ou falhas de invocações assíncronas
-
-### Limites e números
-
-📌 Timeout máximo **15 min** · memória **10.240 MB** · CPU proporcional.
-
-🧊 Concorrência padrão de 1.000 por região (ajustável), pacote zip 50 MB (250 MB descompactado), 5 layers, payload síncrono de 6 MB.
-
-## 3. Como escolher e reconhecer os limites
-
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Lambda não é uma máquina em que você entra para instalar qualquer programa e deixá-lo rodando indefinidamente. Há limites de execução, e dados que precisam durar devem ser guardados em armazenamento apropriado.
-
-### ⚠️ Pegadinhas e não confundir
-
-⚠️ **Uma invocação convencional > 15 minutos** não é suportada. Considere Fargate/Batch/EC2 ou dividir o fluxo. Durable Functions e Lambda MicroVMs têm modelos próprios; não confunda duração total do workflow com uma invocação convencional.
-
-⚠️ Não existe "configurar vCPU" no Lambda: aumente a **memória**.
-
-Lambda × Fargate: função convencional por evento (até 15 min por invocação) × contêiner serverless sem limite de duração.
-
-Lambda é "serverless/FaaS"; o guia o classifica também como PaaS.
-
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-**Requisições** (por milhão) + **duração** em GB-segundo (arredondada ao ms, proporcional à memória).
-
-Free Tier "sempre gratuito": **1 milhão de requisições e 400.000 GB-s por mês**.
-
-Extras: concorrência provisionada, `/tmp` acima de 512 MB, transferência de dados.
-
-Coberto pelo **Compute Savings Plans**.
-
-### Segurança e responsabilidade compartilhada
-
-**AWS:** infraestrutura, SO, runtime gerenciado (patches), escalonamento e alta disponibilidade (multi-AZ automático).
-
-**Cliente:** **código**, dependências, permissões (execution role com menor privilégio), configuração, dados, segredos (use Secrets Manager).
-
-### 🔄 Atualizações 2025-2026
-
-Contas novas começam com quotas reduzidas de concorrência/memória, aumentadas automaticamente com o uso.
-
-## 5. Caso resolvido: ligando as peças
-
-A escola precisa criar uma miniatura quando uma pessoa envia uma foto. O trabalho tem entrada e resultado definidos e não precisa de uma máquina própria aguardando permanentemente o evento.
-
-A equipe escreve a função de transformação, prepara permissões e configura uma integração compatível para acioná-la. Quando chega a entrada, a função executa o código e grava o resultado num armazenamento adequado. O serviço fornece a infraestrutura da execução.
-
-Se o código falhar ou a entrada aparecer novamente, a aplicação precisa de tratamento apropriado. Não confie em memória de uma execução como armazenamento definitivo. A AWS administrar a execução não corrige automaticamente bibliotecas incluídas no pacote nem decide quem pode ler as fotos.
-
-**Recursos envolvidos:** Função convencional, código, runtime, execution role, trigger e logs.
-
-**Decisões que precisam ser tomadas:** Memória, timeout, concorrência, VPC e tratamento de falha.
-
-**Outra situação comentada:** Miniatura após upload: evento S3 invoca função que precisa de leitura/gravação e logs autorizados.
-
-**Por que não concluir mais do que isso:** Limite de quinze minutos é por invocação convencional; recursos como MicroVMs e Durable Functions têm modelos próprios
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Executar código sem servidores, em resposta a eventos."
-
-**Resposta curta:** Lambda.
-
-**Pergunta:** "Tempo máximo de uma invocação convencional?"
-
-**Resposta curta:** 15 minutos.
-
-**Pergunta:** "Como o Lambda é cobrado?"
-
-**Resposta curta:** No modelo base, requisições e duração (GB-s); concorrência provisionada, snapshots e outros extras podem cobrar sem invocação.
-
-**Pergunta:** "Gerar miniatura quando uma imagem chega ao S3."
-
-**Resposta curta:** Notificação de evento do S3 → Lambda.
-
-**Pergunta:** "Eliminar cold start em função crítica."
-
-**Resposta curta:** Concorrência provisionada.
-
-**Pergunta:** "Dar acesso da função ao DynamoDB."
-
-**Resposta curta:** Execution role.
-
-**Pergunta:** "Tarefa todo dia às 2h sem servidor."
-
-**Resposta curta:** EventBridge Scheduler + Lambda.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Guia do desenvolvedor do Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
-- [Quotas do Lambda](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
-- [Preços](https://aws.amazon.com/lambda/pricing/)
-- [Durable Functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+- [O que é o AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+- [Cotas do Lambda](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
+- [Memória da função](https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html)
+- [Tempo limite da função](https://docs.aws.amazon.com/lambda/latest/dg/configuration-timeout.html)
+- [Concorrência provisionada](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html)
+- [Funções duráveis](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+- [Arquitetura arm64](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html)
+- [Preços do AWS Lambda](https://aws.amazon.com/lambda/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

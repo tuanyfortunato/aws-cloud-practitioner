@@ -20,9 +20,9 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
 | [Amazon EC2 (Elastic Compute Cloud)](computacao/ec2.md) | ✅ | núcleo | Servidores virtuais sob demanda, com controle total do sistema operacional (IaaS). |
-| [Amazon EC2 Auto Scaling](computacao/ec2-auto-scaling.md) | ✅ | núcleo | Aumenta e reduz automaticamente o número de instâncias EC2 conforme a demanda e substitui as que falham. |
-| [Elastic Load Balancing (ELB)](computacao/elastic-load-balancing.md) | ✅ | núcleo | Distribui automaticamente o tráfego entre destinos saudáveis (EC2, contêineres, IPs, Lambda) em várias AZs. |
-| [AWS Lambda](computacao/lambda.md) | ✅ | núcleo | Executa código em resposta a eventos sem você administrar servidores; o modelo base cobra requisições e duração. |
+| [Amazon EC2 Auto Scaling](computacao/ec2-auto-scaling.md) | ✅ | núcleo | Aumenta e reduz automaticamente o número de instâncias EC2 para acompanhar a demanda e substitui as que falham. |
+| [Elastic Load Balancing (ELB)](computacao/elastic-load-balancing.md) | ✅ | núcleo | Distribui automaticamente o tráfego que chega entre destinos saudáveis, como instâncias EC2, containers e endereços IP, em uma ou mais zonas de disponibilidade. |
+| [AWS Lambda](computacao/lambda.md) | ✅ | núcleo | Roda código em resposta a eventos sem que você provisione ou gerencie servidores, cobrando pelos pedidos e pela duração. |
 | [Amazon ECS (Elastic Container Service)](computacao/ecs.md) | ✅ | núcleo | Orquestrador de contêineres próprio da AWS, totalmente gerenciado e integrado aos demais serviços. |
 | [Amazon EKS (Elastic Kubernetes Service)](computacao/eks.md) | ✅ | núcleo | Kubernetes gerenciado — a AWS opera o plano de controle e você roda seus pods. |
 | [AWS Fargate](computacao/fargate.md) | ✅ | núcleo | Motor serverless que executa contêineres do ECS ou EKS sem você provisionar ou gerenciar servidores. |
