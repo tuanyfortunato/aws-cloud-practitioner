@@ -26,7 +26,7 @@
   da resposta vira o flashcard). Os demais
   arquivos seguem as regras abaixo. Ver [plano de implementação](pendencias/plano-de-implementacao.md).
 - O capítulo 0 (`docs/fundamentos/`) é todo autoral; o sumário do README lista as aulas que existem na pasta.
-  Use `docs/fundamentos/01-servidor-e-virtualizacao.md` como modelo até o modelo de aula da Fase 3.
+  Aulas autorais novas partem de `templates/topico.md` (modelo da Fase 3).
 - O [glossário](glossario.md) é o único lugar de consulta rápida de termos, em ordem alfabética. Nas aulas autorais, cada termo é
   explicado em prosa no primeiro uso; o glossário serve para relembrar e aponta para a aula que ensina. Definições dizem o que
   o termo é e para que serve, sem frases defensivas (o `test_apostila.py` confere ordem e repetição).
