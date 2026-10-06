@@ -2,90 +2,72 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 146 cards
+**Total:** 143 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
 
 <details>
-<summary>Quais são as formas de interagir com a AWS?</summary>
+<summary>Quais são as formas de acessar e operar os serviços da AWS?</summary>
 
-Console, CLI, SDKs e APIs (e CloudShell).
+O AWS Management Console (navegador), a AWS CLI (comandos), os AWS SDKs (código da aplicação) e a infraestrutura como código, com o AWS CloudFormation.
 </details>
 
 <details>
-<summary>Um desenvolvedor quer chamar a AWS de dentro do código Python.</summary>
+<summary>Quando usar o console e quando automatizar?</summary>
 
-SDK (boto3).
+O console serve para explorar e para tarefas pontuais; tarefas que se repetem devem ser automatizadas com CLI, SDK ou infraestrutura como código.
 </details>
 
 <details>
-<summary>Como criar ambientes idênticos de forma repetível e versionada?</summary>
+<summary>O que é infraestrutura como código?</summary>
 
-CloudFormation (infraestrutura como código).
+É descrever em um arquivo os recursos de um ambiente e deixar que uma ferramenta os crie; na AWS, o CloudFormation cria os recursos de um modelo como uma pilha.
 </details>
 
 <details>
-<summary>Qual a vantagem de IaC?</summary>
+<summary>Qual é a diferença entre a AWS CLI e um AWS SDK?</summary>
 
-Repetibilidade, menos erro manual, versionamento e velocidade.
+A CLI executa comandos no terminal e em scripts; o SDK é uma biblioteca para chamar as APIs da AWS de dentro do código de uma aplicação.
 </details>
 
 <details>
-<summary>Qual opção de conectividade passa pela internet pública com criptografia?</summary>
+<summary>Como a rede de uma empresa pode se conectar à AWS num modelo híbrido?</summary>
 
-Site-to-Site VPN.
+Pela internet pública, por uma Site-to-Site VPN (conexão criptografada que passa pela internet) ou pelo Direct Connect (conexão dedicada, sem passar pelos provedores de internet).
 </details>
 
 
 ## [3.2 Infraestrutura global](../docs/03-tecnologia-e-servicos/02-infraestrutura-global.md)
 
 <details>
-<summary>Quais fatores considerar ao escolher uma região?</summary>
+<summary>Qual é a relação entre Região, Zona de Disponibilidade e local de borda?</summary>
 
-Compliance/residência de dados, latência para os clientes, serviços disponíveis e preço.
+Uma Região é uma área geográfica com três ou mais AZs; cada AZ é um ou mais datacenters independentes; os locais de borda são pontos de presença espalhados pelo mundo, perto dos usuários, ligados às Regiões pela rede da AWS.
 </details>
 
 <details>
-<summary>O que é uma AZ?</summary>
+<summary>Por que distribuir uma aplicação em várias AZs aumenta a disponibilidade?</summary>
 
-Um ou mais datacenters isolados dentro de uma região, com energia e rede redundantes.
+Porque as AZs não compartilham pontos únicos de falha: têm energia e rede independentes e ficam distantes o bastante para um mesmo evento não atingir duas.
 </details>
 
 <details>
-<summary>Para que servem as edge locations?</summary>
+<summary>Quando usar várias Regiões?</summary>
 
-Cache do CloudFront, DNS do Route 53 e entrada do Global Accelerator, perto do usuário.
+Para recuperação de desastres, continuidade de negócios, baixa latência para usuários em outros lugares do mundo e soberania de dados.
 </details>
 
 <details>
-<summary>Qual serviço é global?</summary>
+<summary>Quais fatores pesam na escolha de uma Região?</summary>
 
-IAM, Route 53, CloudFront ou Organizations.
+Conformidade com leis e regras sobre os dados, latência para os usuários, custo e disponibilidade dos serviços e recursos necessários.
 </details>
 
 <details>
-<summary>A empresa precisa rodar serviços AWS no próprio datacenter.</summary>
+<summary>Para que servem os locais de borda?</summary>
 
-AWS Outposts.
-</details>
-
-<details>
-<summary>Latência de um dígito de milissegundo para usuários de uma cidade sem região AWS.</summary>
-
-Local Zones.
-</details>
-
-<details>
-<summary>Aplicação móvel em rede 5G com ultrabaixa latência.</summary>
-
-Wavelength.
-</details>
-
-<details>
-<summary>Como sobreviver à falha de uma região inteira?</summary>
-
-Arquitetura multi-região.
+Para rodar serviços perto dos usuários, como o CloudFront (entrega de conteúdo), o Route 53 (DNS) e o Global Accelerator, reduzindo a latência.
 </details>
 
 

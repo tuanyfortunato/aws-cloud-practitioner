@@ -33,7 +33,7 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 | # | Tópico | Perguntas típicas |
 |---|---|---|
 | 3.1 | [Formas de acessar e implantar na AWS](01-formas-de-acesso-e-implantacao.md) | 5 |
-| 3.2 | [Infraestrutura global](02-infraestrutura-global.md) | 8 |
+| 3.2 | [Infraestrutura global](02-infraestrutura-global.md) | 5 |
 | 3.3 | [Amazon EC2](03-ec2.md) | 9 |
 | 3.4 | [Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) | 8 |
 | 3.5 | [Containers e serverless](05-containers-e-serverless.md) | 7 |
