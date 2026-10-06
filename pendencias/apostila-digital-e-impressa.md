@@ -52,19 +52,13 @@ As contagens devem ser atualizadas quando o conteúdo mudar, registrando a vers�
 
 ## 4. Mapa de fontes e saídas
 
+> Atualizado em 06/10/2026, na Fase 8 do [plano de implementação](plano-de-implementacao.md): aulas, fichas, páginas do guia, resumos e glossário passaram a ser escritos à mão, e os módulos que geravam esse conteúdo (`apostila.py`, `vocabulario_apostila.py`, `didatica_docs.py`, `licoes_topicos.py`, `introducoes_servicos.py`, `sequencias_servicos.py`, `casos_apostila.py`, `aprofundamento.py`, `conteudo_servicos/` e `conteudo_apoio.json`) foram removidos. As seções seguintes citam esses arquivos como registro do que estava planejado.
+
 | Alteração | Fonte a editar | Saída ou material afetado |
 |---|---|---|
-| Organização das seções, revisão e montagem | [apostila.py](../scripts/apostila.py) | Aulas, fichas e páginas de apoio geradas. |
-| Definições e reconhecimento de termos | [vocabulario_apostila.py](../scripts/vocabulario_apostila.py) | Vocabulário inserido nos textos. |
-| Aberturas, objetivos e domínios | [didatica_docs.py](../scripts/didatica_docs.py) | Aberturas e objetivos de `docs/`. |
-| Explicações das aulas | [licoes_topicos.py](../scripts/licoes_topicos.py) | Desenvolvimento dos capítulos. |
-| Aberturas de serviços | [introducoes_servicos.py](../scripts/introducoes_servicos.py) | Problema, solução, exemplo e limite. |
-| Sequência dos serviços | [sequencias_servicos.py](../scripts/sequencias_servicos.py) | Passos conceituais das fichas. |
-| Casos estendidos | [casos_apostila.py](../scripts/casos_apostila.py) | Exemplos com relações e decisões. |
-| Casos e dados de aprofundamento | [aprofundamento.py](../scripts/aprofundamento.py) | Funcionamento, escolhas e situações comentadas. |
-| Conteúdo-base das fichas | [conteudo_servicos/](../scripts/conteudo_servicos/) | Componentes, opções, custos e referências de `servicos/`. |
-| Orientações de apoio | [conteudo_apoio.json](../scripts/conteudo_apoio.json) | Páginas de `docs/00-guia-do-exame/`. |
-| Correções e índices | [gerar_docs.py](../scripts/gerar_docs.py) | Tópicos, índices, flashcards e resumos. |
+| Aulas, fichas, guia do exame, resumos e glossário | O próprio Markdown (`docs/`, `servicos/`, `resumos/`, `glossario.md`) | O texto lido pelo estudante e a edição impressa. |
+| Índices e flashcards | [gerar_docs.py](../scripts/gerar_docs.py) | Índices dos domínios e das fichas, flashcards e sumário do README. |
+| Edição impressa | [gerar_impressa.py](../scripts/gerar_impressa.py) e [impressao.css](../assets/impressao.css) | PDFs do livro-texto e dos cadernos. |
 | Questões de múltipla escolha | [banco_questoes.py](../scripts/banco_questoes.py) | Banco de treino. |
 | Montagem das avaliações | [gerar_simulado.py](../scripts/gerar_simulado.py) | Simulados e páginas por domínio. |
 | Modelos de contribuição | [topico.md](../templates/topico.md), [servico.md](../templates/servico.md) | Orientação para novas aulas e fichas. |

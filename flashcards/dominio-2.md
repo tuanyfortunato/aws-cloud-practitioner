@@ -1,6 +1,6 @@
 # 🃏 Flashcards — Domínio 2 — Segurança e Conformidade
 
-Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
+Clique na pergunta para ver a resposta. Gerado a partir da seção *Revisão* de cada aula (`python3 scripts/gerar_docs.py`).
 
 **Total:** 50 cards
 
@@ -269,7 +269,7 @@ Para administrar de forma central regras do WAF, do Shield Advanced, de security
 </details>
 
 
-## [2.9 Detecção de ameaças e postura de segurança](../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
+## [2.9 Detecção de ameaças](../docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.md)
 
 <details>
 <summary>Qual serviço detecta uma instância EC2 se comunicando com um servidor de mineração de criptomoeda?</summary>

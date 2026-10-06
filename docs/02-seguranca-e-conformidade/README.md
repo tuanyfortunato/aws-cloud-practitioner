@@ -1,33 +1,14 @@
 # Domínio 2 — Segurança e Conformidade
 
-## 🧠 Antes de começar
+**Peso na prova:** 30% das questões pontuadas.
 
-**Qual é a dificuldade?** Dados e recursos precisam de proteção, e a equipe precisa saber quem pode fazer cada ação e quem é responsável por cada camada.
+**A pergunta deste capítulo:** Quem pode acessar os recursos e quem precisa cuidar da segurança?
 
-**A ideia em palavras simples:** Este domínio responde **quem protege o quê** e **com qual serviço**. A base é o modelo de responsabilidade compartilhada e o IAM; depois vêm criptografia, compliance, monitoramento, firewalls e detecção de ameaças.
+Com a base do capítulo 1, separe as responsabilidades. Em seguida, estude identidades, permissões, proteção de dados e acompanhamento do ambiente.
 
-**Exemplo do dia a dia:** A escola permite que alunos consultem seus dados e que a equipe administre recursos, sem compartilhar uma identidade com poder sobre tudo.
+## Aulas
 
-Comece pelas aberturas dos tópicos para entender a situação e a solução. Depois use o vocabulário,
-os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço; o índice não substitui essa leitura.
-
-**Peso na prova:** 30% das questões pontuadas
-
-**Como o conteúdo está dividido:**
-
-- **Parte 1:** O domínio mais pesado. Esta parte cobre quem é responsável pelo quê e como funciona o controle de acesso.
-- **Parte 2:** Esta parte cobre como proteger dados, provar conformidade e detectar ameaças.
-
-## 🧭 Como estudar este domínio
-
-- 🗺️ **Ordem sugerida:** Comece por **2.1 (responsabilidade)** e **2.3 (IAM)**, que aparecem em muitas questões. Depois estude os serviços em pares que confundem: CloudTrail × Config × CloudWatch (2.7), security group × NACL (2.8), GuardDuty × Inspector × Macie (2.9).
-- 🎯 **Dica:** É o domínio com mais pegadinhas de **"qual serviço"**. Para cada serviço, decore **uma palavra-chave** (ex.: Macie → dados pessoais).
-- 🧠 Cada tópico começa com a seção **Antes de começar**: problema, explicação, exemplo e limite.
-  Depois vêm palavras novas explicadas, objetivos de leitura e revisão para a prova.
-
-## Tópicos
-
-| # | Tópico | Perguntas típicas |
+| Aula | Assunto | Perguntas de revisão |
 |---|---|---|
 | 2.1 | [Modelo de responsabilidade compartilhada](01-responsabilidade-compartilhada.md) | 5 |
 | 2.2 | [Usuário root](02-usuario-root.md) | 5 |
@@ -37,14 +18,14 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 | 2.6 | [Compliance e governança](06-compliance-e-governanca.md) | 5 |
 | 2.7 | [Logs, monitoramento e auditoria](07-logs-monitoramento-e-auditoria.md) | 5 |
 | 2.8 | [Proteção de rede e aplicações](08-protecao-de-rede-e-aplicacoes.md) | 5 |
-| 2.9 | [Detecção de ameaças e postura de segurança](09-deteccao-de-ameacas.md) | 5 |
+| 2.9 | [Detecção de ameaças](09-deteccao-de-ameacas.md) | 5 |
 | 2.10 | [Outros pontos de segurança](10-outros-pontos-de-seguranca.md) | 5 |
 
-> Acompanhe o seu avanço no [progresso](../../progresso.md).
+**Antes de avançar:** Diferencie as responsabilidades da AWS e do cliente, explique permissões e escolha ferramentas de proteção e auditoria.
 
-## Revisão rápida do domínio
+## Para revisar
 
-- 🃏 [Flashcards do domínio](../../flashcards/dominio-2.md)
-- ⚖️ [Pares que confundem](../../resumos/comparativos.md)
-- 🔑 [Palavras-chave → serviço](../../resumos/palavras-chave.md)
-- 📌 [Números-âncora](../../resumos/numeros-ancora.md)
+- [Questões do domínio](../../simulados/questoes/dominio-2.md)
+- [Flashcards do domínio](../../flashcards/dominio-2.md)
+- [Pares que confundem](../../resumos/comparativos.md), [palavras-chave](../../resumos/palavras-chave.md) e [números que decidem questões](../../resumos/numeros-ancora.md)
+- [Controle de progresso](../../progresso.md)

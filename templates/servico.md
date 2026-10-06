@@ -5,13 +5,13 @@ Modelo de ficha autoral (Fase 5 do plano de implementação). Ficha-piloto: serv
 
 - A ficha é consulta rápida de uma ou duas páginas, não uma segunda aula. Quando a aula já explica o
   mecanismo, a ficha resume e remete a ela.
-- O marcador autoral na primeira linha faz o gerar_docs.py preservar a ficha. O índice de servicos/README.md
-  lê o título (primeira linha "# ") e a linha "**Em uma frase:**" do cabeçalho; mantenha as duas.
-- A ficha continua registrada em FICHAS, CATEGORIA e ESCOPO do gerar_docs.py e nas bases editoriais
-  (conteudo_servicos, introducoes_servicos, sequencias_servicos, aprofundamento), porque o gerador exige
-  cobertura completa; essas entradas não são mais usadas para escrever a ficha.
-- Ficha núcleo (serviço central de uma aula): todas as seções. Ficha complementar (no escopo, mas periférica):
-  só "Em uma frase", "Como funciona", "Não confundir com" e "Fontes oficiais".
+- O marcador autoral na primeira linha é obrigatório: o gerar_docs.py falha se ele faltar. O índice de
+  servicos/README.md lê do cabeçalho o título (primeira linha "# "), o campo "**Ficha:**" (núcleo,
+  complementar ou referência), a linha "**Em uma frase:**" e o símbolo do "**Escopo oficial:**"; mantenha os quatro.
+- Registre a ficha nova em FICHAS, no gerar_docs.py, na categoria certa.
+- Ficha núcleo (serviço central de uma aula): todas as seções. Ficha complementar (no escopo, mas periférica)
+  ou de referência (fora da lista oficial): só "Em uma frase", "Como funciona", "Não confundir com" e
+  "Fontes oficiais". As fichas núcleo também entram no caderno de consulta impresso.
 - Toda informação sobre a AWS precisa estar confirmada na documentação oficial e listada em "Fontes oficiais".
   O que não for confirmado vai para docs/00-guia-do-exame/pendencias-de-verificacao.md, não para a ficha.
 - Explique cada termo em prosa no primeiro uso, sem frases defensivas. Apague estes comentários ao escrever.

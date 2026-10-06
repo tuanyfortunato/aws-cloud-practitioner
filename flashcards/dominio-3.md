@@ -1,6 +1,6 @@
 # 🃏 Flashcards — Domínio 3 — Tecnologia e Serviços de Nuvem
 
-Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
+Clique na pergunta para ver a resposta. Gerado a partir da seção *Revisão* de cada aula (`python3 scripts/gerar_docs.py`).
 
 **Total:** 90 cards
 
@@ -302,7 +302,7 @@ Centralizar e automatizar os backups de vários serviços com planos de backup, 
 </details>
 
 
-## [3.10 Rede e entrega de conteúdo](../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
+## [3.10 Redes e entrega de conteúdo](../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 
 <details>
 <summary>O que torna uma sub-rede pública?</summary>
