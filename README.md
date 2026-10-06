@@ -51,6 +51,8 @@ Não corresponde a um domínio da prova. [Apresentação do capítulo](docs/fund
 | Aula | Assunto |
 |---|---|
 | 0.1 | [Computador, servidor e virtualização](docs/fundamentos/01-servidor-e-virtualizacao.md) |
+| 0.2 | [Rede: endereço IP, porta, DNS e HTTPS](docs/fundamentos/02-rede.md) |
+| 0.3 | [Dados: arquivo, bloco, objeto e banco de dados](docs/fundamentos/03-dados.md) |
 
 **Comece pela [aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md).**
 
@@ -406,7 +408,7 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 | ⚖️ [Pares que confundem](resumos/comparativos.md) | **55 pares** de serviços parecidos e a diferença em uma linha | Revisão final |
 | 🔑 [Palavras-chave → serviço](resumos/palavras-chave.md) | **28 gatilhos** do enunciado que apontam a resposta | Revisão final |
 | 📌 [Números-âncora](resumos/numeros-ancora.md) | Os números que decidem a resposta (e o que **não** precisa decorar) | Revisão final |
-| 📖 [Glossário](glossario.md) | **98 termos** e siglas | Sempre que travar num termo |
+| 📖 [Glossário](glossario.md) | **108 termos** e siglas | Sempre que travar num termo |
 | ✅ [Progresso](progresso.md) | Checklist de todos os tópicos e marcos | Para acompanhar o seu avanço |
 | 🧪 [Labs](labs/README.md) | Exercícios práticos no console AWS, com cuidado de custos | Opcional, para fixar |
 <!-- conteudo:fim -->

@@ -83,15 +83,9 @@ def secoes(texto):
 
 def sem_texto_padrao(corpo):
     """Corpo da seção sem os blocos de vocabulário e sem as frases genéricas do gerador."""
-    corpo = re.sub(re.escape(VOCABULARIO) + r".*?(?=\n\n)", "", corpo, flags=re.S)
-    restantes = []
-    for p in paragrafos(corpo):
-        if any(frase in p for frase in FRASES_PADRAO):
-            continue
-        if p.startswith("- **") and p.count("\n- **") == p.count("\n- "):
-            continue  # lista de definições do bloco de vocabulário
-        restantes.append(p)
-    return restantes
+    # O bloco de vocabulário é o marcador seguido da lista de definições.
+    corpo = re.sub(re.escape(VOCABULARIO) + r"\s*\n(?:- [^\n]*\n?)*", "", corpo)
+    return [p for p in paragrafos(corpo) if not any(frase in p for frase in FRASES_PADRAO)]
 
 
 def respostas_da_abertura(texto):

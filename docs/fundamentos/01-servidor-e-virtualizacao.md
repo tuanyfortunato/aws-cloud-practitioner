@@ -4,7 +4,7 @@
 
 > **Capítulo 0 — Fundamentos de TI** · Prepara para as aulas [1.1](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) e [3.3](../03-tecnologia-e-servicos/03-ec2.md)
 
-🏠 [Índice do capítulo](README.md) · [1.1 O que é computação em nuvem](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) ➡️
+🏠 [Índice do capítulo](README.md) · [0.2 Rede: endereço IP, porta, DNS e HTTPS](02-rede.md) ➡️
 
 ---
 
@@ -151,4 +151,4 @@ Verificadas em 06/10/2026.
 
 ---
 
-🏠 [Índice do capítulo](README.md) · [1.1 O que é computação em nuvem](../01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) ➡️
+🏠 [Índice do capítulo](README.md) · [0.2 Rede: endereço IP, porta, DNS e HTTPS](02-rede.md) ➡️

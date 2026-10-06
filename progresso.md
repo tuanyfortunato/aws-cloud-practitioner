@@ -5,6 +5,8 @@ Marque `[x]` à medida que avança. Esta página é o único lugar de acompanham
 ## Capítulo 0 — Fundamentos de TI (opcional)
 
 - [ ] [0.1 Computador, servidor e virtualização](docs/fundamentos/01-servidor-e-virtualizacao.md)
+- [ ] [0.2 Rede: endereço IP, porta, DNS e HTTPS](docs/fundamentos/02-rede.md)
+- [ ] [0.3 Dados: arquivo, bloco, objeto e banco de dados](docs/fundamentos/03-dados.md)
 
 ## Domínio 1 — Conceitos de Nuvem (24%)
 
