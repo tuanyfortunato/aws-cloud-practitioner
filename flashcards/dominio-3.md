@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 123 cards
+**Total:** 108 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -272,156 +272,66 @@ O S3 Glacier Deep Archive; em troca, o objeto precisa ser restaurado antes da le
 ## [3.9 Outros serviços de armazenamento](../docs/03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 
 <details>
-<summary>Qual armazenamento em bloco persistente para EC2?</summary>
+<summary>Qual é a diferença entre um volume EBS e o instance store?</summary>
 
-EBS.
+O volume EBS é persistente e existe independentemente da instância, numa zona de disponibilidade; o instance store é um disco físico do servidor, cujos dados se perdem quando a instância é parada ou encerrada.
 </details>
 
 <details>
-<summary>Um volume EBS pode ser usado em outra AZ?</summary>
+<summary>Quando usar o EFS em vez do EBS?</summary>
 
-Não diretamente; cria-se um snapshot e um novo volume na outra AZ.
+Quando várias instâncias Linux precisam acessar os mesmos arquivos ao mesmo tempo; o EFS é um sistema de arquivos compartilhado (NFS) que cresce e encolhe sozinho.
 </details>
 
 <details>
-<summary>Onde ficam os snapshots do EBS?</summary>
+<summary>O que o Amazon FSx oferece?</summary>
 
-No S3 (gerenciado pela AWS), de forma incremental.
+Sistemas de arquivos conhecidos totalmente gerenciados: Windows File Server, Lustre, NetApp ONTAP e OpenZFS.
 </details>
 
 <details>
-<summary>Sistema de arquivos compartilhado para várias instâncias Linux.</summary>
+<summary>Para que serve o AWS Storage Gateway?</summary>
 
-EFS.
+Para ligar o ambiente local do cliente ao armazenamento da AWS, guardando os dados na nuvem e mantendo um cache local para acesso rápido.
 </details>
 
 <details>
-<summary>Compartilhamento de arquivos Windows integrado ao Active Directory.</summary>
+<summary>Qual é a vantagem do AWS Backup?</summary>
 
-FSx for Windows File Server.
-</details>
-
-<details>
-<summary>Sistema de arquivos de alto desempenho para HPC.</summary>
-
-FSx for Lustre.
-</details>
-
-<details>
-<summary>Aplicações locais precisam usar armazenamento da AWS.</summary>
-
-Storage Gateway.
-</details>
-
-<details>
-<summary>Substituir fitas físicas de backup.</summary>
-
-Tape Gateway.
-</details>
-
-<details>
-<summary>Centralizar backups de vários serviços com políticas.</summary>
-
-AWS Backup.
-</details>
-
-<details>
-<summary>Mover dezenas de terabytes sem depender da internet.</summary>
-
-Snowball Edge.
-</details>
-
-<details>
-<summary>Processar dados num navio sem conexão.</summary>
-
-Família Snow (computação na borda).
-</details>
-
-<details>
-<summary>Recuperar servidores em minutos após desastre.</summary>
-
-AWS Elastic Disaster Recovery.
+Centralizar e automatizar os backups de vários serviços com planos de backup, em vez de configurar e conferir serviço por serviço.
 </details>
 
 
 ## [3.10 Rede e entrega de conteúdo](../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 
 <details>
-<summary>O que torna uma subnet pública?</summary>
+<summary>O que torna uma sub-rede pública?</summary>
 
-Ter rota para um Internet Gateway.
+Uma rota direta para um internet gateway na tabela de rotas da sub-rede; sem essa rota, a sub-rede é privada.
 </details>
 
 <details>
-<summary>Instâncias em subnet privada precisam baixar atualizações.</summary>
+<summary>Para que serve o NAT gateway?</summary>
 
-NAT Gateway.
+Para que instâncias em sub-redes privadas iniciem conexões com serviços fora da VPC, como baixar atualizações, sem que serviços de fora possam iniciar conexões com elas.
 </details>
 
 <details>
-<summary>Conectar duas VPCs de contas diferentes.</summary>
+<summary>Quando usar o Transit Gateway em vez de VPC peering?</summary>
 
-VPC Peering.
+Quando há muitas VPCs e redes locais para interligar; o Transit Gateway é um hub central, enquanto o peering liga só duas VPCs e não é transitivo.
 </details>
 
 <details>
-<summary>Conectar dezenas de VPCs e o datacenter num hub.</summary>
+<summary>Qual é a diferença entre Site-to-Site VPN e Direct Connect?</summary>
 
-Transit Gateway.
+A Site-to-Site VPN é uma conexão criptografada (IPsec) que passa pela internet; o Direct Connect é uma conexão dedicada por fibra até um local do Direct Connect, sem passar pelos provedores de internet, com desempenho mais consistente.
 </details>
 
 <details>
-<summary>Acessar o S3 a partir da VPC sem passar pela internet.</summary>
+<summary>Quais são as três funções do Amazon Route 53?</summary>
 
-Gateway VPC endpoint.
-</details>
-
-<details>
-<summary>Conexão privada e dedicada, sem internet, com desempenho consistente.</summary>
-
-Direct Connect.
-</details>
-
-<details>
-<summary>Conexão criptografada com o datacenter, pronta hoje.</summary>
-
-Site-to-Site VPN.
-</details>
-
-<details>
-<summary>Funcionários em casa precisam acessar a VPC.</summary>
-
-Client VPN.
-</details>
-
-<details>
-<summary>Registrar domínio e gerenciar DNS.</summary>
-
-Route 53.
-</details>
-
-<details>
-<summary>Mandar 10% dos usuários para a nova versão.</summary>
-
-Route 53 weighted routing.
-</details>
-
-<details>
-<summary>Reduzir latência de conteúdo para usuários globais.</summary>
-
-CloudFront.
-</details>
-
-<details>
-<summary>IPs estáticos globais e failover rápido entre regiões para TCP/UDP.</summary>
-
-Global Accelerator.
-</details>
-
-<details>
-<summary>Criar e proteger uma API REST para funções Lambda.</summary>
-
-API Gateway.
+Registrar domínios, rotear o tráfego do nome do domínio para os recursos e verificar a saúde desses recursos.
 </details>
 
 

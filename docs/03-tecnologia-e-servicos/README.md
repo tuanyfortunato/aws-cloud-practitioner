@@ -40,8 +40,8 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 | 3.6 | [Outros serviços de computação](06-outros-servicos-de-computacao.md) | 5 |
 | 3.7 | [Bancos de dados](07-bancos-de-dados.md) | 5 |
 | 3.8 | [Amazon S3 — armazenamento de objetos](08-s3.md) | 5 |
-| 3.9 | [Outros serviços de armazenamento](09-outros-armazenamentos.md) | 12 |
-| 3.10 | [Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) | 13 |
+| 3.9 | [Outros serviços de armazenamento](09-outros-armazenamentos.md) | 5 |
+| 3.10 | [Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) | 5 |
 | 3.11 | [Analytics](11-analytics.md) | 8 |
 | 3.12 | [IA e machine learning](12-ia-e-machine-learning.md) | 10 |
 | 3.13 | [Integração de aplicações](13-integracao-de-aplicacoes.md) | 7 |
