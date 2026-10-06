@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 136 cards
+**Total:** 135 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -140,72 +140,66 @@ Porque o Auto Scaling cria e remove instâncias, e o balanceador distribui o tr�
 ## [3.5 Containers e serverless](../docs/03-tecnologia-e-servicos/05-containers-e-serverless.md)
 
 <details>
-<summary>Qual serviço executa código sem servidores, em resposta a eventos?</summary>
+<summary>O que é um container e que problema ele resolve?</summary>
 
-Lambda.
+É um pacote com o código da aplicação e todos os arquivos e bibliotecas de que ela precisa; resolve o problema de a aplicação funcionar num ambiente e não em outro.
 </details>
 
 <details>
-<summary>Qual é o tempo máximo de execução do Lambda?</summary>
+<summary>Qual é a diferença entre ECS e EKS?</summary>
 
-15 minutos.
+Os dois orquestram containers; o ECS é o orquestrador da própria AWS, e o EKS é Kubernetes gerenciado.
 </details>
 
 <details>
-<summary>Como o Lambda é cobrado?</summary>
+<summary>O que é o AWS Fargate?</summary>
 
-No modelo base, requisições e duração; extras como concorrência provisionada podem cobrar sem invocação.
+É um mecanismo de computação serverless para containers, usado com ECS ou EKS: você define CPU e memória, e não gerencia servidores.
 </details>
 
 <details>
-<summary>Rodar containers sem gerenciar instâncias.</summary>
+<summary>Como o AWS Lambda é cobrado?</summary>
 
-Fargate (com ECS ou EKS).
+Pelo número de pedidos e pela duração das execuções em GB-segundo; quando a função não roda, não há cobrança de computação.
 </details>
 
 <details>
-<summary>Empresa já usa Kubernetes on-premises e quer migrar.</summary>
+<summary>Uma tarefa leva duas horas para terminar. Ela serve para uma função Lambda?</summary>
 
-EKS.
-</details>
-
-<details>
-<summary>Onde guardar imagens Docker privadas?</summary>
-
-ECR.
-</details>
-
-<details>
-<summary>Qual serviço orquestra containers e é nativo da AWS?</summary>
-
-ECS.
+Não, porque uma função Lambda roda por até 15 minutos em cada execução; a tarefa cabe melhor em containers com Fargate, no AWS Batch ou no EC2.
 </details>
 
 
 ## [3.6 Outros serviços de computação](../docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md)
 
 <details>
-<summary>Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento.</summary>
+<summary>O que o AWS Elastic Beanstalk faz com o código que você envia?</summary>
 
-Elastic Beanstalk.
+Cria e configura os recursos para rodá-lo: instâncias do EC2 (ou um cluster do EKS), balanceamento de carga, monitoramento de saúde e escalonamento.
 </details>
 
 <details>
-<summary>Elastic Beanstalk tem custo próprio?</summary>
+<summary>Quanto custa o AWS Elastic Beanstalk?</summary>
 
-Não; paga-se só os recursos que ele cria.
+Não há cobrança adicional pelo serviço; você paga os recursos da AWS que a aplicação consome.
 </details>
 
 <details>
-<summary>Site WordPress simples com preço mensal fixo.</summary>
+<summary>Para quem o Amazon Lightsail foi pensado?</summary>
 
-Lightsail.
+Para quem quer começar de forma simples, como desenvolvedores individuais, projetos pessoais e iniciantes, com planos de preço baixo e previsível.
 </details>
 
 <details>
-<summary>Processar milhares de jobs em lote com a capacidade ideal.</summary>
+<summary>Que tipo de trabalho o AWS Batch executa?</summary>
 
-AWS Batch.
+Cargas de processamento em lote de qualquer escala, provisionando automaticamente a capacidade de computação para as tarefas enviadas.
+</details>
+
+<details>
+<summary>Qual é a diferença entre o Elastic Beanstalk e o Lambda?</summary>
+
+O Elastic Beanstalk cria instâncias e outros recursos que ficam ligados e são cobrados; o Lambda é serverless e cobra só quando a função roda.
 </details>
 
 

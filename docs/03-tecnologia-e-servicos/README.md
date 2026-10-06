@@ -36,8 +36,8 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 | 3.2 | [Infraestrutura global](02-infraestrutura-global.md) | 5 |
 | 3.3 | [Amazon EC2](03-ec2.md) | 5 |
 | 3.4 | [Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) | 5 |
-| 3.5 | [Containers e serverless](05-containers-e-serverless.md) | 7 |
-| 3.6 | [Outros serviços de computação](06-outros-servicos-de-computacao.md) | 4 |
+| 3.5 | [Containers e serverless](05-containers-e-serverless.md) | 5 |
+| 3.6 | [Outros serviços de computação](06-outros-servicos-de-computacao.md) | 5 |
 | 3.7 | [Bancos de dados](07-bancos-de-dados.md) | 11 |
 | 3.8 | [Amazon S3 — armazenamento de objetos](08-s3.md) | 11 |
 | 3.9 | [Outros serviços de armazenamento](09-outros-armazenamentos.md) | 12 |
