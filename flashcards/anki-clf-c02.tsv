@@ -92,19 +92,16 @@ Um usuário tem permissão de leitura num bucket, mas o objeto está cifrado com
 Para que serve o AWS Certificate Manager?	Para criar, guardar e renovar certificados SSL/TLS usados no HTTPS de serviços como o Elastic Load Balancing, o CloudFront e o API Gateway. Com validação por DNS, a renovação é automática.	CLF-C02 dominio-2 secao-2_5
 Como saber quem usou uma chave do KMS?	Pelo AWS CloudTrail, que registra todas as chamadas ao KMS, inclusive as feitas por outros serviços em nome do cliente.	CLF-C02 dominio-2 secao-2_5
 Um objeto enviado hoje ao S3 sem nenhuma configuração fica cifrado?	Sim. Desde 5 de janeiro de 2023, todo objeto novo no S3 é cifrado automaticamente com SSE-S3, sem custo adicional.	CLF-C02 dominio-2 secao-2_5
-Onde baixar o relatório SOC 2 ou o atestado PCI da AWS?	AWS Artifact.	CLF-C02 dominio-2 secao-2_6
-Onde aceitar um acordo como o BAA (HIPAA)?	AWS Artifact (Agreements).	CLF-C02 dominio-2 secao-2_6
-Como coletar evidências continuamente para a auditoria da empresa?	AWS Audit Manager.	CLF-C02 dominio-2 secao-2_6
-Os dados podem sair da região sem ação do cliente?	Não; o cliente escolhe a região e controla onde os dados ficam.	CLF-C02 dominio-2 secao-2_6
-Usar um serviço certificado garante que a aplicação está em conformidade?	Não; o cliente também precisa configurar e operar de forma conforme (responsabilidade compartilhada).	CLF-C02 dominio-2 secao-2_6
-Qual serviço registra quem encerrou uma instância e quando?	CloudTrail.	CLF-C02 dominio-2 secao-2_7
-Por quanto tempo o CloudTrail guarda eventos sem configurar nada?	90 dias (event history).	CLF-C02 dominio-2 secao-2_7
-Como guardar logs do CloudTrail por anos?	Criar um trail que envia para o S3.	CLF-C02 dominio-2 secao-2_7
-Qual serviço mostra o histórico de configuração de um recurso e se ele segue as regras?	AWS Config.	CLF-C02 dominio-2 secao-2_7
-Como receber alerta quando a CPU passar de 80%?	Alarme do CloudWatch (com notificação pelo SNS).	CLF-C02 dominio-2 secao-2_7
-Como coletar a memória usada pelo EC2?	Instalar o CloudWatch agent.	CLF-C02 dominio-2 secao-2_7
-Como capturar o tráfego de rede da VPC?	VPC Flow Logs.	CLF-C02 dominio-2 secao-2_7
-Onde ver logs de aplicação?	CloudWatch Logs.	CLF-C02 dominio-2 secao-2_7
+Onde baixar o relatório SOC 2 da AWS?	No AWS Artifact, portal gratuito de autoatendimento com os documentos de segurança e compliance da AWS, como relatórios SOC, PCI e ISO.	CLF-C02 dominio-2 secao-2_6
+Qual é a diferença entre o AWS Artifact e o AWS Audit Manager?	O Artifact fornece os relatórios e acordos de compliance da própria AWS. O Audit Manager coleta continuamente evidências das contas do cliente e as organiza por controle, para as auditorias do cliente.	CLF-C02 dominio-2 secao-2_6
+Usar apenas serviços que estão no escopo do PCI DSS coloca a aplicação em conformidade com o PCI DSS?	Não. A AWS cobre a parte dela; o cliente ainda precisa configurar e operar sua aplicação do jeito que a norma exige. A responsabilidade de compliance é compartilhada.	CLF-C02 dominio-2 secao-2_6
+Como garantir que os dados de clientes fiquem num país específico?	Escolhendo uma Região nesse país para guardar os dados. A AWS não move nem replica o conteúdo para fora das Regiões escolhidas, exceto quando necessário para o serviço iniciado pelo cliente ou para cumprir a lei.	CLF-C02 dominio-2 secao-2_6
+Para que servem as regras do AWS Config?	"Para avaliar continuamente se a configuração dos recursos segue a configuração desejada, como ""nenhum bucket público"". Recursos fora da regra podem ser corrigidos com remediação automática."	CLF-C02 dominio-2 secao-2_6
+Qual serviço registra quem encerrou uma instância e quando?	O AWS CloudTrail, que registra as chamadas de API da conta como eventos, com a identidade, a ação, o horário, a origem e o recurso.	CLF-C02 dominio-2 secao-2_7
+Como guardar os eventos do CloudTrail por anos?	Criando uma trilha que entrega os eventos num bucket S3, onde ficam pelo tempo que a escola quiser. A trilha pode cobrir todas as Regiões e, numa organização, todas as contas.	CLF-C02 dominio-2 secao-2_7
+Qual é a diferença entre o CloudTrail e o Config?	O CloudTrail registra ações: quem fez cada chamada de API e quando. O Config registra estados: como cada recurso estava configurado ao longo do tempo e se seguia as regras.	CLF-C02 dominio-2 secao-2_7
+Como coletar o uso de memória de uma instância EC2 no CloudWatch?	Instalando o agente do CloudWatch na instância. A memória usada dentro do sistema operacional não está entre as métricas que o EC2 envia por padrão.	CLF-C02 dominio-2 secao-2_7
+Como ser avisado quando os gastos da conta passarem de um valor?	Criando um alarme de cobrança no CloudWatch, com notificação por um tópico do SNS. A métrica de gastos estimados fica na Região Leste dos EUA (Norte da Virgínia).	CLF-C02 dominio-2 secao-2_7
 Qual firewall atua no nível da instância e é stateful?	Security group.	CLF-C02 dominio-2 secao-2_8
 Qual firewall atua no nível da subnet e é stateless?	Network ACL.	CLF-C02 dominio-2 secao-2_8
 Como bloquear um endereço IP malicioso?	Regra de negação na NACL (ou regra no WAF para tráfego web).	CLF-C02 dominio-2 secao-2_8
