@@ -80,7 +80,6 @@ Marque `[x]` à medida que avança. Esta página é o único lugar de acompanham
 - [ ] Ler o exam guide oficial
 - [ ] Concluir o AWS Cloud Practitioner Essentials (Skill Builder)
 - [ ] Fazer as questões oficiais de exemplo
-- [ ] [Simulado 01 do repositório](simulados/simulado-01.md) (meta ≥ 80%)
 - [ ] 1º simulado completo externo (Skill Builder / questões oficiais)
 - [ ] Atingir ≥ 80% em 3 simulados seguidos
 - [ ] Agendar a prova
