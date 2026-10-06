@@ -15,8 +15,8 @@ Este capítulo explica essas peças em prosa, com o mesmo caso da escola usado n
 | 0.1 | [Computador, servidor e virtualização](01-servidor-e-virtualizacao.md) | 1.1, 2.1, 3.3 |
 | 0.2 | [Rede: endereço IP, porta, DNS e HTTPS](02-rede.md) | 2.8, 3.10 |
 | 0.3 | [Dados: arquivo, bloco, objeto e banco de dados](03-dados.md) | 3.7, 3.8, 3.9 |
-| 0.4 | Como programas conversam: API, requisição e fila *(em preparação)* | 3.1, 3.13 |
-| 0.5 | Segurança básica: identidade, autenticação, autorização e criptografia *(em preparação)* | 2.1 a 2.5 |
+| 0.4 | [Como programas conversam: API, requisição e fila](04-api-e-filas.md) | 3.1, 3.13 |
+| 0.5 | [Segurança básica: identidade, autenticação, autorização e criptografia](05-seguranca-basica.md) | 2.1 a 2.5 |
 
 Os termos destas aulas também estão no [glossário](../../glossario.md), para consulta rápida. O glossário serve para relembrar; a explicação está nas aulas.
 

@@ -4,7 +4,7 @@
 
 > **Capítulo 0 — Fundamentos de TI** · Prepara para as aulas [3.7](../03-tecnologia-e-servicos/07-bancos-de-dados.md), [3.8](../03-tecnologia-e-servicos/08-s3.md) e [3.9](../03-tecnologia-e-servicos/09-outros-armazenamentos.md)
 
-⬅️ [0.2 Rede: endereço IP, porta, DNS e HTTPS](02-rede.md) · 🏠 [Índice do capítulo](README.md)
+⬅️ [0.2 Rede: endereço IP, porta, DNS e HTTPS](02-rede.md) · 🏠 [Índice do capítulo](README.md) · [0.4 Como programas conversam: API, requisição e fila](04-api-e-filas.md) ➡️
 
 ---
 
@@ -152,4 +152,4 @@ Verificadas em 06/10/2026.
 
 ---
 
-⬅️ [0.2 Rede: endereço IP, porta, DNS e HTTPS](02-rede.md) · 🏠 [Índice do capítulo](README.md)
+⬅️ [0.2 Rede: endereço IP, porta, DNS e HTTPS](02-rede.md) · 🏠 [Índice do capítulo](README.md) · [0.4 Como programas conversam: API, requisição e fila](04-api-e-filas.md) ➡️

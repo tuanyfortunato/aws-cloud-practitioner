@@ -10,13 +10,15 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **Agilidade** | Reduzir tempo e custo de experimentar e entregar |
 | **Alias record** | Registro do Route 53 que aponta para recursos AWS e funciona no apex do domínio |
 | **AMI** | *Amazon Machine Image*: modelo para lançar instâncias EC2 |
-| **API** | Interface programática; tudo na AWS é uma chamada de API |
+| **API** | Conjunto de operações que um programa oferece a outros; os serviços da AWS são usados por API ([aula 0.4](docs/fundamentos/04-api-e-filas.md)) |
 | **Armazenamento de arquivos** | Pastas compartilhadas pela rede entre várias máquinas; na AWS, EFS ([aula 0.3](docs/fundamentos/03-dados.md)) |
 | **Armazenamento de objetos** | Cada arquivo vira um objeto com conteúdo, chave e metadados, gravado e lido inteiro por API; na AWS, S3 ([aula 0.3](docs/fundamentos/03-dados.md)) |
 | **Armazenamento em bloco** | Disco dividido em blocos e formatado pelo sistema operacional; na AWS, EBS ([aula 0.3](docs/fundamentos/03-dados.md)) |
 | **ARN** | *Amazon Resource Name*: identificador único de um recurso (`arn:aws:s3:::bucket`) |
 | **Alta disponibilidade (HA)** | Sistema continua acessível com falhas, em geral usando várias AZs |
 | **ASG** | *Auto Scaling Group* |
+| **Autenticação** | Provar quem é a identidade, com senha e, de preferência, MFA ([aula 0.5](docs/fundamentos/05-seguranca-basica.md)) |
+| **Autorização** | Decidir o que uma identidade já autenticada pode fazer, por meio de permissões ([aula 0.5](docs/fundamentos/05-seguranca-basica.md)) |
 | **AZ** | *Availability Zone*: um ou mais datacenters isolados dentro de uma região |
 | **BAA** | *Business Associate Addendum* (HIPAA), aceito no AWS Artifact |
 | **Banco de dados não relacional (NoSQL)** | Dados acessados por chave, com esquema flexível e escala horizontal; na AWS, DynamoDB ([aula 0.3](docs/fundamentos/03-dados.md)) |
@@ -29,7 +31,9 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **CDN** | *Content delivery network* (CloudFront) |
 | **CIDR** | Notação de blocos de IP (`10.0.0.0/16`) |
 | **Cold start** | Latência extra ao iniciar um novo ambiente de execução do Lambda |
+| **Comunicação assíncrona** | Quem pede deixa a mensagem, por exemplo numa fila, e segue sem esperar a resposta ([aula 0.4](docs/fundamentos/04-api-e-filas.md)) |
 | **Consolidated billing** | Fatura única de várias contas no AWS Organizations |
+| **Criptografia em trânsito / em repouso** | Proteção dos dados enquanto viajam pela rede (como HTTPS) / enquanto estão guardados ([aula 0.5](docs/fundamentos/05-seguranca-basica.md)) |
 | **CVE** | *Common Vulnerabilities and Exposures*: vulnerabilidade catalogada (Inspector) |
 | **DaaS** | *Desktop as a Service* (WorkSpaces) |
 | **DDoS** | Ataque distribuído de negação de serviço (Shield) |
@@ -44,6 +48,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **ETL** | *Extract, transform, load* (Glue) |
 | **Event-driven** | Arquitetura que reage a eventos (Lambda, EventBridge) |
 | **FaaS** | *Function as a Service* (Lambda) |
+| **Fila** | Guarda mensagens entre componentes para processamento no ritmo do consumidor; na AWS, SQS ([aula 0.4](docs/fundamentos/04-api-e-filas.md)) |
 | **FIPS 140** | Padrão de validação de módulos criptográficos (KMS, CloudHSM nível 3) |
 | **FinOps** | Gestão financeira da nuvem |
 | **Free Tier** | Uso gratuito limitado (clássico: Always Free, 12 meses, trials; novo: créditos) |
@@ -61,10 +66,10 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **IMDS** | *Instance Metadata Service* do EC2 (use IMDSv2) |
 | **Instance store** | Disco local efêmero de uma instância EC2 |
 | **Instância** | Servidor virtual do Amazon EC2; o tipo de instância define processador, memória, armazenamento e rede ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
-| **Least privilege** | Menor privilégio: só as permissões necessárias |
+| **Least privilege** | Menor privilégio: só as permissões necessárias ([aula 0.5](docs/fundamentos/05-seguranca-basica.md)) |
 | **Lift-and-shift** | Rehost: migrar sem mudanças |
 | **Máquina virtual (VM)** | Computador simulado por software sobre um servidor físico, com seu próprio sistema operacional ([aula 0.1](docs/fundamentos/01-servidor-e-virtualizacao.md)) |
-| **MFA** | Autenticação multifator |
+| **MFA** | Autenticação multifator: um segundo fator, como código no celular, além da senha ([aula 0.5](docs/fundamentos/05-seguranca-basica.md)) |
 | **Microsserviços** | Serviços pequenos e independentes que se comunicam por APIs/filas |
 | **MPP** | *Massively parallel processing* (Redshift) |
 | **Multi-AZ** | Implantação em várias AZs para alta disponibilidade |
@@ -82,6 +87,7 @@ Termos e siglas que aparecem na prova, em ordem alfabética.
 | **PoP** | *Point of presence* (edge location) |
 | **Porta** | Número que indica qual programa da máquina recebe os dados: 443 (HTTPS), 80 (HTTP), 22 (SSH) ([aula 0.2](docs/fundamentos/02-rede.md)) |
 | **Presigned URL** | URL temporária para acessar um objeto privado do S3 |
+| **Publicação e inscrição (pub/sub)** | Uma mensagem publicada num tópico chega a todos os inscritos; na AWS, SNS ([aula 0.4](docs/fundamentos/04-api-e-filas.md)) |
 | **RAG** | *Retrieval-augmented generation*: IA generativa usando seus documentos (Bedrock Knowledge Bases) |
 | **RCU / WCU** | Unidades de capacidade de leitura/escrita do DynamoDB |
 | **Região** | Área geográfica com no mínimo 3 AZs |
