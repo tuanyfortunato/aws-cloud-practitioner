@@ -18,6 +18,8 @@ Modelo de aula autoral (Fase 3 do plano de implementação).
 
 > **Domínio N — Nome do domínio (peso% da prova)** · Depende das aulas [0.x](../fundamentos/arquivo.md)
 
+> 🔎 **Fichas para aprofundar:** [Serviço](../../servicos/categoria/servico.md)
+
 🏠 [Índice do domínio](README.md) · [x.y+1 Próxima aula](arquivo-da-proxima.md) ➡️
 
 ---

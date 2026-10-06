@@ -67,12 +67,11 @@ Como reduzir custo de licenças ao migrar?	BYOL com Dedicated Hosts, ou usar ins
 Qual ferramenta ajuda a montar o caso de negócio (TCO) da migração?	Migration Evaluator.	CLF-C02 dominio-1 secao-1_7
 Qual prática ajusta recursos ao uso real?	Rightsizing.	CLF-C02 dominio-1 secao-1_7
 Por que serviços gerenciados reduzem o TCO?	Diminuem o trabalho operacional (patches, backups, hardware).	CLF-C02 dominio-1 secao-1_7
-Qual é responsabilidade da AWS?	Segurança física dos datacenters, hardware, rede global, hipervisor, patch do SO em serviços gerenciados (RDS, Lambda).	CLF-C02 dominio-2 secao-2_1
-Qual é responsabilidade do cliente?	Dados, IAM, security groups, criptografia, patch do SO no EC2, configuração dos serviços.	CLF-C02 dominio-2 secao-2_1
-Qual é um controle compartilhado?	Gestão de patches, gestão de configuração ou treinamento.	CLF-C02 dominio-2 secao-2_1
-Qual é um controle herdado da AWS?	Controles físicos e ambientais.	CLF-C02 dominio-2 secao-2_1
-Ao trocar EC2 por Lambda, o que muda?	A responsabilidade do cliente diminui (SO e runtime passam para a AWS).	CLF-C02 dominio-2 secao-2_1
-Quem é responsável pela segurança dos dados no S3?	O cliente (políticas, acesso e criptografia).	CLF-C02 dominio-2 secao-2_1
+Qual é a diferença entre segurança da nuvem e segurança na nuvem?	Segurança da nuvem é proteger a infraestrutura que roda os serviços, e é da AWS; segurança na nuvem é proteger o que o cliente coloca e configura nos serviços, e é do cliente.	CLF-C02 dominio-2 secao-2_1
+Por que a escola tem menos trabalho de segurança no RDS do que num banco instalado numa instância EC2?	Porque no RDS a AWS assume o sistema operacional e o software do banco, incluindo instalação, patches e backups, que no EC2 seriam da escola.	CLF-C02 dominio-2 secao-2_1
+Uma biblioteca empacotada numa função Lambda tem uma falha de segurança. Quem corrige?	O cliente, que precisa atualizar a biblioteca e publicar a função de novo.	CLF-C02 dominio-2 secao-2_1
+O que é um controle compartilhado? Dê um exemplo.	É um controle que vale para as duas camadas, com cada lado fazendo a sua parte; a gestão de patches é o exemplo clássico: a AWS corrige a infraestrutura e o cliente corrige o SO convidado e as aplicações.	CLF-C02 dominio-2 secao-2_1
+Num serviço como o S3, o que continua sendo responsabilidade do cliente?	Os dados e o acesso a eles: as opções de criptografia, a classificação do que é sensível e as permissões que dizem quem pode ler e gravar.	CLF-C02 dominio-2 secao-2_1
 Qual é a boa prática para o usuário root?	Ativar MFA, não criar access keys e usá-lo só para tarefas que o exigem.	CLF-C02 dominio-2 secao-2_2
 Qual destas tarefas exige o root?	Fechar a conta, alterar o e-mail ou a senha do root, restaurar permissões de administrador ou configurar MFA Delete. (🔄 Mudar o plano de suporte e alterar o nome da conta não estão mais na lista oficial.)	CLF-C02 dominio-2 secao-2_2
 Qual tarefa NÃO exige o root?	Criar usuários IAM, ver a fatura (com permissão) ou lançar instâncias.	CLF-C02 dominio-2 secao-2_2

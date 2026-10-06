@@ -255,7 +255,7 @@ Quando todas as aulas e fichas tiverem `<!-- autoral -->`:
 | 0 | Concluída | #21 (marcador autoral) · #22 (métricas) | Linha de base registrada na seção 3 |
 | 1 | Concluída | #23 (revisão circular e repetições) · PR 1.1 (vocabulário automático desligado) | Aceite atingido: zero blocos de vocabulário, zero revisões circulares; a única seção "só com texto padrão" é a tabela de labs, escrita à mão |
 | 2 | Concluída | #24 (capítulo 0 e aula 0.1) · #25 (aulas 0.2 e 0.3) · #26 (aulas 0.4 e 0.5) · #27 (glossário) · #28 (correções) · flashcards do capítulo 0 | Capítulo 0 completo; glossário com 129 termos; correções após conferir as páginas oficiais inteiras (#28); flashcards do capítulo 0 em `flashcards/capitulo-0.md` |
-| 3 | Em andamento | PR 3.1 (modelo de aula em `templates/topico.md`) | Próximos: aula-piloto 2.1, ficha-piloto SQS e leitura por iniciante (AP-14) |
+| 3 | Em andamento | #31 (modelo de aula em `templates/topico.md`) · PR 3.2 (aula-piloto 2.1) | Próximos: ficha-piloto SQS e leitura da aula-piloto por iniciante (AP-14), que ainda não aconteceu |
 | 4 | Pendente | — | — |
 | 5 | Pendente | — | — |
 | 6 | Pendente | — | — |
