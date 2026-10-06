@@ -95,7 +95,7 @@ não permite deduzir a data em que uma questão de certificação será alterada
 
 **105 fichas práticas**, cada uma com recursos, escolhas, sequência, capacidade condicional, limite e caso comentado.
 
-Um [roteiro sem console](estudar-sem-console.md) com modelo de raciocínio e exemplo integrado.
+Um [roteiro de estudo](estrutura-da-apostila.md) com modelo de raciocínio e exemplo integrado.
 
 Cobertura obrigatória no gerador: falha se houver tópico/ficha sem aprofundamento ou registro extra sem destino.
 

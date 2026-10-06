@@ -1,67 +1,77 @@
-# Como esta apostila ensina: do problema à decisão
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧭 Antes de ler
+# Como estudar com esta apostila
 
-**Por que esta página existe?** Uma lista de nomes e valores ajuda na revisão, mas não ensina sozinha quem começa do zero.
+🏠 [Guia do exame](README.md)
 
-**Como usar?** Esta página apresenta a sequência dos capítulos e o motivo de cada parte. Use-a para ler o material ou manter novas aulas no mesmo padrão.
+---
 
-**Exemplo:** Ao estudar uma fila, entenda primeiro quem envia e quem executa o trabalho. Só depois compare ordenação, conservação e repetição de mensagens.
-<!-- didatico:fim -->
+A prova não pede que você configure serviços, e esta apostila também não. Ela foi escrita para quem está começando: cada aula parte de um problema concreto, explica a solução e mostra onde a solução para de servir. Você não precisa abrir o console da AWS, criar uma conta ou programar para acompanhar a leitura.
 
-## Público e objetivo
+Esta página mostra como o material está organizado, o que esperar de cada aula e de cada ficha, e como saber se você entendeu um assunto ou só decorou o nome.
 
-O material é dirigido a quem está começando em tecnologia e em AWS. Não exige conhecer o console para compreender os fundamentos. Ele prepara a leitura e a decisão no nível da Cloud Practitioner; não substitui a documentação de implementação de todos os recursos.
+## As partes do material
 
-Uma apostila deve construir entendimento antes de pedir memorização. A estrutura abaixo é uma escolha editorial para esse público, não uma norma universal para todo livro técnico.
+O **capítulo 0** explica, para quem nunca trabalhou com tecnologia, o que é servidor, rede, dado, API e segurança básica. Os **capítulos 1 a 4** seguem os quatro domínios da prova e têm 41 aulas, numeradas de 1.1 a 4.6. As aulas são o estudo principal e devem ser lidas na ordem, porque cada uma usa o que as anteriores ensinaram.
 
-## 1. Comece por uma dificuldade real
+As **fichas de serviço** aprofundam um serviço quando ele aparece numa aula. São 105, divididas em três grupos. As 67 fichas *núcleo* cobrem os serviços que a prova mais cobra e têm a versão completa. As 25 *complementares* e as 13 *de referência* são curtas: dizem o que o serviço faz, como funciona e com o que ele costuma ser confundido.
 
-Mostre o que a pessoa precisa realizar. ‘Gerar certificados sem deixar o site esperando’ dá sentido a uma fila; dizer apenas ‘serviço de mensageria’ não apresenta o problema ao iniciante.
+Para praticar e revisar, há 94 **questões** no formato da prova, agrupadas por domínio; **flashcards** que saem das perguntas de revisão das aulas; três **resumos** para a última semana; e um **glossário** para relembrar termos já estudados.
 
-Explique o que a solução entrega e o que permanece com o cliente. O leitor deve distinguir contratar uma capacidade de receber um programa pronto.
+## Como uma aula é organizada
 
-## 2. Explique as peças antes de combiná-las
+Toda aula dos capítulos 1 a 4 segue a mesma sequência. A abertura conta um problema de uma rede de escolas fictícia, que aparece ao longo de toda a apostila. Em seguida, cada conceito é explicado nesta ordem: o que é, como funciona, por que existe e qual é o custo ou o limite. Os termos novos são explicados no próprio texto, na primeira vez em que aparecem. Quando uma relação fica mais clara num desenho, a aula traz uma figura com legenda.
 
-Defina termos onde eles serão usados. Servidor, memória, armazenamento, protocolo e permissão são conceitos de base, não conhecimentos que todo leitor já possui.
+Depois dos conceitos vêm cinco seções fixas:
 
-Uma mesma palavra pode ter sentidos diferentes: root da conta AWS não é o administrador Linux de uma máquina; RAM de memória não é o nome do Resource Access Manager. O contexto precisa tornar isso claro.
+- **Na prova** reúne as regras que decidem as questões, em frases curtas.
+- **Caso resolvido** aplica a aula a uma situação e explica por que as alternativas tentadoras falham.
+- **Revisão** traz perguntas com a resposta escondida, para você tentar antes de olhar.
+- **Resumo** lista as ideias principais.
+- **Fontes oficiais** indica as páginas da AWS que confirmam cada informação, com a data da verificação.
 
-## 3. Mostre a sequência
+O bloco **Minhas anotações**, no fim, é seu: escreva nele as dúvidas e as questões que errou.
 
-Descreva preparação, uso e resultado. Identifique quem envia a entrada, quem executa o trabalho, onde o resultado fica e o que acontece com falhas. Uma lista de componentes não mostra sozinha essa relação.
+## Como uma ficha é organizada
 
-A sequência é conceitual. Não é necessário listar todos os botões da tela para explicar o funcionamento.
+Uma ficha núcleo começa por uma frase que resume o serviço e pela situação dele na lista oficial da prova. Depois vêm as seções que respondem às perguntas práticas: que problema o serviço resolve, como funciona, quais opções principais ele tem, que números a prova cobra, como é cobrado e com quais serviços ele costuma ser confundido. As fichas complementares e de referência mantêm só o essencial: como funciona e com o que não confundir.
 
-## 4. Explique opções e consequências
+A ficha não repete a aula. Quando a aula já explicou o mecanismo, a ficha aponta para ela e se concentra nas escolhas e nos limites do serviço.
 
-Apresente cada recurso com significado e condições. Só depois use uma tabela para comparar alternativas pelo mesmo critério. Capacidade, disponibilidade, duração, acesso e preço são critérios diferentes.
+## Estudar sem o console
 
-Em números, indique a unidade e o que ela mede. Um limite por mensagem não é limite de mensagens por segundo; retenção não é tempo de invisibilidade.
+Você não precisa decorar telas. Para entender um serviço, basta responder a seis perguntas sobre ele. O exemplo abaixo usa o Amazon EC2, o serviço de máquinas virtuais da [aula 3.3](../03-tecnologia-e-servicos/03-ec2.md).
 
-## 5. Resolva uma situação completa
+| Pergunta | Resposta para o EC2 |
+|---|---|
+| Que recurso eu crio? | Uma instância, a partir de uma imagem (AMI) e de um tipo de instância, numa sub-rede de uma zona de disponibilidade |
+| O que eu configuro? | Capacidade, rede, acesso, disco e permissões |
+| O que entra e o que sai? | Requisições chegam à aplicação, que processa e devolve ou grava resultados |
+| Quem pode acessar? | A rede permite ou bloqueia a conexão; as permissões do IAM autorizam as ações na AWS |
+| Quem cuida de cada parte? | A AWS cuida da infraestrutura; o cliente, do sistema operacional, da aplicação e dos dados |
+| O que continua custando quando paro? | Os volumes EBS continuam cobrados mesmo com a instância parada |
 
-Ligue a necessidade aos recursos e às decisões. Explique por que a alternativa serve e por que uma opção parecida atenderia outro problema. Inclua o trabalho que ainda precisa ser realizado e uma consequência de falha ou encerramento.
+Quando uma questão diz que algo "não funciona", vale perguntar que tipo de impedimento é esse. Às vezes o serviço simplesmente não tem a capacidade: o S3 hospeda sites estáticos, mas não executa código de servidor. Às vezes ele tem a capacidade, mas falta configuração, como uma instância sem rota para a internet. Às vezes a rede funciona, mas falta permissão, como uma função que não pode usar a chave do KMS que protege o objeto. E às vezes só certas opções têm o recurso: o EBS Multi-Attach, que liga um volume a várias instâncias, só existe para volumes Provisioned IOPS SSD (io1 e io2).
 
-Os exemplos desta apostila são autorais. Não representam questões oficiais nem garantem previsão da prova.
+## Como saber se você entendeu
 
-## 6. Revise com explicação
+Há quatro níveis de entendimento. **Reconhecer** é identificar o serviço pelo nome. **Explicar** é descrever o que ele faz, quem cuida de cada parte e qual é o limite dele, sem copiar o texto. **Escolher** é comparar alternativas a partir do requisito do enunciado, e não de uma palavra solta. **Transferir** é mudar um detalhe do cenário e dizer se a resposta muda, e por quê.
 
-Peça ao leitor que descreva a função, acompanhe a sequência e reconheça um limite. Disponibilize o raciocínio, além da resposta curta. Depois use as perguntas típicas para recuperar o conteúdo aprendido.
+A prova cobra principalmente os níveis de explicar e escolher. Se você só reconhece os nomes, volte à aula. Se consegue explicar a escolha e dizer que mudança no cenário levaria a outra resposta, avance.
 
-Se o leitor sabe apenas associar duas siglas, ele ainda precisa voltar à relação entre as peças. Se explica a escolha e identifica uma condição que mudaria a resposta, demonstrou um entendimento mais útil.
+Os exemplos, os casos e as questões desta apostila são autorais. Eles não reproduzem questões oficiais nem preveem a prova.
 
-## Como ler um capítulo
+## Fontes oficiais
 
-Leia a abertura, siga a sequência e examine os conceitos. Use o caso resolvido como ligação entre eles. Faça a revisão sem olhar o comentário e retorne à parte em que faltou explicação.
+Verificadas em 06/10/2026.
 
-As referências oficiais ficam ao final para verificar alterações, compatibilidade e detalhes de implantação. O vocabulário necessário aos fundamentos aparece no próprio capítulo.
+- [Guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html): o que se espera do candidato e as tarefas fora do escopo, como programar e implementar.
+- [Ciclo de vida das instâncias EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html): volumes EBS cobrados com a instância parada.
+- [Hospedar um site estático no Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html): sites estáticos, com scripts que rodam no navegador.
+- [EBS Multi-Attach](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html): disponível para volumes io1 e io2.
 
-## Referências de escrita técnica
+<!-- notas:inicio -->
+## 📝 Minhas anotações
 
-[Conhecer o público](https://developers.google.com/tech-writing/one/audience)
-
-[Definir termos](https://developers.google.com/tech-writing/one/words)
-
-[Organizar documentos longos](https://developers.google.com/tech-writing/two/large-docs)
+<!-- Escreva aqui suas observações sobre como você estuda melhor. -->
+<!-- notas:fim -->

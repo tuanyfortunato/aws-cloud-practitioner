@@ -827,6 +827,8 @@ def aplicar_introducoes():
     assert existentes == set(APOIO), "Cobertura das introduções do guia incompleta"
     for nome in APOIO:
         caminho = os.path.join(pasta, nome)
+        if eh_autoral(caminho):
+            continue
         with open(os.path.join(RAIZ, caminho)) as f:
             texto = f.read()
         escrever(caminho, inserir_abertura(texto, bloco_apoio(nome)))
@@ -1029,7 +1031,9 @@ def main():
     gerar_capitulos_servicos()
     aplicar_escopo_fichas()
     for nome, texto in capitulos_apoio().items():
-        escrever(os.path.join("docs", "00-guia-do-exame", nome), texto)
+        caminho = os.path.join("docs", "00-guia-do-exame", nome)
+        if not eh_autoral(caminho):
+            escrever(caminho, texto)
     aplicar_introducoes()
     fichas = gerar_indice_servicos()
     gerar_indice_readme(secoes, ordem, total)

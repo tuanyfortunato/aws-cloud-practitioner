@@ -10,7 +10,7 @@ Você vai aprender **qual problema cada recurso resolve, como ele funciona e qua
 
 Se você chegou agora, faça esta sequência:
 
-1. Leia [como estudar sem usar o console](docs/00-guia-do-exame/estudar-sem-console.md).
+1. Leia [como estudar com esta apostila](docs/00-guia-do-exame/estrutura-da-apostila.md).
 2. Abra a [primeira aula](docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) e siga as aulas do capítulo 1 na ordem do sumário abaixo.
 3. Ao terminar uma aula, explique o exemplo com suas palavras e responda às perguntas de revisão.
 4. Marque a aula no [controle de progresso](progresso.md). Na próxima sessão, volte a este sumário e abra a seguinte.
@@ -415,7 +415,7 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 | 🧪 [Labs](labs/README.md) | Exercícios práticos no console AWS, com cuidado de custos | Opcional, para fixar |
 <!-- conteudo:fim -->
 
-Para entender a organização dos textos, leia [como esta apostila ensina](docs/00-guia-do-exame/estrutura-da-apostila.md). As [práticas no console](labs/README.md) são opcionais e devem ser feitas depois de ler as instruções de custos e limpeza de recursos.
+Para entender a organização dos textos, leia [como estudar com esta apostila](docs/00-guia-do-exame/estrutura-da-apostila.md). As [práticas no console](labs/README.md) são opcionais e devem ser feitas depois de ler as instruções de custos e limpeza de recursos.
 
 ## Fontes e atualizações
 
