@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-
 
 **Passo 1.** Descubra se a aplicação local precisa de arquivos, volumes ou interface de fitas.
 
@@ -54,7 +49,6 @@ Arquitetura **híbrida**: aplicações locais usando armazenamento em nuvem quas
 
 - **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
 - **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
-
 
 Substituir backup em **fita física**; *tiering* de arquivos para a nuvem; DR.
 
@@ -74,9 +68,6 @@ Substituir backup em **fita física**; *tiering* de arquivos para a nuvem; DR.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 - **VTL:** Biblioteca virtual de fitas: interface que apresenta armazenamento como fitas para aplicações compatíveis.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Tipo | Protocolo | Onde os dados ficam | Uso |
 |---|---|---|---|
 | **S3 File Gateway** | NFS / SMB | Como **objetos no S3** (um arquivo = um objeto) | Arquivos locais com cópia na nuvem, data lake, backups de bancos |
@@ -93,13 +84,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 - **KVM:** Tecnologia de virtualização associada a Linux. É uma camada de execução de máquinas, não o programa de negócio instalado nelas.
 
-
 Como **VM** (VMware, Hyper-V, KVM), em instância EC2 ou appliance de hardware.
 
 **Antes de ler este trecho:**
 
 - **TLS:** HTTPS usa TLS para proteger a conexão web. TLS é a tecnologia atual de proteção; SSL aparece como nome histórico. Essa proteção do caminho é diferente de criptografar dados armazenados.
-
 
 Cache local para dados acessados recentemente; transferência otimizada e criptografada (TLS) para a AWS.
 
@@ -111,7 +100,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 
-
 Ele não move toda a aplicação para a AWS nem elimina os requisitos de rede e configuração. Cada modalidade apresenta uma interface e um comportamento diferentes.
 
 ### ⚠️ Pegadinhas e não confundir
@@ -121,9 +109,7 @@ Ele não move toda a aplicação para a AWS nem elimina os requisitos de rede e 
 - **Storage Gateway:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
 - **híbrido:** Combinação de ambiente próprio e nuvem. É necessário definir quais partes ficam em cada lado e como se comunicam.
 
-
 **Storage Gateway × DataSync:** acesso **contínuo** híbrido × **transferência/migração** de dados.
-
 
 "Substituir backup em fita" → **Tape Gateway**.
 
@@ -155,28 +141,11 @@ Um sistema local pode acessar um compartilhamento de arquivos fornecido por um g
 
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 
-
 **Outra situação comentada:** Sistema de backup usa interface de fita: Tape Gateway, em vez de reescrever o sistema para API S3.
 
 **Por que não concluir mais do que isso:** Não é migração instantânea de toda aplicação; precisa host, cache e conectividade conforme modalidade
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa ainda usa aplicações locais, mas quer aproveitar armazenamento AWS sem mudar de uma vez a forma como essas aplicações acessam os dados.
-
-**2. O que a solução fornece?**
-
-Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não move toda a aplicação para a AWS nem elimina os requisitos de rede e configuração. Cada modalidade apresenta uma interface e um comportamento diferentes.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -184,23 +153,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Storage Gateway.
 
-
-**Fundamento explicado no capítulo:** "Aplicações locais precisam usar armazenamento da AWS." → Storage Gateway.
-
 **Pergunta:** "Substituir fitas físicas de backup."
 
 **Resposta curta:** Tape Gateway.
 
-
-**Fundamento explicado no capítulo:** "Substituir fitas físicas de backup." → Tape Gateway.
-
 **Pergunta:** "Arquivos via NFS/SMB gravados como objetos no S3."
 
 **Resposta curta:** S3 File Gateway.
-
-
-**Fundamento explicado no capítulo:** "Arquivos via NFS/SMB gravados como objetos no S3." → S3 File Gateway.
-
 
 ## 7. Fontes e próximos passos
 

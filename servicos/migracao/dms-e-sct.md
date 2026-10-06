@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
 - **consistência:** Garantia sobre o que leituras observam após gravações. Não é o mesmo que durabilidade, nem garante que o dado inserido pelo programa está correto.
-
 
 **Passo 1.** Avalie origem, destino e necessidade de conversão da estrutura do banco.
 
@@ -66,9 +61,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 - **SAP:** Tecnologias e aplicações empresariais do ecossistema SAP. Podem exigir requisitos específicos de memória, licenciamento e operação.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Componentes** | **Endpoints** de origem e destino + **replication instance** (ou **DMS Serverless**) + **tasks**. |
@@ -86,9 +78,7 @@ Converte **schema, views, stored procedures e funções** entre motores; gera re
 
 - **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
 
-
 **SCT:** aplicativo de desktop. **DMS Schema Conversion:** versão gerenciada no console, com assistência de IA generativa.
-
 
 Também converte schemas de data warehouses (Teradata, Oracle, Netezza → Redshift).
 
@@ -109,7 +99,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 - **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 - **DCU:** Unidade de capacidade em modalidade serverless de migração de dados. Deve ser interpretada segundo a oferta; não é duração da migração.
 
-
 DMS: por hora da replication instance (ou DCU no Serverless) + armazenamento + transferência. SCT: gratuito.
 
 ## 5. Caso resolvido: ligando as peças
@@ -128,28 +117,11 @@ A equipe avalia a estrutura de um banco e transfere seus dados para um destino c
 
 **Decisões que precisam ser tomadas:** Origem/destino suportados, rede, full load/CDC e mapeamentos.
 
-
 **Outra situação comentada:** Oracle para PostgreSQL: conversão e avaliação mais DMS, não promessa de compatibilidade total.
 
 **Por que não concluir mais do que isso:** Nem toda função/stored procedure é convertida; CDC exige pré-requisitos da origem
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa precisa mover dados de um banco e pode também precisar adaptar sua estrutura quando o banco de destino usa outra tecnologia.
-
-**2. O que a solução fornece?**
-
-DMS move dados entre fontes e destinos compatíveis, incluindo replicação de mudanças em cenários suportados. SCT ajuda a converter estruturas e identificar adaptações necessárias.
-
-**3. Que conclusão seria incorreta?**
-
-Mover dados é diferente de converter todas as consultas e regras da aplicação. Conversão automática pode ser incompleta; compatibilidade e testes são essenciais.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -157,27 +129,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** DMS (full load + CDC).
 
-
-**Fundamento explicado no capítulo:** "Migrar um banco sem desligar a aplicação." → DMS (full load + CDC).
-
 **Pergunta:** "Converter um banco Oracle para Aurora PostgreSQL."
 
 **Resposta curta:** SCT + DMS.
 
-
-**Fundamento explicado no capítulo:** "Converter um banco Oracle para Aurora PostgreSQL." → SCT + DMS.
-
 **Pergunta:** "Migrar MySQL on-premises para RDS MySQL."
 
 **Resposta curta:** DMS (homogênea, sem SCT).
-
-**Antes de ler este trecho:**
-
-- **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-
-
-**Fundamento explicado no capítulo:** "Migrar MySQL on-premises para RDS MySQL." → DMS (homogênea, sem SCT).
-
 
 ## 7. Fontes e próximos passos
 

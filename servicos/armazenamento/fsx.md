@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** 🔀 FSx ✅ · FSx for Lustre ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 
 **Passo 1.** Identifique o sistema de arquivos que a aplicação espera e escolha a modalidade correspondente.
 
@@ -69,9 +64,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **NTFS / ZFS:** Tecnologias de sistemas de arquivos com capacidades próprias. A modalidade FSx ou outro ambiente precisa da compatibilidade exigida pela aplicação.
 - **DFS:** Tecnologia de organização de arquivos distribuídos em cenários compatíveis. O contexto define como nomes e destinos são apresentados aos clientes.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Sabor | Protocolos | Destaques | Uso típico |
 |---|---|---|---|
 | **FSx for Windows File Server** | **SMB** | Integra com **Active Directory**, ACLs NTFS, DFS, shadow copies, deduplicação; Single-AZ ou Multi-AZ | Compartilhamentos Windows, SharePoint, SQL Server, home folders |
@@ -91,12 +83,9 @@ FSx é uma família; uma modalidade não oferece automaticamente as funções de
 
 - **EFS:** O EFS oferece um sistema de arquivos compartilhado.
 
-
 "Windows + SMB + Active Directory" → **FSx for Windows** (não EFS).
 
-
 "HPC/ML com dados no S3" → **FSx for Lustre**.
-
 
 "Já usa NetApp" → **FSx for ONTAP**.
 
@@ -104,7 +93,6 @@ FSx é uma família; uma modalidade não oferece automaticamente as funções de
 
 - **Storage Gateway:** Storage Gateway faz a ligação entre o ambiente local e o armazenamento em nuvem usando interfaces de arquivos, volumes ou fitas, conforme a modalidade.
 - **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-
 
 Acesso local de baixa latência ao FSx for Windows a partir do datacenter → **FSx File Gateway** ([Storage Gateway](storage-gateway.md)).
 
@@ -119,7 +107,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 - **throughput:** Quantidade de dados ou de trabalho processada por unidade de tempo. É diferente de latência, que mede quanto uma operação demora.
 - **SSD:** Tipo de armazenamento sem partes mecânicas, usado para acesso rápido a dados. A escolha de um volume também envolve sua capacidade e limites de desempenho.
 
-
 Por capacidade de armazenamento provisionada, throughput (e SSD IOPS em alguns sabores) e backups.
 
 ### Segurança e responsabilidade compartilhada
@@ -129,14 +116,12 @@ Por capacidade de armazenamento provisionada, throughput (e SSD IOPS em alguns s
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
 
-
 **AWS:** hardware, software do sistema de arquivos, patches, failover (Multi-AZ).
 
 **Antes de ler este trecho:**
 
 - **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
 
 **Cliente:** acesso (AD, SGs, permissões), criptografia, backup e dados.
 
@@ -156,28 +141,11 @@ Uma empresa com aplicações Windows pode avaliar FSx for Windows File Server pa
 
 **Decisões que precisam ser tomadas:** Família, protocolo, capacidade e opções de disponibilidade.
 
-
 **Outra situação comentada:** Aplicação Windows exige SMB e integração AD: avalie FSx for Windows File Server.
 
 **Por que não concluir mais do que isso:** Cada família tem capacidades distintas; FSx for Lustre está explicitamente fora do escopo consultado
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma aplicação precisa de arquivos compartilhados, mas depende de características de um sistema de arquivos específico, como o usado em ambientes Windows.
-
-**2. O que a solução fornece?**
-
-O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes. A escolha depende da compatibilidade e das funções de que sua aplicação precisa.
-
-**3. Que conclusão seria incorreta?**
-
-FSx é uma família; uma modalidade não oferece automaticamente as funções de todas as outras. Confira compatibilidade, disponibilidade e escopo de cada opção.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -185,16 +153,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** FSx for Windows File Server.
 
-
-**Fundamento explicado no capítulo:** "Compartilhamento de arquivos Windows integrado ao AD." → FSx for Windows File Server.
-
 **Pergunta:** "Sistema de arquivos de alto desempenho para HPC."
 
 **Resposta curta:** FSx for Lustre.
-
-
-**Fundamento explicado no capítulo:** "Sistema de arquivos de alto desempenho para HPC." → FSx for Lustre.
-
 
 ## 7. Fontes e próximos passos
 

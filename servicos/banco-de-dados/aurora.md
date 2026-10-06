@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 
 **Passo 1.** Escolha a compatibilidade MySQL ou PostgreSQL e a modalidade que atende à aplicação.
 
@@ -52,7 +47,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **alta disponibilidade:** Planejamento para manter o sistema acessível diante de determinadas falhas. Não é promessa de ausência de qualquer interrupção.
 - **OLTP:** Processamento de operações individuais do negócio, como registrar uma compra. É diferente de analisar grandes conjuntos históricos de registros.
 
-
 OLTP que exige alto desempenho e alta disponibilidade gerenciada.
 
 **Antes de ler este trecho:**
@@ -60,7 +54,6 @@ OLTP que exige alto desempenho e alta disponibilidade gerenciada.
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 - **SCT:** Ferramenta de conversão de estrutura de banco em migrações compatíveis. Nem toda estrutura ou regra da aplicação é convertida automaticamente.
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
-
 
 Migrações de Oracle/SQL Server para um motor open source compatível (com DMS + SCT).
 
@@ -76,9 +69,6 @@ Migrações de Oracle/SQL Server para um motor open source compatível (com DMS 
 - **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -96,7 +86,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 - **ACU:** Unidade de capacidade de determinadas ofertas Aurora. Ela expressa capacidade conforme a oferta; não é uma contagem de usuários do aplicativo.
 
-
 **Detalhe:** Capacidade em ACUs ajustada automaticamente em segundos, em incrementos de 0,5 ACU; ✔️ com *auto-pause* pode escalar até **0 ACU**.
 
 **Aurora Global Database**
@@ -108,7 +97,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
 - **DR:** Recuperação de desastres: plano para recuperar uma operação depois de uma interrupção grave. Inclui recursos, procedimentos e testes.
 
-
 **Detalhe:** Replicação entre regiões com lag tipicamente < 1 s; região secundária pode ser promovida (DR) e servir leituras locais.
 
 **Backtrack (MySQL)**
@@ -117,16 +105,13 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **backup:** Cópia de segurança para recuperação. Ter uma cópia não mantém, por si só, a aplicação funcionando durante um incidente.
 
-
 **Detalhe:** "Voltar no tempo" o cluster sem restaurar backup.
 
 **Cloning**
 
-
 **Detalhe:** Cópia rápida *copy-on-write* para testes.
 
 **Configuração de storage**
-
 
 **Detalhe:** *Standard* (paga por I/O) ou *I/O-Optimized* (sem cobrança por I/O, para cargas intensivas).
 
@@ -135,7 +120,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 **Antes de ler este trecho:**
 
 - **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
-
 
 **Detalhe:** Replicação quase em tempo real para análise.
 
@@ -146,13 +130,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **ativo-ativo:** Mais de um ambiente atende ao mesmo tempo. Isso exige tratar distribuição de tráfego e consistência dos dados conforme a aplicação.
 - **DSQL:** Nome de uma oferta distribuída de SQL da família Aurora. Sua arquitetura e compatibilidade precisam ser avaliadas separadamente das demais modalidades Aurora.
 
-
 **Detalhe:** 🔄 Banco SQL distribuído, serverless, ativo-ativo multi-região (2025) — 🧊 fora da prova.
 
 ### Limites e números
 
 📌 **6 cópias / 3 AZs**, **15 réplicas**.
-
 
 🧊 Tamanho máximo do volume, limites de ACU.
 
@@ -164,13 +146,11 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **RDS:** O RDS oferece bancos relacionais gerenciados.
 
-
 Aurora não é compatível com todos os mecanismos disponíveis no RDS. Compatibilidade também não significa que toda extensão e configuração funcionará sem avaliação.
 
 ### ⚠️ Pegadinhas e não confundir
 
 Aurora × RDS: Aurora é motor próprio da AWS (MySQL/PostgreSQL), mais rápido e resiliente; RDS oferece vários motores comerciais e open source.
-
 
 "Relacional + máxima disponibilidade gerenciada + compatível com MySQL" → **Aurora**.
 
@@ -191,7 +171,6 @@ Instâncias (ou ACU-hora no Serverless), armazenamento GB-mês, I/O (configuraç
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
-
 Igual ao [RDS](rds.md): AWS cuida de infra, SO, patch, replicação de armazenamento; cliente de usuários, acesso de rede, criptografia, dados.
 
 ## 5. Caso resolvido: ligando as peças
@@ -210,28 +189,11 @@ Uma loja que usa PostgreSQL avalia Aurora PostgreSQL para seu banco de pedidos, 
 
 **Decisões que precisam ser tomadas:** Compatibilidade MySQL/PostgreSQL, capacidade e disponibilidade.
 
-
 **Outra situação comentada:** Relacional compatível MySQL com leitores: Aurora; não confunda reader com writer.
 
 **Por que não concluir mais do que isso:** Não é engine compatível com qualquer banco SQL; endpoints e opções dependem da configuração
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma aplicação usa banco relacional e quer uma opção AWS compatível com MySQL ou PostgreSQL, com arquitetura própria para armazenamento e disponibilidade.
-
-**2. O que a solução fornece?**
-
-Aurora é um banco relacional da AWS dentro da família RDS. Ele combina compatibilidade com esses mecanismos e uma arquitetura gerenciada com recursos próprios.
-
-**3. Que conclusão seria incorreta?**
-
-Aurora não é compatível com todos os mecanismos disponíveis no RDS. Compatibilidade também não significa que toda extensão e configuração funcionará sem avaliação.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -239,38 +201,17 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Aurora.
 
-
-**Fundamento explicado no capítulo:** "Banco relacional compatível com MySQL/PostgreSQL de maior desempenho." → Aurora.
-
 **Pergunta:** "Quantas cópias dos dados o Aurora mantém?"
 
 **Resposta curta:** 6 cópias em 3 AZs.
-
-
-**Fundamento explicado no capítulo:** "Quantas cópias dos dados o Aurora mantém?" → 6 cópias em 3 AZs.
 
 **Pergunta:** "Banco relacional com leituras de baixa latência em várias regiões e DR."
 
 **Resposta curta:** Aurora Global Database.
 
-**Antes de ler este trecho:**
-
-- **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-
-
-**Fundamento explicado no capítulo:** "Banco relacional com leituras de baixa latência em várias regiões e DR." → Aurora Global Database.
-
 **Pergunta:** "Carga intermitente sem gerenciar capacidade."
 
 **Resposta curta:** Aurora Serverless.
-
-**Antes de ler este trecho:**
-
-- **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
-
-
-**Fundamento explicado no capítulo:** "Carga intermitente sem gerenciar capacidade." → Aurora Serverless.
-
 
 ## 7. Fontes e próximos passos
 

@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Conecte ou configure a fonte de identidades da força de trabalho.
 
@@ -62,9 +57,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Permission sets:** Conjuntos de permissões atribuídos no IAM Identity Center para acesso às contas. Uma entrada central não transforma toda sessão em administradora.
 - **SCIM:** Padrão de administração de identidades entre sistemas, como provisionamento de usuários. É diferente do protocolo utilizado para o login.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Fonte de identidade** | Diretório próprio do Identity Center, **Active Directory** (AWS Managed AD ou AD Connector) ou **IdP externo** via SAML 2.0/SCIM (Okta, Entra ID, Google Workspace). |
@@ -88,14 +80,9 @@ Ele não é o cadastro de clientes de um aplicativo público. Centralizar a entr
 - **Directory Service:** Directory Service oferece opções para diretórios e integração com Active Directory, conforme a modalidade.
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
-
 Identity Center (**funcionários** → contas AWS) × **Cognito** (**clientes** de um app) × **Directory Service** (AD gerenciado).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Uma funcionária entra no portal corporativo e escolhe a conta de testes ou de produção, recebendo as permissões definidas para cada uma.
 
@@ -115,28 +102,11 @@ Uma funcionária entra no portal corporativo e escolhe a conta de testes ou de p
 
 - **SCP:** Política de controle de serviços usada na organização para limitar permissões disponíveis em contas às quais se aplica. Ela não concede acesso ao usuário sozinha.
 
-
 **Outra situação comentada:** Funcionários em várias contas: Identity Center; clientes do app: Cognito.
 
 **Por que não concluir mais do que isso:** Não é cadastro de consumidores de uma aplicação pública; atribuição não ignora SCP
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Funcionários usam várias contas AWS e aplicações. Manter um login diferente e permissões separadas em cada uma dificulta a administração.
-
-**2. O que a solução fornece?**
-
-IAM Identity Center centraliza o acesso da força de trabalho. Pessoas entram por um portal e acessam as contas e aplicações que lhes foram atribuídas.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não é o cadastro de clientes de um aplicativo público. Centralizar a entrada também não elimina a necessidade de definir permissões adequadas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -148,9 +118,6 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **IAM Identity Center:** Serviço de acesso central para a força de trabalho. Atribuições de contas e aplicações não são o cadastro de clientes de um aplicativo.
 
-
-**Fundamento explicado no capítulo:** "Login único para funcionários em várias contas AWS." → IAM Identity Center.
-
 **Pergunta:** "Usar o Active Directory da empresa para acessar o console."
 
 **Resposta curta:** Identity Center com AD (ou federação SAML).
@@ -159,11 +126,7 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **federação:** Uso de uma identidade de um provedor em outro ambiente por uma relação de confiança. Não significa que todos os usuários passam a ser administradores.
 
-
-**Fundamento explicado no capítulo:** "Usar o Active Directory da empresa para acessar o console." → Identity Center com AD (ou federação SAML).
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

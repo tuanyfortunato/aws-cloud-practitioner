@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ⚪ Não listado (saiu da lista atual) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Defina uma avaliação e os controles que precisam de evidências.
 
@@ -52,7 +47,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **CIS / NIST / SOC / PCI DSS / HIPAA / GDPR:** Referências, padrões ou requisitos de segurança e conformidade com escopos distintos. A menção de um nome não é certificação automática do cliente; identifique qual requisito a seção aborda.
 - **ISO:** Referências de padrões e de proteção de dados com finalidades distintas. Identifique o requisito aplicável; o material técnico não substitui uma avaliação de conformidade.
 
-
 **Frameworks** prontos (PCI DSS, HIPAA, GDPR, SOC 2, CIS, NIST, FedRAMP, ISO…) ou customizados.
 
 **Antes de ler este trecho:**
@@ -62,9 +56,7 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 - **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
 
-
 **Assessments** coletam evidências automaticamente de **Config**, **Security Hub**, **CloudTrail** e chamadas de API (snapshots de configuração), além de evidências manuais.
-
 
 Gera **relatórios de avaliação** para os auditores; delegação de controles para revisão por responsáveis.
 
@@ -81,7 +73,6 @@ Organizar evidências não garante aprovação na auditoria nem elimina controle
 - **Artifact:** Artifact disponibiliza relatórios e acordos de conformidade aplicáveis, conforme o acesso e as condições de cada documento.
 - **Audit Manager:** Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 
 Artifact (relatórios da AWS) × Audit Manager (evidências do cliente) × Config (avalia regras dos recursos).
 
@@ -113,38 +104,17 @@ Uma equipe reúne evidências de seu ambiente AWS e complementa o material com d
 
 - **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
 
-
 **Outra situação comentada:** Evidência da conta do cliente difere de relatório da AWS: Audit Manager e Artifact têm papéis distintos.
 
 **Por que não concluir mais do que isso:** Não decide conformidade legal automaticamente; observe restrição a novos clientes indicada na ficha
 
 ## 6. Revisão e perguntas
 
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A organização precisa reunir evidências sobre seus controles e organizá-las para uma auditoria, sem depender apenas de coleta manual.
-
-**2. O que a solução fornece?**
-
-Audit Manager ajuda a coletar e organizar evidências em avaliações baseadas em estruturas de controles compatíveis.
-
-**3. Que conclusão seria incorreta?**
-
-Organizar evidências não garante aprovação na auditoria nem elimina controles manuais. A ficha está identificada como não listada no escopo atual.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
-
 ### ❓ Perguntas típicas
 
 **Pergunta:** "Coletar evidências continuamente para a auditoria da empresa."
 
 **Resposta curta:** Audit Manager.
-
-
-**Fundamento explicado no capítulo:** "Coletar evidências continuamente para a auditoria da empresa." → Audit Manager.
-
 
 ## 7. Fontes e próximos passos
 

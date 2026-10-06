@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **stack:** Conjunto de recursos administrados a partir de uma descrição CloudFormation. Excluir ou atualizar a stack pode afetar os recursos conforme suas políticas.
-
 
 **Passo 1.** Escreva um template com recursos, parâmetros e dependências do ambiente.
 
@@ -56,7 +51,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **AMI:** Imagem de máquina EC2: modelo com o software necessário para iniciar uma instância. A imagem precisa ser compatível com a configuração de execução escolhida.
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 - **retain:** Estratégias de migração: trocar por outra oferta, manter onde está, desativar ou mover a plataforma, respectivamente. A decisão vem do objetivo da aplicação e do negócio.
-
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
@@ -84,9 +78,6 @@ Outputs:         # valores exportados (ex.: URL)
 - **rollback:** Retorno a uma configuração ou versão anterior, quando suportado e planejado. Nem toda alteração de dados pode ser desfeita automaticamente.
 - **IaC:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Stack** | Conjunto de recursos criado, atualizado e apagado **como uma unidade**. |
@@ -106,7 +97,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **CDK:** Ferramentas de desenvolvimento e descrição de infraestrutura. CDK ajuda a definir recursos por programação; SAM é voltado a aplicações serverless compatíveis.
 
-
 **AWS CDK:** define a infraestrutura em linguagens de programação (TypeScript, Python, Java, C#, Go) e **gera CloudFormation**.
 
 **Antes de ler este trecho:**
@@ -117,12 +107,9 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
-
 **AWS SAM:** extensão do CloudFormation simplificada para aplicações **serverless** (Lambda, API Gateway, DynamoDB).
 
-
 **Infrastructure Composer:** desenha arquiteturas visualmente e gera templates.
-
 
 Terraform: equivalente de terceiros.
 
@@ -138,7 +125,6 @@ Ele não inventa uma arquitetura segura nem impede todo erro de configuração. 
 
 - **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
 - **CFN:** Abreviação usada para CloudFormation. Templates descrevem recursos e stacks administram conjuntos desses recursos.
-
 
 CloudFormation (qualquer infra como código) × **Elastic Beanstalk** (sobe a aplicação, usa CFN por baixo) × **Service Catalog** (catálogo de templates aprovados).
 
@@ -171,28 +157,11 @@ A escola descreve seu ambiente de testes num template e usa uma stack para admin
 - **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 
-
 **Outra situação comentada:** Recriar rede e aplicação em teste: template versionado; valide change set antes de atualização sensível.
 
 **Por que não concluir mais do que isso:** Deletar stack pode apagar recursos salvo proteção/retenção configurada; rollback não recupera todo dado
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Criar recursos manualmente dificulta repetir o mesmo ambiente e acompanhar exatamente o que foi configurado.
-
-**2. O que a solução fornece?**
-
-CloudFormation usa um arquivo de descrição para criar e atualizar conjuntos de recursos AWS compatíveis, com suas dependências.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não inventa uma arquitetura segura nem impede todo erro de configuração. A descrição precisa estar correta, e mudanças ou exclusões podem afetar recursos e dados.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -200,36 +169,19 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** CloudFormation.
 
-**Antes de ler este trecho:**
-
-- **provisionar:** Criar ou disponibilizar capacidade e recursos. Um recurso provisionado pode ter cobrança mesmo enquanto está esperando trabalho.
-- **JSON:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
-- **YAML:** Formatos de representação de dados e configurações. Um arquivo nesses formatos descreve informações; ele não cria permissões nem recursos sem ser usado por uma ferramenta.
-
-
-**Fundamento explicado no capítulo:** "Provisionar infraestrutura a partir de templates JSON/YAML." → CloudFormation.
+**Fundamento explicado no capítulo:** **AWS CDK:** define a infraestrutura em linguagens de programação (TypeScript, Python, Java, C#, Go) e **gera CloudFormation**.
 
 **Pergunta:** "Mesma infraestrutura em várias contas e regiões."
 
 **Resposta curta:** StackSets.
 
-
-**Fundamento explicado no capítulo:** "Mesma infraestrutura em várias contas e regiões." → StackSets.
-
 **Pergunta:** "Detectar alterações manuais fora do template."
 
 **Resposta curta:** Drift detection.
 
-
-**Fundamento explicado no capítulo:** "Detectar alterações manuais fora do template." → Drift detection.
-
 **Pergunta:** "Vantagem de IaC?"
 
 **Resposta curta:** Repetibilidade, versionamento, menos erro manual, velocidade.
-
-
-**Fundamento explicado no capítulo:** "Vantagem de IaC?" → Repetibilidade, versionamento, menos erro manual, velocidade.
-
 
 ## 7. Fontes e próximos passos
 

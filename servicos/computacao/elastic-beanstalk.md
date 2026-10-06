@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -37,7 +33,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
-
 
 **Passo 1.** Escolha uma plataforma compatível e prepare o pacote da aplicação.
 
@@ -55,13 +50,11 @@ Desenvolvedores que querem publicar aplicações web **sem pensar em infraestrut
 
 - **PHP:** Linguagem de programação usada em aplicações. A plataforma de hospedagem precisa de ambiente compatível para executar seu código.
 
-
 Plataformas: Java, .NET (Windows e Linux), Node.js, Python, PHP, Ruby, Go, Docker, Tomcat.
 
 ### Conceitos e componentes
 
 **Application**
-
 
 **O que é:** Conjunto de versões e ambientes.
 
@@ -70,7 +63,6 @@ Plataformas: Java, .NET (Windows e Linux), Node.js, Python, PHP, Ruby, Go, Docke
 **Antes de ler este trecho:**
 
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-
 
 **O que é:** Pacote de código (zip no S3).
 
@@ -83,7 +75,6 @@ Plataformas: Java, .NET (Windows e Linux), Node.js, Python, PHP, Ruby, Go, Docke
 - **worker:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
 - **ASG:** Grupo de Auto Scaling: conjunto cuja quantidade e saúde são administradas conforme uma configuração e suas regras.
 
-
 **O que é:** Recursos rodando uma versão: **Web server** (com ELB + ASG) ou **Worker** (consome fila SQS).
 
 **Platform**
@@ -95,18 +86,15 @@ Plataformas: Java, .NET (Windows e Linux), Node.js, Python, PHP, Ruby, Go, Docke
 - **runtime:** Ambiente que executa código de uma linguagem ou plataforma. Compatibilidade de bibliotecas e versões deve ser avaliada.
 - **servidor web:** Programa ou computador que atende pedidos web. Guardar uma página estática e executar regras de um sistema completo são necessidades distintas.
 
-
 **O que é:** Combinação de SO, runtime e servidor web, atualizada pela AWS (*managed platform updates*).
 
 **.ebextensions / platform hooks**
-
 
 **O que é:** Personalização da configuração.
 
 ### Configurações e opções importantes
 
 **Tipo de ambiente**
-
 
 **Detalhe:** Single instance (barato, dev) ou load balanced (produção).
 
@@ -116,11 +104,9 @@ Plataformas: Java, .NET (Windows e Linux), Node.js, Python, PHP, Ruby, Go, Docke
 
 - **CNAME:** Tipos de registro DNS. A e AAAA indicam endereços, CNAME indica outro nome, MX indica e-mail, TXT texto, CAA emissão de certificados e SOA informações da zona.
 
-
 **Detalhe:** All at once, Rolling, Rolling with additional batch, **Immutable**, Traffic splitting (canary); **blue/green** trocando o CNAME entre ambientes.
 
 **Monitoramento**
-
 
 **Detalhe:** Health básico ou *enhanced health*.
 
@@ -130,7 +116,6 @@ Plataformas: Java, .NET (Windows e Linux), Node.js, Python, PHP, Ruby, Go, Docke
 
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 - **RDS:** O RDS oferece bancos relacionais gerenciados.
-
 
 **Detalhe:** Você continua com acesso total aos recursos criados (EC2, ELB, RDS…).
 
@@ -146,14 +131,12 @@ Você continua responsável pelo código e por decisões de configuração. Os r
 
 - **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
 
-
 **Beanstalk × CloudFormation:** Beanstalk = sobe *a aplicação* sem pensar em infra; CloudFormation = descreve *qualquer infraestrutura* como código (o Beanstalk usa CloudFormation por baixo).
 
 **Antes de ler este trecho:**
 
 - **Lightsail:** O Lightsail reúne recursos como servidores virtuais, armazenamento e rede em ofertas simplificadas.
 - **PaaS:** Plataforma como serviço: parte da infraestrutura e do ambiente de execução é administrada para você entregar a aplicação. O código e suas regras continuam sendo do cliente.
-
 
 **Beanstalk × Lightsail:** PaaS que escala × servidor simples de preço fixo.
 
@@ -171,13 +154,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **orquestração:** Coordenação de onde e como tarefas ou componentes executam. O coordenador não escreve o conteúdo do trabalho por si só.
 
-
 **AWS:** provisionamento, atualizações de plataforma (quando ativadas), orquestração.
 
 **Antes de ler este trecho:**
 
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
-
 
 **Cliente:** código, configuração, dados, IAM, security groups.
 
@@ -197,28 +178,11 @@ Uma equipe envia sua aplicação web para um ambiente Beanstalk. O serviço orga
 
 **Decisões que precisam ser tomadas:** Plataforma, versão de código, variáveis, escala e rede.
 
-
 **Outra situação comentada:** Enviar aplicação web e delegar provisionamento comum: Beanstalk, sem presumir custo zero.
 
 **Por que não concluir mais do que isso:** Aplicação, dependências e configurações continuam com o cliente; recursos usados são cobrados
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Você tem uma aplicação pronta, mas configurar máquinas, balanceamento e acompanhamento da execução manualmente pode tomar tempo.
-
-**2. O que a solução fornece?**
-
-O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente. Você entrega o código e define opções do ambiente.
-
-**3. Que conclusão seria incorreta?**
-
-Você continua responsável pelo código e por decisões de configuração. Os recursos criados continuam tendo custos; Beanstalk não torna a infraestrutura gratuita.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -230,27 +194,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
 
-
-**Fundamento explicado no capítulo:** "Desenvolvedor quer só subir o código Java e deixar a AWS cuidar de capacidade e balanceamento." → Elastic Beanstalk.
-
 **Pergunta:** "O Elastic Beanstalk tem custo próprio?"
 
 **Resposta curta:** Não.
 
-
-**Fundamento explicado no capítulo:** "O Elastic Beanstalk tem custo próprio?" → Não.
-
 **Pergunta:** "Qual modelo de serviço o Beanstalk representa?"
 
 **Resposta curta:** PaaS.
-
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
-
-**Fundamento explicado no capítulo:** "Qual modelo de serviço o Beanstalk representa?" → PaaS.
-
 
 ## 7. Fontes e próximos passos
 

@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-
 
 **Passo 1.** Selecione recursos compatíveis e defina periodicidade, destinos e retenção das cópias.
 
@@ -63,7 +58,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Neptune:** Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
 - **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
 
-
 EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3, DocumentDB, Neptune, Redshift, Storage Gateway (volumes), VMware on-premises, entre outros.
 
 ### Conceitos e configurações
@@ -80,9 +74,6 @@ EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3, DocumentDB, Neptune, Redshift, St
 - **WORM:** Escrever uma vez e ler muitas vezes: modelo de retenção que impede alterações ou exclusões conforme o mecanismo e o modo aplicáveis.
 - **compliance / conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -104,7 +95,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 
-
 Ter backup não mantém automaticamente uma aplicação disponível durante uma falha. Também é preciso planejar e testar a restauração; a cobertura depende do recurso e das opções usadas.
 
 ### ⚠️ Pegadinhas e não confundir
@@ -115,7 +105,6 @@ Ter backup não mantém automaticamente uma aplicação disponível durante uma 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **DLM:** Data Lifecycle Manager: administração de ciclo de vida de cópias compatíveis de armazenamento. Não é o gerenciador de todo dado da conta.
 
-
 **AWS Backup** (centraliza políticas) × snapshots manuais/DLM (por serviço).
 
 **Antes de ler este trecho:**
@@ -123,7 +112,6 @@ Ter backup não mantém automaticamente uma aplicação disponível durante uma 
 - **Elastic Disaster Recovery:** Elastic Disaster Recovery replica dados de servidores compatíveis para preparar sua recuperação em máquinas AWS.
 - **replicação:** Manutenção de uma cópia dos dados em outro recurso. Se uma alteração incorreta for replicada, a cópia também pode recebê-la; replicação não substitui todo backup.
 - **RPO:** Objetivo de ponto de recuperação: quanto histórico de dados a organização aceita perder, medido como intervalo de tempo.
-
 
 **AWS Backup** × **Elastic Disaster Recovery**: backup com RPO de horas × replicação contínua com recuperação em minutos.
 
@@ -151,28 +139,11 @@ A escola define um plano que protege recursos compatíveis do sistema de matríc
 
 **Decisões que precisam ser tomadas:** Agenda, retenção, cópias, permissões e recursos elegíveis.
 
-
 **Outra situação comentada:** Políticas comuns de retenção entre serviços: AWS Backup, com seleção e proteção configuradas.
 
 **Por que não concluir mais do que isso:** Não inclui automaticamente todo recurso e não substitui disponibilidade ou teste de recuperação
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa tem dados em vários serviços e precisa organizar cópias de segurança, prazos de retenção e recuperação sem administrar tudo de forma isolada.
-
-**2. O que a solução fornece?**
-
-AWS Backup centraliza políticas e operações de backup para recursos compatíveis. Você define o que copiar, quando copiar e por quanto tempo manter as cópias.
-
-**3. Que conclusão seria incorreta?**
-
-Ter backup não mantém automaticamente uma aplicação disponível durante uma falha. Também é preciso planejar e testar a restauração; a cobertura depende do recurso e das opções usadas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -180,27 +151,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** AWS Backup.
 
-
-**Fundamento explicado no capítulo:** "Centralizar backups de vários serviços com políticas." → AWS Backup.
-
 **Pergunta:** "Impedir que backups sejam apagados, nem pelo administrador."
 
 **Resposta curta:** Backup Vault Lock.
 
-
-**Fundamento explicado no capítulo:** "Impedir que backups sejam apagados, nem pelo administrador." → Backup Vault Lock.
-
 **Pergunta:** "Aplicar a mesma política de backup em todas as contas."
 
 **Resposta curta:** Backup policies no Organizations.
-
-**Antes de ler este trecho:**
-
-- **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
-
-
-**Fundamento explicado no capítulo:** "Aplicar a mesma política de backup em todas as contas." → Backup policies no Organizations.
-
 
 ## 7. Fontes e próximos passos
 

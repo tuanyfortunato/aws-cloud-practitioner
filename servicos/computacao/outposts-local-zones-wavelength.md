@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** 🔀 Outposts ✅ · Local Zones ⚪ não listado · Wavelength ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 
 **Passo 1.** Identifique onde o processamento precisa ocorrer e qual tempo de comunicação é aceitável.
 
@@ -55,9 +50,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 - **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
 - **VDI:** Infraestrutura de desktops virtuais e computação para usuários finais. São contextos de uso remoto, com modalidades e responsabilidades diferentes.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | | **AWS Outposts** ✅ | **AWS Local Zones** ⚪ | **AWS Wavelength** ❌ *fora do escopo* |
 |---|---|---|---|
@@ -84,20 +76,17 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
 - **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
 
-
 **Outposts:** EC2, EBS, S3 on Outposts, ECS, EKS, RDS, EMR, ElastiCache (varia por formato).
 
 **Antes de ler este trecho:**
 
 - **ALB:** Modalidades de balanceador com focos diferentes: aplicação, transporte de rede e integração de equipamentos virtuais. Os protocolos e casos de uso determinam a escolha.
 
-
 **Local Zones / Wavelength:** subconjunto (EC2, EBS, ECS/EKS, ALB…), conectado à região-mãe.
 
 ### Responsabilidade compartilhada (Outposts)
 
 **AWS:** hardware, software, manutenção e substituição.
-
 
 **Cliente:** **segurança física e ambiente do local** (energia, refrigeração, rede), além do que já seria dele na nuvem.
 
@@ -115,7 +104,6 @@ As três opções não são o mesmo produto nem oferecem todos os serviços de u
 
 - **CloudFront:** CloudFront distribui conteúdo por uma rede de pontos de presença.
 - **edge location:** Local de infraestrutura usado para aproximar determinadas funções dos usuários, como entrega de conteúdo. Não é uma região completa com todos os serviços.
-
 
 Nenhum deles é "edge location" do CloudFront.
 
@@ -143,28 +131,11 @@ Uma fábrica pode precisar processar dados perto das máquinas e avaliar Outpost
 
 **Decisões que precisam ser tomadas:** Localidade, serviço disponível e infraestrutura/conectividade exigida.
 
-
 **Outra situação comentada:** Requisito de manter computação no prédio: avalie Outposts; não confunda com região inteiramente nova.
 
 **Por que não concluir mais do que isso:** Não oferece todo o catálogo em qualquer local; os três nomes têm status de escopo diferentes
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Algumas aplicações precisam executar perto de equipamentos, pessoas ou redes específicas. Uma região AWS distante pode não atender ao requisito de proximidade.
-
-**2. O que a solução fornece?**
-
-Esta ficha compara formas de aproximar infraestrutura AWS: Outposts no local do cliente, Local Zones perto de centros urbanos e Wavelength em redes de operadoras compatíveis.
-
-**3. Que conclusão seria incorreta?**
-
-As três opções não são o mesmo produto nem oferecem todos os serviços de uma região. Disponibilidade e escopo da prova diferem entre elas; confira a identificação abaixo.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -172,23 +143,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Outposts.
 
-
-**Fundamento explicado no capítulo:** "A empresa precisa rodar serviços AWS no próprio datacenter." → Outposts.
-
 **Pergunta:** "Latência de um dígito de milissegundo numa cidade sem região AWS."
 
 **Resposta curta:** Local Zones.
 
-
-**Fundamento explicado no capítulo:** "Latência de um dígito de milissegundo numa cidade sem região AWS." → Local Zones.
-
 **Pergunta:** "Aplicação móvel 5G com ultrabaixa latência."
 
 **Resposta curta:** Wavelength.
-
-
-**Fundamento explicado no capítulo:** "Aplicação móvel 5G com ultrabaixa latência." → Wavelength.
-
 
 ## 7. Fontes e próximos passos
 

@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** 🔀 Amplify ✅ · AppSync ⚪ não listado · Device Farm ❌ fora do escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-
 
 **Passo 1.** Separe a necessidade de publicar a interface da necessidade de uma API e de dados.
 
@@ -57,7 +52,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **CDN:** Rede de distribuição de conteúdo. Ela aproxima entrega de conteúdo dos usuários e pode manter cópias em cache conforme as regras.
 - **SSR:** Renderização de páginas no servidor. É diferente de entregar somente arquivos estáticos sem executar essa etapa de aplicação.
 
-
 **Detalhe:** Hospedagem **full-stack** e de sites estáticos/SSR (React, Next.js, Vue, Angular) com CI/CD a partir do Git, CDN, domínios e HTTPS.
 
 **Back-end (Gen 2)**
@@ -70,11 +64,9 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Cognito:** Cognito oferece recursos de identidade para usuários de aplicações.
 - **back-end:** Parte que processa regras e dados de uma aplicação. É diferente da interface que a pessoa vê no navegador ou aplicativo.
 
-
 **Detalhe:** Define autenticação (Cognito), dados (AppSync/DynamoDB), armazenamento (S3) e funções (Lambda) em TypeScript.
 
 **Bibliotecas e UI**
-
 
 **Detalhe:** SDKs para web, iOS, Android, Flutter, React Native.
 
@@ -87,7 +79,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **endpoint:** Ponto de acesso a um serviço ou componente. Pode ser um endereço de API ou um recurso de conectividade; identifique qual sentido a seção usa.
 - **GraphQL:** Forma de definir uma API e solicitar campos de dados. A aplicação ainda precisa de lógica de resolução, acesso e fontes adequadas.
 
-
 **APIs GraphQL** gerenciadas: um endpoint que combina várias fontes (DynamoDB, Lambda, RDS, HTTP, OpenSearch).
 
 **Antes de ler este trecho:**
@@ -97,7 +88,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **WebSocket:** Comunicação que mantém uma conexão para troca de mensagens entre cliente e servidor. É diferente de uma sequência de pedidos web independentes.
 - **OIDC:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
 
-
 **Tempo real** (subscriptions via WebSocket), **sincronização offline** em apps móveis, cache, autenticação (Cognito, IAM, OIDC, API key).
 
 **Antes de ler este trecho:**
@@ -105,13 +95,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 - **pub/sub:** Publicação de uma mensagem para destinatários inscritos. Distribuir avisos a vários destinos é diferente de manter uma tarefa aguardando um consumidor.
 
-
 **AppSync Events:** pub/sub serverless via WebSocket.
 
 ### AWS Device Farm ❌
 
 > ❌ **Fora do escopo da CLF-C02** — documentado só para referência ([lista oficial](../../docs/00-guia-do-exame/escopo-oficial.md)).
-
 
 Testa apps **Android, iOS e web** em **dispositivos reais** e navegadores na nuvem (testes automatizados e acesso remoto).
 
@@ -128,7 +116,6 @@ Hospedar a interface não cria automaticamente todas as regras e dados da aplica
 - **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
 - **REST:** Estilo de API que usa recursos e operações, frequentemente por HTTP. O código integrado continua sendo responsável pelo comportamento da aplicação.
 
-
 AppSync (**GraphQL**) × API Gateway (**REST/HTTP/WebSocket**).
 
 **Antes de ler este trecho:**
@@ -138,14 +125,9 @@ AppSync (**GraphQL**) × API Gateway (**REST/HTTP/WebSocket**).
 - **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
 - **front-end:** Parte da aplicação com que a pessoa interage. Publicá-la não cria automaticamente todas as operações e bancos da parte interna.
 
-
 Amplify (front-end + back-end rápido) × Elastic Beanstalk (aplicações web tradicionais) × Lightsail (servidor simples).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Uma equipe hospeda a interface do aplicativo com Amplify e avalia as integrações necessárias para cadastro e dados.
 
@@ -165,28 +147,11 @@ Uma equipe hospeda a interface do aplicativo com Amplify e avalia as integraçõ
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 **Outra situação comentada:** Publicar front-end com integração AWS: Amplify; requisito específico GraphQL: entender AppSync como complemento.
 
 **Por que não concluir mais do que isso:** Hosting não escreve regra de negócio; AppSync não aparece na lista consultada
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A equipe cria uma aplicação web ou móvel e precisa de apoio para hospedar a interface e integrar recursos de sua parte interna.
-
-**2. O que a solução fornece?**
-
-Amplify oferece ferramentas para desenvolvimento e hospedagem compatíveis. AppSync atende APIs GraphQL e outros recursos próprios; os papéis não são idênticos.
-
-**3. Que conclusão seria incorreta?**
-
-Hospedar a interface não cria automaticamente todas as regras e dados da aplicação. AppSync tem escopo distinto; a ficha identifica o que priorizar na prova.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -194,25 +159,15 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Amplify.
 
-
-**Fundamento explicado no capítulo:** "Criar e hospedar rapidamente um app web ou mobile full-stack." → Amplify.
-
 **Pergunta:** "API GraphQL gerenciada com dados em tempo real."
 
 **Resposta curta:** AppSync.
-
-
-**Fundamento explicado no capítulo:** "API GraphQL gerenciada com dados em tempo real." → AppSync.
 
 **Pergunta:** "Testar o app em vários modelos de celular reais."
 
 **Resposta curta:** Device Farm.
 
-
-**Fundamento explicado no capítulo:** "Testar o app em vários modelos de celular reais." → Device Farm.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

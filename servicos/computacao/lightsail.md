@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
 
 **Passo 1.** Escolha uma oferta e um modelo de software compatíveis com seu site ou aplicação.
 
@@ -54,7 +49,6 @@ Sites WordPress, lojas pequenas, blogs, ambientes de teste, aplicações simples
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 Usuários com pouca experiência em AWS que querem previsibilidade de custo.
 
 ### O que oferece
@@ -64,7 +58,6 @@ Usuários com pouca experiência em AWS que querem previsibilidade de custo.
 **Antes de ler este trecho:**
 
 - **LAMP:** Conjunto tradicional de tecnologias para aplicações web: Linux, Apache, banco MySQL e PHP. O pacote não dispensa configuração e manutenção.
-
 
 **Detalhe:** Linux/Windows com blueprints prontos (WordPress, LAMP, Node.js, cPanel…).
 
@@ -76,11 +69,9 @@ Usuários com pouca experiência em AWS que querem previsibilidade de custo.
 - **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
 - **SSD:** Tipo de armazenamento sem partes mecânicas, usado para acesso rápido a dados. A escolha de um volume também envolve sua capacidade e limites de desempenho.
 
-
 **Detalhe:** Preço mensal fixo que inclui vCPU, memória, SSD e **cota de transferência de dados**.
 
 **Bancos gerenciados**
-
 
 **Detalhe:** MySQL e PostgreSQL.
 
@@ -92,7 +83,6 @@ Usuários com pouca experiência em AWS que querem previsibilidade de custo.
 - **CDN:** Rede de distribuição de conteúdo. Ela aproxima entrega de conteúdo dos usuários e pode manter cópias em cache conforme as regras.
 - **load balancer:** Recurso que distribui tráfego entre destinos configurados. Ele não cria sozinho todas as máquinas necessárias nem conserta seu programa.
 
-
 **Detalhe:** Load balancer, contêineres, armazenamento em objetos e em bloco, CDN, DNS, snapshots.
 
 **Upgrade**
@@ -101,7 +91,6 @@ Usuários com pouca experiência em AWS que querem previsibilidade de custo.
 
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 - **snapshot:** Cópia de estado de um recurso em determinado momento, conforme o serviço. Restauração pode criar um novo recurso; não presuma uma máquina pronta e instantânea.
-
 
 **Detalhe:** Snapshot pode ser exportado para EC2 quando a aplicação crescer.
 
@@ -118,7 +107,6 @@ A simplicidade não elimina manutenção do software, segurança ou limites do p
 - **Elastic Beanstalk:** O Elastic Beanstalk ajuda a implantar aplicações em plataformas compatíveis, provisionando e coordenando recursos AWS para esse ambiente.
 - **Lightsail:** O Lightsail reúne recursos como servidores virtuais, armazenamento e rede em ofertas simplificadas.
 
-
 "Preço fixo e previsível, simples" → **Lightsail**. "Escala automática gerenciada a partir do código" → **Elastic Beanstalk**. "Controle total" → **EC2**.
 
 ## 4. Operação, segurança e custo
@@ -130,7 +118,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 
 Preço **mensal fixo** por plano (cobrado por hora até o teto mensal). Transferência acima da cota é cobrada.
 
@@ -154,28 +141,11 @@ Uma pessoa cria um pequeno site institucional numa instância Lightsail, usando 
 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 
-
 **Outra situação comentada:** Pequeno site com requisitos simples: Lightsail; requisitos complexos pedem avaliar EC2 e serviços especializados.
 
 **Por que não concluir mais do que isso:** Não significa capacidade ilimitada ou proteção automática da aplicação
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Você quer hospedar um site ou uma aplicação pequena e prefere começar com opções simples, em vez de montar muitos recursos separadamente.
-
-**2. O que a solução fornece?**
-
-O Lightsail reúne recursos como servidores virtuais, armazenamento e rede em ofertas simplificadas. Ele facilita escolher uma configuração inicial e entender o pacote contratado.
-
-**3. Que conclusão seria incorreta?**
-
-A simplicidade não elimina manutenção do software, segurança ou limites do plano. Quando a arquitetura exige muitas opções avançadas, serviços separados podem ser mais adequados.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -183,20 +153,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Lightsail.
 
-
-**Fundamento explicado no capítulo:** "Site WordPress simples com preço mensal fixo." → Lightsail.
-
 **Pergunta:** "Pequena empresa sem experiência quer um servidor com custo previsível."
 
 **Resposta curta:** Lightsail.
-
-**Antes de ler este trecho:**
-
-- **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-
-
-**Fundamento explicado no capítulo:** "Pequena empresa sem experiência quer um servidor com custo previsível." → Lightsail.
-
 
 ## 7. Fontes e próximos passos
 

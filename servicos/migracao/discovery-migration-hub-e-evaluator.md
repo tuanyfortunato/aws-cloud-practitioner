@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo (Migration Hub e Application Discovery Service fechados a novos clientes) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Levante recursos, dependências e necessidades do ambiente atual.
 
@@ -54,9 +49,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | Fase | O que faz | Detalhes |
 |---|---|---|---|
 | **Migration Evaluator** (antigo TSO Logic) | Avaliar | Monta o **caso de negócio (TCO)**: quanto custaria o ambiente atual na AWS | Coletor sem agente ou importação de inventário; recomendações de *rightsizing* e licenças; **gratuito** |
@@ -72,7 +64,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
 - **landing zone:** Base organizada de um ambiente AWS com várias contas e controles. Ainda é necessário definir aplicações, acessos e operação dentro dela.
 
-
 2. **Mobilizar/planejar:** Migration Hub, escolha dos 7 Rs, landing zone (Control Tower).
 
 **Antes de ler este trecho:**
@@ -80,9 +71,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **Application Migration Service:** Application Migration Service replica servidores compatíveis e apoia testes e a transição para execução na AWS.
 - **SCT:** Ferramenta de conversão de estrutura de banco em migrações compatíveis. Nem toda estrutura ou regra da aplicação é convertida automaticamente.
 
-
 3. **Migrar:** [Application Migration Service](application-migration-service.md), [DMS/SCT](dms-e-sct.md), [DataSync/Snow](datasync-e-transfer-family.md).
-
 
 4. **Acompanhar:** Migration Hub.
 
@@ -100,13 +89,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 **AWS Migration Hub** e **AWS Application Discovery Service** estão **fechados a novos clientes desde 07/11/2025**, mas continuam na lista oficial da prova — estude a função de cada um.
 
-
 **Migration Evaluator** entrou explicitamente na lista de serviços no escopo.
 
 **Antes de ler este trecho:**
 
 - **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-
 
 A AWS lançou o **AWS Transform**, que usa agentes de IA generativa para acelerar migrações e modernizações (VMware, mainframe, .NET, Java) — 🧊 fora da prova.
 
@@ -130,28 +117,11 @@ Uma empresa inventaria seus servidores e avalia o uso atual para preparar uma es
 
 - **carga:** Aplicação ou conjunto de tarefas com seus recursos e necessidades. Avaliar uma carga significa avaliar o trabalho completo, não uma única máquina isolada.
 
-
 **Outra situação comentada:** Mapear dependências antes de mover servidores: Discovery; custo do cenário: Evaluator.
 
 **Por que não concluir mais do que isso:** Planejar/acompanhamento não move toda carga; produtos podem estar fechados a novos clientes
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Antes de mover sistemas para a AWS, a empresa precisa saber o que tem, suas dependências, custos e o andamento da migração.
-
-**2. O que a solução fornece?**
-
-A ficha distingue descoberta do ambiente, avaliação econômica e acompanhamento da migração. Essas ferramentas ajudam a planejar e acompanhar o trabalho.
-
-**3. Que conclusão seria incorreta?**
-
-Planejar e acompanhar não significa transferir automaticamente todas as aplicações. Algumas ofertas têm restrições para novos clientes, descritas no conteúdo da ficha.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -159,23 +129,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Migration Evaluator.
 
-
-**Fundamento explicado no capítulo:** "Estimar quanto a empresa vai economizar ao migrar." → Migration Evaluator.
-
 **Pergunta:** "Levantar servidores e dependências antes de migrar."
 
 **Resposta curta:** Application Discovery Service.
 
-
-**Fundamento explicado no capítulo:** "Levantar servidores e dependências antes de migrar." → Application Discovery Service.
-
 **Pergunta:** "Acompanhar todas as migrações num painel central."
 
 **Resposta curta:** Migration Hub.
-
-
-**Fundamento explicado no capítulo:** "Acompanhar todas as migrações num painel central." → Migration Hub.
-
 
 ## 7. Fontes e próximos passos
 

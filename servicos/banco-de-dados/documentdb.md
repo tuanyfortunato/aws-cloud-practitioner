@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 - **PDF:** Formato de documento. Um serviço de extração analisa conteúdo compatível; guardar um PDF num bucket não executa automaticamente essa análise.
-
 
 **Passo 1.** Avalie as operações e estruturas que sua aplicação usa na interface de documentos.
 
@@ -53,20 +48,17 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Aurora:** Aurora é um banco relacional da AWS dentro da família RDS.
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 
-
 Arquitetura parecida com a do Aurora: armazenamento distribuído (6 cópias em 3 AZs), até 15 réplicas, backups contínuos, criptografia.
 
 **Antes de ler este trecho:**
 
 - **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
 
-
 Opções *instance-based* e *elastic clusters* (sharding para milhões de leituras/escritas); Global Clusters.
 
 **Antes de ler este trecho:**
 
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-
 
 Uso: catálogos, perfis, gerenciamento de conteúdo, migração de MongoDB para serviço gerenciado.
 
@@ -78,14 +70,9 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
 
-
 Compatibilidade com MongoDB não significa identidade em todas as funções e versões. Ele não é um serviço para simplesmente guardar PDFs como arquivos.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Um catálogo guarda, em cada documento, o nome do produto, características e outras informações. A equipe avalia a compatibilidade das consultas antes de usar DocumentDB.
 
@@ -101,28 +88,11 @@ Um catálogo guarda, em cada documento, o nome do produto, características e ou
 
 **Decisões que precisam ser tomadas:** Versão/API compatível, rede, capacidade e backup.
 
-
 **Outra situação comentada:** Migrar aplicação documental: valide as operações usadas; não suponha migração sem teste só por usar driver semelhante.
 
 **Por que não concluir mais do que isso:** Compatibilidade não garante todos os recursos ou comportamento do MongoDB
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A aplicação guarda registros como documentos com vários campos e precisa de um banco com interface compatível com parte do ecossistema MongoDB.
-
-**2. O que a solução fornece?**
-
-DocumentDB armazena e consulta documentos, como registros estruturados de produtos. A AWS gerencia a infraestrutura do banco conforme a oferta.
-
-**3. Que conclusão seria incorreta?**
-
-Compatibilidade com MongoDB não significa identidade em todas as funções e versões. Ele não é um serviço para simplesmente guardar PDFs como arquivos.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -134,11 +104,7 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **DocumentDB:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos.
 
-
-**Fundamento explicado no capítulo:** "Migrar banco MongoDB para um serviço gerenciado." → DocumentDB.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

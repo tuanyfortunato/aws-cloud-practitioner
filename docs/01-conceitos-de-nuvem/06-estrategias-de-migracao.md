@@ -19,7 +19,7 @@
 
 ---
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 1 — Conceitos de Nuvem (24%)**
 
 > 🔎 **Fichas detalhadas:** [AWS Application Migration Service (AWS MGN)](../../servicos/migracao/application-migration-service.md) · [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](../../servicos/migracao/dms-e-sct.md)
 
@@ -32,7 +32,6 @@
 **Antes de ler este trecho:**
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
-
 
 Primeiro conheça a aplicação e suas dependências. Depois decida o que preservar e o que mudar. Mover o mesmo programa, mudar a plataforma de banco e reescrever partes importantes são decisões diferentes, mesmo que o destino seja AWS nos três casos.
 
@@ -64,9 +63,6 @@ A estratégia descreve o tipo de mudança; a ferramenta executa parte do trabalh
 - **repurchase / retain / retire / relocate:** Estratégias de migração: trocar por outra oferta, manter onde está, desativar ou mover a plataforma, respectivamente. A decisão vem do objetivo da aplicação e do negócio.
 - **CRM:** CRM trata relacionamento com clientes; CAD, projeto assistido por computador; EDI, troca eletrônica estruturada de dados. São necessidades de aplicação distintas.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Estratégia | O que é | Exemplo |
 | --- | --- | --- |
 | Retire | Desligar o que não é mais usado | Aplicação legada sem usuários |
@@ -77,16 +73,13 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Repurchase | Trocar por outro produto, normalmente SaaS | CRM próprio para Salesforce |
 | Refactor / Re-architect | Reescrever para cloud-native | Monolito para microsserviços com Lambda e ECS |
 
-
 **Antes de ler este trecho:**
 
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
-
 **Cai na prova:** Rehost (sem mudar nada) vs Replatform (pequena mudança para serviço gerenciado). Refactor é o que tem mais custo e mais benefício de longo prazo.
 
 ## 3. Como analisar uma situação
-
 
 **Primeiro, identifique o funcionamento:** Avalie cada aplicação e suas dependências antes de escolher um dos 7 Rs. A estratégia orienta ferramentas, esforço e testes; aplicações da mesma empresa podem ter destinos distintos.
 
@@ -100,25 +93,7 @@ Um banco instalado em servidor próprio vai para RDS, mantendo a aplicação com
 
 **Raciocínio e resposta:** Replatform: há mudança da plataforma operacional. Levar o mesmo servidor e banco para EC2 sem ajustes seria Rehost.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma empresa quer levar um sistema para a AWS, mas não sabe se deve copiá-lo, adaptá-lo, reescrevê-lo ou até encerrá-lo.
-
-**2. O que a solução fornece?**
-
-Estratégias de migração descrevem essas escolhas. O esforço e o resultado mudam conforme a decisão sobre cada aplicação.
-
-**3. Que conclusão seria incorreta?**
-
-Migrar não significa modernizar automaticamente. Antes de escolher, considere dependências, riscos e a necessidade de manter ou mudar o sistema.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -135,54 +110,29 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Rehost.
 
-
-**Fundamento explicado no capítulo:** "Migrar servidores para EC2 sem mudar nada." → Rehost.
-
 **Pergunta:** "Migrar o banco para RDS para reduzir administração, sem mudar a aplicação."
 
 **Resposta curta:** Replatform.
-
-
-**Fundamento explicado no capítulo:** "Migrar o banco para RDS para reduzir administração, sem mudar a aplicação." → Replatform.
 
 **Pergunta:** "Trocar o sistema próprio por um produto SaaS."
 
 **Resposta curta:** Repurchase.
 
-
-**Fundamento explicado no capítulo:** "Trocar o sistema próprio por um produto SaaS." → Repurchase.
-
 **Pergunta:** "Reescrever a aplicação para usar Lambda e microsserviços."
 
 **Resposta curta:** Refactor.
-
-
-**Fundamento explicado no capítulo:** "Reescrever a aplicação para usar Lambda e microsserviços." → Refactor.
 
 **Pergunta:** "Desligar aplicações que ninguém usa."
 
 **Resposta curta:** Retire.
 
-
-**Fundamento explicado no capítulo:** "Desligar aplicações que ninguém usa." → Retire.
-
 **Pergunta:** "Manter a aplicação no datacenter por exigência regulatória."
 
 **Resposta curta:** Retain.
 
-**Antes de ler este trecho:**
-
-- **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-
-
-**Fundamento explicado no capítulo:** "Manter a aplicação no datacenter por exigência regulatória." → Retain.
-
 **Pergunta:** "Qual estratégia é a mais rápida?"
 
 **Resposta curta:** Rehost. "Qual traz mais benefícios de nuvem a longo prazo?" → Refactor.
-
-
-**Fundamento explicado no capítulo:** "Qual estratégia é a mais rápida?" → Rehost. "Qual traz mais benefícios de nuvem a longo prazo?" → Refactor.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

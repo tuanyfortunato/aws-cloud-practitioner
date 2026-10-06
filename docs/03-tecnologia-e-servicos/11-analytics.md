@@ -20,7 +20,7 @@
 
 ---
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon Athena](../../servicos/analytics/athena.md) · [AWS Glue](../../servicos/analytics/glue.md) · [Amazon Kinesis e Amazon Data Firehose](../../servicos/analytics/kinesis.md) · [Amazon EMR](../../servicos/analytics/emr.md) · [Amazon QuickSight (Amazon Quick Sight)](../../servicos/analytics/quicksight.md) · [Amazon OpenSearch Service](../../servicos/analytics/opensearch.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](../../servicos/analytics/lake-formation-msk-e-outros.md)
 
@@ -29,7 +29,6 @@
 ---
 
 ## 1. Entenda as peças e a relação entre elas
-
 
 Um dado bruto precisa de estrutura e significado antes de responder bem a uma pergunta. Preparação padroniza; catálogo descreve; consulta seleciona e agrega; processamento executa transformações; visualização apresenta resultados.
 
@@ -53,7 +52,6 @@ Uma fonte contínua pode exigir processamento enquanto os registros chegam. Uma 
 - **JSON / CSV / Parquet:** Formatos de dados com estruturas diferentes. O formato influencia como uma ferramenta lê e processa os arquivos; não muda sozinho o significado dos registros.
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 
-
 **Amazon Athena:** Pontos de prova: SQL **serverless** direto em arquivos no S3 (CSV, JSON, Parquet); cobrado por **dados escaneados**; formatos colunares e particionamento reduzem custo; usa o catálogo do Glue.
 
 **Antes de ler este trecho:**
@@ -65,20 +63,17 @@ Uma fonte contínua pode exigir processamento enquanto os registros chegam. Uma 
 - **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
 - **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
 
-
 **AWS Glue:** **ETL serverless** (extrair, transformar e carregar dados) e **Data Catalog** (catálogo de metadados usado por Athena, Redshift e EMR). Crawlers descobrem o schema automaticamente.
 
 **Antes de ler este trecho:**
 
 - **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
 
-
 **Amazon Kinesis:** dados em **streaming e tempo real**.
 
 **Antes de ler este trecho:**
 
 - **telemetria:** Medidas e informações enviadas por um equipamento ou sistema. Coletar dados é uma etapa diferente de analisá-los ou agir sobre eles.
-
 
   - **Kinesis Data Streams:** ingestão e processamento de streams (cliques, logs, telemetria).
 
@@ -89,14 +84,12 @@ Uma fonte contínua pode exigir processamento enquanto os registros chegam. Uma 
 
 - **Apache Spark / Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
 
-
 **Amazon EMR:** plataforma de **big data** gerenciada com Apache Spark, Hadoop, Hive e Presto.
 
 **Antes de ler este trecho:**
 
 - **Amazon QuickSight / QuickSight:** QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis.
 - **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
-
 
 **Amazon QuickSight:** **BI** serverless; dashboards e relatórios interativos, inclusive com perguntas em linguagem natural.
 
@@ -105,13 +98,11 @@ Uma fonte contínua pode exigir processamento enquanto os registros chegam. Uma 
 - **Amazon OpenSearch Service / OpenSearch Service:** OpenSearch oferece busca e análise de dados indexados.
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
-
 **Amazon OpenSearch Service:** **busca** e **análise de logs** (sucessor do Elasticsearch gerenciado), com OpenSearch Dashboards.
 
 **Antes de ler este trecho:**
 
 - **data warehouse:** Ambiente de dados organizado para análise de grandes conjuntos. O modelo e as consultas são orientados a perguntas analíticas.
-
 
 **Amazon Redshift:** data warehouse (ver [3.7](07-bancos-de-dados.md)).
 
@@ -119,11 +110,9 @@ Uma fonte contínua pode exigir processamento enquanto os registros chegam. Uma 
 
 - **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
 
-
 **Cai na prova:** "consultar logs no S3 com SQL sem servidor" = Athena; "processar cliques em tempo real" = Kinesis; "painéis para executivos" = QuickSight; "preparar e catalogar dados" = Glue; "Spark/Hadoop gerenciado" = EMR; "busca de texto em produtos" = OpenSearch.
 
 ## 3. Como analisar uma situação
-
 
 **Primeiro, identifique o funcionamento:** Dados entram por fontes/streams; Glue cataloga e transforma; Athena consulta; Redshift organiza análise em warehouse; Quick Sight apresenta resultados; OpenSearch pesquisa documentos/logs.
 
@@ -137,25 +126,7 @@ Arquivos de vendas já estão no S3 e você quer uma consulta SQL eventual, sem 
 
 **Raciocínio e resposta:** Athena. Glue Data Catalog pode descrever tabelas; Quick Sight visualiza resultados. EMR faz sentido quando o requisito é processamento com frameworks como Spark.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa acumulou dados e quer transformar registros em respostas, como quais cursos tiveram mais procura e como a demanda mudou.
-
-**2. O que a solução fornece?**
-
-Analytics reúne preparação, consulta, processamento e visualização de dados. Cada etapa pode exigir uma ferramenta diferente.
-
-**3. Que conclusão seria incorreta?**
-
-Criar um painel não corrige os dados nem coleta qualquer fonte automaticamente. Identifique se o problema é preparar, consultar, processar um fluxo ou visualizar.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -172,9 +143,6 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Athena.
 
-
-**Fundamento explicado no capítulo:** "Consultar arquivos no S3 com SQL padrão, sem infraestrutura." → Athena.
-
 **Pergunta:** "Como o Athena é cobrado?"
 
 **Resposta curta:** Por volume de dados escaneados.
@@ -183,50 +151,31 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
-
-**Fundamento explicado no capítulo:** "Como o Athena é cobrado?" → Por volume de dados escaneados.
-
 **Pergunta:** "Serviço de ETL serverless e catálogo de dados."
 
 **Resposta curta:** Glue.
 
-
-**Fundamento explicado no capítulo:** "Serviço de ETL serverless e catálogo de dados." → Glue.
+**Fundamento explicado no capítulo:** **Amazon Athena:** Pontos de prova: SQL **serverless** direto em arquivos no S3 (CSV, JSON, Parquet); cobrado por **dados escaneados**; formatos colunares e particionamento reduzem custo; usa o catálogo do Glue.
 
 **Pergunta:** "Ingerir e processar dados de cliques em tempo real."
 
 **Resposta curta:** Kinesis Data Streams.
 
-
-**Fundamento explicado no capítulo:** "Ingerir e processar dados de cliques em tempo real." → Kinesis Data Streams.
-
 **Pergunta:** "Entregar dados de streaming no S3 sem administração."
 
 **Resposta curta:** Amazon Data Firehose.
-
-
-**Fundamento explicado no capítulo:** "Entregar dados de streaming no S3 sem administração." → Amazon Data Firehose.
 
 **Pergunta:** "Rodar Spark e Hadoop gerenciados."
 
 **Resposta curta:** EMR.
 
-
-**Fundamento explicado no capítulo:** "Rodar Spark e Hadoop gerenciados." → EMR.
-
 **Pergunta:** "Criar dashboards interativos de BI."
 
 **Resposta curta:** QuickSight.
 
-
-**Fundamento explicado no capítulo:** "Criar dashboards interativos de BI." → QuickSight.
-
 **Pergunta:** "Busca de texto e análise de logs."
 
 **Resposta curta:** OpenSearch Service.
-
-
-**Fundamento explicado no capítulo:** "Busca de texto e análise de logs." → OpenSearch Service.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

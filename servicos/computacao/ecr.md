@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
-
 
 **Passo 1.** Crie um repositório e envie uma imagem da aplicação, identificando sua versão.
 
@@ -61,9 +56,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **pull:** Em pull, o consumidor busca dados. Em push, o envio é iniciado para o destinatário. A forma de entrega não executa automaticamente a regra de negócio.
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -92,7 +84,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
-
 Por GB armazenado por mês + transferência de saída. Enhanced scanning é cobrado pelo Inspector.
 
 ### Segurança e responsabilidade compartilhada
@@ -103,9 +94,7 @@ Por GB armazenado por mês + transferência de saída. Enhanced scanning é cobr
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
 
-
 **AWS:** disponibilidade e durabilidade do registro (armazenado no S3).
-
 
 **Cliente:** quem pode fazer push/pull, conteúdo e vulnerabilidades das imagens.
 
@@ -131,28 +120,11 @@ A equipe publica a imagem do serviço de pedidos no ECR. Depois, o ECS baixa ess
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 - **container:** Ambiente que executa uma aplicação a partir de uma imagem com software e dependências. É diferente de criar uma máquina virtual completa para cada pacote.
 
-
 **Outra situação comentada:** Versionar imagem de API: ECR; iniciar API: serviço de execução, como ECS.
 
 **Por que não concluir mais do que isso:** Guardar imagem não inicia container; imagem pode conter bibliotecas vulneráveis
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Sua equipe criou pacotes de uma aplicação e precisa guardá-los num lugar de onde os ambientes de execução possam baixá-los com controle de acesso.
-
-**2. O que a solução fornece?**
-
-O ECR é um repositório de imagens de containers. Ele guarda versões desses pacotes para que serviços de execução possam obtê-las.
-
-**3. Que conclusão seria incorreta?**
-
-Guardar uma imagem no ECR não executa a aplicação. Para executá-la, você precisa de outro serviço ou ambiente.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -160,16 +132,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** ECR.
 
-
-**Fundamento explicado no capítulo:** "Onde guardar imagens Docker privadas na AWS?" → ECR.
-
 **Pergunta:** "Varrer imagens de contêiner em busca de vulnerabilidades."
 
 **Resposta curta:** ECR scanning / Amazon Inspector.
-
-
-**Fundamento explicado no capítulo:** "Varrer imagens de contêiner em busca de vulnerabilidades." → ECR scanning / Amazon Inspector.
-
 
 ## 7. Fontes e próximos passos
 

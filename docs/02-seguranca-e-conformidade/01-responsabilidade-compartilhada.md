@@ -19,7 +19,7 @@
 
 ---
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 2 — Segurança e Conformidade (30%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon EC2 (Elastic Compute Cloud)](../../servicos/computacao/ec2.md) · [Amazon RDS (Relational Database Service)](../../servicos/banco-de-dados/rds.md) · [AWS Lambda](../../servicos/computacao/lambda.md) · [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md)
 
@@ -34,7 +34,6 @@
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 - **sistema operacional:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 
 Pense em camadas: prédio e equipamento, virtualização, sistema operacional, ambiente de execução, aplicação, identidade e dados. Um serviço pode administrar mais camadas que outro, mas o cliente continua decidindo como usa a solução.
 
@@ -56,7 +55,6 @@ Quando a pergunta menciona uma correção, identifique em qual camada ela aconte
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 - **hipervisor:** Camada que permite executar máquinas virtuais sobre equipamentos físicos. No EC2, ela não é administrada pelo cliente como o sistema dentro de sua máquina.
 
-
 **AWS — segurança DA nuvem:** hardware, datacenters físicos (acesso, energia, refrigeração), rede global, regiões, AZs, edge locations e a camada de virtualização (hipervisor).
 
 **Antes de ler este trecho:**
@@ -64,12 +62,9 @@ Quando a pergunta menciona uma correção, identifique em qual camada ela aconte
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 
-
 **Cliente — segurança NA nuvem:** dados, criptografia, identidades e permissões (IAM), configuração de rede (security groups, NACLs, rotas), sistema operacional e aplicações quando ele os gerencia.
 
-
 **A divisão muda conforme o tipo de serviço:**
-
 
 **Antes de ler este trecho:**
 
@@ -86,9 +81,6 @@ Quando a pergunta menciona uma correção, identifique em qual camada ela aconte
 - **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | AWS cuida de | Cliente cuida de |
 | --- | --- | --- |
 | EC2 (IaaS) | Hardware, rede física, hipervisor | Patch do SO convidado, aplicações, security groups, firewall do SO, dados, IAM |
@@ -97,17 +89,13 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | S3 | Infra, durabilidade e disponibilidade do armazenamento | Políticas de bucket, quem acessa, criptografia, versionamento |
 | DynamoDB | Infra, SO, software, escalonamento | Acesso via IAM, criptografia e dados |
 
-
-
 **Controles herdados:** o cliente herda da AWS (ex.: controles físicos e ambientais).
 
 **Antes de ler este trecho:**
 
 - **treinamento:** Ajuste de um modelo com dados. É uma etapa diferente de utilizar o modelo já treinado para responder a uma nova entrada.
 
-
 **Controles compartilhados:** cada lado faz a sua parte na sua camada — gestão de patches (AWS na infra, cliente no SO e apps), gestão de configuração e treinamento/conscientização.
-
 
 **Controles específicos do cliente:** só o cliente pode fazer (ex.: proteção e zonas de segurança dos dados dele).
 
@@ -116,7 +104,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 - **security group:** Regras de tráfego associadas a interfaces ou recursos compatíveis. É um controle de rede, não uma permissão IAM para ler um arquivo ou chamar uma API.
 
-
 **Cai na prova:** "quem aplica patch no SO de uma EC2?" = cliente. "Quem aplica patch no motor do RDS?" = AWS. "Quem destrói discos físicos ao fim da vida útil?" = AWS. "Quem configura o security group?" = cliente. Quanto mais gerenciado o serviço, menos responsabilidade do cliente.
 
 ## 3. Como analisar uma situação
@@ -124,7 +111,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 **Antes de ler este trecho:**
 
 - **retenção:** Tempo durante o qual dados ou registros são conservados. Depois desse prazo, o comportamento depende das regras do serviço e das configurações.
-
 
 **Primeiro, identifique o funcionamento:** Na EC2, a AWS mantém infraestrutura e hipervisor, e o cliente mantém SO e aplicação. No RDS, a AWS também administra SO e tarefas do banco. Em Lambda, o cliente mantém código, bibliotecas e permissões.
 
@@ -138,25 +124,7 @@ Quem corrige uma biblioteca vulnerável empacotada na função Lambda?
 
 **Raciocínio e resposta:** O cliente. O gerenciamento da infraestrutura e do runtime gerenciado pela AWS não corrige automaticamente as dependências incluídas no pacote do cliente.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Ao usar um serviço AWS, a equipe precisa saber quem protege cada parte. Se ambos presumirem que o outro fará uma tarefa, ela pode ficar sem responsável.
-
-**2. O que a solução fornece?**
-
-A responsabilidade compartilhada divide tarefas entre AWS e cliente. A divisão muda com o tipo de serviço: quanto mais gerenciado, mais tarefas de infraestrutura a AWS assume.
-
-**3. Que conclusão seria incorreta?**
-
-Gerenciado não significa que o cliente deixou de ser responsável pela segurança. Sempre identifique o serviço e a camada de que a pergunta trata.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -173,43 +141,25 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Segurança física dos datacenters, hardware, rede global, hipervisor, patch do SO em serviços gerenciados (RDS, Lambda).
 
-
-**Fundamento explicado no capítulo:** "Qual é responsabilidade da AWS?" → Segurança física dos datacenters, hardware, rede global, hipervisor, patch do SO em serviços gerenciados (RDS, Lambda).
-
 **Pergunta:** "Qual é responsabilidade do cliente?"
 
 **Resposta curta:** Dados, IAM, security groups, criptografia, patch do SO no EC2, configuração dos serviços.
-
-
-**Fundamento explicado no capítulo:** "Qual é responsabilidade do cliente?" → Dados, IAM, security groups, criptografia, patch do SO no EC2, configuração dos serviços.
 
 **Pergunta:** "Qual é um controle compartilhado?"
 
 **Resposta curta:** Gestão de patches, gestão de configuração ou treinamento.
 
-
-**Fundamento explicado no capítulo:** "Qual é um controle compartilhado?" → Gestão de patches, gestão de configuração ou treinamento.
-
 **Pergunta:** "Qual é um controle herdado da AWS?"
 
 **Resposta curta:** Controles físicos e ambientais.
-
-
-**Fundamento explicado no capítulo:** "Qual é um controle herdado da AWS?" → Controles físicos e ambientais.
 
 **Pergunta:** "Ao trocar EC2 por Lambda, o que muda?"
 
 **Resposta curta:** A responsabilidade do cliente diminui (SO e runtime passam para a AWS).
 
-
-**Fundamento explicado no capítulo:** "Ao trocar EC2 por Lambda, o que muda?" → A responsabilidade do cliente diminui (SO e runtime passam para a AWS).
-
 **Pergunta:** "Quem é responsável pela segurança dos dados no S3?"
 
 **Resposta curta:** O cliente (políticas, acesso e criptografia).
-
-
-**Fundamento explicado no capítulo:** "Quem é responsável pela segurança dos dados no S3?" → O cliente (políticas, acesso e criptografia).
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

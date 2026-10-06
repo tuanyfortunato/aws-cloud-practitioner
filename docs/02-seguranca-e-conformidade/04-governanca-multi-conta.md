@@ -21,7 +21,7 @@
 
 ---
 
-> **Domínio 2 — Segurança e Conformidade (30%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 2 — Segurança e Conformidade (30%)**
 
 > 🔎 **Fichas detalhadas:** [AWS Organizations](../../servicos/gerenciamento/organizations.md) · [AWS Control Tower](../../servicos/gerenciamento/control-tower.md) · [AWS Service Catalog e AWS Resource Access Manager (RAM)](../../servicos/gerenciamento/service-catalog-e-ram.md)
 
@@ -30,7 +30,6 @@
 ---
 
 ## 1. Entenda as peças e a relação entre elas
-
 
 A conta separa administração e recursos. Várias contas permitem isolar contextos, enquanto a organização fornece ferramentas de gestão comum. Regras centrais limitam possibilidades, mas as identidades de cada conta ainda precisam receber suas permissões.
 
@@ -50,15 +49,12 @@ Não confunda quatro ações: organizar contas, limitar operações, oferecer co
 - **AWS Organizations / Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 **AWS Organizations:** gerencia várias contas de forma centralizada.
-
 
   - **Conta de gerenciamento (management account)** e **contas-membro**, organizadas em **OUs** (unidades organizacionais) hierárquicas.
 **Antes de ler este trecho:**
 
 - **SCP:** Política de controle de serviços usada na organização para limitar permissões disponíveis em contas às quais se aplica. Ela não concede acesso ao usuário sozinha.
-
 
   - **SCPs (Service Control Policies):** definem o limite máximo de permissões das contas ou OUs. **Cai na prova:** SCP não concede permissão, só restringe; e não afeta a conta de gerenciamento.
 **Antes de ler este trecho:**
@@ -67,12 +63,10 @@ Não confunda quatro ações: organizar contas, limitar operações, oferecer co
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
-
   - **Consolidated billing:** uma fatura única; soma o uso de todas as contas para descontos por volume; compartilha Reserved Instances e Savings Plans entre as contas.
 **Antes de ler este trecho:**
 
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-
 
   - Criar contas por API e isolar ambientes (produção, desenvolvimento, segurança).
 **Antes de ler este trecho:**
@@ -80,13 +74,11 @@ Não confunda quatro ações: organizar contas, limitar operações, oferecer co
 - **AWS Control Tower / Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
 - **landing zone:** Base organizada de um ambiente AWS com várias contas e controles. Ainda é necessário definir aplicações, acessos e operação dentro dela.
 
-
 **AWS Control Tower:** configura automaticamente um ambiente multi-conta seguro e padronizado (landing zone) sobre o Organizations.
 
 **Antes de ler este trecho:**
 
 - **Config:** Serviço que acompanha configurações e suas avaliações em recursos compatíveis. Observar configuração é diferente de observar uma métrica de desempenho.
-
 
   - **Controles (guardrails):** preventivos (bloqueiam ações, via SCP) e detectivos (detectam desvios, via Config).
 
@@ -95,12 +87,10 @@ Não confunda quatro ações: organizar contas, limitar operações, oferecer co
 
 - **conformidade:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
 
-
   - Painel com o status de conformidade de todas as contas.
 **Antes de ler este trecho:**
 
 - **RAM:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-
 
 **AWS Resource Access Manager (RAM):** compartilha recursos entre contas (ex.: subnets, Transit Gateways, licenças).
 
@@ -109,9 +99,7 @@ Não confunda quatro ações: organizar contas, limitar operações, oferecer co
 - **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
 - **provisionar:** Criar ou disponibilizar capacidade e recursos. Um recurso provisionado pode ter cobrança mesmo enquanto está esperando trabalho.
 
-
 **AWS Service Catalog:** catálogo de produtos aprovados (templates CloudFormation) que os times podem provisionar sozinhos, dentro das regras da empresa.
-
 
 **Cai na prova:** "centralizar contas e aplicar políticas" = Organizations; "montar rapidamente um ambiente multi-conta com boas práticas" = Control Tower; "limitar o que uma conta inteira pode fazer" = SCP.
 
@@ -121,7 +109,6 @@ Não confunda quatro ações: organizar contas, limitar operações, oferecer co
 
 - **OU:** Unidade organizacional: agrupamento de contas na organização. Agrupar contas permite aplicar regras de governança segundo a estrutura escolhida.
 
-
 SCPs são herdadas pela hierarquia: uma SCP numa OU vale para todas as contas abaixo dela.
 
 **Antes de ler este trecho:**
@@ -129,9 +116,7 @@ SCPs são herdadas pela hierarquia: uma SCP numa OU vale para todas as contas ab
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 - **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
-
 A permissão efetiva é a interseção entre o que a SCP permite e o que a política IAM concede.
-
 
 Estratégia multi-conta recomendada: contas separadas por ambiente e por função (produção, desenvolvimento, segurança, logs), para isolar riscos e custos.
 
@@ -141,7 +126,6 @@ Estratégia multi-conta recomendada: contas separadas por ambiente e por funçã
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 - **firewall:** Controle que permite ou bloqueia comunicação segundo regras. Sua cobertura depende da camada e do ponto em que é aplicado.
-
 
 **Primeiro, identifique o funcionamento:** Organizations agrupa contas em OUs; SCPs limitam permissões máximas das contas membro. Control Tower estabelece uma landing zone com controles e contas de governança.
 
@@ -155,25 +139,7 @@ Uma empresa quer impedir determinada operação em contas de desenvolvimento. Ba
 
 **Raciocínio e resposta:** Não. SCP define o teto; as identidades ainda precisam de permissões IAM. Uma restrição em nível organizacional pode impedir a operação mesmo com AdministratorAccess na conta membro.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa separou testes e produção em várias contas, mas agora precisa de regras comuns e administração central.
-
-**2. O que a solução fornece?**
-
-Governança de várias contas organiza ambientes e aplica controles. Organizations, Control Tower e ferramentas relacionadas têm papéis diferentes nesse trabalho.
-
-**3. Que conclusão seria incorreta?**
-
-Um limite de governança não concede sozinho permissão a cada pessoa. Centralizar controles também não configura todas as aplicações automaticamente.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -190,55 +156,25 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** SCP no Organizations.
 
-**Antes de ler este trecho:**
-
-- **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
-
-**Fundamento explicado no capítulo:** "Como impedir que todas as contas de desenvolvimento usem uma região?" → SCP no Organizations.
-
 **Pergunta:** "Uma SCP permite S3, mas o usuário não tem política IAM para S3. Ele consegue acessar?"
 
 **Resposta curta:** Não; a SCP só limita, não concede.
-
-**Antes de ler este trecho:**
-
-- **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-
-
-**Fundamento explicado no capítulo:** "Uma SCP permite S3, mas o usuário não tem política IAM para S3. Ele consegue acessar?" → Não; a SCP só limita, não concede.
 
 **Pergunta:** "Como obter desconto por volume somando o uso de várias contas?"
 
 **Resposta curta:** Consolidated billing no Organizations.
 
-
-**Fundamento explicado no capítulo:** "Como obter desconto por volume somando o uso de várias contas?" → Consolidated billing no Organizations.
-
 **Pergunta:** "Como criar rapidamente um ambiente multi-conta seguro com guardrails?"
 
 **Resposta curta:** AWS Control Tower.
-
-
-**Fundamento explicado no capítulo:** "Como criar rapidamente um ambiente multi-conta seguro com guardrails?" → AWS Control Tower.
 
 **Pergunta:** "Como deixar times criarem só recursos aprovados pela empresa?"
 
 **Resposta curta:** AWS Service Catalog.
 
-
-**Fundamento explicado no capítulo:** "Como deixar times criarem só recursos aprovados pela empresa?" → AWS Service Catalog.
-
 **Pergunta:** "Como compartilhar uma subnet com outra conta?"
 
 **Resposta curta:** AWS RAM.
-
-**Antes de ler este trecho:**
-
-- **subnet:** Segmento de uma rede virtual. Na VPC, uma subnet pertence a uma zona de disponibilidade; suas rotas e controles ajudam a definir a conectividade.
-
-
-**Fundamento explicado no capítulo:** "Como compartilhar uma subnet com outra conta?" → AWS RAM.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

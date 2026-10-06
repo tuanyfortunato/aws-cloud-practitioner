@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Escolha o produto do assistente conforme desenvolvimento ou conhecimento corporativo.
 
@@ -53,9 +48,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
 - **IDE:** Ambiente de desenvolvimento com ferramentas para editar e trabalhar com código. Não é necessariamente o local que hospeda a aplicação em produção.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Variante | Para quem | O que faz |
 |---|---|---|
@@ -80,13 +72,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 
-
 ✔️ Os **plugins de IDE do Amazon Q Developer** têm fim de suporte em **30/04/2027**; a documentação aponta o **Kiro** como alternativa.
 
 **Antes de ler este trecho:**
 
 - **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-
 
 **Amazon Q Business** entrou em manutenção e **não aceita novos clientes desde 30/07/2026**; aplicações existentes podem ser **conectadas** ao Amazon Quick Suite. O **Amazon Q** continua na lista oficial: "assistente de IA generativa para funcionários/desenvolvedores" → **Amazon Q**.
 
@@ -106,28 +96,11 @@ Uma desenvolvedora pede ajuda para entender código. Em outro caso, uma funcion�
 
 **Decisões que precisam ser tomadas:** Variante, identidades, fontes e permissões.
 
-
 **Outra situação comentada:** Apoio ao desenvolvedor: Q Developer; informações de negócio dependem da variante e das fontes autorizadas.
 
 **Por que não concluir mais do que isso:** Não é um único banco com acesso automático a todos os documentos da empresa
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma pessoa quer assistência para tarefas de desenvolvimento ou para consultar informações corporativas, conforme seu contexto de trabalho.
-
-**2. O que a solução fornece?**
-
-A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-
-**3. Que conclusão seria incorreta?**
-
-Os produtos não acessam automaticamente todo o conhecimento da empresa. Respostas e código precisam ser revisados; fontes, permissões e integrações dependem da modalidade.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -135,16 +108,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Amazon Q Developer.
 
-
-**Fundamento explicado no capítulo:** "Assistente de IA generativa para escrever código na IDE." → Amazon Q Developer.
-
 **Pergunta:** "Assistente que responde com base nos documentos internos da empresa."
 
 **Resposta curta:** Amazon Q Business.
-
-
-**Fundamento explicado no capítulo:** "Assistente que responde com base nos documentos internos da empresa." → Amazon Q Business.
-
 
 ## 7. Fontes e próximos passos
 

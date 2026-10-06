@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Defina quem produz registros e quem precisa processá-los ou recebê-los num destino.
 
@@ -57,9 +52,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
 - **KCL:** Biblioteca para desenvolver consumidores de Kinesis. Ela ajuda a processar registros; a aplicação continua definindo o trabalho sobre os dados.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | O que faz | Detalhes |
 |---|---|---|
 | **Kinesis Data Streams** | Ingestão e armazenamento de streams para **processamento em tempo real** por vários consumidores | **Shards** (capacidade); modos **provisioned** ou **on-demand**; retenção padrão **24 h**, até **365 dias** (8.760 h; acima de 24 h é pago); dados podem ser **relidos**; consumidores: Lambda, KCL, Managed Flink, Firehose |
@@ -80,9 +72,7 @@ Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas
 - **SQS:** SQS guarda mensagens numa fila até que consumidores as recebam e processem.
 - **streaming:** Fluxo contínuo de dados ou mídia. É diferente de esperar um arquivo completo antes de iniciar o trabalho.
 
-
 **Kinesis × SQS:** streaming em tempo real com **vários consumidores relendo** dados ordenados × fila de mensagens para desacoplar (mensagem consumida e apagada).
-
 
 **Data Streams × Firehose:** processamento customizado em tempo real × entrega gerenciada em destinos.
 
@@ -91,7 +81,6 @@ Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas
 - **MSK / Kafka:** Kafka é uma plataforma de fluxo de eventos; MSK é a oferta gerenciada compatível da AWS. A aplicação ainda precisa produzir e consumir os registros.
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
-
 
 **Kinesis × MSK:** serviço nativo AWS × Apache Kafka gerenciado.
 
@@ -104,7 +93,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
-
 
 Data Streams: por shard-hora (provisioned) ou por GB e stream-hora (on-demand). Firehose: por GB ingerido e conversões. Video: por GB ingerido/armazenado.
 
@@ -128,28 +116,11 @@ Sensores enviam leituras continuamente. Uma aplicação lê o fluxo e calcula in
 
 - **telemetria:** Medidas e informações enviadas por um equipamento ou sistema. Coletar dados é uma etapa diferente de analisá-los ou agir sobre eles.
 
-
 **Outra situação comentada:** Telemetria contínua: Data Streams para consumidores; Firehose para entrega suportada com buffering.
 
 **Por que não concluir mais do que isso:** Kinesis não é apenas notificação por e-mail; produtos da família têm funções distintas
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Dados chegam continuamente, como cliques ou leituras de sensores. A equipe quer recebê-los e processá-los sem esperar juntar um arquivo no fim do dia.
-
-**2. O que a solução fornece?**
-
-Kinesis Data Streams organiza fluxos de registros para consumidores. A ficha também distingue Firehose, que entrega dados a destinos compatíveis, e outras ferramentas de processamento e vídeo.
-
-**3. Que conclusão seria incorreta?**
-
-Fluxo contínuo não é o mesmo problema que uma fila de tarefas. As ferramentas da família têm funções e tempos de entrega diferentes.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -157,23 +128,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Kinesis Data Streams.
 
-
-**Fundamento explicado no capítulo:** "Ingerir e processar dados de cliques em tempo real." → Kinesis Data Streams.
-
 **Pergunta:** "Entregar dados de streaming no S3 sem administração."
 
 **Resposta curta:** Amazon Data Firehose.
 
-
-**Fundamento explicado no capítulo:** "Entregar dados de streaming no S3 sem administração." → Amazon Data Firehose.
-
 **Pergunta:** "Transmitir vídeo de câmeras para análise."
 
 **Resposta curta:** Kinesis Video Streams.
-
-
-**Fundamento explicado no capítulo:** "Transmitir vídeo de câmeras para análise." → Kinesis Video Streams.
-
 
 ## 7. Fontes e próximos passos
 

@@ -20,7 +20,7 @@
 
 ---
 
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
 
 > 🔎 **Fichas detalhadas:** [Migration Evaluator, Application Discovery Service e Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [AWS Application Migration Service (AWS MGN)](../../servicos/migracao/application-migration-service.md) · [AWS Database Migration Service (DMS) e Schema Conversion Tool (SCT)](../../servicos/migracao/dms-e-sct.md) · [Família AWS Snow (Snowball Edge, Snowcone, Snowmobile)](../../servicos/migracao/snow-family.md) · [AWS DataSync e AWS Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md)
 
@@ -35,7 +35,6 @@
 **Antes de ler este trecho:**
 
 - **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
-
 
 Migração é uma sequência, não apenas uma cópia. Descubra componentes e dependências, escolha a mudança, prepare origem e destino, transfira ou replique, teste e realize a transição. Arquivos, máquinas e bancos podem seguir ferramentas diferentes.
 
@@ -72,9 +71,6 @@ As ferramentas seguem a ordem de uma migração: avaliar, planejar e migrar.
 - **MGN:** Sigla usada para Application Migration Service. Apoia a migração de servidores compatíveis; não reescreve automaticamente a aplicação.
 - **DMS:** Database Migration Service: transferência ou replicação de dados entre bancos compatíveis. Conversão de estrutura e ajuste da aplicação são trabalhos relacionados, mas diferentes.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Serviço | Etapa | O que faz |
 | --- | --- | --- |
 | Migration Evaluator | Avaliar | Monta o **caso de negócio**: estima o custo de rodar o ambiente atual na AWS (TCO) |
@@ -87,14 +83,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | AWS DataSync | Transferir dados | Transferência **online** e automatizada de arquivos para S3, EFS ou FSx (ver [3.9](09-outros-armazenamentos.md)) |
 | AWS Transfer Family | Transferir dados | SFTP, FTPS e FTP gerenciados direto para S3 ou EFS |
 
-
 **Antes de ler este trecho:**
 
 - **RDS:** O RDS oferece bancos relacionais gerenciados.
 
-
 **Migração homogênea** (MySQL → RDS MySQL): só o DMS. **Heterogênea** (Oracle → Aurora): SCT para converter o schema e DMS para mover os dados.
-
 
 **Cai na prova:** "descobrir dependências entre os servidores antes de migrar" = Application Discovery Service; "migrar VMs sem alterar" = Application Migration Service; "migrar banco sem parar o sistema" = DMS; "converter Oracle para PostgreSQL" = SCT; "justificar o custo da migração para a diretoria" = Migration Evaluator.
 
@@ -109,7 +102,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 - **cutover:** Momento planejado de trocar o ambiente em uso pelo destino da migração. Requer validar dependências e planejar a transição dos dados.
 
-
 **Primeiro, identifique o funcionamento:** Descoberta identifica servidores/dependências; avaliação estima custo; migração replica dados ou servidores; teste valida o destino; cutover muda a operação para o destino.
 
 **Depois, compare as escolhas:** Servidor inteiro: Application Migration Service. Dados de banco: DMS. Conversão de esquema: SCT ou capacidade suportada de conversão. Dados de arquivos: ferramentas específicas conforme protocolo.
@@ -122,25 +114,7 @@ A origem é Oracle e o destino PostgreSQL. Copiar linhas com DMS basta para gara
 
 **Raciocínio e resposta:** Não. Avalie conversão de esquema/código, tipos e recursos incompatíveis; DMS move dados nas condições suportadas. Valide a aplicação antes do cutover.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Mover para a AWS envolve aplicações, bancos e arquivos, que podem exigir processos e ferramentas diferentes.
-
-**2. O que a solução fornece?**
-
-Migração inclui descobrir o ambiente, planejar mudanças, replicar ou transferir dados, testar e realizar a troca. As ferramentas atendem etapas e tipos de recurso específicos.
-
-**3. Que conclusão seria incorreta?**
-
-Transferir um banco não move automaticamente todo o programa; copiar arquivos também não migra suas dependências. Compatibilidade e disponibilidade das ofertas precisam ser verificadas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -157,61 +131,33 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Application Discovery Service.
 
-
-**Fundamento explicado no capítulo:** "Levantar servidores e dependências antes de migrar." → Application Discovery Service.
-
 **Pergunta:** "Estimar quanto a empresa vai economizar ao migrar."
 
 **Resposta curta:** Migration Evaluator.
-
-
-**Fundamento explicado no capítulo:** "Estimar quanto a empresa vai economizar ao migrar." → Migration Evaluator.
 
 **Pergunta:** "Acompanhar todas as migrações num painel central."
 
 **Resposta curta:** Migration Hub.
 
-
-**Fundamento explicado no capítulo:** "Acompanhar todas as migrações num painel central." → Migration Hub.
-
 **Pergunta:** "Migrar servidores físicos e VMs para EC2 com pouca indisponibilidade."
 
 **Resposta curta:** Application Migration Service.
-
-**Antes de ler este trecho:**
-
-- **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-
-
-**Fundamento explicado no capítulo:** "Migrar servidores físicos e VMs para EC2 com pouca indisponibilidade." → Application Migration Service.
 
 **Pergunta:** "Migrar um banco sem desligar a aplicação."
 
 **Resposta curta:** DMS.
 
-
-**Fundamento explicado no capítulo:** "Migrar um banco sem desligar a aplicação." → DMS.
-
 **Pergunta:** "Converter um banco Oracle para Aurora PostgreSQL."
 
 **Resposta curta:** SCT + DMS.
-
-
-**Fundamento explicado no capítulo:** "Converter um banco Oracle para Aurora PostgreSQL." → SCT + DMS.
 
 **Pergunta:** "Transferir arquivos online de forma automatizada para o S3."
 
 **Resposta curta:** DataSync.
 
-
-**Fundamento explicado no capítulo:** "Transferir arquivos online de forma automatizada para o S3." → DataSync.
-
 **Pergunta:** "Parceiros enviam arquivos via SFTP para o S3."
 
 **Resposta curta:** Transfer Family.
-
-
-**Fundamento explicado no capítulo:** "Parceiros enviam arquivos via SFTP para o S3." → Transfer Family.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

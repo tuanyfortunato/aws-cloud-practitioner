@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 
 **Passo 1.** Prepare as máquinas para torná-las nós gerenciados, com requisitos de agente, rede e identidade atendidos.
 
@@ -57,13 +52,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
 - **SSM:** Sigla usada em recursos do Systems Manager. O serviço oferece ferramentas de administração; nós, acessos e conectividade precisam estar preparados.
 
-
 **SSM Agent** instalado (vem nas AMIs da AWS) + **IAM role** com `AmazonSSMManagedInstanceCore` + conectividade com os endpoints do SSM (internet/NAT ou VPC endpoints).
 
 **Antes de ler este trecho:**
 
 - **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
-
 
 On-premises: *hybrid activations*.
 
@@ -84,9 +77,6 @@ On-premises: *hybrid activations*.
 - **script:** Programa de instruções usado para automatizar tarefas. O script realiza o que foi descrito; não decide sozinho como instalar ou proteger qualquer sistema.
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 - **Parameter Store:** Recurso de armazenamento de parâmetros do Systems Manager. É necessário configurar proteção e permissão, inclusive para valores sensíveis.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Capacidade | O que faz | Exemplo de prova |
 |---|---|---|
@@ -111,7 +101,6 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 
-
 Não basta o recurso existir na conta: agente, identidade, rede e demais requisitos variam conforme a função. Automatizar exige permissões e procedimentos definidos.
 
 ### ⚠️ Não confundir
@@ -120,7 +109,6 @@ Não basta o recurso existir na conta: agente, identidade, rede e demais requisi
 
 - **Systems Manager:** Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
 - **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
-
 
 Systems Manager (opera **dentro** das instâncias) × Config (avalia **configuração** dos recursos) × CloudFormation (cria a infraestrutura).
 
@@ -133,7 +121,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
-
 
 A maioria das capacidades é **gratuita** para EC2; pagos: nós on-premises avançados, Automation acima da cota, Parameter Store Advanced, OpsCenter etc.
 
@@ -153,28 +140,11 @@ A equipe usa Session Manager para uma sessão autorizada e planeja atualizaçõe
 
 **Decisões que precisam ser tomadas:** Agente/conectividade/role e documentos de operação.
 
-
 **Outra situação comentada:** Operar EC2 sem porta 22 aberta: Session Manager com agente, role e endpoints/rede adequados.
 
 **Por que não concluir mais do que isso:** Session Manager exige pré-requisitos; fechar SSH não dispensa configuração do serviço
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A equipe administra muitas máquinas e precisa executar comandos, aplicar atualizações e acessar ambientes sem repetir cada tarefa manualmente.
-
-**2. O que a solução fornece?**
-
-Systems Manager reúne ferramentas de operação para recursos e nós gerenciados compatíveis, incluindo acesso, automação, inventário e gerenciamento de patches.
-
-**3. Que conclusão seria incorreta?**
-
-Não basta o recurso existir na conta: agente, identidade, rede e demais requisitos variam conforme a função. Automatizar exige permissões e procedimentos definidos.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -182,23 +152,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Systems Manager (Patch Manager).
 
-
-**Fundamento explicado no capítulo:** "Gerenciar e aplicar patches numa frota, inclusive on-premises." → Systems Manager (Patch Manager).
-
 **Pergunta:** "Acessar a instância sem abrir a porta 22."
 
 **Resposta curta:** Session Manager.
 
-
-**Fundamento explicado no capítulo:** "Acessar a instância sem abrir a porta 22." → Session Manager.
-
 **Pergunta:** "Executar o mesmo comando em centenas de instâncias."
 
 **Resposta curta:** Run Command.
-
-
-**Fundamento explicado no capítulo:** "Executar o mesmo comando em centenas de instâncias." → Run Command.
-
 
 ## 7. Fontes e próximos passos
 

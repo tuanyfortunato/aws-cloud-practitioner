@@ -20,7 +20,7 @@
 
 ---
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon EC2 (Elastic Compute Cloud)](../../servicos/computacao/ec2.md)
 
@@ -34,7 +34,6 @@
 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 - **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
-
 
 Uma opção de compra combina preço com condições. Uso flexível, compromisso de gasto, possibilidade de interrupção, capacidade e dedicação física são requisitos separados. Uma opção que reduz preço pode mudar uma condição importante do trabalho.
 
@@ -72,9 +71,6 @@ Primeiro descreva se a tarefa pode parar, quanto uso é previsível e se precisa
 - **BYOL:** Trazer licença própria elegível. É necessário verificar o direito de uso e as condições do software; a AWS não cria automaticamente essa licença.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Modelo | Desconto (referência AWS) | Compromisso | Quando usar |
 | --- | --- | --- | --- |
 | On-Demand | Nenhum | Nenhum; cobrança por segundo ou hora | Cargas curtas, imprevisíveis, que não podem ser interrompidas; testes e desenvolvimento |
@@ -87,17 +83,13 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Dedicated Instances | Mais caro | On-Demand ou reserva | Instâncias em hardware não compartilhado com outros clientes, sem controle do servidor físico |
 | On-Demand Capacity Reservations | Nenhum por si só | Sem prazo; paga mesmo sem usar | **Garantir capacidade** numa AZ específica (ex.: evento previsto); combina com Savings Plans |
 
-
-
 **Formas de pagamento de RIs e Savings Plans:** All Upfront (maior desconto), Partial Upfront e No Upfront (menor desconto).
 
 **Antes de ler este trecho:**
 
 - **regional:** O recurso ou a operação pertence a uma região. Serviços globais podem administrar objetos regionais; leia o alcance do recurso, não apenas o nome do serviço.
 
-
 **RIs regionais vs zonais:** a zonal reserva capacidade numa AZ; a regional dá flexibilidade de AZ e tamanho, sem reservar capacidade.
-
 
 **Reserved Instance Marketplace:** permite revender RIs Standard que não serão mais usadas.
 
@@ -108,14 +100,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **ElastiCache:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
 - **Redshift:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse.
 
-
 **Reservas em outros serviços:** RDS, ElastiCache, Redshift e OpenSearch têm instâncias ou nós reservados; DynamoDB tem capacidade reservada.
-
 
 **Cai na prova:** "não pode ser interrompida e é imprevisível" = On-Demand; "vai rodar 24/7 por 3 anos" = Reserved ou Savings Plans; "desconto que cobre EC2, Fargate e Lambda" = Compute Savings Plans; "maior desconto e tolera interrupção" = Spot; "licença por núcleo físico" = Dedicated Host.
 
 ## 3. Como analisar uma situação
-
 
 **Primeiro, identifique o funcionamento:** On-Demand evita compromisso longo; Spot usa capacidade disponível com possibilidade de interrupção; RIs/Savings Plans reduzem preço mediante compromisso. Reserva de capacidade atende outro objetivo.
 
@@ -129,25 +118,7 @@ A equipe precisa de capacidade garantida numa AZ amanhã. Um Compute Savings Pla
 
 **Raciocínio e resposta:** Não. Ele trata desconto por compromisso de gasto. Reserva de capacidade é o mecanismo adequado para a necessidade de capacidade, conforme elegibilidade e condições.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma máquina usada ocasionalmente, uma aplicação estável e um trabalho que pode ser interrompido não precisam da mesma forma de compra.
-
-**2. O que a solução fornece?**
-
-Modelos de compra EC2 trocam flexibilidade, compromisso, risco de interrupção e requisitos de capacidade por condições diferentes.
-
-**3. Que conclusão seria incorreta?**
-
-Desconto não significa que a opção atende qualquer tarefa. Compromisso, interrupção e garantia de capacidade são conceitos diferentes; escolha pelo requisito.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -165,64 +136,37 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** On-Demand.
 
-
-**Fundamento explicado no capítulo:** "Aplicação nova, sem histórico de uso, que não pode ser interrompida." → On-Demand.
-
 **Pergunta:** "Servidor de banco que roda 24/7 pelos próximos 3 anos."
 
 **Resposta curta:** Reserved Instances ou Savings Plans (3 anos, All Upfront dá o maior desconto).
-
-
-**Fundamento explicado no capítulo:** "Servidor de banco que roda 24/7 pelos próximos 3 anos." → Reserved Instances ou Savings Plans (3 anos, All Upfront dá o maior desconto).
 
 **Pergunta:** "Desconto com flexibilidade entre EC2, Fargate e Lambda."
 
 **Resposta curta:** Compute Savings Plans.
 
-
-**Fundamento explicado no capítulo:** "Desconto com flexibilidade entre EC2, Fargate e Lambda." → Compute Savings Plans.
-
 **Pergunta:** "Processamento em lote que pode ser interrompido e reiniciado."
 
 **Resposta curta:** Spot.
-
-
-**Fundamento explicado no capítulo:** "Processamento em lote que pode ser interrompido e reiniciado." → Spot.
 
 **Pergunta:** "Qual o aviso antes de uma Spot ser interrompida?"
 
 **Resposta curta:** 2 minutos.
 
-
-**Fundamento explicado no capítulo:** "Qual o aviso antes de uma Spot ser interrompida?" → 2 minutos.
-
 **Pergunta:** "Licença de software por núcleo físico."
 
 **Resposta curta:** Dedicated Host.
-
-
-**Fundamento explicado no capítulo:** "Licença de software por núcleo físico." → Dedicated Host.
 
 **Pergunta:** "Garantir capacidade numa AZ para um evento, sem contrato longo."
 
 **Resposta curta:** On-Demand Capacity Reservation.
 
-
-**Fundamento explicado no capítulo:** "Garantir capacidade numa AZ para um evento, sem contrato longo." → On-Demand Capacity Reservation.
-
 **Pergunta:** "Qual opção de pagamento dá o maior desconto?"
 
 **Resposta curta:** All Upfront.
 
-
-**Fundamento explicado no capítulo:** "Qual opção de pagamento dá o maior desconto?" → All Upfront.
-
 **Pergunta:** "Reservas compradas podem ser revendidas?"
 
 **Resposta curta:** Sim, RIs Standard no Reserved Instance Marketplace.
-
-
-**Fundamento explicado no capítulo:** "Reservas compradas podem ser revendidas?" → Sim, RIs Standard no Reserved Instance Marketplace.
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

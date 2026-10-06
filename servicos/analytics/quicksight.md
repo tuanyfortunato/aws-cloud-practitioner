@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo (como Amazon Quick Sight) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Conecte uma fonte compatível e prepare um conjunto de dados com significado definido.
 
@@ -58,9 +53,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
 - **SPICE:** Mecanismo de dados do QuickSight para consultas e visualizações. Conservação e atualização do conjunto precisam ser planejadas.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Fontes** | S3 (via Athena), Redshift, RDS/Aurora, OpenSearch, Snowflake, Salesforce, arquivos, entre outras. |
@@ -86,7 +78,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
 
-
 Por usuário (autores, leitores) — leitores podem ser **por sessão**; capacidade SPICE adicional.
 
 ### 🔄 Atualizações 2025-2026
@@ -94,7 +85,6 @@ Por usuário (autores, leitores) — leitores podem ser **por sessão**; capacid
 **Antes de ler este trecho:**
 
 - **BI:** Análise e apresentação de dados para apoiar decisões. Um painel depende de dados adequados e de uma interpretação correta dos indicadores.
-
 
 Nomes: Amazon QuickSight → **Amazon Quick Suite** → hoje **"Amazon Quick"**. A parte de BI continua como **Amazon Quick Sight**, nome usado no exam guide e na lista de serviços. Na prova pode aparecer também "QuickSight".
 
@@ -118,38 +108,17 @@ A escola cria um painel com matrículas por curso e período para a equipe admin
 
 - **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
 
-
 **Outra situação comentada:** Gerentes precisam gráficos de vendas: Quick Sight sobre uma fonte preparada.
 
 **Por que não concluir mais do que isso:** Não é ferramenta principal de ETL nem acesso irrestrito de qualquer usuário
 
 ## 6. Revisão e perguntas
 
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Há resultados e tabelas, mas as pessoas do negócio precisam enxergar indicadores em gráficos e painéis, sem ler dados brutos.
-
-**2. O que a solução fornece?**
-
-QuickSight oferece análise visual e painéis a partir de fontes de dados compatíveis. Você prepara as conexões, os conjuntos de dados e as visualizações.
-
-**3. Que conclusão seria incorreta?**
-
-O painel não coleta nem corrige automaticamente qualquer dado. Permissões, qualidade e atualização dos dados precisam ser planejadas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
-
 ### ❓ Perguntas típicas
 
 **Pergunta:** "Criar dashboards interativos de BI para executivos."
 
 **Resposta curta:** QuickSight.
-
-
-**Fundamento explicado no capítulo:** "Criar dashboards interativos de BI para executivos." → QuickSight.
-
 
 ## 7. Fontes e próximos passos
 

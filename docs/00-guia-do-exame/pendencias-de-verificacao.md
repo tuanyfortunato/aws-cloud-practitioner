@@ -20,23 +20,16 @@
 
 ## 🧭 Para que serve esta página
 
-
 > 💡 **Em palavras simples:** é a lista de **afirmações que ainda precisam ser confirmadas** em fonte oficial da AWS.
 > Enquanto uma informação estiver aqui, trate-a com cuidado. Quando é confirmada, ela sai de *Em aberto* e vai para *Resolvidos*.
 
 ## ❔ Em aberto
 
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | # | Afirmação | Onde está | Task |
 |---|---|---|---|
 | — | — | — | — |
 
-
 ## ⚠️ Correções importantes desta rodada
-
 
 **Antes de ler este trecho:**
 
@@ -51,9 +44,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
 - **objeto:** Unidade de dados guardada no armazenamento de objetos: conteúdo, identificação e informações associadas. Não é uma máquina nem um programa em execução.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Antes no repositório | Resultado oficial | Aplicado em |
 |---|---|---|
 | "Mudar o plano de suporte" e "alterar o nome da conta" exigem o root | **Não exigem mais.** Nome da conta, contatos e regiões não exigem root; o plano de suporte saiu da lista oficial | [2.2](../02-seguranca-e-conformidade/02-usuario-root.md), [IAM](../../servicos/seguranca/iam.md), [planos de suporte](../../servicos/custos/planos-de-suporte.md), [simulado](../../simulados/simulado-01.md) |
@@ -61,9 +51,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | CloudTrail Lake fechado a novos clientes em 30/04/2026 | **31/05/2026** (anúncio de 31/03/2026) | [CloudTrail](../../servicos/gerenciamento/cloudtrail.md) |
 | Security Hub "exige" o AWS Config | A maioria dos controles usa o Config; com o Security Hub novo, o recorder é criado automaticamente | [Security Hub](../../servicos/seguranca/security-hub.md) |
 
-
 ## ✔️ Resolvidos
-
 
 **Antes de ler este trecho:**
 
@@ -125,9 +113,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **FIDO2 / TOTP:** Mecanismos de autenticação. FIDO2 usa padrões para credenciais com dispositivos ou autenticadores; TOTP é código temporário calculado com base em tempo.
 - **FSBP:** Práticas fundamentais de segurança AWS usadas em avaliações de controles. Um controle aprovado não certifica toda a aplicação.
 - **FOCUS:** Especificação de organização de dados de custos e uso. Padronizar dados ajuda a analisá-los, mas não reduz o gasto automaticamente.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | # | Resultado | Aplicado em |
 |---|---|---|

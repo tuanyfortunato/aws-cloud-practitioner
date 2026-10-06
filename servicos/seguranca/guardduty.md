@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Habilite os recursos e as fontes de detecção compatíveis com seu ambiente.
 
@@ -67,9 +62,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **runtime:** Ambiente que executa código de uma linguagem ou plataforma. Compatibilidade de bibliotecas e versões deve ser avaliada.
 - **tráfego:** Comunicações recebidas ou enviadas. O volume, o caminho e o tipo de protocolo podem afetar segurança, desempenho e custo.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Fundamentais (ativadas ao ligar) | Planos de proteção opcionais |
 |---|---|
 | **CloudTrail management events** | **S3 Protection** (data events do S3) |
@@ -80,14 +72,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | | **RDS Protection** (logins suspeitos no Aurora/RDS) |
 | | **Lambda Protection** (tráfego de rede das funções) |
 
-
 **Antes de ler este trecho:**
 
 - **GuardDuty:** GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
 
-
 **Sem agentes** para as fontes fundamentais: o GuardDuty lê os logs de forma independente (não precisa ativar Flow Logs/CloudTrail você mesmo).
-
 
 **Extended Threat Detection:** correlaciona eventos em **sequências de ataque** de vários estágios.
 
@@ -99,13 +88,11 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **credenciais:** Informações usadas para comprovar ou representar uma identidade. Credenciais temporárias expiram; credenciais de longa duração precisam de proteção e administração.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
-
 Mineração de criptomoeda numa instância; comunicação com IPs/domínios maliciosos (C&C); chamadas de API de locais incomuns; credenciais de instância usadas fora da AWS; *port scanning*; buckets S3 tornados públicos; malware.
 
 ### Configurações
 
 Ativação com **um clique**; **teste gratuito de 30 dias** (no Free Tier novo, aparece vinculado ao **Paid plan**).
-
 
 Severidade (baixa, média, alta, crítica); listas de IPs confiáveis/ameaças; filtros de supressão.
 
@@ -115,7 +102,6 @@ Severidade (baixa, média, alta, crítica); listas de IPs confiáveis/ameaças; 
 - **EventBridge:** EventBridge recebe eventos e usa regras para encaminhá-los a destinos compatíveis.
 - **SSM:** Sigla usada em recursos do Systems Manager. O serviço oferece ferramentas de administração; nós, acessos e conectividade precisam estar preparados.
 
-
 **Resposta automatizada:** achados vão ao **EventBridge** → Lambda/SSM para isolar a instância, notificar via SNS.
 
 **Antes de ler este trecho:**
@@ -123,13 +109,11 @@ Severidade (baixa, média, alta, crítica); listas de IPs confiáveis/ameaças; 
 - **Detective:** Detective organiza dados compatíveis e suas relações para apoiar investigações de segurança.
 - **Security Hub:** Security Hub reúne achados de fontes compatíveis e oferece avaliações de controles, conforme os recursos habilitados.
 
-
 Envia achados ao **Security Hub** e permite investigar no **Detective**.
 
 **Antes de ler este trecho:**
 
 - **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
-
 
 Multi-conta com **administrador delegado** no Organizations.
 
@@ -146,7 +130,6 @@ Um achado não confirma sozinho uma invasão. GuardDuty não é, por si só, um 
 - **Inspector:** Inspector avalia recursos compatíveis para encontrar vulnerabilidades e determinados riscos de exposição.
 - **Macie:** Macie ajuda a descobrir e classificar dados sensíveis em objetos S3 compatíveis e a analisar aspectos de segurança dos buckets.
 
-
 GuardDuty (**ameaça em andamento**, a partir de logs) × Inspector (**vulnerabilidade** de software) × Macie (**dados sensíveis**) × Detective (**investigação**).
 
 ## 4. Operação, segurança e custo
@@ -158,7 +141,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
-
 
 Por volume de eventos/logs analisados e por plano de proteção.
 
@@ -182,28 +164,11 @@ O serviço identifica um padrão suspeito associado a uma identidade ou recurso 
 
 - **CVE:** Identificador público de uma vulnerabilidade conhecida. Um achado precisa ser avaliado pelo impacto no recurso e pelas correções disponíveis.
 
-
 **Outra situação comentada:** Credenciais usadas de forma suspeita: GuardDuty; pacote com CVE: Inspector.
 
 **Por que não concluir mais do que isso:** Detectar não garante bloquear ou corrigir sozinho
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa precisa perceber sinais de atividade suspeita, como comportamento incomum de credenciais ou recursos, sem analisar manualmente todos os registros.
-
-**2. O que a solução fornece?**
-
-GuardDuty analisa fontes de dados compatíveis para detectar possíveis ameaças e produzir achados de segurança.
-
-**3. Que conclusão seria incorreta?**
-
-Um achado não confirma sozinho uma invasão. GuardDuty não é, por si só, um bloqueador de todo tráfego; respostas automáticas exigem recursos e configurações apropriados.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -211,23 +176,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** GuardDuty.
 
-
-**Fundamento explicado no capítulo:** "Detectar atividade maliciosa analisando CloudTrail, VPC Flow Logs e DNS." → GuardDuty.
-
 **Pergunta:** "Instância está minerando criptomoeda."
 
 **Resposta curta:** GuardDuty.
 
-
-**Fundamento explicado no capítulo:** "Instância está minerando criptomoeda." → GuardDuty.
-
 **Pergunta:** "Responder automaticamente a um achado."
 
 **Resposta curta:** GuardDuty → EventBridge → Lambda.
-
-
-**Fundamento explicado no capítulo:** "Responder automaticamente a um achado." → GuardDuty → EventBridge → Lambda.
-
 
 ## 7. Fontes e próximos passos
 

@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Selecione o período e a pergunta sobre custo ou uso que precisa responder.
 
@@ -51,21 +46,17 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
-
 **Detalhe:** Por serviço, conta, região, tipo de instância, **tag**, cost category, tipo de cobrança; granularidade mensal, diária (e horária, paga).
 
 **Previsão (forecast)**
-
 
 **Detalhe:** ✔️ Até **3 meses** em granularidade diária e até **12 meses** em mensal, com intervalo de predição de 80%; sem histórico suficiente (conta nova), não gera previsão.
 
 **Histórico**
 
-
 **Detalhe:** ✔️ **13 meses** + o mês corrente.
 
 **Relatórios salvos**
-
 
 **Detalhe:** Modelos prontos (custo mensal por serviço, uso de RIs…) e customizados.
 
@@ -77,7 +68,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
 - **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 
-
 **Detalhe:** **Rightsizing** de EC2, **compra de RIs e Savings Plans** (com estimativa de economia).
 
 **Relatórios de RI/SP**
@@ -85,7 +75,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 **Antes de ler este trecho:**
 
 - **RI:** Benefício e condições de reserva para configurações compatíveis. Não confunda desconto com qualquer garantia universal de capacidade.
-
 
 **Detalhe:** **Utilização** (quanto do compromisso foi usado) e **cobertura** (quanto do uso está coberto).
 
@@ -95,11 +84,9 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
 
-
 **Detalhe:** ✔️ Interface gráfica gratuita; a **API** custa **US$ 0,01 por requisição paginada**.
 
 **Ativação**
-
 
 **Detalhe:** Precisa ser **habilitado** no console (dados levam até 24 h para aparecer).
 
@@ -117,14 +104,9 @@ Ele analisa gastos; não bloqueia automaticamente a criação de recursos. Os da
 - **Budgets:** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
 - **CUR:** Relatório de custos e uso. Ele ajuda a analisar consumo registrado; é diferente de uma estimativa antes de criar recursos.
 
-
 **Cost Explorer** (analisa o passado e prevê) × **Budgets** (alerta e age) × **Pricing Calculator** (estima **antes** de usar) × **CUR** (dados brutos mais detalhados).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A escola compara dois meses e separa custos por serviço para investigar onde o gasto mudou.
 
@@ -140,28 +122,11 @@ A escola compara dois meses e separa custos por serviço para investigar onde o 
 
 **Decisões que precisam ser tomadas:** Período, granularidade e visão autorizada.
 
-
 **Outra situação comentada:** Descobrir serviço responsável pelo aumento: agrupar por serviço e investigar conta/região/tags.
 
 **Por que não concluir mais do que isso:** Não é medidor instantâneo nem bloqueio de consumo; previsão não garante valor final
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A fatura aumentou, mas a equipe não sabe qual serviço, conta ou período explica esse crescimento.
-
-**2. O que a solução fornece?**
-
-Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
-
-**3. Que conclusão seria incorreta?**
-
-Ele analisa gastos; não bloqueia automaticamente a criação de recursos. Os dados não devem ser tratados como medição instantânea nem a previsão como garantia.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -169,25 +134,15 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Cost Explorer.
 
-
-**Fundamento explicado no capítulo:** "Visualizar gastos dos últimos meses e prever o próximo." → Cost Explorer.
-
 **Pergunta:** "Onde ver recomendações de Savings Plans e RIs?"
 
 **Resposta curta:** Cost Explorer.
-
-
-**Fundamento explicado no capítulo:** "Onde ver recomendações de Savings Plans e RIs?" → Cost Explorer.
 
 **Pergunta:** "Verificar se as Reserved Instances estão sendo usadas."
 
 **Resposta curta:** Relatório de utilização de RI no Cost Explorer.
 
-
-**Fundamento explicado no capítulo:** "Verificar se as Reserved Instances estão sendo usadas." → Relatório de utilização de RI no Cost Explorer.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

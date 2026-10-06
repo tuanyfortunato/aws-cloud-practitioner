@@ -6,7 +6,8 @@ import shutil
 import tempfile
 import unittest
 import gerar_docs
-from apostila import BASE, EXTRAS, Leitura, capitulo_servico, capitulo_topico
+from apostila import BASE, EXTRAS, Leitura, capitulo_servico, capitulo_topico, fundamentos_resposta
+from didatica_docs import TOPICOS as DIDATICA
 from gerar_docs import (AUTORAL, CATEGORIA, ARQUIVOS, caminho_ficha, caminho_topico,
                         eh_autoral, extrair_cards_revisao, parse_guia)
 from vocabulario_apostila import termos_locais, simples
@@ -47,8 +48,11 @@ class Apostila(unittest.TestCase):
                 continue  # ficha escrita à mão: não passa pelo gerador
             with self.subTest(ficha=nome):
                 result=capitulo_servico(nome)
-                for n in range(1, 8):
-                    self.assertRegex(result, rf'(?m)^## {n}\. ', msg=nome)
+                # A numeração das seções é sequencial e só existe seção com conteúdo próprio.
+                numeros=[int(n) for n in re.findall(r'(?m)^## (\d+)\. ',result)]
+                self.assertEqual(numeros,list(range(1,len(numeros)+1)),nome)
+                self.assertGreaterEqual(len(numeros),5,nome)
+                self.assertRegex(result,r'(?m)^## \d+\. Fontes e próximos passos$',nome)
                 links=set(re.findall(r'\]\(([^)\s]+)\)',fonte))
                 self.assertTrue(links <= set(re.findall(r'\]\(([^)\s]+)\)',result)),nome)
                 # Unidades e números da fonte não podem desaparecer ao abrir uma tabela.
@@ -69,6 +73,28 @@ class Apostila(unittest.TestCase):
                 if linha.startswith('- ') and '→' in linha:
                     pergunta=linha[2:].split('→',1)[0].strip()
                     self.assertIn(pergunta,result,sec)
+
+    def test_fundamento_nao_repete_pergunta_nem_gabarito(self):
+        corpo = ('- "Licença por núcleo físico." → Dedicated Host\n'
+                 '- **Cai na prova:** "licença por núcleo físico" = Dedicated Host.\n'
+                 '- **Modelos de compra:** o Dedicated Host entrega servidor físico dedicado, '
+                 'o que permite usar licenças contadas por núcleo.\n')
+        fundamento = fundamentos_resposta('"Licença por núcleo físico."', 'Dedicated Host', corpo)
+        self.assertIn('servidor físico dedicado', fundamento)
+        self.assertNotIn('Cai na prova', fundamento)
+        lista = '- **Cai na prova:** "licença de software por núcleo" = Dedicated Host; "tolera interrupção" = Spot.\n'
+        self.assertEqual(fundamentos_resposta('"Algo bem diferente aqui."', 'Spot', lista), '')
+        self.assertNotIn('→', fundamento)
+
+    def test_revisao_nao_repete_a_abertura_da_aula(self):
+        secoes, _, _=parse_guia()
+        for sec,(_,corpo) in secoes.items():
+            if eh_autoral(caminho_topico(sec)):
+                continue
+            result=capitulo_topico(sec,corpo)
+            self.assertNotIn('Confira se você compreendeu',result,sec)
+            for campo in ('problema','simples','limite'):
+                self.assertNotIn(DIDATICA[sec][campo],result,f'{sec}: {campo}')
 
     def test_fifo_nao_promete_efeito_de_negocio_unico(self):
         s=capitulo_servico('sqs')

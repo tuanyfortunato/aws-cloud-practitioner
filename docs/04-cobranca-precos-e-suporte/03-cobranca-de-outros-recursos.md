@@ -19,7 +19,7 @@
 
 ---
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)**
 
 > 🔎 **Fichas detalhadas:** [Amazon S3 (Simple Storage Service)](../../servicos/armazenamento/s3.md) · [Amazon EBS (Elastic Block Store) e Instance Store](../../servicos/armazenamento/ebs.md) · [AWS Lambda](../../servicos/computacao/lambda.md)
 
@@ -34,7 +34,6 @@
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 - **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
-
 
 Veja a aplicação como um conjunto de recursos cobrados separadamente. A máquina executa, o volume conserva dados, a cópia protege recuperação e a rede move informações. Parar uma parte não necessariamente encerra as outras.
 
@@ -55,14 +54,12 @@ Procure o que permanece provisionado ou conservado. Isso explica por que limpar 
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
   - **Entrada** da internet para a AWS: **grátis**.
 
   - **Saída** da AWS para a internet: **cobrada**, com faixas por volume.
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 
   - Entre **regiões**: cobrada. Entre **AZs** na mesma região: cobrada.
 **Antes de ler este trecho:**
@@ -72,7 +69,6 @@ Procure o que permanece provisionado ou conservado. Isso explica por que limpar 
 - **IP:** Endereços usados para identificar interfaces e destinos na rede. IPv4 e IPv6 são versões diferentes; ter um endereço não concede permissão nem garante uma rota.
 - **origem:** Local de onde uma distribuição obtém conteúdo, como um servidor ou bucket. Uma cópia em cache não elimina toda necessidade de acessar a origem.
 
-
   - Dentro da mesma AZ por IP privado: grátis. Da origem AWS para o CloudFront: grátis.
 **Antes de ler este trecho:**
 
@@ -80,7 +76,6 @@ Procure o que permanece provisionado ou conservado. Isso explica por que limpar 
 - **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
 - **EFS:** O EFS oferece um sistema de arquivos compartilhado.
 - **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
-
 
 **Armazenamento:** S3 por GB-mês, por requisição e por recuperação (nas classes IA e Glacier); EBS pelo **volume provisionado**, mesmo que não esteja cheio; EFS pelo que é usado.
 
@@ -91,13 +86,11 @@ Procure o que permanece provisionado ou conservado. Isso explica por que limpar 
 - **Athena:** Athena permite consultar dados em formatos e fontes compatíveis usando SQL.
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
-
 **Serverless:** Lambda por requisição e duração; DynamoDB sob demanda por leitura e escrita; Athena por dado escaneado.
 
 **Antes de ler este trecho:**
 
 - **hora:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
-
 
 **IPv4 público:** todo endereço IPv4 público é cobrado por hora.
 
@@ -108,7 +101,6 @@ Procure o que permanece provisionado ou conservado. Isso explica por que limpar 
 - **CloudFormation:** Infraestrutura como código descreve recursos em arquivos. CloudFormation usa templates e stacks para criar e administrar recursos compatíveis.
 - **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
 
-
 **Serviços sem custo próprio** (paga só os recursos que criam): CloudFormation, Elastic Beanstalk, Auto Scaling, IAM, Organizations, consolidated billing.
 
 **Antes de ler este trecho:**
@@ -117,14 +109,11 @@ Procure o que permanece provisionado ou conservado. Isso explica por que limpar 
 - **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
-
 **AWS Free Tier:** tradicionalmente cobrado na prova em três tipos: **sempre gratuito** (ex.: cota mensal de requisições do Lambda), **12 meses gratuitos** para contas novas (ex.: horas de instância micro) e **testes gratuitos** de curto prazo (ex.: GuardDuty). Desde meados de 2025, contas novas recebem um modelo baseado em **créditos** com plano gratuito por tempo limitado; confira a página oficial do Free Tier.
-
 
 **Cai na prova:** "o que é sempre grátis?" = transferência de entrada e serviços como IAM; "como reduzir custo de saída para usuários globais?" = CloudFront.
 
 ## 3. Como analisar uma situação
-
 
 **Primeiro, identifique o funcionamento:** Volume provisionado, cópias, requests e transferência geram consumo mesmo quando a aplicação principal está parada. Armazenamento arquivado pode ter permanência mínima e custo de recuperação.
 
@@ -138,25 +127,7 @@ Uma equipe apaga EC2, mas mantém snapshots e objetos S3. Esses dados deixam de 
 
 **Raciocínio e resposta:** Não. São recursos independentes que persistem e continuam sujeitos a cobrança. Excluir a computação não exclui necessariamente cópias e dados.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Parar a computação ou reduzir visitas não elimina necessariamente os custos de dados armazenados e comunicações.
-
-**2. O que a solução fornece?**
-
-A cobrança pode envolver armazenamento, requisições, endereços e transferências, além da execução. Cada recurso precisa ser analisado separadamente.
-
-**3. Que conclusão seria incorreta?**
-
-Não aplique a regra de um serviço a todos os outros. Identifique qual recurso permanece e qual condição gera cobrança.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -174,15 +145,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Entrada da internet para a AWS (e dentro da mesma AZ por IP privado).
 
-
-**Fundamento explicado no capítulo:** "Qual transferência de dados é gratuita?" → Entrada da internet para a AWS (e dentro da mesma AZ por IP privado).
-
 **Pergunta:** "Qual transferência é cobrada?"
 
 **Resposta curta:** Saída para a internet, entre regiões e entre AZs.
-
-
-**Fundamento explicado no capítulo:** "Qual transferência é cobrada?" → Saída para a internet, entre regiões e entre AZs.
 
 **Pergunta:** "Um volume EBS de 500 GB com 100 GB usados é cobrado por quanto?"
 
@@ -192,22 +157,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
-
-**Fundamento explicado no capítulo:** "Um volume EBS de 500 GB com 100 GB usados é cobrado por quanto?" → Pelos 500 GB provisionados.
-
 **Pergunta:** "Qual serviço não tem custo próprio?"
 
 **Resposta curta:** IAM, CloudFormation, Elastic Beanstalk, Auto Scaling, Organizations.
 
-
-**Fundamento explicado no capítulo:** "Qual serviço não tem custo próprio?" → IAM, CloudFormation, Elastic Beanstalk, Auto Scaling, Organizations.
-
 **Pergunta:** "O que é o Free Tier?"
 
 **Resposta curta:** Uso gratuito limitado para experimentar serviços (sempre gratuito, por período ou testes; contas novas usam modelo de créditos).
-
-
-**Fundamento explicado no capítulo:** "O que é o Free Tier?" → Uso gratuito limitado para experimentar serviços (sempre gratuito, por período ou testes; contas novas usam modelo de créditos).
 
 <!-- extra:inicio -->
 ## 🔄 Atualizações 2025-2026 e detalhes extras

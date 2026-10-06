@@ -30,28 +30,28 @@ os objetivos de leitura e o conteúdo técnico. As fichas detalham cada serviço
 
 ## Tópicos
 
-| # | Tópico | Perguntas típicas | Status |
-|---|---|---|---|
-| 3.1 | [Formas de acessar e implantar na AWS](01-formas-de-acesso-e-implantacao.md) | 5 | 🔴 |
-| 3.2 | [Infraestrutura global](02-infraestrutura-global.md) | 8 | 🔴 |
-| 3.3 | [Amazon EC2](03-ec2.md) | 9 | 🔴 |
-| 3.4 | [Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) | 8 | 🔴 |
-| 3.5 | [Containers e serverless](05-containers-e-serverless.md) | 7 | 🔴 |
-| 3.6 | [Outros serviços de computação](06-outros-servicos-de-computacao.md) | 4 | 🔴 |
-| 3.7 | [Bancos de dados](07-bancos-de-dados.md) | 11 | 🔴 |
-| 3.8 | [Amazon S3 — armazenamento de objetos](08-s3.md) | 11 | 🔴 |
-| 3.9 | [Outros serviços de armazenamento](09-outros-armazenamentos.md) | 12 | 🔴 |
-| 3.10 | [Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) | 13 | 🔴 |
-| 3.11 | [Analytics](11-analytics.md) | 8 | 🔴 |
-| 3.12 | [IA e machine learning](12-ia-e-machine-learning.md) | 10 | 🔴 |
-| 3.13 | [Integração de aplicações](13-integracao-de-aplicacoes.md) | 7 | 🔴 |
-| 3.14 | [Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) | 7 | 🔴 |
-| 3.15 | [Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) | 4 | 🔴 |
-| 3.16 | [Gestão e governança](16-gestao-e-governanca.md) | 8 | 🔴 |
-| 3.17 | [Migração e transferência](17-migracao-e-transferencia.md) | 8 | 🔴 |
-| 3.18 | [Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) | 6 | 🔴 |
+| # | Tópico | Perguntas típicas |
+|---|---|---|
+| 3.1 | [Formas de acessar e implantar na AWS](01-formas-de-acesso-e-implantacao.md) | 5 |
+| 3.2 | [Infraestrutura global](02-infraestrutura-global.md) | 8 |
+| 3.3 | [Amazon EC2](03-ec2.md) | 9 |
+| 3.4 | [Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) | 8 |
+| 3.5 | [Containers e serverless](05-containers-e-serverless.md) | 7 |
+| 3.6 | [Outros serviços de computação](06-outros-servicos-de-computacao.md) | 4 |
+| 3.7 | [Bancos de dados](07-bancos-de-dados.md) | 11 |
+| 3.8 | [Amazon S3 — armazenamento de objetos](08-s3.md) | 11 |
+| 3.9 | [Outros serviços de armazenamento](09-outros-armazenamentos.md) | 12 |
+| 3.10 | [Rede e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) | 13 |
+| 3.11 | [Analytics](11-analytics.md) | 8 |
+| 3.12 | [IA e machine learning](12-ia-e-machine-learning.md) | 10 |
+| 3.13 | [Integração de aplicações](13-integracao-de-aplicacoes.md) | 7 |
+| 3.14 | [Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) | 7 |
+| 3.15 | [Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) | 4 |
+| 3.16 | [Gestão e governança](16-gestao-e-governanca.md) | 8 |
+| 3.17 | [Migração e transferência](17-migracao-e-transferencia.md) | 8 |
+| 3.18 | [Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) | 6 |
 
-> Legenda: 🔴 Não iniciado · 🟡 Em andamento · 🟢 Revisado
+> Acompanhe o seu avanço no [progresso](../../progresso.md).
 
 ## Revisão rápida do domínio
 

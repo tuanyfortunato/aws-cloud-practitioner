@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Defina a meta e quais condições devem gerar um aviso ou ação compatível.
 
@@ -49,9 +44,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Tipo | Monitora |
 |---|---|
@@ -73,9 +65,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 - **SCP:** Política de controle de serviços usada na organização para limitar permissões disponíveis em contas às quais se aplica. Ela não concede acesso ao usuário sozinha.
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -100,7 +89,6 @@ Um orçamento não é, por padrão, um teto rígido que interrompe todo consumo.
 - **Cost Explorer:** Cost Explorer ajuda a visualizar e analisar dados de custos e uso, usando filtros, agrupamentos e recursos compatíveis de previsão.
 - **alarme:** Condição acompanhada sobre dados de monitoramento. Uma mudança de estado pode gerar ações configuradas; o alarme não diagnostica todo problema sozinho.
 
-
 **Budgets** (alerta/ação) × **Cost Explorer** (análise) × **Cost Anomaly Detection** (gasto **fora do padrão**, sem limite definido) × **CloudWatch billing alarm** (alarme simples sobre a cobrança estimada).
 
 ## 4. Operação, segurança e custo
@@ -117,7 +105,6 @@ Orçamentos de monitoramento são gratuitos; os **dois primeiros** orçamentos c
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 A escola quer acompanhar sua meta mensal de custo. O objetivo é receber sinal de desvio e agir a tempo, não presumir que a AWS nunca cobrará acima de um valor informado.
 
 A equipe define o orçamento, condições de notificação e destinatários. Quando recebe um aviso, investiga a parte do consumo que aumentou e decide quais mudanças atendem à aplicação. Ações compatíveis podem ser configuradas conforme requisitos e permissões.
@@ -133,28 +120,11 @@ O orçamento, por padrão, não funciona como um corte universal e instantâneo 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
 - **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
-
 **Outra situação comentada:** Alertar em 80% do orçamento: Budgets; desligar qualquer recurso não é comportamento automático universal.
 
 **Por que não concluir mais do que isso:** Não garante teto rígido da conta: atualização e ações têm latência e alcance limitado
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa quer acompanhar um limite planejado de custo ou uso e receber avisos antes de perder o controle do orçamento.
-
-**2. O que a solução fornece?**
-
-AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
-
-**3. Que conclusão seria incorreta?**
-
-Um orçamento não é, por padrão, um teto rígido que interrompe todo consumo. Alertas e ações não substituem controle de acesso e acompanhamento dos recursos.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -162,23 +132,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Budgets.
 
-
-**Fundamento explicado no capítulo:** "Receber alerta quando o gasto previsto passar do orçamento." → Budgets.
-
 **Pergunta:** "Parar instâncias automaticamente se o orçamento estourar."
 
 **Resposta curta:** Budget Actions.
 
-
-**Fundamento explicado no capítulo:** "Parar instâncias automaticamente se o orçamento estourar." → Budget Actions.
-
 **Pergunta:** "Alerta quando as RIs forem subutilizadas."
 
 **Resposta curta:** Reservation budget.
-
-
-**Fundamento explicado no capítulo:** "Alerta quando as RIs forem subutilizadas." → Reservation budget.
-
 
 ## 7. Fontes e próximos passos
 

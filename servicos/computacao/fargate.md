@@ -26,10 +26,6 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
@@ -39,7 +35,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Fargate:** Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução.
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 
 **Passo 1.** Descreva os containers pelo ECS ou EKS e selecione uma modalidade de execução compatível com Fargate.
 
@@ -57,16 +52,13 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **cluster:** Conjunto de recursos que trabalham de forma coordenada. O termo aparece em computação, banco e outras áreas, com papéis diferentes.
 - **patch:** Atualização corretiva de software. A responsabilidade de aplicá-la depende da camada e do serviço usado.
 
-
 Rodar contêineres sem cuidar de instâncias, patch de SO ou escalonamento do cluster.
 
 **Antes de ler este trecho:**
 
 - **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
 
-
 Jobs longos que **excedem os 15 min do Lambda** (sem limite de duração).
-
 
 Cargas variáveis em que o *bin packing* de instâncias não compensa.
 
@@ -85,9 +77,6 @@ Cargas variáveis em que o *bin packing* de instâncias não compensa.
 - **pod:** Unidade de execução do Kubernetes que reúne um ou mais containers. Recursos e disponibilidade dependem do ambiente e das configurações.
 - **ENI:** Interface de rede virtual. Ela associa endereços e configurações de comunicação a recursos compatíveis.
 - **Graviton:** Família de processadores AWS baseada em arquitetura ARM. A aplicação e sua imagem precisam ser compatíveis com essa arquitetura.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Item | Detalhe |
 |---|---|
@@ -108,14 +97,12 @@ Fargate não substitui a aplicação nem o coordenador ECS/EKS. Configuração, 
 
 Fargate **não é orquestrador**: é usado **com** ECS ou EKS.
 
-
 Fargate × Lambda: contêiner sem limite de tempo × função Lambda convencional até 15 min por invocação; workflows e outras modalidades têm modelos próprios.
 
 **Antes de ler este trecho:**
 
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 - **GPU:** Processador especializado em executar muitos cálculos em paralelo. Pode atender gráficos e determinadas tarefas de aprendizado de máquina; não é necessário para todo programa.
-
 
 Fargate × EC2 launch type: menos controle (sem GPU, sem acesso ao host) e menos operação.
 
@@ -129,13 +116,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **segundo / minuto:** Unidades de tempo. Em cobrança, tempo de recurso provisionado pode importar mesmo sem usuários acessando; em recuperação, tempo representa a espera para voltar a usar algo.
 
-
 Por **vCPU e memória alocadas**, por segundo (mínimo de 1 minuto), + armazenamento efêmero extra.
 
 **Antes de ler este trecho:**
 
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-
 
 Coberto pelo **Compute Savings Plans**.
 
@@ -145,14 +130,12 @@ Coberto pelo **Compute Savings Plans**.
 
 - **runtime:** Ambiente que executa código de uma linguagem ou plataforma. Compatibilidade de bibliotecas e versões deve ser avaliada.
 
-
 **AWS:** hosts, SO, runtime de contêiner, isolamento, patch da infraestrutura.
 
 **Antes de ler este trecho:**
 
 - **role:** Papel que fornece permissões a uma sessão que o assume. O termo função IAM não significa um trecho de código como uma função Lambda.
 - **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
-
 
 **Cliente:** imagem do contêiner e suas dependências, task role, rede, dados.
 
@@ -178,37 +161,17 @@ A equipe informa que seu serviço de pedidos precisa de determinada capacidade e
 - **worker:** Programa que recebe e processa dados ou tarefas. Ele precisa realizar o trabalho e tratar falhas, não apenas receber a mensagem.
 - **container:** Ambiente que executa uma aplicação a partir de uma imagem com software e dependências. É diferente de criar uma máquina virtual completa para cada pacote.
 
-
 **Outra situação comentada:** Container de worker: ECR guarda imagem, ECS organiza, Fargate executa.
 
 **Por que não concluir mais do que isso:** Não armazena imagens nem substitui ECS/EKS; aplicações ainda exigem segurança e dados persistentes adequados
 
 ## 6. Revisão e perguntas
 
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Você quer executar containers, mas não quer escolher, atualizar e manter as máquinas que ficam por baixo deles.
-
-**2. O que a solução fornece?**
-
-Fargate fornece a capacidade para executar containers com ECS ou EKS, sem você administrar diretamente os servidores dessa execução. Você define, entre outras coisas, os recursos necessários ao container.
-
-**3. Que conclusão seria incorreta?**
-
-Fargate não substitui a aplicação nem o coordenador ECS/EKS. Configuração, permissões, rede e custo continuam exigindo decisões.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
-
 ### ❓ Perguntas típicas
 
 **Pergunta:** "Rodar contêineres sem gerenciar instâncias."
 
 **Resposta curta:** Fargate (com ECS ou EKS).
-
-
-**Fundamento explicado no capítulo:** "Rodar contêineres sem gerenciar instâncias." → Fargate (com ECS ou EKS).
 
 **Pergunta:** "Processar arquivo por 2 horas sem gerenciar servidores."
 
@@ -218,16 +181,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 - **AWS Batch / Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
 
-
-**Fundamento explicado no capítulo:** "Processar arquivo por 2 horas sem gerenciar servidores." → Fargate (ou AWS Batch).
-
 **Pergunta:** "Como o Fargate é cobrado?"
 
 **Resposta curta:** Por vCPU e memória alocadas, por segundo.
-
-
-**Fundamento explicado no capítulo:** "Como o Fargate é cobrado?" → Por vCPU e memória alocadas, por segundo.
-
 
 ## 7. Fontes e próximos passos
 

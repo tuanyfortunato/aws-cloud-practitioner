@@ -31,12 +31,7 @@
 > [CodeDeploy, CodeArtifact e outros](../desenvolvimento/code-services.md) e [CloudShell](../desenvolvimento/cli-sdk-e-cloudshell.md),
 > que também estão fora do escopo.
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Descubra se a tarefa envolve configuração, análise de código, modelagem de recursos ou modernização.
 
@@ -55,12 +50,9 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
 - **rollback:** Retorno a uma configuração ou versão anterior, quando suportado e planejado. Nem toda alteração de dados pode ser desfeita automaticamente.
 
-
 Parte do Systems Manager. Gerencia **feature flags** e **configuração dinâmica** de aplicações, com validação e implantação gradual (rollback automático se um alarme disparar).
 
-
 Exemplo: ligar uma funcionalidade nova só para 10% dos usuários, sem novo deploy.
-
 
 A lista oficial o coloca em "Database" (erro de categorização da própria página).
 
@@ -72,7 +64,6 @@ A lista oficial o coloca em "Database" (erro de categorização da própria pág
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 - **SAM:** Ferramentas de desenvolvimento e descrição de infraestrutura. CDK ajuda a definir recursos por programação; SAM é voltado a aplicações serverless compatíveis.
 
-
 **Desenho visual** de arquiteturas serverless e de infraestrutura que gera templates do **CloudFormation/SAM**.
 
 ### Amazon CodeGuru
@@ -81,7 +72,6 @@ A lista oficial o coloca em "Database" (erro de categorização da própria pág
 
 - **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 
-
 **CodeGuru Reviewer:** revisão automática de código com ML (🔄 fechado a novos clientes desde 07/11/2025).
 
 **Antes de ler este trecho:**
@@ -89,13 +79,11 @@ A lista oficial o coloca em "Database" (erro de categorização da própria pág
 - **CPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
 - **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
 
-
 **CodeGuru Profiler:** encontra trechos caros de CPU e latência em aplicações em execução.
 
 **Antes de ler este trecho:**
 
 - **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-
 
 **CodeGuru Security:** varredura de vulnerabilidades no código. Grande parte dessas funções migrou para o **Amazon Q Developer**.
 
@@ -106,14 +94,12 @@ A lista oficial o coloca em "Database" (erro de categorização da própria pág
 - **ECS:** O ECS coordena a execução de containers: pacotes com a aplicação e suas dependências.
 - **CLI:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
 
-
 **CLI** para criar, publicar e operar aplicações em contêiner no ECS e no App Runner com poucos comandos (gera a infraestrutura com CloudFormation).
 
 **Antes de ler este trecho:**
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **suporte:** Suporte oferece ajuda conforme um plano e suas condições. Um prazo de resposta inicial não é garantia de tempo de resolução de todo incidente.
-
 
 🔄 **Fim de suporte em 12/06/2026**: segue como projeto open source, sem atualizações da AWS.
 
@@ -122,7 +108,6 @@ A lista oficial o coloca em "Database" (erro de categorização da própria pág
 **Antes de ler este trecho:**
 
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-
 
 Ajuda a **modernizar aos poucos** uma aplicação monolítica (padrão *strangler fig*): cria o ambiente de rede e o roteamento para mover funcionalidades uma a uma para microsserviços.
 
@@ -133,7 +118,6 @@ Ajuda a **modernizar aos poucos** uma aplicação monolítica (padrão *strangle
 - **IA:** Inteligência artificial: conjunto de técnicas para tarefas como reconhecimento, previsão e geração de conteúdo. Cada serviço atende funções específicas, não qualquer problema.
 - **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
 
-
 Conecta aplicações **SaaS** (Slack, Zoom, Salesforce, Okta…) para **centralizar logs de segurança** e oferecer recursos de produtividade com IA generativa.
 
 ### Amazon Simple Workflow Service (SWF)
@@ -142,7 +126,6 @@ Conecta aplicações **SaaS** (Slack, Zoom, Salesforce, Okta…) para **centrali
 
 - **Step Functions:** Step Functions coordena fluxos de trabalho entre etapas e serviços compatíveis.
 - **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
-
 
 Serviço **legado** de coordenação de tarefas em fluxos de trabalho. A AWS recomenda o **Step Functions** (no escopo) para novos projetos.
 
@@ -162,24 +145,17 @@ Não existe uma ferramenta desta lista que faça toda a modernização sozinha. 
 
 - **SWF:** Simple Workflow Service: serviço de coordenação de trabalhos distribuídos com modelo próprio. É referência especializada, não sinônimo de todas as ferramentas de fluxo.
 
-
 "Orquestrar etapas de um fluxo" → **Step Functions** (no escopo), não SWF.
 
 **Antes de ler este trecho:**
 
 - **CI / CD / CI/CD:** Integração contínua e entrega ou implantação contínua: práticas para construir, verificar e disponibilizar versões por etapas repetíveis.
 
-
 "Esteira de CI/CD" → **CodePipeline**; "compilar e testar" → **CodeBuild** (no escopo).
-
 
 "Infraestrutura como código" → **CloudFormation** (no escopo).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Alterar uma configuração com controle é um problema diferente de analisar código ou dividir uma aplicação antiga em partes. Leia cada produto pelo trabalho que ele atende.
 
@@ -199,30 +175,11 @@ Alterar uma configuração com controle é um problema diferente de analisar có
 
 - **X-Ray:** X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
 
-
 **Outra situação comentada:** Para CLF-C02, diferencie CodeBuild/CodePipeline/X-Ray antes de aprofundar ferramentas extras.
 
 **Por que não concluir mais do que isso:** Fora do escopo não implica produto recomendável atualmente; confira encerramentos
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Equipes podem precisar controlar configurações, apoiar análise de código ou modernizar aplicações. Esses trabalhos têm objetivos e ferramentas distintos.
-
-**2. O que a solução fornece?**
-
-Esta ficha organiza ferramentas especializadas de desenvolvimento e aplicações, explicando sua finalidade e as restrições registradas no material.
-
-**3. Que conclusão seria incorreta?**
-
-Não existe uma ferramenta desta lista que faça toda a modernização sozinha. Há produtos antigos e restrições comerciais; a ficha está fora do escopo indicado da prova.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
-
-## 7. Fontes e próximos passos
+## 5. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

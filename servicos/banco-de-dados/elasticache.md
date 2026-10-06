@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **cache:** Cópia mantida para reutilização rápida. A aplicação ou o serviço precisa decidir atualização e validade, para não servir conteúdo inadequado ou antigo.
-
 
 **Passo 1.** Identifique uma consulta ou dado que pode ser reutilizado e defina por quanto tempo a cópia serve.
 
@@ -54,7 +49,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **stateless:** Controle que avalia cada direção sem manter o mesmo estado de conexão. Regras de ida e de volta precisam ser consideradas separadamente.
 - **pub/sub:** Publicação de uma mensagem para destinatários inscritos. Distribuir avisos a vários destinos é diferente de manter uma tarefa aguardando um consumidor.
 
-
 Reduzir carga e latência do banco (cache de consultas), **armazenar sessões** (aplicação stateless), placares, filas simples, pub/sub, rate limiting.
 
 ### Motores
@@ -68,9 +62,6 @@ Reduzir carga e latência do banco (cache de consultas), **armazenar sessões** 
 - **failover:** Mudança do atendimento para um componente alternativo quando o principal fica indisponível. A forma e o tempo dependem da solução.
 - **Redis / Redis OSS / Valkey / Memcached:** Tecnologias de dados em memória com comportamentos e funções diferentes. A modalidade gerenciada deve ser escolhida segundo compatibilidade e necessidade, não apenas pela palavra cache.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Motor | Destaques |
 |---|---|
 | **Valkey** | Fork open source do Redis, recomendado pela AWS, mais barato. |
@@ -83,7 +74,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
-
 **Serverless** (sem planejar nós; paga por dados armazenados e ECPUs) ou **clusters de nós** (tipo de nó, shards, réplicas).
 
 **Antes de ler este trecho:**
@@ -93,7 +83,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **RBAC:** Controle de acesso baseado em papéis. As permissões dependem do papel atribuído à identidade e das regras do sistema.
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 - **AUTH:** Abreviação de autenticação ou autorização conforme a interface. Identificar um usuário e permitir uma ação são etapas distintas.
-
 
 Criptografia em repouso e em trânsito, autenticação (RBAC/AUTH), backups (Valkey/Redis), *Global Datastore* (replicação entre regiões).
 
@@ -112,13 +101,11 @@ A aplicação precisa decidir quando atualizar ou invalidar o cache. Ele não ac
 - **MemoryDB:** MemoryDB oferece um banco em memória com mecanismos de durabilidade.
 - **DAX:** Cache compatível com DynamoDB para determinados acessos. É uma camada de aceleração, não uma cópia independente de qualquer banco.
 
-
 **ElastiCache** (cache, dados podem ser recriados) × **MemoryDB** (banco primário durável) × **DAX** (cache só do DynamoDB).
 
 **Antes de ler este trecho:**
 
 - **servidor:** Computador que atende pedidos de outros computadores. Um servidor web, por exemplo, responde aos pedidos enviados pelo navegador.
-
 
 "Guardar sessão fora do servidor para escalar horizontalmente" → ElastiCache (ou DynamoDB).
 
@@ -131,7 +118,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **Savings Plans:** Compromisso de gasto por período em troca de condições de preço para uso elegível. Se a necessidade diminuir, o compromisso não desaparece automaticamente.
-
 
 Por nó-hora (ou nós reservados) ou, no serverless, por GB-hora armazenado + ECPUs. 🔄 Coberto por Database Savings Plans.
 
@@ -155,28 +141,11 @@ Uma loja guarda temporariamente o resultado de uma consulta popular num cache. N
 
 - **TTL:** Tempo de vida de uma informação. Em DNS pode orientar cache; em um banco pode indicar expiração de itens. O efeito concreto depende do serviço.
 
-
 **Outra situação comentada:** Resultado muito consultado: cache com TTL; aplicação deve tratar expiração e indisponibilidade.
 
 **Por que não concluir mais do que isso:** Não acelera automaticamente código que nunca usa o cache; não trate toda modalidade como armazenamento definitivo
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A aplicação consulta repetidamente dados parecidos e o banco principal demora mais do que o desejado.
-
-**2. O que a solução fornece?**
-
-ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-
-**3. Que conclusão seria incorreta?**
-
-A aplicação precisa decidir quando atualizar ou invalidar o cache. Ele não acelera qualquer consulta automaticamente nem deve ser tratado sem planejamento como a única cópia de dados essenciais.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -184,21 +153,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** ElastiCache.
 
-**Antes de ler este trecho:**
-
-- **RDS:** O RDS oferece bancos relacionais gerenciados.
-- **memória:** Memória é a área de trabalho rápida dos programas; em hardware, RAM nomeia esse tipo de memória. AWS RAM, por outro lado, é Resource Access Manager, para compartilhar recursos compatíveis. O contexto distingue os dois sentidos.
-
-
-**Fundamento explicado no capítulo:** "Reduzir a carga de leitura do RDS com cache em memória." → ElastiCache.
-
 **Pergunta:** "Armazenar sessões de usuário para aplicação stateless."
 
 **Resposta curta:** ElastiCache.
-
-
-**Fundamento explicado no capítulo:** "Armazenar sessões de usuário para aplicação stateless." → ElastiCache.
-
 
 ## 7. Fontes e próximos passos
 

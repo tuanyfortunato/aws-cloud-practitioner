@@ -20,7 +20,7 @@
 
 ---
 
-> **Domínio 4 — Cobrança, Preços e Suporte (12%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 4 — Cobrança, Preços e Suporte (12%)**
 
 > 🔎 **Fichas detalhadas:** [AWS Cost Explorer](../../servicos/custos/cost-explorer.md) · [AWS Budgets](../../servicos/custos/budgets.md) · [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md)
 
@@ -33,7 +33,6 @@
 **Antes de ler este trecho:**
 
 - **recurso:** Algo criado ou administrado num serviço, como uma máquina, um bucket ou uma tabela. Criar um recurso não é o mesmo que contratar toda uma aplicação pronta.
-
 
 O momento da pergunta muda a ferramenta: antes do uso, há hipóteses de consumo; depois do uso, há registros; durante o acompanhamento, há metas e avisos. Estimativa, análise e orçamento se complementam, mas não entregam o mesmo resultado.
 
@@ -54,7 +53,6 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 **Para que serve:** **Estimar** o custo antes de criar recursos
 
 **Detalhes de prova:** Gratuita, sem precisar de conta; gera estimativas compartilháveis
@@ -64,7 +62,6 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 **Antes de ler este trecho:**
 
 - **região:** Área geográfica AWS que contém zonas de disponibilidade. Muitos recursos são criados numa região específica; mudar de região pode exigir criar ou copiar recursos.
-
 
 **Para que serve:** Ver a **fatura** do mês, por serviço e região
 
@@ -79,7 +76,6 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 - **rightsizing:** Ajustar capacidade à necessidade observada. Reduzir demais pode prejudicar a aplicação; a recomendação precisa ser avaliada pelo uso real.
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
 
-
 **Para que serve:** **Visualizar e analisar** gastos passados e **prever** os próximos meses
 
 **Detalhes de prova:** Filtra por serviço, conta, região e tag; recomendações de rightsizing, RIs e Savings Plans; relatórios de uso e cobertura de reservas
@@ -89,7 +85,6 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 **Antes de ler este trecho:**
 
 - **AWS Budgets / Budgets:** AWS Budgets compara valores com metas configuradas e pode gerar notificações ou ações compatíveis, conforme as condições definidas.
-
 
 **Para que serve:** Definir orçamentos e receber **alertas**
 
@@ -107,7 +102,6 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 - **CUR:** Relatório de custos e uso. Ele ajuda a analisar consumo registrado; é diferente de uma estimativa antes de criar recursos.
 - **bucket:** Recipiente que organiza objetos no S3. A aplicação usa o bucket e a identificação do objeto para pedir operações autorizadas.
 
-
 **Para que serve:** Relatório **mais detalhado** possível, hora a hora, por recurso
 
 **Detalhes de prova:** Entregue num bucket S3; analisado com Athena, QuickSight ou Redshift
@@ -118,13 +112,11 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 
 - **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 
-
 **Para que serve:** Detectar **gastos fora do padrão** com ML
 
 **Detalhes de prova:** Envia alertas com a causa provável
 
 **Cost allocation tags**
-
 
 **Para que serve:** **Separar custos** por projeto, time, ambiente ou centro de custo
 
@@ -137,13 +129,11 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 - **AWS Organizations / Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
-
 **Para que serve:** **Fatura única** para várias contas
 
 **Detalhes de prova:** Soma o uso para descontos por volume; compartilha RIs e Savings Plans entre contas; sem custo extra
 
 **AWS Billing Conductor (❌ fora do escopo)**
-
 
 **Para que serve:** Faturamento personalizado
 
@@ -157,7 +147,6 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 - **BYOL:** Trazer licença própria elegível. É necessário verificar o direito de uso e as condições do software; a AWS não cria automaticamente essa licença.
 - **licença:** Direito de usar um software sob condições. Instalar o programa ou inventariá-lo não concede automaticamente esse direito.
 
-
 **Para que serve:** Comprar **software de terceiros**
 
 **Detalhes de prova:** Cobrado na fatura AWS; AMIs, SaaS, contêineres, dados; licença por uso ou BYOL
@@ -170,19 +159,15 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 - **métrica:** Medida observada ao longo do tempo, como utilização ou número de erros. O número precisa de unidade, período e contexto para ter significado.
 - **alarme:** Condição acompanhada sobre dados de monitoramento. Uma mudança de estado pode gerar ações configuradas; o alarme não diagnostica todo problema sozinho.
 
-
 **Para que serve:** Alarme de custo baseado na métrica de cobrança
 
 **Detalhes de prova:** Alternativa simples ao Budgets
-
 
 **Antes de ler este trecho:**
 
 - **Trusted Advisor:** Trusted Advisor oferece verificações e recomendações em áreas como custos, segurança e operação, conforme o acesso disponível.
 
-
 **Outras fontes de economia:** Trusted Advisor (recursos ociosos), Compute Optimizer (rightsizing) e Savings Plans recommendations no Cost Explorer.
-
 
 **Cai na prova:** "estimar antes de migrar" = Pricing Calculator; "ver tendência e prever gasto" = Cost Explorer; "alerta quando passar de US$ 500" = Budgets; "dados mais granulares para análise" = CUR; "ratear custos por departamento" = cost allocation tags; "várias contas, uma fatura e desconto por volume" = consolidated billing.
 
@@ -191,7 +176,6 @@ a **Pricing Calculator** é o **orçamento da obra**; o **Cost Explorer** é o *
 **Antes de ler este trecho:**
 
 - **latência:** Tempo de uma comunicação ou operação. Um pedido individual pode demorar mesmo quando o sistema consegue processar muitos pedidos por segundo.
-
 
 **Primeiro, identifique o funcionamento:** Calculator estima antes do uso; Cost Explorer investiga custo e consumo; Budgets acompanha limites e previsão; CUR/Data Exports fornece registros detalhados para análise.
 
@@ -205,25 +189,7 @@ A empresa quer avisar ao atingir 80% do orçamento e explicar quais serviços ga
 
 **Raciocínio e resposta:** Budgets para alerta e Cost Explorer para análise. Calculator projeta uma solução; não substitui os gastos já registrados.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A equipe quer planejar um projeto, entender uma fatura e acompanhar um orçamento. São três perguntas diferentes sobre dinheiro.
-
-**2. O que a solução fornece?**
-
-Calculadora estima; análise de custos explica gastos; orçamento acompanha metas; relatórios fornecem detalhe. A ferramenta depende da pergunta.
-
-**3. Que conclusão seria incorreta?**
-
-Estimar não garante a fatura, e um aviso não é um bloqueio automático de todo gasto. Não confunda planejamento, análise e controle.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -240,64 +206,39 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Pricing Calculator.
 
-
-**Fundamento explicado no capítulo:** "Estimar o custo de uma arquitetura antes de criá-la." → Pricing Calculator.
-
 **Pergunta:** "Visualizar gastos dos últimos meses e prever o próximo."
 
 **Resposta curta:** Cost Explorer.
-
-
-**Fundamento explicado no capítulo:** "Visualizar gastos dos últimos meses e prever o próximo." → Cost Explorer.
 
 **Pergunta:** "Receber alerta quando o gasto previsto passar do orçamento."
 
 **Resposta curta:** Budgets.
 
-
-**Fundamento explicado no capítulo:** "Receber alerta quando o gasto previsto passar do orçamento." → Budgets.
-
 **Pergunta:** "Relatório mais detalhado de custo e uso, por hora e recurso."
 
 **Resposta curta:** Cost and Usage Report.
-
-
-**Fundamento explicado no capítulo:** "Relatório mais detalhado de custo e uso, por hora e recurso." → Cost and Usage Report.
 
 **Pergunta:** "Ser avisado de um gasto anormal."
 
 **Resposta curta:** Cost Anomaly Detection.
 
-
-**Fundamento explicado no capítulo:** "Ser avisado de um gasto anormal." → Cost Anomaly Detection.
-
 **Pergunta:** "Separar custos por projeto ou departamento."
 
 **Resposta curta:** Cost allocation tags (ativadas no Billing).
-
-
-**Fundamento explicado no capítulo:** "Separar custos por projeto ou departamento." → Cost allocation tags (ativadas no Billing).
 
 **Pergunta:** "Uma fatura para várias contas, com desconto por volume."
 
 **Resposta curta:** Consolidated billing no Organizations.
 
-
-**Fundamento explicado no capítulo:** "Uma fatura para várias contas, com desconto por volume." → Consolidated billing no Organizations.
-
 **Pergunta:** "Comprar software de terceiros pago na fatura AWS."
 
 **Resposta curta:** AWS Marketplace.
-
-
-**Fundamento explicado no capítulo:** "Comprar software de terceiros pago na fatura AWS." → AWS Marketplace.
 
 **Pergunta:** "Onde ver recomendações de Savings Plans?"
 
 **Resposta curta:** Cost Explorer.
 
-
-**Fundamento explicado no capítulo:** "Onde ver recomendações de Savings Plans?" → Cost Explorer.
+**Fundamento explicado no capítulo:** **Outras fontes de economia:** Trusted Advisor (recursos ociosos), Compute Optimizer (rightsizing) e Savings Plans recommendations no Cost Explorer.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

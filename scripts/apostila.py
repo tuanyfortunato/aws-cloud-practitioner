@@ -94,8 +94,7 @@ class Leitura:
                                 saida += [f'**{coluna}:** {valor}', '']
                 else:
                     saida.append(self.vocabulario(texto_tabela))
-                    saida += ['Leia cada linha como uma alternativa e cada coluna como um critério de comparação. '
-                              'Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.', '', texto_tabela, '']
+                    saida += [texto_tabela, '']
                 continue
             if re.match(r'^#{2,6} ', linha):
                 titulo = re.sub(r'^#+ ', '', linha)
@@ -115,6 +114,14 @@ class Leitura:
         return '\n'.join(saida).strip()
 
 
+def compactar(texto):
+    """Remove linhas em branco sobrando, sem alterar blocos de código."""
+    partes = re.split(r'(```.*?```|~~~.*?~~~)', texto, flags=re.S)
+    for i in range(0, len(partes), 2):
+        partes[i] = re.sub(r'\n{3,}', '\n\n', partes[i])
+    return ''.join(partes)
+
+
 def secoes(texto):
     partes = re.split(r'^## (.+)\n', texto, flags=re.M)
     inicio = partes[0].strip()
@@ -130,12 +137,24 @@ def fundamentos_resposta(pergunta, resposta, corpo):
     alvo = simples(resposta).casefold()
     fatos = []
     for linha in corpo.splitlines():
+        # Linhas de pergunta e gabarito ("pergunta" → resposta) não fundamentam a
+        # própria resposta: citá-las só repetiria a associação (AP-02).
+        if '→' in linha:
+            continue
         if linha.startswith(('- ', '|')) and not re.match(r'^\|[\s:|-]+$', linha):
             fatos.append(linha)
     palavras = set(re.findall(r'\w{4,}', simples(pergunta).casefold()))
+    texto_pergunta = simples(pergunta).casefold().strip().strip('"\'?.!: ')
     candidatos = []
     for fato in fatos:
         limpo = simples(fato).casefold()
+        # Uma linha que já cita a pergunta (como as listas "Cai na prova") repetiria o par
+        # pergunta/resposta em vez de explicar o fundamento (AP-02).
+        if len(texto_pergunta) >= 10 and texto_pergunta in limpo:
+            continue
+        # Listas de palavra-chave ("frase do enunciado" = Serviço) são gabarito, não explicação.
+        if re.search(r'"[^"]+"\s*=', fato):
+            continue
         # Exige a resposta literal e algum contexto da pergunta. Caso contrário,
         # a revisão fica curta e o caso resolvido fornece o comentário detalhado.
         score = len(palavras & set(re.findall(r'\w{4,}', limpo)))
@@ -165,17 +184,6 @@ def perguntas_comentadas(texto, corpo, leitura):
     return '\n'.join(saida)
 
 
-def bloco_revisao(problema, explicacao, limite):
-    return '\n'.join([
-        '### Confira se você compreendeu', '',
-        '**1. Qual dificuldade está sendo resolvida?**', '', problema, '',
-        '**2. O que a solução fornece?**', '', explicacao, '',
-        '**3. Que conclusão seria incorreta?**', '', limite, '',
-        'Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento '
-        'e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.', '',
-    ])
-
-
 def capitulo_servico(nome):
     base = BASE[nome]
     cabecalho, grupos = secoes(base)
@@ -196,28 +204,31 @@ def capitulo_servico(nome):
             recursos.append(item)
     assert referencias, f'Fontes ausentes: {nome}'
     d = ABERTURAS[nome]
-    partes = [cabecalho, '', '## Roteiro de leitura', '',
-              'Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. '
-              'Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.', '',
-              '## 1. A sequência de funcionamento', '']
+    # Seções sem conteúdo próprio não são criadas; a numeração segue o que existe.
+    numero = iter(range(1, 20))
+    def titulo_secao(nome_secao):
+        return f'## {next(numero)}. {nome_secao}'
+    partes = [cabecalho, '', titulo_secao('A sequência de funcionamento'), '']
     texto_passos = '\n\n'.join(f'**Passo {i}.** {p}' for i, p in enumerate(PASSOS[nome], 1))
-    partes += [leitura.vocabulario(texto_passos), texto_passos, '',
-               '## 2. Recursos e opções, com significado', '']
-    for titulo, texto in recursos:
-        partes += ['### ' + titulo, '', leitura.trecho(texto), '']
-    partes += ['## 3. Como escolher e reconhecer os limites', '',
+    partes += [leitura.vocabulario(texto_passos), texto_passos, '']
+    if recursos:
+        partes += [titulo_secao('Recursos e opções, com significado'), '']
+        for titulo, texto in recursos:
+            partes += ['### ' + titulo, '', leitura.trecho(texto), '']
+    partes += [titulo_secao('Como escolher e reconhecer os limites'), '',
                'Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, '
                'responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.', '',
                leitura.trecho(d['limite']), '']
     for titulo, texto in escolhas:
         partes += ['### ' + titulo, '', leitura.trecho(texto), '']
-    partes += ['## 4. Operação, segurança e custo', '',
-               'Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que '
-               'continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.', '']
-    for titulo, texto in economia:
-        partes += ['### ' + titulo, '', leitura.trecho(texto), '']
+    if economia:
+        partes += [titulo_secao('Operação, segurança e custo'), '',
+                   'Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que '
+                   'continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.', '']
+        for titulo, texto in economia:
+            partes += ['### ' + titulo, '', leitura.trecho(texto), '']
     recursos_praticos, decisoes, fluxo, capacidade, limite, caso = PRATICAS[nome]
-    partes += ['## 5. Caso resolvido: ligando as peças', '']
+    partes += [titulo_secao('Caso resolvido: ligando as peças'), '']
     if nome in CASOS_ESTENDIDOS:
         caso_texto = '\n\n'.join(CASOS_ESTENDIDOS[nome])
         partes += [leitura.vocabulario(caso_texto), caso_texto, '']
@@ -229,17 +240,17 @@ def capitulo_servico(nome):
                '**Recursos envolvidos:** ' + recursos_praticos + '.', '',
                '**Decisões que precisam ser tomadas:** ' + decisoes + '.', '',
                leitura.vocabulario(caso + limite), '**Outra situação comentada:** ' + caso, '',
-               '**Por que não concluir mais do que isso:** ' + limite, '',
-               '## 6. Revisão e perguntas', '',
-               bloco_revisao(d['problema'], d['explicacao'], d['limite'])]
-    for titulo, texto in revisao:
-        partes += ['### ' + titulo, '', perguntas_comentadas(texto, base, leitura), '']
-    partes += ['## 7. Fontes e próximos passos', '',
+               '**Por que não concluir mais do que isso:** ' + limite, '']
+    if revisao:
+        partes += [titulo_secao('Revisão e perguntas'), '']
+        for titulo, texto in revisao:
+            partes += ['### ' + titulo, '', perguntas_comentadas(texto, base, leitura), '']
+    partes += [titulo_secao('Fontes e próximos passos'), '',
                'Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo '
                'servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.', '']
     for titulo, texto in referencias:
         partes += ['### ' + titulo, '', texto, '']
-    return '\n'.join(partes).rstrip() + '\n'
+    return compactar('\n'.join(partes)).rstrip() + '\n'
 
 
 def capitulo_topico(sec, corpo):
@@ -267,16 +278,13 @@ def capitulo_topico(sec, corpo):
                '**Por fim, verifique o limite:** ' + limite, '',
                '## 4. Caso resolvido', '', cenario, '',
                '**Raciocínio e resposta:** ' + resposta, '',
-               'A resposta muda se mudar o requisito destacado. Compare a necessidade com a função '
-               'da solução, em vez de apenas associar duas palavras.', '',
                '## 5. Revisão do capítulo', '',
-               bloco_revisao(d['problema'], d['simples'], d['limite']),
                '**Objetivos de aprendizagem:**', '',
                *[f'- [ ] {item}' for item in d['saber']], '',
                '**Dica de revisão para a prova:** ' + d['dica'], '']
     for titulo, texto in perguntas:
         partes += ['### ' + titulo, '', perguntas_comentadas(texto, corpo, leitura), '']
-    return '\n'.join(partes).rstrip()
+    return compactar('\n'.join(partes)).rstrip()
 
 
 def capitulos_apoio():
@@ -286,5 +294,5 @@ def capitulos_apoio():
     for nome, texto in base.items():
         titulo, _, corpo = texto.partition('\n')
         leitura = Leitura()
-        resultado[nome] = titulo + '\n\n' + leitura.trecho(corpo, nivel=1) + '\n'
+        resultado[nome] = compactar(titulo + '\n\n' + leitura.trecho(corpo, nivel=1)) + '\n'
     return resultado

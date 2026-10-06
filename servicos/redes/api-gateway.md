@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **API:** Interface pela qual um programa pede uma operação a outro sistema. Por exemplo, pedir ao S3 que guarde um arquivo é uma chamada de API.
-
 
 **Passo 1.** Descreva as operações que outro programa pode solicitar e seus dados de entrada.
 
@@ -58,9 +53,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **REST:** Estilo de API que usa recursos e operações, frequentemente por HTTP. O código integrado continua sendo responsável pelo comportamento da aplicação.
 - **OIDC:** Padrões de integração de identidade entre sistemas. Permitem que uma aplicação ou serviço confie em informações fornecidas por um provedor de identidade compatível.
 - **JWT:** Formato de token com informações verificáveis. Receber um token não dispensa validar sua origem, condições e permissões na aplicação.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Tipo | Destaques | Uso |
 |---|---|---|
@@ -92,9 +84,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 - **ACM:** ACM administra certificados em integrações compatíveis. CA significa autoridade certificadora, responsável por emitir certificados sob suas regras.
 - **back-end:** Parte que processa regras e dados de uma aplicação. É diferente da interface que a pessoa vê no navegador ou aplicativo.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Integrações** | **Lambda** (clássico serverless), HTTP, serviços AWS (ex.: gravar direto no SQS/DynamoDB), VPC link (recursos privados via NLB/ALB). |
@@ -119,13 +108,11 @@ Ele não escreve a regra de matrícula nem armazena os registros como um banco. 
 - **API Gateway:** API Gateway ajuda a publicar e administrar APIs.
 - **GraphQL:** Forma de definir uma API e solicitar campos de dados. A aplicação ainda precisa de lógica de resolução, acesso e fontes adequadas.
 
-
 API Gateway (APIs REST/HTTP/WebSocket) × **AppSync** (APIs **GraphQL**).
 
 **Antes de ler este trecho:**
 
 - **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-
 
 API Gateway × ALB: ambos podem chamar Lambda; API Gateway tem throttling, chaves de API, autenticação e cache.
 
@@ -153,28 +140,11 @@ O aplicativo da escola chama uma API para consultar matrículas. API Gateway rec
 
 **Decisões que precisam ser tomadas:** Tipo de API, endpoint, autenticação, throttling e integração.
 
-
 **Outra situação comentada:** API chama função Lambda: API Gateway oferece entrada; Lambda executa lógica; IAM/authorizer controla acesso.
 
 **Por que não concluir mais do que isso:** Não implementa a regra de negócio sozinho; autorização ainda precisa ser configurada
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um aplicativo precisa pedir dados ou executar ações em outro sistema por uma interface controlada, em vez de acessar diretamente todos os componentes internos.
-
-**2. O que a solução fornece?**
-
-API Gateway ajuda a publicar e administrar APIs. Ele recebe chamadas e as encaminha a integrações configuradas, com opções de controle e acompanhamento.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não escreve a regra de matrícula nem armazena os registros como um banco. Você define a API, seus acessos e a integração que realiza o trabalho.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -182,23 +152,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** API Gateway.
 
-
-**Fundamento explicado no capítulo:** "Criar e proteger uma API REST para funções Lambda." → API Gateway.
-
 **Pergunta:** "Limitar requisições por cliente com chaves de API."
 
 **Resposta curta:** Usage plans + API keys.
 
-
-**Fundamento explicado no capítulo:** "Limitar requisições por cliente com chaves de API." → Usage plans + API keys.
-
 **Pergunta:** "API GraphQL gerenciada."
 
 **Resposta curta:** AppSync (não API Gateway).
-
-
-**Fundamento explicado no capítulo:** "API GraphQL gerenciada." → AppSync (não API Gateway).
-
 
 ## 7. Fontes e próximos passos
 

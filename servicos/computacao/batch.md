@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **Batch:** O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
 - **capacidade:** Recursos disponíveis para realizar trabalho, como processamento, memória, espaço ou quantidade de operações. A unidade depende do serviço.
-
 
 **Passo 1.** Prepare o programa que realiza um trabalho e descreva sua execução.
 
@@ -52,13 +47,11 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **ETL:** Extrair dados de uma fonte, transformá-los e carregá-los num destino. A regra de transformação deve ser definida de acordo com o significado dos dados.
 
-
 Milhares de jobs de processamento: renderização, simulações, genômica, análise financeira, ETL pesado.
 
 **Antes de ler este trecho:**
 
 - **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
-
 
 Jobs que **duram mais de 15 min** (ao contrário do Lambda).
 
@@ -74,11 +67,9 @@ Jobs que **duram mais de 15 min** (ao contrário do Lambda).
 - **imagem:** Pacote ou modelo usado para iniciar um ambiente. Em EC2, a AMI é uma imagem de máquina; em containers, a imagem serve para iniciar containers.
 - **job:** Trabalho submetido a uma execução. Uma fila ou agendador organiza quando ele roda; seu programa realiza a tarefa.
 
-
 **O que é:** Imagem de contêiner, vCPU, memória, comando, retentativas, timeout.
 
 **Job queue**
-
 
 **O que é:** Fila com prioridade onde os jobs aguardam.
 
@@ -93,16 +84,13 @@ Jobs que **duram mais de 15 min** (ao contrário do Lambda).
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 - **On-Demand:** Modalidade de uso sem o compromisso de longo prazo descrito por reservas e planos. Cobrança e unidades dependem do recurso contratado.
 
-
 **O que é:** Onde os jobs rodam: **EC2 On-Demand, EC2 Spot, Fargate, Fargate Spot** ou EKS; gerenciado (a AWS escala) ou não gerenciado.
 
 **Array jobs / dependências**
 
-
 **O que é:** Milhares de jobs paralelos e encadeamento (job B após job A).
 
 **Scheduling policies**
-
 
 **O que é:** Fair-share entre usuários/times.
 
@@ -118,14 +106,12 @@ Batch organiza a execução, mas você fornece o programa que faz o trabalho. El
 
 - **evento:** Informação sobre algo que aconteceu. Uma regra pode encaminhar o evento; outro componente realiza a ação de negócio.
 
-
 Batch × Lambda: jobs longos e pesados × funções curtas por evento.
 
 **Antes de ler este trecho:**
 
 - **EMR:** EMR oferece ambientes gerenciados para frameworks de processamento de dados, com modalidades diferentes de execução.
 - **Spark:** Ferramenta de processamento de dados. O ambiente pode executar o trabalho distribuído, mas a equipe define o código e valida a transformação.
-
 
 Batch × EMR: jobs genéricos em contêiner × frameworks de big data (Spark/Hadoop).
 
@@ -157,28 +143,11 @@ Uma produtora envia centenas de vídeos para conversão. Cada conversão vira um
 
 - **HTTP:** Protocolo de pedidos e respostas usado na web. Uma URL e um método indicam a operação; HTTP sozinho não protege o conteúdo por criptografia.
 
-
 **Outra situação comentada:** Processar simulações independentes: jobs Batch, com resultados persistidos fora da execução efêmera.
 
 **Por que não concluir mais do que isso:** Não é serviço de resposta HTTP contínua nem fornece computação gratuita
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Você precisa processar muitos trabalhos que podem esperar sua vez, como converter milhares de arquivos, sem iniciar cada execução manualmente.
-
-**2. O que a solução fornece?**
-
-O AWS Batch organiza trabalhos em filas e fornece capacidade de computação para executá-los conforme as configurações.
-
-**3. Que conclusão seria incorreta?**
-
-Batch organiza a execução, mas você fornece o programa que faz o trabalho. Ele não é a entrada interativa de um site nem um serviço que sabe converter qualquer arquivo sozinho.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -186,16 +155,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** AWS Batch.
 
-
-**Fundamento explicado no capítulo:** "Processar milhares de jobs em lote com a capacidade ideal." → AWS Batch.
-
 **Pergunta:** "Reduzir o custo de jobs em lote tolerantes a interrupção."
 
 **Resposta curta:** Batch com instâncias Spot.
-
-
-**Fundamento explicado no capítulo:** "Reduzir o custo de jobs em lote tolerantes a interrupção." → Batch com instâncias Spot.
-
 
 ## 7. Fontes e próximos passos
 

@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **landing zone:** Base organizada de um ambiente AWS com várias contas e controles. Ainda é necessário definir aplicações, acessos e operação dentro dela.
-
 
 **Passo 1.** Defina a base de várias contas e os controles necessários para seu ambiente.
 
@@ -58,9 +53,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **log:** Registro de acontecimentos para análise. A aplicação e os serviços podem produzir registros diferentes; é necessário definir coleta, retenção e acesso.
 - **AFT:** Automação de criação e preparação de contas em ambiente Control Tower usando Terraform conforme a solução. Não configura toda aplicação de cada conta.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Landing zone** | Organização com OUs (Security, Sandbox…) e contas compartilhadas: **Log Archive** (logs centralizados de CloudTrail e Config) e **Audit** (acesso de segurança). Integra IAM Identity Center. |
@@ -82,7 +74,6 @@ Ele não é uma certificação automática de segurança nem administra toda con
 - **Organizations:** Organizations organiza contas em grupos e permite aplicar políticas compatíveis, incluindo restrições sobre permissões disponíveis.
 - **Control Tower:** Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
 
-
 Organizations = estrutura e políticas. Control Tower = **automatiza boas práticas** em cima do Organizations.
 
 ## 4. Operação, segurança e custo
@@ -94,7 +85,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 **Antes de ler este trecho:**
 
 - **S3:** O S3 guarda dados como objetos: conteúdo, nome de identificação e informações associadas.
-
 
 Sem custo próprio; paga-se os serviços usados (Config, CloudTrail, S3, Service Catalog…).
 
@@ -118,28 +108,11 @@ A equipe cria uma base para contas de trabalho e utiliza os mecanismos previstos
 
 - **política:** Documento ou regra que define permissões, limites ou comportamento. O contexto identifica se é uma política de identidade, de recurso ou de outra função.
 
-
 **Outra situação comentada:** Criar base padronizada para novas contas: Control Tower, com responsabilidades de governança continuadas.
 
 **Por que não concluir mais do que isso:** Não substitui Organizations nem toda política específica da empresa
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa quer começar um ambiente com várias contas AWS seguindo uma estrutura organizada e controles comuns, sem montar tudo isoladamente.
-
-**2. O que a solução fornece?**
-
-Control Tower ajuda a estabelecer e governar esse ambiente usando serviços AWS integrados e controles compatíveis.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não é uma certificação automática de segurança nem administra toda configuração de cada aplicação. Os controles têm alcances e requisitos diferentes.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -147,16 +120,9 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Control Tower.
 
-
-**Fundamento explicado no capítulo:** "Criar rapidamente um ambiente multi-conta seguro com guardrails." → Control Tower.
-
 **Pergunta:** "Criar novas contas já seguindo o padrão da empresa."
 
 **Resposta curta:** Account Factory.
-
-
-**Fundamento explicado no capítulo:** "Criar novas contas já seguindo o padrão da empresa." → Account Factory.
-
 
 ## 7. Fontes e próximos passos
 

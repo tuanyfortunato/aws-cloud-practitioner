@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Prepare a aplicação para emitir dados de rastreamento nas partes que precisa observar.
 
@@ -61,9 +56,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **SDK:** SDK fornece bibliotecas para programas chamarem APIs; CLI fornece comandos de texto. As duas formas continuam exigindo identidade, autorização e configuração.
 - **ADOT:** Distribuição AWS de OpenTelemetry para instrumentação e coleta de dados de observação compatíveis.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Trace** | Caminho completo de uma requisição. |
@@ -85,14 +77,9 @@ Ele não coleta todos os detalhes sem preparação nem corrige a etapa lenta. A 
 
 - **CloudTrail:** Registro de atividades e chamadas AWS compatíveis. Ajuda a analisar quem realizou uma operação, em vez de medir sozinho a velocidade da aplicação.
 
-
 **X-Ray** (rastreia requisições entre serviços) × **CloudWatch** (métricas/logs) × **CloudTrail** (chamadas de API da conta).
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Ao consultar uma matrícula, a aplicação chama outro serviço e um banco. O rastreamento ajuda a localizar a etapa mais lenta.
 
@@ -112,28 +99,11 @@ Ao consultar uma matrícula, a aplicação chama outro serviço e um banco. O ra
 
 - **CPU:** CPU é o processador que executa instruções. vCPU é a unidade de processamento virtual apresentada ao ambiente. Mais processamento não resolve automaticamente falta de memória ou de velocidade do disco.
 
-
 **Outra situação comentada:** Latência entre API e banco: X-Ray; tendência de CPU: CloudWatch.
 
 **Por que não concluir mais do que isso:** Sem instrumentação não há trace completo; não registra automaticamente toda requisição sem amostragem
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Um pedido passa por vários componentes e demora muito. A equipe precisa descobrir em qual parte do caminho o tempo foi gasto ou houve erro.
-
-**2. O que a solução fornece?**
-
-X-Ray ajuda a acompanhar requisições em aplicações instrumentadas, reunindo rastreamentos e relações entre componentes.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não coleta todos os detalhes sem preparação nem corrige a etapa lenta. A aplicação e suas integrações precisam fornecer dados de rastreamento compatíveis.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -141,11 +111,7 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** X-Ray.
 
-
-**Fundamento explicado no capítulo:** "Encontrar qual microsserviço deixa a requisição lenta." → X-Ray.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

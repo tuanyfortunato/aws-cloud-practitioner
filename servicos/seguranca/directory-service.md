@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **autenticação:** Verificação de quem está acessando. Confirmar a identidade não autoriza qualquer ação no sistema.
-
 
 **Passo 1.** Identifique o diretório existente e o tipo de integração requerido pelas aplicações.
 
@@ -58,20 +53,17 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **AD:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
 - **SQL:** Linguagem para definir e consultar dados de bancos compatíveis. Uma consulta pode filtrar ou agregar registros; seu desenho influencia desempenho e resultado.
 
-
 **O que é:** AD real gerenciado (controladores em 2 AZs)
 
 **Uso:** Aplicações que dependem de AD (SQL Server, FSx for Windows, WorkSpaces); trust com AD on-premises
 
 **AD Connector**
 
-
 **O que é:** Proxy que redireciona autenticação para o **AD on-premises** (sem guardar dados na nuvem)
 
 **Uso:** Usar o AD existente com WorkSpaces, Identity Center, console
 
 **Simple AD**
-
 
 **O que é:** Diretório compatível com AD (Samba), básico e barato
 
@@ -83,11 +75,7 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 As modalidades não são equivalentes: encaminhar autenticação para um diretório existente é diferente de manter um diretório gerenciado. Ele também não substitui qualquer mecanismo de login de aplicativos.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Uma aplicação Windows na AWS precisa reconhecer os usuários do diretório da empresa. A equipe escolhe uma modalidade compatível com essa integração.
 
@@ -108,28 +96,11 @@ Uma aplicação Windows na AWS precisa reconhecer os usuários do diretório da 
 - **IAM:** Serviço para identidades e permissões de recursos AWS. Ele responde quais ações uma identidade pode fazer, conforme políticas e demais controles aplicáveis.
 - **protocolo:** Conjunto de regras da comunicação. Um protocolo define o formato e o comportamento da troca; produtos precisam ser compatíveis com ele.
 
-
 **Outra situação comentada:** Aplicação Windows precisa AD: avalie modalidade correta, em vez de presumir que IAM substitui qualquer protocolo de diretório.
 
 **Por que não concluir mais do que isso:** AD Connector não equivale a criar nova cópia de diretório gerenciado
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-A empresa já organiza usuários e computadores com Active Directory e precisa usar esse tipo de identidade com aplicações e recursos na AWS.
-
-**2. O que a solução fornece?**
-
-Directory Service oferece opções para diretórios e integração com Active Directory, conforme a modalidade. Ele atende necessidades corporativas de identidade e compatibilidade.
-
-**3. Que conclusão seria incorreta?**
-
-As modalidades não são equivalentes: encaminhar autenticação para um diretório existente é diferente de manter um diretório gerenciado. Ele também não substitui qualquer mecanismo de login de aplicativos.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -137,18 +108,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** AWS Managed Microsoft AD.
 
-
-**Fundamento explicado no capítulo:** "Rodar Active Directory gerenciado na AWS." → AWS Managed Microsoft AD.
-
 **Pergunta:** "Usar o AD on-premises sem replicá-lo para a nuvem."
 
 **Resposta curta:** AD Connector.
 
-
-**Fundamento explicado no capítulo:** "Usar o AD on-premises sem replicá-lo para a nuvem." → AD Connector.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

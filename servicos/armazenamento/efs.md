@@ -26,16 +26,11 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-
 
 **Passo 1.** Crie um sistema de arquivos e prepare os pontos de acesso de rede necessários.
 
@@ -52,7 +47,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **Lambda:** No Lambda, você entrega uma função, isto é, um trecho de programa.
 - **ML:** Aprendizado de máquina: modelos ajustados com dados para reconhecer padrões e produzir resultados. A qualidade depende dos dados, método e avaliação.
 - **CMS:** Tipos de aplicação: gestão de conteúdo, relacionamento com clientes e gestão empresarial. São funções de software, não nomes de um modelo de armazenamento.
-
 
 Conteúdo web compartilhado, diretórios home, CMS, pipelines de mídia, ML, contêineres e Lambda que precisam de arquivos persistentes.
 
@@ -81,9 +75,6 @@ Conteúdo web compartilhado, diretórios home, CMS, pipelines de mídia, ML, con
 - **criptografia:** Transformação usada para proteger a leitura dos dados. A chave e as permissões de uso precisam ser administradas; isso não impede toda exclusão ou erro do programa.
 - **legado:** Sistema existente com tecnologias ou dependências que precisam ser preservadas ou avaliadas numa mudança. Antigo não significa automaticamente que pode ser desligado.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Item | Detalhe |
 |---|---|
 | **Protocolo** | **NFS v4.0/4.1** — clientes **Linux** (não suporta Windows). |
@@ -110,7 +101,6 @@ Ele fornece arquivos compartilhados, não um banco de dados nem armazenamento lo
 - **EBS:** O EBS fornece volumes, isto é, discos virtuais que podem ser conectados a máquinas EC2 compatíveis.
 - **instância:** Máquina virtual de um serviço de computação, ou unidade de execução indicada pelo serviço. Em EC2, ela pode estar executando, parada ou em outro estado; não deixa de ser instância ao parar.
 
-
 **EFS × EBS:** compartilhado entre muitas instâncias e AZs × disco de uma instância numa AZ.
 
 **Antes de ler este trecho:**
@@ -118,13 +108,11 @@ Ele fornece arquivos compartilhados, não um banco de dados nem armazenamento lo
 - **FSx:** O FSx oferece sistemas de arquivos gerenciados em modalidades diferentes.
 - **Active Directory:** Tecnologia de diretório para identidades, computadores e controles corporativos. É diferente do cadastro de clientes de uma aplicação pública.
 
-
 **EFS × FSx for Windows:** Linux/NFS × Windows/SMB com Active Directory.
 
 **Antes de ler este trecho:**
 
 - **provisionado:** Recurso ou capacidade já disponibilizado para uso. Em algumas cobranças, a disponibilidade mantida importa mesmo sem execução de trabalho de negócio.
-
 
 EFS cobra pelo usado; EBS cobra pelo provisionado.
 
@@ -138,7 +126,6 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **GB:** Unidades de quantidade de dados em escala decimal: kilobyte, megabyte, gigabyte, terabyte e petabyte. Quando uma tabela fala em GB armazenados, mede volume; GB por segundo mede transferência.
 
-
 Por **GB efetivamente armazenado** por mês (cresce e encolhe sozinho) + throughput (Elastic/Provisioned) + acessos a IA/Archive.
 
 ### Segurança e responsabilidade compartilhada
@@ -147,9 +134,7 @@ Por **GB efetivamente armazenado** por mês (cresce e encolhe sozinho) + through
 
 - **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
 
-
 **AWS:** disponibilidade, durabilidade e escala do sistema de arquivos.
-
 
 **Cliente:** security groups dos mount targets, permissões POSIX/IAM, criptografia, backup.
 
@@ -174,28 +159,11 @@ Vários servidores de uma aplicação acessam a mesma pasta de documentos pelo E
 - **EC2:** O EC2 permite alugar um computador que funciona no datacenter da AWS.
 - **autorização:** Decisão sobre o que uma identidade pode fazer em um recurso. Essa decisão depende das regras e do contexto da solicitação.
 
-
 **Outra situação comentada:** Vários servidores web Linux usam o mesmo conteúdo: EFS, com configuração dos mounts.
 
 **Por que não concluir mais do que isso:** Precisa de conectividade e autorização de rede/arquivo; não é disco de boot EC2
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Várias máquinas Linux precisam ler e gravar os mesmos arquivos, sem cada uma manter uma cópia separada.
-
-**2. O que a solução fornece?**
-
-O EFS oferece um sistema de arquivos compartilhado. Máquinas autorizadas podem montar esse armazenamento e usá-lo como um conjunto de pastas acessíveis pela rede.
-
-**3. Que conclusão seria incorreta?**
-
-Ele fornece arquivos compartilhados, não um banco de dados nem armazenamento local de cada máquina. Rede, permissões e compatibilidade precisam ser configuradas.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -203,16 +171,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** EFS.
 
-
-**Fundamento explicado no capítulo:** "Várias instâncias Linux em AZs diferentes precisam ler e gravar os mesmos arquivos." → EFS.
+**Fundamento explicado no capítulo:** **Mount targets**; Um por AZ, com security group; instâncias montam pelo DNS do EFS.
 
 **Pergunta:** "Reduzir custo de arquivos pouco acessados no EFS."
 
 **Resposta curta:** Lifecycle para IA/Archive.
-
-
-**Fundamento explicado no capítulo:** "Reduzir custo de arquivos pouco acessados no EFS." → Lifecycle para IA/Archive.
-
 
 ## 7. Fontes e próximos passos
 

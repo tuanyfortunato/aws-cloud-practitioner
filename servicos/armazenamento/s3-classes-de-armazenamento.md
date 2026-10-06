@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo (S3 e S3 Glacier) · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Descubra com que frequência o conteúdo será acessado e quanto tempo pode esperar por recuperação.
 
@@ -53,9 +48,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **objeto:** Unidade de dados guardada no armazenamento de objetos: conteúdo, identificação e informações associadas. Não é uma máquina nem um programa em execução.
 - **metadados:** Informações que descrevem outros dados, como características de um objeto. Conhecer a descrição não significa ler todo o conteúdo.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Classe | Uso | Disponibilidade (design) | AZs | Duração mínima | Tamanho mínimo cobrado | Recuperação | Taxa de recuperação |
 |---|---|---|---|---|---|---|---|
 | **S3 Standard** | Acesso frequente | 99,99% | ≥3 | — | — | ms | Não |
@@ -67,17 +59,13 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | **S3 Glacier Flexible Retrieval** | Arquivo sem pressa | 99,99% | ≥3 | **90 dias** | 40 KB (metadados) | Expedited **1–5 min** para objetos < 250 MB ✔️ · Standard **3–5 h** · Bulk **5–12 h** (grátis) | Sim (Bulk grátis) |
 | **S3 Glacier Deep Archive** | Retenção de longo prazo (7–10 anos) | 99,99% | ≥3 | **180 dias** | 40 KB (metadados) | Standard **até 12 h** · Bulk **até 48 h** · **sem Expedited** | Sim |
 
-
 **Antes de ler este trecho:**
 
 - **durabilidade:** Capacidade de preservar os dados armazenados. É diferente de disponibilidade, que trata de conseguir acessá-los quando necessário.
 
-
 📌 Todas têm durabilidade de **11 noves**.
 
-
 📌 Classe padrão do upload: **S3 Standard**.
-
 
 Objetos apagados/movidos antes da duração mínima pagam o restante do período (*early deletion*).
 
@@ -86,9 +74,6 @@ Objetos apagados/movidos antes da duração mínima pagam o restante do período
 **Antes de ler este trecho:**
 
 - **SLA:** Acordo de nível de serviço com condições e medidas próprias. Não é garantia de que a aplicação do cliente nunca falhará.
-
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
 
 | Classe | Disponibilidade de projeto | SLA |
 |---|---|---|
@@ -99,8 +84,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 ### Intelligent-Tiering por dentro
 
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Camada | Quando o objeto vai para lá |
 |---|---|
 | Frequent Access | Ao entrar |
@@ -108,8 +91,6 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 | Archive Instant Access | Após **90 dias** sem acesso |
 | Archive Access (opcional) | Após 90+ dias (configurável) |
 | Deep Archive Access (opcional) | Após 180+ dias (configurável) |
-
-
 
 Um acesso traz o objeto de volta para Frequent Access. ✔️ Cobra uma taxa mensal de **monitoramento e automação por objeto**; recuperações Standard e Bulk são **gratuitas**, mas a recuperação **Expedited** da camada opcional Archive Access é **cobrada**. Objetos < 128 KB não são monitorados (ficam em Frequent Access, sem taxa de monitoramento).
 
@@ -119,11 +100,9 @@ Um acesso traz o objeto de volta para Frequent Access. ✔️ Cobra uma taxa men
 Standard ──30d──▶ Standard-IA ──60d──▶ Glacier Instant/Flexible ──180d──▶ Deep Archive ──(expiração)──▶ apagado
 ```
 
-
 **Antes de ler este trecho:**
 
 - **tag:** Par de nome e valor associado a recursos ou objetos compatíveis. Ajuda organização; usos em permissões e cobrança dependem de configuração e suporte.
-
 
 Regras podem filtrar por prefixo ou tag e também apagar **versões antigas** e **uploads multipart incompletos**.
 
@@ -131,9 +110,7 @@ Regras podem filtrar por prefixo ou tag e também apagar **versões antigas** e 
 
 Objetos em Flexible Retrieval/Deep Archive precisam de **restore** (cria uma cópia temporária por N dias) antes de serem lidos.
 
-
 🔄 O **Amazon Glacier** original (serviço de *vaults*, com Glacier Vault Lock) é diferente das classes S3 Glacier e está **fechado a novos clientes** desde 07/11/2025. Hoje se usa o Glacier pelas classes do S3.
-
 
 O Express One Zone usa *directory buckets* e **não** suporta transições de Lifecycle.
 
@@ -145,13 +122,11 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 - **volume:** Disco lógico apresentado a um sistema. Precisa ser preparado para uso; conservar um volume e manter uma máquina executando são decisões diferentes.
 
-
 Armazenamento mais barato por volume pode ter cobrança de recuperação, prazo mínimo e espera para obter o conteúdo. A classe deve atender ao tempo em que você precisa dos dados.
 
 ### ⚠️ Pegadinhas
 
 "Acesso imprevisível" → **Intelligent-Tiering**.
-
 
 "Raro, mas precisa abrir **na hora**" → **Glacier Instant Retrieval** (não Flexible).
 
@@ -159,27 +134,19 @@ Armazenamento mais barato por volume pode ter cobrança de recuperação, prazo 
 
 - **AZ:** Parte isolada da infraestrutura dentro de uma região, formada por um ou mais datacenters. Distribuir recursos entre zonas pode reduzir o impacto de uma falha localizada.
 
-
 "Pode ser regenerado" / "uma AZ basta" → **One Zone-IA**.
 
 **Antes de ler este trecho:**
 
 - **compliance:** Atendimento a requisitos definidos. Usar um serviço com certificações não torna automaticamente a aplicação do cliente conforme.
 
-
 "Compliance 7 anos, menor custo, até 48 h" → **Deep Archive**.
-
 
 "Menor latência possível" → **Express One Zone**.
 
-
 Deep Archive **não tem Expedited**.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 A escola mantém materiais atuais em uma classe de acesso frequente e avalia uma classe de arquivo para documentos que quase nunca consulta.
 
@@ -199,28 +166,11 @@ A escola mantém materiais atuais em uma classe de acesso frequente e avalia uma
 
 - **resiliência:** Capacidade de resistir e recuperar-se de falhas. Requer escolher quais falhas serão tratadas e como a operação continuará.
 
-
 **Outra situação comentada:** Arquivo raro que deve abrir imediatamente: Glacier Instant Retrieval; espera de horas permite outras classes.
 
 **Por que não concluir mais do que isso:** Glacier Instant Retrieval não requer espera de restore como Flexible/Deep Archive; uma AZ reduz resiliência a perda da AZ
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Nem todo arquivo precisa do mesmo tipo de acesso. Uma foto usada todo dia e um documento guardado por anos podem exigir custos e tempos de recuperação diferentes.
-
-**2. O que a solução fornece?**
-
-As classes do S3 oferecem opções de armazenamento conforme frequência de acesso, disponibilidade e recuperação. Você escolhe a classe ou configura regras compatíveis para mudar objetos ao longo do tempo.
-
-**3. Que conclusão seria incorreta?**
-
-Armazenamento mais barato por volume pode ter cobrança de recuperação, prazo mínimo e espera para obter o conteúdo. A classe deve atender ao tempo em que você precisa dos dados.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -228,32 +178,19 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Glacier Deep Archive.
 
-
-**Fundamento explicado no capítulo:** "Classe mais barata para arquivamento de longo prazo?" → Glacier Deep Archive.
-
 **Pergunta:** "Qual classe guarda dados em uma única AZ?"
 
 **Resposta curta:** One Zone-IA (ou Express One Zone).
-
-
-**Fundamento explicado no capítulo:** "Qual classe guarda dados em uma única AZ?" → One Zone-IA (ou Express One Zone).
 
 **Pergunta:** "Recuperar arquivo do Glacier em minutos."
 
 **Resposta curta:** Glacier Flexible Retrieval com Expedited.
 
-
-**Fundamento explicado no capítulo:** "Recuperar arquivo do Glacier em minutos." → Glacier Flexible Retrieval com Expedited.
-
 **Pergunta:** "Duração mínima do Deep Archive?"
 
 **Resposta curta:** 180 dias.
 
-
-**Fundamento explicado no capítulo:** "Duração mínima do Deep Archive?" → 180 dias.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

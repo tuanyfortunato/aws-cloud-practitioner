@@ -21,14 +21,13 @@
 
 ---
 
-> **Domínio 1 — Conceitos de Nuvem (24%)** · **Status:** 🔴 Não iniciado <!-- 🔴 Não iniciado | 🟡 Em andamento | 🟢 Revisado -->
+> **Domínio 1 — Conceitos de Nuvem (24%)**
 
 🏠 [Índice do domínio](README.md) · [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) ➡️
 
 ---
 
 ## 1. Entenda as peças e a relação entre elas
-
 
 Separe três coisas: o equipamento físico, o software básico da máquina e o programa usado pelo negócio. Contratar uma máquina transfere a manutenção do equipamento, mas ainda deixa o sistema e o programa para administrar. Contratar uma plataforma transfere mais tarefas; contratar um software pronto muda novamente a divisão.
 
@@ -47,9 +46,7 @@ Por isso, a pergunta principal não é apenas ‘está na nuvem?’. Pergunte o 
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 
-
 **Definição AWS:** entrega de recursos de TI sob demanda, pela internet, com preço pay-as-you-go.
-
 
 **Modelos de serviço:**
 
@@ -61,7 +58,6 @@ Por isso, a pergunta principal não é apenas ‘está na nuvem?’. Pergunte o 
 - **SO:** Software básico da máquina, como Linux ou Windows. Ele administra arquivos, memória e execução de programas; atualizar esse software é diferente de atualizar a aplicação.
 - **IaaS:** Infraestrutura como serviço: você obtém recursos como uma máquina virtual e administra o sistema operacional e o software instalado.
 
-
   - **IaaS:** você recebe a infraestrutura e gerencia SO e acima. Ex.: EC2, VPC, EBS.
 **Antes de ler este trecho:**
 
@@ -71,22 +67,18 @@ Por isso, a pergunta principal não é apenas ‘está na nuvem?’. Pergunte o 
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 - **PaaS:** Plataforma como serviço: parte da infraestrutura e do ambiente de execução é administrada para você entregar a aplicação. O código e suas regras continuam sendo do cliente.
 
-
   - **PaaS:** você entrega o código; a plataforma cuida do resto. Ex.: Elastic Beanstalk, Lambda (também chamado serverless), RDS.
 **Antes de ler este trecho:**
 
 - **Amazon Connect / Connect:** Amazon Connect oferece uma plataforma de contact center em nuvem com canais e recursos compatíveis.
 - **SaaS:** Software como serviço: aplicação pronta disponibilizada para uso. O cliente administra seu uso e seus dados conforme a oferta, em vez de construir o software do zero.
 
-
   - **SaaS:** software pronto para usar. Ex.: Amazon Connect, WorkSpaces, Gmail.
 **Antes de ler este trecho:**
 
 - **implantação:** Colocar uma versão ou conjunto de recursos em funcionamento. O resultado precisa ser observado e, quando necessário, revertido de modo planejado.
 
-
 **Modelos de implantação:**
-
 
   - **Nuvem (cloud-native/all-in):** tudo na nuvem pública.
 **Antes de ler este trecho:**
@@ -97,12 +89,10 @@ Por isso, a pergunta principal não é apenas ‘está na nuvem?’. Pergunte o 
 - **on-premises:** Ambiente mantido nas instalações da organização. Uma arquitetura híbrida usa esse ambiente e recursos de nuvem em conjunto.
 - **híbrido:** Combinação de ambiente próprio e nuvem. É necessário definir quais partes ficam em cada lado e como se comunicam.
 
-
   - **Híbrido:** parte on-premises, parte na nuvem, conectadas (VPN, Direct Connect, Storage Gateway, Outposts).
 **Antes de ler este trecho:**
 
 - **datacenter:** Instalação física com equipamentos de computação, rede, energia e refrigeração. A nuvem continua dependendo desses equipamentos, mas o cliente não precisa manter o prédio.
-
 
   - **On-premises / nuvem privada:** recursos no próprio datacenter, com virtualização e ferramentas de gestão.
 
@@ -117,7 +107,6 @@ Por isso, a pergunta principal não é apenas ‘está na nuvem?’. Pergunte o 
 - **virtual:** Um recurso virtual é criado por software sobre equipamentos físicos. VM significa máquina virtual: computador lógico com sistema operacional e recursos de processamento.
 - **gerenciado:** Parte da operação é realizada pelo provedor. O cliente continua responsável pelas decisões e camadas não incluídas nessa administração.
 
-
 **Primeiro, identifique o funcionamento:** A conta identifica o proprietário e a cobrança; serviços entregam recursos por APIs. Você escolhe o nível de gerenciamento: servidor, plataforma ou aplicação pronta. Console, CLI e SDK são formas de pedir operações a essas APIs.
 
 **Depois, compare as escolhas:** Compare o que sua equipe precisa administrar: EC2 entrega a máquina virtual; RDS administra parte do banco; SaaS entrega a aplicação para uso. Híbrido combina ambiente próprio e nuvem.
@@ -130,25 +119,7 @@ Uma empresa quer instalar um sistema que exige administrar o Linux. Que modelo a
 
 **Raciocínio e resposta:** IaaS com EC2; o cliente atualiza o SO convidado. Em RDS, esse controle é reduzido porque a AWS administra o sistema do banco.
 
-A resposta muda se mudar o requisito destacado. Compare a necessidade com a função da solução, em vez de apenas associar duas palavras.
-
 ## 5. Revisão do capítulo
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Uma escola quer disponibilizar um sistema, mas comprar e manter computadores próprios pode exigir dinheiro e trabalho antes mesmo do primeiro aluno usar.
-
-**2. O que a solução fornece?**
-
-Nuvem é uma forma de obter recursos de tecnologia de um provedor, como a AWS, quando necessário. Você contrata recursos como computadores e armazenamento e administra a parte que cabe a você.
-
-**3. Que conclusão seria incorreta?**
-
-Usar nuvem não significa que tudo está pronto, gratuito ou administrado pelo provedor. Este tópico ensina a reconhecer os modelos e o trabalho que permanece com o cliente.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 **Objetivos de aprendizagem:**
 
@@ -165,40 +136,21 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** IaaS (EC2).
 
-**Antes de ler este trecho:**
-
-- **modelo:** Representação ou base usada para produzir algo. Uma imagem pode ser um modelo de máquina; um modelo de IA é ajustado com dados para gerar resultados. O sentido depende do contexto.
-
-
-**Fundamento explicado no capítulo:** "Qual modelo de serviço dá mais controle sobre o sistema operacional?" → IaaS (EC2).
-
 **Pergunta:** "Uma empresa quer só enviar o código sem gerenciar infraestrutura. Qual modelo?"
 
 **Resposta curta:** PaaS (Elastic Beanstalk).
-
-
-**Fundamento explicado no capítulo:** "Uma empresa quer só enviar o código sem gerenciar infraestrutura. Qual modelo?" → PaaS (Elastic Beanstalk).
 
 **Pergunta:** "Qual é um exemplo de SaaS?"
 
 **Resposta curta:** Amazon Connect, WorkSpaces ou um software pronto como e-mail.
 
-
-**Fundamento explicado no capítulo:** "Qual é um exemplo de SaaS?" → Amazon Connect, WorkSpaces ou um software pronto como e-mail.
-
 **Pergunta:** "Qual modelo de implantação liga o datacenter próprio à AWS?"
 
 **Resposta curta:** Híbrido.
 
-
-**Fundamento explicado no capítulo:** "Qual modelo de implantação liga o datacenter próprio à AWS?" → Híbrido.
-
 **Pergunta:** "O que caracteriza computação em nuvem?"
 
 **Resposta curta:** Recursos sob demanda, pela internet, pagando pelo uso.
-
-
-**Fundamento explicado no capítulo:** "O que caracteriza computação em nuvem?" → Recursos sob demanda, pela internet, pagando pelo uso.
 
 <!-- extra:inicio -->
 <!-- extra:fim -->

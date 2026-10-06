@@ -26,12 +26,7 @@
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
-
 
 **Passo 1.** Identifique quais entidades e relações precisam ser representadas.
 
@@ -47,7 +42,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 
 - **RDF / SPARQL:** RDF representa informações por relações; SPARQL é uma linguagem de consulta desse modelo. São opções específicas de trabalho com grafos.
 
-
 Modelos **Property Graph** (Gremlin, openCypher) e **RDF** (SPARQL).
 
 **Antes de ler este trecho:**
@@ -56,13 +50,11 @@ Modelos **Property Graph** (Gremlin, openCypher) e **RDF** (SPARQL).
 - **global:** Alcance que não se limita ao gerenciamento de uma única região. Isso não significa que cada dado foi automaticamente copiado para todo o mundo.
 - **serverless:** Modelo em que o cliente não administra diretamente os servidores da execução. Os servidores existem e há cobrança, configuração e limites.
 
-
 Até 15 réplicas de leitura, 6 cópias em 3 AZs, Neptune Serverless, Neptune Analytics, Global Database.
 
 **Antes de ler este trecho:**
 
 - **rede:** Conjunto de caminhos e regras para computadores e recursos se comunicarem. Existir na mesma conta não garante comunicação entre dois recursos.
-
 
 Uso: **redes sociais** ("amigos de amigos"), **motores de recomendação**, **detecção de fraude**, grafos de conhecimento, segurança de rede.
 
@@ -72,11 +64,7 @@ Uma opção deve atender ao requisito da aplicação. Compare função, compatib
 
 Ele não é a escolha padrão para qualquer dado nem decide sozinho se há fraude. Você modela as relações e as consultas necessárias.
 
-## 4. Operação, segurança e custo
-
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-## 5. Caso resolvido: ligando as peças
+## 4. Caso resolvido: ligando as peças
 
 Uma investigação de fraude procura contas ligadas ao mesmo dispositivo e a outras contas suspeitas. Um grafo permite explorar esses caminhos.
 
@@ -92,28 +80,11 @@ Uma investigação de fraude procura contas ligadas ao mesmo dispositivo e a out
 
 **Decisões que precisam ser tomadas:** Modelo e linguagem de consulta compatíveis, capacidade e acesso.
 
-
 **Outra situação comentada:** Descobrir relações entre pessoas e contas para fraude: grafo com Neptune.
 
 **Por que não concluir mais do que isso:** Não é sinônimo de dashboard nem banco relacional tradicional
 
-## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Algumas perguntas dependem das relações entre pessoas, contas ou produtos, e não apenas dos campos de um registro isolado.
-
-**2. O que a solução fornece?**
-
-Neptune é um banco de grafos: representa entidades e as conexões entre elas para consultar relações.
-
-**3. Que conclusão seria incorreta?**
-
-Ele não é a escolha padrão para qualquer dado nem decide sozinho se há fraude. Você modela as relações e as consultas necessárias.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
+## 5. Revisão e perguntas
 
 ### ❓ Perguntas típicas
 
@@ -121,18 +92,11 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Neptune.
 
-
-**Fundamento explicado no capítulo:** "Recomendações baseadas em relacionamentos complexos." → Neptune.
-
 **Pergunta:** "Detectar anéis de fraude analisando conexões."
 
 **Resposta curta:** Neptune.
 
-
-**Fundamento explicado no capítulo:** "Detectar anéis de fraude analisando conexões." → Neptune.
-
-
-## 7. Fontes e próximos passos
+## 6. Fontes e próximos passos
 
 Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
 

@@ -26,17 +26,12 @@
 >
 > **Escopo oficial:** 🔀 CLI e Management Console ✅ · CloudShell ❌ fora do escopo · Cloud9 ⚪ não listado · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## Roteiro de leitura
-
-Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as escolhas. Use o caso resolvido para ligar as peças; as perguntas finais servem à revisão.
-
 ## 1. A sequência de funcionamento
 
 **Antes de ler este trecho:**
 
 - **AWS:** Amazon Web Services: provedor dos serviços de nuvem estudados aqui. Uma conta pode criar recursos e recebe cobrança conforme os serviços utilizados.
 - **identidade:** Quem realiza uma ação: pessoa, programa ou sessão. Identificar o autor é diferente de decidir se a ação está autorizada.
-
 
 **Passo 1.** Escolha comandos, biblioteca de programação ou terminal conforme a forma de trabalho.
 
@@ -65,9 +60,6 @@ Leia primeiro os fundamentos e a sequência. Depois examine os recursos e as esc
 - **CDK:** Ferramentas de desenvolvimento e descrição de infraestrutura. CDK ajuda a definir recursos por programação; SAM é voltado a aplicações serverless compatíveis.
 - **PHP:** Linguagem de programação usada em aplicações. A plataforma de hospedagem precisa de ambiente compatível para executar seu código.
 
-
-Leia cada linha como uma alternativa e cada coluna como um critério de comparação. Uma diferença numa coluna não garante que a opção atende a todos os demais requisitos.
-
 | Forma | Autenticação | Melhor para |
 |---|---|---|
 | **AWS Management Console** | Usuário/senha + MFA (ou SSO) | Tarefas pontuais, exploração, visualização; existe **app móvel** |
@@ -85,9 +77,7 @@ Leia cada linha como uma alternativa e cada coluna como um critério de compara�
 
 Preferir credenciais **temporárias** (Identity Center, roles) a access keys de longo prazo.
 
-
 Nunca colocar access keys no código ou em repositórios.
-
 
 Tarefas repetíveis → automatizar (CLI, SDK, CloudFormation), não clicar no console.
 
@@ -107,13 +97,11 @@ Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe 
 
 - **IDE:** Ambiente de desenvolvimento com ferramentas para editar e trabalhar com código. Não é necessariamente o local que hospeda a aplicação em produção.
 
-
 **AWS Cloud9** (IDE no navegador) está **fechado a novos clientes** desde 25/07/2024 → use **CloudShell** ou IDEs locais com o AWS Toolkit. Ainda pode aparecer na prova como "IDE baseada em navegador".
 
 **Antes de ler este trecho:**
 
 - **Amazon Q / Q:** A família Amazon Q inclui assistentes com funções diferentes: Q Developer apoia desenvolvimento; Q Business trabalha com conhecimento corporativo conectado e autorizado.
-
 
 **AWS Toolkits** (VS Code, JetBrains) e **Amazon Q Developer** integram a AWS às IDEs.
 
@@ -133,28 +121,11 @@ Uma desenvolvedora usa um comando para consultar recursos. Seu aplicativo usa um
 
 **Decisões que precisam ser tomadas:** Credenciais temporárias, região, serviço e operação.
 
-
 **Outra situação comentada:** Automatizar no Python: SDK; operar por terminal: CLI; reproduzir infraestrutura: IaC.
 
 **Por que não concluir mais do que isso:** CloudShell não concede privilégio extra e está fora do escopo; SDK permanece conceito do guia
 
 ## 6. Revisão e perguntas
-
-### Confira se você compreendeu
-
-**1. Qual dificuldade está sendo resolvida?**
-
-Operar tudo clicando em telas pode ser lento. A equipe quer executar comandos ou fazer seu próprio programa interagir com a AWS.
-
-**2. O que a solução fornece?**
-
-CLI oferece comandos; SDKs oferecem bibliotecas para programação; CloudShell fornece um terminal pelo navegador. São formas diferentes de acessar operações AWS.
-
-**3. Que conclusão seria incorreta?**
-
-Mudar a forma de acesso não concede mais permissões. CLI e SDK não são recursos de hospedagem; o escopo da prova para cada ferramenta está indicado abaixo.
-
-Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao funcionamento e explique qual recurso recebe a entrada, realiza o trabalho e conserva o resultado.
 
 ### ❓ Perguntas típicas
 
@@ -162,23 +133,13 @@ Tente responder antes de ler o comentário. Se apenas lembrar o nome, volte ao f
 
 **Resposta curta:** Console, CLI, SDKs, APIs (e CloudShell).
 
-
-**Fundamento explicado no capítulo:** "Formas de interagir com a AWS?" → Console, CLI, SDKs, APIs (e CloudShell).
-
 **Pergunta:** "Chamar a AWS dentro de um código Python."
 
 **Resposta curta:** SDK (boto3).
 
-
-**Fundamento explicado no capítulo:** "Chamar a AWS dentro de um código Python." → SDK (boto3).
-
 **Pergunta:** "Executar comandos da CLI sem instalar nada."
 
 **Resposta curta:** CloudShell.
-
-
-**Fundamento explicado no capítulo:** "Executar comandos da CLI sem instalar nada." → CloudShell.
-
 
 ## 7. Fontes e próximos passos
 
