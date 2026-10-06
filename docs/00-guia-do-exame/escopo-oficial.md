@@ -50,7 +50,7 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 | **3.1** | Define methods of deploying and operating in the AWS Cloud | [3.1](../03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md) · [3.16](../03-tecnologia-e-servicos/16-gestao-e-governanca.md) |
 | **3.2** | Define the AWS global infrastructure | [3.2](../03-tecnologia-e-servicos/02-infraestrutura-global.md) |
 | **3.3** | Identify AWS compute services | [3.3](../03-tecnologia-e-servicos/03-ec2.md) · [3.4](../03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md) · [3.5](../03-tecnologia-e-servicos/05-containers-e-serverless.md) · [3.6](../03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md) |
-| **3.4** | Identify AWS database services | [3.7](../03-tecnologia-e-servicos/07-bancos-de-dados.md) |
+| **3.4** | Identify AWS database services | [3.7](../03-tecnologia-e-servicos/07-bancos-de-dados.md) · [3.17 DMS e SCT](../03-tecnologia-e-servicos/17-migracao-e-transferencia.md) |
 | **3.5** | Identify AWS network services | [3.10](../03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) |
 | **3.6** | Identify AWS storage services | [3.8](../03-tecnologia-e-servicos/08-s3.md) · [3.9](../03-tecnologia-e-servicos/09-outros-armazenamentos.md) |
 | **3.7** | Identify AWS AI/ML services and analytics services (SageMaker AI, Lex, Athena, Kinesis, Glue, Quick Sight…) | [3.11](../03-tecnologia-e-servicos/11-analytics.md) · [3.12](../03-tecnologia-e-servicos/12-ia-e-machine-learning.md) |
@@ -58,6 +58,8 @@ oficial das tasks. A tabela abaixo liga uma à outra.
 | **4.1** | Compare AWS pricing models (On-Demand, RIs, Spot, Savings Plans, Dedicated Hosts/Instances, Capacity Reservations; flexibilidade de RIs e RIs no Organizations) | [4.1](../04-cobranca-precos-e-suporte/01-principios-de-preco.md) · [4.2](../04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.md) · [4.3](../04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md) |
 | **4.2** | Understand resources for billing, budget, and cost management | [4.4](../04-cobranca-precos-e-suporte/04-ferramentas-de-custo.md) |
 | **4.3** | Identify AWS technical resources and AWS Support options (**Basic Support, Business Support+, Enterprise Support e Unified Operations**, conferido em 06/10/2026; Trusted Advisor, Health Dashboard e Health API; Trust and Safety, APN, Marketplace, Professional Services, Prescriptive Guidance, Knowledge Center, re:Post) | [4.5](../04-cobranca-precos-e-suporte/05-planos-de-suporte.md) · [4.6](../04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md) |
+
+A [rastreabilidade](../../simulados/questoes/rastreabilidade.md) liga cada task também às questões que a praticam.
 
 ## 🔍 O que cada task cita (termos do exam guide)
 

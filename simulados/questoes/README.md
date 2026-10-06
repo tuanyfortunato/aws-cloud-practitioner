@@ -13,3 +13,5 @@ Questões no formato da prova, agrupadas por domínio e tópico para estudo dire
 
 1. Inclua a questão em [`scripts/banco_questoes.py`](../../scripts/banco_questoes.py) (enunciado, alternativas corretas, distratores e explicação).
 2. Rode `python3 scripts/gerar_simulado.py`.
+
+A [rastreabilidade](rastreabilidade.md) liga cada *task* oficial do exame às aulas e às questões.
