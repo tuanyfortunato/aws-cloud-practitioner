@@ -5,8 +5,8 @@ Questões no formato da prova, agrupadas por domínio e tópico para estudo dire
 | Domínio | Peso | Questões |
 |---|---|---|
 | [Domínio 1 — Conceitos de Nuvem](dominio-1.md) | 24% | 16 |
-| [Domínio 2 — Segurança e Conformidade](dominio-2.md) | 30% | 20 |
-| [Domínio 3 — Tecnologia e Serviços de Nuvem](dominio-3.md) | 34% | 21 |
+| [Domínio 2 — Segurança e Conformidade](dominio-2.md) | 30% | 23 |
+| [Domínio 3 — Tecnologia e Serviços de Nuvem](dominio-3.md) | 34% | 26 |
 | [Domínio 4 — Cobrança, Preços e Suporte](dominio-4.md) | 12% | 8 |
 
 ## Adicionar questões
