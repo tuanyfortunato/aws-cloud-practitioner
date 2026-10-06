@@ -1,91 +1,41 @@
-# Amazon DocumentDB (compatível com MongoDB)
+<!-- autoral -->
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
+# Amazon DocumentDB
 
-**Qual é a dificuldade?** A aplicação guarda registros como documentos com vários campos e precisa de um banco com interface compatível com parte do ecossistema MongoDB.
-
-**Como este serviço ajuda?** DocumentDB armazena e consulta documentos, como registros estruturados de produtos. A AWS gerencia a infraestrutura do banco conforme a oferta.
-
-**Exemplo do dia a dia:** Um catálogo guarda, em cada documento, o nome do produto, características e outras informações. A equipe avalia a compatibilidade das consultas antes de usar DocumentDB.
-
-**O que ele não resolve sozinho?** Compatibilidade com MongoDB não significa identidade em todas as funções e versões. Ele não é um serviço para simplesmente guardar PDFs como arquivos.
-
-**Primeiras palavras para entender:**
-
-- **Documento:** registro estruturado com campos.
-- **Campo:** informação nomeada dentro do registro.
-- **Compatibilidade:** suporte às interfaces esperadas pela aplicação.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Banco de documentos · **Domínio:** 3 · **Escopo:** Regional (cluster multi-AZ) · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
+> **Categoria:** Banco de documentos · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** complementar
 >
-> **Em uma frase:** banco de documentos JSON gerenciado, compatível com as APIs e drivers do MongoDB.
+> **Em uma frase:** banco de documentos totalmente gerenciado para aplicações feitas para o MongoDB, que roda o mesmo código, drivers e ferramentas.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 
-**Passo 1.** Avalie as operações e estruturas que sua aplicação usa na interface de documentos.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare um ambiente compatível e grave registros estruturados. A aplicação consulta campos e documentos por suas operações.
+---
 
-**Passo 3.** Teste as diferenças de compatibilidade e planeje cópias e acessos. O nome documento não significa armazenar qualquer arquivo PDF como num bucket.
+## Como funciona
 
-## 2. Recursos e opções, com significado
+O aplicativo de atividades extracurriculares da escola foi escrito para o MongoDB e guarda cada atividade como um **documento** (um registro com campos flexíveis). A equipe quer parar de cuidar dos servidores do banco. O **Amazon DocumentDB** roda o mesmo código e os mesmos drivers usados com o MongoDB, gerenciado pela AWS.
 
-### Destaques
+1. Cria-se um cluster: baseado em instâncias ou elástico, para milhões de leituras e gravações por segundo.
+2. A aplicação se conecta com os mesmos drivers do MongoDB.
+3. O armazenamento cresce sozinho à medida que os dados aumentam, sem provisionar espaço antes.
+4. Réplicas de leitura aumentam a capacidade de leitura.
 
-Arquitetura parecida com a do Aurora: armazenamento distribuído (6 cópias em 3 AZs), até 15 réplicas, backups contínuos, criptografia.
+## Não confundir com
 
-Opções *instance-based* e *elastic clusters* (sharding para milhões de leituras/escritas); Global Clusters.
+| Serviço | Diferença | Pista no enunciado |
+|---|---|---|
+| [Amazon DynamoDB](dynamodb.md) | NoSQL chave-valor e documentos, sem servidor, da própria AWS | "Milissegundos em qualquer escala" |
+| [Amazon Neptune](neptune.md) | Banco de grafos | "Relações", "recomendações" |
+| [Amazon RDS](rds.md) | Bancos relacionais gerenciados | "SQL", "MySQL" |
 
-Uso: catálogos, perfis, gerenciamento de conteúdo, migração de MongoDB para serviço gerenciado.
+## Fontes oficiais
 
-## 3. Como escolher e reconhecer os limites
+Verificadas em 06/10/2026.
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
-
-Compatibilidade com MongoDB não significa identidade em todas as funções e versões. Ele não é um serviço para simplesmente guardar PDFs como arquivos.
-
-## 4. Caso resolvido: ligando as peças
-
-Um catálogo guarda, em cada documento, o nome do produto, características e outras informações. A equipe avalia a compatibilidade das consultas antes de usar DocumentDB.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Avalie as operações e estruturas que sua aplicação usa na interface de documentos.
-**Etapa 2:** Prepare um ambiente compatível e grave registros estruturados. A aplicação consulta campos e documentos por suas operações.
-**Etapa 3:** Teste as diferenças de compatibilidade e planeje cópias e acessos. O nome documento não significa armazenar qualquer arquivo PDF como num bucket.
-
-**Resultado e responsabilidade:** DocumentDB armazena e consulta documentos, como registros estruturados de produtos. A AWS gerencia a infraestrutura do banco conforme a oferta.
-
-**Recursos envolvidos:** Cluster de documentos, instâncias, endpoints e índices.
-
-**Decisões que precisam ser tomadas:** Versão/API compatível, rede, capacidade e backup.
-
-**Outra situação comentada:** Migrar aplicação documental: valide as operações usadas; não suponha migração sem teste só por usar driver semelhante.
-
-**Por que não concluir mais do que isso:** Compatibilidade não garante todos os recursos ou comportamento do MongoDB
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Migrar banco MongoDB para um serviço gerenciado."
-
-**Resposta curta:** DocumentDB.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [DocumentDB](https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html)
-
+- [O que é o Amazon DocumentDB](https://docs.aws.amazon.com/documentdb/latest/devguide/what-is.html)
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
 
