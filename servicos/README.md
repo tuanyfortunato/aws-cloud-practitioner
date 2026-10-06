@@ -63,14 +63,14 @@ Uma ficha por serviço (ou família de serviços), com o que cai na prova e o qu
 
 | Ficha | Escopo | Grupo | Em uma frase |
 |---|---|---|---|
-| [Amazon VPC (Virtual Private Cloud)](redes/vpc.md) | ✅ | núcleo | Sua rede privada, isolada logicamente, dentro de uma região da AWS. |
-| [VPC Peering, Transit Gateway, VPC Endpoints e PrivateLink](redes/vpc-peering-transit-gateway-e-endpoints.md) | ✅ | núcleo | Formas de conectar VPCs entre si e de acessar serviços sem passar pela internet. |
-| [AWS VPN (Site-to-Site VPN e Client VPN)](redes/site-to-site-vpn-e-client-vpn.md) | ✅ | núcleo | Túneis criptografados (IPsec/TLS) pela internet para ligar redes ou usuários à sua VPC. |
-| [AWS Direct Connect](redes/direct-connect.md) | ✅ | núcleo | Conexão de rede **física, dedicada e privada** entre seu datacenter e a AWS, sem passar pela internet. |
-| [Amazon Route 53](redes/route-53.md) | ✅ | núcleo | DNS gerenciado e altamente disponível (o "53" é a porta do DNS), com registro de domínios, roteamento inteligente e health checks. |
-| [Amazon CloudFront](redes/cloudfront.md) | ✅ | núcleo | Rede de distribuição de conteúdo (CDN) que faz **cache** perto dos usuários, reduzindo latência e carga na origem. |
-| [AWS Global Accelerator](redes/global-accelerator.md) | ✅ | núcleo | Fornece **2 IPs anycast estáticos** e leva o tráfego TCP/UDP pela rede global da AWS até o endpoint saudável mais próximo. |
-| [Amazon API Gateway](redes/api-gateway.md) | ✅ | núcleo | Cria, publica, protege e monitora APIs em qualquer escala — a "porta da frente" de back-ends serverless. |
+| [Amazon VPC (Virtual Private Cloud)](redes/vpc.md) | ✅ | núcleo | Rede virtual isolada logicamente, definida por você, onde ficam os recursos da AWS numa Região. |
+| [VPC Peering, Transit Gateway, VPC Endpoints e PrivateLink](redes/vpc-peering-transit-gateway-e-endpoints.md) | ✅ | núcleo | Formas de ligar VPCs entre si e de acessar serviços de forma privada, sem passar pela internet. |
+| [AWS VPN (Site-to-Site VPN e Client VPN)](redes/site-to-site-vpn-e-client-vpn.md) | ✅ | núcleo | Túneis criptografados pela internet que ligam uma rede local (Site-to-Site) ou cada usuário (Client VPN) à AWS. |
+| [AWS Direct Connect](redes/direct-connect.md) | ✅ | núcleo | Conexão de rede dedicada e privada entre o datacenter e a AWS, por fibra, sem passar pelos provedores de internet. |
+| [Amazon Route 53](redes/route-53.md) | ✅ | núcleo | DNS gerenciado da AWS, que registra domínios, liga nomes aos recursos e desvia o tráfego de recursos com falha. |
+| [Amazon CloudFront](redes/cloudfront.md) | ✅ | núcleo | Rede de entrega de conteúdo (CDN) que guarda cópias nos locais de borda, perto dos usuários, e reduz a latência e a carga na origem. |
+| [AWS Global Accelerator](redes/global-accelerator.md) | ✅ | núcleo | Dá à aplicação dois IPs estáticos anycast e leva o tráfego TCP ou UDP pela rede global da AWS até o endpoint saudável mais adequado. |
+| [Amazon API Gateway](redes/api-gateway.md) | ✅ | núcleo | Cria, publica, mantém, monitora e protege APIs REST, HTTP e WebSocket em qualquer escala; a porta de entrada de back-ends serverless. |
 
 ## 🔐 Segurança, identidade e compliance
 

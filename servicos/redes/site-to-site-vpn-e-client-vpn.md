@@ -1,122 +1,68 @@
+<!-- autoral -->
+
 # AWS VPN (Site-to-Site VPN e Client VPN)
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa precisa conectar sua rede à AWS, ou permitir que uma pessoa trabalhando remotamente acesse recursos privados.
-
-**Como este serviço ajuda?** Site-to-Site VPN liga redes por um túnel criptografado. Client VPN permite acesso remoto de dispositivos de usuários, conforme autenticação e configuração.
-
-**Exemplo do dia a dia:** A sede usa Site-to-Site VPN para se conectar à AWS. Uma funcionária remota pode usar Client VPN para acessar recursos autorizados.
-
-**O que ele não resolve sozinho?** VPN não é um circuito físico dedicado nem torna todo usuário autorizado a tudo. Rotas, identidade e controles de acesso continuam necessários.
-
-**Primeiras palavras para entender:**
-
-- **VPN:** conexão lógica protegida.
-- **Túnel:** caminho de comunicação encapsulado.
-- **Criptografado:** protegido para impedir a leitura por quem não tem autorização.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Rede / conectividade híbrida · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.10 Rede e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
+> **Categoria:** Rede e conectividade híbrida · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** túneis criptografados (IPsec/TLS) pela internet para ligar redes ou usuários à sua VPC.
+> **Em uma frase:** túneis criptografados pela internet que ligam uma rede local (Site-to-Site) ou cada usuário (Client VPN) à AWS.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.10 Redes e entrega de conteúdo](../../docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md) · base em [3.1 Formas de acessar e implantar na AWS](../../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
 
-**Passo 1.** Identifique se precisa ligar redes ou permitir acesso de dispositivos de usuários.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare a modalidade de VPN correspondente, autenticação quando aplicável e rotas para os recursos necessários.
+---
 
-**Passo 3.** Verifique comunicação e permissões. Um túnel protegido não torna toda aplicação automaticamente acessível.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A secretaria quer acessar a VPC da escola a partir da rede local, de forma privada e criptografada, usando a internet que já tem. E os professores querem entrar na rede de casa.
 
-### AWS Site-to-Site VPN
+O **Site-to-Site VPN** cria uma conexão criptografada (IPsec) pela internet entre a rede local e a AWS. O **Client VPN** é a VPN para pessoas: cada usuário conecta o computador de onde estiver, com um cliente baseado em OpenVPN e conexão TLS criptografada.
 
-| Item | Detalhe |
-|---|---|
-| **Objetivo** | Ligar o **datacenter/escritório** à VPC por **IPsec pela internet**. |
-| **Componentes** | **Customer Gateway** (seu roteador/firewall) ↔ **Virtual Private Gateway** (na VPC) ou **Transit Gateway**. |
-| **Redundância** | ✔️ Cada conexão tem **2 túneis**, cada um com IP público próprio, terminando em AZs distintas; configure os dois. |
-| **Roteamento** | Estático ou dinâmico (**BGP**). |
-| **Accelerated VPN** | Usa a rede do Global Accelerator para melhor desempenho. |
-| **VPN CloudHub** | Vários escritórios se comunicam via o mesmo VGW (hub-and-spoke). |
-| **VPN sobre Direct Connect** | Criptografia ponta a ponta no link dedicado. |
-| **Prazo** | **Minutos** para configurar. |
-| **Limite** | 🧊 Throughput por túnel limitado (≈1,25 Gbps); depende da qualidade da internet. |
+O limite: o caminho é a internet, então banda e latência variam. Para volumes grandes e desempenho previsível, a resposta é o [Direct Connect](direct-connect.md), que pode ser combinado com a VPN para ter uma conexão privada e criptografada.
 
-### AWS Client VPN
+## Como funciona
 
-VPN gerenciada (baseada em OpenVPN) para **usuários remotos** (notebooks) acessarem VPCs e redes on-premises.
+1. **Site-to-Site:** do lado da AWS fica um **virtual private gateway** (ou um Transit Gateway); do lado da escola, um **customer gateway**, o equipamento de rede local.
+2. Cada conexão tem **dois túneis**, cada um terminando numa zona de disponibilidade diferente; se um cai, o tráfego passa pelo outro.
+3. **Client VPN:** você cria um endpoint e associa sub-redes da VPC a ele.
+4. Cada usuário baixa um cliente OpenVPN e o arquivo de configuração e se conecta de qualquer lugar.
 
-Autenticação por certificados, Active Directory ou SAML; escala automaticamente.
+## Opções principais
 
-Pago por associação de subnet-hora + conexão-hora.
+| Opção | Quem se conecta | Pista no enunciado |
+|---|---|---|
+| Site-to-Site VPN | A rede inteira de um escritório ou datacenter | "Ligar a rede local à VPC pela internet" |
+| Client VPN | Cada pessoa, do próprio computador | "Funcionários em casa", "acesso remoto" |
 
-### Comparação
+## Números que a prova cobra
 
-| | Site-to-Site VPN | Client VPN | Direct Connect |
-|---|---|---|---|
-| Quem conecta | Rede inteira | Usuários individuais | Rede inteira |
-| Meio | Internet (IPsec) | Internet (TLS) | Link físico dedicado |
-| Criptografado | ✅ | ✅ | ❌ por padrão |
-| Tempo de setup | Minutos | Minutos | Semanas |
-| Desempenho | Variável | Variável | Consistente |
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Túneis por conexão Site-to-Site | 2, em zonas diferentes | 06/10/2026 |
+| Criptografia | IPsec (Site-to-Site); TLS (Client VPN) | 06/10/2026 |
 
-## 3. Como escolher e reconhecer os limites
+## Como é cobrado
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+O Site-to-Site VPN cobra por hora de conexão provisionada, mais a transferência de dados de saída. O Client VPN cobra por hora de cada sub-rede associada ao endpoint e por hora de cada conexão de usuário ativa.
 
-VPN não é um circuito físico dedicado nem torna todo usuário autorizado a tudo. Rotas, identidade e controles de acesso continuam necessários.
+## Não confundir com
 
-## 4. Caso resolvido: ligando as peças
+| Serviço | Diferença para a VPN | Pista no enunciado |
+|---|---|---|
+| [AWS Direct Connect](direct-connect.md) | Conexão dedicada, sem passar pelos provedores de internet; sem criptografia por padrão | "Banda alta e consistente", "conexão dedicada" |
+| [AWS Transit Gateway](vpc-peering-transit-gateway-e-endpoints.md) | Hub onde várias VPNs e VPCs se encontram | "Muitas VPCs e escritórios" |
+| [Amazon VPC](vpc.md) | A rede onde a VPN chega | "Rede isolada" |
 
-A sede usa Site-to-Site VPN para se conectar à AWS. Uma funcionária remota pode usar Client VPN para acessar recursos autorizados.
+## Fontes oficiais
 
-**Aplicando a sequência à situação:**
+Verificadas em 06/10/2026.
 
-**Etapa 1:** Identifique se precisa ligar redes ou permitir acesso de dispositivos de usuários.
-**Etapa 2:** Prepare a modalidade de VPN correspondente, autenticação quando aplicável e rotas para os recursos necessários.
-**Etapa 3:** Verifique comunicação e permissões. Um túnel protegido não torna toda aplicação automaticamente acessível.
-
-**Resultado e responsabilidade:** Site-to-Site VPN liga redes por um túnel criptografado. Client VPN permite acesso remoto de dispositivos de usuários, conforme autenticação e configuração.
-
-**Recursos envolvidos:** Túneis Site-to-Site entre redes; endpoint Client VPN para usuários.
-
-**Decisões que precisam ser tomadas:** Endereços, autenticação, rotas e regras de autorização.
-
-**Outra situação comentada:** Filial inteira: Site-to-Site VPN; funcionário remoto individual: Client VPN.
-
-**Por que não concluir mais do que isso:** Não torna toda rede acessível sem rotas e autorização; Site-to-Site não é cliente remoto individual
-
-## 5. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Conexão criptografada com o datacenter, pronta hoje."
-
-**Resposta curta:** Site-to-Site VPN.
-
-**Pergunta:** "Funcionários em casa precisam acessar a VPC."
-
-**Resposta curta:** Client VPN.
-
-**Pergunta:** "Backup barato do Direct Connect."
-
-**Resposta curta:** Site-to-Site VPN.
-
-## 6. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) · [Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html)
+- [O que é o AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html)
+- [Túneis do Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html)
+- [O que é o AWS Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html)
+- [Preços do AWS VPN](https://aws.amazon.com/vpn/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
