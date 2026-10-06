@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 135 cards
+**Total:** 123 cards
 
 
 ## [3.1 Formas de acessar e implantar na AWS](../docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.md)
@@ -206,138 +206,66 @@ O Elastic Beanstalk cria instâncias e outros recursos que ficam ligados e são 
 ## [3.7 Bancos de dados](../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 
 <details>
-<summary>Qual a vantagem do RDS sobre instalar o banco no EC2?</summary>
+<summary>Quais tarefas a AWS assume quando o banco sai do EC2 e vai para o RDS?</summary>
 
-A AWS cuida de patch, backups, hardware e failover.
+Instalação e patches do sistema operacional e do software do banco, backups, alta disponibilidade e escalonamento; o cliente continua cuidando da aplicação e das consultas.
 </details>
 
 <details>
-<summary>Como garantir failover automático do banco para outra AZ?</summary>
+<summary>Qual é a diferença entre Multi-AZ e réplica de leitura no RDS?</summary>
 
-RDS Multi-AZ.
+Multi-AZ mantém uma cópia síncrona em outra zona de disponibilidade para disponibilidade; a réplica de leitura é uma cópia assíncrona, só de leitura, para melhorar o desempenho de leitura.
 </details>
 
 <details>
-<summary>Como aliviar consultas de leitura pesadas?</summary>
+<summary>Quando escolher o DynamoDB em vez do RDS?</summary>
 
-Read Replicas (ou cache com ElastiCache).
+Quando os dados são chave-valor ou documento e precisam de escala enorme com milissegundos de resposta, sem servidor para gerenciar.
 </details>
 
 <details>
-<summary>Qual banco relacional compatível com MySQL e PostgreSQL oferece mais performance?</summary>
+<summary>Para que serve o Amazon ElastiCache?</summary>
 
-Aurora.
+Para guardar em memória os dados mais pedidos e responder sem consultar o banco, o que acelera a aplicação e alivia o banco principal.
 </details>
 
 <details>
-<summary>Qual banco NoSQL serverless com latência de milissegundos?</summary>
+<summary>Uma empresa vai migrar um banco Oracle para o Aurora PostgreSQL. Que ferramentas usar?</summary>
 
-DynamoDB.
-</details>
-
-<details>
-<summary>Replicação multi-região ativa-ativa no DynamoDB.</summary>
-
-Global Tables.
-</details>
-
-<details>
-<summary>Cache de microssegundos para DynamoDB.</summary>
-
-DAX.
-</details>
-
-<details>
-<summary>Banco para relacionamentos complexos (redes sociais, fraude).</summary>
-
-Neptune.
-</details>
-
-<details>
-<summary>Migrar banco MongoDB para serviço gerenciado.</summary>
-
-DocumentDB.
-</details>
-
-<details>
-<summary>Data warehouse para relatórios de BI sobre petabytes.</summary>
-
-Redshift.
-</details>
-
-<details>
-<summary>Quais motores o RDS suporta?</summary>
-
-MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora.
+O AWS SCT (ou o DMS Schema Conversion) para converter o esquema, e o AWS DMS para migrar os dados.
 </details>
 
 
 ## [3.8 Amazon S3 — armazenamento de objetos](../docs/03-tecnologia-e-servicos/08-s3.md)
 
 <details>
-<summary>Qual é a durabilidade do S3?</summary>
+<summary>O que identifica um objeto no S3?</summary>
 
-11 noves (99,999999999%).
+O bucket onde ele está e a sua chave, o nome único do objeto dentro do bucket (e a versão, quando o versionamento está ligado).
 </details>
 
 <details>
-<summary>Como proteger contra exclusão acidental?</summary>
+<summary>Qual é a diferença entre durabilidade e disponibilidade no S3?</summary>
 
-Versionamento (e MFA Delete).
+Durabilidade é a chance de o dado não se perder (11 noves em todas as classes da tabela desta aula); disponibilidade é a chance de ele estar acessível quando pedido, e varia por classe.
 </details>
 
 <details>
-<summary>Como mover dados para classes mais baratas automaticamente após 30 dias?</summary>
+<summary>Quando usar o S3 Intelligent-Tiering?</summary>
 
-Lifecycle policy.
+Quando o padrão de acesso aos dados é desconhecido ou muda, porque ele move cada objeto para a camada mais barata sozinho, sem taxa de recuperação.
 </details>
 
 <details>
-<summary>Como dar acesso temporário a um arquivo privado?</summary>
+<summary>O que uma política de ciclo de vida do S3 faz?</summary>
 
-Presigned URL.
+Aplica regras automáticas a grupos de objetos: transição para outra classe depois de um tempo e expiração (exclusão) quando o prazo termina.
 </details>
 
 <details>
-<summary>Como hospedar um site estático barato?</summary>
+<summary>Qual classe tem o armazenamento mais barato, e qual é o preço dessa economia?</summary>
 
-S3 (com CloudFront na frente).
-</details>
-
-<details>
-<summary>Como copiar objetos automaticamente para outra região?</summary>
-
-Cross-Region Replication.
-</details>
-
-<details>
-<summary>Como acelerar uploads de outros continentes?</summary>
-
-S3 Transfer Acceleration.
-</details>
-
-<details>
-<summary>Qual classe para dados com acesso imprevisível?</summary>
-
-Intelligent-Tiering.
-</details>
-
-<details>
-<summary>Qual a classe mais barata para arquivamento de longo prazo?</summary>
-
-Glacier Deep Archive.
-</details>
-
-<details>
-<summary>Qual classe guarda dados em uma única AZ?</summary>
-
-One Zone-IA (ou Express One Zone).
-</details>
-
-<details>
-<summary>Como garantir que logs não sejam alterados por 7 anos (WORM)?</summary>
-
-S3 Object Lock.
+O S3 Glacier Deep Archive; em troca, o objeto precisa ser restaurado antes da leitura, o que leva horas, e há mínimo de 180 dias de cobrança.
 </details>
 
 

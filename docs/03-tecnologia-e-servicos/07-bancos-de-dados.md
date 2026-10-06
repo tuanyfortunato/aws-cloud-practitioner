@@ -1,193 +1,204 @@
+<!-- autoral -->
+
 # 3.7 Bancos de dados
 
-## 🧠 Antes de começar
+> **Domínio 3 — Tecnologia e Serviços de Nuvem (34% da prova)** · Depende das aulas [0.3](../fundamentos/03-dados.md), [1.3](../01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md) e [3.3](03-ec2.md)
 
-**Qual é a dificuldade?** Uma aplicação precisa guardar dados, mas um cadastro, uma rede de relações e um relatório sobre milhões de vendas têm formas de consulta diferentes.
-
-**A ideia em palavras simples:** Bancos de dados organizam registros para armazenar e consultar. A AWS oferece modelos relacionais, chave-valor, documentos, grafos e análise, entre outros.
-
-**Exemplo do dia a dia:** A escola usa tabelas relacionadas para matrículas. Um jogo pode buscar perfis por identificador; uma análise histórica pode usar um ambiente voltado a relatórios.
-
-**O que não concluir?** Não há um banco melhor para qualquer dado. Primeiro identifique a estrutura e as perguntas que a aplicação precisa fazer; depois avalie o serviço.
-
-**📚 Palavras que aparecem aqui:**
-
-| Termo | Em palavras simples |
-|---|---|
-| **Relacional** | dados em tabelas ligadas entre si, consultadas com SQL. |
-| **NoSQL** | bancos que não usam o modelo de tabelas relacionais (chave-valor, documentos, grafos). |
-| **OLTP** | muitas transações pequenas do dia a dia (vendas, cadastros). |
-| **OLAP** | análises grandes sobre o histórico (relatórios, BI). |
-
----
-
-> **Domínio 3 — Tecnologia e Serviços de Nuvem (34%)**
-
-> 🔎 **Fichas detalhadas:** [Amazon RDS (Relational Database Service)](../../servicos/banco-de-dados/rds.md) · [Amazon Aurora](../../servicos/banco-de-dados/aurora.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md) · [Amazon ElastiCache](../../servicos/banco-de-dados/elasticache.md) · [Amazon MemoryDB](../../servicos/banco-de-dados/memorydb.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [Amazon DocumentDB (compatível com MongoDB)](../../servicos/banco-de-dados/documentdb.md) · [Amazon Neptune](../../servicos/banco-de-dados/neptune.md) · [Amazon Keyspaces, Timestream e outros bancos especializados](../../servicos/banco-de-dados/keyspaces-timestream-e-outros.md)
+> 🔎 **Fichas para aprofundar:** [Amazon RDS](../../servicos/banco-de-dados/rds.md) · [Amazon Aurora](../../servicos/banco-de-dados/aurora.md) · [Amazon DynamoDB](../../servicos/banco-de-dados/dynamodb.md) · [Amazon ElastiCache](../../servicos/banco-de-dados/elasticache.md) · [Amazon DocumentDB](../../servicos/banco-de-dados/documentdb.md) · [Amazon Neptune](../../servicos/banco-de-dados/neptune.md) · [Amazon Redshift](../../servicos/banco-de-dados/redshift.md) · [AWS DMS e AWS SCT](../../servicos/migracao/dms-e-sct.md)
 
 ⬅️ [3.6 Outros serviços de computação](06-outros-servicos-de-computacao.md) · 🏠 [Índice do domínio](README.md) · [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) ➡️
 
 ---
 
-## 1. Entenda as peças e a relação entre elas
+O banco de dados do sistema de matrícula roda hoje numa instância do EC2. Quem instalou foi um técnico que já saiu da empresa, e ninguém sabe ao certo se os backups estão funcionando. Em janeiro, no pico, as consultas de "situação da matrícula" deixam o banco lento. E o aplicativo novo da escola precisa guardar a sessão de milhões de acessos sem cruzar tabela nenhuma.
 
-Comece pelas perguntas que a aplicação fará aos dados. Relacionar alunos e matrículas pede um modelo; buscar um perfil pelo identificador pede outro; explorar vínculos entre contas pede relações; comparar meses de vendas pede análise.
+Na [aula 0.3](../fundamentos/03-dados.md), você viu a diferença entre banco relacional (tabelas que se relacionam, consultadas com SQL) e não relacional (NoSQL, como chave-valor e documento). Esta aula mostra os serviços da AWS para cada caso e responde a primeira pergunta que o guia do exame cobra: **banco no EC2 ou banco gerenciado?**
 
-O modelo do banco e os acessos precisam combinar. Um serviço gerenciado reduz parte da operação, mas você ainda define estruturas, consultas e permissões. Trocar de produto sem avaliar interfaces e padrões de consulta pode não atender à aplicação.
+## Banco no EC2 ou banco gerenciado
+
+Instalar o banco numa instância do EC2 funciona, e dá controle total. Mas o cliente fica responsável por quase tudo: instalar o sistema operacional e o software do banco, aplicar patches nos dois, fazer backups, garantir alta disponibilidade e escalar.
+
+Num **banco gerenciado**, a AWS assume essas tarefas. A documentação do Amazon RDS compara os dois modelos:
+
+| Tarefa | Banco no EC2 | Amazon RDS |
+|---|---|---|
+| Otimizar a aplicação e as consultas | Cliente | Cliente |
+| Escalar | Cliente | AWS |
+| Alta disponibilidade | Cliente | AWS |
+| Backups do banco | Cliente | AWS |
+| Instalar e aplicar patches no software do banco | Cliente | AWS |
+| Instalar e aplicar patches no sistema operacional | Cliente | AWS |
+
+A AWS recomenda o RDS como escolha padrão para a maioria dos bancos relacionais. O banco no EC2 faz sentido quando a empresa precisa de algo que o serviço gerenciado não oferece, como acesso ao sistema operacional. Para a escola, o banco gerenciado resolve o problema do backup que ninguém confere.
+
+## Bancos relacionais: Amazon RDS e Amazon Aurora
+
+O **Amazon RDS** (Relational Database Service) facilita criar, operar e escalar um banco relacional na nuvem. Ele oferece motores que as equipes já conhecem: IBM Db2, MariaDB, Microsoft SQL Server, MySQL, Oracle Database e PostgreSQL. O RDS cuida de backups, patches, detecção de falhas e recuperação. Os backups automáticos permitem restaurar o banco para qualquer momento dentro do período de retenção que você define, e você também pode criar cópias manuais (snapshots).
+
+Dois recursos do RDS se confundem na prova, porque os dois criam uma segunda cópia do banco:
+
+- **Multi-AZ** existe para **disponibilidade**. O RDS mantém uma cópia de espera (standby) em outra zona de disponibilidade, atualizada de forma **síncrona**. Se a instância principal ou a zona falhar, o RDS passa a usar a standby. Na forma mais comum, com uma só standby, ela não atende leituras: só espera.
+- **Réplica de leitura** existe para **desempenho de leitura**. É uma cópia só de leitura, atualizada de forma **assíncrona**, para onde a aplicação manda consultas e alivia a instância principal. Pode ficar na mesma Região ou em outra.
+
+As consultas de "situação da matrícula" em janeiro pedem réplicas de leitura. A proteção contra a queda de uma zona de disponibilidade pede Multi-AZ. Uma coisa não substitui a outra.
+
+O **Amazon Aurora** é um motor de banco relacional da própria AWS, totalmente gerenciado, que fala a mesma língua do MySQL e do PostgreSQL: o código e as ferramentas usados com esses bancos funcionam com o Aurora. Ele tem um armazenamento próprio que cresce sozinho com a necessidade e guarda cópias dos dados em três zonas de disponibilidade. A AWS informa até 6 vezes a vazão do MySQL e do PostgreSQL padrão em hardware semelhante. O Aurora faz parte do serviço gerenciado Amazon RDS.
+
+## Banco NoSQL: Amazon DynamoDB
+
+O **Amazon DynamoDB** é um banco NoSQL serverless e totalmente gerenciado, que trabalha com os modelos chave-valor e documento e entrega desempenho de milissegundos de um dígito em qualquer escala. A própria AWS dá o exemplo de um carrinho de compras: o desempenho é o mesmo com 10 usuários ou 100 milhões.
+
+Não há servidor para escolher. No modo **sob demanda**, você paga pelas leituras e gravações feitas, e a tabela escala sozinha, inclusive até zero quando não há tráfego. Com as **tabelas globais**, a mesma tabela é replicada em várias Regiões, com leitura e gravação local em cada uma.
+
+O limite é o que a [aula 0.3](../fundamentos/03-dados.md) mostrou: para escalar assim, o DynamoDB deixa de fora recursos que não escalam bem, como as junções (JOIN) entre tabelas. Ele serve para as sessões do aplicativo da escola, não para os relatórios que cruzam alunos, turmas e notas.
+
+## Banco em memória: Amazon ElastiCache
+
+Buscar o mesmo dado no banco milhares de vezes por minuto desperdiça tempo e capacidade. Um **cache** guarda os dados mais pedidos na memória, que é muito mais rápida que o disco, e entrega a resposta sem consultar o banco.
+
+O **Amazon ElastiCache** é um serviço gerenciado de armazenamento de dados em memória e cache, que funciona com os motores Valkey, Memcached e Redis OSS. Pode ser usado como cache serverless, sem escolher servidores, ou em clusters de nós. Na escola, ele guardaria as respostas da "situação da matrícula" mais consultadas e aliviaria o banco principal no pico.
+
+## Bancos para formatos específicos
+
+A AWS chama de bancos **feitos para um propósito** os que atendem um formato de dado específico. Três aparecem na prova:
+
+- O **Amazon DocumentDB** é um banco de documentos gerenciado para aplicações feitas para o MongoDB: roda o mesmo código e os mesmos drivers usados com o MongoDB.
+- O **Amazon Neptune** é um banco de **grafos**: guarda itens e as ligações entre eles, como "aluno estuda com aluno". Atende motores de recomendação, detecção de fraude e grafos de conhecimento.
+- O **Amazon Redshift** é um **data warehouse** gerenciado, um banco feito para análise de grandes volumes de dados com SQL e ferramentas de relatório. Ele volta na [aula 3.11](11-analytics.md).
+
+## Migrar bancos: AWS DMS e AWS SCT
+
+O guia do exame também cobra as ferramentas de migração de banco:
+
+- O **AWS Database Migration Service** (AWS DMS) migra dados de bancos relacionais, data warehouses, bancos NoSQL e outros para a AWS. Faz migrações de uma vez ou replica as alterações continuamente para manter origem e destino iguais, e mantém o banco de origem funcionando até o fim da migração, com o mínimo de tempo parado.
+- O **AWS Schema Conversion Tool** (AWS SCT) converte o **esquema** (a estrutura das tabelas e o código do banco) de um motor para outro, por exemplo de Oracle para Aurora PostgreSQL. O DMS também oferece essa conversão como recurso próprio, o DMS Schema Conversion.
+
+Na migração para o mesmo motor (MySQL para RDS MySQL), basta o DMS. Na troca de motor, primeiro se converte o esquema e depois os dados são migrados com o DMS. A migração como um todo volta na [aula 3.17](17-migracao-e-transferencia.md).
+
+## Como escolher
+
+| Necessidade | Serviço |
+|---|---|
+| Relacional, SQL, transações, sem cuidar do servidor | RDS |
+| Relacional que funciona com MySQL ou PostgreSQL, feito pela AWS | Aurora |
+| Chave-valor ou documento, escala enorme, serverless | DynamoDB |
+| Cache em memória para aliviar o banco | ElastiCache |
+| Documentos de aplicações feitas para o MongoDB | DocumentDB |
+| Relações entre itens (grafos) | Neptune |
+| Análise de grandes volumes (data warehouse) | Redshift |
+| Migrar dados de banco | DMS (com SCT ao trocar de motor) |
+
+```mermaid
+flowchart TB
+    APP["Sistema de matrícula"] -->|"lê e grava"| P["RDS: instância principal<br/>(AZ A)"]
+    P -->|"cópia síncrona"| S["Standby Multi-AZ<br/>(AZ B): disponibilidade"]
+    P -->|"cópia assíncrona"| R["Réplica de leitura:<br/>desempenho de leitura"]
+    APP -->|"consultas de situação"| R
+    APP -->|"dados mais pedidos"| C["ElastiCache<br/>(memória)"]
+```
+
+*Figura 3.7 — Multi-AZ protege contra falhas; réplicas de leitura e cache aliviam as leituras.*
+
+## Na prova
+
+- **"Sem cuidar de patches, backups e sistema operacional do banco" = banco gerenciado (RDS)**; controle total do sistema operacional = banco no EC2.
+- **Multi-AZ = disponibilidade (cópia síncrona em outra AZ); réplica de leitura = desempenho de leitura (cópia assíncrona).**
+- **"Funciona com MySQL e PostgreSQL, mais desempenho" = Aurora.**
+- **"NoSQL, chave-valor, serverless, milissegundos em qualquer escala" = DynamoDB.**
+- **"Cache em memória" = ElastiCache.**
+- **"MongoDB" = DocumentDB; "grafos, recomendações, fraude" = Neptune; "data warehouse" = Redshift.**
+- **"Migrar banco" = DMS; "converter esquema entre motores" = SCT.**
+
+## Caso resolvido
+
+**Situação.** A rede de escolas vai tirar o banco do sistema de matrícula do EC2. Ele usa MySQL. A direção quer que o sistema continue no ar se uma zona de disponibilidade falhar e que as consultas do pico de janeiro não deixem o banco lento. A migração deve acontecer sem parar as matrículas. O que usar?
+
+**Raciocínio.** Banco relacional MySQL, sem querer cuidar de servidor: RDS para MySQL (ou Aurora, que funciona com MySQL). Continuar no ar se uma zona falhar pede Multi-AZ. Aliviar as consultas do pico pede réplicas de leitura, e um cache com ElastiCache pode ajudar com as respostas mais repetidas. Para migrar sem parar, o DMS copia os dados e replica as alterações enquanto o banco antigo continua em uso; como o motor não muda, não é preciso converter o esquema com o SCT.
+
+**Por que as alternativas tentadoras falham.** Réplica de leitura não é a proteção principal contra a falha de uma zona: ela existe para leituras e é atualizada de forma assíncrona. Multi-AZ, na forma com uma standby, não alivia leituras, porque a standby não atende consultas. DynamoDB exigiria reescrever um sistema que depende de tabelas relacionadas.
+
+## Revisão
+
+Tente responder antes de abrir cada resposta.
+
+### Quais tarefas a AWS assume quando o banco sai do EC2 e vai para o RDS?
 
 <details>
-<summary>Uma analogia para revisar esta ideia</summary>
+<summary>Ver resposta</summary>
 
-o **RDS** é uma **planilha organizada com zelador**; o **DynamoDB** é um **fichário gigante** que acha qualquer ficha pela etiqueta na hora; o **ElastiCache** é um **post-it** com as respostas mais pedidas; o **Neptune** é um **mapa de quem conhece quem**; o **Redshift** é o **arquivo histórico** usado para relatórios.
+Instalação e patches do sistema operacional e do software do banco, backups, alta disponibilidade e escalonamento; o cliente continua cuidando da aplicação e das consultas.
+
+Comentário: a AWS recomenda o RDS como escolha padrão para a maioria dos bancos relacionais.
 
 </details>
 
-## 2. Conceitos e opções explicados
+### Qual é a diferença entre Multi-AZ e réplica de leitura no RDS?
 
-**Banco no EC2 vs gerenciado:** no EC2 você cuida de SO, instalação, patch, backup e alta disponibilidade. Nos serviços gerenciados, a AWS cuida disso e você foca no schema, nas consultas e no acesso.
+<details>
+<summary>Ver resposta</summary>
 
-**Amazon RDS:** Banco relacional gerenciado.
+Multi-AZ mantém uma cópia síncrona em outra zona de disponibilidade para disponibilidade; a réplica de leitura é uma cópia assíncrona, só de leitura, para melhorar o desempenho de leitura.
 
-  - Motores: **MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora**.
+Comentário: na forma com uma standby, o Multi-AZ não atende leituras.
 
-  - **Multi-AZ:** réplica de espera síncrona em outra AZ, com **failover automático**. Objetivo: **disponibilidade**, não performance.
+</details>
 
-  - **Read Replicas:** cópias assíncronas só de leitura (inclusive em outra região) para **escalar leitura**.
+### Quando escolher o DynamoDB em vez do RDS?
 
-  - **Backups automáticos** com restauração para um ponto no tempo (retenção de até 35 dias) e **snapshots** manuais.
+<details>
+<summary>Ver resposta</summary>
 
-  - Sem acesso ao SO da instância de banco (a AWS gerencia).
+Quando os dados são chave-valor ou documento e precisam de escala enorme com milissegundos de resposta, sem servidor para gerenciar.
 
-**Amazon Aurora:** Relacional da AWS compatível com **MySQL e PostgreSQL**.
+Comentário: o DynamoDB não faz junções entre tabelas, então não serve para consultas que cruzam muitos dados relacionados.
 
-  - Mais performático que o MySQL e PostgreSQL padrão (a AWS cita até 5x e 3x, respectivamente).
+</details>
 
-  - Armazenamento cresce sozinho e mantém **6 cópias dos dados em 3 AZs**.
+### Para que serve o Amazon ElastiCache?
 
-  - **Aurora Serverless:** capacidade ajustada automaticamente. **Aurora Global Database:** replicação entre regiões.
+<details>
+<summary>Ver resposta</summary>
 
-**Amazon DynamoDB:** NoSQL **chave-valor e documentos**, serverless, latência de milissegundos de um dígito em qualquer escala.
+Para guardar em memória os dados mais pedidos e responder sem consultar o banco, o que acelera a aplicação e alivia o banco principal.
 
-  - Modos de capacidade: **sob demanda** (paga por requisição) ou **provisionado** (com Auto Scaling).
+Comentário: funciona com os motores Valkey, Memcached e Redis OSS.
 
-  - **Global Tables:** replicação multi-região ativa-ativa.
+</details>
 
-  - **DAX:** cache em memória para leituras em microssegundos.
+### Uma empresa vai migrar um banco Oracle para o Aurora PostgreSQL. Que ferramentas usar?
 
-  - Streams, TTL (expiração automática de itens) e backup point-in-time.
+<details>
+<summary>Ver resposta</summary>
 
-**Amazon ElastiCache:** Cache em memória gerenciado, compatível com **Redis OSS/Valkey e Memcached**. Latência em microssegundos; reduz a carga do banco e guarda sessões.
+O AWS SCT (ou o DMS Schema Conversion) para converter o esquema, e o AWS DMS para migrar os dados.
 
-**Amazon Keyspaces:** Cassandra gerenciado e serverless. Não aparece na lista oficial de serviços da prova, então dificilmente cai.
+Comentário: quando o motor não muda, basta o DMS.
 
-**Amazon Neptune:** banco de **grafos**. Para redes sociais, motores de recomendação, detecção de fraude e grafos de conhecimento.
+</details>
 
-**Amazon DocumentDB:** banco de **documentos** compatível com **MongoDB**.
+## Resumo
 
-**Amazon Redshift:** **data warehouse** em colunas, para análise (OLAP) de grandes volumes com SQL e BI. Redshift Serverless dispensa gerenciar cluster; Redshift Spectrum consulta dados direto no S3.
+- Banco gerenciado tira da equipe patches, backups, alta disponibilidade e escalonamento; banco no EC2 dá controle total.
+- RDS oferece seis motores relacionais; Aurora é o relacional da AWS que funciona com MySQL e PostgreSQL.
+- Multi-AZ protege contra falhas; réplicas de leitura aliviam consultas.
+- DynamoDB é NoSQL serverless; ElastiCache é cache em memória; DocumentDB, Neptune e Redshift atendem documentos, grafos e análise.
+- DMS migra dados; SCT converte esquemas entre motores.
 
-**Migração de bancos:** DMS e SCT (ver [3.17](17-migracao-e-transferencia.md)).
+## Fontes oficiais
 
-| Tipo de dado ou necessidade | Serviço |
-| --- | --- |
-| Relacional, transações (OLTP), SQL tradicional | RDS ou Aurora |
-| Relacional com máxima performance e alta disponibilidade gerenciada | Aurora |
-| Chave-valor, escala massiva, latência baixa, serverless | DynamoDB |
-| Cache em memória | ElastiCache (ou DAX para DynamoDB) |
-| Relacionamentos entre entidades (grafos) | Neptune |
-| Documentos JSON compatíveis com MongoDB | DocumentDB |
-| Análise de grandes volumes, BI, data warehouse (OLAP) | Redshift |
+Verificadas em 06/10/2026.
 
-**Cai na prova:** Multi-AZ = disponibilidade; Read Replica = performance de leitura. "Banco para carrinho de compras com milhões de acessos por segundo" = DynamoDB. "Recomendações tipo amigos de amigos" = Neptune.
-
-## 3. Como analisar uma situação
-
-**Primeiro, identifique o funcionamento:** Relacionais organizam tabelas e relações; NoSQL atende modelos como chave-valor/documentos; cache guarda dados de acesso rápido; warehouse prioriza análises agregadas.
-
-**Depois, compare as escolhas:** RDS/Aurora para relacional; DynamoDB para chave-valor/documentos; ElastiCache para cache; DocumentDB para documentos compatíveis; Neptune para grafos; Redshift para analytics.
-
-**Por fim, verifique o limite:** Gerenciado não elimina desenho de esquema, índices e consultas. Compatibilidade não significa identidade completa de APIs. Cache não deve ser confundido automaticamente com banco principal durável.
-
-## 4. Caso resolvido
-
-Um sistema transacional usa SQL e quer tolerar falha de AZ; outro faz relatórios agregados de grandes conjuntos. Mesmo banco por palavra-chave SQL?
-
-**Raciocínio e resposta:** Não. RDS/Aurora atendem o transacional; Redshift atende o warehouse. O padrão de uso pesa mais que a presença de SQL.
-
-## 5. Revisão do capítulo
-
-**Objetivos de aprendizagem:**
-
-- [ ] Diferenciar **banco no EC2** (você cuida de tudo) de **banco gerenciado** (a AWS cuida).
-- [ ] Diferenciar **Multi-AZ** (disponibilidade) de **Read Replica** (performance de leitura).
-- [ ] Escolher o banco pelo tipo de dado (use a tabela "tipo de dado → serviço" do conteúdo).
-- [ ] Diferenciar **OLTP** (RDS/Aurora) de **OLAP** (Redshift).
-
-**Dica de revisão para a prova:** "Multi-AZ" → **disponibilidade**; "Read Replica" → **leitura**. "Milhões de acessos, chave-valor, serverless" → **DynamoDB**. "BI/data warehouse" → **Redshift**. "Amigos de amigos" → **Neptune**. "MongoDB" → **DocumentDB**.
-
-### ❓ Perguntas típicas
-
-> Também estão nos [flashcards](../../flashcards/dominio-3.md).
-**Pergunta:** "Qual a vantagem do RDS sobre instalar o banco no EC2?"
-
-**Resposta curta:** A AWS cuida de patch, backups, hardware e failover.
-
-**Pergunta:** "Como garantir failover automático do banco para outra AZ?"
-
-**Resposta curta:** RDS Multi-AZ.
-
-**Pergunta:** "Como aliviar consultas de leitura pesadas?"
-
-**Resposta curta:** Read Replicas (ou cache com ElastiCache).
-
-**Pergunta:** "Qual banco relacional compatível com MySQL e PostgreSQL oferece mais performance?"
-
-**Resposta curta:** Aurora.
-
-**Pergunta:** "Qual banco NoSQL serverless com latência de milissegundos?"
-
-**Resposta curta:** DynamoDB.
-
-**Pergunta:** "Replicação multi-região ativa-ativa no DynamoDB."
-
-**Resposta curta:** Global Tables.
-
-**Pergunta:** "Cache de microssegundos para DynamoDB."
-
-**Resposta curta:** DAX.
-
-**Pergunta:** "Banco para relacionamentos complexos (redes sociais, fraude)."
-
-**Resposta curta:** Neptune.
-
-**Pergunta:** "Migrar banco MongoDB para serviço gerenciado."
-
-**Resposta curta:** DocumentDB.
-
-**Pergunta:** "Data warehouse para relatórios de BI sobre petabytes."
-
-**Resposta curta:** Redshift.
-
-**Pergunta:** "Quais motores o RDS suporta?"
-
-**Resposta curta:** MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Db2 e Aurora.
-
-<!-- extra:inicio -->
-## 🔄 Atualizações 2025-2026 e detalhes extras
-
-> Fonte: [pesquisa de atualizações](../../fontes/pesquisa-atualizacoes-2025-2026.md). Legenda: 📌 decorar · 🔄 mudou recentemente · ⚠️ pegadinha · 🧊 não precisa decorar.
-
-- **DynamoDB:** item de no máximo **400 KB** (📌, incluindo nomes e valores de atributos). ⚠️ "Guardar vídeos/imagens no DynamoDB" → guarde no **S3** e mantenha só a referência na tabela.
-- **Aurora:** até **15 Aurora Replicas** por cluster (📌), além da primária. Um cluster secundário de Global Database pode ter até 16.
-- **RDS Read Replicas:** até **15** por origem para MySQL, MariaDB e PostgreSQL (até 5 cross-region). Oracle e SQL Server: até **5**; Db2: até **3** (✔️ confirmado na API do RDS, 04/10/2026).
-- ⚠️ **Read Replica × Multi-AZ:** read replica = **escalar leitura** (assíncrona, pode ser cross-region). Multi-AZ = **alta disponibilidade/failover** (standby síncrono que, no modelo clássico, não atende leitura).
-- **Diferenças sutis:**
-  - Redshift (OLAP, SQL analítico em petabytes) × RDS/Aurora (OLTP) × Athena (SQL serverless direto no S3, paga por dado escaneado).
-  - ElastiCache (cache em memória: Valkey/Redis OSS/Memcached) × MemoryDB (banco em memória **durável**) × DAX (cache **exclusivo** do DynamoDB, microssegundos).
-  - Neptune = grafos · DocumentDB = MongoDB · Keyspaces = Cassandra · Timestream = séries temporais.
-- 🔄 **Timestream for LiveAnalytics** fechado para novos clientes (20/06/2025). Na prova, "séries temporais/IoT" ainda → Timestream.
-- 🧊 Não decorar: RCU/WCU por tamanho de item, limites de armazenamento por motor, versões.
-<!-- extra:fim -->
+- [Content Domain 3 do guia do exame CLF-C02](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html): tarefa 3.4 (bancos no EC2 ou gerenciados, relacionais, NoSQL, em memória e migração).
+- [In-Scope AWS Services](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/clf-02-in-scope-services.html): Aurora, DocumentDB, DynamoDB, ElastiCache, Neptune e RDS na categoria de banco de dados; DMS e SCT em migração; Redshift em análise.
+- [What is Amazon RDS?](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html): motores, tarefas gerenciadas e tabela comparando EC2 e RDS.
+- [Introduction to backups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html): backups automáticos e restauração para um momento do período de retenção.
+- [Multi-AZ DB instance deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html) e [Configuring and managing a Multi-AZ deployment](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html): standby síncrona em outra AZ, que não atende leituras na forma com uma standby.
+- [Working with read replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html): cópia só de leitura, assíncrona, inclusive em outra Região.
+- [What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html) e [Amazon Aurora storage](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html): compatibilidade, vazão de até 6 vezes, armazenamento que cresce sozinho com cópias em três AZs.
+- [What is Amazon DynamoDB?](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html): serverless, chave-valor e documento, milissegundos de um dígito, sob demanda, tabelas globais, sem JOIN.
+- [What is Amazon ElastiCache?](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html): cache em memória com Valkey, Memcached e Redis OSS; serverless ou em nós.
+- [What is Amazon DocumentDB?](https://docs.aws.amazon.com/documentdb/latest/devguide/what-is.html), [What is Amazon Neptune?](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html) e [What is Amazon Redshift?](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html): documentos para aplicações MongoDB, grafos e data warehouse.
+- [What is AWS DMS?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html), [AWS DMS (página do produto)](https://aws.amazon.com/dms/) e [What is AWS SCT?](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html): migração de dados com replicação contínua, origem em funcionamento até o fim e conversão de esquemas.
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
