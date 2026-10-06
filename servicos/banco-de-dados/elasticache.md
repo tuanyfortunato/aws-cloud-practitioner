@@ -1,118 +1,68 @@
+<!-- autoral -->
+
 # Amazon ElastiCache
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A aplicação consulta repetidamente dados parecidos e o banco principal demora mais do que o desejado.
-
-**Como este serviço ajuda?** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-
-**Exemplo do dia a dia:** Uma loja guarda temporariamente o resultado de uma consulta popular num cache. Nas próximas consultas, a aplicação pode usar esse resultado sem consultar o banco de novo.
-
-**O que ele não resolve sozinho?** A aplicação precisa decidir quando atualizar ou invalidar o cache. Ele não acelera qualquer consulta automaticamente nem deve ser tratado sem planejamento como a única cópia de dados essenciais.
-
-**Primeiras palavras para entender:**
-
-- **Memória:** armazenamento de acesso rápido usado durante a execução.
-- **Cache:** dados mantidos para reutilização.
-- **Invalidar:** deixar de usar uma cópia desatualizada.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Cache em memória · **Domínio:** 3 · **Escopo:** Regional (nós em AZs) · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
+> **Categoria:** Cache em memória · **Domínio:** 3 · **Abrangência:** Regional (nós em uma ou várias zonas) · **Ficha:** núcleo
 >
-> **Em uma frase:** cache em memória gerenciado (Valkey, Redis OSS, Memcached) com latência de microssegundos.
+> **Em uma frase:** cache em memória gerenciado, com Valkey, Memcached ou Redis OSS, que responde em microssegundos e alivia o banco.
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 
-**Passo 1.** Identifique uma consulta ou dado que pode ser reutilizado e defina por quanto tempo a cópia serve.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare um mecanismo compatível e faça a aplicação consultar e atualizar o cache conforme seu desenho.
+---
 
-**Passo 3.** Trate conteúdo desatualizado, falhas e expiração. Um cache acelera acesso, mas não define sozinho a verdade dos dados.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+No pico de janeiro, milhares de famílias consultam a mesma "situação da matrícula" ao mesmo tempo, e o banco gasta capacidade respondendo a mesma coisa várias vezes por minuto.
 
-### Para que serve
+Um **cache** guarda os dados mais pedidos na memória, muito mais rápida que o disco, e entrega a resposta sem consultar o banco. O ElastiCache é o cache gerenciado da AWS, com os motores Valkey, Memcached e Redis OSS. Ele roda como cache serverless, sem nós para escolher, ou em clusters de nós que você dimensiona.
 
-Reduzir carga e latência do banco (cache de consultas), **armazenar sessões** (aplicação stateless), placares, filas simples, pub/sub, rate limiting.
+O limite: o cache não substitui o banco principal. A aplicação precisa decidir o que guardar e por quanto tempo, e o dado de verdade continua no [RDS](rds.md), no [Aurora](aurora.md) ou no [DynamoDB](dynamodb.md).
 
-### Motores
+## Como funciona
 
-| Motor | Destaques |
-|---|---|
-| **Valkey** | Fork open source do Redis, recomendado pela AWS, mais barato. |
-| **Redis OSS** | Estruturas de dados ricas, **replicação, Multi-AZ com failover, persistência/backup**, pub/sub. |
-| **Memcached** | Simples, multithread, **sem persistência nem replicação**; escala horizontal por sharding. |
+1. Você cria um cache serverless (informando só o nome) ou um cluster de nós.
+2. A aplicação procura o dado primeiro no cache.
+3. Se não encontra, busca no banco e grava a resposta no cache para os próximos pedidos.
+4. No serverless, o ElastiCache acompanha memória, processamento e rede e escala sozinho; ele também aplica patches e troca nós.
 
-### Configurações
+## Opções principais
 
-**Serverless** (sem planejar nós; paga por dados armazenados e ECPUs) ou **clusters de nós** (tipo de nó, shards, réplicas).
+| Opção | O que faz | Quando lembrar |
+|---|---|---|
+| ElastiCache Serverless | Cria um cache altamente disponível em menos de um minuto, sem nós para gerenciar | "Sem planejar capacidade do cache" |
+| Cluster de nós | Você escolhe tipo e número de nós, em uma ou várias zonas | "Controle dos nós", "quando aplicar patches" |
+| Valkey, Redis OSS ou Memcached | Motores de cache de código aberto | "Redis", "Memcached" no enunciado |
 
-Criptografia em repouso e em trânsito, autenticação (RBAC/AUTH), backups (Valkey/Redis), *Global Datastore* (replicação entre regiões).
+## Números que a prova cobra
 
-## 3. Como escolher e reconhecer os limites
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Latência informada pela AWS | Microssegundos | 06/10/2026 |
+| Tempo para criar um cache serverless | Menos de um minuto | 06/10/2026 |
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+## Como é cobrado
 
-A aplicação precisa decidir quando atualizar ou invalidar o cache. Ele não acelera qualquer consulta automaticamente nem deve ser tratado sem planejamento como a única cópia de dados essenciais.
+No serverless, você paga pelos dados guardados, em GB-hora, e pelas requisições, em ElastiCache Processing Units (ECPUs), que somam tempo de processamento e dados transferidos; cada cache tem um mínimo cobrado de armazenamento, menor no Valkey. Nos clusters, você paga por hora de cada nó, com desconto em nós reservados de 1 ou 3 anos.
 
-### ⚠️ Pegadinhas e não confundir
+## Não confundir com
 
-**ElastiCache** (cache, dados podem ser recriados) × **MemoryDB** (banco primário durável) × **DAX** (cache só do DynamoDB).
+| Serviço | Diferença para o ElastiCache | Pista no enunciado |
+|---|---|---|
+| [Amazon DynamoDB](dynamodb.md) | Banco NoSQL persistente; o DAX é o cache próprio dele | "Guardar os dados de forma durável" |
+| [Amazon CloudFront](../redes/cloudfront.md) | Cache de conteúdo na borda, perto dos usuários | "Entregar arquivos e páginas para o mundo" |
+| [Amazon MemoryDB](memorydb.md) | Banco em memória durável (fora do escopo da prova) | "Banco principal em memória" |
 
-"Guardar sessão fora do servidor para escalar horizontalmente" → ElastiCache (ou DynamoDB).
+## Fontes oficiais
 
-## 4. Operação, segurança e custo
+Verificadas em 06/10/2026.
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
-
-### Cobrança
-
-Por nó-hora (ou nós reservados) ou, no serverless, por GB-hora armazenado + ECPUs. 🔄 Coberto por Database Savings Plans.
-
-## 5. Caso resolvido: ligando as peças
-
-Uma loja guarda temporariamente o resultado de uma consulta popular num cache. Nas próximas consultas, a aplicação pode usar esse resultado sem consultar o banco de novo.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Identifique uma consulta ou dado que pode ser reutilizado e defina por quanto tempo a cópia serve.
-**Etapa 2:** Prepare um mecanismo compatível e faça a aplicação consultar e atualizar o cache conforme seu desenho.
-**Etapa 3:** Trate conteúdo desatualizado, falhas e expiração. Um cache acelera acesso, mas não define sozinho a verdade dos dados.
-
-**Resultado e responsabilidade:** ElastiCache fornece armazenamento em memória para manter dados próximos da aplicação e acelerar acessos, conforme o mecanismo e a configuração.
-
-**Recursos envolvidos:** Cache, motores suportados, endpoints e política de expiração.
-
-**Decisões que precisam ser tomadas:** Motor, capacidade, rede e estratégia de cache.
-
-**Outra situação comentada:** Resultado muito consultado: cache com TTL; aplicação deve tratar expiração e indisponibilidade.
-
-**Por que não concluir mais do que isso:** Não acelera automaticamente código que nunca usa o cache; não trate toda modalidade como armazenamento definitivo
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Reduzir a carga de leitura do RDS com cache em memória."
-
-**Resposta curta:** ElastiCache.
-
-**Pergunta:** "Armazenar sessões de usuário para aplicação stateless."
-
-**Resposta curta:** ElastiCache.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html)
+- [O que é o Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html)
+- [Amazon ElastiCache (página do produto)](https://aws.amazon.com/elasticache/)
+- [Preços do Amazon ElastiCache](https://aws.amazon.com/elasticache/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações

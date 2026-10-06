@@ -1,118 +1,71 @@
+<!-- autoral -->
+
 # Amazon Redshift
 
-<!-- didatico:inicio -->
-## 🧠 Comece pelo problema
-
-**Qual é a dificuldade?** A empresa quer analisar muitos registros históricos de vendas e comparar períodos, regiões e produtos, sem sobrecarregar o banco que atende as compras.
-
-**Como este serviço ajuda?** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse. Você prepara os dados e executa consultas para obter resultados analíticos.
-
-**Exemplo do dia a dia:** Uma loja reúne seu histórico de vendas e consulta o total vendido por mês e categoria no Redshift.
-
-**O que ele não resolve sozinho?** Seu papel principal é análise; ele não deve ser escolhido apenas porque a aplicação precisa salvar um pedido individual. Carregar e organizar dados continua exigindo planejamento.
-
-**Primeiras palavras para entender:**
-
-- **Data warehouse:** banco organizado para análise.
-- **Analítico:** voltado a padrões e agregações.
-- **SQL:** linguagem para consultar dados.
-
-*O exemplo é ilustrativo. Para estudar para a prova, confira o escopo indicado abaixo; para usar o serviço, confira também as condições e a documentação oficial desta ficha.*
-<!-- didatico:fim -->
-
-> **Categoria:** Data warehouse · **Domínio:** 3 · **Escopo:** Regional · **Tópico do guia:** [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md) · [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md)
+> **Categoria:** Data warehouse · **Domínio:** 3 · **Abrangência:** Regional · **Ficha:** núcleo
 >
-> **Em uma frase:** data warehouse colunar e massivamente paralelo (MPP) para análises SQL (OLAP) sobre terabytes a petabytes.
+> **Em uma frase:** data warehouse gerenciado na escala de petabytes, consultado com SQL e ferramentas de relatório (BI).
 >
 > **Escopo oficial:** ✅ No escopo · [ver lista](../../docs/00-guia-do-exame/escopo-oficial.md)
 
-## 1. A sequência de funcionamento
+> 📖 **Aula que ensina:** [3.11 Analytics](../../docs/03-tecnologia-e-servicos/11-analytics.md) · base em [3.7 Bancos de dados](../../docs/03-tecnologia-e-servicos/07-bancos-de-dados.md)
 
-**Passo 1.** Organize fontes e o modelo de dados para as perguntas analíticas desejadas.
+🏠 [Índice das fichas](../README.md)
 
-**Passo 2.** Prepare o ambiente e carregue ou disponibilize dados por mecanismos compatíveis. Execute consultas para obter agregações e comparações.
+---
 
-**Passo 3.** Acompanhe qualidade, capacidade e atualização dos dados. A análise histórica não substitui automaticamente o banco de operações da aplicação.
+## Que problema resolve
 
-## 2. Recursos e opções, com significado
+A direção quer relatórios que cruzem anos de matrículas, notas e frequência de todas as unidades. Rodar essas consultas no banco do sistema de matrícula deixa o sistema lento para as famílias, e o banco não foi feito para varrer volumes tão grandes.
 
-### Para que serve
+Um **data warehouse** é um banco otimizado para analisar dados vindos dos sistemas da empresa, com a estrutura definida antes de os dados entrarem. O Redshift é o data warehouse gerenciado da AWS, na escala de petabytes, consultado com as mesmas ferramentas de SQL e de BI que a equipe já usa. Ele guarda os dados por coluna, o que acelera consultas que leem poucas colunas de muitas linhas.
 
-Relatórios de BI, dashboards (QuickSight), análises históricas, consolidação de dados de várias fontes.
+O limite: o Redshift serve para análise, não para o sistema do dia a dia, que continua no [RDS](rds.md) ou no [Aurora](aurora.md). Para uma consulta pontual sobre arquivos no S3, sem carregar dados, o [Athena](../analytics/athena.md) é mais simples.
 
-### Conceitos e configurações
+## Como funciona
 
-| Item | Detalhe |
-|---|---|
-| **Armazenamento colunar + compressão** | Consultas analíticas rápidas lendo só as colunas necessárias. |
-| **Cluster provisionado** | Nó líder + nós de computação; **RA3** separa computação de armazenamento gerenciado (S3). |
-| **Redshift Serverless** | Sem gerenciar cluster; paga por RPU-hora usada. |
-| **Redshift Spectrum** | Consulta dados **direto no S3** (data lake) junto com tabelas locais. |
-| **Concurrency scaling** | Capacidade extra temporária em picos de consultas. |
-| **Data sharing** | Compartilha dados entre clusters/contas sem copiar. |
-| **Zero-ETL** | Integra Aurora, RDS, DynamoDB e aplicações SaaS quase em tempo real. |
-| **Redshift ML** | Cria modelos (SageMaker) com SQL. |
-| **Segurança** | VPC, criptografia KMS, auditoria, controle por coluna/linha. |
+1. Os dados chegam dos sistemas da empresa e do data lake no S3, por exemplo com o [Glue](../analytics/glue.md) ou o Data Firehose.
+2. No **Redshift Serverless**, a capacidade é provisionada e escalada sozinha; num **cluster provisionado**, você escolhe os nós.
+3. Analistas consultam com SQL e ferramentas de BI, como o [Quick Sight](../analytics/quicksight.md).
+4. O **Redshift Spectrum** consulta arquivos no S3 sem carregá-los nas tabelas.
 
-## 3. Como escolher e reconhecer os limites
+## Opções principais
 
-Uma opção deve atender ao requisito da aplicação. Compare função, compatibilidade, responsabilidade e condições; preço ou uma palavra do enunciado não bastam isoladamente.
+| Opção | O que faz | Quando lembrar |
+|---|---|---|
+| Redshift Serverless | Provisiona e escala a capacidade sozinho; não cobra parado | "Sem gerenciar o data warehouse", "uso irregular" |
+| Cluster provisionado | Você escolhe e gerencia os nós | "Carga constante", "instâncias reservadas" |
+| Redshift Spectrum | Consulta dados no S3 sem carregar | "Data lake no S3 junto com o data warehouse" |
 
-Seu papel principal é análise; ele não deve ser escolhido apenas porque a aplicação precisa salvar um pedido individual. Carregar e organizar dados continua exigindo planejamento.
+## Números que a prova cobra
 
-### ⚠️ Pegadinhas e não confundir
+| O quê | Valor | Verificado em |
+|---|---|---|
+| Escala | Petabytes | 06/10/2026 |
+| Cobrança do Serverless | RPU-hora, por segundo, com mínimo de 60 segundos | 06/10/2026 |
 
-**Redshift (OLAP)** × **RDS/Aurora (OLTP)**.
+## Como é cobrado
 
-**Redshift** (data warehouse sempre disponível) × **Athena** (SQL sob demanda direto no S3, paga por dado escaneado).
+No Redshift Serverless, você paga a capacidade usada em RPU-hora (Redshift Processing Units), por segundo, com mínimo de 60 segundos e sem cobrança parado; o Spectrum já está incluído. No cluster provisionado, você paga os nós por hora, com desconto em instâncias reservadas, e o Spectrum cobra pelos bytes lidos no S3. O armazenamento gerenciado é cobrado separado da computação.
 
-## 4. Operação, segurança e custo
+## Não confundir com
 
-Ter o recurso disponível é diferente de operá-lo corretamente. Aqui, observe o que continua sendo administrado pelo cliente, o que gera cobrança e como conservar ou recuperar dados.
+| Serviço | Diferença para o Redshift | Pista no enunciado |
+|---|---|---|
+| [Amazon Athena](../analytics/athena.md) | Consulta serverless direto no S3, paga por dados lidos | "Consulta pontual em arquivos no S3" |
+| [Amazon RDS](rds.md) e [Amazon Aurora](aurora.md) | Bancos transacionais do sistema do dia a dia | "Sistema de matrícula", "transações" |
+| [Amazon EMR](../analytics/emr.md) | Processamento com Hadoop e Spark | "Spark", "Hadoop" |
+| [Amazon Quick Sight](../analytics/quicksight.md) | Painéis e relatórios visuais sobre os dados | "Dashboard" |
 
-### Cobrança
+## Fontes oficiais
 
-Nó-hora (ou nós reservados) ou RPU-hora (Serverless) + armazenamento gerenciado + Spectrum por TB escaneado.
+Verificadas em 06/10/2026.
 
-## 5. Caso resolvido: ligando as peças
-
-Uma loja reúne seu histórico de vendas e consulta o total vendido por mês e categoria no Redshift.
-
-**Aplicando a sequência à situação:**
-
-**Etapa 1:** Organize fontes e o modelo de dados para as perguntas analíticas desejadas.
-**Etapa 2:** Prepare o ambiente e carregue ou disponibilize dados por mecanismos compatíveis. Execute consultas para obter agregações e comparações.
-**Etapa 3:** Acompanhe qualidade, capacidade e atualização dos dados. A análise histórica não substitui automaticamente o banco de operações da aplicação.
-
-**Resultado e responsabilidade:** Redshift é um ambiente de banco voltado à análise de dados, conhecido como data warehouse. Você prepara os dados e executa consultas para obter resultados analíticos.
-
-**Recursos envolvidos:** Warehouse, tabelas, endpoints e modalidades provisionada/serverless.
-
-**Decisões que precisam ser tomadas:** Capacidade, dados, acesso e carregamento/consulta.
-
-**Outra situação comentada:** Agregar anos de vendas: Redshift; processar cada venda do caixa: banco transacional apropriado.
-
-**Por que não concluir mais do que isso:** Não é a escolha típica de transação individual de aplicação OLTP
-
-## 6. Revisão e perguntas
-
-### ❓ Perguntas típicas
-
-**Pergunta:** "Data warehouse para relatórios de BI sobre petabytes."
-
-**Resposta curta:** Redshift.
-
-**Pergunta:** "Consultar dados do S3 junto com o data warehouse."
-
-**Resposta curta:** Redshift Spectrum.
-
-## 7. Fontes e próximos passos
-
-Este capítulo explica os fundamentos e as opções do material. As fontes oficiais abaixo servem para conferir atualizações e detalhes de implementação; o roteiro de console não faz parte da CLF-C02.
-
-### 🔗 Documentação oficial
-
-- [Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html)
+- [O que é o Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html)
+- [O que é o Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html)
+- [Armazenamento colunar](https://docs.aws.amazon.com/redshift/latest/dg/c_columnar_storage_disk_mem_mgmnt.html)
+- [Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html)
+- [Preços do Amazon Redshift](https://aws.amazon.com/redshift/pricing/)
 
 <!-- notas:inicio -->
 ## 📝 Minhas anotações
