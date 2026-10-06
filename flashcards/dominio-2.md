@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 59 cards
+**Total:** 56 cards
 
 
 ## [2.1 Modelo de responsabilidade compartilhada](../docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md)
@@ -173,33 +173,33 @@ Sim. Desde 5 de janeiro de 2023, todo objeto novo no S3 é cifrado automaticamen
 ## [2.6 Compliance e governança](../docs/02-seguranca-e-conformidade/06-compliance-e-governanca.md)
 
 <details>
-<summary>Onde baixar o relatório SOC 2 ou o atestado PCI da AWS?</summary>
+<summary>Onde baixar o relatório SOC 2 da AWS?</summary>
 
-AWS Artifact.
+No AWS Artifact, portal gratuito de autoatendimento com os documentos de segurança e compliance da AWS, como relatórios SOC, PCI e ISO.
 </details>
 
 <details>
-<summary>Onde aceitar um acordo como o BAA (HIPAA)?</summary>
+<summary>Qual é a diferença entre o AWS Artifact e o AWS Audit Manager?</summary>
 
-AWS Artifact (Agreements).
+O Artifact fornece os relatórios e acordos de compliance da própria AWS. O Audit Manager coleta continuamente evidências das contas do cliente e as organiza por controle, para as auditorias do cliente.
 </details>
 
 <details>
-<summary>Como coletar evidências continuamente para a auditoria da empresa?</summary>
+<summary>Usar apenas serviços que estão no escopo do PCI DSS coloca a aplicação em conformidade com o PCI DSS?</summary>
 
-AWS Audit Manager.
+Não. A AWS cobre a parte dela; o cliente ainda precisa configurar e operar sua aplicação do jeito que a norma exige. A responsabilidade de compliance é compartilhada.
 </details>
 
 <details>
-<summary>Os dados podem sair da região sem ação do cliente?</summary>
+<summary>Como garantir que os dados de clientes fiquem num país específico?</summary>
 
-Não; o cliente escolhe a região e controla onde os dados ficam.
+Escolhendo uma Região nesse país para guardar os dados. A AWS não move nem replica o conteúdo para fora das Regiões escolhidas, exceto quando necessário para o serviço iniciado pelo cliente ou para cumprir a lei.
 </details>
 
 <details>
-<summary>Usar um serviço certificado garante que a aplicação está em conformidade?</summary>
+<summary>Para que servem as regras do AWS Config?</summary>
 
-Não; o cliente também precisa configurar e operar de forma conforme (responsabilidade compartilhada).
+Para avaliar continuamente se a configuração dos recursos segue a configuração desejada, como "nenhum bucket público". Recursos fora da regra podem ser corrigidos com remediação automática.
 </details>
 
 
@@ -208,49 +208,31 @@ Não; o cliente também precisa configurar e operar de forma conforme (responsab
 <details>
 <summary>Qual serviço registra quem encerrou uma instância e quando?</summary>
 
-CloudTrail.
+O AWS CloudTrail, que registra as chamadas de API da conta como eventos, com a identidade, a ação, o horário, a origem e o recurso.
 </details>
 
 <details>
-<summary>Por quanto tempo o CloudTrail guarda eventos sem configurar nada?</summary>
+<summary>Como guardar os eventos do CloudTrail por anos?</summary>
 
-90 dias (event history).
+Criando uma trilha que entrega os eventos num bucket S3, onde ficam pelo tempo que a escola quiser. A trilha pode cobrir todas as Regiões e, numa organização, todas as contas.
 </details>
 
 <details>
-<summary>Como guardar logs do CloudTrail por anos?</summary>
+<summary>Qual é a diferença entre o CloudTrail e o Config?</summary>
 
-Criar um trail que envia para o S3.
+O CloudTrail registra ações: quem fez cada chamada de API e quando. O Config registra estados: como cada recurso estava configurado ao longo do tempo e se seguia as regras.
 </details>
 
 <details>
-<summary>Qual serviço mostra o histórico de configuração de um recurso e se ele segue as regras?</summary>
+<summary>Como coletar o uso de memória de uma instância EC2 no CloudWatch?</summary>
 
-AWS Config.
+Instalando o agente do CloudWatch na instância. A memória usada dentro do sistema operacional não está entre as métricas que o EC2 envia por padrão.
 </details>
 
 <details>
-<summary>Como receber alerta quando a CPU passar de 80%?</summary>
+<summary>Como ser avisado quando os gastos da conta passarem de um valor?</summary>
 
-Alarme do CloudWatch (com notificação pelo SNS).
-</details>
-
-<details>
-<summary>Como coletar a memória usada pelo EC2?</summary>
-
-Instalar o CloudWatch agent.
-</details>
-
-<details>
-<summary>Como capturar o tráfego de rede da VPC?</summary>
-
-VPC Flow Logs.
-</details>
-
-<details>
-<summary>Onde ver logs de aplicação?</summary>
-
-CloudWatch Logs.
+Criando um alarme de cobrança no CloudWatch, com notificação por um tópico do SNS. A métrica de gastos estimados fica na Região Leste dos EUA (Norte da Virgínia).
 </details>
 
 
