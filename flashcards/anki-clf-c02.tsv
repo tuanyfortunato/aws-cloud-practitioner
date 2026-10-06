@@ -82,19 +82,16 @@ Uma política permite ler um bucket e outra nega a mesma ação. O que acontece?
 Como dar a uma aplicação numa instância EC2 acesso a um bucket S3 sem gravar credenciais no servidor?	Criar uma função do IAM com a permissão necessária e anexá-la à instância por meio de um perfil de instância. A aplicação recebe credenciais temporárias renovadas automaticamente.	CLF-C02 dominio-2 secao-2_3
 Quando usar o IAM Identity Center e quando usar o Amazon Cognito?	O Identity Center dá a funcionários acesso a várias contas AWS e aplicações, com login único. O Cognito cuida do cadastro e do login dos usuários de um aplicativo, como clientes de um site.	CLF-C02 dominio-2 secao-2_3
 Qual serviço guarda a senha de um banco de dados com rotação automática?	O AWS Secrets Manager, que guarda, recupera e troca segredos automaticamente num calendário.	CLF-C02 dominio-2 secao-2_3
-Como impedir que todas as contas de desenvolvimento usem uma região?	SCP no Organizations.	CLF-C02 dominio-2 secao-2_4
-Uma SCP permite S3, mas o usuário não tem política IAM para S3. Ele consegue acessar?	Não; a SCP só limita, não concede.	CLF-C02 dominio-2 secao-2_4
-Como obter desconto por volume somando o uso de várias contas?	Consolidated billing no Organizations.	CLF-C02 dominio-2 secao-2_4
-Como criar rapidamente um ambiente multi-conta seguro com guardrails?	AWS Control Tower.	CLF-C02 dominio-2 secao-2_4
-Como deixar times criarem só recursos aprovados pela empresa?	AWS Service Catalog.	CLF-C02 dominio-2 secao-2_4
-Como compartilhar uma subnet com outra conta?	AWS RAM.	CLF-C02 dominio-2 secao-2_4
-Qual serviço cria e controla chaves de criptografia integradas a S3, EBS e RDS?	AWS KMS.	CLF-C02 dominio-2 secao-2_5
-A empresa exige HSM dedicado, com chaves sob controle exclusivo dela.	AWS CloudHSM.	CLF-C02 dominio-2 secao-2_5
-Como obter certificados SSL/TLS gratuitos com renovação automática?	AWS Certificate Manager.	CLF-C02 dominio-2 secao-2_5
-Como proteger dados em trânsito?	TLS/HTTPS.	CLF-C02 dominio-2 secao-2_5
-E em repouso?	Criptografia com KMS.	CLF-C02 dominio-2 secao-2_5
-Quem é responsável por ativar a criptografia dos dados?	O cliente.	CLF-C02 dominio-2 secao-2_5
-Como auditar quem usou uma chave do KMS?	CloudTrail.	CLF-C02 dominio-2 secao-2_5
+Por que a AWS recomenda usar várias contas?	Porque cada conta é uma fronteira de permissões, segurança, custos e cargas de trabalho. Separar ambientes isola dados sensíveis, limita o impacto de incidentes, separa custos e distribui as cotas de serviço.	CLF-C02 dominio-2 secao-2_4
+Uma SCP permite o S3, mas o usuário não tem nenhuma política do IAM para o S3. Ele consegue acessar?	Não. A SCP só define o máximo possível; ela não concede permissão. O acesso exige que a SCP e uma política do IAM liberem a ação.	CLF-C02 dominio-2 secao-2_4
+Uma SCP nega uma ação numa OU. Um usuário com AdministratorAccess numa conta dessa OU consegue fazer a ação?	Não. O bloqueio da SCP vale para todos os usuários e funções das contas-membro abaixo da OU, inclusive o root delas. A exceção é a conta de gerenciamento, que as SCPs não afetam.	CLF-C02 dominio-2 secao-2_4
+O que o faturamento consolidado faz?	Junta as contas da organização numa fatura e soma o uso de todas para compartilhar descontos por volume, de Instâncias Reservadas e de Savings Plans, sem custo adicional.	CLF-C02 dominio-2 secao-2_4
+Qual é a diferença entre o AWS Organizations e o AWS Control Tower?	O Organizations é a base: agrupa contas em OUs, aplica SCPs e consolida a fatura. O Control Tower usa o Organizations e outros serviços para montar automaticamente uma landing zone com boas práticas, controles e criação padronizada de contas.	CLF-C02 dominio-2 secao-2_4
+Qual é a diferença entre o AWS KMS e o AWS CloudHSM?	O KMS é um serviço gerenciado de chaves, com HSMs compartilhados e gerenciados pela AWS e integração com muitos serviços. O CloudHSM oferece HSMs dedicados a um único cliente, que administra os próprios usuários e chaves.	CLF-C02 dominio-2 secao-2_5
+Um usuário tem permissão de leitura num bucket, mas o objeto está cifrado com SSE-KMS e uma chave gerenciada pelo cliente. Ele consegue ler?	Só se também tiver permissão para usar a chave (`kms:Decrypt`). Permissão no bucket sozinha não basta.	CLF-C02 dominio-2 secao-2_5
+Para que serve o AWS Certificate Manager?	Para criar, guardar e renovar certificados SSL/TLS usados no HTTPS de serviços como o Elastic Load Balancing, o CloudFront e o API Gateway. Com validação por DNS, a renovação é automática.	CLF-C02 dominio-2 secao-2_5
+Como saber quem usou uma chave do KMS?	Pelo AWS CloudTrail, que registra todas as chamadas ao KMS, inclusive as feitas por outros serviços em nome do cliente.	CLF-C02 dominio-2 secao-2_5
+Um objeto enviado hoje ao S3 sem nenhuma configuração fica cifrado?	Sim. Desde 5 de janeiro de 2023, todo objeto novo no S3 é cifrado automaticamente com SSE-S3, sem custo adicional.	CLF-C02 dominio-2 secao-2_5
 Onde baixar o relatório SOC 2 ou o atestado PCI da AWS?	AWS Artifact.	CLF-C02 dominio-2 secao-2_6
 Onde aceitar um acordo como o BAA (HIPAA)?	AWS Artifact (Agreements).	CLF-C02 dominio-2 secao-2_6
 Como coletar evidências continuamente para a auditoria da empresa?	AWS Audit Manager.	CLF-C02 dominio-2 secao-2_6

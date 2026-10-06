@@ -2,7 +2,7 @@
 
 Clique na pergunta para ver a resposta. Gerado a partir das *Perguntas típicas* de cada tópico (`python3 scripts/gerar_docs.py`).
 
-**Total:** 62 cards
+**Total:** 59 cards
 
 
 ## [2.1 Modelo de responsabilidade compartilhada](../docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md)
@@ -107,84 +107,66 @@ O AWS Secrets Manager, que guarda, recupera e troca segredos automaticamente num
 ## [2.4 Governança multi-conta](../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 
 <details>
-<summary>Como impedir que todas as contas de desenvolvimento usem uma região?</summary>
+<summary>Por que a AWS recomenda usar várias contas?</summary>
 
-SCP no Organizations.
+Porque cada conta é uma fronteira de permissões, segurança, custos e cargas de trabalho. Separar ambientes isola dados sensíveis, limita o impacto de incidentes, separa custos e distribui as cotas de serviço.
 </details>
 
 <details>
-<summary>Uma SCP permite S3, mas o usuário não tem política IAM para S3. Ele consegue acessar?</summary>
+<summary>Uma SCP permite o S3, mas o usuário não tem nenhuma política do IAM para o S3. Ele consegue acessar?</summary>
 
-Não; a SCP só limita, não concede.
+Não. A SCP só define o máximo possível; ela não concede permissão. O acesso exige que a SCP e uma política do IAM liberem a ação.
 </details>
 
 <details>
-<summary>Como obter desconto por volume somando o uso de várias contas?</summary>
+<summary>Uma SCP nega uma ação numa OU. Um usuário com AdministratorAccess numa conta dessa OU consegue fazer a ação?</summary>
 
-Consolidated billing no Organizations.
+Não. O bloqueio da SCP vale para todos os usuários e funções das contas-membro abaixo da OU, inclusive o root delas. A exceção é a conta de gerenciamento, que as SCPs não afetam.
 </details>
 
 <details>
-<summary>Como criar rapidamente um ambiente multi-conta seguro com guardrails?</summary>
+<summary>O que o faturamento consolidado faz?</summary>
 
-AWS Control Tower.
+Junta as contas da organização numa fatura e soma o uso de todas para compartilhar descontos por volume, de Instâncias Reservadas e de Savings Plans, sem custo adicional.
 </details>
 
 <details>
-<summary>Como deixar times criarem só recursos aprovados pela empresa?</summary>
+<summary>Qual é a diferença entre o AWS Organizations e o AWS Control Tower?</summary>
 
-AWS Service Catalog.
-</details>
-
-<details>
-<summary>Como compartilhar uma subnet com outra conta?</summary>
-
-AWS RAM.
+O Organizations é a base: agrupa contas em OUs, aplica SCPs e consolida a fatura. O Control Tower usa o Organizations e outros serviços para montar automaticamente uma landing zone com boas práticas, controles e criação padronizada de contas.
 </details>
 
 
 ## [2.5 Criptografia](../docs/02-seguranca-e-conformidade/05-criptografia.md)
 
 <details>
-<summary>Qual serviço cria e controla chaves de criptografia integradas a S3, EBS e RDS?</summary>
+<summary>Qual é a diferença entre o AWS KMS e o AWS CloudHSM?</summary>
 
-AWS KMS.
+O KMS é um serviço gerenciado de chaves, com HSMs compartilhados e gerenciados pela AWS e integração com muitos serviços. O CloudHSM oferece HSMs dedicados a um único cliente, que administra os próprios usuários e chaves.
 </details>
 
 <details>
-<summary>A empresa exige HSM dedicado, com chaves sob controle exclusivo dela.</summary>
+<summary>Um usuário tem permissão de leitura num bucket, mas o objeto está cifrado com SSE-KMS e uma chave gerenciada pelo cliente. Ele consegue ler?</summary>
 
-AWS CloudHSM.
+Só se também tiver permissão para usar a chave (`kms:Decrypt`). Permissão no bucket sozinha não basta.
 </details>
 
 <details>
-<summary>Como obter certificados SSL/TLS gratuitos com renovação automática?</summary>
+<summary>Para que serve o AWS Certificate Manager?</summary>
 
-AWS Certificate Manager.
+Para criar, guardar e renovar certificados SSL/TLS usados no HTTPS de serviços como o Elastic Load Balancing, o CloudFront e o API Gateway. Com validação por DNS, a renovação é automática.
 </details>
 
 <details>
-<summary>Como proteger dados em trânsito?</summary>
+<summary>Como saber quem usou uma chave do KMS?</summary>
 
-TLS/HTTPS.
+Pelo AWS CloudTrail, que registra todas as chamadas ao KMS, inclusive as feitas por outros serviços em nome do cliente.
 </details>
 
 <details>
-<summary>E em repouso?</summary>
+<summary>Um objeto enviado hoje ao S3 sem nenhuma configuração fica cifrado?</summary>
 
-Criptografia com KMS.
-</details>
-
-<details>
-<summary>Quem é responsável por ativar a criptografia dos dados?</summary>
-
-O cliente.
-</details>
-
-<details>
-<summary>Como auditar quem usou uma chave do KMS?</summary>
-
-CloudTrail.
+Sim. Desde 5 de janeiro de 2023, todo objeto novo no S3 é cifrado automaticamente com SSE-S3, sem custo adicional.
 </details>
 
 
