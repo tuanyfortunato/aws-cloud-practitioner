@@ -101,7 +101,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Quais são as seis perspectivas do AWS CAF?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Negócio, Pessoas, Governança, Plataforma, Segurança e Operações.
@@ -112,7 +112,7 @@ Comentário: cada perspectiva reúne capacidades relacionadas e os stakeholders 
 
 ### Qual perspectiva do CAF trata de cultura, treinamento e gestão da mudança?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Pessoas, que faz a ponte entre tecnologia e negócio com foco em cultura, estrutura organizacional, liderança e força de trabalho.
@@ -123,7 +123,7 @@ Comentário: não confunda com Governança, que cuida de riscos, programas, bene
 
 ### Quais são as quatro fases da jornada de transformação do CAF?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Envision (oportunidades e resultados), Align (lacunas e alinhamento), Launch (pilotos em produção) e Scale (expandir o que funcionou).
@@ -134,7 +134,7 @@ Comentário: a jornada é iterativa; cada ciclo amplia a transformação.
 
 ### Quais resultados de negócio o CAF promete?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Redução do risco de negócio, melhoria do desempenho ESG, aumento de receita e aumento da eficiência operacional.
@@ -145,7 +145,7 @@ Comentário: esses quatro aparecem no guia do exame como exemplos de componentes
 
 ### Qual é a diferença entre o CAF e o Well-Architected Framework?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O CAF orienta a organização inteira na adoção da nuvem (pessoas, processos, decisões); o Well-Architected avalia a arquitetura de uma carga de trabalho.

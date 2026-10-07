@@ -99,7 +99,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Quais são os seis pilares do Well-Architected Framework?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Excelência operacional, segurança, confiabilidade, eficiência de performance, otimização de custos e sustentabilidade.
@@ -110,7 +110,7 @@ Comentário: a prova descreve uma prática e pede o pilar; decida pelo objetivo 
 
 ### "Escalar horizontalmente para reduzir o impacto de uma única falha" é princípio de qual pilar?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Confiabilidade, que também inclui recuperar-se automaticamente de falhas, testar a recuperação, parar de adivinhar capacidade e gerenciar mudanças com automação.
@@ -121,7 +121,7 @@ Comentário: não confunda com eficiência de performance, que trata de usar o t
 
 ### "Fazer mudanças frequentes, pequenas e reversíveis" pertence a qual pilar?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Excelência operacional, o pilar de operar e evoluir a carga de trabalho, junto com observabilidade, automação e aprendizado com os eventos.
@@ -132,7 +132,7 @@ Comentário: mudanças pequenas reduzem o alcance de uma falha e são mais fáce
 
 ### O que o pilar de sustentabilidade recomenda sobre utilização dos recursos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Maximizar a utilização: dimensionar corretamente e evitar recursos ociosos, porque poucos servidores bem usados gastam menos energia que muitos subutilizados.
@@ -143,7 +143,7 @@ Comentário: o framework compara dois servidores a 30% com um servidor a 60%; o 
 
 ### Para que serve a AWS Well-Architected Tool?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para revisar e medir uma carga de trabalho com base no framework, documentar decisões, receber recomendações e acompanhar melhorias, sem cobrança adicional.

@@ -83,7 +83,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que é o usuário root de uma conta AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É a identidade criada junto com a conta, que entra com o e-mail e a senha usados na criação e tem acesso completo a todos os serviços e recursos da conta.
@@ -94,7 +94,7 @@ Comentário: as permissões do root não vêm de nenhuma política; vêm da pró
 
 ### Por que a AWS recomenda não usar o root nas tarefas do dia a dia?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque ele tem poder total sobre a conta: qualquer erro ou vazamento da credencial afeta tudo, inclusive a cobrança e o encerramento da conta. O trabalho diário deve usar identidades com só as permissões necessárias.
@@ -105,7 +105,7 @@ Comentário: a pergunta testa a ligação entre o root e o menor privilégio da 
 
 ### Quais são as principais proteções do root?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Ativar MFA (hoje exigido em todos os tipos de conta), usar uma senha forte e exclusiva, não criar chaves de acesso para o root e usar e-mail de grupo e aprovação por várias pessoas.
@@ -116,7 +116,7 @@ Comentário: chave de acesso é a proteção mais esquecida. Uma chave do root d
 
 ### Mudar o nome da conta exige entrar como root?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. Nome da conta, dados de contato, contatos alternativos, moeda de pagamento e Regiões podem ser mudados sem o root. Mudar o e-mail, a senha e as chaves de acesso do root de uma conta independente exige o root.
@@ -127,7 +127,7 @@ Comentário: a lista de tarefas do root encolheu com o tempo, e materiais antigo
 
 ### Cite três tarefas que exigem o root.
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Encerrar uma conta independente, restaurar as permissões de um administrador do IAM que se trancou do lado de fora e ativar o acesso do IAM ao console de faturamento. Também valem destravar uma política de bucket S3 ou de fila SQS que nega acesso a todos e configurar MFA Delete num bucket S3.

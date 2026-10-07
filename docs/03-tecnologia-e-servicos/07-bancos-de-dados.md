@@ -123,7 +123,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Quais tarefas a AWS assume quando o banco sai do EC2 e vai para o RDS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Instalação e patches do sistema operacional e do software do banco, backups, alta disponibilidade e escalonamento; o cliente continua cuidando da aplicação e das consultas.
@@ -134,7 +134,7 @@ Comentário: a AWS recomenda o RDS como escolha padrão para a maioria dos banco
 
 ### Qual é a diferença entre Multi-AZ e réplica de leitura no RDS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Multi-AZ mantém uma cópia síncrona em outra zona de disponibilidade para disponibilidade; a réplica de leitura é uma cópia assíncrona, só de leitura, para melhorar o desempenho de leitura.
@@ -145,7 +145,7 @@ Comentário: na forma com uma standby, o Multi-AZ não atende leituras.
 
 ### Quando escolher o DynamoDB em vez do RDS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando os dados são chave-valor ou documento e precisam de escala enorme com milissegundos de resposta, sem servidor para gerenciar.
@@ -156,7 +156,7 @@ Comentário: o DynamoDB não faz junções entre tabelas, então não serve para
 
 ### Para que serve o Amazon ElastiCache?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para guardar em memória os dados mais pedidos e responder sem consultar o banco, o que acelera a aplicação e alivia o banco principal.
@@ -167,7 +167,7 @@ Comentário: funciona com os motores Valkey, Memcached e Redis OSS.
 
 ### Uma empresa vai migrar um banco Oracle para o Aurora PostgreSQL. Que ferramentas usar?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS SCT (ou o DMS Schema Conversion) para converter o esquema, e o AWS DMS para migrar os dados.

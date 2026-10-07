@@ -107,7 +107,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Para que serve o Amazon SQS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para desacoplar componentes com uma fila: o produtor envia mensagens, e o consumidor as busca e processa no seu ritmo, o que absorve picos e falhas.
@@ -118,7 +118,7 @@ Comentário: as mensagens ficam 4 dias por padrão, com máximo de 14 dias.
 
 ### Qual é a diferença entre uma fila padrão e uma fila FIFO no SQS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A fila padrão tem vazão quase ilimitada, mas pode repetir mensagens e entregá-las fora de ordem; a FIFO mantém a ordem dentro de cada grupo e processa cada mensagem uma vez.
@@ -129,7 +129,7 @@ Comentário: FIFO quer dizer primeiro a entrar, primeiro a sair.
 
 ### Qual é a diferença entre SQS e SNS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 No SQS, a mensagem espera numa fila até um consumidor buscá-la; no SNS, a mensagem publicada num tópico é empurrada na hora para todos os assinantes.
@@ -140,7 +140,7 @@ Comentário: combinados, formam o fan-out: um tópico do SNS alimenta várias fi
 
 ### Quando usar o Amazon EventBridge?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para ligar componentes por eventos: receber eventos de aplicações, de serviços da AWS e de softwares de terceiros e entregá-los aos destinos certos, ou para agendar tarefas com o EventBridge Scheduler.
@@ -151,7 +151,7 @@ Comentário: é a base de arquiteturas orientadas a eventos.
 
 ### O que o AWS Step Functions faz?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Coordena fluxos de trabalho com várias etapas, chamando serviços como o Lambda, com novas tentativas e caminhos alternativos em caso de erro.

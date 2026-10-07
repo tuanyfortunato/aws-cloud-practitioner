@@ -83,7 +83,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual serviço registra quem encerrou uma instância e quando?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS CloudTrail, que registra as chamadas de API da conta como eventos, com a identidade, a ação, o horário, a origem e o recurso.
@@ -94,7 +94,7 @@ Comentário: encerrar uma instância é um evento de gerenciamento, que já fica
 
 ### Como guardar os eventos do CloudTrail por anos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Criando uma trilha que entrega os eventos num bucket S3, onde ficam pelo tempo que a escola quiser. A trilha pode cobrir todas as Regiões e, numa organização, todas as contas.
@@ -105,7 +105,7 @@ Comentário: sem trilha, o histórico de eventos guarda só os últimos 90 dias 
 
 ### Qual é a diferença entre o CloudTrail e o Config?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O CloudTrail registra ações: quem fez cada chamada de API e quando. O Config registra estados: como cada recurso estava configurado ao longo do tempo e se seguia as regras.
@@ -116,7 +116,7 @@ Comentário: numa investigação, os dois se completam. O CloudTrail diz quem mu
 
 ### Como coletar o uso de memória de uma instância EC2 no CloudWatch?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Instalando o agente do CloudWatch na instância. A memória usada dentro do sistema operacional não está entre as métricas que o EC2 envia por padrão.
@@ -127,7 +127,7 @@ Comentário: CPU, rede e operações de disco vêm por padrão. Memória e espa�
 
 ### Como ser avisado quando os gastos da conta passarem de um valor?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Criando um alarme de cobrança no CloudWatch, com notificação por um tópico do SNS. A métrica de gastos estimados fica na Região Leste dos EUA (Norte da Virgínia).

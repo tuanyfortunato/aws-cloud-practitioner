@@ -123,7 +123,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre um usuário do IAM e uma função do IAM?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O usuário representa uma pessoa ou programa e tem credenciais de longo prazo (senha e chaves de acesso). A função não pertence a ninguém: é assumida por quem precisa dela e entrega credenciais temporárias, geradas pelo AWS STS.
@@ -134,7 +134,7 @@ Comentário: a AWS prefere credenciais temporárias porque expiram sozinhas. É 
 
 ### Uma política permite ler um bucket e outra nega a mesma ação. O que acontece?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O pedido é negado, porque uma negação explícita sempre vence uma permissão.
@@ -145,7 +145,7 @@ Comentário: guarde também o outro lado da regra: sem nenhuma permissão explí
 
 ### Como dar a uma aplicação numa instância EC2 acesso a um bucket S3 sem gravar credenciais no servidor?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Criar uma função do IAM com a permissão necessária e anexá-la à instância por meio de um perfil de instância. A aplicação recebe credenciais temporárias renovadas automaticamente.
@@ -156,7 +156,7 @@ Comentário: chaves de acesso gravadas no servidor são a alternativa tentadora 
 
 ### Quando usar o IAM Identity Center e quando usar o Amazon Cognito?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Identity Center dá a funcionários acesso a várias contas AWS e aplicações, com login único. O Cognito cuida do cadastro e do login dos usuários de um aplicativo, como clientes de um site.
@@ -167,7 +167,7 @@ Comentário: a pergunta testa o tipo de pessoa. Quem administra ou trabalha na A
 
 ### Qual serviço guarda a senha de um banco de dados com rotação automática?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS Secrets Manager, que guarda, recupera e troca segredos automaticamente num calendário.

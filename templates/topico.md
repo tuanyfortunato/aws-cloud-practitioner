@@ -66,7 +66,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Pergunta de compreensão?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Resposta direta em um parágrafo. Este parágrafo vira o flashcard.

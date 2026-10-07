@@ -95,7 +95,7 @@ Tente responder antes de abrir cada resposta.
 
 ### As listas de serviços do guia do exame são completas?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não: tanto a lista no escopo quanto a lista fora do escopo avisam que não são exaustivas e podem mudar.
@@ -106,7 +106,7 @@ Comentário: por isso vale ter um método para nomes desconhecidos, além de con
 
 ### O que fazer quando uma alternativa cita um serviço da lista fora do escopo?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Desconfiar dela e procurar o serviço do escopo que cumpre a função pedida, já que a prova não cobra os serviços fora do escopo.
@@ -117,7 +117,7 @@ Comentário: exemplos fora do escopo são GameLift, Elemental, RoboMaker, Ground
 
 ### Qual serviço gera credenciais temporárias na AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS Security Token Service (AWS STS).
@@ -128,7 +128,7 @@ Comentário: as credenciais temporárias expiram sozinhas e são a base das fun�
 
 ### Onde ver as emissões de carbono do uso da AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 No console AWS Sustainability, que amplia a antiga Customer Carbon Footprint Tool.
@@ -139,7 +139,7 @@ Comentário: ele mostra as emissões por Região e por serviço, e se liga ao pi
 
 ### Para que serve o AWS Fault Injection Service?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para fazer experimentos de injeção de falhas, seguindo a engenharia do caos, e ver como a aplicação reage a interrupções.

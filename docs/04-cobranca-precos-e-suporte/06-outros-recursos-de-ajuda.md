@@ -112,7 +112,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre o AWS re:Post e o AWS Knowledge Center?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O re:Post é a comunidade de perguntas e respostas da AWS; o Knowledge Center, dentro do re:Post, reúne artigos e vídeos oficiais com as perguntas mais comuns dos clientes.
@@ -123,7 +123,7 @@ Comentário: os dois estão disponíveis para todos, sem plano pago.
 
 ### O que é o AWS Professional Services?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A equipe de consultoria da própria AWS, que ajuda a projetar, construir, migrar e gerenciar cargas de trabalho na AWS.
@@ -134,7 +134,7 @@ Comentário: parceiros da APN são a alternativa fora da AWS.
 
 ### Qual é a diferença entre um ISV e um integrador de sistemas na APN?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O ISV (fornecedor independente de software) cria produtos de software; o integrador de sistemas implementa projetos para os clientes.
@@ -145,7 +145,7 @@ Comentário: o guia cita treinamento e certificação, eventos e descontos por v
 
 ### Quais serviços o AWS Marketplace oferece além da compra de software?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Gestão de custos, governança e controle (como o Private Marketplace) e gestão de direitos de uso das licenças (Managed Entitlements).
@@ -156,7 +156,7 @@ Comentário: as compras aparecem na fatura da AWS.
 
 ### A quem denunciar spam ou ataques vindos de recursos da AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 À equipe AWS Trust and Safety, pelo formulário de abuso da AWS.

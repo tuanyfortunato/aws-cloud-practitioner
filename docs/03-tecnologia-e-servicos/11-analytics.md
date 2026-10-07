@@ -112,7 +112,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre data lake e data warehouse?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O data lake guarda dados estruturados e não estruturados como chegaram, em qualquer escala; o data warehouse guarda dados relacionais organizados antes, otimizados para consultas analíticas.
@@ -123,7 +123,7 @@ Comentário: na AWS, o data lake costuma ser o S3, e o data warehouse é o Redsh
 
 ### Como o Amazon Athena é cobrado, e como reduzir esse custo?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Pela quantidade de dados lidos em cada consulta; comprimir, particionar e usar formatos colunares reduz o que o Athena lê.
@@ -134,7 +134,7 @@ Comentário: o Athena é serverless e consulta os dados direto no S3 com SQL.
 
 ### O que o AWS Glue faz?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Descobre, prepara e integra dados de muitas fontes, roda pipelines de ETL sem servidor e mantém um catálogo central de dados.
@@ -145,7 +145,7 @@ Comentário: os dados catalogados podem ser consultados pelo Athena, pelo EMR e 
 
 ### Quando usar o Amazon Kinesis?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando os dados chegam em fluxo contínuo e precisam ser coletados e processados em tempo real, como cliques ou leituras de sensores.
@@ -156,7 +156,7 @@ Comentário: o Data Firehose entrega esses fluxos a destinos como o S3 e o Redsh
 
 ### Que serviço cria painéis de BI na AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Amazon Quick Sight, que se conecta às fontes de dados e cria painéis interativos.

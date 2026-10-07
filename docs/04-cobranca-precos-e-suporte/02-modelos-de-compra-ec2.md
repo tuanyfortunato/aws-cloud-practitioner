@@ -115,7 +115,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Quando usar instâncias Spot?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando a carga tolera interrupção e tem horário flexível, como processamento em lote e análise de dados; o desconto chega a 90%.
@@ -126,7 +126,7 @@ Comentário: a AWS pode retomar a capacidade com aviso de dois minutos.
 
 ### Qual é a diferença entre Compute Savings Plans e EC2 Instance Savings Plans?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Compute Savings Plans vale para qualquer família, Região e sistema, e também para Fargate e Lambda (até 66%); o EC2 Instance Savings Plans exige uma família numa Região e dá até 72%.
@@ -137,7 +137,7 @@ Comentário: mais flexibilidade, menos desconto.
 
 ### Qual é a diferença entre uma RI Standard e uma RI Convertible?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A Standard dá o maior desconto, mas não pode ser trocada; a Convertible dá desconto menor e pode ser trocada por outra configuração durante o prazo.
@@ -148,7 +148,7 @@ Comentário: só a Standard pode ser vendida no Reserved Instance Marketplace.
 
 ### Quando escolher um Dedicated Host?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando é preciso um servidor físico inteiro, com controle de onde as instâncias rodam, para usar licenças próprias cobradas por soquete, núcleo ou máquina virtual.
@@ -159,7 +159,7 @@ Comentário: a Dedicated Instance também usa hardware dedicado, mas sem control
 
 ### Como as RIs se comportam numa organização do AWS Organizations?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Com o faturamento consolidado, o desconto de uma RI comprada por uma conta pode ser aproveitado pelas instâncias de qualquer conta da organização.

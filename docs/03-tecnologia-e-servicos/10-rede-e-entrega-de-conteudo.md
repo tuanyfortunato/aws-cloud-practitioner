@@ -138,7 +138,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que torna uma sub-rede pública?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Uma rota direta para um internet gateway na tabela de rotas da sub-rede; sem essa rota, a sub-rede é privada.
@@ -149,7 +149,7 @@ Comentário: cada sub-rede fica numa única zona de disponibilidade.
 
 ### Para que serve o NAT gateway?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para que instâncias em sub-redes privadas iniciem conexões com serviços fora da VPC, como baixar atualizações, sem que serviços de fora possam iniciar conexões com elas.
@@ -160,7 +160,7 @@ Comentário: o NAT gateway público fica numa sub-rede pública e sai pelo inter
 
 ### Quando usar o Transit Gateway em vez de VPC peering?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando há muitas VPCs e redes locais para interligar; o Transit Gateway é um hub central, enquanto o peering liga só duas VPCs e não é transitivo.
@@ -171,7 +171,7 @@ Comentário: se A está ligada a B e B a C por peering, A não fala com C.
 
 ### Qual é a diferença entre Site-to-Site VPN e Direct Connect?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A Site-to-Site VPN é uma conexão criptografada (IPsec) que passa pela internet; o Direct Connect é uma conexão dedicada por fibra até um local do Direct Connect, sem passar pelos provedores de internet, com desempenho mais consistente.
@@ -182,7 +182,7 @@ Comentário: o Direct Connect não é criptografado por padrão; pode-se rodar u
 
 ### Quais são as três funções do Amazon Route 53?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Registrar domínios, rotear o tráfego do nome do domínio para os recursos e verificar a saúde desses recursos.

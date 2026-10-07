@@ -21,5 +21,5 @@ Clique na pergunta para revelar a resposta.
 ## Adicionar cards
 
 Acrescente uma pergunta na seção `## Revisão` da própria aula: um subtítulo `###` com a pergunta e a resposta
-recolhida num `<details>` logo abaixo. O primeiro parágrafo da resposta vira o card. Depois rode
+recolhida num `<details markdown="1">` logo abaixo. O primeiro parágrafo da resposta vira o card. Depois rode
 `python3 scripts/gerar_docs.py`; os arquivos desta pasta são sobrescritos a cada execução.

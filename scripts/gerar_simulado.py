@@ -73,7 +73,7 @@ def bloco_questao(numero, q, opcoes, corretas, destino):
               f"<sub>Domínio {q['dominio']} · tópico [{q['secao']}]({link}){tipo}</sub>", "",
               q["enunciado"], ""]
     linhas += [f"- **{letra})** {texto}" for letra, texto in opcoes]
-    linhas += ["", "<details>", "<summary>Ver resposta</summary>", "",
+    linhas += ["", '<details markdown="1">', "<summary>Ver resposta</summary>", "",
                f"**Resposta: {', '.join(corretas)}**", "", q["explicacao"], "", "</details>", ""]
     return "\n".join(linhas)
 

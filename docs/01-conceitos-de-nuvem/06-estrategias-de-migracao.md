@@ -88,7 +88,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Quais são os 7 Rs de migração?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Retire, Retain, Rehost, Relocate, Repurchase, Replatform e Refactor (ou re-architect).
@@ -99,7 +99,7 @@ Comentário: a pergunta que separa as estratégias é quanto a aplicação muda.
 
 ### Qual é a diferença entre rehost e replatform?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Rehost move a aplicação sem alterá-la; replatform move e faz algumas otimizações, como levar o banco para um serviço gerenciado como o Amazon RDS.
@@ -110,7 +110,7 @@ Comentário: refactor é a estratégia que muda a arquitetura para aproveitar os
 
 ### Uma empresa troca seu CRM próprio por um produto SaaS. Qual estratégia?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Repurchase, também chamada de drop and shop: substituir a aplicação por outro produto ou versão.
@@ -121,7 +121,7 @@ Comentário: depois da compra ainda é preciso migrar os dados, integrar a auten
 
 ### Por que a AWS não recomenda refactor em migrações grandes?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque é a estratégia mais complexa e cara, já que moderniza a aplicação durante a migração; a recomendação é migrar primeiro e modernizar depois.
@@ -132,7 +132,7 @@ Comentário: refactor se justifica quando há forte demanda de negócio por agil
 
 ### Qual serviço replica continuamente um banco de dados durante a migração?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS Database Migration Service (AWS DMS), que faz migrações únicas ou replica as mudanças para manter origem e destino sincronizados.

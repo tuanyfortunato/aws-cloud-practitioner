@@ -108,7 +108,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Para que serve o Migration Evaluator?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para montar o caso de negócio da migração, comparando o custo do ambiente atual com alternativas na AWS.
@@ -119,7 +119,7 @@ Comentário: a AWS oferece o Migration Evaluator sem custo.
 
 ### O que o AWS Application Discovery Service coleta?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Dados de configuração e uso dos servidores e bancos locais, e as conexões de rede entre os servidores, que revelam as dependências.
@@ -130,7 +130,7 @@ Comentário: a coleta pode ser feita sem agente, com agente ou por importação 
 
 ### O que faz o AWS Application Migration Service?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Automatiza o rehost (lift and shift) de servidores físicos, virtuais e de outras nuvens para a AWS, com replicação contínua e virada rápida.
@@ -141,7 +141,7 @@ Comentário: hoje o serviço se chama AWS Transform MGN.
 
 ### Qual é a diferença entre o AWS DMS e a AWS SCT?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O DMS move os dados do banco, uma vez ou com replicação contínua; a SCT converte o esquema quando o banco muda de motor.
@@ -152,7 +152,7 @@ Comentário: na migração para o mesmo motor, o DMS basta.
 
 ### Qual serviço da lista do exame acompanha o andamento das migrações num só lugar?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS Migration Hub.

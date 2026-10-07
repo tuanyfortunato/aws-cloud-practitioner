@@ -69,7 +69,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que é uma API?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O conjunto de operações que um programa oferece a outros programas, com as regras de como pedir cada uma.
@@ -80,7 +80,7 @@ Quem chama não precisa saber como o trabalho é feito por dentro. Na AWS, as op
 
 ### Qual é a diferença entre comunicação síncrona e assíncrona?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Na síncrona, quem chama espera a resposta para continuar; na assíncrona, quem chama deixa o pedido, por exemplo numa fila, e segue em frente sem esperar.
@@ -91,7 +91,7 @@ A síncrona é simples, mas faz uma lentidão ou falha de um lado travar o outro
 
 ### Por que uma fila ajuda quando há um pico de pedidos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque as mensagens se acumulam na fila e os consumidores as processam no próprio ritmo, sem sobrecarregar quem faz o trabalho.
@@ -102,7 +102,7 @@ O mesmo vale quando o consumidor cai: as mensagens esperam até ele voltar. Na A
 
 ### Quando usar um tópico em vez de uma fila?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando a mesma mensagem precisa chegar a vários programas ao mesmo tempo.

@@ -17,7 +17,7 @@ Uma escola parou uma instância Amazon EC2 que só usa no período de matrícula
 - **C)** Nada, porque a instância está parada
 - **D)** A transferência de dados de entrada da instância
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -37,7 +37,7 @@ Uma empresa notou que, no Amazon S3, o preço por GB armazenado fica menor à me
 - **C)** Pagar menos usando mais (desconto por volume)
 - **D)** Pagar pelo uso (pay-as-you-go)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -57,7 +57,7 @@ Uma startup ainda não sabe quanto o seu novo produto vai crescer e quer começa
 - **C)** Instâncias reservadas com pagamento antecipado total
 - **D)** Savings Plans com compromisso de 3 anos
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -77,7 +77,7 @@ Uma empresa executa renderizações de vídeo em lote que podem ser interrompida
 - **C)** Dedicated Hosts
 - **D)** Reserved Instances Standard de 3 anos
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -97,7 +97,7 @@ Uma empresa usa Amazon EC2 em várias regiões, AWS Fargate e AWS Lambda, e quer
 - **C)** Compute Savings Plans
 - **D)** EC2 Instance Savings Plans
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -118,7 +118,7 @@ Quais DOIS tipos de transferência de dados são GRATUITOS na AWS? (Escolha DUAS
 - **D)** Entrada de dados da internet para a AWS
 - **E)** Saída de dados da AWS para a internet
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C, D**
@@ -138,7 +138,7 @@ Antes de migrar, uma empresa quer estimar o custo mensal de uma nova arquitetura
 - **C)** AWS Budgets
 - **D)** AWS Pricing Calculator
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -158,7 +158,7 @@ O gerente financeiro quer ser notificado por e-mail quando o gasto PREVISTO do m
 - **C)** AWS Trusted Advisor
 - **D)** AWS Cost Explorer
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -178,7 +178,7 @@ Uma empresa com uma única conta AWS precisa saber quanto cada departamento gast
 - **C)** Usar o AWS Pricing Calculator mensalmente
 - **D)** Aplicar cost allocation tags aos recursos e ativá-las no console de Billing
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -198,7 +198,7 @@ Uma startup quer o plano de AWS Support pago de MENOR custo, que começa em US$ 
 - **C)** Basic
 - **D)** AWS Business Support+
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -218,7 +218,7 @@ Uma grande empresa precisa de um Technical Account Manager (TAM) designado e de 
 - **C)** Basic
 - **D)** AWS Enterprise Support
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -238,7 +238,7 @@ Uma empresa quer contratar especialistas da própria AWS para ajudar a planejar 
 - **C)** AWS Professional Services
 - **D)** AWS Marketplace
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -258,7 +258,7 @@ Uma rede de escolas quer contratar uma empresa de consultoria parceira da AWS, c
 - **C)** Na AWS Partner Network (APN)
 - **D)** No AWS Artifact
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -278,7 +278,7 @@ O setor de compras de uma empresa quer que os funcionários só consigam comprar
 - **C)** Private Marketplace
 - **D)** AWS Budgets
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -298,7 +298,7 @@ Uma equipe busca guias e padrões (*patterns*) de especialistas da AWS para acel
 - **C)** AWS Trusted Advisor
 - **D)** AWS Artifact
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**

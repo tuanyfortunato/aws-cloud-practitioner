@@ -90,7 +90,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que o AWS Elastic Beanstalk faz com o código que você envia?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Cria e configura os recursos para rodá-lo: instâncias do EC2 (ou um cluster do EKS), balanceamento de carga, monitoramento de saúde e escalonamento.
@@ -101,7 +101,7 @@ Comentário: é a plataforma como serviço dentro da AWS; você cuida da aplica�
 
 ### Quanto custa o AWS Elastic Beanstalk?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não há cobrança adicional pelo serviço; você paga os recursos da AWS que a aplicação consome.
@@ -112,7 +112,7 @@ Comentário: os recursos ficam na sua conta e continuam sendo cobrados normalmen
 
 ### Para quem o Amazon Lightsail foi pensado?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para quem quer começar de forma simples, como desenvolvedores individuais, projetos pessoais e iniciantes, com planos de preço baixo e previsível.
@@ -123,7 +123,7 @@ Comentário: os planos juntam processador, memória, armazenamento e franquia de
 
 ### Que tipo de trabalho o AWS Batch executa?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Cargas de processamento em lote de qualquer escala, provisionando automaticamente a capacidade de computação para as tarefas enviadas.
@@ -134,7 +134,7 @@ Comentário: por baixo, ele usa ECS ou EKS e escala instâncias do EC2 ou o Farg
 
 ### Qual é a diferença entre o Elastic Beanstalk e o Lambda?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Elastic Beanstalk cria instâncias e outros recursos que ficam ligados e são cobrados; o Lambda é serverless e cobra só quando a função roda.

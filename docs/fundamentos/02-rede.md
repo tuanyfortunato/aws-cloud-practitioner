@@ -84,7 +84,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre IP público e IP privado?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O IP público é único na internet e pode receber dados de qualquer lugar; o IP privado só vale dentro de uma rede interna e não é alcançável diretamente da internet.
@@ -95,7 +95,7 @@ Por isso o mesmo IP privado pode existir em muitas redes diferentes. Para uma m�
 
 ### Para que serve a porta, se a máquina já tem um endereço IP?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O IP leva os dados até a máquina; a porta indica qual programa daquela máquina deve recebê-los.
@@ -106,7 +106,7 @@ O IP leva os dados até a máquina; a porta indica qual programa daquela máquin
 
 ### O que o DNS faz, e o que ele não faz?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O DNS traduz um nome de domínio no endereço IP do servidor; ele não protege o servidor nem garante que o site esteja funcionando.
@@ -117,7 +117,7 @@ Trocar o servidor de lugar exige só atualizar o registro DNS, sem mudar o nome 
 
 ### O que o HTTPS acrescenta ao HTTP?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Criptografia da conversa por TLS e um certificado que prova ao navegador que ele está falando com o site verdadeiro.
@@ -128,7 +128,7 @@ Com isso, ninguém no caminho consegue ler ou alterar os dados. O HTTPS não pro
 
 ### O que faz uma sub-rede da VPC ser pública?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Ter, na sua tabela de rotas, uma rota para um internet gateway.

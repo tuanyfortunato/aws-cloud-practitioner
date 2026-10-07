@@ -104,7 +104,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre um security group e uma ACL de rede?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O security group atua no recurso, só tem regras de permitir e é stateful (a resposta volta sozinha). A ACL de rede atua na sub-rede, tem regras de permitir e negar, avaliadas em ordem numérica, e é stateless (a resposta precisa de regra própria).
@@ -115,7 +115,7 @@ Comentário: a diferença decide a resposta quando o enunciado pede para negar u
 
 ### Um security group novo deixa algum tráfego entrar?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. Um security group novo não tem regras de entrada, então nada entra até alguém liberar; ele já vem com uma regra que permite todo o tráfego de saída.
@@ -126,7 +126,7 @@ Comentário: não confunda com a ACL de rede padrão da VPC, que permite todo o 
 
 ### Qual serviço protege contra injeção de SQL num site atrás de um load balancer?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS WAF, com um web ACL associado ao Application Load Balancer e regras que inspecionam os pedidos HTTP em busca de código SQL malicioso.
@@ -137,7 +137,7 @@ Comentário: security groups, ACLs de rede e Shield não leem o conteúdo dos pe
 
 ### Qual é a diferença entre o Shield Standard e o Shield Advanced?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Standard protege todos os clientes automaticamente, sem custo adicional, contra os ataques DDoS de rede e transporte mais comuns. O Advanced é pago, com compromisso de um ano, e acrescenta proteção contra ataques maiores e na camada de aplicação, acesso 24 horas ao Shield Response Team e proteção contra aumentos de cobrança causados por DDoS.
@@ -148,7 +148,7 @@ Comentário: para acionar o Shield Response Team, a conta precisa de um plano de
 
 ### Para que serve o AWS Firewall Manager?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para administrar de forma central regras do WAF, do Shield Advanced, de security groups, de ACLs de rede e do Network Firewall em todas as contas de uma organização, aplicando-as também às contas e recursos novos.

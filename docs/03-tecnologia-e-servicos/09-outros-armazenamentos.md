@@ -120,7 +120,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre um volume EBS e o instance store?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O volume EBS é persistente e existe independentemente da instância, numa zona de disponibilidade; o instance store é um disco físico do servidor, cujos dados se perdem quando a instância é parada ou encerrada.
@@ -131,7 +131,7 @@ Comentário: o backup do EBS é feito com snapshots incrementais, e criá-los é
 
 ### Quando usar o EFS em vez do EBS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando várias instâncias Linux precisam acessar os mesmos arquivos ao mesmo tempo; o EFS é um sistema de arquivos compartilhado (NFS) que cresce e encolhe sozinho.
@@ -142,7 +142,7 @@ Comentário: o EFS não é suportado em instâncias Windows; para Windows, a op�
 
 ### O que o Amazon FSx oferece?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Sistemas de arquivos conhecidos totalmente gerenciados: Windows File Server, Lustre, NetApp ONTAP e OpenZFS.
@@ -153,7 +153,7 @@ Comentário: Windows File Server atende pastas compartilhadas Windows (SMB); Lus
 
 ### Para que serve o AWS Storage Gateway?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para ligar o ambiente local do cliente ao armazenamento da AWS, guardando os dados na nuvem e mantendo um cache local para acesso rápido.
@@ -164,7 +164,7 @@ Comentário: os tipos são S3 File Gateway, Volume Gateway e Tape Gateway, que s
 
 ### Qual é a vantagem do AWS Backup?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Centralizar e automatizar os backups de vários serviços com planos de backup, em vez de configurar e conferir serviço por serviço.

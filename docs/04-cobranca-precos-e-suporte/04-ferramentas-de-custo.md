@@ -121,7 +121,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Para que serve a AWS Pricing Calculator?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para estimar o custo de usar serviços da AWS antes de criá-los; é uma ferramenta web gratuita.
@@ -132,7 +132,7 @@ Comentário: a estimativa pode ser compartilhada por link e exportada em CSV ou 
 
 ### Qual é a diferença entre o Cost Explorer e o Budgets?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Cost Explorer analisa os gastos passados e faz previsões; o Budgets define limites e avisa (ou age) quando o custo ou o uso se aproxima deles.
@@ -143,7 +143,7 @@ Comentário: o Budgets pode avisar pelo valor real ou pelo previsto.
 
 ### Quais são os dois tipos de tags de alocação de custos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 As definidas pelo usuário (prefixo `user:`) e as geradas pela AWS (prefixo `aws:`), e as duas precisam ser ativadas no console de Billing para aparecer nos relatórios.
@@ -154,7 +154,7 @@ Comentário: servem para separar custos por projeto, escola, time ou ambiente.
 
 ### O que o AWS Cost and Usage Report oferece?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O conjunto mais completo de dados de custo e uso, entregue num bucket do S3, por hora, dia ou mês, por recurso e por tag.
@@ -165,7 +165,7 @@ Comentário: hoje é criado pelo AWS Data Exports, na versão CUR 2.0.
 
 ### O que o faturamento consolidado do Organizations traz?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Uma fatura única para várias contas e a soma do uso de todas, o que compartilha descontos por volume, de instâncias reservadas e de Savings Plans, sem custo adicional.

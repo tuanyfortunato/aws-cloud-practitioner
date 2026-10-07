@@ -121,7 +121,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual transferência de dados é gratuita: entrada ou saída?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A entrada, da internet para a AWS. A saída para a internet é cobrada, com 100 GB gratuitos por mês somando todos os serviços e Regiões.
@@ -132,7 +132,7 @@ Comentário: a transferência entre Regiões é cobrada na saída da Região de 
 
 ### A transferência entre zonas de disponibilidade da mesma Região é cobrada?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Sim, para recursos como EC2, RDS, Redshift e ElastiCache, nos dois sentidos; dentro da mesma zona é gratuita, salvo o tráfego por IPv4 público.
@@ -143,7 +143,7 @@ Comentário: é um custo a considerar ao espalhar a aplicação entre zonas para
 
 ### Como o Amazon EBS é cobrado?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Por GB-mês provisionado: paga-se o tamanho do volume criado, cheio ou não.
@@ -154,7 +154,7 @@ Comentário: o EFS, ao contrário, cobra só o armazenamento usado.
 
 ### Qual é o preço da economia nas classes mais baratas do S3?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Taxa por GB recuperado, prazo mínimo de armazenamento e, nas classes Glacier Flexible Retrieval e Deep Archive, restauração demorada antes da leitura.
@@ -165,7 +165,7 @@ Comentário: apagar o objeto antes do prazo mínimo gera cobrança pelo prazo in
 
 ### Cite serviços que não cobram nada por si.
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 IAM, faturamento consolidado do Organizations, Elastic Beanstalk, EC2 Auto Scaling e CloudFormation com recursos da AWS.

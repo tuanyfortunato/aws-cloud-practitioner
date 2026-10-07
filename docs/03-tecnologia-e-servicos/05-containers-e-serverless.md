@@ -108,7 +108,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que é um container e que problema ele resolve?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É um pacote com o código da aplicação e todos os arquivos e bibliotecas de que ela precisa; resolve o problema de a aplicação funcionar num ambiente e não em outro.
@@ -119,7 +119,7 @@ Comentário: é mais leve que uma máquina virtual porque não carrega um sistem
 
 ### Qual é a diferença entre ECS e EKS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Os dois orquestram containers; o ECS é o orquestrador da própria AWS, e o EKS é Kubernetes gerenciado.
@@ -130,7 +130,7 @@ Comentário: "já usa Kubernetes" aponta para EKS.
 
 ### O que é o AWS Fargate?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É um mecanismo de computação serverless para containers, usado com ECS ou EKS: você define CPU e memória, e não gerencia servidores.
@@ -141,7 +141,7 @@ Comentário: a alternativa é rodar os containers em instâncias do EC2, cuja ca
 
 ### Como o AWS Lambda é cobrado?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Pelo número de pedidos e pela duração das execuções em GB-segundo; quando a função não roda, não há cobrança de computação.
@@ -152,7 +152,7 @@ Comentário: o nível gratuito inclui 1 milhão de pedidos e 400.000 GB-segundo 
 
 ### Uma tarefa leva duas horas para terminar. Ela serve para uma função Lambda?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não, porque uma função Lambda roda por até 15 minutos em cada execução; a tarefa cabe melhor em containers com Fargate, no AWS Batch ou no EC2.
