@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [AWS Organizations](../../servicos/gerenciamento/organizations.md) · [AWS Control Tower](../../servicos/gerenciamento/control-tower.md) · [AWS Service Catalog e AWS RAM](../../servicos/gerenciamento/service-catalog-e-ram.md)
 
-⬅️ [2.3 AWS IAM](03-iam.md) · 🏠 [Índice do domínio](README.md) · [2.5 Criptografia](05-criptografia.md) ➡️
+⬅️ [2.3 AWS IAM](03-iam.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [2.5 Criptografia](05-criptografia.md) ➡️
 
 ---
 

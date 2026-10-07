@@ -10,7 +10,7 @@
 
 > 📖 **Aula que ensina:** [2.3 AWS IAM](../../docs/02-seguranca-e-conformidade/03-iam.md) · base em [2.2 Usuário root](../../docs/02-seguranca-e-conformidade/02-usuario-root.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

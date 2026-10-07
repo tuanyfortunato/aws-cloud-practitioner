@@ -10,7 +10,7 @@
 
 > 📖 **Aula que ensina:** [2.4 Governança multi-conta](../../docs/02-seguranca-e-conformidade/04-governanca-multi-conta.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

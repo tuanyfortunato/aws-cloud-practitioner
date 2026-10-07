@@ -10,7 +10,7 @@
 
 > 📖 **Aula que ensina:** [3.8 Amazon S3 — armazenamento de objetos](../../docs/03-tecnologia-e-servicos/08-s3.md) · custos em [4.3 Como outros recursos são cobrados](../../docs/04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

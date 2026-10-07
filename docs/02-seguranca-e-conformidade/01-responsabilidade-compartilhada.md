@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [EC2](../../servicos/computacao/ec2.md) · [RDS](../../servicos/banco-de-dados/rds.md) · [Lambda](../../servicos/computacao/lambda.md) · [S3](../../servicos/armazenamento/s3.md) · [DynamoDB](../../servicos/banco-de-dados/dynamodb.md)
 
-🏠 [Índice do domínio](README.md) · [2.2 Usuário root](02-usuario-root.md) ➡️
+🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [2.2 Usuário root](02-usuario-root.md) ➡️
 
 ---
 

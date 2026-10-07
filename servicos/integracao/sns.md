@@ -10,7 +10,7 @@
 
 > 📖 **Aula que ensina:** [3.13 Integração de aplicações](../../docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.md) · base em [0.4 Como programas conversam](../../docs/fundamentos/04-api-e-filas.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

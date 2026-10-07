@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [AWS KMS](../../servicos/seguranca/kms.md) · [AWS CloudHSM](../../servicos/seguranca/cloudhsm.md) · [AWS Certificate Manager e AWS Private CA](../../servicos/seguranca/certificate-manager.md) · [Amazon S3](../../servicos/armazenamento/s3.md)
 
-⬅️ [2.4 Governança multi-conta](04-governanca-multi-conta.md) · 🏠 [Índice do domínio](README.md) · [2.6 Compliance e governança](06-compliance-e-governanca.md) ➡️
+⬅️ [2.4 Governança multi-conta](04-governanca-multi-conta.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [2.6 Compliance e governança](06-compliance-e-governanca.md) ➡️
 
 ---
 

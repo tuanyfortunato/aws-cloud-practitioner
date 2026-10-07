@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [AWS IAM e AWS STS](../../servicos/seguranca/iam.md)
 
-⬅️ [2.1 Modelo de responsabilidade compartilhada](01-responsabilidade-compartilhada.md) · 🏠 [Índice do domínio](README.md) · [2.3 AWS IAM](03-iam.md) ➡️
+⬅️ [2.1 Modelo de responsabilidade compartilhada](01-responsabilidade-compartilhada.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [2.3 AWS IAM](03-iam.md) ➡️
 
 ---
 

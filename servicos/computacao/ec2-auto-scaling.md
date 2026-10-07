@@ -10,7 +10,7 @@
 
 > 📖 **Aula que ensina:** [3.4 Escalabilidade e balanceamento de carga](../../docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.md) · base em [1.3 Conceitos de arquitetura](../../docs/01-conceitos-de-nuvem/03-conceitos-de-arquitetura.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

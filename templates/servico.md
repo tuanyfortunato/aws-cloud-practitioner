@@ -27,7 +27,7 @@ Modelo de ficha autoral (Fase 5 do plano de implementação). Ficha-piloto: serv
 
 > 📖 **Aula que ensina:** [x.y Título da aula](../../docs/pasta-do-dominio/arquivo-da-aula.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Amazon EC2 Auto Scaling](../../servicos/computacao/ec2-auto-scaling.md) · [Elastic Load Balancing](../../servicos/computacao/elastic-load-balancing.md)
 
-⬅️ [3.3 Amazon EC2](03-ec2.md) · 🏠 [Índice do domínio](README.md) · [3.5 Containers e serverless](05-containers-e-serverless.md) ➡️
+⬅️ [3.3 Amazon EC2](03-ec2.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.5 Containers e serverless](05-containers-e-serverless.md) ➡️
 
 ---
 

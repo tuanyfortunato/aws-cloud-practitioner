@@ -6,6 +6,8 @@
 
 Agora que você conhece os recursos, estude como o uso vira cobrança, quando compromissos de compra fazem sentido e quais ferramentas ajudam a acompanhar custos.
 
+> 🏫 Todas as aulas usam o mesmo exemplo. Se você começou por aqui, leia antes [o caso da escola](../00-guia-do-exame/caso-da-escola.md).
+
 ## Aulas
 
 | Aula | Assunto | Perguntas de revisão |

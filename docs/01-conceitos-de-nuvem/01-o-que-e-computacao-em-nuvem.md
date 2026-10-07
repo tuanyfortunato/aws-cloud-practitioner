@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [EC2](../../servicos/computacao/ec2.md) · [Lambda](../../servicos/computacao/lambda.md)
 
-🏠 [Índice do domínio](README.md) · [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) ➡️
+🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) ➡️
 
 ---
 

@@ -10,7 +10,7 @@ Você vai aprender **qual problema cada recurso resolve, como ele funciona e qua
 
 Se você chegou agora, faça esta sequência:
 
-1. Leia [como estudar com esta apostila](docs/00-guia-do-exame/estrutura-da-apostila.md).
+1. Leia [como estudar com esta apostila](docs/00-guia-do-exame/estrutura-da-apostila.md) e conheça [o caso da escola](docs/00-guia-do-exame/caso-da-escola.md), o exemplo usado em todas as aulas.
 2. Abra a [primeira aula](docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md) e siga as aulas do capítulo 1 na ordem do sumário abaixo.
 3. Ao terminar uma aula, explique o exemplo com suas palavras e responda às perguntas de revisão.
 4. Marque a aula no [controle de progresso](progresso.md). Na próxima sessão, volte a este sumário e abra a seguinte.
@@ -39,6 +39,8 @@ Os percentuais no sumário indicam o peso dos domínios na prova, não a ordem d
 ## Sumário da apostila
 
 Leia do capítulo 0 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.
+
+Todas as aulas contam a história de uma rede de escolas fictícia. Se você abrir uma aula no meio, [o caso da escola](docs/00-guia-do-exame/caso-da-escola.md) resume quem é quem e o que aconteceu até ali.
 
 ### Capítulo 0: Fundamentos de TI
 
@@ -405,6 +407,7 @@ Use esta tabela para encontrar um recurso específico. Para a primeira leitura, 
 |---|---|---|
 | 📖 [Aulas](#sumário-da-apostila) | **41 aulas** que cobrem os 4 domínios, com explicação, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do sumário |
 | 🔎 [Fichas de serviços](#caderno-de-serviços) | **105 fichas** (uma por serviço ou família), com funcionamento, opções, limites, segurança, custo e o que não confundir; 5 reúnem serviços **fora da prova** | Quando uma aula citar o serviço, ou para tirar dúvidas |
+| 🏫 [O caso da escola](docs/00-guia-do-exame/caso-da-escola.md) | A escola, o sistema de matrícula, os personagens e o que acontece em cada aula | Antes de começar, ou ao abrir uma aula fora da ordem |
 | 🃏 [Flashcards](flashcards/README.md) | **226 perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |
 | ❓ [Questões por domínio](simulados/questoes/README.md) | **94 questões** no formato da prova, agrupadas por aula, com explicação | Ao terminar cada domínio |
 | ⚖️ [Pares que confundem](resumos/comparativos.md) | **57 pares** de serviços parecidos e a diferença em uma linha | Revisão final |

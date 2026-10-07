@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Ferramentas de CI/CD (CodeBuild, CodePipeline e outras)](../../servicos/desenvolvimento/code-services.md) · [AWS X-Ray](../../servicos/desenvolvimento/x-ray.md) · [Console, CLI e SDKs](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
 
-⬅️ [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) · 🏠 [Índice do domínio](README.md) · [3.16 Gestão e governança](16-gestao-e-governanca.md) ➡️
+⬅️ [3.14 Aplicações de negócio, usuário final, front-end e IoT](14-aplicacoes-de-negocio-e-iot.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.16 Gestão e governança](16-gestao-e-governanca.md) ➡️
 
 ---
 

@@ -6,6 +6,8 @@
 
 Use a base de nuvem e segurança para entender as peças de uma aplicação. Leia as aulas em ordem e abra as fichas indicadas dentro de cada uma.
 
+> 🏫 Todas as aulas usam o mesmo exemplo. Se você começou por aqui, leia antes [o caso da escola](../00-guia-do-exame/caso-da-escola.md).
+
 ## Aulas
 
 | Aula | Assunto | Perguntas de revisão |

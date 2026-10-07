@@ -257,8 +257,9 @@ def fichas_nucleo():
 
 def volume_livro(rotulos):
     v = Volume("livro-texto", "Livro-texto", "Capítulo 0 e aulas 1.1 a 4.6", rotulos)
-    v.arquivo("docs/00-guia-do-exame/estrutura-da-apostila.md", classe="apresentacao")
-    arquivos = ["docs/00-guia-do-exame/estrutura-da-apostila.md"]
+    arquivos = ["docs/00-guia-do-exame/estrutura-da-apostila.md", "docs/00-guia-do-exame/caso-da-escola.md"]
+    for caminho in arquivos:
+        v.arquivo(caminho, classe="apresentacao")
     for pasta, nome, descricao in DOMINIOS:
         v.parte(nome, descricao)
         for caminho in aulas(pasta):

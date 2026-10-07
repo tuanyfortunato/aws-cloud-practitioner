@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Amazon ECS](../../servicos/computacao/ecs.md) · [Amazon EKS](../../servicos/computacao/eks.md) · [AWS Fargate](../../servicos/computacao/fargate.md) · [Amazon ECR](../../servicos/computacao/ecr.md) · [AWS Lambda](../../servicos/computacao/lambda.md)
 
-⬅️ [3.4 Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) · 🏠 [Índice do domínio](README.md) · [3.6 Outros serviços de computação](06-outros-servicos-de-computacao.md) ➡️
+⬅️ [3.4 Escalabilidade e balanceamento de carga](04-escalabilidade-e-balanceamento.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.6 Outros serviços de computação](06-outros-servicos-de-computacao.md) ➡️
 
 ---
 

@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Amazon GuardDuty](../../servicos/seguranca/guardduty.md) · [AWS Security Hub](../../servicos/seguranca/security-hub.md) · [Recursos de ajuda, parceiros e serviços ao cliente](../../servicos/custos/recursos-de-ajuda-e-parceiros.md)
 
-⬅️ [2.9 Detecção de ameaças](09-deteccao-de-ameacas.md) · 🏠 [Índice do domínio](README.md)
+⬅️ [2.9 Detecção de ameaças](09-deteccao-de-ameacas.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md)
 
 ---
 

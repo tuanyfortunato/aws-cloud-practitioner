@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Recursos de ajuda, parceiros e serviços ao cliente](../../servicos/custos/recursos-de-ajuda-e-parceiros.md) · [Planos de AWS Support](../../servicos/custos/planos-de-suporte.md)
 
-⬅️ [4.5 Planos de AWS Support](05-planos-de-suporte.md) · 🏠 [Índice do domínio](README.md)
+⬅️ [4.5 Planos de AWS Support](05-planos-de-suporte.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md)
 
 ---
 

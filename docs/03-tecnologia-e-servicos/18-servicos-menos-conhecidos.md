@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Lake Formation, MSK, Data Exchange, AppFlow e outros serviços de dados](../../servicos/analytics/lake-formation-msk-e-outros.md) · [AWS Firewall Manager e AWS Network Firewall](../../servicos/seguranca/firewall-manager-e-network-firewall.md) · [Recursos de ajuda e parceiros](../../servicos/custos/recursos-de-ajuda-e-parceiros.md) · [Serviços de mídia e jogos](../../servicos/fora-do-escopo/midia-e-jogos.md) · [IoT, robótica e satélite](../../servicos/fora-do-escopo/iot-robotica-e-satelite.md) · [Desenvolvimento e aplicações](../../servicos/fora-do-escopo/desenvolvimento-e-aplicacoes.md) · [Rede e diretório](../../servicos/fora-do-escopo/rede-e-diretorio.md) · [Gerenciamento e custos](../../servicos/fora-do-escopo/gerenciamento-e-custos.md)
 
-⬅️ [3.17 Migração e transferência](17-migracao-e-transferencia.md) · 🏠 [Índice do domínio](README.md)
+⬅️ [3.17 Migração e transferência](17-migracao-e-transferencia.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md)
 
 ---
 

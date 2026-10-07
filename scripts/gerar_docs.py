@@ -195,6 +195,8 @@ def gerar_readmes_dominio(lista):
 
 {percurso}
 
+> 🏫 Todas as aulas usam o mesmo exemplo. Se você começou por aqui, leia antes [o caso da escola](../00-guia-do-exame/caso-da-escola.md).
+
 ## Aulas
 
 | Aula | Assunto | Perguntas de revisão |
@@ -294,7 +296,8 @@ def gerar_indice_servicos():
     partes = ["# 🔎 Fichas de serviços AWS\n",
               "Cada ficha aprofunda um serviço que aparece nas aulas. Leia a aula primeiro: ela explica o problema e "
               "o mecanismo, e a ficha acrescenta as opções, os limites, o custo e com o que o serviço costuma ser "
-              "confundido. As aulas indicam no topo as fichas de cada assunto.\n",
+              "confundido. As aulas indicam no topo as fichas de cada assunto. Os exemplos das fichas seguem o "
+              "[caso da escola](../docs/00-guia-do-exame/caso-da-escola.md), o mesmo das aulas.\n",
               "> Coluna *Escopo* ([lista oficial](../docs/00-guia-do-exame/escopo-oficial.md)): ✅ no escopo · "
               "🔀 parte no escopo, parte fora · ⚪ não aparece na lista · ❌ fora do escopo.\n>\n"
               "> Coluna *Grupo*: **núcleo** é a ficha completa de um serviço central de alguma aula, que também "
@@ -357,6 +360,7 @@ def bloco_conteudo(total_cards, total_aulas):
         "com explicação, casos resolvidos e perguntas de revisão | Estudo principal, na ordem do sumário |",
         f"| 🔎 [Fichas de serviços](#caderno-de-serviços) | **{total_fichas} fichas** (uma por serviço ou família), "
         f"com funcionamento, opções, limites, segurança, custo e o que não confundir; {fora} reúnem serviços **fora da prova** | Quando uma aula citar o serviço, ou para tirar dúvidas |",
+        "| 🏫 [O caso da escola](docs/00-guia-do-exame/caso-da-escola.md) | A escola, o sistema de matrícula, os personagens e o que acontece em cada aula | Antes de começar, ou ao abrir uma aula fora da ordem |",
         f"| 🃏 [Flashcards](flashcards/README.md) | **{total_cards} perguntas e respostas** por capítulo, também em arquivo para o Anki | Todos os dias, para memorizar |",
         f"| ❓ [Questões por domínio](simulados/questoes/README.md) | **{len(QUESTOES)} questões** no formato da prova, agrupadas por aula, com explicação | Ao terminar cada domínio |",
         f"| ⚖️ [Pares que confundem](resumos/comparativos.md) | **{contar_linhas_tabela('resumos/comparativos.md')} pares** de serviços parecidos e a diferença em uma linha | Revisão final |",
@@ -408,7 +412,9 @@ def bloco_capitulo_zero():
 
 def bloco_indice(lista):
     linhas = [INDICE_INI, "## Sumário da apostila", "",
-              "Leia do capítulo 0 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.", ""]
+              "Leia do capítulo 0 ao 4. Os números das aulas indicam sua posição: **3.3**, por exemplo, é a terceira aula do capítulo 3. Clique no título para abrir o texto.", "",
+              "Todas as aulas contam a história de uma rede de escolas fictícia. Se você abrir uma aula no meio, "
+              "[o caso da escola](docs/00-guia-do-exame/caso-da-escola.md) resume quem é quem e o que aconteceu até ali.", ""]
     linhas += bloco_capitulo_zero()
     for dom, (pasta, nome, peso) in DOMINIOS.items():
         titulo, pergunta, percurso, objetivo = CAPITULOS[dom]

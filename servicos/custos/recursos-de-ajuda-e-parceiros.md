@@ -10,7 +10,7 @@
 
 > 📖 **Aula que ensina:** [4.6 Outros recursos de ajuda](../../docs/04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

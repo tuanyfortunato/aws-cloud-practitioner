@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Console, CLI, SDKs e CloudShell](../../servicos/desenvolvimento/cli-sdk-e-cloudshell.md) · [AWS CloudFormation](../../servicos/gerenciamento/cloudformation.md) · [AWS VPN](../../servicos/redes/site-to-site-vpn-e-client-vpn.md) · [AWS Direct Connect](../../servicos/redes/direct-connect.md)
 
-🏠 [Índice do domínio](README.md) · [3.2 Infraestrutura global](02-infraestrutura-global.md) ➡️
+🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.2 Infraestrutura global](02-infraestrutura-global.md) ➡️
 
 ---
 

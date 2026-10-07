@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Amazon EBS e instance store](../../servicos/armazenamento/ebs.md) · [Amazon EFS](../../servicos/armazenamento/efs.md) · [Amazon FSx](../../servicos/armazenamento/fsx.md) · [AWS Storage Gateway](../../servicos/armazenamento/storage-gateway.md) · [AWS Backup](../../servicos/armazenamento/aws-backup.md) · [AWS Elastic Disaster Recovery](../../servicos/armazenamento/elastic-disaster-recovery.md)
 
-⬅️ [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) · 🏠 [Índice do domínio](README.md) · [3.10 Redes e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) ➡️
+⬅️ [3.8 Amazon S3 — armazenamento de objetos](08-s3.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.10 Redes e entrega de conteúdo](10-rede-e-entrega-de-conteudo.md) ➡️
 
 ---
 
