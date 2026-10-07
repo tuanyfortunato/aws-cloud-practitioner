@@ -1,11 +1,31 @@
-# Gera os PDFs da edição impressa (scripts/gerar_impressa.py) a cada tag v* e os anexa à release.
-# Também pode ser disparado à mão na aba Actions; nesse caso os PDFs ficam como artefato da execução.
+# Gera os PDFs da edição impressa (scripts/gerar_impressa.py).
+# - A cada mudança no conteúdo que entra na main, salva os PDFs na pasta edicao-impressa/ da própria main.
+# - A cada tag v*, anexa os PDFs à release.
+# - Também pode ser disparado à mão na aba Actions; os PDFs ficam como artefato da execução
+#   e, se a execução for na main, também são salvos na pasta edicao-impressa/.
 name: Edição impressa
 
 on:
   push:
+    branches: [main]
     tags: ["v*"]
+    # Só o que entra nos PDFs. A pasta edicao-impressa/ fica de fora, para o commit dos PDFs
+    # não disparar outra execução. (O GitHub não aplica este filtro às tags.)
+    paths:
+      - "docs/**"
+      - "servicos/**"
+      - "resumos/**"
+      - "glossario.md"
+      - "simulados/questoes/**"
+      - "scripts/gerar_impressa.py"
+      - "assets/impressao.css"
+      - ".github/workflows/edicao-impressa.yml"
   workflow_dispatch:
+
+# Duas execuções seguidas na main não disputam o mesmo commit.
+concurrency:
+  group: edicao-impressa-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -52,3 +72,19 @@ jobs:
             || gh release create "$GITHUB_REF_NAME" --title "Apostila $GITHUB_REF_NAME" \
                  --notes "Edição impressa gerada a partir do commit $GITHUB_SHA."
           gh release upload "$GITHUB_REF_NAME" build/impressa/*.pdf --clobber
+
+      - name: Salvar os PDFs na pasta edicao-impressa da main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p edicao-impressa
+          cp build/impressa/*.pdf edicao-impressa/
+          git add edicao-impressa
+          if git diff --cached --quiet; then
+            echo "Os PDFs não mudaram."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Edição impressa gerada a partir de ${GITHUB_SHA::7}"
+          git pull --rebase origin main
+          git push origin HEAD:main
