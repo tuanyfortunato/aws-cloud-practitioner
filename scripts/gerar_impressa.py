@@ -11,14 +11,14 @@ transformações de apresentação (seção 10 do plano de implementação):
 - o bloco "Minhas anotações" vira linhas pautadas;
 - os diagramas Mermaid são renderizados em SVG com o mermaid-cli (mmdc).
 
-Saem três volumes em build/impressa/: livro-texto, caderno de consulta (fichas núcleo e
+Saem três volumes em build/impressa/: Rumo à Cloud Practitioner (as aulas), caderno de consulta (fichas núcleo e
 resumos) e caderno de exercícios (questões e gabarito comentado).
 
 Requisitos: Pandoc, WeasyPrint (python3 -m pip install weasyprint) e mermaid-cli
 (npm install @mermaid-js/mermaid-cli). Variáveis opcionais: MMDC (caminho do mmdc) e
 CHROMIUM_PATH (navegador usado pelo mmdc).
 
-Uso: python3 scripts/gerar_impressa.py [--volume livro-texto|consulta|exercicios] [--so-html]
+Uso: python3 scripts/gerar_impressa.py [--volume rumo|consulta|exercicios] [--so-html]
 """
 import argparse
 import datetime
@@ -256,7 +256,7 @@ def fichas_nucleo():
 
 
 def volume_livro(rotulos):
-    v = Volume("livro-texto", "Livro-texto", "Capítulo 0 e aulas 1.1 a 4.6", rotulos)
+    v = Volume("rumo-a-cloud-practitioner", "Rumo à Cloud Practitioner", "Capítulo 0 e aulas 1.1 a 4.6", rotulos)
     arquivos = ["docs/00-guia-do-exame/estrutura-da-apostila.md", "docs/00-guia-do-exame/caso-da-escola.md"]
     for caminho in arquivos:
         v.arquivo(caminho, classe="apresentacao")
@@ -361,7 +361,7 @@ def escrever_volume(v, arquivos, so_html):
     print(f"{os.path.relpath(destino, RAIZ)} gerado.")
 
 
-VOLUMES = {"livro-texto": volume_livro, "consulta": volume_consulta, "exercicios": volume_exercicios}
+VOLUMES = {"rumo": volume_livro, "consulta": volume_consulta, "exercicios": volume_exercicios}
 
 
 def main():
