@@ -90,7 +90,18 @@
   function desenharDiagramas() {
     if (!diagramas.length) return;
     carregarMermaid().then(function (mermaid) {
-      mermaid.initialize({ startOnLoad: false, theme: temaEscuro() ? "dark" : "default", securityLevel: "strict" });
+      // Diagramas nas cores do tema do site (variáveis de assets/css/style.scss).
+      var cor = function (nome) { return getComputedStyle(document.documentElement).getPropertyValue(nome).trim(); };
+      mermaid.initialize({
+        startOnLoad: false, securityLevel: "strict", theme: "base",
+        themeVariables: {
+          darkMode: temaEscuro(), fontFamily: "Inter, system-ui, sans-serif", fontSize: "15px",
+          background: cor("--fundo"), primaryColor: cor("--destaque"), primaryBorderColor: cor("--acento"),
+          primaryTextColor: cor("--texto"), secondaryColor: cor("--fundo-suave"), tertiaryColor: cor("--fundo-suave"),
+          lineColor: cor("--texto-suave"), textColor: cor("--texto"), clusterBkg: cor("--fundo-suave"),
+          clusterBorder: cor("--borda"), edgeLabelBackground: cor("--fundo")
+        }
+      });
       diagramas.forEach(function (div) {
         div.removeAttribute("data-processed");
         div.classList.add("mermaid");
