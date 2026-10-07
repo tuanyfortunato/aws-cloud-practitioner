@@ -424,7 +424,7 @@ Para entender a organização dos textos, leia [como estudar com esta apostila](
 
 A apostila também sai em PDF, em três volumes pensados para imprimir: o **livro-texto** (aulas, na ordem do sumário, com o glossário), o **caderno de consulta** (fichas dos serviços principais e resumos) e o **caderno de exercícios** (questões por domínio, com o gabarito no fim). Os PDFs são montados a partir destes mesmos arquivos, então o papel e o GitHub têm o mesmo conteúdo.
 
-Quando uma versão for publicada, os três PDFs ficarão na página de [Releases](https://github.com/tuanyfortunato/aws-cloud-practitioner/releases). Para gerar uma cópia por conta própria, veja o [gerador da edição impressa](scripts/gerar_impressa.py).
+Os PDFs mais recentes ficam na pasta [edição impressa](https://github.com/tuanyfortunato/aws-cloud-practitioner/tree/main/edicao-impressa), que é atualizada sozinha sempre que o conteúdo muda na `main`. Quando uma versão for publicada, os três PDFs daquela versão também ficarão na página de [Releases](https://github.com/tuanyfortunato/aws-cloud-practitioner/releases). Para gerar uma cópia por conta própria, veja o [gerador da edição impressa](scripts/gerar_impressa.py).
 
 ## Fontes e atualizações
 
