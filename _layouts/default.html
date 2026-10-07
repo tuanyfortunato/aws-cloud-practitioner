@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {%- comment -%}
-  Layout do site no GitHub Pages: o tema Primer com cabeçalho (busca e tema claro/escuro), menu lateral
+  Layout do site no GitHub Pages: cabeçalho (busca e tema claro/escuro), menu lateral
   (_data/navegacao.json, gerado por scripts/gerar_docs.py) e os recursos interativos de assets/js/site.js.
   O título da aba vem do primeiro <h1> da página, porque as páginas autorais começam pelo marcador <!-- autoral -->.
 {%- endcomment -%}
@@ -20,18 +20,21 @@
     </script>
     <title>{% if titulo == site.title %}{{ site.title }}{% else %}{{ titulo }} · {{ site.title }}{% endif %}</title>
     {% seo title=false %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400&display=swap">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body data-base="{{ '/' | relative_url }}" data-repo="{{ site.repositorio_url }}">
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header class="topo">
-      <button class="botao-menu" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir o menu">☰</button>
-      <a class="marca" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <button class="botao-menu" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir o menu"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <a class="marca" href="{{ '/' | relative_url }}"><span class="marca-sinal" aria-hidden="true">☁</span> {{ site.title }}</a>
       <div class="busca" role="search">
         <input id="busca" type="search" placeholder="Buscar aulas, fichas e termos" aria-label="Buscar no site" autocomplete="off">
         <ol id="busca-resultados" class="busca-resultados" hidden></ol>
       </div>
-      <button class="botao-tema" type="button" aria-label="Alternar tema claro e escuro" title="Tema claro ou escuro">🌓</button>
+      <button class="botao-tema" type="button" aria-label="Alternar tema claro e escuro" title="Tema claro ou escuro"><svg class="icone-lua" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="icone-sol" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </header>
     <div class="pagina">
       <nav id="menu" class="menu" aria-label="Capítulos e materiais">
