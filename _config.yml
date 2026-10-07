@@ -2,8 +2,20 @@ title: Apostila AWS Cloud Practitioner
 description: Apostila gratuita em português para a AWS Certified Cloud Practitioner (CLF-C02)
 lang: pt-BR
 theme: jekyll-theme-primer
+repositorio_url: https://github.com/tuanyfortunato/aws-cloud-practitioner
 plugins:
   - jekyll-relative-links
+  - jekyll-sitemap
+  - jekyll-seo-tag
 relative_links:
   enabled: true
   collections: true
+# Arquivos de trabalho do repositório: ficam no GitHub, mas não viram páginas do site.
+# Links para eles nas páginas publicadas apontam para o GitHub (assets/js/site.js).
+exclude:
+  - CLAUDE.md
+  - pendencias/
+  - scripts/
+  - fontes/
+  - templates/
+  - build/

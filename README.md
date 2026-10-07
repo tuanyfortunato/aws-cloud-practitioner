@@ -2,6 +2,8 @@
 
 Esta apostila gratuita, em português, foi feita para quem está começando em tecnologia e quer estudar para a **AWS Certified Cloud Practitioner (CLF-C02)**. AWS é a Amazon Web Services, uma plataforma que oferece recursos de computação pela internet: computadores, armazenamento, bancos de dados e outros serviços.
 
+Leia também no site **[tuanyfortunato.github.io/aws-cloud-practitioner](https://tuanyfortunato.github.io/aws-cloud-practitioner/)**, com menu por capítulo, busca, tema escuro, questões com correção na hora, flashcards em modo cartão e controle de progresso.
+
 Você vai aprender **qual problema cada recurso resolve, como ele funciona e quais são seus limites**, antes de memorizar nomes para a prova. Para acompanhar a leitura, não é necessário abrir o console da AWS, programar ou criar uma conta.
 
 ## Comece aqui
@@ -191,7 +193,7 @@ Exemplos: [EC2 — computadores virtuais](servicos/computacao/ec2.md) · [S3 —
 
 Você também pode abrir o [índice completo das fichas, com descrições e escopo](servicos/README.md).
 
-<details>
+<details markdown="1">
 <summary>🖥️ Computação — 12 fichas (clique para abrir)</summary>
 
 - [Amazon EC2](servicos/computacao/ec2.md)
@@ -209,7 +211,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🗄️ Armazenamento — 8 fichas (clique para abrir)</summary>
 
 - [Amazon S3](servicos/armazenamento/s3.md)
@@ -223,7 +225,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🛢️ Banco de dados — 9 fichas (clique para abrir)</summary>
 
 - [Amazon RDS](servicos/banco-de-dados/rds.md)
@@ -238,7 +240,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🌐 Redes e entrega de conteúdo — 8 fichas (clique para abrir)</summary>
 
 - [Amazon VPC](servicos/redes/vpc.md)
@@ -252,7 +254,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🔐 Segurança, identidade e compliance — 18 fichas (clique para abrir)</summary>
 
 - [AWS IAM](servicos/seguranca/iam.md)
@@ -276,7 +278,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>⚙️ Gerenciamento e governança — 11 fichas (clique para abrir)</summary>
 
 - [Amazon CloudWatch](servicos/gerenciamento/cloudwatch.md)
@@ -293,7 +295,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📊 Analytics — 7 fichas (clique para abrir)</summary>
 
 - [Amazon Athena](servicos/analytics/athena.md)
@@ -306,7 +308,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🤖 IA e machine learning — 4 fichas (clique para abrir)</summary>
 
 - [Amazon SageMaker AI](servicos/ia-ml/sagemaker-ai.md)
@@ -316,7 +318,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🔗 Integração de aplicações — 5 fichas (clique para abrir)</summary>
 
 - [Amazon SQS](servicos/integracao/sqs.md)
@@ -327,7 +329,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🛠️ Ferramentas de desenvolvedor — 3 fichas (clique para abrir)</summary>
 
 - [Formas de acesso: Console, CLI, SDKs e CloudShell](servicos/desenvolvimento/cli-sdk-e-cloudshell.md)
@@ -336,7 +338,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>💼 Aplicações de negócio, usuário final e IoT — 5 fichas (clique para abrir)</summary>
 
 - [Amazon Connect](servicos/aplicacoes/amazon-connect.md)
@@ -347,7 +349,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>🚚 Migração e transferência — 5 fichas (clique para abrir)</summary>
 
 - [Migration Evaluator, Application Discovery Service e Migration Hub](servicos/migracao/discovery-migration-hub-e-evaluator.md)
@@ -358,7 +360,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>💰 Custos e suporte — 5 fichas (clique para abrir)</summary>
 
 - [AWS Cost Explorer](servicos/custos/cost-explorer.md)
@@ -369,7 +371,7 @@ Você também pode abrir o [índice completo das fichas, com descrições e esco
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>❌ Fora do escopo da prova (só para referência) — 5 fichas (clique para abrir)</summary>
 
 Leitura complementar; estas fichas reúnem serviços fora do escopo da prova.
@@ -424,7 +426,13 @@ Para entender a organização dos textos, leia [como estudar com esta apostila](
 
 A apostila também sai em PDF, em três volumes pensados para imprimir: o **Rumo à Cloud Practitioner** (as aulas, na ordem do sumário, com o glossário), o **caderno de consulta** (fichas dos serviços principais e resumos) e o **caderno de exercícios** (questões por domínio, com o gabarito no fim). Os PDFs são montados a partir destes mesmos arquivos, então o papel e o GitHub têm o mesmo conteúdo.
 
-Os PDFs mais recentes ficam na pasta [edição impressa](https://github.com/tuanyfortunato/aws-cloud-practitioner/tree/main/edicao-impressa), que é atualizada sozinha sempre que o conteúdo muda na `main`. Quando uma versão for publicada, os três PDFs daquela versão também ficarão na página de [Releases](https://github.com/tuanyfortunato/aws-cloud-practitioner/releases). Para gerar uma cópia por conta própria, veja o [gerador da edição impressa](scripts/gerar_impressa.py).
+Baixe os PDFs mais recentes:
+
+- 📘 [Rumo à Cloud Practitioner](edicao-impressa/rumo-a-cloud-practitioner.pdf): as aulas e o glossário.
+- 📗 [Caderno de consulta](edicao-impressa/caderno-de-consulta.pdf): as fichas dos serviços principais e os resumos.
+- 📙 [Caderno de exercícios](edicao-impressa/caderno-de-exercicios.pdf): as questões por domínio, com o gabarito no fim.
+
+Os PDFs ficam na pasta [edição impressa](https://github.com/tuanyfortunato/aws-cloud-practitioner/tree/main/edicao-impressa), que é atualizada sozinha sempre que o conteúdo muda na `main`. Quando uma versão for publicada, os três PDFs daquela versão também ficarão na página de [Releases](https://github.com/tuanyfortunato/aws-cloud-practitioner/releases). Para gerar uma cópia por conta própria, veja o [gerador da edição impressa](scripts/gerar_impressa.py).
 
 ## Fontes e atualizações
 
@@ -440,7 +448,7 @@ A pasta [fontes](fontes/README.md) guarda os documentos que deram origem à prim
 
 ## Manutenção do material
 
-<details>
+<details markdown="1">
 <summary>Orientações para quem contribui com a apostila</summary>
 
 Siga as [regras do repositório](CLAUDE.md): as mudanças chegam por Pull Request. Aulas, fichas, páginas do guia do exame, resumos e glossário são escritos à mão e editados no próprio Markdown. O gerador só monta os índices, os flashcards e os blocos do sumário deste README.

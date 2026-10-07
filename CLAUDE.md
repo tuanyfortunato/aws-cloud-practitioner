@@ -26,10 +26,15 @@
   perder o marcador. Ele só gera os índices dos domínios e das fichas, os flashcards e os blocos do README.
   Ver [plano de implementação](pendencias/plano-de-implementacao.md).
 - Os flashcards de cada aula vêm da seção `## Revisão` do próprio arquivo: uma pergunta por subtítulo `###`, com a
-  resposta recolhida num `<details>`; o primeiro parágrafo da resposta vira o flashcard.
+  resposta recolhida num `<details markdown="1">`; o primeiro parágrafo da resposta vira o flashcard.
 - Aulas novas partem de `templates/topico.md`; fichas novas, de `templates/servico.md`, e são registradas em
   `FICHAS` no `scripts/gerar_docs.py`. O índice das fichas lê do cabeçalho de cada ficha o título, o grupo
   (`**Ficha:**`), a frase-resumo e o status do escopo.
+- Respostas recolhidas usam `<details markdown="1">`: sem o atributo, o site mostra o Markdown da resposta como texto cru
+  (o `test_apostila.py` confere).
+- O site no GitHub Pages usa `_config.yml`, `_layouts/default.html`, `assets/css/style.scss`, `assets/js/site.js` e
+  `busca.json`; o menu lateral (`_data/navegacao.json`) é gerado pelo `gerar_docs.py`. Pastas de trabalho (`pendencias/`,
+  `scripts/`, `fontes/`, `templates/`, este arquivo) ficam fora do site pelo `exclude` do `_config.yml`.
 - O [glossário](glossario.md) é o único lugar de consulta rápida de termos, em ordem alfabética. Nas aulas, cada termo é
   explicado em prosa no primeiro uso; o glossário serve para relembrar e aponta para a aula que ensina. Definições dizem o que
   o termo é e para que serve, sem frases defensivas (o `test_apostila.py` confere ordem e repetição).

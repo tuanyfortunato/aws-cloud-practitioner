@@ -1,0 +1,335 @@
+[
+ {
+  "titulo": "Comece aqui",
+  "itens": [
+   {
+    "titulo": "Início e sumário",
+    "url": "/"
+   },
+   {
+    "titulo": "Guia do exame",
+    "url": "/docs/00-guia-do-exame/"
+   },
+   {
+    "titulo": "Como estudar com esta apostila",
+    "url": "/docs/00-guia-do-exame/estrutura-da-apostila.html"
+   },
+   {
+    "titulo": "O caso da escola",
+    "url": "/docs/00-guia-do-exame/caso-da-escola.html"
+   },
+   {
+    "titulo": "Plano de estudos",
+    "url": "/docs/00-guia-do-exame/plano-de-estudos.html"
+   },
+   {
+    "titulo": "O que mudou na AWS em 2025 e 2026",
+    "url": "/docs/00-guia-do-exame/atualizacoes-2025-2026.html"
+   },
+   {
+    "titulo": "Escopo oficial da CLF-C02",
+    "url": "/docs/00-guia-do-exame/escopo-oficial.html"
+   },
+   {
+    "titulo": "Pendências de verificação",
+    "url": "/docs/00-guia-do-exame/pendencias-de-verificacao.html"
+   }
+  ]
+ },
+ {
+  "titulo": "Capítulo 0: Fundamentos de TI",
+  "itens": [
+   {
+    "titulo": "Apresentação do capítulo",
+    "url": "/docs/fundamentos/"
+   },
+   {
+    "titulo": "0.1 Computador, servidor e virtualização",
+    "url": "/docs/fundamentos/01-servidor-e-virtualizacao.html"
+   },
+   {
+    "titulo": "0.2 Rede: endereço IP, porta, DNS e HTTPS",
+    "url": "/docs/fundamentos/02-rede.html"
+   },
+   {
+    "titulo": "0.3 Dados: arquivo, bloco, objeto e banco de dados",
+    "url": "/docs/fundamentos/03-dados.html"
+   },
+   {
+    "titulo": "0.4 Como programas conversam: API, requisição e fila",
+    "url": "/docs/fundamentos/04-api-e-filas.html"
+   },
+   {
+    "titulo": "0.5 Segurança básica: identidade, autenticação, autorização e criptografia",
+    "url": "/docs/fundamentos/05-seguranca-basica.html"
+   }
+  ]
+ },
+ {
+  "titulo": "Capítulo 1: Conceitos de nuvem",
+  "itens": [
+   {
+    "titulo": "Apresentação do capítulo",
+    "url": "/docs/01-conceitos-de-nuvem/"
+   },
+   {
+    "titulo": "1.1 O que é computação em nuvem",
+    "url": "/docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.html"
+   },
+   {
+    "titulo": "1.2 As 6 vantagens da computação em nuvem",
+    "url": "/docs/01-conceitos-de-nuvem/02-vantagens-da-nuvem.html"
+   },
+   {
+    "titulo": "1.3 Conceitos de arquitetura que a prova cobra",
+    "url": "/docs/01-conceitos-de-nuvem/03-conceitos-de-arquitetura.html"
+   },
+   {
+    "titulo": "1.4 AWS Well-Architected Framework",
+    "url": "/docs/01-conceitos-de-nuvem/04-well-architected-framework.html"
+   },
+   {
+    "titulo": "1.5 AWS Cloud Adoption Framework (CAF)",
+    "url": "/docs/01-conceitos-de-nuvem/05-cloud-adoption-framework.html"
+   },
+   {
+    "titulo": "1.6 Estratégias de migração (os 7 Rs)",
+    "url": "/docs/01-conceitos-de-nuvem/06-estrategias-de-migracao.html"
+   },
+   {
+    "titulo": "1.7 Economia da nuvem",
+    "url": "/docs/01-conceitos-de-nuvem/07-economia-da-nuvem.html"
+   }
+  ]
+ },
+ {
+  "titulo": "Capítulo 2: Segurança e conformidade",
+  "itens": [
+   {
+    "titulo": "Apresentação do capítulo",
+    "url": "/docs/02-seguranca-e-conformidade/"
+   },
+   {
+    "titulo": "2.1 Modelo de responsabilidade compartilhada",
+    "url": "/docs/02-seguranca-e-conformidade/01-responsabilidade-compartilhada.html"
+   },
+   {
+    "titulo": "2.2 Usuário root",
+    "url": "/docs/02-seguranca-e-conformidade/02-usuario-root.html"
+   },
+   {
+    "titulo": "2.3 AWS IAM (Identity and Access Management)",
+    "url": "/docs/02-seguranca-e-conformidade/03-iam.html"
+   },
+   {
+    "titulo": "2.4 Governança multi-conta",
+    "url": "/docs/02-seguranca-e-conformidade/04-governanca-multi-conta.html"
+   },
+   {
+    "titulo": "2.5 Criptografia",
+    "url": "/docs/02-seguranca-e-conformidade/05-criptografia.html"
+   },
+   {
+    "titulo": "2.6 Compliance e governança",
+    "url": "/docs/02-seguranca-e-conformidade/06-compliance-e-governanca.html"
+   },
+   {
+    "titulo": "2.7 Logs, monitoramento e auditoria",
+    "url": "/docs/02-seguranca-e-conformidade/07-logs-monitoramento-e-auditoria.html"
+   },
+   {
+    "titulo": "2.8 Proteção de rede e aplicações",
+    "url": "/docs/02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.html"
+   },
+   {
+    "titulo": "2.9 Detecção de ameaças",
+    "url": "/docs/02-seguranca-e-conformidade/09-deteccao-de-ameacas.html"
+   },
+   {
+    "titulo": "2.10 Outros pontos de segurança",
+    "url": "/docs/02-seguranca-e-conformidade/10-outros-pontos-de-seguranca.html"
+   }
+  ]
+ },
+ {
+  "titulo": "Capítulo 3: Tecnologia e serviços",
+  "itens": [
+   {
+    "titulo": "Apresentação do capítulo",
+    "url": "/docs/03-tecnologia-e-servicos/"
+   },
+   {
+    "titulo": "3.1 Formas de acessar e implantar na AWS",
+    "url": "/docs/03-tecnologia-e-servicos/01-formas-de-acesso-e-implantacao.html"
+   },
+   {
+    "titulo": "3.2 Infraestrutura global",
+    "url": "/docs/03-tecnologia-e-servicos/02-infraestrutura-global.html"
+   },
+   {
+    "titulo": "3.3 Amazon EC2",
+    "url": "/docs/03-tecnologia-e-servicos/03-ec2.html"
+   },
+   {
+    "titulo": "3.4 Escalabilidade e balanceamento de carga",
+    "url": "/docs/03-tecnologia-e-servicos/04-escalabilidade-e-balanceamento.html"
+   },
+   {
+    "titulo": "3.5 Containers e serverless",
+    "url": "/docs/03-tecnologia-e-servicos/05-containers-e-serverless.html"
+   },
+   {
+    "titulo": "3.6 Outros serviços de computação",
+    "url": "/docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.html"
+   },
+   {
+    "titulo": "3.7 Bancos de dados",
+    "url": "/docs/03-tecnologia-e-servicos/07-bancos-de-dados.html"
+   },
+   {
+    "titulo": "3.8 Amazon S3 — armazenamento de objetos",
+    "url": "/docs/03-tecnologia-e-servicos/08-s3.html"
+   },
+   {
+    "titulo": "3.9 Outros serviços de armazenamento",
+    "url": "/docs/03-tecnologia-e-servicos/09-outros-armazenamentos.html"
+   },
+   {
+    "titulo": "3.10 Redes e entrega de conteúdo",
+    "url": "/docs/03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.html"
+   },
+   {
+    "titulo": "3.11 Analytics",
+    "url": "/docs/03-tecnologia-e-servicos/11-analytics.html"
+   },
+   {
+    "titulo": "3.12 IA e machine learning",
+    "url": "/docs/03-tecnologia-e-servicos/12-ia-e-machine-learning.html"
+   },
+   {
+    "titulo": "3.13 Integração de aplicações",
+    "url": "/docs/03-tecnologia-e-servicos/13-integracao-de-aplicacoes.html"
+   },
+   {
+    "titulo": "3.14 Aplicações de negócio, usuário final, front-end e IoT",
+    "url": "/docs/03-tecnologia-e-servicos/14-aplicacoes-de-negocio-e-iot.html"
+   },
+   {
+    "titulo": "3.15 Ferramentas de desenvolvimento",
+    "url": "/docs/03-tecnologia-e-servicos/15-ferramentas-de-desenvolvimento.html"
+   },
+   {
+    "titulo": "3.16 Gestão e governança",
+    "url": "/docs/03-tecnologia-e-servicos/16-gestao-e-governanca.html"
+   },
+   {
+    "titulo": "3.17 Migração e transferência",
+    "url": "/docs/03-tecnologia-e-servicos/17-migracao-e-transferencia.html"
+   },
+   {
+    "titulo": "3.18 Serviços menos conhecidos que podem aparecer",
+    "url": "/docs/03-tecnologia-e-servicos/18-servicos-menos-conhecidos.html"
+   }
+  ]
+ },
+ {
+  "titulo": "Capítulo 4: Cobrança, preços e suporte",
+  "itens": [
+   {
+    "titulo": "Apresentação do capítulo",
+    "url": "/docs/04-cobranca-precos-e-suporte/"
+   },
+   {
+    "titulo": "4.1 Princípios de preço da AWS",
+    "url": "/docs/04-cobranca-precos-e-suporte/01-principios-de-preco.html"
+   },
+   {
+    "titulo": "4.2 Modelos de compra do EC2",
+    "url": "/docs/04-cobranca-precos-e-suporte/02-modelos-de-compra-ec2.html"
+   },
+   {
+    "titulo": "4.3 Como outros recursos são cobrados",
+    "url": "/docs/04-cobranca-precos-e-suporte/03-cobranca-de-outros-recursos.html"
+   },
+   {
+    "titulo": "4.4 Ferramentas de custo e faturamento",
+    "url": "/docs/04-cobranca-precos-e-suporte/04-ferramentas-de-custo.html"
+   },
+   {
+    "titulo": "4.5 Planos de AWS Support",
+    "url": "/docs/04-cobranca-precos-e-suporte/05-planos-de-suporte.html"
+   },
+   {
+    "titulo": "4.6 Outros recursos de ajuda",
+    "url": "/docs/04-cobranca-precos-e-suporte/06-outros-recursos-de-ajuda.html"
+   }
+  ]
+ },
+ {
+  "titulo": "Consulta",
+  "itens": [
+   {
+    "titulo": "Fichas de serviços",
+    "url": "/servicos/"
+   },
+   {
+    "titulo": "Glossário",
+    "url": "/glossario.html"
+   },
+   {
+    "titulo": "Pares que confundem",
+    "url": "/resumos/comparativos.html"
+   },
+   {
+    "titulo": "Palavras-chave do enunciado",
+    "url": "/resumos/palavras-chave.html"
+   },
+   {
+    "titulo": "Números que decidem questões",
+    "url": "/resumos/numeros-ancora.html"
+   }
+  ]
+ },
+ {
+  "titulo": "Pratique",
+  "itens": [
+   {
+    "titulo": "Flashcards",
+    "url": "/flashcards/"
+   },
+   {
+    "titulo": "Questões por domínio",
+    "url": "/simulados/questoes/"
+   },
+   {
+    "titulo": "Erros recorrentes",
+    "url": "/simulados/erros-recorrentes.html"
+   },
+   {
+    "titulo": "Meu progresso",
+    "url": "/progresso.html"
+   },
+   {
+    "titulo": "Práticas no console",
+    "url": "/labs/"
+   }
+  ]
+ },
+ {
+  "titulo": "Edição impressa (PDF)",
+  "itens": [
+   {
+    "titulo": "Rumo à Cloud Practitioner (aulas)",
+    "url": "/edicao-impressa/rumo-a-cloud-practitioner.pdf"
+   },
+   {
+    "titulo": "Caderno de consulta",
+    "url": "/edicao-impressa/caderno-de-consulta.pdf"
+   },
+   {
+    "titulo": "Caderno de exercícios",
+    "url": "/edicao-impressa/caderno-de-exercicios.pdf"
+   }
+  ]
+ }
+]
