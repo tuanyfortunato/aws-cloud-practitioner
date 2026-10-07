@@ -35,9 +35,9 @@ No início, o sistema roda num único computador guardado numa sala da secretari
 | Sistema | O que é | Onde aparece |
 |---|---|---|
 | Notas e boletins | Lançamento de notas pelos professores e geração dos boletins em PDF | 1.1, 3.4, 3.6, 3.8, 3.14, 4.2 |
-| Banco de dados da matrícula | O banco com alunos, turmas e matrículas | 1.6, 3.7, 3.17 |
+| Banco de dados da matrícula | O banco SQL Server com alunos, turmas e matrículas, levado para um serviço gerenciado | 1.6, 3.7 |
 | Aplicativo dos pais | Aplicativo que guarda a sessão de muitos usuários ao mesmo tempo | 0.3, 3.7, 3.14 |
-| Sistema financeiro | Recebe o aviso de cada matrícula nova | 3.13, 4.6 |
+| Sistema financeiro | Recebe o aviso de cada matrícula nova; seu banco Oracle é migrado para o Aurora PostgreSQL | 3.13, 3.17, 4.6 |
 | Sistemas antigos da rede | RH feito por um ex-funcionário, site de eventos sem acesso, controle das catracas da portaria | 1.6 |
 | Portal e materiais didáticos | Portal novo e a pasta de materiais lida por várias instâncias | 3.6, 3.9 |
 | Sistema da biblioteca | Sistema novo, cujo custo a direção quer saber antes de aprovar | 4.4 |
@@ -165,6 +165,6 @@ Em volta desse desenho ficam as contas separadas de produção, testes e auditor
 
 ## O limite do exemplo
 
-O caso existe para dar um problema concreto a cada assunto, não para ser uma arquitetura de referência. Por isso, alguns detalhes mudam de uma aula para outra, para servir ao ponto que cada uma ensina: o número de instâncias no pico, o tipo de banco de dados, se o técnico é funcionário ou de uma empresa contratada. Quando uma aula diz algo diferente desta página, vale o que está na aula.
+O caso existe para dar um problema concreto a cada assunto, não para ser uma arquitetura de referência. Por isso, alguns detalhes mudam de uma aula para outra, para servir ao ponto que cada uma ensina: o número de instâncias no pico, se o técnico é funcionário ou de uma empresa contratada. Quando uma aula diz algo diferente desta página, vale o que está na aula.
 
 Os valores em reais, como o custo do servidor na [aula 1.7](../01-conceitos-de-nuvem/07-economia-da-nuvem.md), são ilustrativos e não são preços da AWS. Para preços, consulte as páginas oficiais citadas nas aulas do capítulo 4.
