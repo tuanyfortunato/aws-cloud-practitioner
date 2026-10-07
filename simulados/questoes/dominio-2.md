@@ -17,7 +17,7 @@ Segundo o modelo de responsabilidade compartilhada, quem é responsável por apl
 - **C)** A AWS
 - **D)** O fornecedor do sistema operacional
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -37,7 +37,7 @@ Uma empresa usa o Amazon RDS for MySQL. Quem é responsável por aplicar os patc
 - **C)** O cliente
 - **D)** O administrador de banco de dados do cliente, manualmente
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -58,7 +58,7 @@ Quais DUAS tarefas são de responsabilidade do CLIENTE segundo o modelo de respo
 - **D)** Configurar os security groups das instâncias
 - **E)** Ativar a criptografia dos dados armazenados no Amazon S3
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D, E**
@@ -78,7 +78,7 @@ Qual destas tarefas só pode ser realizada pelo usuário root da conta AWS?
 - **C)** Criar um usuário IAM com permissões de administrador
 - **D)** Alterar o nome da conta
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -98,7 +98,7 @@ Uma aplicação executada em instâncias EC2 precisa ler objetos de um bucket S3
 - **C)** Usar as credenciais do usuário root na aplicação
 - **D)** Tornar o bucket público
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -118,7 +118,7 @@ Um usuário IAM recebe uma política que permite (Allow) apagar objetos de um bu
 - **C)** A ação é negada, porque um Deny explícito sempre prevalece
 - **D)** A ação é permitida, porque a política mais recente prevalece
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -138,7 +138,7 @@ Uma empresa com 30 contas AWS quer que os funcionários façam login uma única 
 - **C)** AWS IAM Identity Center
 - **D)** Usuários IAM criados em cada conta
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -158,7 +158,7 @@ Um aplicativo móvel precisa permitir que clientes se cadastrem e façam login c
 - **C)** Amazon Cognito
 - **D)** AWS Directory Service
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -178,7 +178,7 @@ Uma empresa precisa armazenar a senha do banco de dados Amazon RDS de forma crip
 - **C)** Amazon S3 com criptografia SSE-KMS
 - **D)** AWS Key Management Service (AWS KMS)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -198,7 +198,7 @@ Uma empresa usa o AWS Organizations e quer impedir que qualquer conta da OU de d
 - **C)** Uma Service Control Policy (SCP) aplicada à OU
 - **D)** Uma política IAM anexada a cada usuário administrador
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -218,7 +218,7 @@ Uma instituição financeira precisa, por regulação, de módulos de segurança
 - **C)** AWS Key Management Service (AWS KMS) com chaves gerenciadas pela AWS
 - **D)** AWS Certificate Manager (ACM)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -238,7 +238,7 @@ O auditor de uma empresa pediu o relatório SOC 2 da AWS para avaliar os control
 - **C)** AWS Trusted Advisor
 - **D)** AWS Audit Manager
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -258,7 +258,7 @@ Uma instância EC2 de produção foi encerrada e o time precisa descobrir qual u
 - **C)** VPC Flow Logs
 - **D)** AWS CloudTrail
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -278,7 +278,7 @@ O time de segurança precisa saber como estavam configuradas as regras de um sec
 - **C)** AWS Config
 - **D)** Amazon Inspector
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -299,7 +299,7 @@ Quais DUAS afirmações sobre security groups e network ACLs estão corretas? (E
 - **D)** Network ACLs são stateful e atuam no nível da instância
 - **E)** Network ACLs atuam no nível da subnet e aceitam regras de permissão e de negação
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C, E**
@@ -319,7 +319,7 @@ Uma loja virtual atrás de um Application Load Balancer está sofrendo tentativa
 - **C)** Security groups
 - **D)** AWS Shield Standard
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -339,7 +339,7 @@ Uma empresa de jogos quer proteção ampliada contra DDoS, acesso 24/7 a uma equ
 - **C)** AWS Firewall Manager
 - **D)** AWS Shield Standard
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -359,7 +359,7 @@ Uma empresa quer detectar automaticamente atividades maliciosas, como uma instâ
 - **C)** Amazon Inspector
 - **D)** Amazon GuardDuty
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -379,7 +379,7 @@ O time de segurança precisa descobrir quais buckets S3 contêm dados pessoais, 
 - **C)** Amazon Inspector
 - **D)** Amazon Detective
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -399,7 +399,7 @@ Uma empresa quer varrer continuamente suas instâncias EC2 e as imagens de cont�
 - **C)** AWS Config
 - **D)** Amazon Inspector
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -419,7 +419,7 @@ Uma empresa contratou uma consultoria para fazer um teste de intrusão na sua ap
 - **C)** Uma simulação de DDoS pode entrar no teste, porque os serviços estão na lista permitida
 - **D)** É preciso pedir autorização ao AWS Support antes de qualquer teste
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -439,7 +439,7 @@ O servidor de e-mail de uma escola registrou uma campanha de phishing enviada de
 - **C)** Solicitar um relatório de conformidade no AWS Artifact
 - **D)** Registrar o incidente no AWS Health Dashboard
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -459,7 +459,7 @@ A equipe de segurança quer usar na AWS o firewall de um fabricante que ela já 
 - **C)** AWS Security Hub
 - **D)** AWS Artifact
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**

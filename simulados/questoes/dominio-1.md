@@ -17,7 +17,7 @@ Uma empresa precisa manter dados de clientes em seu datacenter por exigência re
 - **C)** On-premises (nuvem privada)
 - **D)** Híbrido
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -37,7 +37,7 @@ Um desenvolvedor quer apenas enviar o código da sua aplicação web Java e deix
 - **C)** IaaS, com o Amazon EC2
 - **D)** SaaS, com o Amazon WorkSpaces
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -57,7 +57,7 @@ Uma varejista comprava servidores extras todo ano para aguentar a Black Friday, 
 - **C)** Tornar-se global em minutos
 - **D)** Trocar despesa variável por despesa de capital
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -78,7 +78,7 @@ Quais DUAS opções são vantagens da computação em nuvem segundo a AWS? (Esco
 - **D)** Beneficiar-se de economias de escala massivas
 - **E)** Eliminar toda a responsabilidade do cliente pela segurança
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A, D**
@@ -98,7 +98,7 @@ Uma aplicação adiciona instâncias automaticamente quando o tráfego aumenta �
 - **C)** Alta disponibilidade
 - **D)** Tolerância a falhas
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -118,7 +118,7 @@ Uma empresa aceita perder no máximo 15 minutos de dados em caso de desastre. Es
 - **C)** Acordo de nível de serviço (SLA)
 - **D)** Tempo médio entre falhas (MTBF)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -138,7 +138,7 @@ Qual estratégia de recuperação de desastres tem o MENOR custo, aceitando o ma
 - **C)** Pilot Light
 - **D)** Backup and Restore
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -158,7 +158,7 @@ Um time quer que a falha no serviço de processamento de pedidos não derrube o 
 - **C)** Aumentar o tamanho da instância do site (escala vertical)
 - **D)** Desacoplar os componentes com uma fila do Amazon SQS
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -178,7 +178,7 @@ Uma empresa implanta sua aplicação em várias zonas de disponibilidade e confi
 - **C)** Eficiência de performance
 - **D)** Confiabilidade
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -198,7 +198,7 @@ Uma empresa passou a usar instâncias com processadores AWS Graviton e a desliga
 - **C)** Confiabilidade
 - **D)** Segurança
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -218,7 +218,7 @@ Um arquiteto quer revisar uma carga de trabalho existente contra as boas prátic
 - **C)** AWS Well-Architected Tool
 - **D)** AWS Security Hub
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -238,7 +238,7 @@ Na adoção de nuvem de uma empresa, um grupo cuida de treinar os funcionários,
 - **C)** Business
 - **D)** Operations
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -258,7 +258,7 @@ Qual é a ordem correta das fases da jornada de transformação na nuvem descrit
 - **C)** Envision, Align, Launch, Scale
 - **D)** Align, Envision, Scale, Launch
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -278,7 +278,7 @@ Uma empresa quer migrar seu banco de dados MySQL de um servidor próprio para o 
 - **C)** Rehost
 - **D)** Refactor
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -298,7 +298,7 @@ Uma empresa precisa sair do datacenter em 3 meses e quer mover centenas de VMs p
 - **C)** Retain
 - **D)** Replatform
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -318,7 +318,7 @@ A diretoria de uma empresa pede uma estimativa do custo total de propriedade (TC
 - **C)** AWS Migration Hub
 - **D)** AWS Budgets
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**

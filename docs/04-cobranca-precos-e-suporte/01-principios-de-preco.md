@@ -95,7 +95,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que significa pagar pelo uso?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Pagar só pelos serviços que você usa, pelo tempo em que usa, sem contrato de longo prazo e sem multa ao parar de usar.
@@ -106,7 +106,7 @@ Comentário: é o modelo da maior parte dos serviços da AWS.
 
 ### Como funciona o princípio "economize ao se comprometer"?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Você se compromete a usar uma quantidade de serviço por 1 ou 3 anos e, em troca, paga preços menores que os sob demanda.
@@ -117,7 +117,7 @@ Comentário: Savings Plans e instâncias reservadas são os exemplos; a aula 4.2
 
 ### O que é o desconto por volume?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Preço escalonado em faixas: quanto mais você usa, menor o preço por unidade, como no S3 e na transferência de dados de saída do EC2.
@@ -128,7 +128,7 @@ Comentário: é o princípio "pague menos usando mais".
 
 ### A transferência de dados para dentro da AWS é cobrada?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não: a AWS informa que a transferência de dados de entrada é gratuita.
@@ -139,7 +139,7 @@ Comentário: a saída para a internet é cobrada; a aula 4.3 mostra os outros ca
 
 ### Como funciona o plano gratuito do AWS Free Tier para contas novas?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A conta recebe US$ 100 em créditos, pode ganhar mais US$ 100 com atividades, e o plano termina em 6 meses ou quando os créditos acabam.

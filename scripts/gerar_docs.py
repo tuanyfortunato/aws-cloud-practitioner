@@ -8,9 +8,11 @@ Todas as aulas (docs/), fichas (servicos/), páginas do guia do exame e resumos 
 
 - índices de domínio (docs/<domínio>/README.md) e índice das fichas (servicos/README.md);
 - flashcards (flashcards/*.md e o arquivo do Anki), tirados da seção Revisão de cada aula;
-- blocos gerados do README.md (tabela de materiais e sumário).
+- blocos gerados do README.md (tabela de materiais e sumário);
+- menu lateral do site no GitHub Pages (_data/navegacao.json).
 """
 import csv
+import json
 import os
 import re
 
@@ -218,8 +220,8 @@ def extrair_cards_revisao(texto):
 
     Formato: uma seção `## Revisão` (o título pode trazer emoji), com uma pergunta por
     subtítulo `### ` e a resposta comentada em seguida, de preferência recolhida num
-    `<details>`. O primeiro parágrafo da resposta vira a resposta do flashcard; o resto
-    fica só na aula.
+    `<details markdown="1">` (o atributo faz o site interpretar o Markdown da resposta).
+    O primeiro parágrafo da resposta vira a resposta do flashcard; o resto fica só na aula.
     """
     m = re.search(r"^## [^\n]*\bRevisão\b[^\n]*\n(.*?)(?=\n## |\Z)", texto, re.S | re.M)
     if not m:
@@ -227,7 +229,7 @@ def extrair_cards_revisao(texto):
     cards = []
     for bloco in re.split(r"^### ", m.group(1), flags=re.M)[1:]:
         pergunta, _, resposta = bloco.partition("\n")
-        resposta = re.sub(r"(?m)^\s*(</?details>|<summary>.*</summary>)\s*$", "", resposta)
+        resposta = re.sub(r"(?m)^\s*(</?details[^>]*>|<summary>.*</summary>)\s*$", "", resposta)
         paragrafos = [p.strip() for p in re.split(r"\n\s*\n", resposta.strip()) if p.strip()]
         if pergunta.strip() and paragrafos:
             cards.append((pergunta.strip(), paragrafos[0]))
@@ -248,7 +250,7 @@ def escrever_flashcards(caminho, titulo, grupos, todas, rotulo):
         for q, a in cards:
             total += 1
             todas.append((q, a, rotulo(numero)))
-            partes.append(f"<details>\n<summary>{q}</summary>\n\n{a}\n</details>\n")
+            partes.append(f'<details markdown="1">\n<summary>{q}</summary>\n\n{a}\n</details>\n')
     partes.insert(2, f"**Total:** {total} cards\n")
     escrever(caminho, "\n".join(partes))
 
@@ -437,7 +439,7 @@ def bloco_indice(lista):
                "Você também pode abrir o [índice completo das fichas, com descrições e escopo](servicos/README.md).", ""]
     for cat, nomes in FICHAS.items():
         nome = NOMES_CATEGORIA[cat]
-        linhas += ["<details>", f"<summary>{nome} — {len(nomes)} fichas (clique para abrir)</summary>", ""]
+        linhas += ['<details markdown="1">', f"<summary>{nome} — {len(nomes)} fichas (clique para abrir)</summary>", ""]
         if cat == "fora-do-escopo":
             linhas += ["Leitura complementar; estas fichas reúnem serviços fora do escopo da prova.", ""]
         for n in nomes:
@@ -458,6 +460,68 @@ def gerar_indice_readme(lista, total_cards):
         f.write(texto)
 
 
+def url_do_site(caminho):
+    """Endereço da página no GitHub Pages: README.md vira o índice da pasta; .md vira .html."""
+    caminho = caminho.replace(os.sep, "/")
+    if caminho == "README.md":
+        return "/"
+    if caminho.endswith("/README.md"):
+        return "/" + caminho[:-len("README.md")]
+    if caminho.endswith(".md"):
+        return "/" + caminho[:-3] + ".html"
+    return "/" + caminho
+
+
+def titulo_da_pagina(caminho):
+    with open(os.path.join(RAIZ, caminho)) as f:
+        for linha in f:
+            if linha.startswith("# "):
+                return re.sub(r"^[^\w(]+\s*", "", linha[2:].strip())
+    raise AssertionError(f"Página sem título '# ': {caminho}")
+
+
+def item(caminho, titulo=None):
+    return {"titulo": titulo or titulo_da_pagina(caminho), "url": url_do_site(caminho)}
+
+
+def gerar_navegacao(lista):
+    """Monta o menu lateral do site: guia, capítulos, consulta, prática e edição impressa."""
+    guia = os.path.join("docs", "00-guia-do-exame")
+    paginas_guia = ["estrutura-da-apostila.md", "caso-da-escola.md", "plano-de-estudos.md"]
+    paginas_guia += sorted(n for n in os.listdir(os.path.join(RAIZ, guia))
+                           if n.endswith(".md") and n not in paginas_guia + ["README.md"])
+    grupos = [{"titulo": "Comece aqui", "itens": [item("README.md", "Início e sumário"),
+                                                  item(os.path.join(guia, "README.md"), "Guia do exame")]
+               + [item(os.path.join(guia, n), "Plano de estudos" if n == "plano-de-estudos.md" else None) for n in paginas_guia]}]
+    grupos.append({"titulo": "Capítulo 0: Fundamentos de TI",
+                   "itens": [item(os.path.join(PASTA_FUNDAMENTOS, "README.md"), "Apresentação do capítulo")]
+                   + [{"titulo": f"{n} {t}", "url": url_do_site(c)} for n, t, c in aulas_fundamentos()]})
+    for dom, (pasta, _, _) in DOMINIOS.items():
+        grupos.append({"titulo": f"Capítulo {dom}: {CAPITULOS[dom][0]}",
+                       "itens": [item(os.path.join("docs", pasta, "README.md"), "Apresentação do capítulo")]
+                       + [{"titulo": f"{s} {t}", "url": url_do_site(c)} for s, t, c in lista if s.split(".")[0] == dom]})
+    grupos.append({"titulo": "Consulta", "itens": [
+        item("servicos/README.md", "Fichas de serviços"), item("glossario.md", "Glossário"),
+        item("resumos/comparativos.md"), item("resumos/palavras-chave.md"), item("resumos/numeros-ancora.md")]})
+    grupos.append({"titulo": "Pratique", "itens": [
+        item("flashcards/README.md", "Flashcards"), item("simulados/questoes/README.md", "Questões por domínio"),
+        item("simulados/erros-recorrentes.md", "Erros recorrentes"), item("progresso.md", "Meu progresso"),
+        item("labs/README.md", "Práticas no console")]})
+    pdfs = [("rumo-a-cloud-practitioner.pdf", "Rumo à Cloud Practitioner (aulas)"),
+            ("caderno-de-consulta.pdf", "Caderno de consulta"),
+            ("caderno-de-exercicios.pdf", "Caderno de exercícios")]
+    grupos.append({"titulo": "Edição impressa (PDF)",
+                   "itens": [item(f"edicao-impressa/{n}", t) for n, t in pdfs]})
+    for grupo in grupos:
+        for i in grupo["itens"]:
+            destino = i["url"].lstrip("/").replace(".html", ".md")
+            if i["url"].endswith("/"):
+                destino += "README.md"
+            assert os.path.exists(os.path.join(RAIZ, destino or "README.md")), f"Menu aponta para página inexistente: {i['url']}"
+    escrever("_data/navegacao.json", json.dumps(grupos, ensure_ascii=False, indent=1))
+    return sum(len(g["itens"]) for g in grupos)
+
+
 def main():
     conferir_autorais()
     lista = aulas()
@@ -465,7 +529,8 @@ def main():
     total = gerar_flashcards(lista)
     fichas = gerar_indice_servicos()
     gerar_indice_readme(lista, total)
-    print(f"{len(lista)} aulas, {total} flashcards e índice de {fichas} fichas gerados.")
+    menu = gerar_navegacao(lista)
+    print(f"{len(lista)} aulas, {total} flashcards, índice de {fichas} fichas e menu do site ({menu} links) gerados.")
 
 
 if __name__ == "__main__":

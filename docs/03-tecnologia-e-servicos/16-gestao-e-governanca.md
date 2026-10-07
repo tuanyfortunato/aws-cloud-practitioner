@@ -117,7 +117,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que o AWS Systems Manager permite fazer?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Operar de forma centralizada muitas máquinas na AWS e fora dela: aplicar patches em escala, rodar comandos remotamente, conectar-se sem abrir portas de entrada e guardar configurações.
@@ -128,7 +128,7 @@ Comentário: as máquinas precisam ter o SSM Agent instalado.
 
 ### Quais são as duas visões do AWS Health Dashboard?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A saúde dos serviços, página pública com os eventos da AWS em todas as Regiões, e a saúde da conta, com os eventos que podem afetar as suas contas e recursos.
@@ -139,7 +139,7 @@ Comentário: o painel é gratuito e não exige configuração; a Health API exig
 
 ### O que fazer quando a conta atinge o limite de um recurso?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Verificar a cota no Service Quotas e, se ela for ajustável, pedir o aumento por lá.
@@ -150,7 +150,7 @@ Comentário: cada serviço define cotas padrão para os recursos e ações de um
 
 ### Para que serve o AWS Compute Optimizer?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para analisar a configuração e o uso dos recursos e recomendar o tamanho certo, além de apontar recursos ociosos, reduzindo custo e melhorando desempenho.
@@ -161,7 +161,7 @@ Comentário: cobre EC2, Auto Scaling groups, EBS, Lambda, ECS no Fargate e banco
 
 ### O que o CloudFormation StackSets acrescenta ao CloudFormation?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A possibilidade de criar, atualizar ou apagar pilhas em várias contas e Regiões numa única operação, a partir do mesmo modelo.

@@ -98,7 +98,7 @@ O cliente, porque a instância é dele.
             finally:
                 gerar_docs.RAIZ = raiz
         self.assertEqual(len(todas), esperado)
-        self.assertEqual(texto.count('<details>'), esperado)
+        self.assertEqual(texto.count('<details markdown="1">'), esperado)
         self.assertTrue(all('capitulo-0' in tags for _, _, tags in todas))
 
 
@@ -120,6 +120,29 @@ class Glossario(unittest.TestCase):
     def test_glossario_nao_usa_definicoes_defensivas(self):
         for nome, definicao in self.termos():
             self.assertNotRegex(definicao, r'compatíve|conforme', nome)
+
+
+class Site(unittest.TestCase):
+    """Páginas publicadas no GitHub Pages (_config.yml)."""
+
+    def test_respostas_recolhidas_interpretam_markdown(self):
+        # Sem markdown="1", o site mostra o Markdown da resposta como texto cru.
+        raiz = gerar_docs.RAIZ
+        for pasta, _, arquivos in os.walk(raiz):
+            if os.path.relpath(pasta, raiz).split(os.sep)[0] in ('.git', 'fontes', 'pendencias', 'build'):
+                continue
+            for nome in arquivos:
+                if nome.endswith('.md'):
+                    with open(os.path.join(pasta, nome), encoding='utf-8') as f:
+                        self.assertNotIn('<details>', f.read(), os.path.join(pasta, nome))
+
+    def test_menu_do_site_aponta_para_paginas_existentes(self):
+        import json
+        with open(os.path.join(gerar_docs.RAIZ, '_data', 'navegacao.json'), encoding='utf-8') as f:
+            grupos = json.load(f)
+        urls = [i['url'] for g in grupos for i in g['itens']]
+        self.assertIn('/docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.html', urls)
+        self.assertEqual(len(urls), len(set(urls)))
 
 
 if __name__=='__main__':

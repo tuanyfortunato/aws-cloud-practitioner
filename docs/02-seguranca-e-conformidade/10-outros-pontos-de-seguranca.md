@@ -81,7 +81,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O cliente precisa de aprovação da AWS para fazer um teste de intrusão na própria instância EC2?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. EC2 está na lista de serviços que o cliente pode testar na própria infraestrutura sem aprovação prévia.
@@ -92,7 +92,7 @@ Comentário: testes com comando e controle (C2) exigem aprovação, e atividades
 
 ### Um teste de intrusão pode incluir uma simulação de DDoS livremente?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. DoS e DDoS, reais ou simulados, estão entre as atividades proibidas pela política de testes de intrusão e só podem seguir a política específica de simulação de DDoS.
@@ -103,7 +103,7 @@ Comentário: "não precisa de aprovação" vale para a lista de serviços permit
 
 ### A quem denunciar spam ou ataques vindos de um endereço IP da AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 À equipe AWS Trust & Safety, pelo formulário de abuso da AWS.
@@ -114,7 +114,7 @@ Comentário: o AWS Support não atende denúncias de abuso. A Trust & Safety inv
 
 ### Onde a AWS publica avisos sobre vulnerabilidades que afetam seus serviços?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Nos Security Bulletins, a página de boletins de segurança da AWS. Outras fontes oficiais de informação de segurança são a página de segurança da AWS, o AWS Security Blog e o AWS Knowledge Center.
@@ -125,7 +125,7 @@ Comentário: o guia do exame cita Security Center, Security Blog e Knowledge Cen
 
 ### Onde encontrar produtos de segurança de outros fabricantes para usar na AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 No AWS Marketplace, catálogo curado de software, dados e serviços de terceiros, com categoria própria de segurança.

@@ -83,7 +83,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre memória e armazenamento?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A memória guarda o que os programas estão usando agora e perde tudo quando a máquina desliga; o armazenamento guarda os dados de forma permanente, mas é mais lento.
@@ -94,7 +94,7 @@ Por isso um servidor que reinicia continua com os arquivos no disco, mas precisa
 
 ### O que faz um computador ser um servidor?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O papel que ele cumpre: rodar um programa que espera pedidos de outros computadores (os clientes) e responde a eles.
@@ -105,7 +105,7 @@ Não depende de uma peça especial. Servidores de datacenter têm peças mais ro
 
 ### Para que serve o hipervisor?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Ele divide um computador físico em várias máquinas virtuais, reparte o hardware entre elas e mantém cada uma isolada das outras.
@@ -116,7 +116,7 @@ Cada máquina virtual tem seu próprio sistema operacional convidado. O isolamen
 
 ### Numa instância EC2, quem aplica os patches do sistema operacional?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O cliente. O sistema operacional da instância é o SO convidado, e a AWS é responsável só pelo que fica abaixo dele: hipervisor, máquina física e datacenter.

@@ -98,7 +98,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre segurança da nuvem e segurança na nuvem?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Segurança da nuvem é proteger a infraestrutura que roda os serviços, e é da AWS; segurança na nuvem é proteger o que o cliente coloca e configura nos serviços, e é do cliente.
@@ -109,7 +109,7 @@ A preposição é a pista. "Da nuvem" fala do prédio, do hardware, da rede e da
 
 ### Por que a escola tem menos trabalho de segurança no RDS do que num banco instalado numa instância EC2?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque no RDS a AWS assume o sistema operacional e o software do banco, incluindo instalação, patches e backups, que no EC2 seriam da escola.
@@ -120,7 +120,7 @@ No EC2, a AWS só entrega a máquina virtual. O que continua igual nos dois caso
 
 ### Uma biblioteca empacotada numa função Lambda tem uma falha de segurança. Quem corrige?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O cliente, que precisa atualizar a biblioteca e publicar a função de novo.
@@ -131,7 +131,7 @@ A AWS mantém a infraestrutura e atualiza o runtime gerenciado, mas o que vai de
 
 ### O que é um controle compartilhado? Dê um exemplo.
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É um controle que vale para as duas camadas, com cada lado fazendo a sua parte; a gestão de patches é o exemplo clássico: a AWS corrige a infraestrutura e o cliente corrige o SO convidado e as aplicações.
@@ -142,7 +142,7 @@ Gestão de configuração e treinamento também são compartilhados. Não confun
 
 ### Num serviço como o S3, o que continua sendo responsabilidade do cliente?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Os dados e o acesso a eles: as opções de criptografia, a classificação do que é sensível e as permissões que dizem quem pode ler e gravar.

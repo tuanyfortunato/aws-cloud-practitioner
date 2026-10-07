@@ -110,7 +110,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a relação entre IA, machine learning e IA generativa?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 IA é o termo amplo; machine learning é um tipo de IA que aprende padrões a partir de dados; IA generativa é um tipo de IA que cria conteúdo novo usando modelos de fundação.
@@ -121,7 +121,7 @@ Comentário: modelos de fundação são treinados com muitos dados gerais e faze
 
 ### Quando usar o SageMaker AI em vez de um serviço de IA pronto?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando o problema exige um modelo próprio, treinado com os dados da empresa, que nenhum serviço pronto resolve.
@@ -132,7 +132,7 @@ Comentário: com o SageMaker AI, a empresa cria, treina e implanta o modelo; a A
 
 ### Qual é a diferença entre Amazon Polly e Amazon Transcribe?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Polly converte texto em fala; o Transcribe converte fala em texto.
@@ -143,7 +143,7 @@ Comentário: o Translate traduz textos e pode ficar entre os dois.
 
 ### Qual é a diferença entre Amazon Textract e Amazon Rekognition?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Textract extrai texto, formulários e tabelas de documentos; o Rekognition analisa imagens e vídeos para detectar rostos, objetos e conteúdo impróprio.
@@ -154,7 +154,7 @@ Comentário: "documento digitalizado" aponta para o Textract.
 
 ### Para que serve o Amazon Lex?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para criar interfaces conversacionais, como chatbots, por voz e texto, com reconhecimento de fala e compreensão de linguagem natural.

@@ -106,7 +106,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre o AWS KMS e o AWS CloudHSM?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O KMS é um serviço gerenciado de chaves, com HSMs compartilhados e gerenciados pela AWS e integração com muitos serviços. O CloudHSM oferece HSMs dedicados a um único cliente, que administra os próprios usuários e chaves.
@@ -117,7 +117,7 @@ Comentário: as palavras "dedicado", "single-tenant" e "controle exclusivo" apon
 
 ### Um usuário tem permissão de leitura num bucket, mas o objeto está cifrado com SSE-KMS e uma chave gerenciada pelo cliente. Ele consegue ler?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Só se também tiver permissão para usar a chave (`kms:Decrypt`). Permissão no bucket sozinha não basta.
@@ -128,7 +128,7 @@ Comentário: a política da chave é uma segunda camada de controle, separada da
 
 ### Para que serve o AWS Certificate Manager?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para criar, guardar e renovar certificados SSL/TLS usados no HTTPS de serviços como o Elastic Load Balancing, o CloudFront e o API Gateway. Com validação por DNS, a renovação é automática.
@@ -139,7 +139,7 @@ Comentário: o certificado protege os dados em trânsito. Ele não cifra dados g
 
 ### Como saber quem usou uma chave do KMS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Pelo AWS CloudTrail, que registra todas as chamadas ao KMS, inclusive as feitas por outros serviços em nome do cliente.
@@ -150,7 +150,7 @@ Comentário: a auditoria do uso das chaves é uma das vantagens de usar o KMS. O
 
 ### Um objeto enviado hoje ao S3 sem nenhuma configuração fica cifrado?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Sim. Desde 5 de janeiro de 2023, todo objeto novo no S3 é cifrado automaticamente com SSE-S3, sem custo adicional.

@@ -110,7 +110,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre custo fixo e custo variável na nuvem?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Custo fixo é pago independentemente do uso, como um servidor comprado; custo variável acompanha o consumo, como pagar por hora de instância ligada.
@@ -121,7 +121,7 @@ Comentário: por isso desligar recursos ociosos economiza na nuvem, e no datacen
 
 ### Que custos de um ambiente local costumam ficar de fora de uma comparação simples?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Espaço, energia, refrigeração, trabalho de montar e manter servidores, licenças e a capacidade ociosa comprada para o pico.
@@ -132,7 +132,7 @@ Comentário: a comparação justa soma tudo nos dois lados, o que se chama custo
 
 ### O que é BYOL e quando ele ajuda?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É trazer as próprias licenças de software para a AWS, dentro dos termos de cada licença; ajuda quando a organização já tem licenças válidas, como de Windows Server ou SQL Server.
@@ -143,7 +143,7 @@ Comentário: licenças por soquete ou núcleo pedem Hosts Dedicados; a alternati
 
 ### O que é rightsizing e qual serviço recomenda tamanhos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É ajustar o tipo e o tamanho dos recursos ao uso real; o AWS Compute Optimizer analisa métricas de uso e recomenda tamanhos, além de apontar recursos ociosos.
@@ -154,7 +154,7 @@ Comentário: ajuste o tamanho antes de comprar descontos por compromisso.
 
 ### Qual ferramenta estima o custo de uma arquitetura na AWS antes de construí-la?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A AWS Pricing Calculator, ferramenta web gratuita para criar estimativas de custo dos serviços da AWS.

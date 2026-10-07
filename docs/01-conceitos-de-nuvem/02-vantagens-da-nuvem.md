@@ -88,7 +88,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Quais são as seis vantagens da computação em nuvem segundo a AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Trocar despesa fixa por variável, beneficiar-se de economias de escala, parar de adivinhar a capacidade, aumentar a velocidade e a agilidade, parar de gastar com datacenters e tornar-se global em minutos.
@@ -99,7 +99,7 @@ Comentário: a prova raramente pede a lista; ela descreve uma situação e pede 
 
 ### Uma loja tem servidores ociosos o ano todo, exceto na Black Friday. Qual vantagem resolve isso?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Parar de adivinhar a capacidade: na nuvem, a loja aumenta a capacidade no pico e reduz depois, pagando só pelo que usa.
@@ -110,7 +110,7 @@ Comentário: comprar um servidor maior continua sendo adivinhar. A elasticidade 
 
 ### Por que a AWS consegue preços menores que uma empresa sozinha?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Pelas economias de escala: o uso de centenas de milhares de clientes é somado, o que permite custos menores, repassados no preço por uso.
@@ -121,7 +121,7 @@ Comentário: não confunda com trocar despesa fixa por variável, que fala da fo
 
 ### O que quer dizer trocar CapEx por OpEx?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Trocar o investimento antecipado em equipamento (despesa de capital) por gastos contínuos de acordo com o uso (despesa operacional). É a vantagem de trocar despesa fixa por variável.
@@ -132,7 +132,7 @@ Comentário: despesa variável não quer dizer despesa pequena; recursos ligados
 
 ### Como a nuvem ajuda a atender usuários em outros continentes?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Permitindo implantar a aplicação em várias Regiões do mundo com poucos cliques, mais perto dos usuários, o que reduz a latência. É a vantagem de tornar-se global em minutos.

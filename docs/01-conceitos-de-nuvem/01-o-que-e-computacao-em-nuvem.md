@@ -97,7 +97,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Como a AWS define computação em nuvem?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Como a entrega sob demanda de recursos de TI, como computação, bancos de dados, armazenamento e aplicações, pela internet, com preço pago pelo uso.
@@ -108,7 +108,7 @@ Comentário: as três ideias (sob demanda, pela internet, pago pelo uso) aparece
 
 ### Qual é a diferença entre IaaS, PaaS e SaaS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É quanto o provedor administra. No IaaS, o provedor entrega rede, computadores e armazenamento, e o cliente cuida do sistema operacional para cima. No PaaS, o provedor também cuida do hardware e do sistema operacional, e o cliente cuida da aplicação. No SaaS, o provedor entrega um produto completo, e o cliente só o usa.
@@ -119,7 +119,7 @@ Comentário: a AWS usa esses nomes como uma ajuda, não como categorias rígidas
 
 ### O que quer dizer serverless?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Que o cliente roda código ou usa um serviço sem provisionar nem administrar servidores. No AWS Lambda, a AWS cuida da manutenção dos servidores, da capacidade, do escalonamento e dos patches.
@@ -130,7 +130,7 @@ Comentário: os servidores existem, mas não são trabalho do cliente. O cliente
 
 ### Uma empresa mantém dados no próprio datacenter e usa a AWS para o resto, com os dois lados conectados. Qual é o modelo de implantação?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Híbrido: recursos na nuvem e recursos fora dela, conectados.
@@ -141,7 +141,7 @@ Comentário: se tudo rodasse na AWS, seria implantação em nuvem; se tudo ficas
 
 ### Por que usar a nuvem não tira toda a responsabilidade do cliente?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque o provedor assume o hardware e, dependendo do modelo, outras camadas, mas o cliente continua decidindo e configurando o que coloca na nuvem, como dados, acessos e, no IaaS, o sistema operacional.

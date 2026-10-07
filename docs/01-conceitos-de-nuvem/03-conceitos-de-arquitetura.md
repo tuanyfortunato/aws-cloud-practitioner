@@ -104,7 +104,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre escala vertical e horizontal?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Escala vertical é usar uma instância maior; escala horizontal é adicionar mais instâncias e dividir o trabalho entre elas.
@@ -115,7 +115,7 @@ Comentário: a horizontal também melhora a disponibilidade, porque a falha de u
 
 ### O que a elasticidade tem a mais que a escalabilidade?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A elasticidade ajusta a capacidade para cima e para baixo acompanhando a demanda, de preferência automaticamente; a escalabilidade é só a capacidade de crescer.
@@ -126,7 +126,7 @@ Comentário: na AWS, o EC2 Auto Scaling inicia e encerra instâncias dentro de u
 
 ### Uma aplicação roda em uma única instância EC2. Ela tem alta disponibilidade?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. Alta disponibilidade exige componentes redundantes em locais que não falham juntos, como instâncias em mais de uma Zona de Disponibilidade.
@@ -137,7 +137,7 @@ Comentário: tolerância a falhas vai além: mantém capacidade sobressalente pa
 
 ### O que significam RTO e RPO?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 RTO é o tempo máximo aceitável entre a interrupção e a restauração do serviço; RPO é o tempo máximo aceitável desde o último ponto de recuperação dos dados, ou seja, quantos dados se aceita perder.
@@ -148,7 +148,7 @@ Comentário: os dois são definidos pela organização, e quanto menores, mais c
 
 ### Qual é a diferença entre pilot light e warm standby?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 No pilot light, só os dados e o núcleo da infraestrutura ficam ligados, e a aplicação precisa ser ativada antes de atender; no warm standby, uma cópia reduzida e funcional já atende tráfego.

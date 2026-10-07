@@ -122,7 +122,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a relação entre Região, Zona de Disponibilidade e local de borda?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Uma Região é uma área geográfica com três ou mais AZs; cada AZ é um ou mais datacenters independentes; os locais de borda são pontos de presença espalhados pelo mundo, perto dos usuários, ligados às Regiões pela rede da AWS.
@@ -133,7 +133,7 @@ Comentário: você cria servidores em AZs de uma Região; os locais de borda rod
 
 ### Por que distribuir uma aplicação em várias AZs aumenta a disponibilidade?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque as AZs não compartilham pontos únicos de falha: têm energia e rede independentes e ficam distantes o bastante para um mesmo evento não atingir duas.
@@ -144,7 +144,7 @@ Comentário: é preciso distribuir as cópias e desviar o tráfego das que falha
 
 ### Quando usar várias Regiões?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para recuperação de desastres, continuidade de negócios, baixa latência para usuários em outros lugares do mundo e soberania de dados.
@@ -155,7 +155,7 @@ Comentário: para a falha de um datacenter, várias AZs bastam; várias Regiões
 
 ### Quais fatores pesam na escolha de uma Região?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Conformidade com leis e regras sobre os dados, latência para os usuários, custo e disponibilidade dos serviços e recursos necessários.
@@ -166,7 +166,7 @@ Comentário: quando uma lei exige que os dados fiquem num país, esse fator pass
 
 ### Para que servem os locais de borda?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para rodar serviços perto dos usuários, como o CloudFront (entrega de conteúdo), o Route 53 (DNS) e o Global Accelerator, reduzindo a latência.

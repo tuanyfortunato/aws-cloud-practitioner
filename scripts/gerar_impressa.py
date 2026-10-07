@@ -126,7 +126,7 @@ class Volume:
             pergunta = re.findall(r"^#{3,4} (.+)$", antes, re.M)
             itens.append((ident, pergunta[-1] if pergunta and perguntas else f"Questão {n}", corpo))
             return f'\n<p class="ver-gabarito">Resposta no gabarito, página <a href="#{ident}"></a>.</p>\n'
-        novo = re.sub(r"<details>\s*<summary>.*?</summary>(.*?)</details>", trocar, texto, flags=re.S)
+        novo = re.sub(r"<details[^>]*>\s*<summary>.*?</summary>(.*?)</details>", trocar, texto, flags=re.S)
         return novo, itens
 
     def mermaid(self, texto):

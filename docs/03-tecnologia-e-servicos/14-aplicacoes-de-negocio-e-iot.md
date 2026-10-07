@@ -96,7 +96,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Para que serve o Amazon Connect?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É a central de atendimento na nuvem: clientes entram em contato por voz, chat ou SMS, e atendentes resolvem os casos, pagando-se pelo uso.
@@ -107,7 +107,7 @@ Comentário: a AWS passou a chamar o produto de Amazon Connect Customer.
 
 ### Qual é a diferença entre Amazon SES e Amazon SNS para enviar e-mails?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O SES é o serviço de e-mail completo, para mensagens transacionais e de marketing enviadas da aplicação; o SNS manda notificações simples a quem assinou um tópico.
@@ -118,7 +118,7 @@ Comentário: o SES também recebe e-mails e permite tratá-los por software.
 
 ### Qual é a diferença entre WorkSpaces e WorkSpaces Applications (AppStream 2.0)?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O WorkSpaces entrega um desktop virtual inteiro; o WorkSpaces Applications faz streaming de programas de desktop específicos para o navegador ou um cliente.
@@ -129,7 +129,7 @@ Comentário: nos dois, o programa roda na AWS e o dispositivo só mostra a tela.
 
 ### O que o AWS Amplify oferece?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Ferramentas para criar, implantar e hospedar aplicações web e mobile full-stack, sem exigir conhecimento de nuvem.
@@ -140,7 +140,7 @@ Comentário: ele implanta a partir do Git e distribui pela rede de borda do Clou
 
 ### Para que serve o AWS IoT Core?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para conectar dispositivos IoT à AWS com segurança, nos dois sentidos, e gerenciar frotas de dispositivos sem provisionar servidores.

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{%- comment -%}
+  Layout do site no GitHub Pages: o tema Primer com cabeçalho (busca e tema claro/escuro), menu lateral
+  (_data/navegacao.json, gerado por scripts/gerar_docs.py) e os recursos interativos de assets/js/site.js.
+  O título da aba vem do primeiro <h1> da página, porque as páginas autorais começam pelo marcador <!-- autoral -->.
+{%- endcomment -%}
+{%- assign titulo = site.title -%}
+{%- if content contains '<h1' -%}
+  {%- assign h1 = content | split: '</h1>' | first | split: '<h1' | last -%}
+  {%- assign titulo = '<h1' | append: h1 | append: '</h1>' | strip_html | strip -%}
+{%- endif -%}
+{%- assign url_atual = page.url | replace: 'index.html', '' -%}
+<html lang="{{ site.lang | default: 'pt-BR' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      // Aplica o tema salvo antes de desenhar a página, para não piscar.
+      try { var t = localStorage.getItem("tema"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+    </script>
+    <title>{% if titulo == site.title %}{{ site.title }}{% else %}{{ titulo }} · {{ site.title }}{% endif %}</title>
+    {% seo title=false %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body data-base="{{ '/' | relative_url }}" data-repo="{{ site.repositorio_url }}">
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topo">
+      <button class="botao-menu" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir o menu">☰</button>
+      <a class="marca" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <div class="busca" role="search">
+        <input id="busca" type="search" placeholder="Buscar aulas, fichas e termos" aria-label="Buscar no site" autocomplete="off">
+        <ol id="busca-resultados" class="busca-resultados" hidden></ol>
+      </div>
+      <button class="botao-tema" type="button" aria-label="Alternar tema claro e escuro" title="Tema claro ou escuro">🌓</button>
+    </header>
+    <div class="pagina">
+      <nav id="menu" class="menu" aria-label="Capítulos e materiais">
+        {%- for grupo in site.data.navegacao %}
+        {%- assign aberto = false -%}
+        {%- for item in grupo.itens -%}
+          {%- assign inicio = url_atual | slice: 0, item.url.size -%}
+          {%- if item.url == url_atual or item.url != '/' and inicio == item.url -%}{%- assign aberto = true -%}{%- endif -%}
+        {%- endfor %}
+        <details class="menu-grupo"{% if aberto or forloop.first %} open{% endif %}>
+          <summary>{{ grupo.titulo }}</summary>
+          <ul>
+            {%- for item in grupo.itens %}
+            <li><a href="{{ item.url | relative_url }}"{% if item.url == url_atual %} aria-current="page"{% endif %}>{{ item.titulo }}</a></li>
+            {%- endfor %}
+          </ul>
+        </details>
+        {%- endfor %}
+      </nav>
+      <main id="conteudo" class="conteudo markdown-body">
+        {{ content }}
+        <footer class="rodape">
+          <a href="{{ site.repositorio_url }}/blob/main/{{ page.path }}">Ver esta página no GitHub</a>
+        </footer>
+      </main>
+    </div>
+    <script src="{{ '/assets/js/site.js?v=' | append: site.github.build_revision | relative_url }}" defer></script>
+  </body>
+</html>

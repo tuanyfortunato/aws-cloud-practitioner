@@ -132,7 +132,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que o Basic Support oferece?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Atendimento ao cliente 24/7 para conta e faturamento, pedidos de aumento de cota, documentação, re:Post, as verificações principais do Trusted Advisor e o AWS Health.
@@ -143,7 +143,7 @@ Comentário: está incluído para todos e não permite abrir caso técnico.
 
 ### Qual é o plano mínimo recomendado pela AWS para cargas de produção?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS Business Support+.
@@ -154,7 +154,7 @@ Comentário: tem suporte técnico 24/7, resposta de menos de 30 minutos para sis
 
 ### O que o Enterprise Support acrescenta ao Business Support+?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Um Technical Account Manager (TAM) designado, resposta de até 15 minutos para casos críticos e revisões estratégicas com especialistas da AWS.
@@ -165,7 +165,7 @@ Comentário: o preço mínimo é de US$ 5.000 por mês.
 
 ### Quais tipos de caso existem no AWS Support Center?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Conta e faturamento, aumento de limite de serviço e técnico; os dois primeiros estão disponíveis para todos, e o técnico exige um plano pago.
@@ -176,7 +176,7 @@ Comentário: a gravidade escolhida no caso define o tempo de resposta esperado.
 
 ### O que acontece com os planos Developer, Business e Enterprise On-Ramp?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Serão descontinuados em 01/01/2027; a AWS indica o Business Support+ no lugar dos dois primeiros e migra o Enterprise On-Ramp para o Enterprise Support.

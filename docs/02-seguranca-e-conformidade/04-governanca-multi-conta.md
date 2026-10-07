@@ -98,7 +98,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Por que a AWS recomenda usar várias contas?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque cada conta é uma fronteira de permissões, segurança, custos e cargas de trabalho. Separar ambientes isola dados sensíveis, limita o impacto de incidentes, separa custos e distribui as cotas de serviço.
@@ -109,7 +109,7 @@ Comentário: a pergunta testa a ideia de isolamento. O preço é a administraç�
 
 ### Uma SCP permite o S3, mas o usuário não tem nenhuma política do IAM para o S3. Ele consegue acessar?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. A SCP só define o máximo possível; ela não concede permissão. O acesso exige que a SCP e uma política do IAM liberem a ação.
@@ -120,7 +120,7 @@ Comentário: a permissão efetiva é a interseção entre o que a SCP permite e 
 
 ### Uma SCP nega uma ação numa OU. Um usuário com AdministratorAccess numa conta dessa OU consegue fazer a ação?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. O bloqueio da SCP vale para todos os usuários e funções das contas-membro abaixo da OU, inclusive o root delas. A exceção é a conta de gerenciamento, que as SCPs não afetam.
@@ -131,7 +131,7 @@ Comentário: é por isso que a SCP serve para regras que nenhum administrador de
 
 ### O que o faturamento consolidado faz?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Junta as contas da organização numa fatura e soma o uso de todas para compartilhar descontos por volume, de Instâncias Reservadas e de Savings Plans, sem custo adicional.
@@ -142,7 +142,7 @@ Comentário: juntar a cobrança não junta os dados nem as permissões; cada con
 
 ### Qual é a diferença entre o AWS Organizations e o AWS Control Tower?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Organizations é a base: agrupa contas em OUs, aplica SCPs e consolida a fatura. O Control Tower usa o Organizations e outros serviços para montar automaticamente uma landing zone com boas práticas, controles e criação padronizada de contas.

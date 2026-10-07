@@ -94,7 +94,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que é integração contínua?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É a prática de juntar as mudanças de código num repositório central com frequência, e cada junção dispara automaticamente a compilação e os testes.
@@ -105,7 +105,7 @@ Comentário: a entrega contínua amplia a ideia, preparando cada mudança aprova
 
 ### Para que serve o AWS CodeBuild?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para compilar o código-fonte, rodar os testes e produzir pacotes prontos para implantar, sem servidores de build para gerenciar.
@@ -116,7 +116,7 @@ Comentário: é um serviço totalmente gerenciado.
 
 ### Para que serve o AWS CodePipeline?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para modelar, visualizar e automatizar as etapas de lançamento de software, da mudança no repositório até a implantação.
@@ -127,7 +127,7 @@ Comentário: é o serviço de entrega contínua da AWS e costuma chamar o CodeBu
 
 ### O que o AWS X-Ray mostra?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O caminho de cada requisição pela aplicação, incluindo as chamadas a outros serviços, microsserviços e bancos, para encontrar gargalos e erros.
@@ -138,7 +138,7 @@ Comentário: isso se chama rastreamento distribuído.
 
 ### Qual é a diferença entre o CloudWatch e o X-Ray?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O CloudWatch coleta métricas e logs de cada recurso; o X-Ray segue uma requisição de ponta a ponta pelas várias peças da aplicação.

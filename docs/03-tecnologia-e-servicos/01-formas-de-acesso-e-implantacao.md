@@ -106,7 +106,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Quais são as formas de acessar e operar os serviços da AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O AWS Management Console (navegador), a AWS CLI (comandos), os AWS SDKs (código da aplicação) e a infraestrutura como código, com o AWS CloudFormation.
@@ -117,7 +117,7 @@ Comentário: todas chegam às APIs dos serviços e passam pelas permissões do I
 
 ### Quando usar o console e quando automatizar?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O console serve para explorar e para tarefas pontuais; tarefas que se repetem devem ser automatizadas com CLI, SDK ou infraestrutura como código.
@@ -128,7 +128,7 @@ Comentário: repetir à mão é lento e leva a resultados diferentes entre uma v
 
 ### O que é infraestrutura como código?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 É descrever em um arquivo os recursos de um ambiente e deixar que uma ferramenta os crie; na AWS, o CloudFormation cria os recursos de um modelo como uma pilha.
@@ -139,7 +139,7 @@ Comentário: o mesmo modelo cria ambientes iguais em várias Regiões, e apagar 
 
 ### Qual é a diferença entre a AWS CLI e um AWS SDK?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A CLI executa comandos no terminal e em scripts; o SDK é uma biblioteca para chamar as APIs da AWS de dentro do código de uma aplicação.
@@ -150,7 +150,7 @@ Comentário: as duas são acesso programático e usam as mesmas APIs.
 
 ### Como a rede de uma empresa pode se conectar à AWS num modelo híbrido?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Pela internet pública, por uma Site-to-Site VPN (conexão criptografada que passa pela internet) ou pelo Direct Connect (conexão dedicada, sem passar pelos provedores de internet).

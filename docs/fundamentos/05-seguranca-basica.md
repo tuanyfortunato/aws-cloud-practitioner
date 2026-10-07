@@ -77,7 +77,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre autenticação e autorização?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Autenticação prova quem a identidade é; autorização decide o que essa identidade, já autenticada, pode fazer.
@@ -88,7 +88,7 @@ As duas acontecem em sequência a cada pedido. Senha e MFA são autenticação; 
 
 ### Por que o MFA protege mesmo quando a senha vaza?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque exige uma segunda prova de outro tipo, normalmente algo que só o usuário tem, como um código gerado no celular.
@@ -99,7 +99,7 @@ Quem rouba a senha não tem o segundo fator e não consegue entrar. Exigir MFA �
 
 ### O que é o princípio do menor privilégio?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Dar a cada identidade só as permissões necessárias para o seu trabalho, nada além.
@@ -110,7 +110,7 @@ Se a conta for invadida ou a pessoa errar, o estrago fica limitado ao que ela po
 
 ### Qual é a diferença entre criptografia em trânsito e em repouso?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Em trânsito protege os dados enquanto viajam pela rede, como no HTTPS; em repouso protege os dados guardados em disco, banco de dados ou objeto.

@@ -86,7 +86,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual é a diferença entre armazenamento em bloco e armazenamento de objetos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 No bloco, o sistema operacional formata o disco e altera pequenos trechos diretamente; no objeto, cada arquivo é gravado inteiro e lido por API, com uma chave e metadados, e mudar um trecho exige gravar o objeto de novo.
@@ -97,7 +97,7 @@ Por isso o bloco serve de disco para sistema operacional e bancos de dados, e o 
 
 ### Quando faz sentido usar armazenamento de arquivos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Quando vários servidores precisam acessar os mesmos arquivos ao mesmo tempo, organizados em pastas.
@@ -108,7 +108,7 @@ O acesso passa pela rede, então é mais lento que um disco local, mas permite o
 
 ### O que caracteriza um banco de dados relacional?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Dados em tabelas com esquema definido, que se relacionam entre si e são consultadas com SQL, com suporte a transações.
@@ -119,7 +119,7 @@ As transações garantem que um conjunto de alterações aconteça inteiro ou n�
 
 ### Por que um banco não relacional escala com mais facilidade?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque as consultas são simples e cada item é encontrado pela sua chave, o que permite espalhar os dados por muitas máquinas.

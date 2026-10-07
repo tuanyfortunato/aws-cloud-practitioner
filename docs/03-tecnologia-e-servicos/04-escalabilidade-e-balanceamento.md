@@ -108,7 +108,7 @@ Tente responder antes de abrir cada resposta.
 
 ### O que o Amazon EC2 Auto Scaling faz?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Ajusta o número de instâncias de um grupo à demanda, entre a capacidade mínima e a máxima, e substitui instâncias com defeito para manter a capacidade desejada.
@@ -119,7 +119,7 @@ Comentário: é a forma de obter elasticidade com instâncias; não há cobranç
 
 ### Qual é a diferença entre escala programada, dinâmica e preditiva?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 A programada muda a capacidade em horários definidos; a dinâmica reage à carga atual, como manter 50% de CPU; a preditiva usa o histórico para aumentar a capacidade antes da carga prevista.
@@ -130,7 +130,7 @@ Comentário: picos em datas conhecidas pedem escala programada.
 
 ### Para que serve um balanceador de carga?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para distribuir o tráfego entre vários destinos, em uma ou mais AZs, enviando-o só para os que estão saudáveis, com um único ponto de contato para os clientes.
@@ -141,7 +141,7 @@ Comentário: ele também pode cuidar da criptografia HTTPS com certificados do A
 
 ### Quando usar um Application Load Balancer e quando usar um Network Load Balancer?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O ALB, que trabalha na camada 7, serve para rotear pedidos HTTP pelo caminho da URL ou pelo nome do site; o NLB, na camada 4, serve para milhões de pedidos por segundo e IP fixo por AZ.
@@ -152,7 +152,7 @@ Comentário: o Gateway Load Balancer, na camada 3, distribui tráfego para appli
 
 ### Por que Auto Scaling e balanceador de carga costumam ser usados juntos?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Porque o Auto Scaling cria e remove instâncias, e o balanceador distribui o tráfego entre elas; as instâncias criadas são registradas no balanceador automaticamente.

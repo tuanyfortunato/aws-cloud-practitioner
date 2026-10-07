@@ -17,7 +17,7 @@ O sistema de matrícula de uma escola, escrito em Python, precisa gravar automat
 - **C)** A AWS CLI, executada manualmente pela equipe
 - **D)** Um modelo do AWS CloudFormation
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -37,7 +37,7 @@ Todo semestre, uma equipe monta à mão o mesmo ambiente de testes (servidores, 
 - **C)** Seguir um roteiro escrito no AWS Management Console
 - **D)** Descrever o ambiente num modelo do AWS CloudFormation (infraestrutura como código)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -58,7 +58,7 @@ Quais DOIS fatores uma empresa deve considerar ao escolher a região AWS para um
 - **D)** O número de buckets S3 já existentes
 - **E)** Requisitos de conformidade e residência de dados
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B, E**
@@ -78,7 +78,7 @@ Um hospital precisa processar dados localmente, no próprio datacenter, por exig
 - **C)** AWS Wavelength
 - **D)** Amazon CloudFront
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -98,7 +98,7 @@ Uma empresa vai executar um banco de dados em memória de alto desempenho no Ama
 - **C)** Otimizada para memória (por exemplo, R ou X)
 - **D)** Otimizada para computação (por exemplo, C)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -118,7 +118,7 @@ Uma aplicação grava arquivos temporários de cache no instance store de uma in
 - **C)** Os dados são movidos automaticamente para o Amazon S3
 - **D)** Os dados são perdidos
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -138,7 +138,7 @@ Uma aplicação de microsserviços precisa enviar requisições com caminho /api
 - **C)** Network Load Balancer
 - **D)** Application Load Balancer
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -158,7 +158,7 @@ Um processamento de vídeo leva cerca de 2 horas por arquivo. A empresa quer exe
 - **C)** Amazon EC2 com Auto Scaling
 - **D)** AWS Lambda
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -178,7 +178,7 @@ Uma empresa já usa Kubernetes on-premises e quer migrar seus manifestos e ferra
 - **C)** AWS Batch
 - **D)** AWS Elastic Beanstalk
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -198,7 +198,7 @@ A dona de uma pequena escola de idiomas, com pouca experiência em nuvem, quer p
 - **C)** AWS Elastic Beanstalk
 - **D)** Amazon Lightsail
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -218,7 +218,7 @@ Uma equipe de desenvolvimento quer enviar o código da sua aplicação web e dei
 - **C)** Amazon Lightsail
 - **D)** AWS Batch
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -238,7 +238,7 @@ Um hospital precisa processar dados localmente, com baixa latência, no seu pró
 - **C)** AWS Batch
 - **D)** AWS Outposts
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -258,7 +258,7 @@ Um jogo online precisa armazenar o perfil e o progresso de milhões de jogadores
 - **C)** Amazon DynamoDB
 - **D)** Amazon RDS for PostgreSQL
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -278,7 +278,7 @@ Uma empresa quer que seu banco Amazon RDS continue disponível mesmo se uma zona
 - **C)** Amazon ElastiCache na frente do banco
 - **D)** Read replicas na mesma região
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -298,7 +298,7 @@ O time de BI precisa executar consultas SQL analíticas complexas sobre petabyte
 - **C)** Amazon ElastiCache
 - **D)** Amazon DynamoDB
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -318,7 +318,7 @@ Uma empresa armazena milhões de objetos no Amazon S3 com padrão de acesso impr
 - **C)** S3 Intelligent-Tiering
 - **D)** S3 Glacier Deep Archive
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -338,7 +338,7 @@ Por exigência regulatória, uma empresa precisa guardar registros por 7 anos. E
 - **C)** S3 Intelligent-Tiering
 - **D)** S3 Glacier Deep Archive
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -358,7 +358,7 @@ Dezenas de instâncias Linux distribuídas em várias zonas de disponibilidade p
 - **C)** Instance store
 - **D)** Amazon EFS
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -378,7 +378,7 @@ Uma empresa quer acabar com o backup em fitas físicas, mas sem trocar o softwar
 - **C)** AWS DataSync
 - **D)** AWS Storage Gateway com Tape Gateway
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -398,7 +398,7 @@ Instâncias EC2 em uma subnet privada precisam baixar atualizações de seguran�
 - **C)** Um Internet Gateway com rota direta a partir da subnet privada
 - **D)** Um NAT Gateway em uma subnet pública, com rota a partir da subnet privada
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -418,7 +418,7 @@ Uma empresa transfere grandes volumes de dados todos os dias entre o datacenter 
 - **C)** Amazon CloudFront
 - **D)** AWS Site-to-Site VPN
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -438,7 +438,7 @@ Uma empresa de mídia quer reduzir a latência na entrega de vídeos e imagens p
 - **C)** Amazon CloudFront
 - **D)** Amazon Route 53
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -458,7 +458,7 @@ Um analista quer consultar com SQL padrão os logs armazenados em um bucket S3, 
 - **C)** Amazon Athena
 - **D)** Amazon EMR
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -478,7 +478,7 @@ Uma seguradora recebe milhares de formulários escaneados e quer extrair automat
 - **C)** Amazon Rekognition
 - **D)** Amazon Textract
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -498,7 +498,7 @@ Quando um pedido é criado, a mesma mensagem precisa ser entregue a três sistem
 - **C)** Amazon Kinesis Data Streams
 - **D)** Amazon SNS
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -518,7 +518,7 @@ Uma rede de escolas quer montar uma central de atendimento na nuvem para receber
 - **C)** Amazon WorkSpaces
 - **D)** Amazon Simple Email Service (SES)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -538,7 +538,7 @@ Professores precisam abrir, de casa e pelo navegador, um programa de notas que s
 - **C)** Amazon AppStream 2.0 (hoje WorkSpaces Applications) para os professores e Amazon WorkSpaces para a secretaria
 - **D)** Amazon WorkSpaces para os professores e Amazon AppStream 2.0 para a secretaria
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -558,7 +558,7 @@ O sistema de matrícula precisa enviar e-mails de confirmação para cada famíl
 - **C)** Amazon Connect
 - **D)** Amazon Simple Notification Service (SNS)
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -578,7 +578,7 @@ Uma escola instalou sensores de temperatura nas salas e quer conectá-los com se
 - **C)** Amazon Connect
 - **D)** Amazon SES
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -598,7 +598,7 @@ Uma equipe quer que, a cada mudança no código, um serviço gerenciado compile 
 - **C)** AWS CodeBuild
 - **D)** AWS CloudFormation
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -618,7 +618,7 @@ Uma empresa quer automatizar todas as etapas de liberação do seu software (bus
 - **C)** AWS CodeBuild
 - **D)** Amazon CloudWatch
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -638,7 +638,7 @@ Uma aplicação formada por vários microsserviços ficou lenta, e a equipe quer
 - **C)** AWS CloudTrail
 - **D)** AWS X-Ray
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -658,7 +658,7 @@ A equipe de segurança quer que os administradores acessem as instâncias EC2 po
 - **C)** AWS Direct Connect
 - **D)** AWS Systems Manager Session Manager
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -678,7 +678,7 @@ Uma empresa quer saber com antecedência quando a AWS fará uma manutenção age
 - **C)** AWS Health Dashboard
 - **D)** AWS Compute Optimizer
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: C**
@@ -698,7 +698,7 @@ Um time precisa conferir quantas vCPUs de instâncias EC2 a conta pode usar numa
 - **C)** AWS Budgets
 - **D)** AWS Compute Optimizer
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -718,7 +718,7 @@ Uma empresa desconfia que várias instâncias EC2 estão superdimensionadas e qu
 - **C)** AWS License Manager
 - **D)** AWS Compute Optimizer
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: D**
@@ -738,7 +738,7 @@ Uma empresa quer migrar um banco Oracle on-premises para o Amazon Aurora Postgre
 - **C)** AWS DataSync e AWS Transfer Family
 - **D)** AWS Snowball Edge e Amazon S3
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -758,7 +758,7 @@ Uma aplicação precisa de credenciais da AWS que valham por pouco tempo e expir
 - **C)** AWS Certificate Manager (ACM)
 - **D)** AWS Secrets Manager
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: B**
@@ -778,7 +778,7 @@ Uma equipe quer provocar falhas de propósito, de forma controlada, para observa
 - **C)** Amazon Inspector
 - **D)** AWS Trusted Advisor
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**
@@ -798,7 +798,7 @@ A diretoria quer acompanhar as emissões de carbono geradas pelo uso da AWS, sep
 - **C)** AWS Cost Explorer
 - **D)** AWS Compute Optimizer
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 **Resposta: A**

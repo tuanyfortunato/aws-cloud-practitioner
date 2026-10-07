@@ -83,7 +83,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Qual serviço detecta uma instância EC2 se comunicando com um servidor de mineração de criptomoeda?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Amazon GuardDuty, que analisa continuamente fontes como Flow Logs, eventos do CloudTrail e consultas DNS, usando inteligência de ameaças e aprendizado de máquina.
@@ -94,7 +94,7 @@ Comentário: o GuardDuty usa essas fontes automaticamente, sem que o cliente pre
 
 ### Qual é a diferença entre o GuardDuty e o Inspector?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O GuardDuty detecta ameaças e atividade maliciosa em andamento. O Inspector encontra vulnerabilidades de software e exposição de rede em instâncias EC2, imagens no ECR e funções Lambda.
@@ -105,7 +105,7 @@ Comentário: ameaça é alguém agindo; vulnerabilidade é uma brecha que algué
 
 ### Qual serviço encontra dados pessoais guardados no S3?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Amazon Macie, que usa aprendizado de máquina e reconhecimento de padrões para descobrir dados sensíveis nos objetos do S3 e também avalia a segurança dos buckets.
@@ -116,7 +116,7 @@ Comentário: o escopo do Macie é o S3; ele não analisa bancos de dados nem dis
 
 ### Para que serve o Amazon Detective?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para investigar a causa raiz de achados de segurança e atividades suspeitas, com visualizações que mostram como identidades e recursos se relacionaram ao longo do tempo.
@@ -127,7 +127,7 @@ Comentário: o GuardDuty encontra o problema; o Detective ajuda a entender o que
 
 ### O que o AWS Security Hub faz?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Reúne, correlaciona e prioriza os achados de serviços como GuardDuty, Inspector e Macie e verifica as contas contra padrões de segurança, como AWS Foundational Security Best Practices, CIS e PCI DSS.

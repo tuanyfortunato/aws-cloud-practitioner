@@ -81,7 +81,7 @@ Tente responder antes de abrir cada resposta.
 
 ### Onde baixar o relatório SOC 2 da AWS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 No AWS Artifact, portal gratuito de autoatendimento com os documentos de segurança e compliance da AWS, como relatórios SOC, PCI e ISO.
@@ -92,7 +92,7 @@ Comentário: o Artifact só tem documentos sobre a AWS (e de vendedores do Marke
 
 ### Qual é a diferença entre o AWS Artifact e o AWS Audit Manager?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 O Artifact fornece os relatórios e acordos de compliance da própria AWS. O Audit Manager coleta continuamente evidências das contas do cliente e as organiza por controle, para as auditorias do cliente.
@@ -103,7 +103,7 @@ Comentário: a pergunta testa de quem é a prova. Prova sobre a AWS vem do Artif
 
 ### Usar apenas serviços que estão no escopo do PCI DSS coloca a aplicação em conformidade com o PCI DSS?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Não. A AWS cobre a parte dela; o cliente ainda precisa configurar e operar sua aplicação do jeito que a norma exige. A responsabilidade de compliance é compartilhada.
@@ -114,7 +114,7 @@ Comentário: estar no escopo é condição para usar o serviço numa carga regul
 
 ### Como garantir que os dados de clientes fiquem num país específico?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Escolhendo uma Região nesse país para guardar os dados. A AWS não move nem replica o conteúdo para fora das Regiões escolhidas, exceto quando necessário para o serviço iniciado pelo cliente ou para cumprir a lei.
@@ -125,7 +125,7 @@ Comentário: a decisão de onde guardar é do cliente; a AWS se compromete a res
 
 ### Para que servem as regras do AWS Config?
 
-<details>
+<details markdown="1">
 <summary>Ver resposta</summary>
 
 Para avaliar continuamente se a configuração dos recursos segue a configuração desejada, como "nenhum bucket público". Recursos fora da regra podem ser corrigidos com remediação automática.

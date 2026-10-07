@@ -1,0 +1,21 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}Índice da busca do site (assets/js/site.js): título, endereço e texto de cada página.{%- endcomment -%}
+[
+{%- assign primeira = true -%}
+{%- for p in site.pages -%}
+  {%- assign ext = p.path | slice: -3, 3 -%}
+  {%- if ext != '.md' -%}{%- continue -%}{%- endif -%}
+  {%- assign html = p.content | markdownify -%}
+  {%- assign titulo = p.title -%}
+  {%- if html contains '<h1' -%}
+    {%- assign h1 = html | split: '</h1>' | first | split: '<h1' | last -%}
+    {%- assign titulo = '<h1' | append: h1 | append: '</h1>' | strip_html | strip -%}
+  {%- endif -%}
+  {%- unless primeira %},{% endunless -%}
+  {%- assign primeira = false %}
+{"t":{{ titulo | jsonify }},"u":{{ p.url | replace: 'index.html', '' | relative_url | jsonify }},"x":{{ html | strip_html | normalize_whitespace | jsonify }}}
+{%- endfor %}
+]
