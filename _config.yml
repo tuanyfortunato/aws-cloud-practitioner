@@ -1,0 +1,9 @@
+title: Apostila AWS Cloud Practitioner
+description: Apostila gratuita em português para a AWS Certified Cloud Practitioner (CLF-C02)
+lang: pt-BR
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
