@@ -95,7 +95,7 @@
       mermaid.initialize({
         startOnLoad: false, securityLevel: "strict", theme: "base",
         themeVariables: {
-          darkMode: temaEscuro(), fontFamily: "Inter, system-ui, sans-serif", fontSize: "15px",
+          darkMode: temaEscuro(), fontFamily: '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif', fontSize: "15px",
           background: cor("--fundo"), primaryColor: cor("--destaque"), primaryBorderColor: cor("--acento"),
           primaryTextColor: cor("--texto"), secondaryColor: cor("--fundo-suave"), tertiaryColor: cor("--fundo-suave"),
           lineColor: cor("--texto-suave"), textColor: cor("--texto"), clusterBkg: cor("--fundo-suave"),
