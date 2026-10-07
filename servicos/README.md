@@ -1,6 +1,6 @@
 # 🔎 Fichas de serviços AWS
 
-Cada ficha aprofunda um serviço que aparece nas aulas. Leia a aula primeiro: ela explica o problema e o mecanismo, e a ficha acrescenta as opções, os limites, o custo e com o que o serviço costuma ser confundido. As aulas indicam no topo as fichas de cada assunto.
+Cada ficha aprofunda um serviço que aparece nas aulas. Leia a aula primeiro: ela explica o problema e o mecanismo, e a ficha acrescenta as opções, os limites, o custo e com o que o serviço costuma ser confundido. As aulas indicam no topo as fichas de cada assunto. Os exemplos das fichas seguem o [caso da escola](../docs/00-guia-do-exame/caso-da-escola.md), o mesmo das aulas.
 
 > Coluna *Escopo* ([lista oficial](../docs/00-guia-do-exame/escopo-oficial.md)): ✅ no escopo · 🔀 parte no escopo, parte fora · ⚪ não aparece na lista · ❌ fora do escopo.
 >

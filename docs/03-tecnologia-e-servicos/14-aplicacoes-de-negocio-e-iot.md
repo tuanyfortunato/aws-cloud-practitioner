@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Amazon Connect](../../servicos/aplicacoes/amazon-connect.md) · [Amazon SES](../../servicos/aplicacoes/ses.md) · [Amazon WorkSpaces, WorkSpaces Applications e WorkSpaces Secure Browser](../../servicos/aplicacoes/workspaces-e-appstream.md) · [AWS Amplify](../../servicos/aplicacoes/amplify-e-appsync.md) · [AWS IoT Core](../../servicos/aplicacoes/iot-core-e-greengrass.md)
 
-⬅️ [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) ➡️
+⬅️ [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.15 Ferramentas de desenvolvimento](15-ferramentas-de-desenvolvimento.md) ➡️
 
 ---
 

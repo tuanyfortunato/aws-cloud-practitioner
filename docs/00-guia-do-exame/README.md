@@ -48,7 +48,7 @@ Cada domínio se divide em tarefas (*task statements*). A página de [escopo ofi
 
 Se você nunca trabalhou com tecnologia, comece pelo [capítulo 0](../fundamentos/README.md), que explica servidor, rede, dados, API e segurança básica. Quem já conhece esses termos pode ir direto à aula 1.1.
 
-Para organizar o tempo, siga o [plano de estudos](plano-de-estudos.md). Para entender como cada aula e cada ficha estão organizadas, leia [como estudar com esta apostila](estrutura-da-apostila.md).
+Para organizar o tempo, siga o [plano de estudos](plano-de-estudos.md). Para entender como cada aula e cada ficha estão organizadas, leia [como estudar com esta apostila](estrutura-da-apostila.md). Todas as aulas usam o mesmo exemplo, apresentado em [o caso da escola](caso-da-escola.md).
 
 ## No dia da prova
 

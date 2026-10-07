@@ -20,7 +20,7 @@ Modelo de aula autoral (Fase 3 do plano de implementação).
 
 > 🔎 **Fichas para aprofundar:** [Serviço](../../servicos/categoria/servico.md)
 
-🏠 [Índice do domínio](README.md) · [x.y+1 Próxima aula](arquivo-da-proxima.md) ➡️
+🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [x.y+1 Próxima aula](arquivo-da-proxima.md) ➡️
 
 ---
 

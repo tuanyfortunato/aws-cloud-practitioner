@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [AWS Transform MGN (antigo Application Migration Service)](../../servicos/migracao/application-migration-service.md) · [AWS DMS e SCT](../../servicos/migracao/dms-e-sct.md) · [Migration Evaluator, Discovery e Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md)
 
-⬅️ [1.5 AWS Cloud Adoption Framework (CAF)](05-cloud-adoption-framework.md) · 🏠 [Índice do domínio](README.md) · [1.7 Economia da nuvem](07-economia-da-nuvem.md) ➡️
+⬅️ [1.5 AWS Cloud Adoption Framework (CAF)](05-cloud-adoption-framework.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [1.7 Economia da nuvem](07-economia-da-nuvem.md) ➡️
 
 ---
 

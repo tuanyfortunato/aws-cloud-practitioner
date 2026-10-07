@@ -6,6 +6,8 @@
 
 Com a base do capítulo 1, separe as responsabilidades. Em seguida, estude identidades, permissões, proteção de dados e acompanhamento do ambiente.
 
+> 🏫 Todas as aulas usam o mesmo exemplo. Se você começou por aqui, leia antes [o caso da escola](../00-guia-do-exame/caso-da-escola.md).
+
 ## Aulas
 
 | Aula | Assunto | Perguntas de revisão |

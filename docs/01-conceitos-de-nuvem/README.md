@@ -6,6 +6,8 @@
 
 Comece pela ideia de nuvem. Depois estude as vantagens, a arquitetura, as boas práticas e a economia.
 
+> 🏫 Todas as aulas usam o mesmo exemplo. Se você começou por aqui, leia antes [o caso da escola](../00-guia-do-exame/caso-da-escola.md).
+
 ## Aulas
 
 | Aula | Assunto | Perguntas de revisão |

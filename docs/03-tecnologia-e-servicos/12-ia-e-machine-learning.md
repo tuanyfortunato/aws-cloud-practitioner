@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Amazon SageMaker AI](../../servicos/ia-ml/sagemaker-ai.md) · [Amazon Q](../../servicos/ia-ml/amazon-q.md) · [Serviços de IA prontos (Rekognition, Comprehend, Lex, Polly, Transcribe, Translate, Textract e outros)](../../servicos/ia-ml/servicos-de-ia-prontos.md) · [Amazon Bedrock](../../servicos/ia-ml/bedrock.md)
 
-⬅️ [3.11 Analytics](11-analytics.md) · 🏠 [Índice do domínio](README.md) · [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) ➡️
+⬅️ [3.11 Analytics](11-analytics.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.13 Integração de aplicações](13-integracao-de-aplicacoes.md) ➡️
 
 ---
 

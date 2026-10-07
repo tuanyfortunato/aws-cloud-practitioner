@@ -2,7 +2,7 @@
 
 A prova CLF-C02 não cobra fundamentos de informática diretamente, mas usa as palavras deles em quase toda questão: servidor, sistema operacional, endereço IP, banco de dados, API, criptografia. Quem nunca trabalhou com TI tropeça nesses termos antes de chegar ao que a questão realmente pergunta.
 
-Este capítulo explica essas peças em prosa, com o mesmo caso da escola usado no resto da apostila. Cada aula termina mostrando onde a peça aparece na AWS e em qual aula ela volta.
+Este capítulo explica essas peças em prosa, com o mesmo [caso da escola](../00-guia-do-exame/caso-da-escola.md) usado no resto da apostila. Cada aula termina mostrando onde a peça aparece na AWS e em qual aula ela volta.
 
 **Se você já trabalha com TI**, leia só os resumos no fim de cada aula e siga para o [capítulo 1](../01-conceitos-de-nuvem/README.md).
 

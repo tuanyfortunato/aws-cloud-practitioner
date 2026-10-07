@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Amazon S3](../../servicos/armazenamento/s3.md) · [Amazon EBS e instance store](../../servicos/armazenamento/ebs.md) · [AWS Lambda](../../servicos/computacao/lambda.md)
 
-⬅️ [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) · 🏠 [Índice do domínio](README.md) · [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) ➡️
+⬅️ [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [4.4 Ferramentas de custo e faturamento](04-ferramentas-de-custo.md) ➡️
 
 ---
 

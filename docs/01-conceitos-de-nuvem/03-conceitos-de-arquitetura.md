@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [EC2 Auto Scaling](../../servicos/computacao/ec2-auto-scaling.md) · [Elastic Load Balancing](../../servicos/computacao/elastic-load-balancing.md) · [SQS](../../servicos/integracao/sqs.md) · [AWS Backup](../../servicos/armazenamento/aws-backup.md)
 
-⬅️ [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) · 🏠 [Índice do domínio](README.md) · [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) ➡️
+⬅️ [1.2 As 6 vantagens da computação em nuvem](02-vantagens-da-nuvem.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [1.4 AWS Well-Architected Framework](04-well-architected-framework.md) ➡️
 
 ---
 

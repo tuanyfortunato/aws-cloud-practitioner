@@ -10,7 +10,7 @@
 
 > 📖 **Aula que ensina:** [3.6 Outros serviços de computação](../../docs/03-tecnologia-e-servicos/06-outros-servicos-de-computacao.md) · base em [1.1 O que é computação em nuvem](../../docs/01-conceitos-de-nuvem/01-o-que-e-computacao-em-nuvem.md)
 
-🏠 [Índice das fichas](../README.md)
+🏠 [Índice das fichas](../README.md) · 🏫 [O caso da escola](../../docs/00-guia-do-exame/caso-da-escola.md)
 
 ---
 

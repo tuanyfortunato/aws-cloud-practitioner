@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Pricing Calculator, Cost and Usage Report e outras ferramentas de faturamento](../../servicos/custos/pricing-calculator-cur-e-outras-ferramentas.md) · [Amazon EC2](../../servicos/computacao/ec2.md)
 
-🏠 [Índice do domínio](README.md) · [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) ➡️
+🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [4.2 Modelos de compra do EC2](02-modelos-de-compra-ec2.md) ➡️
 
 ---
 

@@ -4,7 +4,7 @@
 
 > **Capítulo 0 — Fundamentos de TI** · Prepara para as aulas [2.1](../02-seguranca-e-conformidade/01-responsabilidade-compartilhada.md) a [2.5](../02-seguranca-e-conformidade/05-criptografia.md)
 
-⬅️ [0.4 Como programas conversam: API, requisição e fila](04-api-e-filas.md) · 🏠 [Índice do capítulo](README.md) · [Capítulo 1](../01-conceitos-de-nuvem/README.md) ➡️
+⬅️ [0.4 Como programas conversam: API, requisição e fila](04-api-e-filas.md) · 🏠 [Índice do capítulo](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [Capítulo 1](../01-conceitos-de-nuvem/README.md) ➡️
 
 ---
 

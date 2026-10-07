@@ -20,7 +20,7 @@ Para praticar e revisar, há 94 **questões** no formato da prova, agrupadas por
 
 ## Como uma aula é organizada
 
-Toda aula dos capítulos 1 a 4 segue a mesma sequência. A abertura conta um problema de uma rede de escolas fictícia, que aparece ao longo de toda a apostila. Em seguida, cada conceito é explicado nesta ordem: o que é, como funciona, por que existe e qual é o custo ou o limite. Os termos novos são explicados no próprio texto, na primeira vez em que aparecem. Quando uma relação fica mais clara num desenho, a aula traz uma figura com legenda.
+Toda aula dos capítulos 1 a 4 segue a mesma sequência. A abertura conta um problema de uma rede de escolas fictícia, que aparece ao longo de toda a apostila e é apresentada em [o caso da escola](caso-da-escola.md). Em seguida, cada conceito é explicado nesta ordem: o que é, como funciona, por que existe e qual é o custo ou o limite. Os termos novos são explicados no próprio texto, na primeira vez em que aparecem. Quando uma relação fica mais clara num desenho, a aula traz uma figura com legenda.
 
 Depois dos conceitos vêm cinco seções fixas:
 

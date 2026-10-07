@@ -6,7 +6,7 @@
 
 > 🔎 **Fichas para aprofundar:** [Migration Evaluator, Application Discovery Service e Migration Hub](../../servicos/migracao/discovery-migration-hub-e-evaluator.md) · [AWS Application Migration Service (AWS Transform MGN)](../../servicos/migracao/application-migration-service.md) · [AWS DMS e AWS SCT](../../servicos/migracao/dms-e-sct.md) · [DataSync e Transfer Family](../../servicos/migracao/datasync-e-transfer-family.md) · [Família Snow](../../servicos/migracao/snow-family.md)
 
-⬅️ [3.16 Gestão e governança](16-gestao-e-governanca.md) · 🏠 [Índice do domínio](README.md) · [3.18 Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) ➡️
+⬅️ [3.16 Gestão e governança](16-gestao-e-governanca.md) · 🏠 [Índice do domínio](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [3.18 Serviços menos conhecidos que podem aparecer](18-servicos-menos-conhecidos.md) ➡️
 
 ---
 

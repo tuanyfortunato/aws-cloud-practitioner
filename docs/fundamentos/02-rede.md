@@ -4,7 +4,7 @@
 
 > **Capítulo 0 — Fundamentos de TI** · Prepara para as aulas [2.8](../02-seguranca-e-conformidade/08-protecao-de-rede-e-aplicacoes.md) e [3.10](../03-tecnologia-e-servicos/10-rede-e-entrega-de-conteudo.md)
 
-⬅️ [0.1 Computador, servidor e virtualização](01-servidor-e-virtualizacao.md) · 🏠 [Índice do capítulo](README.md) · [0.3 Dados: arquivo, bloco, objeto e banco de dados](03-dados.md) ➡️
+⬅️ [0.1 Computador, servidor e virtualização](01-servidor-e-virtualizacao.md) · 🏠 [Índice do capítulo](README.md) · 🏫 [O caso da escola](../00-guia-do-exame/caso-da-escola.md) · [0.3 Dados: arquivo, bloco, objeto e banco de dados](03-dados.md) ➡️
 
 ---
 
