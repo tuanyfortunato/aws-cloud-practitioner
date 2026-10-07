@@ -76,9 +76,11 @@ jobs:
       - name: Salvar os PDFs na pasta edicao-impressa da main
         if: github.ref == 'refs/heads/main'
         run: |
+          # Apaga os PDFs antigos antes de copiar, para um volume renomeado não deixar o arquivo velho.
+          rm -rf edicao-impressa
           mkdir -p edicao-impressa
           cp build/impressa/*.pdf edicao-impressa/
-          git add edicao-impressa
+          git add -A edicao-impressa
           if git diff --cached --quiet; then
             echo "Os PDFs não mudaram."
             exit 0
