@@ -16,7 +16,7 @@
 
 ## Que problema resolve
 
-O banco de inscrições da rede roda em Oracle no datacenter, e a escola quer passar para o Aurora PostgreSQL, sem licença e gerenciado pela AWS. Só que as inscrições não podem parar, e as tabelas e o código guardado no banco foram escritos para o Oracle.
+O banco do sistema financeiro da rede roda em Oracle no datacenter, e a escola quer passar para o Aurora PostgreSQL, sem licença e gerenciado pela AWS. Só que o registro das mensalidades não pode parar, e as tabelas e o código guardado no banco foram escritos para o Oracle.
 
 São dois trabalhos. A **AWS Schema Conversion Tool** (SCT), um programa instalado no computador, **converte o esquema** (tabelas, índices, visões e o código do banco) de um motor para o outro; o próprio DMS oferece o mesmo trabalho com o recurso **DMS Schema Conversion**. Depois, o **AWS Database Migration Service** (DMS) **move os dados** e **replica continuamente as mudanças**, de modo que o Oracle segue atendendo as inscrições até a virada, e a parada fica reduzida a esse momento. O DMS migra bancos relacionais, data warehouses e bancos NoSQL.
 

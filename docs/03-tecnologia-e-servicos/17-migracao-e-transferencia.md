@@ -10,7 +10,7 @@
 
 ---
 
-Na [aula 1.6](../01-conceitos-de-nuvem/06-estrategias-de-migracao.md), a rede de escolas escolheu a estratégia: levar o sistema de matrícula para a AWS como está (rehost) e trocar o banco de dados por um serviço gerenciado. Agora vem a parte prática. O centro de dados da escola tem dezenas de máquinas virtuais, um banco Oracle e anos de documentos digitalizados num servidor de arquivos. A diretoria quer saber quanto a mudança vai custar, a equipe não sabe direito quais servidores conversam entre si, e o sistema não pode parar em janeiro.
+Na [aula 1.6](../01-conceitos-de-nuvem/06-estrategias-de-migracao.md), a rede de escolas escolheu a estratégia: levar o sistema de matrícula para a AWS como está (rehost) e trocar o banco de dados por um serviço gerenciado. Agora vem a parte prática. O centro de dados da escola tem dezenas de máquinas virtuais, o banco Oracle do sistema financeiro e anos de documentos digitalizados num servidor de arquivos. A diretoria quer saber quanto a mudança vai custar, a equipe não sabe direito quais servidores conversam entre si, e o sistema não pode parar em janeiro.
 
 O guia do exame cobra os recursos que apoiam a migração (domínio 1) e as ferramentas de migração de bancos de dados, citando o AWS DMS e a AWS SCT (domínio 3). Na lista de serviços do exame, a categoria de migração e transferência tem seis serviços: AWS Application Discovery Service, AWS Application Migration Service, AWS Database Migration Service (AWS DMS), Migration Evaluator, AWS Migration Hub e AWS Schema Conversion Tool (AWS SCT). Esta aula segue a ordem de uma migração: avaliar, planejar, migrar servidores, migrar bancos e mover arquivos.
 
@@ -96,9 +96,9 @@ flowchart LR
 
 ## Caso resolvido
 
-**Situação.** A escola vai migrar o sistema de matrícula. O banco é Oracle e deve virar Amazon Aurora PostgreSQL. As inscrições não podem parar durante a migração, e o banco não pode ficar fora do ar por horas. Quais serviços usar para o banco?
+**Situação.** Depois da matrícula, a rede vai migrar o sistema financeiro. O banco dele é Oracle e deve virar Amazon Aurora PostgreSQL. O registro das mensalidades não pode parar durante a migração, e o banco não pode ficar fora do ar por horas. Quais serviços usar para o banco?
 
-**Raciocínio.** Os motores são diferentes, então é uma migração heterogênea: primeiro a AWS SCT (ou o DMS Schema Conversion) converte o esquema do Oracle para o Aurora PostgreSQL. Depois, o AWS DMS migra os dados e replica continuamente as mudanças enquanto o Oracle segue atendendo as inscrições; na virada, o sistema passa a usar o Aurora e a parada é curta.
+**Raciocínio.** Os motores são diferentes, então é uma migração heterogênea: primeiro a AWS SCT (ou o DMS Schema Conversion) converte o esquema do Oracle para o Aurora PostgreSQL. Depois, o AWS DMS migra os dados e replica continuamente as mudanças enquanto o Oracle segue atendendo o sistema financeiro; na virada, o sistema passa a usar o Aurora e a parada é curta.
 
 **Por que as alternativas tentadoras falham.** O Application Migration Service leva o servidor inteiro como está, o que manteria o Oracle e não troca de motor. O DMS sozinho move os dados, mas não traduz o esquema entre motores diferentes. O DataSync copia arquivos, não bancos de dados em funcionamento. O Migration Evaluator calcula o custo, mas não migra nada.
 
